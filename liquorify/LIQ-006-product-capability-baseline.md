@@ -25,7 +25,7 @@ This baseline records everything Spree already offers, at the pinned revisions o
 
 ## 1. Scope, revisions and evidence
 
-- **Backend.** `liquorify` at `1d1f2d4`. Its application code is the same as Spree 6.0.0.rc4 at `394b53f`, the revision LIQ-003 assessed.
+- **Backend.** `liquorify` at `1d1f2d4`. Its application code is the same as Spree 6.0.0.rc4 at `394b53f`, the revision LIQ-003 assessed. Later commits that change only `liquorify/` leave this baseline unchanged.
 - **Storefront.** `liquorify-storefront` at `ac53c5b`. Its application code is the same as the upstream Spree storefront at `c19c466`.
 - **Method.** Reading only, on 2026-10-21: the backend's models, API controllers, permission catalog, dashboard and seller panel routes, and Spree's documentation in `docs/developer/`, `docs/integrations/` and `docs/user/`; the storefront's routes and components. Nothing was run for this baseline.
 
