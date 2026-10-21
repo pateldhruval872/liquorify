@@ -40,7 +40,7 @@ Risk classes follow [LIQ-001 §4](LIQ-001-project-profile.md#4-review-and-verifi
 | # | Task | Repo | Risk | Done when | Depends on |
 |---|---|---|---|---|---|
 | FB-01 | Record the adoption decisions D1 to D8, resolving only those needed by the next work item. D1 and D4 were decided on 2026-10-21; D2, D3 and D5 to D8 are open | — | Protected where authority or control policy changes | Each decision is recorded in LIQ-001 with its date, and the documents' status fields match | Owner |
-| FB-02 | **Run the backend's existing checks on `liquorify` and protect `main` in both repositories** (recommended next, below) | B, S | Protected | See below | CI authorization (given 2026-10-21); OA-2 (done 2026-10-21); OA-3 |
+| FB-02 | **Run the backend's existing checks on `liquorify` and protect `main` in both repositories** (recommended next, below) | B, S | Protected | See below | CI authorization (given 2026-10-21); OA-2 and OA-3 (done 2026-10-21) |
 | FB-03 | Validate option A: same-store controls, the tax task before-and-after control, PostgreSQL and SQLite runs, the wider surfaces chosen, and the shopper-ownership analysis, as defined at the end of the merchant lifecycle specification | B | Protected | A validation report with results per surface and database, accepted or rejected by the owner | Decisions N1 to N6 in the specification |
 | FB-04 | Verify one development path from a clean checkout to a local test order through the Liquorify storefront: choose Docker or native, settle Ruby and Node versions, list destructive commands, make a payment method visible, confirm the Mac's `liquor` remotes are the renamed repositories | B, S | Standard | A short setup guide (migration step M4) whose steps were run once, with the evidence recorded | FB-01 |
 | FB-05 | Point the setup scripts at the Liquorify repositories (they clone upstream `spree/storefront` and `spree/spree-starter`) and decide where the tracked host application and its Ruby lockfile live | B | Standard | A fresh setup uses `liquorify-storefront`; the host application and lockfile are tracked or their home is decided | Hosting direction |
@@ -55,7 +55,7 @@ Risk classes follow [LIQ-001 §4](LIQ-001-project-profile.md#4-review-and-verifi
 | FB-08 | Align agent configuration with the delegation in LIQ-001 §3: review the tracked `.claude/settings.local.json`, and the upstream plan commands that open Linear issues and `spree/spree` issues and pull requests (LIQ-005 SA-34, SA-35) | B | Protected | Agent settings and commands match the accepted delegation | D3 |
 | FB-09 | Decide whether Liquorify environments send Spree's update check and usage data (on by default; it includes the store's address) | B | Standard | The setting is decided and documented for each environment | Owner |
 | FB-10 | Set up work tracking and move this backlog into it | B, S | Standard | Each P0 and P1 item is a tracked work item, linked from here | D6 |
-| FB-11 | Triage dependencies: 10 open storefront Dependabot pull requests (the `jsdom` 30 one fails CI); backend Dependabot and the weekly audit have not run | S, B | Standard | Each open update is merged, closed or deferred with a reason; an owner and cadence are recorded; whether the storefront takes the backend's pnpm release-age and trust settings is decided (LIQ-005 SA-27) | FB-02 |
+| FB-11 | Triage dependencies: 10 open storefront Dependabot pull requests (the `jsdom` 30 one fails CI; with branches required to be up to date, each must be updated before it can merge); backend Dependabot and the weekly audit have not run | S, B | Standard | Each open update is merged, closed or deferred with a reason; an owner and cadence are recorded; whether the storefront takes the backend's pnpm release-age and trust settings is decided (LIQ-005 SA-27) | FB-02 |
 | FB-12 | Plan how upstream Spree changes are taken in, from 6.0.0.rc4 to the final 6.0 release, and record the base revision | B, S | Standard | A short decision record in `liquorify/` | — |
 
 ### P2: when the work activates them
@@ -75,16 +75,24 @@ These change repository settings or credentials, so they stay with the owner and
 | # | Action | Unblocks | Note |
 |---|---|---|---|
 | OA-1 | Add a Stripe sandbox test key pair to `liquorify-storefront`: a `STRIPE_SECRET_KEY` repository secret and a `STRIPE_PUBLISHABLE_KEY` repository variable | The storefront end-to-end job's configuration check (FB-06) | Adding the keys removes only this blocker. The next run determines whether the browser tests pass |
-| OA-2 | Turn GitHub Actions on for `liquorify` (Settings, then Actions) | Every backend workflow, including the FB-02 checks | **Done 2026-10-21.** Both workflows then ran on the FB-02 pull request ([record](verification/2026-10-21-fb-02-first-workflow-run.md)). Until FB-02 merges, avoid pushing a `v*` tag or merging other changes to `packages.yml` paths, because the publishing jobs on `main` are not yet limited to upstream. The weekly dependency audit is now live too; its first scheduled run is Monday 2026-10-26 |
-| OA-3 | Apply the proposed branch protection settings in both repositories, after the backend checks have reported once | FB-02 acceptance criterion 4 | Part of the final approval step, with merging the FB-02 pull request. If the storefront's plan does not offer protection for a private repository, record that instead |
+| OA-2 | Turn GitHub Actions on for `liquorify` (Settings, then Actions) | Every backend workflow, including the FB-02 checks | **Done 2026-10-21.** Both workflows then ran on the FB-02 pull request ([record](verification/2026-10-21-fb-02-first-workflow-run.md)). FB-02 has since merged, so the publishing jobs on `main` run only upstream. The weekly dependency audit is now live too; its first scheduled run is Monday 2026-10-26 |
+| OA-3 | Apply the proposed branch protection settings in both repositories, after the backend checks have reported once | FB-02 acceptance criterion 4 | **Done 2026-10-21.** The owner saved a "Protect main" ruleset in each repository; both match the proposal ([record](verification/2026-10-21-fb-02-merge-push-and-protection.md)). The storefront turned out to be public, which GitHub Free enforces, and the owner chose to keep it public |
 
 ## Recommended next work item
 
 **FB-02: run the backend's existing checks on `liquorify` and protect `main` in both repositories.**
 
-**Status (2026-10-21).** In progress. The workflow changes are on [pull request #2](https://github.com/pateldhruval872/liquorify/pull/2), open for review. The first check attempt was BLOCKED because Actions was off ([record](verification/2026-10-21-fb-02-pull-request-checks.md)). Once the owner turned it on (OA-2), both workflows ran at `0e86f0b` and all 29 pull request jobs passed; Codecov refused the coverage uploads, which does not fail a job ([record](verification/2026-10-21-fb-02-first-workflow-run.md)). Against the acceptance criteria below: 1 is met on the pull request; 2 has nothing to record, since no job failed; 3 is met by reading, and the merge push still has to show the skipped release jobs; 4 waits for the final approval step (OA-3); 5 holds. Merging and repository settings wait for the owner's final approval.
+**Status (2026-10-21).** In progress; the open parts need the owner. [Pull request #2](https://github.com/pateldhruval872/liquorify/pull/2) merged at 02:36 UTC. The first check attempt was BLOCKED because Actions was off ([record](verification/2026-10-21-fb-02-pull-request-checks.md)). Once the owner turned it on (OA-2), all 29 pull request jobs passed at `0e86f0b`; Codecov refused the coverage uploads, which does not fail a job ([record](verification/2026-10-21-fb-02-first-workflow-run.md)). Both workflows passed again on the merge push, and the owner saved the branch rulesets in both repositories (OA-3; [record](verification/2026-10-21-fb-02-merge-push-and-protection.md)). Against the acceptance criteria below:
 
-Why this one: the backend has a large test suite, but it had never run on this repository before FB-02, and nothing stops an unverified change from reaching `main` in either repository. Every later result, including the option A validation, is only as reliable as the checks behind it. It changes no application code. FB-03 can proceed in parallel in the cloud once its own decisions are made.
+1. Met.
+2. Nothing to record, since no job failed.
+3. Met for `packages.yml`: its six release jobs skipped on the merge push. The `release.yml` and `docs-package.yml` guards are shown only by reading until their first trigger.
+4. Met for required checks, by GitHub's reported merge state. The refusal of a direct push is unverified, because the owner asked that it not be tested by pushing to `main`.
+5. Holds.
+
+Whether FB-02 closes with those two parts open is the owner's call.
+
+Why this one: the backend has a large test suite, but it had never run on this repository before FB-02, and nothing stopped an unverified change from reaching `main` in either repository. Every later result, including the option A validation, is only as reliable as the checks behind it. It changes no application code. FB-03 can proceed in parallel in the cloud once its own decisions are made.
 
 - **Outcome.** The backend's existing workflows have one recorded run at a known revision, upstream publishing jobs cannot run here, and both `main` branches accept changes only through pull requests with required checks.
 - **In scope.** The workflow changes in the table below; one run of `tests.yml` and `packages.yml` on the FB-02 pull request; branch protection in both repositories once those checks have reported.
@@ -109,7 +117,7 @@ Why this one: the backend has a large test suite, but it had never run on this r
 4. **The manual trigger works only after merge.** GitHub offers a manual trigger only for a workflow whose file on the default branch declares it, so until FB-02 merges, the pull request run is the evidence.
 5. **Checks must report before they can be required.** GitHub's settings offer a check for selection once it has reported in the repository, and names must match exactly; a matrix change renames its checks.
 6. **Release guards must ship in the same change.** Merging FB-02 is a push to `main` that changes `packages.yml`, which would start its release jobs. Release jobs never run on a pull request branch, so their guards are verified by reading the files and, after merge, by the jobs' skipped results.
-7. **Storefront branch protection** may need a paid GitHub plan, because the repository is private.
+7. **Storefront branch protection** looked as if it needed a paid GitHub plan, because the repository was private. It became public on 2026-10-21 and the owner kept it public, so GitHub Free enforces its rules ([record](verification/2026-10-21-fb-02-merge-push-and-protection.md#enforcement)).
 
 One consequence of requiring checks, rather than a blocker to running them: the weekly dependency audit opens its pull requests with the default token, which does not start CI, so once checks are required those pull requests wait until CI is started another way ([LIQ-005](LIQ-005-spree-engineering-adoption.md) SA-28).
 
@@ -122,13 +130,14 @@ One consequence of requiring checks, rather than a blocker to running them: the 
 - **Risk.** Protected: it changes CI configuration and repository settings. Its verification is the workflow runs and the branch protection demonstration above, not application or isolation tests.
 - **Decisions.**
   - Made on 2026-10-21: the CI file edits are authorized, the pull request path filters are dropped, and MySQL checks stay advisory until Liquorify decides whether it supports MySQL.
-  - Waiting for the final approval step: merging, the branch protection settings and the required checks (proposal below).
+  - Made at the final approval step on 2026-10-21: the owner merged pull request #2 and saved the branch protection settings and required checks below.
+  - Made on 2026-10-21: protection is not tested by pushing directly to `main`, and the storefront stays public.
   - Decision D7 (backend visibility) does not block this item. The suite is free to run only while the repository is public.
 - **Limitations.** A green upstream suite shows only that Spree's own tests pass. It says nothing about tenant isolation, which stays open under ISO-1 to ISO-7. If the storefront's plan does not include branch protection, that is recorded as a limitation rather than worked around.
 
 ### Proposed branch protection settings
 
-A proposal for the final approval step (OA-3); nothing is applied. Each repository gets one ruleset for its default branch (Settings, then Rules, then Rulesets), or a classic branch protection rule with the same effect.
+Applied by the owner on 2026-10-21 as one "Protect main" ruleset per repository, matching this table ([record](verification/2026-10-21-fb-02-merge-push-and-protection.md#saved-rulesets)). Each repository gets one ruleset for its default branch (Settings, then Rules, then Rulesets), or a classic branch protection rule with the same effect.
 
 | Setting | `liquorify` and `liquorify-storefront` | Why |
 |---|---|---|
@@ -146,7 +155,7 @@ Effects to expect:
 - **Every backend pull request runs the full suite,** documentation included, because the path filters are gone. Runner minutes are free while the repository is public (D7).
 - **Dependency audit pull requests wait.** The weekly audit opens them with the default token, which does not start CI, so their required checks do not report until CI is started another way ([LIQ-005](LIQ-005-spree-engineering-adoption.md) SA-28).
 - **A renamed job needs the list updated** in the same change, or pull requests wait for a check that no longer exists.
-- **The storefront is private.** On GitHub Free, rulesets and branch protection are not available for private repositories; they need GitHub Pro or a team plan.
+- **The storefront is public** since 2026-10-21, so GitHub Free enforces its rules. If it were made private again, they would need GitHub Pro or a team plan.
 
 ## Next documentation work item
 
