@@ -90,7 +90,11 @@ GitHub offers rulesets on public repositories under GitHub Free. Private reposit
 Merge gates were read from GitHub's reported merge state. Nothing was merged or pushed to `main` to test them.
 
 - **Storefront.** Nine of its ten open Dependabot pull requests report the merge state `behind`, and the tenth had not been computed. Pull request #12 has all three required checks passing, but `main` has moved since it was opened. With branches required to be up to date, GitHub holds it until it is updated.
-- **Backend.** To be read on this record's own pull request, the first documentation-only pull request since FB-02 merged.
+- **Storefront, pull request #14** at `eea453e` reports `unstable`. Its three required checks pass, and the advisory `E2E (Playwright + Spree)` job fails at its Stripe configuration check ([job](https://github.com/pateldhruval872/liquorify-storefront/actions/runs/39538095871/job/119019323550)). GitHub reports `unstable` when only checks that are not required fail. So only the required checks hold a merge, as agreed.
+- **Backend, pull request #3** (this record's own pull request) is the first documentation-only pull request since FB-02 merged. At `2f2567c`, both workflows started on it ([Tests](https://github.com/pateldhruval872/liquorify/actions/runs/39538003101), [Packages](https://github.com/pateldhruval872/liquorify/actions/runs/39538002844)). That shows the pull request path filters are gone.
+  - At 03:20 UTC, while the checks ran, GitHub reported `blocked`.
+  - At 03:37 UTC GitHub reported `clean`. By then all 29 test and package jobs had passed, and the six release jobs were skipped, as release jobs always are on a pull request.
+  - The commit that added this paragraph starts the checks again, so the state reads `blocked` until they finish.
 
 ## Direct-push refusal
 
