@@ -28,10 +28,12 @@ This folder is the one canonical home for shared Liquorify engineering documenta
 | LIQ-001 | [Project Profile](LIQ-001-project-profile.md) | 0.3-draft | DRAFT | Liquorify facts, proposed roles and delegation, proportionate review, Spree engineering and Product & Design reuse mapping, the default baseline, its exceptions and the adoption decisions |
 | LIQ-002 | [Documentation Inventory](LIQ-002-documentation-inventory.md) | 0.3-draft | DRAFT | Existing documentation in both repositories and the migration plan |
 | LIQ-003 | [Engineering Baseline](LIQ-003-engineering-baseline.md) | 0.3-draft | DRAFT | The 172 capabilities measured against the current repositories, with evidence |
-| LIQ-004 | [Foundation Backlog](LIQ-004-foundation-backlog.md) | 0.3-draft | DRAFT | Prioritized foundation work, owner actions, the open isolation findings, the work item in progress and the next documentation item |
+| LIQ-004 | [Foundation Backlog](LIQ-004-foundation-backlog.md) | 0.4-draft | DRAFT | Prioritized foundation work, owner actions, the open isolation findings, the work item in progress, the next documentation item and the Spree baseline reproduction work items |
 | LIQ-005 | [Spree Engineering Adoption Record](LIQ-005-spree-engineering-adoption.md) | 0.2-draft | DRAFT | Each relevant Spree engineering mechanism, the capabilities it supports, and whether to reuse, adapt, replace or investigate it |
-| LIQ-006 | [Spree Product Capability Baseline](LIQ-006-product-capability-baseline.md) | 0.1-draft | DRAFT | What Spree already offers shoppers, store staff and operators, with a proposed disposition for each feature, and the Liquorify needs Spree does not cover |
-| LIQ-007 | [Design System Adoption and Extension](LIQ-007-design-system-adoption-and-extension.md) | 0.1 | PROPOSED | Decision record: how Liquorify adopts and extends Spree's design systems, and uses Figma, Storybook and Chromatic |
+| LIQ-006 | [Spree Product Capability Baseline](LIQ-006-product-capability-baseline.md) | 0.2-draft | DRAFT | Every existing Spree product area and surface at the pinned revisions, with a proposed disposition for each feature, Enterprise and documentation-only features listed separately, the deferred Liquorify needs and the baseline's completion criteria |
+| LIQ-007 | [Design System Adoption and Extension](LIQ-007-design-system-adoption-and-extension.md) | 0.2 | PROPOSED | Decision record: how Figma, Storybook and Chromatic reproduce Spree's design systems first, and how Liquorify would extend them afterward |
+| LIQ-008 | [Spree Screen Inventory](LIQ-008-spree-screen-inventory.md) | 0.1-draft | DRAFT | Every existing screen, overlay and email, with IDs, routes, roles, permissions, workflows, meaningful states and code, and the cross-screen flows |
+| LIQ-009 | [Spree Component and Token Inventory](LIQ-009-spree-component-and-token-inventory.md) | 0.1-draft | DRAFT | Every existing component and design token, with IDs, light and dark values and the SES capabilities each supports |
 
 ## Verification records
 
