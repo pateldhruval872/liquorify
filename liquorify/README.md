@@ -25,10 +25,10 @@ This folder is the one canonical home for shared Liquorify engineering documenta
 | SES-001 | [Software Engineering System](framework/SES-001.md) | 2.0-draft | DRAFT | Capability catalog (172 IDs) and baseline principles |
 | ENG-001 | [Engineering Charter](framework/ENG-001-engineering-charter.md) | 1.0-draft | DRAFT | Responsibilities, delivery stages, work items, release practice |
 | ENG-002 | [Documentation System](framework/ENG-002-documentation-system.md) | 1.0-draft | DRAFT | Document ownership, lifecycle, metadata and evidence records |
-| LIQ-001 | [Project Profile](LIQ-001-project-profile.md) | 0.1-draft | DRAFT | Liquorify facts, proposed roles and delegation, review expectations, conflicts with upstream conventions, adoption decisions |
+| LIQ-001 | [Project Profile](LIQ-001-project-profile.md) | 0.2-draft | DRAFT | Liquorify facts, proposed roles and delegation, proportionate review, Spree engineering and Product & Design reuse mapping, conflicts and adoption decisions |
 | LIQ-002 | [Documentation Inventory](LIQ-002-documentation-inventory.md) | 0.1-draft | DRAFT | Existing documentation in both repositories and the migration plan |
-| LIQ-003 | [Engineering Baseline](LIQ-003-engineering-baseline.md) | 0.1-draft | DRAFT | The 172 capabilities measured against the current repositories, with evidence |
-| LIQ-004 | [Foundation Backlog](LIQ-004-foundation-backlog.md) | 0.1-draft | DRAFT | Prioritized foundation work, the open isolation findings, and the recommended next work item |
+| LIQ-003 | [Engineering Baseline](LIQ-003-engineering-baseline.md) | 0.2-draft | DRAFT | The 172 capabilities measured against the current repositories, with evidence |
+| LIQ-004 | [Foundation Backlog](LIQ-004-foundation-backlog.md) | 0.2-draft | DRAFT | Prioritized foundation work, the open isolation findings, and the recommended next work item |
 
 ## Supplied framework sources
 

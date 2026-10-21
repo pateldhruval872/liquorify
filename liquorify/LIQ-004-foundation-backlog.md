@@ -1,7 +1,7 @@
 ---
 document_id: LIQ-004
 title: Foundation Backlog
-version: 0.1-draft
+version: 0.2-draft
 status: DRAFT
 owner: unassigned
 approved_by: null
@@ -33,13 +33,13 @@ What this evidence does not show yet: same-store controls, a before-and-after ch
 
 ## Backlog
 
-Risk classes follow [LIQ-001 §4](LIQ-001-project-profile.md#4-review-and-verification-expectations). "Repo" is B for `liquorify` and S for `liquorify-storefront`.
+Risk classes follow [LIQ-001 §4](LIQ-001-project-profile.md#4-review-and-verification-expectations) and depend on effects, including for documentation. "Repo" is B for `liquorify` and S for `liquorify-storefront`. Each item is gated by its own actual dependencies; unrelated decisions do not block bounded work.
 
-### P0: before any application change
+### P0: foundation priorities
 
 | # | Task | Repo | Risk | Done when | Depends on |
 |---|---|---|---|---|---|
-| FB-01 | Record the adoption decisions D1 to D8 | — | Low | Each decision is recorded in LIQ-001 with its date, and the documents' status fields match | Owner |
+| FB-01 | Record the adoption decisions D1 to D8, resolving only those needed by the next work item | — | Protected where authority or control policy changes | Each decision is recorded in LIQ-001 with its date, and the documents' status fields match | Owner |
 | FB-02 | **Run the backend's existing checks on `liquorify` and protect `main` in both repositories** (recommended next, below) | B, S | Protected | See below | CI authorization |
 | FB-03 | Validate option A: same-store controls, the tax task before-and-after control, PostgreSQL and SQLite runs, the wider surfaces chosen, and the shopper-ownership analysis, as defined at the end of the merchant lifecycle specification | B | Protected | A validation report with results per surface and database, accepted or rejected by the owner | Decisions N1 to N6 in the specification |
 | FB-04 | Verify one development path from a clean checkout to a local test order through the Liquorify storefront: choose Docker or native, settle Ruby and Node versions, list destructive commands, make a payment method visible, confirm the Mac's `liquor` remotes are the renamed repositories | B, S | Standard | A short setup guide (migration step M4) whose steps were run once, with the evidence recorded | FB-01 |
@@ -49,7 +49,7 @@ Risk classes follow [LIQ-001 §4](LIQ-001-project-profile.md#4-review-and-verifi
 
 | # | Task | Repo | Risk | Done when | Depends on |
 |---|---|---|---|---|---|
-| FB-06 | Check the storefront against the Liquorify backend, not the upstream Spree image, and align the SDK version (storefront pins rc.3, backend ships rc.4). The end-to-end job first needs Stripe sandbox test keys: without them it stops before any test | S, B | Standard | Storefront end-to-end tests run against a backend built from a recorded `liquorify` revision | FB-02; the owner adds the test keys |
+| FB-06 | Check the storefront against the Liquorify backend, not the upstream Spree image, and align the SDK version (storefront pins rc.3, backend ships rc.4). The end-to-end job first needs Stripe sandbox test keys: without them it stops before any test. Adding configuration enables a rerun; its test outcome is not yet known | S, B | Standard | Storefront end-to-end tests run against a backend built from a recorded `liquorify` revision | FB-02; the owner adds the test keys |
 | FB-07 | Publish a Liquorify security policy for the public repository | B | Low | `SECURITY.md` names a Liquorify contact and the supported revision; upstream reporting text removed | Contact decided |
 | FB-08 | Align agent configuration with the delegation in LIQ-001 §3: review the tracked `.claude/settings.local.json`, and the upstream commands that open pull requests on `spree/spree` | B | Protected | Agent settings and commands match the accepted delegation | D3 |
 | FB-09 | Decide whether Liquorify environments send Spree's update check and usage data (on by default; it includes the store's address) | B | Standard | The setting is decided and documented for each environment | Owner |

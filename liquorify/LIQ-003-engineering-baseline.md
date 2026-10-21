@@ -1,7 +1,7 @@
 ---
 document_id: LIQ-003
 title: Engineering Baseline
-version: 0.1-draft
+version: 0.2-draft
 status: DRAFT
 owner: unassigned
 approved_by: null
@@ -61,6 +61,8 @@ A document existing does not prove a behaviour, and a configured tool does not p
 7. **Security reporting and agent permissions are upstream's** (SP-14, GG-13, R). `SECURITY.md` routes reports to Spree. The tracked `.claude/settings.local.json` allows any shell command.
 8. **Usage data goes to Spree by default** (SP-10, R). The daily update check sends the store's address and record counts to `spreecloud.io` unless turned off.
 
+The proposed inheritance and Product & Design mapping is in [LIQ-001 §6.1](LIQ-001-project-profile.md#61-spree-mechanisms-mapped-to-the-ses). Its reuse dispositions do not replace the evidence-based findings below.
+
 **Design system.** The dashboard and seller panel use `@spree/dashboard-ui` (shadcn components on Base UI, Tailwind, headless by design). The storefront has its own shadcn components on Radix (`components.json`, `radix-ui`). They share no tokens, and no Liquorify brand exists yet (PD-13).
 
 **Repository boundaries.** Two independent repositories with different visibility. The backend is public, so everything here is public; the storefront is private. Locally, upstream scripts clone a storefront into the backend's ignored `storefront/` folder; that clone keeps its own Git history and is a different repository (DR-02).
@@ -69,7 +71,7 @@ A document existing does not prove a behaviour, and a configured tool does not p
 
 **Development setup.** Two upstream paths: Docker (`pnpm server:setup`, used on the Mac) and native worktrees (`wt`, Homebrew PostgreSQL, portless). `pnpm server:setup` and `pnpm server:teardown` delete the Docker database volume and `server/`; `scripts/worktree/make-template.sh` drops and rebuilds a database. A local test order is blocked until a payment method is visible to shoppers (A).
 
-**Tests and CI.** Verified in the cloud: storefront lint, types, unit tests and locale parity (C1); backend TypeScript lint, types and unit tests (C2). Operating: storefront lint, type check and unit test jobs on pull requests (G), with one failure on the `jsdom` 30 bump. The storefront end-to-end job has never run a test: on `main` and on the owner's pull requests it stops at its first step because the Stripe test key secret and variable are not set, and it is skipped for Dependabot (G, 2026-10-21). Configured, never run here: backend Ruby suites on PostgreSQL and MySQL, Brakeman, dashboard end-to-end, SDK integration, generated-code drift checks and the weekly dependency audit.
+**Tests and CI.** Verified in the cloud: storefront lint, types, unit tests and locale parity (C1); backend TypeScript lint, types and unit tests (C2). Operating: storefront lint, type check and unit test jobs on pull requests (G), with one failure on the `jsdom` 30 bump. The reviewed storefront end-to-end runs on `main` and PR #13 failed at the Stripe-key preflight, before checkout or Playwright ran; browser tests are NOT_RUN. Dependabot skips that job. Supplying the configuration removes the preflight blocker; a new run is required to establish test results (G; runs 39368899612 and 39520058404). Configured, never run here: backend Ruby suites on PostgreSQL and MySQL, Brakeman, dashboard end-to-end, SDK integration, generated-code drift checks and the weekly dependency audit.
 
 **Security.** Configured, not verified for Liquorify: API rate limits, CanCanCan authorization, encryption of secret preferences when keys are set, a development-only store-scope guard. Verified: a staff member naming a store where they hold no role is refused, on the orders endpoint (C3). Missing: threat model, security contact, incident handling and secrets infrastructure.
 
@@ -116,7 +118,7 @@ Totals: 96 required, 63 conditional and 13 not required. Findings: 64 partial, 1
 | AE-03 | Not required | None | Not applicable: no mobile scope | — | — |
 | AE-04 | Required | Extension gem pattern (`spree/providers/*`); dashboard plugins (`defineDashboardPlugin`, `packages/dashboard-plugin-example`). Liquorify engine and plugin are proposals | Decision | R | FB-05 |
 | AE-05 | Required | API v3 controllers with declared request parameters; store chosen on the server from key or header (`key_store_context.rb`, `admin/store_context.rb`). Customer endpoints are not narrowed by store | Gap | A, C3 | FB-03 |
-| AE-06 | Required | Stripe, EasyPost and Meilisearch providers in `spree/providers/`; Adyen and PayPal are separate gems. Stripe Connect code makes the platform the seller | Decision | A | Payment model decision |
+| AE-06 | Required | Stripe, EasyPost and Meilisearch providers in `spree/providers/`; Adyen and PayPal are separate gems. The existing Connect path needs review against the intended merchant-as-seller flow; charge routing alone does not establish the legal role | Decision | A | Payment model decision |
 | AE-07 | Required | Active Job with Solid Queue; `Spree::BaseJob` runs in the record's store. Isolation of jobs not tested | Partial | A | FB-03 (later surfaces) |
 | AE-08 | Required | `Spree::SingleStoreResource` on 59 models; lookups through the current store. Customers belong to no store; the tax task counts every store's rates | Gap | A, C3 | FB-03 |
 | AE-09 | Required | Statuses and workflows (no state machines in 6.0); stores have no lifecycle status | Partial | A, R | After the specification is accepted |
@@ -306,6 +308,6 @@ Totals: 96 required, 63 conditional and 13 not required. Findings: 64 partial, 1
 |---|---|
 | Verified | Storefront lint, types, unit tests and locale parity (C1); backend TypeScript lint, types and unit tests (C2); frozen lockfile installs (C1, C2); staff refused for a store where they hold no role, on one endpoint (C3) |
 | Operating | Storefront lint, type check and unit test jobs, and Dependabot, on pull requests (G) |
-| Configured, not verified here | Storefront end-to-end job (blocked: Stripe test keys not set); backend Ruby suites on PostgreSQL and MySQL, Brakeman, dashboard end-to-end, SDK integration and drift checks; weekly dependency audit; backend Dependabot; Lefthook and agent hooks; API rate limits; encryption of secret preferences; development-only store-scope guard |
+| Configured, not verified here | Storefront end-to-end workflow (job FAIL on missing Stripe configuration; browser tests NOT_RUN); backend Ruby suites on PostgreSQL and MySQL, Brakeman, dashboard end-to-end, SDK integration and drift checks; weekly dependency audit; backend Dependabot; Lefthook and agent hooks; API rate limits; encryption of secret preferences; development-only store-scope guard |
 | Planned (proposals) | Risk-based review (LIQ-001 §4), delegation (LIQ-001 §3), isolation test suite and option A safeguards (specification), branch protection and CI baseline (FB-02) |
 | Missing | Branch protection; Liquorify security contact; shopper isolation (failing); accessibility and visual checks; cross-repository compatibility check; work tracking in the backend; any staging or production environment, backups, monitoring or runbooks |
