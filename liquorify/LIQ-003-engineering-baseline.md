@@ -104,7 +104,7 @@ Totals: 96 required, 63 conditional and 13 not required. Findings: 67 partial, 1
 | PD-10 | Conditional: Liquorify copy is written | Dashboard locale files (`packages/dashboard/src/locales`, `packages/dashboard-core/src/locales`); storefront `messages/` in 5 languages with a parity check (Verified) | Partial | R, C1 | — |
 | PD-11 | Required with the first Liquorify screen | No accessibility target; component libraries are not verified | Gap | R | FB-15 |
 | PD-12 | Conditional: a design needs user testing | None | Not assessed | — | — |
-| PD-13 | Required | `@spree/dashboard-ui` for dashboard and seller panel; separate shadcn and Radix components in the storefront; no shared tokens or brand | Partial | R, A | FB-14 |
+| PD-13 | Required | `@spree/dashboard-ui` for dashboard and seller panel; separate shadcn and Radix components in the storefront; no shared tokens or brand; Figma, Storybook and Chromatic selected on 2026-10-21, not set up (Planned) | Partial | R, A | FB-18, FB-14 |
 | PD-14 | Conditional: launch measures are defined | Storefront Google Tag Manager and Vercel Analytics hooks; backend reports | Not assessed | R | — |
 | PD-15 | Not required | — | Not applicable: no experiment is planned | — | — |
 | PD-16 | Not required | — | Not applicable: one person, no separate product practice | — | — |
@@ -150,7 +150,7 @@ Totals: 96 required, 63 conditional and 13 not required. Findings: 67 partial, 1
 | AR-14 | Conditional: hosting is decided | Upstream deployment guides only | Not assessed | U | — |
 | AR-15 | Conditional: hosting is decided | Upstream single-node option (`spree_dashboard` serves the dashboard); storefront `Dockerfile`; starter `render.yaml` in the untracked `server/` | Decision | R, M | FB-16 |
 | AR-16 | Required | Spree upgrade guides (`docs/developer/upgrades/`); 6.0.0.rc4 is a release candidate; no plan for taking upstream changes | Gap | R | FB-12 |
-| AR-17 | Required | Upstream `docs/plans/` and `decisions.md` for Spree; `liquorify/` created for Liquorify; no Liquorify decision records yet | Partial | R | D4, D5 |
+| AR-17 | Required | Upstream `docs/plans/` and `decisions.md` for Spree; `liquorify/` created for Liquorify and decided as its home (D4); no Liquorify decision records yet | Partial | R | D5 |
 | AR-18 | Required | Upstream principles in `CLAUDE.md` (store scoping, money, time zones); Liquorify quality attributes undefined | Partial | R | — |
 | AR-19 | Conditional: hosting is decided | None | Not assessed | — | — |
 | AR-20 | Conditional: before the first hosted environment | `spree_opentelemetry` gem; storefront Sentry | Not assessed | R | — |
@@ -189,7 +189,7 @@ Totals: 96 required, 63 conditional and 13 not required. Findings: 67 partial, 1
 | QV-05 | Required | RSpec request and integration specs; SDK integration tests in `packages.yml`. One targeted request spec ran on SQLite | Partial | C3, G | FB-02, FB-03 |
 | QV-06 | Required | OpenAPI generated from integration specs; Zod schemas checked against recorded responses (Verified inside C2); drift checks in CI (Configured) | Partial | C2, R | FB-02 |
 | QV-07 | Required | Playwright for the dashboard (`packages/dashboard/e2e`) and the storefront (`e2e/`); neither run here | Partial | R | FB-02, FB-06 |
-| QV-08 | Conditional: Liquorify branding or screens ship | None found | Not assessed | R | — |
+| QV-08 | Conditional: Liquorify branding or screens ship | None found; Chromatic selected on 2026-10-21, not set up (Planned) | Not assessed | R | FB-18 |
 | QV-09 | Required with the first Liquorify screen | No accessibility checks found | Gap | R | FB-15 |
 | QV-10 | Conditional: performance requirements are set | None | Not assessed | — | — |
 | QV-11 | Conditional: billing or inventory integrations are scoped | Webhook ordering and repeat tests proposed in the specification | Not assessed | R | — |

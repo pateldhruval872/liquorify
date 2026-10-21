@@ -39,7 +39,7 @@ Risk classes follow [LIQ-001 §4](LIQ-001-project-profile.md#4-review-and-verifi
 
 | # | Task | Repo | Risk | Done when | Depends on |
 |---|---|---|---|---|---|
-| FB-01 | Record the adoption decisions D1 to D8, resolving only those needed by the next work item. D1 was recorded on 2026-10-21 and answers D4; the rest are open | — | Protected where authority or control policy changes | Each decision is recorded in LIQ-001 with its date, and the documents' status fields match | Owner |
+| FB-01 | Record the adoption decisions D1 to D8, resolving only those needed by the next work item. D1 and D4 were decided on 2026-10-21; D2, D3 and D5 to D8 are open | — | Protected where authority or control policy changes | Each decision is recorded in LIQ-001 with its date, and the documents' status fields match | Owner |
 | FB-02 | **Run the backend's existing checks on `liquorify` and protect `main` in both repositories** (recommended next, below) | B, S | Protected | See below | CI authorization (given 2026-10-21); OA-2 |
 | FB-03 | Validate option A: same-store controls, the tax task before-and-after control, PostgreSQL and SQLite runs, the wider surfaces chosen, and the shopper-ownership analysis, as defined at the end of the merchant lifecycle specification | B | Protected | A validation report with results per surface and database, accepted or rejected by the owner | Decisions N1 to N6 in the specification |
 | FB-04 | Verify one development path from a clean checkout to a local test order through the Liquorify storefront: choose Docker or native, settle Ruby and Node versions, list destructive commands, make a payment method visible, confirm the Mac's `liquor` remotes are the renamed repositories | B, S | Standard | A short setup guide (migration step M4) whose steps were run once, with the evidence recorded | FB-01 |
@@ -56,13 +56,13 @@ Risk classes follow [LIQ-001 §4](LIQ-001-project-profile.md#4-review-and-verifi
 | FB-09 | Decide whether Liquorify environments send Spree's update check and usage data (on by default; it includes the store's address) | B | Standard | The setting is decided and documented for each environment | Owner |
 | FB-10 | Set up work tracking and move this backlog into it | B, S | Standard | Each P0 and P1 item is a tracked work item, linked from here | D6 |
 | FB-11 | Triage dependencies: 10 open storefront Dependabot pull requests (the `jsdom` 30 one fails CI); backend Dependabot and the weekly audit have not run | S, B | Standard | Each open update is merged, closed or deferred with a reason; an owner and cadence are recorded; whether the storefront takes the backend's pnpm release-age and trust settings is decided (LIQ-005 SA-27) | FB-02 |
-| FB-12 | Plan how upstream Spree changes are taken in, from 6.0.0.rc4 to the final 6.0 release, and record the base revision | B, S | Standard | A short decision record in `liquorify/` | D4 |
+| FB-12 | Plan how upstream Spree changes are taken in, from 6.0.0.rc4 to the final 6.0 release, and record the base revision | B, S | Standard | A short decision record in `liquorify/` | — |
 
 ### P2: when the work activates them
 
 | # | Task | Activated by |
 |---|---|---|
-| FB-13 | Move the merchant lifecycle specification into `liquorify/` (migration step M3) | D4, D7, D8 |
+| FB-13 | Move the merchant lifecycle specification into `liquorify/` (migration step M3) | D7, D8 |
 | FB-14 | Decide the branding approach across `@spree/dashboard-ui` and the storefront's own components | First Liquorify screen |
 | FB-15 | Set an accessibility target and add automated accessibility checks | First Liquorify screen |
 | FB-16 | Hosting, staging environment, secrets storage, backups, monitoring and runbooks | Hosting decision; required before any real merchant data |
@@ -153,5 +153,5 @@ Effects to expect:
 **FB-18: the Spree product capability baseline and the Design System Adoption and Extension decision record.** Tracked on 2026-10-21 at the owner's request; not started.
 
 - **Product capability baseline.** What Spree already offers merchants, shoppers and operators, measured against the Product & Design capabilities in [SES-001](framework/SES-001.md#3-capability-catalog) and the merchant lifecycle specification, and recorded for each feature as reuse, extend, not needed or unknown. It describes what exists. Under the recorded instruction in [LIQ-001 §1](LIQ-001-project-profile.md#recorded-instructions-that-shape-engineering-work), no Spree feature becomes a requirement by being listed.
-- **Design System Adoption and Extension decision record.** How Liquorify adopts and extends `@spree/dashboard-ui` and the storefront's components ([LIQ-005](LIQ-005-spree-engineering-adoption.md) SA-24, SA-25), including tokens and branding (FB-14) and the accessibility target (FB-15), and whether to use Figma as the design source, Storybook for component documentation, and Chromatic for visual review. For each tool it states the cost, the accounts and CI secrets it needs, and what it would expose. It stays PROPOSED until the owner decides.
-- **Relation to other items.** It prepares the decisions that FB-14 and FB-15 make when the first Liquorify screen activates them. Setting up Storybook or Chromatic would change dependencies, CI and credentials, so that is a separate Protected item.
+- **Design System Adoption and Extension decision record.** How Liquorify adopts and extends `@spree/dashboard-ui` and the storefront's components ([LIQ-005](LIQ-005-spree-engineering-adoption.md) SA-24, SA-25), including tokens and branding (FB-14) and the accessibility target (FB-15). It also sets how Liquorify uses the tools the owner selected on 2026-10-21 ([LIQ-001 §1](LIQ-001-project-profile.md#recorded-instructions-that-shape-engineering-work)): Figma for design files, Storybook for component documentation, and Chromatic for visual review. For each tool it states the cost, the accounts and CI secrets it needs, and what it would expose. It stays PROPOSED until the owner accepts it.
+- **Relation to other items.** It prepares the decisions that FB-14 and FB-15 make when the first Liquorify screen activates them. Setting up the selected tools adds accounts, dependencies, CI steps and credentials, so that is a separate Protected item.

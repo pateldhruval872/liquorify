@@ -47,6 +47,7 @@ This follows the table in [ENG-001 §1](framework/ENG-001-engineering-charter.md
 - **2026-10-21:** payment-role statements follow the commerce posture above. The legal seller or Merchant of Record is never inferred solely from how Stripe routes charges or how an account is configured.
 - **2026-10-21 (correction to these drafts):** risk is classed by effects, and verification fits the change. §4 reflects this.
 - **2026-10-21 (decision D1):** SES-001, ENG-001 and ENG-002 are the working process for Liquorify-owned work, with this profile's exceptions. Unresolved product and architecture decisions stay proposed. Adopting conventions does not mark any capability satisfied. What this settles is in §7.
+- **2026-10-21 (design tools):** Figma, Storybook and Chromatic are the selected design system tools. The FB-18 decision record sets how Liquorify uses them. Setting them up (accounts, dependencies, CI and credentials) is separate Protected work.
 - **2026-10-21 (FB-02 authorization):** the documentation and CI-file changes for FB-02 are authorized, and its pull request is opened for review. Merging and repository-setting changes wait for a final approval. MySQL checks stay advisory until Liquorify decides whether it supports MySQL. The storefront end-to-end result stays as recorded until configuration and a rerun establish a new one.
 - **2026-10-20:** the three framework documents are authorized draft inputs. Nothing else from the Liquorify-Company workspace, and no earlier product decision, is imported.
 - **Standing:** do not merge or deploy without an explicit instruction. Treat the owner's Mac as read-only unless told otherwise.
@@ -119,7 +120,7 @@ This is a project-specific reuse proposal based on the existing inventory and ba
 |---|---|---|---|
 | PD-01 to PD-06: direction, discovery and requirements | Liquorify project goal and proposed merchant lifecycle; Spree commerce behavior as a reference | Adapt | Retain suitable commerce behavior after checking it against Liquorify requirements. Product direction, first-release scope and unmet requirements remain Liquorify decisions; available framework features are not requirements by themselves. |
 | PD-07 to PD-12 and PD-19: information architecture, interactions, visual/content design, accessibility, prototyping and UX | Existing dashboard navigation, forms, sign-in, setup and Getting Started; storefront routes and components | Adapt | Preserve suitable flows and patterns. Define merchant onboarding, billing, operational states and the operator experience for their distinct users. Existing screens are not evidence that new experiences have been designed or evaluated. |
-| PD-13: design system | `packages/dashboard-ui`, `packages/dashboard-core` and their component rules; the storefront's separate component system | Reuse as-is where suitable; adapt through documented extensions | Retain the dashboard's headless components and extension boundaries. The storefront uses a separate component system; shared branding or tokens are a design decision, not assumed. See LIQ-003 §2 and FB-14. |
+| PD-13: design system | `packages/dashboard-ui`, `packages/dashboard-core` and their component rules; the storefront's separate component system | Reuse as-is where suitable; adapt through documented extensions | Retain the dashboard's headless components and extension boundaries. The storefront uses a separate component system; shared branding or tokens are a design decision, not assumed. See LIQ-003 §2 and FB-14. Figma, Storybook and Chromatic are the selected tools (2026-10-21); FB-18 records how they are used. |
 | PD-14 to PD-18: analytics, experimentation, product practice, knowledge and roadmapping | Existing reporting and optional analytics hooks; Liquorify's proposed specification and backlog | Investigate when activated | Define product outcomes, privacy expectations and learning needs before selecting additional tracking or experiments. Keep current product decisions and evidence findable; defer inactive practices without claiming them implemented. |
 | AE and AR: application and contract structure | Rails engines and workflows; API conventions, generated OpenAPI, SDKs; dashboard plugins and slots | Reuse as-is where compatible; adapt Liquorify boundaries | Code reading establishes the available patterns. Business ownership, shopper ownership and operator separation require design and validation. SDK compatibility and extension sufficiency remain open under FB-03, FB-05 and FB-06. |
 | AR-08, AR-09, AE-08 and GG-19: data ownership and database conventions | Store-owned records and existing model/migration rules | Adapt | Retain conventions compatible with required integrity and isolation. Investigate constraints and schema choices against Liquorify's data requirements rather than adopting every existing database choice automatically. Open isolation findings remain failures. |
@@ -161,7 +162,7 @@ The resolutions are in effect since D1, approved by the owner on 2026-10-21, wit
 
 | # | Conflict | Resolution |
 |---|---|---|
-| X1 | Backend `CLAUDE.md` says all feature plans live in `docs/plans/` and never elsewhere. ENG-002 wants one Liquorify home. | `docs/plans/` stays Spree's plan set, and its "constraints on current work" still apply when Liquorify changes Spree code. Liquorify plans and specifications go in this folder (decision D4). |
+| X1 | Backend `CLAUDE.md` says all feature plans live in `docs/plans/` and never elsewhere. ENG-002 wants one Liquorify home. | `docs/plans/` stays Spree's plan set, and its "constraints on current work" still apply when Liquorify changes Spree code. Liquorify plans and specifications go in this folder (decision D4, decided through D1 on 2026-10-21). |
 | X2 | Upstream plans use their own status labels (Draft, In Progress, Implemented, Superseded). ENG-002 uses DRAFT, PROPOSED, ACCEPTED, SUPERSEDED, RETIRED with YAML metadata. | Each convention applies only within its own scope. Upstream plans are not converted. |
 | X3 | Backend `CLAUDE.md` says architecture changes are documented in `docs/developer/`, the public Spree documentation site. | Liquorify architecture and decisions are recorded here. `docs/developer/` changes only when Liquorify contributes something back to Spree. |
 | X4 | Agent tooling targets upstream. `/project:create-plan` opens Linear issues and `spree/spree` issues, `/project:implement-plan` opens pull requests on `spree/spree`, and both work in `docs/plans/`. The tracked `.claude/settings.local.json` allows any shell command and upstream's own monitoring and documentation tools. | Do not use the upstream plan commands for Liquorify work. Keep the agent hooks. Align agent settings and commands with §3 (FB-08). |
@@ -176,18 +177,18 @@ The resolutions are in effect since D1, approved by the owner on 2026-10-21, wit
 
 ## 7. Decisions needed to adopt the foundation
 
-D1 was decided on 2026-10-21. The others are open, and each can be answered separately. FB-02 goes ahead on its own authorization, recorded on 2026-10-21 in §1, so it does not wait for D3 ([LIQ-004](LIQ-004-foundation-backlog.md#recommended-next-work-item)).
+D1 and D4 were decided on 2026-10-21, D4 through D1's exceptions X1 to X3. The others are open, and each can be answered separately. FB-02 goes ahead on its own authorization, recorded on 2026-10-21 in §1, so it does not wait for D3 ([LIQ-004](LIQ-004-foundation-backlog.md#recommended-next-work-item)).
 
 | # | Decision | Options | Recommendation | Status |
 |---|---|---|---|---|
 | D1 | Adopt the framework | Adopt SES-001 2.0-draft, ENG-001 1.0-draft and ENG-002 1.0-draft as written for both repositories; adopt named sections only; or keep them as drafts for now. The Spree baseline in §6.2 can be adopted whole or by area | Adopt as written, scoped to Liquorify-owned work, with this profile's adjustments, the bounded reuse choices in §6.1, and the default baseline and exceptions in §6.2 and §6.3; revisit after the first release | Decided 2026-10-21 as recorded below. §6.1 stays a proposal |
 | D2 | Assign roles | Dhruval holds all roles (§2); or name other people for some roles | Dhruval for all, with the limitations in §2 recorded | Open |
 | D3 | Delegation | Accept §3 as written, or change the lists | Accept §3 | Open |
-| D4 | Documentation home and scope | This folder as the only Liquorify home (X1 to X3); or Liquorify documents inside `docs/` | This folder | Answered by D1 through X1 to X3 |
+| D4 | Documentation home and scope | This folder as the only Liquorify home (X1 to X3); or Liquorify documents inside `docs/` | This folder | Decided 2026-10-21 through D1's exceptions X1 to X3 |
 | D5 | What counts as acceptance | A merged pull request that sets `status: ACCEPTED` with `approved_by` and `approved_at`; or any merge; or a separate decision log | The first. A merge alone is not acceptance | Open |
 | D6 | Where work items live | Turn on issues in `liquorify` (they are off today); use the storefront repository's issues; or another tracker | Issues in `liquorify`, linked from pull requests in both repositories | Open |
 | D7 | Backend repository visibility | Keep `liquorify` public; or make it private | Decide before any Liquorify-specific security work. Public keeps Spree's large CI suite free to run but publishes everything here, including summaries of open defects; private limits CI minutes | Open |
-| D8 | Home for the merchant lifecycle specification | Move it into this folder as PROPOSED; or keep it in the project workspace | Move it here after D4 and D7, keeping reproduction detail out while the defect is unfixed | Open |
+| D8 | Home for the merchant lifecycle specification | Move it into this folder as PROPOSED; or keep it in the project workspace | Move it here after D7, keeping reproduction detail out while the defect is unfixed | Open |
 
 **D1 as recorded.** On 2026-10-21 the owner wrote: "Use SES-001, ENG-001, and ENG-002 as our working process for Liquorify-owned work. Record this scoped adoption with the profile's exceptions. Keep unresolved product and architecture decisions proposed; adopting conventions does not mark capabilities satisfied."
 
@@ -195,7 +196,7 @@ What it settles:
 
 - The three framework documents are the working process for Liquorify-owned work, which is the charter scope in §1. Where Liquorify changes upstream Spree code, both the framework and the upstream rules for that code apply.
 - §4 is the working risk classification. The §6.2 baseline is the default for Liquorify-owned work, and the §6.3 exceptions resolve the conflicts, within the limits each subsection names.
-- Exceptions X1 to X3 keep Liquorify documentation in this folder, which answers D4 as recommended. This reading is stated in the FB-02 pull request for the owner to confirm.
+- Exceptions X1 to X3 keep Liquorify documentation in this folder, which decides D4 as recommended.
 
 What it leaves open:
 

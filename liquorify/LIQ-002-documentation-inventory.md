@@ -66,7 +66,7 @@ Not tracked, so never authoritative: `server/` (cloned from upstream `spree-star
 |---|---|---|
 | Three framework documents (supplied 2026-10-20) | Supplied draft framework | Migrated unchanged to `liquorify/framework/` in this change |
 | Liquorify codebase assessment (2026-10-20) | Evidence | Keep as the historical record. Its findings are carried into LIQ-003 with their evidence; do not copy it |
-| Merchant lifecycle specification | Product specification, PROPOSED | Migrate into `liquorify/` after decisions D4, D7 and D8 |
+| Merchant lifecycle specification | Product specification, PROPOSED | Migrate into `liquorify/` after decisions D7 and D8 |
 | Cross-store shopper access reproduction and run output | Verification evidence | Keep out of the public repository while the defect is unfixed (decision D7) |
 
 ## Migration plan
@@ -77,7 +77,7 @@ Ordered by priority. Only M1 is done.
 |---|---|---|---|
 | M1 | Create `liquorify/` with the framework, profile, inventory, baseline, Spree adoption record and backlog; add pointers in both repositories | — | Done |
 | M2 | Replace `.github/SECURITY.md` with a Liquorify policy | Security contact decided (FB-07) | Small |
-| M3 | Move the merchant lifecycle specification into `liquorify/` as PROPOSED, without reproduction detail | D4, D7, D8 | Small |
+| M3 | Move the merchant lifecycle specification into `liquorify/` as PROPOSED, without reproduction detail | D7, D8 | Small |
 | M4 | Write a short Liquorify development setup guide that links to `CONTRIBUTING.md` and records the verified path, versions and destructive commands | FB-04 | Small |
 | M5 | Align `.claude/` commands and settings with the delegation in LIQ-001 §3 | D3 (FB-08) | Small |
 | M6 | Rebrand the two `README.md` files | Branding defined | Small |

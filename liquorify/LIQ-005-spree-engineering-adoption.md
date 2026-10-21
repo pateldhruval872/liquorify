@@ -49,7 +49,7 @@ It builds on the [documentation inventory](LIQ-002-documentation-inventory.md) a
 | SA-11 | Background jobs that run in their record's store | B [§ Architecture Principles](../CLAUDE.md#architecture-principles), `Spree::BaseJob` | AE-07 | Reuse as-is | Configured (A); job isolation not tested | — | FB-03, later surfaces |
 | SA-12 | Events, subscribers and webhooks | B [§ Events System](../CLAUDE.md#events-system) | AR-12, AE-06 | Reuse as-is | Configured; not assessed for Liquorify (R) | Delivery per store not tested | When integrations are scoped |
 | SA-13 | Emails in Liquid and MJML, fed by serializers, styled from store branding | B [§ Emails](../CLAUDE.md#emails-liquid--mjml) | AE-02, PD-10 | Reuse as-is | Configured; not run here (R) | — | When Liquorify emails are scoped |
-| SA-14 | Plans in `docs/plans/` and architecture pages in `docs/developer/` | B [§ Plans & Architecture Decisions](../CLAUDE.md#plans--architecture-decisions), [§ Mintlify Documentation](../CLAUDE.md#mintlify-documentation) | GG-04, GG-05, GG-15 | Replace for Liquorify work: Liquorify plans and records go in `liquorify/` (X1 to X3, D4). Upstream plan constraints still apply when Liquorify changes Spree code | Rule only (R) | — | D4 |
+| SA-14 | Plans in `docs/plans/` and architecture pages in `docs/developer/` | B [§ Plans & Architecture Decisions](../CLAUDE.md#plans--architecture-decisions), [§ Mintlify Documentation](../CLAUDE.md#mintlify-documentation) | GG-04, GG-05, GG-15 | Replace for Liquorify work: Liquorify plans and records go in `liquorify/` (X1 to X3, D4). Upstream plan constraints still apply when Liquorify changes Spree code | Rule only (R) | — | — |
 
 ## APIs
 
