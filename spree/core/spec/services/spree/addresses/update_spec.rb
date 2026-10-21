@@ -96,6 +96,17 @@ RSpec.describe Spree::Addresses::Update do
           expect(value.state).to eq(state)
         end
 
+        # The address factory's New York code is also Hungary's Nyíregyháza.
+        context 'when the new country also uses the address\'s old state code' do
+          let(:country) { Spree::Country.by_iso('HU') }
+          let(:state) { Spree::State.resolve('HU', 'BK') }
+
+          it 'updates the state to the one named' do
+            expect(result).to be_success
+            expect(value.state_code).to eq('BK')
+          end
+        end
+
         context 'when user sets address as default shipping' do
           let(:result) { subject.call(address: address, address_params: new_address_params, order: order, default_shipping: true) }
           let!(:previous_address) { create(:address, customer: user) }
