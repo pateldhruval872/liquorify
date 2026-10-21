@@ -298,7 +298,7 @@ The owner decided the requirements on 2026-10-21 (Q10, in [LIQ-007 §4](LIQ-007-
 - **Chromium only,** headless, at a device scale factor of 1.
 - **Fixed browser settings:** the viewport of the mode (§8), the `en-US` locale, the UTC time zone, reduced motion, and the colour scheme the mode asks for.
 - **Fonts** are the ones the stylesheets load. The dashboard's Geist comes from its font packages, so it is the same everywhere. The storefront's Geist comes through Next.js's font loader, which in Storybook links to Google's files; the test serves committed copies of them instead (§7.4).
-- **Where images are made.** Locally, `pnpm visual` and `pnpm visual:update` run the same pinned image through Docker. In the pilot, the reference images were made that way, and every comparison passed in CI on GitHub's runners under the configured tolerance (step 5 below). Image hashes were not compared.
+- **Where images are made.** Locally, `pnpm visual` and `pnpm visual:update` run the same pinned image through Docker. In the pilot, the reference images were made that way, and every comparison passed in CI on GitHub's runners under the tolerance then configured, Playwright's default threshold of 0.2. Step 5 below has the explicit setting that replaced it. Image hashes were not compared.
 
 ### 11.2 Deterministic sample data
 
@@ -383,7 +383,7 @@ A small batch from each system, chosen to try every arrangement above once befor
 | Storefront | Server component | `HeroSection` (`home/`) | CMP-SF-G-05 | Experimental server component support and `next-intl/server` |
 | Storefront | Token pages | All storefront tokens | TK-SF, TK-SF-T, TK-SF-A | The copied script and the check |
 
-**Result.** The pilot ran on 2026-10-21 ([record](verification/2026-10-21-fb-19-pilot.md)). Both Storybooks built in CI, the token check and the coverage report ran, every comparison passed under the configured tolerance on two CI runs of the same revision, and a planted change failed in CI with the failure images published. The findings are corrected in this version. Each case was then compared with its running screen, using the dashboard's browser-test server and the built panels and storefront ([record](verification/2026-10-21-fb-19-pilot-fidelity.md)). That found two defects, both corrected in §7.2: stories sat on the page grey instead of the card colour, and three components were wider than the page column they fill.
+**Result.** The pilot ran on 2026-10-21 ([record](verification/2026-10-21-fb-19-pilot.md)). Both Storybooks built in CI, the token check and the coverage report ran, every comparison passed on two CI runs of the same revision under the tolerance then configured, and a planted change failed in CI with the failure images published. The findings are corrected in this version. Each case was then compared, as a diagnostic, with its running screen, using the dashboard's browser-test server and the built panels and storefront ([record](verification/2026-10-21-fb-19-pilot-fidelity.md)). That found two defects, both corrected in §7.2: stories sat on the page grey instead of the card colour, and three components were wider than the page column they fill. It also found that the tolerance let the page colour change pass, so an explicit, measured tolerance replaced it (§11.3).
 
 **After the pilot,** coverage grows in batches by LIQ-009 section, each small enough to review:
 
