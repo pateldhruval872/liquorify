@@ -336,7 +336,7 @@ CI never writes, accepts or commits a reference image. Its configuration makes a
 
   Fourteen days covers a pull request's review and keeps storage small. Both repositories are public, so these artifacts are public too, and they show only invented data.
 - **Security.** The workflow reads the repository and nothing else: no secrets, and actions pinned to full commit identifiers, as the backend's security audit workflow already does.
-- **Advisory.** The job fails visibly when a screenshot differs, but it is not a required check, so it does not block merging. It runs only for some paths, so it must stay advisory while it does (LIQ-007 §4). Making it required later is a Protected change to the rulesets.
+- **Advisory.** The job fails visibly when a screenshot differs, but it is not a required check, so it does not block merging. It runs only on pull requests that change some paths, so it must stay advisory while it does (LIQ-007 §4). It does not run when a pull request merges, so checking `main` after a merge means starting the workflow by hand on `main` (its `workflow_dispatch` trigger), in both repositories. Making it required later is a Protected change to the rulesets.
 
 ### 11.6 Cost and size
 
