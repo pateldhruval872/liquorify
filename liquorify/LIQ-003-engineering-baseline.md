@@ -1,7 +1,7 @@
 ---
 document_id: LIQ-003
 title: Engineering Baseline
-version: 0.2-draft
+version: 0.3-draft
 status: DRAFT
 owner: unassigned
 approved_by: null
@@ -13,7 +13,7 @@ updated: 2026-10-21
 
 This records where Liquorify stands against each of the 172 capabilities in [SES-001](framework/SES-001.md#3-capability-catalog). It lists the existing mechanism, applicability, finding, evidence and next action for each ID. Capability names and purposes are defined only in SES-001 and are not repeated here.
 
-How Liquorify proposes to adopt each Spree mechanism is recorded in [LIQ-005](LIQ-005-spree-engineering-adoption.md). Adopting a convention changes no finding here.
+How Liquorify adopts each Spree mechanism is recorded in [LIQ-005](LIQ-005-spree-engineering-adoption.md). Adopting a convention satisfies no capability. Where a finding waited only on the decision to use a rule (GG-01, GG-04 and GG-22), decision D1 moved it from Decision to Partial on 2026-10-21.
 
 A document existing does not prove a behaviour, and a configured tool does not prove it is enforced. Each control is labeled with its state from [SES-001 §4](framework/SES-001.md#4-assess-only-what-the-decision-needs): **Planned**, **Configured**, **Verified** or **Operating**.
 
@@ -85,7 +85,7 @@ The proposed inheritance and Product & Design mapping is in [LIQ-001 §6.1](LIQ-
 **Finding:** *Satisfied*, *Partial*, *Gap*, *Decision* (depends on an unresolved decision), *Revalidate*, *Not assessed*, or *Not applicable* (outside this scope, reason given).
 **Next:** the smallest action, usually a backlog item in [LIQ-004](LIQ-004-foundation-backlog.md).
 
-Totals: 96 required, 63 conditional and 13 not required. Findings: 64 partial, 17 gaps, 20 waiting on a decision, 56 not assessed, 15 not applicable, and none fully satisfied. "Partial" usually means a reusable Spree mechanism exists but has not been verified or extended for Liquorify.
+Totals: 96 required, 63 conditional and 13 not required. Findings: 67 partial, 17 gaps, 17 waiting on a decision, 56 not assessed, 15 not applicable, and none fully satisfied. "Partial" usually means a reusable Spree mechanism exists but has not been verified or extended for Liquorify.
 
 ### PD
 
@@ -181,7 +181,7 @@ Totals: 96 required, 63 conditional and 13 not required. Findings: 64 partial, 1
 
 | ID | Applicability | Current mechanism and location | Finding | Evidence | Next |
 |---|---|---|---|---|---|
-| QV-01 | Required | Effect-based risk classes and change-specific verification proposed in LIQ-001 §4; upstream testing rules in `CLAUDE.md` | Partial | R | D1 |
+| QV-01 | Required | Effect-based risk classes and change-specific verification in LIQ-001 §4, in use since D1 (2026-10-21); upstream testing rules in `CLAUDE.md` | Partial | R | — |
 | QV-02 | Required | Biome and TypeScript in both repositories (Verified); Brakeman in backend CI (Configured); RuboCop and bundler-audit listed as gems, not wired in as gates | Partial | C1, C2, R | FB-02 |
 | QV-03 | Required | Vitest: 1,374 backend and 248 storefront tests pass (Verified); RSpec per engine (not run here) | Partial | C1, C2 | FB-02 |
 | QV-04 | Required | Testing Library component tests inside the Vitest runs (Verified) | Partial | C1, C2 | — |
@@ -207,7 +207,7 @@ Totals: 96 required, 63 conditional and 13 not required. Findings: 64 partial, 1
 
 | ID | Applicability | Current mechanism and location | Finding | Evidence | Next |
 |---|---|---|---|---|---|
-| SP-01 | Required | Protected risk class proposed in LIQ-001 §4; upstream security rules in `CLAUDE.md` | Partial | R | D1 |
+| SP-01 | Required | Protected risk class in LIQ-001 §4, in use since D1; upstream security rules in `CLAUDE.md` | Partial | R | — |
 | SP-02 | Required | No Liquorify security design; option A safeguards proposed in the specification | Decision | R | FB-03 |
 | SP-03 | Required | Rails conventions, CanCanCan, permitted parameters, API rate limits (`spree/api/lib/spree/api/configuration.rb`); all Configured | Partial | R | — |
 | SP-04 | Required before protected implementation | None | Gap | — | With FB-03's results |
@@ -224,7 +224,7 @@ Totals: 96 required, 63 conditional and 13 not required. Findings: 64 partial, 1
 | SP-15 | Conditional: hosting is decided | None | Not assessed | — | — |
 | SP-16 | Conditional: before the first hosted environment | Logging of support access proposed in the specification | Not assessed | R | — |
 | SP-17 | Conditional: before real merchant data | None | Not assessed | — | — |
-| SP-18 | Required | Exception rules drafted in SES-001 §6; none recorded | Partial | R | D1 |
+| SP-18 | Required | Exception rules in SES-001 §6, adopted under D1; no security exception recorded | Partial | R | — |
 | SP-19 | Required | Staff invitations and per-store roles; one GitHub account; no access review | Partial | A, G | — |
 | SP-20 | Required | Release-age and trust policy for npm packages; storefront and the backend audit workflow pin actions by commit, other backend workflows use version tags and one uses `@main`, despite a Dependabot comment saying all are pinned | Partial | R | FB-02 |
 
@@ -280,28 +280,28 @@ Totals: 96 required, 63 conditional and 13 not required. Findings: 64 partial, 1
 
 | ID | Applicability | Current mechanism and location | Finding | Evidence | Next |
 |---|---|---|---|---|---|
-| GG-01 | Required | SES-001 2.0-draft in `liquorify/framework/`; not adopted | Decision | R | D1 |
-| GG-02 | Required | ENG-001 1.0-draft and the LIQ-001 proposals | Decision | R | D1 to D3 |
-| GG-03 | Required | ENG-002 1.0-draft; `liquorify/` home and index created in this change (Configured) | Partial | R | D4, D5 |
-| GG-04 | Required | Upstream plan constraints for Spree code; nothing for Liquorify | Decision | R | D4 |
+| GG-01 | Required | SES-001 2.0-draft in `liquorify/framework/`, the working process for Liquorify-owned work since D1 (2026-10-21); how acceptance is recorded is open | Partial | R | D5 |
+| GG-02 | Required | ENG-001 1.0-draft, in use since D1; roles and delegation in LIQ-001 are proposals | Decision | R | D2, D3 |
+| GG-03 | Required | ENG-002 1.0-draft, in use since D1; `liquorify/` home and index (Configured) | Partial | R | D5 |
+| GG-04 | Required | Upstream plan constraints for Spree code; Liquorify decisions are recorded in `liquorify/` (X3, in effect since D1), and none exists yet | Partial | R | FB-18 |
 | GG-05 | Required | Upstream `decisions.md` for Spree; Liquorify decisions sit in the specification and project threads | Gap | R | D5, M3 |
-| GG-06 | Required | ENG-002 §5 lifecycle, drafted | Decision | R | D1 |
+| GG-06 | Required | ENG-002 §5 lifecycle, in use since D1; how acceptance is recorded is open | Decision | R | D5 |
 | GG-07 | Required | Roles proposed in LIQ-001 §1 and §2; no ownership file | Decision | R | D2 |
 | GG-08 | Required | `liquorify/README.md` index, including records held outside the repositories | Partial | R | — |
 | GG-09 | Required | Debt and gaps listed in LIQ-004; no tracker | Partial | R | FB-10 |
 | GG-10 | Conditional: Liquorify retires something | Upstream deprecation rules in `CLAUDE.md` | Not assessed | R | — |
-| GG-11 | Required | Exception rules drafted in SES-001 §6; none recorded | Partial | R | D1 |
+| GG-11 | Required | Exception rules in SES-001 §6; LIQ-001 §6.3 exceptions approved under D1, with review triggers but no expiry dates | Partial | R | — |
 | GG-12 | Conditional: after the first release | None | Not assessed | — | — |
 | GG-13 | Required | Project instructions and LIQ-001 §3 (proposal); tracked `.claude/settings.local.json` allows any shell command; agent hooks gate commits | Gap | R | FB-08 |
 | GG-14 | Required | Monorepo layout table in `CLAUDE.md`; `server/` must not hold Liquorify code; code homes proposed in the specification | Decision | R | FB-05 |
-| GG-15 | Required | ENG-002 metadata applied to `liquorify/` only (Configured); upstream documents keep their conventions | Partial | R | D4 |
-| GG-16 | Required | Upstream standards in `CLAUDE.md`, used in practice but not adopted by decision; a default baseline is proposed in LIQ-001 §6 | Partial | R | D1 |
-| GG-17 | Required | Upstream coding rules in both `CLAUDE.md` files; Biome (Verified); Lefthook pre-commit hooks; Ruby style not gated: RuboCop is a dependency, but no configuration is tracked and nothing runs it | Partial | C1, C2, R | D1 |
-| GG-18 | Required | API v3 conventions in backend `CLAUDE.md` | Partial | R | D1 |
+| GG-15 | Required | ENG-002 metadata applied to `liquorify/` only (Configured); upstream documents keep their conventions | Partial | R | FB-17 |
+| GG-16 | Required | Upstream standards in `CLAUDE.md`; the default baseline in LIQ-001 §6.2, in effect for Liquorify-owned work since D1 except the adaptations waiting on decisions | Partial | R | — |
+| GG-17 | Required | Upstream coding rules in both `CLAUDE.md` files; Biome (Verified); Lefthook pre-commit hooks; Ruby style not gated: RuboCop is a dependency, but no configuration is tracked and nothing runs it | Partial | C1, C2, R | — |
+| GG-18 | Required | API v3 conventions in backend `CLAUDE.md`, in the default baseline since D1 | Partial | R | — |
 | GG-19 | Required | Model and migration rules in backend `CLAUDE.md`; the store-ownership rule is not met by shopper accounts | Partial | R, C3 | FB-03 |
 | GG-20 | Required | Security sections of backend `CLAUDE.md`; nothing Liquorify-specific | Partial | R | — |
 | GG-21 | Required | Storefront dependency rules (`CLAUDE.md`); backend Dependabot notes; pnpm supply-chain settings | Partial | R | FB-11 |
-| GG-22 | Required | LIQ-001 §4 (proposal); upstream rule that each dashboard behaviour change ships an end-to-end test | Decision | R | D1 |
+| GG-22 | Required | LIQ-001 §4, in use since D1; upstream rule that each dashboard behaviour change ships an end-to-end test | Partial | R | — |
 | GG-23 | Conditional: first release | Standing instruction: no merge or deploy without the owner's instruction | Partial | R | — |
 
 ## 4. Controls at a glance
@@ -310,6 +310,6 @@ Totals: 96 required, 63 conditional and 13 not required. Findings: 64 partial, 1
 |---|---|
 | Verified | Storefront lint, types, unit tests and locale parity (C1); backend TypeScript lint, types and unit tests (C2); frozen lockfile installs (C1, C2); staff refused for a store where they hold no role, on one endpoint (C3) |
 | Operating | Storefront lint, type check and unit test jobs, and Dependabot, on pull requests (G) |
-| Configured, not verified here | Storefront end-to-end workflow (job FAIL on missing Stripe configuration; browser tests NOT_RUN); backend Ruby suites on PostgreSQL and MySQL, Brakeman, dashboard end-to-end, SDK integration and drift checks; weekly dependency audit; backend Dependabot; Lefthook and agent hooks; API rate limits; encryption of secret preferences; development-only store-scope guard |
-| Planned (proposals) | Effect-based risk classes and proportionate review (LIQ-001 §4), delegation (LIQ-001 §3), isolation test suite and option A safeguards (specification), branch protection and CI baseline (FB-02) |
+| Configured, not verified here | The working process adopted under D1, as written rules: the LIQ-001 §4 risk classes and the §6.2 baseline; storefront end-to-end workflow (job FAIL on missing Stripe configuration; browser tests NOT_RUN); backend Ruby suites on PostgreSQL and MySQL, Brakeman, dashboard end-to-end, SDK integration and drift checks; weekly dependency audit; backend Dependabot; Lefthook and agent hooks; API rate limits; encryption of secret preferences; development-only store-scope guard |
+| Planned (proposals) | Delegation (LIQ-001 §3), isolation test suite and option A safeguards (specification), branch protection and CI baseline (FB-02) |
 | Missing | Branch protection; Liquorify security contact; shopper isolation (failing); accessibility and visual checks; cross-repository compatibility check; work tracking in the backend; any staging or production environment, backups, monitoring or runbooks |

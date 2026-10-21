@@ -1,7 +1,7 @@
 ---
 document_id: LIQ-004
 title: Foundation Backlog
-version: 0.2-draft
+version: 0.3-draft
 status: DRAFT
 owner: unassigned
 approved_by: null
@@ -13,7 +13,7 @@ updated: 2026-10-21
 
 These are the smallest engineering tasks needed for reproducible development, relevant checks and reliable verification, in priority order. Each one traces to findings in [LIQ-003](LIQ-003-engineering-baseline.md). Implementing all 172 capabilities is not a prerequisite for anything here; most stay "not assessed" until real work activates them.
 
-This list is a planning record. Once decision D6 picks a tracker, each item becomes a work item there and this file links to it instead of describing it ([ENG-002 §2](framework/ENG-002-documentation-system.md#2-what-belongs-where)). Nothing here is authorized for implementation until the owner says so.
+This list is a planning record. Once decision D6 picks a tracker, each item becomes a work item there and this file links to it instead of describing it ([ENG-002 §2](framework/ENG-002-documentation-system.md#2-what-belongs-where)). Nothing here is authorized for implementation until the owner says so. FB-02 was authorized on 2026-10-21 ([LIQ-001 §1](LIQ-001-project-profile.md#recorded-instructions-that-shape-engineering-work)).
 
 ## Open isolation findings
 
@@ -39,11 +39,12 @@ Risk classes follow [LIQ-001 §4](LIQ-001-project-profile.md#4-review-and-verifi
 
 | # | Task | Repo | Risk | Done when | Depends on |
 |---|---|---|---|---|---|
-| FB-01 | Record the adoption decisions D1 to D8, resolving only those needed by the next work item | — | Protected where authority or control policy changes | Each decision is recorded in LIQ-001 with its date, and the documents' status fields match | Owner |
-| FB-02 | **Run the backend's existing checks on `liquorify` and protect `main` in both repositories** (recommended next, below) | B, S | Protected | See below | CI authorization; OA-2 |
+| FB-01 | Record the adoption decisions D1 to D8, resolving only those needed by the next work item. D1 was recorded on 2026-10-21 and answers D4; the rest are open | — | Protected where authority or control policy changes | Each decision is recorded in LIQ-001 with its date, and the documents' status fields match | Owner |
+| FB-02 | **Run the backend's existing checks on `liquorify` and protect `main` in both repositories** (recommended next, below) | B, S | Protected | See below | CI authorization (given 2026-10-21); OA-2 |
 | FB-03 | Validate option A: same-store controls, the tax task before-and-after control, PostgreSQL and SQLite runs, the wider surfaces chosen, and the shopper-ownership analysis, as defined at the end of the merchant lifecycle specification | B | Protected | A validation report with results per surface and database, accepted or rejected by the owner | Decisions N1 to N6 in the specification |
 | FB-04 | Verify one development path from a clean checkout to a local test order through the Liquorify storefront: choose Docker or native, settle Ruby and Node versions, list destructive commands, make a payment method visible, confirm the Mac's `liquor` remotes are the renamed repositories | B, S | Standard | A short setup guide (migration step M4) whose steps were run once, with the evidence recorded | FB-01 |
 | FB-05 | Point the setup scripts at the Liquorify repositories (they clone upstream `spree/storefront` and `spree/spree-starter`) and decide where the tracked host application and its Ruby lockfile live | B | Standard | A fresh setup uses `liquorify-storefront`; the host application and lockfile are tracked or their home is decided | Hosting direction |
+| FB-18 | **Prepare the Spree product capability baseline and the Design System Adoption and Extension decision record** (the next documentation item, below; tracked, not started) | B | Standard. The decision record stays PROPOSED until the owner decides, and any CI, account or service change it leads to is Protected | Both documents are in `liquorify/` and reviewed by the owner | The owner's instruction to start |
 
 ### P1: soon after
 
@@ -80,6 +81,8 @@ These change repository settings or credentials, so they stay with the owner and
 
 **FB-02: run the backend's existing checks on `liquorify` and protect `main` in both repositories.**
 
+**Status (2026-10-21).** In progress. The workflow changes are on the FB-02 pull request, which is open for review; merging and repository settings wait for the owner's final approval.
+
 Why this one: the backend has a large test suite, but it has never run on this repository, and nothing stops an unverified change from reaching `main` in either repository. Every later result, including the option A validation, is only as reliable as the checks behind it. It changes no application code. FB-03 can proceed in parallel in the cloud once its own decisions are made.
 
 - **Outcome.** The backend's existing workflows have one recorded run at a known revision, upstream publishing jobs cannot run here, and both `main` branches accept changes only through pull requests with required checks.
@@ -88,8 +91,8 @@ Why this one: the backend has a large test suite, but it has never run on this r
 
 | Repository | Workflow file | Change in FB-02 | Proposed required checks |
 |---|---|---|---|
-| `liquorify` | `.github/workflows/tests.yml` | Add a manual trigger; settle the pull request path filter (below) | `Build (PostgreSQL)`, `PostgreSQL - core (1/3)`, `PostgreSQL - core (2/3)`, `PostgreSQL - core (3/3)`, `PostgreSQL - api (1/1)`, `PostgreSQL - emails (1/1)`, `PostgreSQL - providers (1/1)`, `PostgreSQL - dashboard (1/1)`, `PostgreSQL - mcp (1/1)`, `PostgreSQL - opentelemetry (1/1)`, `Brakeman`. Advisory until Liquorify decides on MySQL: `Build (MySQL)` and the nine `MySQL - …` jobs |
-| `liquorify` | `.github/workflows/packages.yml` | Add a manual trigger; limit its six `… - Release` jobs to the upstream repository; settle the path filter | `Typecheck, Test & Build`, `Scaffolded app - Typecheck & Lint`, `SDK Integration Tests`, `Dashboard - E2E` (the job that summarizes the four `Dashboard - E2E (n/4)` shards) |
+| `liquorify` | `.github/workflows/tests.yml` | Add a manual trigger; drop the pull request path filter | `Build (PostgreSQL)`, `PostgreSQL - core (1/3)`, `PostgreSQL - core (2/3)`, `PostgreSQL - core (3/3)`, `PostgreSQL - api (1/1)`, `PostgreSQL - emails (1/1)`, `PostgreSQL - providers (1/1)`, `PostgreSQL - dashboard (1/1)`, `PostgreSQL - mcp (1/1)`, `PostgreSQL - opentelemetry (1/1)`, `Brakeman`. Advisory until Liquorify decides on MySQL: `Build (MySQL)` and the nine `MySQL - …` jobs |
+| `liquorify` | `.github/workflows/packages.yml` | Add a manual trigger; drop the pull request path filter; limit its six `… - Release` jobs to the upstream repository | `Typecheck, Test & Build`, `Scaffolded app - Typecheck & Lint`, `SDK Integration Tests`, `Dashboard - E2E` (the job that summarizes the four `Dashboard - E2E (n/4)` shards) |
 | `liquorify` | `.github/workflows/release.yml` | Limit `Release gems to RubyGems` to the upstream repository | None |
 | `liquorify` | `.github/workflows/docs-package.yml` | Limit its `Release` job to the upstream repository | None |
 | `liquorify` | `.github/workflows/security-audit.yml` | None; it already has a manual trigger | None: it runs on a schedule, not on pull requests |
@@ -100,8 +103,8 @@ Why this one: the backend has a large test suite, but it has never run on this r
 **What stands in the way of running these checks from a pull request branch:**
 
 1. **Actions may be off** (OA-2). Until it is on, no workflow runs on any branch.
-2. **Path filters.** `tests.yml` runs on a pull request only when it changes `spree/**` or the workflow file, and `packages.yml` only for its listed paths. The FB-02 pull request edits both files, so both run on its branch. A documentation-only pull request, such as the one that added this folder, runs neither.
-3. **Required checks and path filters conflict.** A required check from a path-filtered workflow never reports on a pull request outside those paths, so that pull request waits indefinitely. FB-02 must either drop the pull request path filters from both workflows (simplest; runner minutes are free while the repository is public) or add one always-running summary job per workflow and require only those. This is the owner's choice.
+2. **Path filters.** On `main`, `tests.yml` runs on a pull request only when it changes `spree/**` or the workflow file, and `packages.yml` only for its listed paths, so a documentation-only pull request, such as the one that added this folder, runs neither. FB-02 drops both pull request filters, so both run on every pull request, including its own. The push filters stay.
+3. **Required checks and path filters conflict.** A required check from a path-filtered workflow never reports on a pull request outside those paths, so that pull request waits indefinitely. The other option was one always-running summary job per workflow, with only those required. The owner chose to drop the filters for now (2026-10-21); runner minutes are free while the repository is public.
 4. **The manual trigger works only after merge.** GitHub offers a manual trigger only for a workflow whose file on the default branch declares it, so until FB-02 merges, the pull request run is the evidence.
 5. **Checks must report before they can be required.** GitHub's settings offer a check for selection once it has reported in the repository, and names must match exactly; a matrix change renames its checks.
 6. **Release guards must ship in the same change.** Merging FB-02 is a push to `main` that changes `packages.yml`, which would start its release jobs. Release jobs never run on a pull request branch, so their guards are verified by reading the files and, after merge, by the jobs' skipped results.
@@ -116,8 +119,16 @@ One consequence of requiring checks, rather than a blocker to running them: the 
   4. `main` in both repositories refuses direct pushes and requires the agreed checks before merge, shown on one pull request in each.
   5. No application code, dependency, credential or database changes.
 - **Risk.** Protected: it changes CI configuration and repository settings. Its verification is the workflow runs and the branch protection demonstration above, not application or isolation tests.
-- **Decisions needed.**
-  - The owner authorizes the CI file edits and the branch protection settings, and completes OA-2.
-  - The owner chooses the required checks (proposal above) and how to resolve the path filters (point 3).
+- **Decisions.**
+  - Made on 2026-10-21: the CI file edits are authorized, the pull request path filters are dropped, and MySQL checks stay advisory until Liquorify decides whether it supports MySQL.
+  - Waiting for the final approval step: merging, the branch protection settings, and the required checks (proposal above). OA-2 if Actions is off.
   - Decision D7 (backend visibility) does not block this item. The suite is free to run only while the repository is public.
 - **Limitations.** A green upstream suite shows only that Spree's own tests pass. It says nothing about tenant isolation, which stays open under ISO-1 to ISO-7. If the storefront's plan does not include branch protection, that is recorded as a limitation rather than worked around.
+
+## Next documentation work item
+
+**FB-18: the Spree product capability baseline and the Design System Adoption and Extension decision record.** Tracked on 2026-10-21 at the owner's request; not started.
+
+- **Product capability baseline.** What Spree already offers merchants, shoppers and operators, measured against the Product & Design capabilities in [SES-001](framework/SES-001.md#3-capability-catalog) and the merchant lifecycle specification, and recorded for each feature as reuse, extend, not needed or unknown. It describes what exists. Under the recorded instruction in [LIQ-001 §1](LIQ-001-project-profile.md#recorded-instructions-that-shape-engineering-work), no Spree feature becomes a requirement by being listed.
+- **Design System Adoption and Extension decision record.** How Liquorify adopts and extends `@spree/dashboard-ui` and the storefront's components ([LIQ-005](LIQ-005-spree-engineering-adoption.md) SA-24, SA-25), including tokens and branding (FB-14) and the accessibility target (FB-15), and whether to use Figma as the design source, Storybook for component documentation, and Chromatic for visual review. For each tool it states the cost, the accounts and CI secrets it needs, and what it would expose. It stays PROPOSED until the owner decides.
+- **Relation to other items.** It prepares the decisions that FB-14 and FB-15 make when the first Liquorify screen activates them. Setting up Storybook or Chromatic would change dependencies, CI and credentials, so that is a separate Protected item.

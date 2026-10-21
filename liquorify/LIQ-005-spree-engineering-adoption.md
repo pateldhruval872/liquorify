@@ -1,7 +1,7 @@
 ---
 document_id: LIQ-005
 title: Spree Engineering Adoption Record
-version: 0.1-draft
+version: 0.2-draft
 status: DRAFT
 owner: unassigned
 approved_by: null
@@ -11,7 +11,7 @@ updated: 2026-10-21
 
 # Spree Engineering Adoption Record
 
-Liquorify intends to reuse Spree's existing engineering foundation through the framework in [`framework/`](framework/), and to extend it only where Liquorify needs more. This record lists the relevant Spree mechanisms, the capabilities in [SES-001](framework/SES-001.md#3-capability-catalog) they support, and a recommendation for each. The proposed default baseline and its exceptions are in [LIQ-001 §6](LIQ-001-project-profile.md#6-spree-engineering-baseline-and-exceptions), and adopting them is part of decision D1 there. Nothing here is adopted.
+Liquorify intends to reuse Spree's existing engineering foundation through the framework in [`framework/`](framework/), and to extend it only where Liquorify needs more. This record lists the relevant Spree mechanisms, the capabilities in [SES-001](framework/SES-001.md#3-capability-catalog) they support, and a recommendation for each. The default baseline and its exceptions are in [LIQ-001 §6](LIQ-001-project-profile.md#6-spree-engineering-baseline-and-exceptions). Decision D1 put them into effect for Liquorify-owned work on 2026-10-21, except the parts that wait on an open decision. The rules named in §6.2 are therefore in effect; every other recommendation here stays a proposal until its next action settles it.
 
 It builds on the [documentation inventory](LIQ-002-documentation-inventory.md) and the [engineering baseline](LIQ-003-engineering-baseline.md). [LIQ-001 §6.1](LIQ-001-project-profile.md#61-spree-mechanisms-mapped-to-the-ses) maps the same mechanisms to capability areas, including Product & Design; this record goes down to each mechanism for the engineering areas. Only missing or conflicting evidence was investigated for it, on 2026-10-21. It links to the authoritative guidance instead of copying it.
 
@@ -31,7 +31,7 @@ It builds on the [documentation inventory](LIQ-002-documentation-inventory.md) a
 
 | # | Mechanism | Source | SES | Recommendation | State and evidence | Limitation | Next |
 |---|---|---|---|---|---|---|---|
-| SA-01 | General rules: comments, reuse before adding code, defensive coding, plain-English communication | B [§ General rules](../CLAUDE.md#general-rules) | GG-16, GG-17 | Reuse as-is | Rule only (R) | Review is the only check, and it is not independent (LIQ-001 §2) | D1 |
+| SA-01 | General rules: comments, reuse before adding code, defensive coding, plain-English communication | B [§ General rules](../CLAUDE.md#general-rules) | GG-16, GG-17 | Reuse as-is | Rule only (R) | Review is the only check, and it is not independent (LIQ-001 §2) | — |
 | SA-02 | Ruby conventions: Rails conventions, RESTful actions, services only when needed, readable names, documentation comments on public methods | B [§ Architecture Principles](../CLAUDE.md#architecture-principles), [§ Code Organization](../CLAUDE.md#code-organization) | GG-17, AR-05 | Adapt: Liquorify's own code uses its own namespace, as the provider gems do (`SpreeStripe`), instead of `Spree::` | Rule only (R) | The namespace and code home are not decided | FB-05 |
 | SA-03 | Ruby style check (RuboCop) | B `spree/common_spree_dependencies.rb` | QV-02, GG-17 | Investigate | The gems are dependencies, but no RuboCop configuration is tracked and no workflow runs it (R, 2026-10-21) | Ruby style is checked by review only | Decide whether Liquorify gates Ruby style; not part of FB-02 |
 | SA-04 | TypeScript lint and format (Biome) | B `biome.json` and per-package configs; S `biome.json` and its § Code Quality with Biome | QV-02, GG-17 | Reuse as-is | Verified in the cloud (C1, C2). Storefront job Operating (G). Backend job Configured, never run here | — | FB-02 |
@@ -139,7 +139,7 @@ It builds on the [documentation inventory](LIQ-002-documentation-inventory.md) a
 
 | # | Mechanism | Source | SES | Recommendation | State and evidence | Limitation | Next |
 |---|---|---|---|---|---|---|---|
-| SA-54 | Spree's publishing: Changesets configured for `spree/spree`, gem release on `v*` tags, six npm release jobs, documentation package release | B [§ Changesets & Versioning](../CLAUDE.md#changesets--versioning), `.changeset/config.json`, `.github/workflows/release.yml`, `packages.yml`, `docs-package.yml` | DR-13, DR-16, GG-23 | Replace: Liquorify publishes no gems, npm packages or documentation site. Limit the jobs to the upstream repository (X11) | Configured and live in this copy (R) | — | FB-02 |
+| SA-54 | Spree's publishing: Changesets configured for `spree/spree`, gem release on `v*` tags, six npm release jobs, documentation package release | B [§ Changesets & Versioning](../CLAUDE.md#changesets--versioning), `.changeset/config.json`, `.github/workflows/release.yml`, `packages.yml`, `docs-package.yml` | DR-13, DR-16, GG-23 | Replace: Liquorify publishes no gems, npm packages or documentation site. Limit the jobs to the upstream repository (X11) | Configured and live on `main`; the FB-02 pull request limits every publishing job to `spree/spree` (R) | Shown skipped only after merge | FB-02 |
 | SA-55 | Upstream deprecation rules and upgrade guides | B [§ Serializers](../CLAUDE.md#serializers-alba), `docs/developer/upgrades/` | GG-10, AR-16 | Reuse as-is for Spree code | Rule only. The base is a release candidate, with no plan for taking later upstream releases (R) | — | FB-12 |
 
 Liquorify has no release practice of its own yet. When a first release is scoped, it follows [ENG-001 §5](framework/ENG-001-engineering-charter.md#5-ready-done-and-release-ready) and §8, recorded in LIQ-001. Until then the standing instruction holds: nothing is merged or deployed without the owner's explicit instruction.
@@ -150,11 +150,11 @@ Each one is already tracked, or is new here and marked so.
 
 | Question | Where it is decided |
 |---|---|
-| Adopt the baseline as a whole, by area, or later | D1 in LIQ-001 |
+| Adopt the baseline as a whole, by area, or later | Answered on 2026-10-21 by D1 in LIQ-001: in effect for Liquorify-owned work, with the exceptions |
 | Liquorify's namespace and code home, and the tracked host application | FB-05 |
-| Whether Liquorify supports MySQL, which decides whether the MySQL checks become required | New; before FB-02 selects required checks |
+| Whether Liquorify supports MySQL, which decides whether the MySQL checks become required | Open. The MySQL checks stay advisory until it is decided (instruction of 2026-10-21) |
 | Whether Liquorify-owned tables use foreign keys | With FB-03 (AR-09) |
 | Whether Ruby style is gated | New; no item yet |
 | Which development path Liquorify verifies | FB-04 |
-| Whether the storefront shares the dashboard's design tokens | FB-14 |
+| Whether the storefront shares the dashboard's design tokens | FB-14, prepared by the FB-18 decision record |
 | What replaces the upstream plan commands for Liquorify work | FB-08, after D3 |
