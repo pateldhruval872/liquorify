@@ -302,7 +302,7 @@ The owner decided the requirements on 2026-10-21 (Q10, in [LIQ-007 §4](LIQ-007-
 - **Chromium only,** headless, at a device scale factor of 1.
 - **Fixed browser settings:** the viewport of the mode (§8), the `en-US` locale, the UTC time zone, reduced motion, and the colour scheme the mode asks for.
 - **Fonts** are the ones the stylesheets load. The dashboard's Geist comes from its font packages, so it is the same everywhere. The storefront's Geist comes through Next.js's font loader, which in Storybook links to Google's files; the test serves committed copies of them instead (§7.4).
-- **Where images are made.** Locally, `pnpm visual` and `pnpm visual:update` run the same pinned image through Docker. In the pilot, the reference images were made that way, and every one matched in CI on GitHub's runners with no pixel different.
+- **Where images are made.** Locally, `pnpm visual` and `pnpm visual:update` run the same pinned image through Docker. In the pilot, the reference images were made that way, and every comparison passed in CI on GitHub's runners under the configured tolerance (step 5 below). Image hashes were not compared.
 
 ### 11.2 Deterministic sample data
 
@@ -317,7 +317,7 @@ The owner decided the requirements on 2026-10-21 (Q10, in [LIQ-007 §4](LIQ-007-
 2. Opens the story on its own (`iframe.html?id=<story id>`), with the theme the mode sets.
 3. Waits until Storybook's render phase reports the story finished, after its play function, and fails the test if the story errored. Then it waits for the fonts and for no request to be pending.
 4. Takes a screenshot of the story's root element, with animations stopped and the text caret hidden. A story of an open popup or dialog sets `capture: 'viewport'` and takes the whole viewport instead, because Base UI and Radix render popups outside the root.
-5. Compares it with the committed reference using Playwright's own comparison. It starts strict: Playwright's default colour tolerance per pixel, and no pixel allowed to differ beyond it. A looser setting needs a recorded reason.
+5. Compares it with the committed reference using Playwright's own comparison. It starts strict: Playwright's default colour tolerance per pixel (a threshold of 0.2 on its scale from 0 to 1), and no pixel allowed to differ beyond it. Pixels that differ by less than the threshold still pass, so a pass is not a claim that two images are identical; that would need their hashes compared. A looser setting needs a recorded reason.
 
 Reference images live in `visual/__screenshots__/<story id>/<mode>.png`, beside the test.
 
@@ -370,7 +370,7 @@ CI never writes, accepts or commits a reference image. Its configuration makes a
 
 ## 13. Pilot
 
-A small batch from each system, chosen to try every arrangement above once before coverage grows. The pilot passes when each case renders as it does in its screen, both Storybooks build in CI, the token check and coverage report run, and the visual check gives identical results on two CI runs of the same revision and fails on a deliberately changed story. Whatever does not work is recorded and this plan is corrected before any further batch.
+A small batch from each system, chosen to try every arrangement above once before coverage grows. The pilot passes when each case renders as it does in its screen, both Storybooks build in CI, the token check and coverage report run, and the visual check gives the same result on two CI runs of the same revision and fails on a deliberately changed story. Whatever does not work is recorded and this plan is corrected before any further batch.
 
 | System | Case | Component | ID | What it tries |
 |---|---|---|---|---|
@@ -388,7 +388,7 @@ A small batch from each system, chosen to try every arrangement above once befor
 | Storefront | Server component | `HeroSection` (`home/`) | CMP-SF-G-05 | Experimental server component support and `next-intl/server` |
 | Storefront | Token pages | All storefront tokens | TK-SF, TK-SF-T, TK-SF-A | The copied script and the check |
 
-**Result.** The pilot ran on 2026-10-21 ([record](verification/2026-10-21-fb-19-pilot.md)). Both Storybooks built in CI, the token check and the coverage report ran, every image matched on two CI runs of the same revision, and a planted change failed in CI with the failure images published. Comparing each case with its running screen was NOT_RUN, because no running instance at the pinned revisions was available. The findings are corrected in this version.
+**Result.** The pilot ran on 2026-10-21 ([record](verification/2026-10-21-fb-19-pilot.md)). Both Storybooks built in CI, the token check and the coverage report ran, every comparison passed under the configured tolerance on two CI runs of the same revision, and a planted change failed in CI with the failure images published. Comparing each case with its running screen was NOT_RUN, because no running instance at the pinned revisions was available. The findings are corrected in this version.
 
 **After the pilot,** coverage grows in batches by LIQ-009 section, each small enough to review:
 
@@ -416,7 +416,7 @@ Recorded separately from the repository work, which continues without them.
 | EB-5 | Figma's own variable import is not confirmed to read the token format | The import uses Figma's plugin interface instead | Checked once the seat exists |
 | EB-6 | Chromatic's pricing page does not say whether the free allowance is per account or per project | **Superseded by Q10:** there is no snapshot allowance | — |
 | EB-7 | The backend's two-day rule holds back the newest Storybook release, 10.6.3, until 2026-10-22 | The pilot uses the newest version the rule accepts, and records it | Not a blocker; recorded so an install refusal is not mistaken for a fault |
-| EB-8 | This session's container had the Docker client but no running Docker service | Reference images could not be made here in the pinned image | **Cleared in the pilot:** the Docker service could be started inside the container, the references were made in the pinned images, and CI matched every one |
+| EB-8 | This session's container had the Docker client but no running Docker service | Reference images could not be made here in the pinned image | **Cleared in the pilot:** the Docker service could be started inside the container, the references were made in the pinned images, and every comparison passed in CI |
 | EB-9 | This session's network policy refuses GitHub's artifact storage host | CI artifacts cannot be downloaded into the session, so this session sees only the file paths a failed run's log names, not the images | Not a blocker: references are made with Docker here (EB-8). The owner can allow the host in the project's cloud environment settings |
 
 ## 15. How the framework applies
@@ -439,5 +439,5 @@ SES-001, ENG-001 and ENG-002 apply to this work, as the owner adopted them on 20
 
 - **Reading only, then a small pilot.** Part A was read from the files. Part B ran only on the pilot's eleven components and token pages; what the pilot did not reach (forms, the store provider, read-only permissions, server components that fetch data) is tried by the first batch that needs it.
 - **Counts** of palette colours were found by searching class names, which misses class names built at run time.
-- **Vendor behaviour.** Figma's import formats were not confirmed, and are checked once the seat exists. Screenshots were identical from run to run in the pinned images during the pilot; moving to a new Playwright image needs the same check again (§11.1).
+- **Vendor behaviour.** Figma's import formats were not confirmed, and are checked once the seat exists. Screenshots passed the comparison from run to run in the pinned images during the pilot, under the configured tolerance; moving to a new Playwright image needs the same check again (§11.1).
 - **Automated, not independent.** The same session wrote Part A, proposes Part B and will run the pilot.
