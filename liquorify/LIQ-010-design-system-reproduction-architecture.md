@@ -1,7 +1,7 @@
 ---
 document_id: LIQ-010
 title: Design System Reproduction Architecture
-version: 0.1-draft
+version: 0.2-draft
 status: DRAFT
 owner: unassigned
 approved_by: null
@@ -16,7 +16,7 @@ The implementation plan for reproducing Spree's design systems in Storybook and 
 It has two parts, kept apart on purpose:
 
 - **Part A (§2 to §5) is what Spree already has**, read at backend `1d1f2d4` and storefront `ac53c5b`, the revisions LIQ-008 and LIQ-009 pin. It is fact, with the files named.
-- **Part B (§6 to §14) is the proposed tooling around it.** Nothing in Part B is decided. Each arrangement is tried in the pilot (§13), and this plan is corrected before coverage grows.
+- **Part B (§6 to §14) is the proposed tooling around it.** Nothing in Part B is decided. Each arrangement was tried in the pilot (§13) on 2026-10-21, and version 0.2 corrects this plan with what the pilot found ([record](verification/2026-10-21-fb-19-pilot.md)) before coverage grows.
 
 ## 1. Status of the decisions this plan relies on
 
@@ -122,7 +122,7 @@ The `[country]/[locale]` layout wraps every page in `DocumentShell` (the `html` 
 **Nothing in the storefront ever adds the `dark` class.** No theme provider is mounted, and no code sets the class. Its primitives carry `dark:` styles and its stylesheet declares dark values, but shoppers always see the light theme. Two things do follow the operating system's dark setting:
 
 - the toast container, which passes `useTheme()` from `next-themes` to the toast library and, with no provider, falls back to "system";
-- the focus outline, which turns white under `prefers-color-scheme: dark` while the page stays light.
+- the focus outline of elements that keep the stylesheet's base focus rule, which turns white under `prefers-color-scheme: dark` while the page stays light. The button primitive draws its own outline, so it stays black whatever the setting; the pilot showed this.
 
 LIQ-007 §2 said dark mode works "through `next-themes`", and LIQ-009 §1 said both systems switch themes with a `.dark` class. Both are corrected in the same change as this plan. What follows for the reproduction is in §8.
 
@@ -199,24 +199,27 @@ Stories use Spree's real providers wherever they can run, with the network mocke
 
 | Level | Applied to | What it provides |
 |---|---|---|
-| Every story | All dashboard stories | i18next with the core and application English bundles, fixed to English; `ThemeProvider` driven by Storybook's theme setting; `TooltipProvider` and `ConfirmProvider` |
-| On request | Stories that declare it | A memory router (TanStack Router with in-memory history) at a route the story names; a react-hook-form `FormProvider` with the story's values |
-| Data | Framework, dashboard and seller panel stories | A new `QueryClient` per story, so no cached data leaks between stories; the Admin or Seller client registered for the story, since only one is registered at a time; `AuthProvider`, `PermissionProvider` and `StoreProvider` reading invented data through the mocked API |
+| Every story | All dashboard stories | i18next fixed to English, with the framework's English strings and then the story's panel's laid over them, as each panel does at start-up (a few keys differ between the panels, and only one set is loaded at a time); `ThemeProvider` driven by Storybook's theme setting; `TooltipProvider` and `ConfirmProvider`; the panel's providers in that panel's order (§2.3) |
+| On request | Stories that declare it in `parameters.liquorify` | `route`: a memory router (TanStack Router with in-memory history) at the route the story names. `sellerId`: the framework's `TenantProvider`, as the seller panel's route layout sets it. `capture: 'viewport'`: the visual check captures the whole page (§11.3). Planned for the batches that need it: a react-hook-form `FormProvider` with the story's values |
+| Data | Framework, dashboard and seller panel stories | The panels' shared `queryClient`, cleared when a new story starts, so no cached data leaks between stories (Spree's code imports the shared client, so a new one would not reach it); `panel: 'seller'` registers the Seller client instead of the Admin one, since only one is registered at a time; `signedIn: true` mounts `AuthProvider` and `PermissionProvider`, reading invented data through the mocked API. Planned for the batches that need it: `StoreProvider` |
 
 ### 7.3 Dashboard mocks and fixtures
 
-- **Requests are intercepted in the browser** with Mock Service Worker, the library the SDK packages already test with, through its Storybook addon. Each story lists the handlers it needs.
+- **Requests are intercepted in the browser** with Mock Service Worker, the library the SDK packages already test with, through its Storybook addon's loader for this story format (`msw-storybook-addon/csf3`). The worker file is served from the Storybook's own origin. Each story lists the handlers it needs, and a request under `/api/` that no handler answers is reported as an error.
 - **Handlers are grouped by API resource** (`mocks/handlers/admin/api-keys.ts`), with responses in the API's own `{ data, meta }` shape and Stripe-style prefixed IDs.
 - **Fixtures are invented**, in the style of Spree's sample catalog, and never contain real merchant or shopper data or anything that looks like a real credential.
 - **Fixtures are checked against the SDKs' schemas.** A unit test parses each fixture with the matching schema from `@spree/admin-sdk/zod` or `@spree/seller-sdk/zod`, so a mock that drifts from the API fails the Packages workflow.
-- **Permission sets.** Each data story can run with full permissions or read-only, which reproduces LIQ-008's "without write permission" state.
+- **Permission sets.** Each data story can run with full permissions or read-only, which reproduces LIQ-008's "without write permission" state. The pilot's stories all ran with full permissions; the first component with a read-only state tries the other set.
 
 ### 7.4 Storefront decorators and mocks
 
-- **Every story** gets `NextIntlClientProvider` with the English messages, and Storybook's Next.js framework supplies its own stand-ins for `next/navigation`, `next/link`, `next/image` and request headers.
-- **Server actions are replaced, module by module.** Storybook's module mocking (`sb.mock`) swaps each `src/lib/data/*.ts` module for one returning fixtures, so the real `StoreProvider`, `AuthProvider` and `CartProvider` can run on top. Fixtures are checked against `@spree/sdk/zod`.
-- **Server components** are rendered with the framework's experimental support for them, with `next-intl/server` replaced the same way. A server component that cannot render is recorded (§7.5).
+- **Every story** gets `NextIntlClientProvider` with the English messages, the fixed clock and the UTC time zone, and Storybook's Next.js framework supplies its own stand-ins for `next/navigation`, `next/link`, `next/image` and request headers. A story that sets `parameters.liquorify.storefront` also gets the real `StoreProvider`, `AuthProvider` and `CartProvider`, in the layout's order.
+- **Server actions are replaced, module by module.** Storybook's module mocking (`sb.mock`) replaces each `src/lib/data/*.ts` module a story needs with an automatic mock, and a step before each story gives the mocks their answers from fixtures (`parameters.liquorify.cart`, for example). The real providers then run on top. The pilot needed the cart and customer modules; each batch adds the ones its components import. Fixtures are checked against `@spree/sdk/zod`.
+- **Server components** are rendered with the framework's experimental support for them, with `next-intl/server` replaced the same way: `getTranslations` answers from the English messages. `HeroSection`, an `async` server component, rendered this way in the pilot. A server component that cannot render is recorded (§7.5).
 - **Third-party scripts** (Stripe and Adyen payment fields, Google Tag Manager, Vercel analytics) are never loaded. The components that embed them are recorded with what is shown in their place.
+- **Modules loaded through `next/dynamic` are out of `sb.mock`'s reach,** because a dynamic import bypasses its replacement. The cart drawer loads `ExpressCheckoutButton` (CMP-SF-G-04) that way, and it injects Stripe's script. Storybook's build therefore points that one import at a stand-in that renders nothing, so the cart drawer's stories show no express checkout button, as they would with no payment provider configured. The button itself is recorded as U4.
+- **Fonts.** In Storybook, `next/font/google` links to Google's font files at run time instead of serving its own copies as the Next.js build does. The visual check answers those requests with committed copies of the same Geist files (`visual/fonts/`, with their SIL Open Font Licence), so no request leaves the machine.
+- **Toasts** must be raised after the toast container has mounted, so a toast story raises its toast in an effect, not in a play function.
 
 ### 7.5 Cases that cannot be rendered
 
@@ -235,9 +238,11 @@ Each one is recorded against its component ID in LIQ-009, in the coverage column
 | Surface | Themes | Widths |
 |---|---|---|
 | Dashboard design system, framework, admin dashboard, seller panel | Light and dark | One desktop width, 1280 pixels |
-| Storefront | Light, because shoppers never see the dark theme (§3.3). The toast container and focus states are also captured with the operating system's dark setting emulated | 390 and 1280 pixels |
+| Storefront | Light, because shoppers never see the dark theme (§3.3). Stories tagged `system-dark` are also captured at the desktop width with the operating system's dark setting emulated | 390 and 1280 pixels. Stories tagged `desktop-only`, the token pages, at 1280 only, because they are reference tables rather than shopper layouts |
 
-The storefront's dark values are still reproduced in full: on the token pages and as a Figma mode named "Dark (declared, not shown)". The two things that follow the operating system's dark setting, the toast container and the focus outline, are also captured with that setting emulated, which Playwright supports (`colorScheme: 'dark'`), while the page itself stays light.
+The viewport is 800 pixels high in the backend and 844 in the storefront, the height of the phone width it pairs with. A story captured by its root element is captured in full however tall it is; a viewport capture (§11.3) shows the viewport only.
+
+The storefront's dark values are still reproduced in full: on the token pages and as a Figma mode named "Dark (declared, not shown)". Things that follow the operating system's dark setting are tagged `system-dark` and captured with that setting emulated, which Playwright supports (`colorScheme: 'dark'`), while the page itself stays light. In the pilot that is the toast container. The base focus outline (§3.3) is tagged too when the batch that covers links and form fields reaches it; the button's own outline does not follow the setting, so its focus story is captured in light only.
 
 ## 9. Token preparation and the CSS-to-Figma mapping
 
@@ -246,10 +251,10 @@ The storefront's dark values are still reproduced in full: on the token pages an
 - **One script extracts tokens from a stylesheet.** It uses only Node, removes CSS comments first, and records each token's name, block, light and dark values, value form, LIQ-009 ID and source line.
 - **It writes one file per system:** the dashboard's tokens, the storefront's tokens and the email branding defaults, read from `spree/core/app/models/spree/emails/branding.rb`.
 - **The format follows the Design Tokens Community Group format** (`$value`, `$type`, `$description`), with Liquorify's own fields (the ID, the source, the value form and how a derived value was computed) under `$extensions`. Light and dark are modes within the dashboard and storefront files; the email file has one.
-- **The storefront keeps a copy of the script,** unchanged, because the two repositories share no code. Each batch's record compares the two copies.
-- **IDs come from LIQ-009, not from the order of the file.** LIQ-009 lives only in the backend, so a small generated list of IDs and names sits beside each repository's stories and token files, and is updated in the same change as LIQ-009. The storefront's copy holds only its own IDs.
-- **A check mode** regenerates the token file and fails if it differs, if the stylesheet has a token the ID list lacks, or if the list names a token the stylesheet no longer has. It runs in each repository's Storybook workflow.
-- **Palette colours** (§3.4) are resolved from Tailwind's own theme file at the installed version, and listed with the colours the token files reference and the component class names use. LIQ-009 gives them IDs in the same change: TK-TW-D for the dashboard and TK-TW-S for the storefront.
+- **The storefront keeps unchanged copies of four scripts,** because the two repositories share no code: the token extraction, the coverage report, the reference copy script and the small static server the visual check uses. Each script says that the copy exists, so a change is made in the backend first. Each batch's record compares the copies byte for byte.
+- **IDs come from LIQ-009, not from the order of the file.** LIQ-009 lives only in the backend, so a small generated list of IDs and names sits beside each repository's stories and token files. The backend's `inventory:ids` script writes it from LIQ-009, in the same change as LIQ-009. The storefront's copy holds only its own IDs.
+- **A check mode** regenerates the token file and fails if it differs, if the stylesheet has a token the ID list lacks, or if the list names a token the stylesheet no longer has. In the backend it also fails if the ID list no longer matches LIQ-009. It runs in each repository's Storybook workflow.
+- **Palette colours** (§3.4) are resolved from Tailwind's own theme file at the installed version, and listed with the colours the token files reference and the component class names use. LIQ-009 gives them IDs in the same change: TK-TW-D for the dashboard (48 colours) and TK-TW-S for the storefront (42 colours, plus white and black).
 
 ### 9.2 Mapping rules
 
@@ -275,10 +280,10 @@ The storefront's dark values are still reproduced in full: on the token pages an
 
 ## 10. Traceability to the inventory IDs
 
-- **Stories carry their IDs as tags**, for example `tags: ['CMP-DUI-P-07']`. Tags appear in the built Storybook's index, so a script can count them. A story for a component in a group (CMP-DA-G, CMP-SP-G, CMP-SF-G) carries the group's ID and names the file in its title.
+- **Stories carry their IDs as tags**, for example `tags: ['CMP-DUI-P-07']`. Tags appear in the built Storybook's index, so a script can count them. A story for a component in a group (CMP-DA-G, CMP-SP-G, CMP-SF-G) carries the group's ID and names the file in the last part of its title: "API key table" covers `api-key-table.tsx`, and "Cart drawer" covers `CartDrawer.tsx`, ignoring case, spaces and punctuation. A token page carries its family's ID (`TK-DUI`), which covers every token in that family.
 - **Story names are the states**, such as "Default", "Disabled", "Loading", "Empty", "Error", "Read-only" and "Open". The list of stories for an ID is therefore the list of states FB-20 turns into Figma component properties.
-- **A coverage report** reads the built index, compares it with the repository's ID list (§9.1) and the recorded reasons (§7.5), and lists every ID with a story, a reason, or neither. It runs in the Storybook workflow and its output goes into each batch's record.
-- **LIQ-009 gains two columns:** "Storybook", with the story's title or a reason code, and "Figma", filled in by FB-20. LIQ-008 gains a "Figma" column for FB-21.
+- **A coverage report** reads the built index, compares it with the repository's ID list (§9.1), and lists each section's covered and total counts and every covered component with its story and states. It runs in the Storybook workflow, writes to the run's summary page, and its output goes into each batch's record. It fails only on a tag that names no inventory ID, which is a typo; components without stories are expected until every batch is done. The recorded reasons (§7.5) are added to it once the first batch records one.
+- **LIQ-009 gains two columns:** "Storybook", with the story's title or a reason code, and "Figma", filled in by FB-20. LIQ-008 gains a "Figma" column for FB-21. Each batch fills its own rows; the pilot leaves the columns to the first batch, so LIQ-009 is not edited twice for the same components.
 - **Reference images** are named by story and mode (`<story id>/<mode>.png`), so each traces to its inventory ID through the story's tags.
 - **Figma components** take the code's name, list their states as variant properties, and carry the ID, the source path and the story's title in their description. Code Connect is deferred (Q4), so the link is by name and description only.
 - **FB-21's frames** are named with their screen IDs, as LIQ-004 already requires.
@@ -292,7 +297,8 @@ The owner decided the requirements on 2026-10-21 (Q10, in [LIQ-007 §4](LIQ-007-
 - **One container image per repository.** CI runs the comparisons inside Playwright's own container image for the Playwright version that repository already uses for its browser tests: 1.64.1 in the backend and 1.60.0 in the storefront. The image is pinned by its digest, so its browser and fonts cannot change underneath the references.
 - **Chromium only,** headless, at a device scale factor of 1.
 - **Fixed browser settings:** the viewport of the mode (§8), the `en-US` locale, the UTC time zone, reduced motion, and the colour scheme the mode asks for.
-- **Fonts** are the ones the stylesheets load. The dashboard's Geist comes from its font packages, so it is the same everywhere. The storefront's Geist comes through Next.js's font loader, which the pilot checks inside Storybook.
+- **Fonts** are the ones the stylesheets load. The dashboard's Geist comes from its font packages, so it is the same everywhere. The storefront's Geist comes through Next.js's font loader, which in Storybook links to Google's files; the test serves committed copies of them instead (§7.4).
+- **Where images are made.** Locally, `pnpm visual` and `pnpm visual:update` run the same pinned image through Docker. In the pilot, the reference images were made that way, and every one matched in CI on GitHub's runners with no pixel different.
 
 ### 11.2 Deterministic sample data
 
@@ -305,24 +311,24 @@ The owner decided the requirements on 2026-10-21 (Q10, in [LIQ-007 §4](LIQ-007-
 
 1. Reads the built Storybook's story index (`index.json`) and makes one test for each story and each mode it is captured in.
 2. Opens the story on its own (`iframe.html?id=<story id>`), with the theme the mode sets.
-3. Waits until Storybook reports the story rendered, the fonts have loaded and no request is pending.
-4. Takes a screenshot of the story's root element, with animations stopped and the text caret hidden. A story of an open popup or dialog takes the whole viewport instead, because Base UI and Radix render popups outside the root.
+3. Waits until Storybook's render phase reports the story finished, after its play function, and fails the test if the story errored. Then it waits for the fonts and for no request to be pending.
+4. Takes a screenshot of the story's root element, with animations stopped and the text caret hidden. A story of an open popup or dialog sets `capture: 'viewport'` and takes the whole viewport instead, because Base UI and Radix render popups outside the root.
 5. Compares it with the committed reference using Playwright's own comparison. It starts strict: Playwright's default colour tolerance per pixel, and no pixel allowed to differ beyond it. A looser setting needs a recorded reason.
 
 Reference images live in `visual/__screenshots__/<story id>/<mode>.png`, beside the test.
 
 ### 11.4 Making and changing reference images
 
-CI never writes, accepts or commits a reference image. Its configuration makes a missing reference fail the test rather than create it.
+CI never writes, accepts or commits a reference image. Its configuration makes a missing reference fail the test rather than create it. In that mode Playwright saves no image at all for a missing reference, so the test saves a proposed one itself: it waits for two identical screenshots in a row, attaches the image to the report, and leaves it in the failure artifact as `proposed/<story id>/<mode>.png`.
 
 - **With Docker:** a person runs the update script, which runs the same pinned image with Playwright's update option and writes the new images into the working copy. The images are committed in a pull request.
-- **Without Docker:** a failed CI run's artifact holds the actual images. A person downloads them, looks at them, and copies them into place with a small script that only moves files. They are committed in a pull request.
+- **Without Docker:** a failed CI run's artifact holds the actual images of changed stories and the proposed images of new ones. A person downloads them, looks at them, and copies them into place with `pnpm visual:copy <folder>`, which only copies files. They are committed in a pull request.
 - **Either way,** the pull request lists the references it adds or changes and why. GitHub shows each changed image side by side, and the owner reviews them there before merging.
 
 ### 11.5 CI workflow and artifacts
 
 - **One workflow per repository,** `.github/workflows/storybook.yml`. It runs on pull requests that change stories, mocks, the visual check, Storybook configuration, the components or stylesheets they cover, or the lockfile, and on request.
-- **Steps:** install, build Storybook, run the token check and the coverage report, then run the Playwright comparisons in the pinned image.
+- **Steps:** install (and, in the backend, build the two SDKs the stories import from their built files), build Storybook, run the token check and the coverage report, then run the Playwright comparisons in the pinned image. Both workflows use Node 22, the version the backend's workflows use; the storefront's own CI stays on Node 20.
 - **Artifacts:**
   - the HTML comparison report, from every run, kept 14 days;
   - the failure images (reference, actual and difference), only when a comparison fails, kept 14 days.
@@ -334,7 +340,7 @@ CI never writes, accepts or commits a reference image. Its configuration makes a
 ### 11.6 Cost and size
 
 - **No account and no allowance.** CI minutes are free while the repositories are public.
-- **Repository size.** At about 25 KB a component screenshot, the first full set is roughly 50 MB across both repositories: about 1,520 backend images (379 files, two stories each, two themes) and about 400 storefront images (101 files, two stories each, two widths, light), plus a few with the dark system setting. These are estimates; the pilot measures the real size.
+- **Repository size.** The pilot measured it: a component image averages about 8 KB in the backend and 7 KB in the storefront, and a token page about 270 KB. The pilot's 82 backend images take 3.3 MB and its 38 storefront images 1.3 MB, most of it token pages. At those sizes the first full set is roughly 20 MB across both repositories, not the 50 MB first estimated: about 1,520 backend images (379 files, two stories each, two themes) and about 400 storefront images (101 files, two stories each, two widths, light), plus a few with the dark system setting and the token pages.
 - **Growth.** Each accepted change adds its new images to the history. If one repository's reference images pass 200 MB of history, moving them to Git Large File Storage is proposed as a separate decision.
 
 ## 12. Update and verification workflow
@@ -371,9 +377,12 @@ A small batch from each system, chosen to try every arrangement above once befor
 | Dashboard | Seller panel component | `balance-summary` (`finance/`) | CMP-SP-G-01 | The Seller client, money formatting |
 | Dashboard | Token pages | All dashboard tokens | TK-DUI, TK-DUI-T, TK-DUI-A | The extracted file, the check and live values |
 | Storefront | Primitive | `button` | CMP-SF-P-04 | The stylesheet and both widths |
+| Storefront | Primitive that follows the system dark setting | `sonner` (the toast container) | CMP-SF-P-21 | The emulated dark setting, and a popup outside the story's root. Added during the pilot, when the button's focus outline turned out not to follow the setting |
 | Storefront | Client component with context and server actions | `CartDrawer` (`cart/`) | CMP-SF-G-03 | Module mocking, the real cart context, translations |
 | Storefront | Server component | `HeroSection` (`home/`) | CMP-SF-G-05 | Experimental server component support and `next-intl/server` |
 | Storefront | Token pages | All storefront tokens | TK-SF, TK-SF-T, TK-SF-A | The copied script and the check |
+
+**Result.** The pilot ran on 2026-10-21 ([record](verification/2026-10-21-fb-19-pilot.md)). Both Storybooks built in CI, the token check and the coverage report ran, every image matched on two CI runs of the same revision, and a planted change failed in CI with the failure images published. Comparing each case with its running screen was NOT_RUN, because no running instance at the pinned revisions was available. The findings are corrected in this version.
 
 **After the pilot,** coverage grows in batches by LIQ-009 section, each small enough to review:
 
@@ -396,12 +405,13 @@ Recorded separately from the repository work, which continues without them.
 |---|---|---|---|
 | EB-1 | No Chromatic account, projects or tokens (OA-4) | **Superseded by Q10:** Chromatic is no longer used, so this blocks nothing | — |
 | EB-2 | No suitable Figma seat. The existing Full seat is on a plan Figma restricts to non-commercial use (OA-5) | No variables, styles or components in Figma; the token files wait for import | The owner buys the seat after seeing the billing choice (Q4) |
-| EB-3 | Storybook's support for server components is experimental | Some storefront server components may not render | The pilot shows which; the rest are recorded as U2 |
+| EB-3 | Storybook's support for server components is experimental | Some storefront server components may not render | Narrowed by the pilot: `HeroSection`, an `async` server component that reads translations, rendered. Server components that fetch data are tried in their batches; any that cannot render are recorded as U2 |
 | EB-4 | Chromatic documents no way to emulate the operating system's dark setting | **Superseded by Q10:** Playwright emulates it (§8) | — |
 | EB-5 | Figma's own variable import is not confirmed to read the token format | The import uses Figma's plugin interface instead | Checked once the seat exists |
 | EB-6 | Chromatic's pricing page does not say whether the free allowance is per account or per project | **Superseded by Q10:** there is no snapshot allowance | — |
 | EB-7 | The backend's two-day rule holds back the newest Storybook release, 10.6.3, until 2026-10-22 | The pilot uses the newest version the rule accepts, and records it | Not a blocker; recorded so an install refusal is not mistaken for a fault |
-| EB-8 | This session's container has the Docker client but no running Docker service | Reference images cannot be made here in the pinned image | References are made by CI and committed from its artifacts (§11.4); a person with Docker can also make them locally |
+| EB-8 | This session's container had the Docker client but no running Docker service | Reference images could not be made here in the pinned image | **Cleared in the pilot:** the Docker service could be started inside the container, the references were made in the pinned images, and CI matched every one |
+| EB-9 | This session's network policy refuses GitHub's artifact storage host | CI artifacts cannot be downloaded into the session, so this session sees only the file paths a failed run's log names, not the images | Not a blocker: references are made with Docker here (EB-8). The owner can allow the host in the project's cloud environment settings |
 
 ## 15. How the framework applies
 
@@ -413,7 +423,7 @@ SES-001, ENG-001 and ENG-002 apply to this work, as the owner adopted them on 20
   - Accessible and Inclusive Product Design (PD-11) and Accessibility Verification (QV-09) are not measured yet, because Q3 and Q9 are open.
 - **Work items.** FB-19 and FB-20 carry ENG-001's fields in [LIQ-004](LIQ-004-foundation-backlog.md#spree-baseline-reproduction-work-items): outcome, scope, completion criteria tied to the IDs, dependencies and risk. Both are Protected where they add dependencies, CI steps, accounts or seats.
 - **Stages** ([ENG-001 §3](framework/ENG-001-engineering-charter.md#3-iterative-sdlc)). This plan is "design and plan". The pilot and each batch are "implement and integrate", then "verify and review".
-- **Evidence** ([ENG-002 §6](framework/ENG-002-documentation-system.md#verification-record)). Each batch ends with a verification record. Controls are described by their state ([SES-001 §4](framework/SES-001.md#4-assess-only-what-the-decision-needs)): the visual check is "Configured" when its workflow exists, and "Verified" only after CI runs have compared real references and caught a planted difference.
+- **Evidence** ([ENG-002 §6](framework/ENG-002-documentation-system.md#verification-record)). Each batch ends with a verification record. Controls are described by their state ([SES-001 §4](framework/SES-001.md#4-assess-only-what-the-decision-needs)): the visual check is "Configured" when its workflow exists, and "Verified" only after CI runs have compared real references and caught a planted difference. After the pilot it is Verified for the pilot's stories in both repositories; each batch's record repeats the comparison for its own stories.
 - **Not applied, and why:**
   - **Independent review.** The owner is the only reviewer, and automated review is labelled as such ([LIQ-001 §2](LIQ-001-project-profile.md)).
   - **The release and operation stages.** Nothing is deployed. The built Storybooks and the comparison reports are CI artifacts, not releases.
@@ -421,7 +431,7 @@ SES-001, ENG-001 and ENG-002 apply to this work, as the owner adopted them on 20
 
 ## 16. Limitations
 
-- **Reading only.** Part A was read from the files, and nothing in Part B has run yet. The pilot is the first test of it.
+- **Reading only, then a small pilot.** Part A was read from the files. Part B ran only on the pilot's eleven components and token pages; what the pilot did not reach (forms, the store provider, read-only permissions, server components that fetch data) is tried by the first batch that needs it.
 - **Counts** of palette colours were found by searching class names, which misses class names built at run time.
-- **Vendor behaviour.** Figma's import formats were not confirmed, and are checked once the seat exists. Whether screenshots are identical from run to run in the pinned container is checked in the pilot.
+- **Vendor behaviour.** Figma's import formats were not confirmed, and are checked once the seat exists. Screenshots were identical from run to run in the pinned images during the pilot; moving to a new Playwright image needs the same check again (§11.1).
 - **Automated, not independent.** The same session wrote Part A, proposes Part B and will run the pilot.

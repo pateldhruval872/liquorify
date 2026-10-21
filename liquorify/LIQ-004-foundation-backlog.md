@@ -1,7 +1,7 @@
 ---
 document_id: LIQ-004
 title: Foundation Backlog
-version: 0.5-draft
+version: 0.6-draft
 status: DRAFT
 owner: unassigned
 approved_by: null
@@ -213,11 +213,12 @@ Rules for all three:
 
 - **Status.** In progress since 2026-10-21, at the owner's instruction. The pull requests are, in order:
   1. this plan ([LIQ-010](LIQ-010-design-system-reproduction-architecture.md)), with the corrections the inventory checks found;
-  2. the backend pilot: the Storybook package, its providers and mocks, seven representative stories, the dashboard token file and its check, the Playwright visual check with its first reference images, and the advisory workflow;
-  3. the storefront pilot: the same for the storefront, with three representative stories;
-  4. then batches by LIQ-009 section, each small enough to review ([LIQ-010 §13](LIQ-010-design-system-reproduction-architecture.md#13-pilot)).
+  2. the backend pilot ([#6](https://github.com/pateldhruval872/liquorify/pull/6)): the Storybook package, its providers and mocks, seven representative components, the dashboard token file and its check, the Playwright visual check with its first reference images, and the advisory workflow;
+  3. the storefront pilot ([storefront #15](https://github.com/pateldhruval872/liquorify-storefront/pull/15)): the same for the storefront, with four representative components (the button, the toast container, the cart drawer and the home page hero);
+  4. the pilot's [verification record](verification/2026-10-21-fb-19-pilot.md) and the corrections it found, in LIQ-010 0.2;
+  5. then batches by LIQ-009 section, each small enough to review ([LIQ-010 §13](LIQ-010-design-system-reproduction-architecture.md#13-pilot)).
 
-  The batches start only once the pilot works, and this plan is corrected first if it does not.
+  The batches start only once the pilot works, and this plan is corrected first if it does not. The pilot worked on 2026-10-21, except the comparison with running screens, which was NOT_RUN; the batches start once the owner has reviewed the pilot's pull requests.
 - **Outcome.** Every existing component in LIQ-009 is documented in Storybook with its meaningful variants and states, and every story has a committed reference screenshot that Playwright compares on pull requests.
 - **In scope.**
   - One Storybook in the backend workspace (React with Vite) for `@spree/dashboard-ui` (CMP-DUI-P, CMP-DUI-C), `@spree/dashboard-core` (CMP-CORE, its shared pages and product form modules), and the dashboard's and seller panel's components (CMP-DA-G, CMP-SP-G), with stand-in providers and mocked API responses.
