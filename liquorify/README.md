@@ -14,7 +14,7 @@ updated: 2026-10-21
 This folder is the one canonical home for shared Liquorify engineering documentation. It serves both Liquorify repositories:
 
 - [`pateldhruval872/liquorify`](https://github.com/pateldhruval872/liquorify) (this repository, public): commerce backend, admin dashboard and shared packages.
-- [`pateldhruval872/liquorify-storefront`](https://github.com/pateldhruval872/liquorify-storefront) (private): the customer storefront. It points here and keeps only its own local rules.
+- [`pateldhruval872/liquorify-storefront`](https://github.com/pateldhruval872/liquorify-storefront) (public since 2026-10-21): the customer storefront. It points here and keeps only its own local rules.
 
 **Status.** On 2026-10-21 the owner adopted the three framework documents as the working process for Liquorify-owned work, with the project profile's exceptions (decision D1 in [LIQ-001 §7](LIQ-001-project-profile.md#7-decisions-needed-to-adopt-the-foundation)). Unresolved product and architecture decisions stay proposed, and the adoption marks no capability satisfied. Every document here still carries DRAFT status, because how acceptance is recorded is decision D5, which is open.
 
@@ -39,6 +39,7 @@ Records of what was run, on which revision, with its result and limitations ([EN
 |---|---|---|---|
 | 2026-10-21 | [FB-02 pull request checks](verification/2026-10-21-fb-02-pull-request-checks.md) | FB-02 | BLOCKED: no workflow started on the pull request |
 | 2026-10-21 | [FB-02 first workflow run](verification/2026-10-21-fb-02-first-workflow-run.md) | FB-02 | PASS: all 29 pull request jobs passed. Codecov refused the coverage uploads because no token is set |
+| 2026-10-21 | [FB-02 merge push and branch protection](verification/2026-10-21-fb-02-merge-push-and-protection.md) | FB-02 | PASS: the merge push passed with all six release jobs skipped, and both saved rulesets match the agreed settings. NOT_RUN: the direct-push refusal, by the owner's instruction |
 
 ## Supplied framework sources
 
