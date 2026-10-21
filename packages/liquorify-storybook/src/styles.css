@@ -8,3 +8,15 @@
 @source "../../dashboard-core/src";
 @source "../../dashboard/src";
 @source "../../seller-dashboard/src";
+
+/* Both panels render their pages, sheets and dialogs on the card colour (the
+ * sidebar inset in `dashboard-ui/src/ui/sidebar.tsx`), not on the page grey
+ * the design system gives the body. */
+body {
+  @apply bg-card;
+}
+
+/* A story set to a page column is captured at that column's width. */
+#storybook-root:has([data-story-column]) {
+  width: fit-content;
+}

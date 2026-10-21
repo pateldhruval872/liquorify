@@ -17,7 +17,7 @@ const meta = {
   tags: ['CMP-DA-G-01'],
   args: { keys: secretKeys, loading: false, onEdit: () => {} },
   parameters: {
-    liquorify: { signedIn: true },
+    liquorify: { signedIn: true, column: 'settings' },
     msw: { handlers: { session: adminSession(), permissions } },
   },
 } satisfies Meta<typeof SecretApiKeyTable>
