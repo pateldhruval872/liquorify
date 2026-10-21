@@ -1,3 +1,5 @@
+> **Liquorify:** this repository is Liquorify's commerce backend, built on Spree Commerce. Liquorify engineering documentation starts at [`liquorify/README.md`](liquorify/README.md). The rest of this file is upstream Spree's README.
+
 <p>
   <a href="https://spreecommerce.org">
     <img src="https://spreecommerce.org/wp-content/themes/spree/images/logo.svg" alt="Spree Commerce open source headless eCommerce platform for B2B, Multi-seller Marketplace, cross-border eCommerce, multi-tenant eCommerce" width="250" />

@@ -1,5 +1,9 @@
 # Spree Commerce — Development Rules
 
+## Liquorify
+
+This repository is Liquorify's commerce backend, built on Spree. Shared Liquorify engineering documentation (the draft framework, project profile, baseline, Spree adoption record and backlog) lives in [`liquorify/README.md`](liquorify/README.md). Read it before Liquorify work. The Spree rules below still govern code in Spree's areas. `liquorify/LIQ-001-project-profile.md` §6 proposes which of these rules become Liquorify's default baseline and lists the exceptions where they conflict with Liquorify's situation; nothing there overrides these rules until it is adopted.
+
 ## Plans & Architecture Decisions
 
 All feature plans live in `docs/plans/` using the template at `docs/plans/_template.md`. Never create plans elsewhere.
