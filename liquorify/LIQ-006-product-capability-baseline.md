@@ -61,9 +61,9 @@ This baseline records everything Spree already offers, at the pinned revisions o
 |---|---|---|---|
 | Admin dashboard | `packages/dashboard`, `@spree/dashboard-core`, `@spree/dashboard-ui` | Store staff | 95 screens and 5 overlays (DA-…) |
 | Seller panel | `packages/seller-dashboard` | Sellers | 22 screens and 2 overlays (SP-…) |
-| Storefront: shop, account and checkout | `liquorify-storefront` | Shoppers | 19 screens (SF-SHOP, SF-ACC, SF-CHK) and 5 overlays |
+| Storefront: shop, account and checkout | `liquorify-storefront` | Shoppers | 19 screens (SF-SHOP, SF-ACC, SF-CHK), 2 system pages (SF-SYS) and 5 overlays |
 | Storefront: wholesale portal | `liquorify-storefront`, `(wholesale)` routes | Business buyers | 6 screens (SF-WHL), on only when wholesale is switched on |
-| Emails | `spree/emails`, `spree/core`, the storefront's `src/lib/emails/` | Customers, stores, sellers, staff | 26 emails (EM-…) |
+| Emails | `spree/emails`, `spree/core`, the storefront's `src/lib/emails/` | Customers, stores, sellers, staff | 27 emails (EM-…) |
 | Store API, Admin API, Seller API | `spree/api`: 56, 159 and 43 controllers | Storefronts, integrations, the dashboards | None |
 | OAuth and the AI agent server | `spree/api` OAuth controllers; `spree/mcp` | AI agents and OAuth clients | DA-SET-07, DA-SET-27, DA-SET-32 |
 | Webhooks | Outbound endpoints (`Spree::WebhookEndpoint`); inbound provider webhooks for payments, fulfilments and payouts | Integrations | DA-SET-28, DA-SET-29 |
@@ -77,11 +77,11 @@ This baseline records everything Spree already offers, at the pinned revisions o
 
 | Spree feature | Where | Screens | Who | Disposition | Note |
 |---|---|---|---|---|---|
-| Stores: the boundary that holds a store's products, orders, settings and staff roles | `Spree::Store`; `docs/developer/core-concepts/stores.mdx` | DA-SHELL-01, DA-OVL-01 | Staff | Reuse | Option A uses one Spree store per merchant, as a direction for technical validation only (specification V1). Shopper accounts do not respect this boundary today (ISO-1 to ISO-5) |
+| Stores: the boundary that holds a store's products, orders, settings and staff roles | `Spree::Store`; `docs/developer/core-concepts/stores.mdx` | DA-SHELL-01, DA-SHELL-02, DA-OVL-01 | Staff | Reuse | Option A uses one Spree store per merchant, as a direction for technical validation only (specification V1). Shopper accounts do not respect this boundary today (ISO-1 to ISO-5) |
 | First-run setup, which installs the platform and creates its first store | `setup.tsx`; `Spree::Stores::ProvisionDefaults` | DA-SETUP-01 | Platform installer | Reuse | It stays the installation path, not merchant sign-up (F1) |
 | Store provisioning: seeding a new store with its defaults | `Spree::Seeds::StoreResources`, `Spree::Stores::ProvisionDefaults` | — | — | Extend | Onboarding (F2) would be a third caller, which Spree's 6.0 plan rules out. That needs an explicit decision |
 | Getting Started checklist with six setup tasks | `getting-started.tsx`; `Spree.store_setup_tasks` | DA-HOME-02 | Staff | Extend | F4 adds three tasks. The tax task counts every store's rates today (ISO-6) |
-| Store settings: name, admin language, time zone, units, storefront access and address, order numbers, payment capture | `Spree::Store` preferences | DA-SET-02 | Staff | Reuse | — |
+| Store settings: name, admin language, time zone, units, storefront access and address, order numbers, payment capture | `Spree::Store` preferences | DA-SET-01, DA-SET-02 | Staff | Reuse | — |
 | Channels, with per-channel overrides, a default catalog, fulfilment locations and order routing rules | `Spree::Channel`, `Spree::OrderRoutingRule`; `channels.mdx` | DA-SET-08 | Staff | Not needed yet | — |
 | Markets: geography, currency and language bundled into selling regions | `Spree::Market`; `markets.mdx` | DA-SET-11 | Staff, shoppers | Unknown | Depends on launch geography, which is unresolved |
 | Languages and translated content | `Spree::Locale`, translation pages; storefront messages in 5 languages, checked for parity (C1) | DA-PRD-06, DA-OVL-01, SF-OVL-04 | Staff, shoppers | Unknown | Which languages Liquorify supports is not decided |
@@ -124,12 +124,13 @@ This baseline records everything Spree already offers, at the pinned revisions o
 | Product search and filters; optional Meilisearch provider | Store API list endpoints; `spree/providers/meilisearch`; storefront search and filters | SF-SHOP-02, SF-OVL-03 | Shoppers | Reuse | Meilisearch is optional and needs its own service |
 | Imports and exports as CSV | `Spree::Import`, `Spree::Export` | DA-OVL-05, DA-SET-31, EM-S-05, EM-S-06 | Staff | Reuse | Export after a store closes depends on retention, which is unresolved |
 | Search-friendly slugs for products, categories and stores | `slug` attributes; `slugs.mdx` | — | Shoppers | Reuse | — |
+| Storefront home, header, footer and menus, with the error and not-found pages | Storefront `(storefront)/page.tsx`, `components/home/`, `components/layout/`, `global-error.tsx` | SF-SHOP-01, SF-OVL-01, SF-SYS-01, SF-SYS-02 | Shoppers | Reuse | Their look follows the storefront's tokens; Liquorify or merchant branding is FB-14, deferred |
 
 ## 6. Cart, checkout and orders
 
 | Spree feature | Where | Screens | Who | Disposition | Note |
 |---|---|---|---|---|---|
-| Cart and guest checkout, with stock held during checkout | `Spree::Cart`, `Spree::StockReservation` | SF-OVL-02, SF-SHOP-05, SF-CHK-01 to SF-CHK-03 | Shoppers | Extend | F4 refuses the catalog and checkout while a store is not trading. Whether guest checkout fits age checks is part of an unresolved decision |
+| Cart and guest checkout, with stock held during checkout | `Spree::Cart`, `Spree::StockReservation` | SF-OVL-02, SF-OVL-05, SF-SHOP-05, SF-CHK-01 to SF-CHK-03 | Shoppers | Extend | F4 refuses the catalog and checkout while a store is not trading. Whether guest checkout fits age checks is part of an unresolved decision |
 | Express checkout buttons | `ExpressCheckoutButton` | SF-CHK-01 | Shoppers | Unknown | Follows the payment provider decision |
 | Orders, with separate payment and fulfilment statuses | `Spree::Order`; `orders.mdx` | DA-ORD-01, DA-ORD-04 | Staff, shoppers | Reuse | — |
 | Draft orders created by staff, and payment links | Draft order pages; `payment_link_email` | DA-ORD-02, DA-ORD-03, EM-C-03 | Staff | Reuse | — |
@@ -184,7 +185,7 @@ This baseline records everything Spree already offers, at the pinned revisions o
 |---|---|---|---|---|---|
 | Sellers: invitation, onboarding, approval, rejection, suspension | `Spree::Seller`; `sellers.mdx` | DA-SEL-01, DA-SEL-02, EM-O-03 to EM-O-05 | Staff, sellers | Not needed yet | The specification gives each merchant its own store and does not use a marketplace. Modelling merchants as sellers would be a different tenancy option, which was not evaluated |
 | Seller requirements and onboarding | `Spree::SellerRequirement`, `Spree::SellerRequirementSubmission` | DA-SET-23, SP-ONB-01 | Staff, sellers | Not needed yet | The same |
-| Seller panel: products, orders, earnings, payouts, profile, team and settings | `packages/seller-dashboard` | SP-… (22 screens) | Sellers | Not needed yet | The same |
+| Seller panel: products, orders, earnings, payouts, profile, team and settings | `packages/seller-dashboard` | SP-AUTH-01 to SP-AUTH-04, SP-SHELL-01, SP-HOME-01, SP-ONB-01, SP-PRD-01 to SP-PRD-03, SP-ORD-01, SP-ORD-02, SP-FIN-01 to SP-FIN-03, SP-PRF-01, SP-SET-01 to SP-SET-06, SP-OVL-01, SP-OVL-02 | Sellers | Not needed yet | The same |
 | Product submissions and review | `Spree::ProductSubmission` | SP-PRD-03, DA-PRD-03 | Sellers, staff | Not needed yet | — |
 | Orders split by seller into order groups | `Spree::OrderGroup` | EM-C-04, EM-O-02, SP-ORD-01 | Shoppers, sellers | Not needed yet | — |
 | Commissions | `Spree::CommissionRate`; `commissions.mdx` | DA-SEL-03 | Staff | Not needed yet | — |
@@ -200,7 +201,7 @@ This baseline records everything Spree already offers, at the pinned revisions o
 | Reports: built-in and saved, with CSV export | `Spree::SavedReport`; `reporting.mdx` | DA-RPT-01 to DA-RPT-03, EM-S-05 | Staff | Reuse | Customer order totals appear to be summed across stores (ISO-7, read in code, not tested) |
 | Customer emails in Liquid and MJML, with a template editor and per-store colours and font | `spree/emails`; `Spree::Stores::EmailBranding` | DA-SET-03 to DA-SET-05, EM-C-01 to EM-C-11 | Staff, shoppers | Reuse | Liquorify's own emails (verification, billing) would be new templates, and wait with F1 and F3 |
 | Store, seller and staff emails | `spree/emails`, `spree/core` mailers | EM-O-01 to EM-O-05, EM-S-01 to EM-S-07 | Stores, sellers, staff | Reuse | — |
-| Storefront emails sent from webhooks | Storefront `api/webhooks/spree`, `src/lib/emails/` | EM-SF-01 to EM-SF-04 | Shoppers | Unknown | Whether the storefront or Spree sends customer emails is not decided; both exist |
+| Storefront emails sent from webhooks | Storefront `api/webhooks/spree`, `src/lib/emails/`; previews at `/dev/emails` in development | EM-SF-01 to EM-SF-04, SF-DEV-01, SF-DEV-02 | Shoppers | Unknown | Whether the storefront or Spree sends customer emails is not decided; both exist |
 | Store, Admin and Seller APIs with TypeScript kits | `spree/api`; `packages/sdk`, `admin-sdk`, `seller-sdk` | — | Storefronts, integrations | Reuse | — |
 | Dashboard plugins, slots and registries | `@spree/dashboard-core`; `packages/dashboard-plugin-example` | Slots in LIQ-008 | Developers | Reuse | The specification proposes a Liquorify plugin package (P3), which waits with its features |
 | Hosted dashboards on the Rails server | `spree/dashboard` | — | Installers | Unknown | Depends on hosting (FB-16) |

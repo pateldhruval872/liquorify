@@ -18,7 +18,7 @@ Every screen Spree already ships, at the pinned revisions, with a stable ID, its
 ## 1. Scope, method and counts
 
 - **Revisions.** Backend `liquorify` at `1d1f2d4` and storefront `liquorify-storefront` at `ac53c5b`, the revisions LIQ-006 pins.
-- **Method.** Reading only, on 2026-10-21: every route file, the navigation definitions, the permission catalog, the page components and the browser test titles. Nothing was run for this inventory. Workflows come from browser test titles and the actions on each page. A workflow with a browser test was verified once in CI for the dashboard (LIQ-003 evidence V2); the storefront's browser tests have not run (LIQ-003 QV-20).
+- **Method.** Reading only, on 2026-10-21: every route file, the navigation definitions, the permission catalog, the page components and the browser test titles. Nothing was run for this inventory. The dashboard's route folder also holds one test file, `_authenticated/index.test.tsx`, which is not counted. Workflows come from browser test titles and the actions on each page. A workflow with a browser test was verified once in CI for the dashboard (LIQ-003 evidence V2); the storefront's browser tests have not run (LIQ-003 QV-20).
 - **What counts as a screen.** A route a person can land on that renders its own page. Layout files and redirects from old addresses are counted but get no screen ID. Sheets and dialogs opened from a screen belong to that screen; the app-wide ones are overlays with their own IDs.
 - **IDs are permanent.** A screen keeps its ID if its route changes. A screen removed upstream keeps its row, marked as removed. A new screen takes the next number in its area.
 
@@ -26,8 +26,8 @@ Every screen Spree already ships, at the pinned revisions, with a stable ID, its
 |---|---|---|---|---|---|---|
 | Admin dashboard (`packages/dashboard`) | 106 | 6 | 5 | 95 | 5 | 412 titles in 78 spec files, including `first-run/setup.spec.ts` |
 | Seller panel (`packages/seller-dashboard`) | 26 | 4 | 0 | 22 | 2 | 21 titles in 8 spec files kept with the dashboard's (`seller-catalog`, `seller-delivery-methods`, `seller-invitation-acceptance`, `seller-package-types` and the four `seller-panel-*`) |
-| Storefront (`liquorify-storefront`) | 27 pages and 1 route handler | 6 | 0 | 25, plus 2 development previews | 5 | 21 titles in 6 spec files |
-| Emails | 22 Liquid templates, 4 storefront React emails | 1 Liquid layout | — | 26 emails | — | Spree's mailer specs (not browser tests) |
+| Storefront (`liquorify-storefront`) | 27 pages, 1 error page and 1 route handler | 6 | 0 | 25, plus 2 system pages and 2 development previews | 5 | 21 titles in 6 spec files |
+| Emails | 23 Liquid templates, 4 storefront React emails | 1 Liquid layout | — | 27 emails | — | Spree's mailer specs (not browser tests) |
 
 The dashboard's `e2e/` folder holds 433 browser test titles in 86 spec files, split above by the app they exercise; the operator's seller screens (`sellers`, `seller-ledger`, `seller-requirements`) count as dashboard. In CI, where some titles run more than once, the run counted 434 passed and 1 skipped (V2).
 
@@ -80,6 +80,8 @@ Opens first-run setup (DA-SETUP-01) with the installation's setup link, only unt
 - **List pages** built on `ResourceTable`: loading, empty, no matches for a search or filter, paged, and selected rows with bulk actions where offered.
 - **Detail pages**: loading skeleton, error with retry, not found or not authorized, and, where the page is a form, unsaved changes with Save and Discard and a warning before leaving.
 - **Without write permission**, create, edit and delete controls are hidden.
+
+A dash in the states column means the screen has no states beyond these.
 
 ### Sign-in, setup and shell
 
@@ -239,7 +241,7 @@ Redirects without a screen ID: S/`settings/commission-rates.tsx` (to DA-SEL-03),
 
 ## 4. Seller panel screens
 
-The seller panel uses the dashboard's design system and shared pages. **Code paths.** "SR/" is `packages/seller-dashboard/src/routes/`; "SP/" is `packages/seller-dashboard/src/pages/`. Each route file renders a page component. Its tests are the eight seller panel spec files in `packages/dashboard/e2e/`.
+The seller panel uses the dashboard's design system and shared pages. **Code paths.** "SR/" is `packages/seller-dashboard/src/routes/`; "SP/" is `packages/seller-dashboard/src/pages/`. Each route file renders a page component. Its tests are the eight seller panel spec files in `packages/dashboard/e2e/`. The shared list and detail states in §3 apply here too, and a dash in the states column means none beyond them.
 
 | ID | Screen and route | Scope | Workflows (browser tests) | Meaningful states | Code |
 |---|---|---|---|---|---|

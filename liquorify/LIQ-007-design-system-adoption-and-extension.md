@@ -1,7 +1,7 @@
 ---
 document_id: LIQ-007
 title: Design System Adoption and Extension
-version: 0.2
+version: 0.3
 status: PROPOSED
 owner: Dhruval (decision owner, as proposed in LIQ-001 §2)
 approved_by: null
@@ -11,9 +11,9 @@ updated: 2026-10-21
 
 # Design System Adoption and Extension
 
-A decision record ([ENG-002 §6](framework/ENG-002-documentation-system.md#decision-record)) for FB-18 ([LIQ-004](LIQ-004-foundation-backlog.md#next-documentation-work-item)). **Status: PROPOSED,** and it stays PROPOSED while the owner reviews the revised scope. Nothing in it is decided until the owner accepts it.
+A decision record ([ENG-002 §6](framework/ENG-002-documentation-system.md#decision-record)) for FB-18 ([LIQ-004](LIQ-004-foundation-backlog.md#next-documentation-work-item)). **Status: PROPOSED,** and it stays PROPOSED while the owner reviews the revised scope. Nothing in it is decided until the owner accepts it, except the three scoped decisions in §7 (Q4, Q5 and Q7), which the owner made on 2026-10-21 so the reproduction could start.
 
-Version 0.2 follows the owner's sequencing instruction of 2026-10-21 ([LIQ-001 §1](LIQ-001-project-profile.md#recorded-instructions-that-shape-engineering-work)): the existing Spree baseline is reproduced and documented first, and Liquorify's extensions come afterward. Setting up any tool, account, dependency, CI step or credential happens in the work items FB-19 to FB-21 ([LIQ-004](LIQ-004-foundation-backlog.md#spree-baseline-reproduction-work-items)), which are Protected where they add dependencies, CI steps, accounts or credentials.
+Version 0.2 follows the owner's sequencing instruction of 2026-10-21 ([LIQ-001 §1](LIQ-001-project-profile.md#recorded-instructions-that-shape-engineering-work)): the existing Spree baseline is reproduced and documented first, and Liquorify's extensions come afterward. Setting up any tool, account, dependency, CI step or credential happens in the work items FB-19 to FB-21 ([LIQ-004](LIQ-004-foundation-backlog.md#spree-baseline-reproduction-work-items)), which are Protected where they add dependencies, CI steps, accounts or credentials. How the tools are arranged around Spree's code, and how the reproduction is checked and kept up to date, is planned in [LIQ-010](LIQ-010-design-system-reproduction-architecture.md).
 
 ## 1. Question
 
@@ -38,9 +38,9 @@ Read on 2026-10-21 at backend `1d1f2d4` and storefront `ac53c5b`, by reading onl
 | Dashboard tokens and theming | 62 light and 58 dark values and 84 theme entries in `styles.css` (LIQ-009 §6). Families: surfaces, brand, status, borders, sidebar, charts; fonts and type scale in `@theme inline`. Merchants restyle by overriding tokens below the stylesheet import, with no component forks (`theming.mdx`) | Figma variables with light and dark modes (FB-20); token pages in Storybook (FB-19) | Liquorify brand values as token overrides in the Liquorify host application |
 | Dashboard brand marks | The host application owns the page title and favicon (`dashboard-starter/index.html`). The sign-in artwork is bundled in `@spree/dashboard` with no documented override | Reproduced as they are (FB-21) | Liquorify's host application sets the title and favicon. Replacing the sign-in artwork needs an extension point (Q6) |
 | Storefront components | shadcn's `radix-nova` style on Radix: 22 primitives, 66 feature components and 13 page-level components (LIQ-009 §5). 30 of its 88 component files are not client components | Stories and Chromatic baselines (FB-19); Figma library (FB-20) | Liquorify storefront changes (F4's holding page, Liquorify branding) in the storefront repository's own components |
-| Storefront tokens | 32 light and 31 dark values and 58 theme entries in `globals.css`, with shadcn's token names and the Geist font; dark mode through `next-themes` (LIQ-009 §7) | Figma variables (FB-20); token pages in Storybook (FB-19) | The same Liquorify brand values mapped onto these token names |
+| Storefront tokens | 32 light and 31 dark values and 58 theme entries in `globals.css`, with shadcn's token names and the Geist font (LIQ-009 §7). The dark values are declared but never applied: nothing adds the `dark` class, so shoppers always see the light theme ([LIQ-010 §3.3](LIQ-010-design-system-reproduction-architecture.md#33-styling-and-a-correction-the-storefront-never-shows-dark-mode)) | Figma variables (FB-20); token pages in Storybook (FB-19) | The same Liquorify brand values mapped onto these token names |
 | Storefront store identity | Store name from the `NEXT_PUBLIC_STORE_NAME` build setting and the logo from a static file, so one deployment shows one store | Reproduced with Spree's sample store | Depends on the unresolved storefront hosting decision (one deployment per merchant, or one serving many) |
-| Screens and flows | 95 dashboard screens, 22 seller panel screens, 25 storefront screens and 2 development previews, 12 overlays, 26 emails and 24 cross-screen flows (LIQ-008) | Wireframes, full reproductions of every meaningful state, and flow prototypes in Figma (FB-21) | Liquorify screens designed from those reproductions |
+| Screens and flows | 95 dashboard screens, 22 seller panel screens, 25 storefront screens, 2 storefront system pages and 2 development previews, 12 overlays, 27 emails and 24 cross-screen flows (LIQ-008) | Wireframes, full reproductions of every meaningful state, and flow prototypes in Figma (FB-21) | Liquorify screens designed from those reproductions |
 | Email branding | Liquid and MJML templates whose colours and font come from each store's `store.branding` preferences (`Spree::Stores::EmailBranding`), 5 colours and a font (LIQ-009 §8); merchants edit templates in the dashboard | Figma variables (FB-20); every email reproduced (FB-21) | Reuse. Liquorify's own emails (verification, billing) follow the same rules |
 | Text and languages | i18next in the dashboard; next-intl messages in 5 languages in the storefront, checked for parity (C1) | Reproduced in English | Liquorify copy goes through the same mechanisms, in every language Liquorify supports (undecided) |
 | Component documentation | None. Spree's admin plan lists Storybook as an open question ("light visual docs … likely Phase 3, not a blocker") | Storybook for every existing component (FB-19) | Liquorify-owned components added beside them |
@@ -89,9 +89,15 @@ Prices and plan limits were read on 2026-10-21 from the vendors' published pages
 | **What it would expose** | Design files stay private to the team unless shared by link. The reproduction holds only Spree's public design and sample data; later files may hold unreleased brand and copy. Review Figma's content and AI settings before adding unreleased material | Stories are source code in public repositories, so they are public. Stories use invented sample data only, never real merchant or shopper data | The built Storybook and its snapshots are uploaded to Chromatic. A project linked to a public repository publishes a public Storybook; its tests, settings and project details stay private |
 | **Effect on checks** | None | A Storybook build becomes a CI step | Advisory at first, not a required check. Making it required changes the rulesets, which is a Protected change |
 
-**Snapshot budget.** A build costs about one snapshot per story, per browser, per viewport and per theme. Documenting every existing component at an average of two stories, in light and dark, costs about 1,500 snapshots for the backend Storybook's 379 component files, and about 800 for the storefront's 101 at mobile and desktop widths: about 2,300 for one full build of both. That is almost half the free plan's month, and Chromatic's pricing page does not say whether the allowance is shared between projects. With TurboSnap, a build in which little changed costs about a fifth, around 460, so after the first baselines the free plan covers roughly ten such builds a month. A full rebuild, such as after an upstream Spree update, costs the full amount again.
+**Snapshot budget.** A build costs about one snapshot per story, per browser, per viewport and per theme. Documenting every existing component at an average of two stories costs about 1,520 snapshots for the backend Storybook's 379 component files in light and dark, and about 400 for the storefront's 101 at mobile and desktop widths in light only, the only theme shoppers see: about 1,900 for one full build of both. That is under half the free plan's month, and Chromatic's pricing page does not say whether the allowance is shared between projects. With TurboSnap, a build in which little changed costs about a fifth, around 380, so after the first baselines the free plan covers roughly twelve such builds a month. A full rebuild, such as after an upstream Spree update, costs the full amount again.
 
-Chromatic should therefore run only on pull requests that change components, stories or styles. Its check must then stay advisory: a required check from a workflow limited to some paths never reports on other pull requests, which then wait indefinitely (the conflict described under FB-02 in [LIQ-004](LIQ-004-foundation-backlog.md#recommended-next-work-item), item 3). If the limit binds, the owner chooses between fewer stories per build, a paid plan and Chromatic's open-source offer (Q5).
+Chromatic should therefore run only on pull requests that change components, stories or styles. Its check must then stay advisory: a required check from a workflow limited to some paths never reports on other pull requests, which then wait indefinitely (the conflict described under FB-02 in [LIQ-004](LIQ-004-foundation-backlog.md#recommended-next-work-item), item 3). **Budget, as decided (Q5).** Both projects are counted against one free allowance of 5,000 snapshots a month:
+
+- Baselines are captured batch by batch, as each FB-19 pull request adds its stories, rather than all at once.
+- TurboSnap is on, and Chromatic runs only when components, stories or styles change.
+- The dashboard is captured at one desktop width in light and dark, and the storefront at a mobile and a desktop width in light only, because it never shows its dark values. These widths and themes are proposed in [LIQ-010 §8](LIQ-010-design-system-reproduction-architecture.md#8-themes-and-widths-captured), not part of the decision.
+- Coverage is never reduced to fit. If a batch would exceed the month's allowance, it waits for the next month, and each pull request records the snapshots it used.
+- A paid plan, or Chromatic's open-source offer, needs a separate owner decision.
 
 **Sources:**
 
@@ -127,12 +133,12 @@ Chromatic should therefore run only on pull requests that change components, sto
 ## 6. Consequences
 
 - **The Spree baseline comes first.** Liquorify product and design work waits until FB-18 is reviewed, FB-19 to FB-21 are done and the owner instructs it ([LIQ-004](LIQ-004-foundation-backlog.md#next-documentation-work-item)).
-- **The reproduction is large:** about 480 component files, 142 screens and 12 overlays with their states, 26 emails and 24 flows. Its completion criteria are tied to the IDs in LIQ-008 and LIQ-009, so progress can be counted.
+- **The reproduction is large:** about 480 component files, 142 screens, 2 system pages and 12 overlays with their states, 27 emails and 24 flows. Its completion criteria are tied to the IDs in LIQ-008 and LIQ-009, so progress can be counted.
 - **Upstream changes become visible.** When Liquorify takes a new Spree release (FB-12), Chromatic shows what changed visually, and the Figma libraries, screens and inventories are updated in the same change.
 - **Spree's packages stay untouched** for Liquorify branding, so taking a new Spree release does not mean re-applying patches.
 - **Brand consistency will come from shared values, not shared components.** Each brand change is applied in two token files and the email defaults (FB-14, deferred).
 - **Accessibility and visual review start as signals, not gates.** They become required only by a separate Protected change to the rulesets.
-- **Cost.** Storybook costs nothing, and the Chromatic free plan covers the first baselines with the limits in §4. The Figma reproduction needs at least one paid seat, an owner decision (Q4).
+- **Cost.** Storybook costs nothing, and the Chromatic free plan covers the first baselines with the limits in §4. The Figma reproduction needs one paid Professional Full seat (Q4, decided), bought only after the owner has seen the exact billing choice.
 - **Public by default.** Stories, and Storybooks published from these repositories, are public. Design files are private.
 - **Work items** ([LIQ-004](LIQ-004-foundation-backlog.md#spree-baseline-reproduction-work-items)):
   - FB-19: every existing component in Storybook, with Chromatic baselines. Protected.
@@ -144,21 +150,30 @@ Chromatic should therefore run only on pull requests that change components, sto
 
 ## 7. Open questions for the owner
 
+### Decided on 2026-10-21
+
+The owner decided these three so that FB-19 and FB-20 could start ([LIQ-001 §1](LIQ-001-project-profile.md#recorded-instructions-that-shape-engineering-work)). They are scoped to the baseline reproduction; the rest of this record stays PROPOSED.
+
+| # | Question | Decision |
+|---|---|---|
+| Q4 | Figma plan, needed by FB-20 | One Figma Professional Full seat for authoring, reusing an existing suitable seat if one is available. Code Connect is deferred. The owner sees the exact billing choice before any purchase; preparation continues meanwhile. The owner's existing Full seat is on a plan Figma restricts to non-commercial use, so it is not treated as suitable for Liquorify's work ([LIQ-004](LIQ-004-foundation-backlog.md#owner-action-steps), OA-5) |
+| Q5 | Chromatic plan and gating, needed by FB-19 | Chromatic's free plan, advisory only. Snapshots are budgeted across both Storybooks together, and the full coverage requirement stays. A paid plan needs a separate decision |
+| Q7 | Storybook scope, needed by FB-19 | Every existing component in LIQ-009, including the dashboard's, the seller panel's and the storefront's, with mocked data and providers where needed. Every case Storybook cannot render is recorded explicitly |
+
+### Still open
+
 | # | Question | Proposed answer |
 |---|---|---|
 | Q1 | Accept option A, with the Spree baseline reproduced first (option E)? | Yes |
 | Q2 | Whose brand appears where: Liquorify's in the merchant dashboard and the Admin Console, and the merchant's on the storefront and in shopper emails? | Decide with FB-14, after the baseline and the storefront hosting decision |
 | Q3 | Accessibility target (FB-15) | WCAG 2.2 level AA for Liquorify screens |
-| Q4 | Figma plan, needed by FB-20: the reproduction needs shared libraries and variable modes, which Starter does not offer | One Professional Full seat for whoever builds the reproduction; decide Code Connect after FB-20 |
-| Q5 | Chromatic plan and gating, needed by FB-19 | The free plan, advisory only, run on pull requests that change components, stories or styles |
 | Q6 | The dashboard sign-in artwork cannot be replaced through a documented extension point. Request one upstream, or accept Spree's artwork for now? | Accept it for now, and record the request |
-| Q7 | Storybook scope, needed by FB-19: every existing component, including the data-bound dashboard and seller panel components with mocked data? | Yes, as FB-19 states; Liquorify components are added later beside them |
-| Q8 | Order of the reproduction | FB-19 and FB-20's tokens together; each Figma component after its stories record its states; FB-21 once the libraries exist |
+| Q8 | Order of the reproduction | FB-19 and FB-20's tokens together; each Figma component after its stories record its states; FB-21 once the libraries exist. The owner's instruction of 2026-10-21 follows this order |
 | Q9 | Should FB-19 also record Storybook's automated accessibility results for the existing components, as findings only? | Yes, as a baseline measurement; the target and any gate stay with FB-15 |
 
 ## 8. Limitations
 
 - **Reading only.** No tool was installed or tried, and no account, project or file was created.
-- **Not checked.** The owner's Figma plan; Chromatic's open-source eligibility and whether its allowance is shared between projects; whether the storefront's Next.js 16 works with Storybook's framework; how much mocking the data-bound components need; Base UI's and Radix's accessibility claims.
+- **Not checked.** Chromatic's open-source eligibility and whether its allowance is shared between projects; whether the storefront's Next.js 16 works with Storybook's framework in practice (Storybook 10.6.2 declares support for it); how much mocking the data-bound components need; Base UI's and Radix's accessibility claims.
 - **Estimates.** The snapshot budget assumes two stories per component; the real count comes from FB-19.
 - **Vendor terms** were read from the vendors' public pages on 2026-10-21 and were not confirmed with the vendors.
