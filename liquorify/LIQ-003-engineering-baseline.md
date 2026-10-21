@@ -100,19 +100,19 @@ Totals: 96 required, 63 conditional and 13 not required. Findings: 70 partial, 1
 | PD-04 | Conditional: before pricing or geography decisions | None | Not assessed | — | — |
 | PD-05 | Conditional: before onboarding or storefront design | None | Not assessed | — | — |
 | PD-06 | Required | Merchant lifecycle specification, PROPOSED; first release scope not approved; pricing, trial, geography, licence and age checks unresolved | Decision | R | Owner accepts or revises the specification |
-| PD-07 | Conditional: Liquorify adds navigation or pages | Dashboard navigation registry (`packages/dashboard-core`); storefront routes under `src/app/[country]/[locale]` | Not assessed | R | — |
-| PD-08 | Conditional: onboarding is approved | Flows and states described in prose in the specification; no designs | Decision | R | After the specification is accepted |
-| PD-09 | Conditional: branding work starts | No Liquorify visual identity; upstream styling | Gap | R | FB-14 |
+| PD-07 | Conditional: Liquorify adds navigation or pages | Dashboard navigation registry (`packages/dashboard-core`); storefront routes under `src/app/[country]/[locale]`. Every existing screen, route, role and permission scope is inventoried in LIQ-008 (DRAFT) | Not assessed | R | FB-21 |
+| PD-08 | Conditional: onboarding is approved | Flows and states described in prose in the specification; no designs. Spree's existing workflows, meaningful states and 24 cross-screen flows are inventoried in LIQ-008 (DRAFT) | Decision | R | FB-21; after the specification is accepted |
+| PD-09 | Conditional: branding work starts | No Liquorify visual identity; upstream styling, with every existing token's light and dark values in LIQ-009 (DRAFT). LIQ-007 (PROPOSED) proposes one set of brand values mapped onto each system's tokens, after the baseline | Gap | R | FB-20; FB-14 after the baseline |
 | PD-10 | Conditional: Liquorify copy is written | Dashboard locale files (`packages/dashboard/src/locales`, `packages/dashboard-core/src/locales`); storefront `messages/` in 5 languages with a parity check (Verified) | Partial | R, C1 | — |
-| PD-11 | Required with the first Liquorify screen | No accessibility target; component libraries are not verified | Gap | R | FB-15 |
+| PD-11 | Required with the first Liquorify screen | No accessibility target; component libraries are not verified. LIQ-007 (PROPOSED) proposes WCAG 2.2 level AA | Gap | R | FB-15 |
 | PD-12 | Conditional: a design needs user testing | None | Not assessed | — | — |
-| PD-13 | Required | `@spree/dashboard-ui` for dashboard and seller panel; separate shadcn and Radix components in the storefront; no shared tokens or brand; Figma, Storybook and Chromatic selected on 2026-10-21, not set up (Planned) | Partial | R, A | FB-18, FB-14 |
+| PD-13 | Required | `@spree/dashboard-ui` for dashboard and seller panel; separate shadcn and Radix components in the storefront; no shared tokens or brand; Figma, Storybook and Chromatic selected on 2026-10-21, not set up (Planned). Every existing component and token is inventoried in LIQ-009 (DRAFT). LIQ-007 (PROPOSED, not accepted) proposes reproducing both systems first, then extending them | Partial | R, A | FB-19, FB-20; LIQ-007 decision; FB-14 after the baseline |
 | PD-14 | Conditional: launch measures are defined | Storefront Google Tag Manager and Vercel Analytics hooks; backend reports | Not assessed | R | — |
 | PD-15 | Not required | — | Not applicable: no experiment is planned | — | — |
 | PD-16 | Not required | — | Not applicable: one person, no separate product practice | — | — |
 | PD-17 | Required | Product records sit outside the repositories; listed in the `liquorify/` index | Partial | R | M3 (LIQ-002) |
 | PD-18 | Conditional: first release scope is set | Later work named only, in the specification | Decision | R | — |
-| PD-19 | Conditional: onboarding or storefront design starts | None | Not assessed | — | — |
+| PD-19 | Conditional: onboarding or storefront design starts | None for Liquorify. Spree's existing screens and flows are inventoried in LIQ-008 (DRAFT) | Not assessed | R | FB-21 |
 
 ### AE
 
@@ -191,8 +191,8 @@ Totals: 96 required, 63 conditional and 13 not required. Findings: 70 partial, 1
 | QV-05 | Required | RSpec request and integration specs, inside the engine suites, and SDK integration tests in `packages.yml`, all passed once in CI (V2). One targeted request spec ran on SQLite (C3) | Partial | C3, G, V2 | FB-02, FB-03 |
 | QV-06 | Required | OpenAPI generated from integration specs; Zod schemas checked against recorded responses (Verified inside C2); drift checks in CI (Verified once) | Partial | C2, R, V2 | FB-02 |
 | QV-07 | Required | Playwright for the dashboard (`packages/dashboard/e2e`: 434 passed and 1 skipped once in CI) and the storefront (`e2e/`: not run, see QV-20) | Partial | R, V2 | FB-02, FB-06 |
-| QV-08 | Conditional: Liquorify branding or screens ship | None found; Chromatic selected on 2026-10-21, not set up (Planned) | Not assessed | R | FB-18 |
-| QV-09 | Required with the first Liquorify screen | No accessibility checks found | Gap | R | FB-15 |
+| QV-08 | Conditional: the Spree baselining starts FB-19, or Liquorify branding or screens ship | None found; Chromatic selected on 2026-10-21, not set up (Planned). LIQ-007 (PROPOSED) proposes baselines for every existing component first, as an advisory check | Not assessed | R | FB-19 |
+| QV-09 | Required with the first Liquorify screen | No accessibility checks found. LIQ-007 (PROPOSED) proposes automated checks in Storybook as a first, advisory signal, and recording their results for the existing components as findings (its Q9) | Gap | R | FB-15, FB-19 |
 | QV-10 | Conditional: performance requirements are set | None | Not assessed | — | — |
 | QV-11 | Conditional: billing or inventory integrations are scoped | Webhook ordering and repeat tests proposed in the specification | Not assessed | R | — |
 | QV-12 | Required | Brakeman (no warnings, once in CI); isolation reproduction (C3) | Partial | C3, R, V2 | FB-02, FB-03 |
@@ -286,7 +286,7 @@ Totals: 96 required, 63 conditional and 13 not required. Findings: 70 partial, 1
 | GG-01 | Required | SES-001 2.0-draft in `liquorify/framework/`, the working process for Liquorify-owned work since D1 (2026-10-21); how acceptance is recorded is open | Partial | R | D5 |
 | GG-02 | Required | ENG-001 1.0-draft, in use since D1; roles and delegation in LIQ-001 are proposals | Decision | R | D2, D3 |
 | GG-03 | Required | ENG-002 1.0-draft, in use since D1; `liquorify/` home and index (Configured) | Partial | R | D5 |
-| GG-04 | Required | Upstream plan constraints for Spree code; Liquorify decisions are recorded in `liquorify/` (X3, in effect since D1), and none exists yet | Partial | R | FB-18 |
+| GG-04 | Required | Upstream plan constraints for Spree code; Liquorify decisions are recorded in `liquorify/` (X3, in effect since D1). The first decision record, LIQ-007, is PROPOSED (2026-10-21, revised the same day for the baseline-first sequence) | Partial | R | LIQ-007 decision |
 | GG-05 | Required | Upstream `decisions.md` for Spree; Liquorify decisions sit in the specification and project threads | Gap | R | D5, M3 |
 | GG-06 | Required | ENG-002 §5 lifecycle, in use since D1; how acceptance is recorded is open | Decision | R | D5 |
 | GG-07 | Required | Roles proposed in LIQ-001 §1 and §2; no ownership file | Decision | R | D2 |
