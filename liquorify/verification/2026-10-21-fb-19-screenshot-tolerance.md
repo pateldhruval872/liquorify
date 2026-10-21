@@ -9,7 +9,7 @@ result: PASS for the proposed setting (threshold 0.005, 25 pixels) in both repos
 
 # Screenshot tolerance for the visual checks
 
-**Claim.** An explicit tolerance of `threshold: 0.005` with `maxDiffPixels: 25` lets unchanged runs pass in both repositories, and makes subtle changes to the background and to single colour tokens fail. That includes the background change C1 in the [fidelity record](2026-10-21-fb-19-pilot-fidelity.md), which the current setting lets pass. The owner asked for an explicit tolerance before final pilot acceptance, with this evidence recorded before the agreed policy changes. The setting is proposed in the same pull request, after this record, in both visual check configurations and [LIQ-010 §11.3](../LIQ-010-design-system-reproduction-architecture.md#113-what-the-test-does).
+**Claim.** An explicit tolerance of `threshold: 0.005` with `maxDiffPixels: 25` lets unchanged runs pass in both repositories, and makes subtle changes to the background and to single colour tokens fail. That includes the background change C1 in the fidelity record (`2026-10-21-fb-19-pilot-fidelity.md`, which [#8](https://github.com/pateldhruval872/liquorify/pull/8) adds after this pull request), which the current setting lets pass. The owner asked for an explicit tolerance before final pilot acceptance, with this evidence recorded before the agreed policy changes. The setting is proposed in the same pull request, after this record, in both visual check configurations and [LIQ-010 §11.3](../LIQ-010-design-system-reproduction-architecture.md#113-what-the-test-does).
 
 **Results.**
 
