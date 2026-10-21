@@ -48,6 +48,7 @@ Records of what was run, on which revision, with its result and limitations ([EN
 | 2026-10-21 | [FB-18 baseline completion check](verification/2026-10-21-fb-18-baseline-completion.md) | FB-18 | PASS: all seven completion criteria hold after four corrections made in the same change. Behaviour was not run |
 | 2026-10-21 | [FB-19 pilot](verification/2026-10-21-fb-19-pilot.md) | FB-19 | PASS: both Storybooks build in CI, every comparison passed under the configured tolerance on two runs of the same revision, a planted change failed with its images published, and the stories match the running screens after two corrections. NOT_RUN: the owner's review of the images |
 | 2026-10-21 | [FB-19 pilot compared with running screens](verification/2026-10-21-fb-19-pilot-fidelity.md) | FB-19 | PASS after two corrections: 18 stories and 8 token pages match Spree's running admin dashboard, seller panel and storefront. NOT_RUN on running screens for 35 stories, checked against their source. Owner review pending, with a [review list](verification/2026-10-21-fb-19-pilot-image-review.md) of every image |
+| 2026-10-21 | [Screenshot tolerance for the visual checks](verification/2026-10-21-fb-19-screenshot-tolerance.md) | FB-19 | PASS locally: a threshold of 0.005 with 25 pixels allowed passes every unchanged run and fails every deliberate background and colour token change measured, in both repositories. CI results recorded in it |
 
 ## Supplied framework sources
 

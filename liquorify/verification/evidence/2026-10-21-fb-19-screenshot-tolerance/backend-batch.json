@@ -1,0 +1,564 @@
+{
+ "unchanged-1": {
+  "images": 310,
+  "identical": 286,
+  "failing": {
+   "0.2/0": 0,
+   "0.01/0": 2,
+   "0.01/25": 0,
+   "0.005/0": 2,
+   "0.005/25": 0,
+   "0.02/25": 0
+  },
+  "largestCount": {
+   "0": 9,
+   "0.005": 4,
+   "0.01": 2,
+   "0.02": 0,
+   "0.2": 0
+  },
+  "differing": [
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--empty/dark.png",
+    "counts": {
+     "0": 2,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--publishable-keys/dark.png",
+    "counts": {
+     "0": 1,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--scopes-open/dark.png",
+    "counts": {
+     "0": 2,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--secret-keys/dark.png",
+    "counts": {
+     "0": 3,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-accordion--focus-visible/dark.png",
+    "counts": {
+     "0": 9,
+     "0.005": 4,
+     "0.01": 2,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-alert--info/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-alert--title-only/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-alert--with-icon/dark.png",
+    "counts": {
+     "0": 1,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-badge--variants/dark.png",
+    "counts": {
+     "0": 2,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-badge--with-icon/dark.png",
+    "counts": {
+     "0": 3,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-card--with-action/dark.png",
+    "counts": {
+     "0": 4,
+     "0.005": 3,
+     "0.01": 1,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-checkbox--unchecked/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-field--choice-cards/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-item--header-and-footer/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-label--disabled-control/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-pagination--without-page-size/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-radio-group--none-selected/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-scroll-area--horizontal/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-scroll-area--hovered/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-scroll-area--vertical/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-tabs--focus-visible/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "seller-panel-finance-balance-summary--empty/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "seller-panel-finance-balance-summary--one-currency/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "seller-panel-finance-balance-summary--two-currencies/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   }
+  ]
+ },
+ "unchanged-2": {
+  "images": 310,
+  "identical": 282,
+  "failing": {
+   "0.2/0": 0,
+   "0.01/0": 6,
+   "0.01/25": 0,
+   "0.005/0": 6,
+   "0.005/25": 0,
+   "0.02/25": 0
+  },
+  "largestCount": {
+   "0": 17,
+   "0.005": 13,
+   "0.01": 5,
+   "0.02": 2,
+   "0.2": 0
+  },
+  "differing": [
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--empty/dark.png",
+    "counts": {
+     "0": 2,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--publishable-keys/dark.png",
+    "counts": {
+     "0": 8,
+     "0.005": 1,
+     "0.01": 1,
+     "0.02": 1,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--scopes-open/dark.png",
+    "counts": {
+     "0": 16,
+     "0.005": 1,
+     "0.01": 1,
+     "0.02": 1,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--secret-keys/dark.png",
+    "counts": {
+     "0": 3,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-accordion--focus-visible/dark.png",
+    "counts": {
+     "0": 4,
+     "0.005": 2,
+     "0.01": 1,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-alert--default/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-alert--info/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-alert--title-only/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-alert--with-icon/dark.png",
+    "counts": {
+     "0": 1,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-badge--variants/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-badge--with-icon/dark.png",
+    "counts": {
+     "0": 3,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-button--ghost/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-checkbox--disabled/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-checkbox--indeterminate/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-checkbox--invalid/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-checkbox--unchecked/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-collapsible--open/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-field--legend/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-label--default/dark.png",
+    "counts": {
+     "0": 2,
+     "0.005": 2,
+     "0.01": 2,
+     "0.02": 1,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-label--disabled-control/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-label--with-control/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-pagination--middle-page/dark.png",
+    "counts": {
+     "0": 17,
+     "0.005": 13,
+     "0.01": 5,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-progress--with-label/dark.png",
+    "counts": {
+     "0": 2,
+     "0.005": 2,
+     "0.01": 2,
+     "0.02": 2,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-radio-group--none-selected/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-tabs--focus-visible/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "seller-panel-finance-balance-summary--empty/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "seller-panel-finance-balance-summary--one-currency/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "seller-panel-finance-balance-summary--two-currencies/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   }
+  ]
+ }
+}

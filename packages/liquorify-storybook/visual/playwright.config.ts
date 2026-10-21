@@ -16,9 +16,18 @@ export default defineConfig({
   updateSnapshots: 'none',
   reporter: [['list'], ['html', { outputFolder: './report', open: 'never' }]],
   expect: {
-    // Strict: Playwright's default colour tolerance for each pixel, and no
-    // pixel allowed beyond it. A looser setting needs a recorded reason.
-    toHaveScreenshot: { maxDiffPixels: 0, animations: 'disabled', caret: 'hide', scale: 'css' },
+    // A pixel counts when its colour moves by about 2 of 255 levels, and up to
+    // 25 counted pixels are allowed for the dark-mode corners that differ
+    // between unchanged runs. Measured in
+    // liquorify/verification/2026-10-21-fb-19-screenshot-tolerance.md; a change
+    // to either number needs a new record.
+    toHaveScreenshot: {
+      threshold: 0.005,
+      maxDiffPixels: 25,
+      animations: 'disabled',
+      caret: 'hide',
+      scale: 'css',
+    },
   },
   use: {
     baseURL: `http://127.0.0.1:${port}`,
