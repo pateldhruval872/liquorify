@@ -11,7 +11,7 @@ updated: 2026-10-21
 
 # Spree Component and Token Inventory
 
-Every component and design token in Spree's existing design systems, at the pinned revisions, with a stable ID and the SES capabilities each one supports. It is part of the Spree product baseline ([LIQ-006](LIQ-006-product-capability-baseline.md)) and is the list the Figma reproduction (FB-20) and the Storybook and Chromatic baselines (FB-19) must cover ([LIQ-004](LIQ-004-foundation-backlog.md#spree-baseline-reproduction-work-items)). The screens built from these components are in [LIQ-008](LIQ-008-spree-screen-inventory.md).
+Every component and design token in Spree's existing design systems, at the pinned revisions, with a stable ID and the SES capabilities each one supports. It is part of the Spree product baseline ([LIQ-006](LIQ-006-product-capability-baseline.md)) and is the list the Figma reproduction (FB-20) and the Storybook stories and Playwright reference screenshots (FB-19) must cover ([LIQ-004](LIQ-004-foundation-backlog.md#spree-baseline-reproduction-work-items)). The screens built from these components are in [LIQ-008](LIQ-008-spree-screen-inventory.md).
 
 **It describes what exists.** No Liquorify component or token exists yet, and none is proposed here. How Liquorify would later extend these systems is the subject of the proposed decision record [LIQ-007](LIQ-007-design-system-adoption-and-extension.md).
 
@@ -570,5 +570,5 @@ Ten agent skills are tracked in the backend under `.agents/skills/` and linked f
 ## 11. How this links to the other records
 
 - **SES-001.** Design System Engineering (PD-13) and Visual Interface Design (PD-09) for what exists, with the kinds above for the rest ([LIQ-003](LIQ-003-engineering-baseline.md#3-capability-baseline)).
-- **Work items.** FB-19 documents these components in Storybook with Chromatic baselines; FB-20 reproduces these components and tokens in Figma ([LIQ-004](LIQ-004-foundation-backlog.md#spree-baseline-reproduction-work-items)). How the IDs here are carried into stories, snapshots and Figma is in [LIQ-010 §10](LIQ-010-design-system-reproduction-architecture.md#10-traceability-to-the-inventory-ids).
+- **Work items.** FB-19 documents these components in Storybook with Playwright reference screenshots; FB-20 reproduces these components and tokens in Figma ([LIQ-004](LIQ-004-foundation-backlog.md#spree-baseline-reproduction-work-items)). How the IDs here are carried into stories, reference screenshots and Figma is in [LIQ-010 §10](LIQ-010-design-system-reproduction-architecture.md#10-traceability-to-the-inventory-ids).
 - **When to revise it.** When Liquorify takes a new Spree or storefront revision (FB-12), and when a Liquorify component or token is accepted.

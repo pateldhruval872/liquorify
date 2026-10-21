@@ -11,7 +11,7 @@ updated: 2026-10-21
 
 # Design System Reproduction Architecture
 
-The implementation plan for reproducing Spree's design systems in Storybook, Chromatic and Figma: FB-19 and FB-20 now, and the libraries FB-21 builds on later ([LIQ-004](LIQ-004-foundation-backlog.md#spree-baseline-reproduction-work-items)). It is linked from the decision record [LIQ-007](LIQ-007-design-system-adoption-and-extension.md), which it does not change. The owner asked for it on 2026-10-21, before coverage grows past a pilot ([LIQ-001 §1](LIQ-001-project-profile.md#recorded-instructions-that-shape-engineering-work)).
+The implementation plan for reproducing Spree's design systems in Storybook and Figma, with Playwright screenshot comparisons as the visual check: FB-19 and FB-20 now, and the libraries FB-21 builds on later ([LIQ-004](LIQ-004-foundation-backlog.md#spree-baseline-reproduction-work-items)). It is linked from the decision record [LIQ-007](LIQ-007-design-system-adoption-and-extension.md), which it does not change. The owner asked for it on 2026-10-21, before coverage grows past a pilot ([LIQ-001 §1](LIQ-001-project-profile.md#recorded-instructions-that-shape-engineering-work)).
 
 It has two parts, kept apart on purpose:
 
@@ -22,7 +22,7 @@ It has two parts, kept apart on purpose:
 
 | Kind | Items | Where |
 |---|---|---|
-| Decided by the owner on 2026-10-21 | Q4: one Figma Professional Full seat, Code Connect deferred, billing shown before any purchase. Q5: Chromatic's free plan, advisory only, one snapshot budget across both Storybooks, full coverage kept. Q7: every component in LIQ-009, with mocked data and providers, and every case that cannot be rendered recorded | [LIQ-007 §7](LIQ-007-design-system-adoption-and-extension.md#decided-on-2026-10-21) |
+| Decided by the owner on 2026-10-21 | Q4: one Figma Professional Full seat, Code Connect deferred, billing shown before any purchase. Q7: every component in LIQ-009, with mocked data and providers, and every case that cannot be rendered recorded. Q10: Playwright screenshot comparisons against the built Storybooks replace Chromatic, in a consistent browser environment with deterministic sample data, with reference images under version control, reports and failure images as CI artifacts, no automatic approval of changed screenshots, and advisory at first. Q10 superseded Q5 (Chromatic's free plan), which stays in LIQ-007 as history | [LIQ-007 §7](LIQ-007-design-system-adoption-and-extension.md#decided-on-2026-10-21) |
 | Instructed by the owner on 2026-10-21 | Reproduce the Spree baseline first; implement FB-19 through manageable pull requests; prepare FB-20's tokens alongside; make this architecture explicit and validate it with a small batch from both systems first; keep Spree's look and behaviour; Liquorify branding and features stay deferred | [LIQ-001 §1](LIQ-001-project-profile.md#recorded-instructions-that-shape-engineering-work) |
 | Still open, and not assumed here | Q1 (adopt option A), Q2 (whose brand where), Q3 (accessibility target), Q6 (sign-in artwork), Q8 (order of the reproduction, which the instruction above follows), Q9 (record accessibility results as findings) | [LIQ-007 §7](LIQ-007-design-system-adoption-and-extension.md#still-open) |
 | Proposed in this plan | Everything in Part B | This document |
@@ -160,9 +160,9 @@ Emails are Liquid and MJML templates, coloured by each store's branding values (
 | The backend's Storybook | A new private workspace package, `packages/liquorify-storybook` (`@liquorify/storybook`), using Storybook's React and Vite framework, with Tailwind's Vite plugin | One Storybook for all four dashboard packages, as LIQ-007 §4 proposes, without editing Spree's packages. Upstream never touches the folder, so merging a new Spree release cannot conflict in it |
 | The storefront's Storybook | `.storybook/` for configuration and `stories/` for everything else, in the storefront repository, using Storybook's Next.js and Vite framework | The storefront is a single package. Keeping stories out of `src/` keeps them out of the application's folders, and the Next.js build never imports them |
 | Token files | Beside each Storybook: `packages/liquorify-storybook/tokens/` and the storefront's `stories/tokens/` | Generated from the stylesheet in the same repository, so each repository can check its own |
-| Chromatic set-up | `chromatic.config.json` beside each Storybook, and a workflow `.github/workflows/storybook.yml` in each repository | Liquorify-owned files, separate from Spree's workflows |
+| Visual checks | A `visual/` folder beside each Storybook with the Playwright configuration, the test and the reference images, and a workflow `.github/workflows/storybook.yml` in each repository | Liquorify-owned files, separate from Spree's own browser tests and workflows |
 
-**Options considered for the backend.** A `.storybook/` inside each Spree package was rejected: it edits Spree's packages and their dependency lists, and gives four Storybooks and four Chromatic projects. The starter application was rejected as a home: it is the template Spree publishes, and its build composes routes as a side effect.
+**Options considered for the backend.** A `.storybook/` inside each Spree package was rejected: it edits Spree's packages and their dependency lists, and gives four Storybooks with four sets of visual checks. The starter application was rejected as a home: it is the template Spree publishes, and its build composes routes as a side effect.
 
 **What the new package costs.** Its development dependencies change `pnpm-lock.yaml`, so each upstream Spree release that changes the lockfile needs it regenerated (FB-12). The Packages workflow lints, type-checks and tests the new package with the others, so a story that stops compiling after an upstream change fails a required check. That is the intended early signal. The package has no `build` script, so the Packages workflow never builds Storybook; Storybook builds only in the new advisory workflow, under the scripts `storybook` and `build-storybook`.
 
@@ -184,9 +184,12 @@ packages/liquorify-storybook/          storefront repository
       dashboard/<group>/     CMP-DA-G
       seller-dashboard/<group>/ CMP-SP-G
       tokens/                TK-DUI
+  visual/       Playwright configuration, the test, reference images
   tokens/       generated token files
-  scripts/      token extraction, coverage report
+  scripts/      token extraction, coverage report, reference updates
 ```
+
+The storefront has the same `visual/` folder at its root.
 
 Story titles follow the same path, so the Storybook sidebar reads like LIQ-009: "Dashboard UI / Primitives / Button", "Admin dashboard / API keys / API key table", "Storefront / Cart / Cart drawer".
 
@@ -223,7 +226,7 @@ Each one is recorded against its component ID in LIQ-009, in the coverage column
 |---|---|
 | U1 | Only ever rendered inside its parent; covered by the parent's story, which is named |
 | U2 | Needs server behaviour that Storybook cannot run, even with mocks |
-| U3 | Needs a browser setting Chromatic cannot emulate, such as the operating system's dark preference |
+| U3 | Needs a browser setting Playwright cannot emulate |
 | U4 | Embeds a third-party script or frame that must not load in a story |
 | U5 | Needs a full route or real navigation, and is covered by its screen in FB-21 instead |
 
@@ -232,9 +235,9 @@ Each one is recorded against its component ID in LIQ-009, in the coverage column
 | Surface | Themes | Widths |
 |---|---|---|
 | Dashboard design system, framework, admin dashboard, seller panel | Light and dark | One desktop width, 1280 pixels |
-| Storefront | Light only, because shoppers never see the dark theme (§3.3) | 390 and 1280 pixels |
+| Storefront | Light, because shoppers never see the dark theme (§3.3). The toast container and focus states are also captured with the operating system's dark setting emulated | 390 and 1280 pixels |
 
-The storefront's dark values are still reproduced in full: on the token pages and as a Figma mode named "Dark (declared, not shown)". The toast container's dark look is captured by setting the toast's own theme in its story. The white focus outline under the operating system's dark setting is recorded as U3, since Chromatic documents no way to emulate that setting.
+The storefront's dark values are still reproduced in full: on the token pages and as a Figma mode named "Dark (declared, not shown)". The two things that follow the operating system's dark setting, the toast container and the focus outline, are also captured with that setting emulated, which Playwright supports (`colorScheme: 'dark'`), while the page itself stays light.
 
 ## 9. Token preparation and the CSS-to-Figma mapping
 
@@ -252,7 +255,7 @@ The storefront's dark values are still reproduced in full: on the token pages an
 
 | CSS value form | Figma | Recorded as |
 |---|---|---|
-| oklch colour | A colour variable, converted to sRGB with the CSS Color 4 formulas; transparency kept | The original oklch value in the description. A value outside sRGB is clipped, and the size of the clip is recorded. The Chromatic comparison in FB-20 decides whether that is visible |
+| oklch colour | A colour variable, converted to sRGB with the CSS Color 4 formulas; transparency kept | The original oklch value in the description. A value outside sRGB is clipped, and the size of the clip is recorded. The comparison with the reference screenshots in FB-20 decides whether that is visible |
 | Reference to another token, or to Tailwind's palette | An alias to that variable | — |
 | Colour mix | A colour variable holding the computed value, per mode | "Derived", with the formula in the description. Figma has no colour mixing, so the generator recomputes it whenever an input changes |
 | `calc()` of a length | A number variable holding the computed value | "Derived", with the formula |
@@ -276,27 +279,72 @@ The storefront's dark values are still reproduced in full: on the token pages an
 - **Story names are the states**, such as "Default", "Disabled", "Loading", "Empty", "Error", "Read-only" and "Open". The list of stories for an ID is therefore the list of states FB-20 turns into Figma component properties.
 - **A coverage report** reads the built index, compares it with the repository's ID list (§9.1) and the recorded reasons (§7.5), and lists every ID with a story, a reason, or neither. It runs in the Storybook workflow and its output goes into each batch's record.
 - **LIQ-009 gains two columns:** "Storybook", with the story's title or a reason code, and "Figma", filled in by FB-20. LIQ-008 gains a "Figma" column for FB-21.
-- **Chromatic** names each snapshot after its story, so a baseline traces to the same ID.
+- **Reference images** are named by story and mode (`<story id>/<mode>.png`), so each traces to its inventory ID through the story's tags.
 - **Figma components** take the code's name, list their states as variant properties, and carry the ID, the source path and the story's title in their description. Code Connect is deferred (Q4), so the link is by name and description only.
 - **FB-21's frames** are named with their screen IDs, as LIQ-004 already requires.
 
-## 11. Chromatic set-up and snapshot budget
+## 11. Visual checks with Playwright
 
-- **Two projects,** one per Storybook, on the free plan (Q5). Their tokens go in each repository's secrets (OA-4). The project ID can be committed; the token never is.
-- **The workflow** runs on pull requests that change stories, mocks, Storybook configuration, the components or stylesheets they cover, or the lockfile. It builds Storybook, runs the token check and the coverage report, and then runs Chromatic. Actions are pinned to full commit identifiers, as the security audit workflow already does.
-- **Chromatic only reports.** It runs with TurboSnap (`onlyChanged`), and visual changes do not fail the run (`exitZeroOnChanges`). It is not a required check (Q5), and because it runs only for some paths it must not become one (LIQ-007 §4).
-- **Without the token,** as before OA-4 and always on pull requests from forks, the Chromatic step is skipped and says so, and the build still runs.
-- **Baselines reach `main` through Git history.** Both repositories merge pull requests with merge commits, so Chromatic should carry a pull request's accepted snapshots to `main` without a separate run. The pilot checks this. If it does not hold, a TurboSnap run on `main` is added and its cost recorded.
-- **Budget**, one allowance of 5,000 snapshots a month for both projects (Q5). At about two stories per component, the first complete baselines cost about 1,520 for the backend (379 files, two themes) and about 400 for the storefront (101 files, two widths, light only): about 1,900, under half the month. Each batch records the snapshots it used, and a batch that would pass the month's allowance waits for the next month. Coverage is never cut to fit.
+The owner decided the requirements on 2026-10-21 (Q10, in [LIQ-007 §4](LIQ-007-design-system-adoption-and-extension.md#4-how-each-tool-is-used)): screenshot comparisons against the built Storybooks, a consistent browser environment, deterministic sample data, reference images under version control, reports and failure images as CI artifacts with an appropriate retention, no automatic approval of changed screenshots, and advisory checks at first. Everything below is the proposed way to meet them.
+
+### 11.1 Environment
+
+- **One container image per repository.** CI runs the comparisons inside Playwright's own container image for the Playwright version that repository already uses for its browser tests: 1.64.1 in the backend and 1.60.0 in the storefront. The image is pinned by its digest, so its browser and fonts cannot change underneath the references.
+- **Chromium only,** headless, at a device scale factor of 1.
+- **Fixed browser settings:** the viewport of the mode (§8), the `en-US` locale, the UTC time zone, reduced motion, and the colour scheme the mode asks for.
+- **Fonts** are the ones the stylesheets load. The dashboard's Geist comes from its font packages, so it is the same everywhere. The storefront's Geist comes through Next.js's font loader, which the pilot checks inside Storybook.
+
+### 11.2 Deterministic sample data
+
+- **Fixed fixtures.** Invented data with fixed IDs, names, amounts and dates, checked against the SDKs' schemas (§7.3, §7.4).
+- **A frozen clock.** Each page starts with Playwright's clock set to one fixed instant, so relative dates such as "3 days ago" never change.
+- **No outside network.** Requests that leave the local Storybook server are blocked and fail the test; mocked API requests never leave the browser. Images come from local fixture files.
+- **No randomness.** Anything a story would randomize is seeded or fixed in the fixture.
+
+### 11.3 What the test does
+
+1. Reads the built Storybook's story index (`index.json`) and makes one test for each story and each mode it is captured in.
+2. Opens the story on its own (`iframe.html?id=<story id>`), with the theme the mode sets.
+3. Waits until Storybook reports the story rendered, the fonts have loaded and no request is pending.
+4. Takes a screenshot of the story's root element, with animations stopped and the text caret hidden. A story of an open popup or dialog takes the whole viewport instead, because Base UI and Radix render popups outside the root.
+5. Compares it with the committed reference using Playwright's own comparison. It starts strict: Playwright's default colour tolerance per pixel, and no pixel allowed to differ beyond it. A looser setting needs a recorded reason.
+
+Reference images live in `visual/__screenshots__/<story id>/<mode>.png`, beside the test.
+
+### 11.4 Making and changing reference images
+
+CI never writes, accepts or commits a reference image. Its configuration makes a missing reference fail the test rather than create it.
+
+- **With Docker:** a person runs the update script, which runs the same pinned image with Playwright's update option and writes the new images into the working copy. The images are committed in a pull request.
+- **Without Docker:** a failed CI run's artifact holds the actual images. A person downloads them, looks at them, and copies them into place with a small script that only moves files. They are committed in a pull request.
+- **Either way,** the pull request lists the references it adds or changes and why. GitHub shows each changed image side by side, and the owner reviews them there before merging.
+
+### 11.5 CI workflow and artifacts
+
+- **One workflow per repository,** `.github/workflows/storybook.yml`. It runs on pull requests that change stories, mocks, the visual check, Storybook configuration, the components or stylesheets they cover, or the lockfile, and on request.
+- **Steps:** install, build Storybook, run the token check and the coverage report, then run the Playwright comparisons in the pinned image.
+- **Artifacts:**
+  - the HTML comparison report, from every run, kept 14 days;
+  - the failure images (reference, actual and difference), only when a comparison fails, kept 14 days.
+
+  Fourteen days covers a pull request's review and keeps storage small. Both repositories are public, so these artifacts are public too, and they show only invented data.
+- **Security.** The workflow reads the repository and nothing else: no secrets, and actions pinned to full commit identifiers, as the backend's security audit workflow already does.
+- **Advisory.** The job fails visibly when a screenshot differs, but it is not a required check, so it does not block merging. It runs only for some paths, so it must stay advisory while it does (LIQ-007 §4). Making it required later is a Protected change to the rulesets.
+
+### 11.6 Cost and size
+
+- **No account and no allowance.** CI minutes are free while the repositories are public.
+- **Repository size.** At about 25 KB a component screenshot, the first full set is roughly 50 MB across both repositories: about 1,520 backend images (379 files, two stories each, two themes) and about 400 storefront images (101 files, two stories each, two widths, light), plus a few with the dark system setting. These are estimates; the pilot measures the real size.
+- **Growth.** Each accepted change adds its new images to the history. If one repository's reference images pass 200 MB of history, moving them to Git Large File Storage is proposed as a separate decision.
 
 ## 12. Update and verification workflow
 
 ### 12.1 Each batch
 
 1. **Before the pull request:** stories render; lint, type check and fixture tests pass; the token check and coverage report run.
-2. **In the pull request:** the Storybook workflow builds and reports coverage. Once OA-4 is done, Chromatic captures the batch and the owner accepts its baselines.
+2. **In the pull request:** the Storybook workflow builds, reports coverage and compares screenshots. The batch's new reference images are committed in the pull request, and the owner reviews them there (§11.4).
 3. **Fidelity.** Each story is compared with the same component in its screen in the running dashboard or storefront, where a running instance at the pinned revisions is available (FB-04, or the dashboard's browser-test set-up); otherwise the comparison is NOT_RUN and recorded. A difference is a defect in the story, its providers or its mocks, never a reason to change the component.
-4. **A verification record** in `liquorify/verification/` lists what was built, the revision, the coverage report, the snapshots used, the results (PASS, FAIL, BLOCKED, NOT_RUN) and the limits.
+4. **A verification record** in `liquorify/verification/` lists what was built, the revision, the coverage report, the reference images added or changed, the comparison results, the results (PASS, FAIL, BLOCKED, NOT_RUN) and the limits.
 
 ### 12.2 When Liquorify takes a new Spree or storefront release (FB-12)
 
@@ -304,13 +352,13 @@ The storefront's dark values are still reproduced in full: on the token pages an
 2. Regenerate the token files. Their difference is the list of token changes, and the Figma variables are updated from it in the same change.
 3. Build Storybook. A story that no longer compiles shows an interface change; the story is fixed, never the component.
 4. Run the fixture tests. A failure shows an API change; the fixtures are updated.
-5. Run Chromatic. Each visual change is reviewed; a change that comes from Spree's code is accepted, because the code is the source.
+5. Run the visual check. Each difference is reviewed; a difference that comes from Spree's code is accepted by committing the new reference image in the update's pull request, because the code is the source.
 6. Give every new component its stories and every new token its variable in the same change.
 7. Write a verification record for the update.
 
 ## 13. Pilot
 
-A small batch from each system, chosen to try every arrangement above once before coverage grows. The pilot passes when each case renders as it does in its screen, both Storybooks build in CI, and the token check and coverage report run. Whatever does not work is recorded and this plan is corrected before any further batch.
+A small batch from each system, chosen to try every arrangement above once before coverage grows. The pilot passes when each case renders as it does in its screen, both Storybooks build in CI, the token check and coverage report run, and the visual check gives identical results on two CI runs of the same revision and fails on a deliberately changed story. Whatever does not work is recorded and this plan is corrected before any further batch.
 
 | System | Case | Component | ID | What it tries |
 |---|---|---|---|---|
@@ -327,7 +375,7 @@ A small batch from each system, chosen to try every arrangement above once befor
 | Storefront | Server component | `HeroSection` (`home/`) | CMP-SF-G-05 | Experimental server component support and `next-intl/server` |
 | Storefront | Token pages | All storefront tokens | TK-SF, TK-SF-T, TK-SF-A | The copied script and the check |
 
-**After the pilot,** coverage grows in batches by LIQ-009 section, each small enough to review and within the month's snapshot allowance:
+**After the pilot,** coverage grows in batches by LIQ-009 section, each small enough to review:
 
 1. Dashboard design system primitives (46).
 2. Dashboard design system composed components (54).
@@ -346,13 +394,14 @@ Recorded separately from the repository work, which continues without them.
 
 | # | Blocker | Effect | Clears when |
 |---|---|---|---|
-| EB-1 | No Chromatic account, projects or tokens (OA-4) | The Chromatic step skips; no baselines; FB-19 criterion 5 stays BLOCKED | The owner finishes OA-4 |
+| EB-1 | No Chromatic account, projects or tokens (OA-4) | **Superseded by Q10:** Chromatic is no longer used, so this blocks nothing | — |
 | EB-2 | No suitable Figma seat. The existing Full seat is on a plan Figma restricts to non-commercial use (OA-5) | No variables, styles or components in Figma; the token files wait for import | The owner buys the seat after seeing the billing choice (Q4) |
 | EB-3 | Storybook's support for server components is experimental | Some storefront server components may not render | The pilot shows which; the rest are recorded as U2 |
-| EB-4 | Chromatic documents no way to emulate the operating system's dark setting | The storefront's focus outline under that setting cannot be captured | Recorded as U3 |
+| EB-4 | Chromatic documents no way to emulate the operating system's dark setting | **Superseded by Q10:** Playwright emulates it (§8) | — |
 | EB-5 | Figma's own variable import is not confirmed to read the token format | The import uses Figma's plugin interface instead | Checked once the seat exists |
-| EB-6 | Chromatic's pricing page does not say whether the free allowance is per account or per project | The budget assumes one shared allowance, the stricter reading | Chromatic's answer, or the first month's usage |
+| EB-6 | Chromatic's pricing page does not say whether the free allowance is per account or per project | **Superseded by Q10:** there is no snapshot allowance | — |
 | EB-7 | The backend's two-day rule holds back the newest Storybook release, 10.6.3, until 2026-10-22 | The pilot uses the newest version the rule accepts, and records it | Not a blocker; recorded so an install refusal is not mistaken for a fault |
+| EB-8 | This session's container has the Docker client but no running Docker service | Reference images cannot be made here in the pinned image | References are made by CI and committed from its artifacts (§11.4); a person with Docker can also make them locally |
 
 ## 15. How the framework applies
 
@@ -360,19 +409,19 @@ SES-001, ENG-001 and ENG-002 apply to this work, as the owner adopted them on 20
 
 - **Capabilities** ([SES-001 §3](framework/SES-001.md#3-capability-catalog)):
   - Design System Engineering (PD-13) and Visual Interface Design (PD-09) for the reproductions.
-  - Visual Regression Verification (QV-08) for Chromatic.
+  - Visual Regression Verification (QV-08) for the Playwright screenshot comparisons. Human design judgement stays separate: a reference image is accepted by a person, not by the check.
   - Accessible and Inclusive Product Design (PD-11) and Accessibility Verification (QV-09) are not measured yet, because Q3 and Q9 are open.
 - **Work items.** FB-19 and FB-20 carry ENG-001's fields in [LIQ-004](LIQ-004-foundation-backlog.md#spree-baseline-reproduction-work-items): outcome, scope, completion criteria tied to the IDs, dependencies and risk. Both are Protected where they add dependencies, CI steps, accounts or seats.
 - **Stages** ([ENG-001 §3](framework/ENG-001-engineering-charter.md#3-iterative-sdlc)). This plan is "design and plan". The pilot and each batch are "implement and integrate", then "verify and review".
-- **Evidence** ([ENG-002 §6](framework/ENG-002-documentation-system.md#verification-record)). Each batch ends with a verification record. Controls are described by their state ([SES-001 §4](framework/SES-001.md#4-assess-only-what-the-decision-needs)): the Chromatic step is "Configured" when its workflow exists and "Verified" only after a real run with baselines.
+- **Evidence** ([ENG-002 §6](framework/ENG-002-documentation-system.md#verification-record)). Each batch ends with a verification record. Controls are described by their state ([SES-001 §4](framework/SES-001.md#4-assess-only-what-the-decision-needs)): the visual check is "Configured" when its workflow exists, and "Verified" only after CI runs have compared real references and caught a planted difference.
 - **Not applied, and why:**
   - **Independent review.** The owner is the only reviewer, and automated review is labelled as such ([LIQ-001 §2](LIQ-001-project-profile.md)).
-  - **The release and operation stages.** Nothing is deployed. A Storybook that Chromatic publishes is a development artifact, not a release.
+  - **The release and operation stages.** Nothing is deployed. The built Storybooks and the comparison reports are CI artifacts, not releases.
   - **Spree's plan folder and plan commands.** Liquorify plans live in `liquorify/` (exceptions X1 and X4 in [LIQ-001 §6.3](LIQ-001-project-profile.md#63-conflicts-and-exceptions)).
 
 ## 16. Limitations
 
 - **Reading only.** Part A was read from the files, and nothing in Part B has run yet. The pilot is the first test of it.
 - **Counts** of palette colours were found by searching class names, which misses class names built at run time.
-- **Vendor behaviour.** Chromatic's handling of merge commits, its snapshot allowance and Figma's import formats were read from public pages or not confirmed; each is checked in the pilot or once the account exists.
+- **Vendor behaviour.** Figma's import formats were not confirmed, and are checked once the seat exists. Whether screenshots are identical from run to run in the pinned container is checked in the pilot.
 - **Automated, not independent.** The same session wrote Part A, proposes Part B and will run the pilot.

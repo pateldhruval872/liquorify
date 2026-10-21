@@ -19,7 +19,7 @@ This baseline records everything Spree already offers, at the pinned revisions o
 |---|---|---|
 | Features, by area and surface, with dispositions | This document | — |
 | Screens, routes, roles, permissions, workflows, states and flows | [LIQ-008](LIQ-008-spree-screen-inventory.md) | FB-21: the existing screens, wireframes and flows in Figma |
-| Components and design tokens | [LIQ-009](LIQ-009-spree-component-and-token-inventory.md) | FB-20: both design systems in Figma. FB-19: the components in Storybook, with Chromatic visual baselines |
+| Components and design tokens | [LIQ-009](LIQ-009-spree-component-and-token-inventory.md) | FB-20: both design systems in Figma. FB-19: the components in Storybook, with Playwright visual baselines |
 
 **It describes what exists, not what Liquorify will build.** Under the recorded instruction in [LIQ-001 §1](LIQ-001-project-profile.md#recorded-instructions-that-shape-engineering-work), no Spree feature becomes a Liquorify requirement by being listed here. The dispositions are proposals for the owner, and none is a product decision. A feature whose disposition is "not needed yet" stays in the baseline and in the reproduction work. Liquorify's own needs come from the merchant lifecycle specification. That document is PROPOSED and lives outside the repositories ([README](README.md#records-kept-outside-the-repositories)). Liquorify's own product work waits until the baseline is complete (§13).
 
