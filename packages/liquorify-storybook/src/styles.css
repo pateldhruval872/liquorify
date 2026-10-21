@@ -1,0 +1,10 @@
+/* The dashboard design system's stylesheet, as both panels load it.
+ *
+ * Tailwind scans only this package by default. Each panel's Vite plugin adds
+ * its own sources at build time, so the packages these stories render are
+ * added here instead.
+ */
+@import "@spree/dashboard-ui/styles.css";
+@source "../../dashboard-core/src";
+@source "../../dashboard/src";
+@source "../../seller-dashboard/src";

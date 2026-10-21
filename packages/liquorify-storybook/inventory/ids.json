@@ -1,0 +1,3606 @@
+{
+  "generatedFrom": "liquorify/LIQ-009-spree-component-and-token-inventory.md",
+  "inventoryVersion": "0.3-draft",
+  "components": [
+    {
+      "id": "CMP-DUI-P-01",
+      "system": "dashboard",
+      "name": "accordion",
+      "file": "packages/dashboard-ui/src/ui/accordion.tsx"
+    },
+    {
+      "id": "CMP-DUI-P-02",
+      "system": "dashboard",
+      "name": "alert",
+      "file": "packages/dashboard-ui/src/ui/alert.tsx"
+    },
+    {
+      "id": "CMP-DUI-P-03",
+      "system": "dashboard",
+      "name": "attachment",
+      "file": "packages/dashboard-ui/src/ui/attachment.tsx"
+    },
+    {
+      "id": "CMP-DUI-P-04",
+      "system": "dashboard",
+      "name": "avatar",
+      "file": "packages/dashboard-ui/src/ui/avatar.tsx"
+    },
+    {
+      "id": "CMP-DUI-P-05",
+      "system": "dashboard",
+      "name": "badge",
+      "file": "packages/dashboard-ui/src/ui/badge.tsx"
+    },
+    {
+      "id": "CMP-DUI-P-06",
+      "system": "dashboard",
+      "name": "breadcrumb",
+      "file": "packages/dashboard-ui/src/ui/breadcrumb.tsx"
+    },
+    {
+      "id": "CMP-DUI-P-07",
+      "system": "dashboard",
+      "name": "button",
+      "file": "packages/dashboard-ui/src/ui/button.tsx"
+    },
+    {
+      "id": "CMP-DUI-P-08",
+      "system": "dashboard",
+      "name": "calendar",
+      "file": "packages/dashboard-ui/src/ui/calendar.tsx"
+    },
+    {
+      "id": "CMP-DUI-P-09",
+      "system": "dashboard",
+      "name": "card",
+      "file": "packages/dashboard-ui/src/ui/card.tsx"
+    },
+    {
+      "id": "CMP-DUI-P-10",
+      "system": "dashboard",
+      "name": "chart",
+      "file": "packages/dashboard-ui/src/ui/chart.tsx"
+    },
+    {
+      "id": "CMP-DUI-P-11",
+      "system": "dashboard",
+      "name": "checkbox",
+      "file": "packages/dashboard-ui/src/ui/checkbox.tsx"
+    },
+    {
+      "id": "CMP-DUI-P-12",
+      "system": "dashboard",
+      "name": "code-editor",
+      "file": "packages/dashboard-ui/src/ui/code-editor.tsx"
+    },
+    {
+      "id": "CMP-DUI-P-13",
+      "system": "dashboard",
+      "name": "collapsible",
+      "file": "packages/dashboard-ui/src/ui/collapsible.tsx"
+    },
+    {
+      "id": "CMP-DUI-P-14",
+      "system": "dashboard",
+      "name": "combobox",
+      "file": "packages/dashboard-ui/src/ui/combobox.tsx"
+    },
+    {
+      "id": "CMP-DUI-P-15",
+      "system": "dashboard",
+      "name": "command",
+      "file": "packages/dashboard-ui/src/ui/command.tsx"
+    },
+    {
+      "id": "CMP-DUI-P-16",
+      "system": "dashboard",
+      "name": "context-menu",
+      "file": "packages/dashboard-ui/src/ui/context-menu.tsx"
+    },
+    {
+      "id": "CMP-DUI-P-17",
+      "system": "dashboard",
+      "name": "data-table",
+      "file": "packages/dashboard-ui/src/ui/data-table.tsx"
+    },
+    {
+      "id": "CMP-DUI-P-18",
+      "system": "dashboard",
+      "name": "date-picker",
+      "file": "packages/dashboard-ui/src/ui/date-picker.tsx"
+    },
+    {
+      "id": "CMP-DUI-P-19",
+      "system": "dashboard",
+      "name": "date-range-picker",
+      "file": "packages/dashboard-ui/src/ui/date-range-picker.tsx"
+    },
+    {
+      "id": "CMP-DUI-P-20",
+      "system": "dashboard",
+      "name": "dialog",
+      "file": "packages/dashboard-ui/src/ui/dialog.tsx"
+    },
+    {
+      "id": "CMP-DUI-P-21",
+      "system": "dashboard",
+      "name": "dropdown-menu",
+      "file": "packages/dashboard-ui/src/ui/dropdown-menu.tsx"
+    },
+    {
+      "id": "CMP-DUI-P-22",
+      "system": "dashboard",
+      "name": "empty",
+      "file": "packages/dashboard-ui/src/ui/empty.tsx"
+    },
+    {
+      "id": "CMP-DUI-P-23",
+      "system": "dashboard",
+      "name": "field",
+      "file": "packages/dashboard-ui/src/ui/field.tsx"
+    },
+    {
+      "id": "CMP-DUI-P-24",
+      "system": "dashboard",
+      "name": "input-group",
+      "file": "packages/dashboard-ui/src/ui/input-group.tsx"
+    },
+    {
+      "id": "CMP-DUI-P-25",
+      "system": "dashboard",
+      "name": "input",
+      "file": "packages/dashboard-ui/src/ui/input.tsx"
+    },
+    {
+      "id": "CMP-DUI-P-26",
+      "system": "dashboard",
+      "name": "item",
+      "file": "packages/dashboard-ui/src/ui/item.tsx"
+    },
+    {
+      "id": "CMP-DUI-P-27",
+      "system": "dashboard",
+      "name": "label",
+      "file": "packages/dashboard-ui/src/ui/label.tsx"
+    },
+    {
+      "id": "CMP-DUI-P-28",
+      "system": "dashboard",
+      "name": "media-preview",
+      "file": "packages/dashboard-ui/src/ui/media-preview.tsx"
+    },
+    {
+      "id": "CMP-DUI-P-29",
+      "system": "dashboard",
+      "name": "pagination",
+      "file": "packages/dashboard-ui/src/ui/pagination.tsx"
+    },
+    {
+      "id": "CMP-DUI-P-30",
+      "system": "dashboard",
+      "name": "popover",
+      "file": "packages/dashboard-ui/src/ui/popover.tsx"
+    },
+    {
+      "id": "CMP-DUI-P-31",
+      "system": "dashboard",
+      "name": "progress",
+      "file": "packages/dashboard-ui/src/ui/progress.tsx"
+    },
+    {
+      "id": "CMP-DUI-P-32",
+      "system": "dashboard",
+      "name": "radio-group",
+      "file": "packages/dashboard-ui/src/ui/radio-group.tsx"
+    },
+    {
+      "id": "CMP-DUI-P-33",
+      "system": "dashboard",
+      "name": "rich-text-editor",
+      "file": "packages/dashboard-ui/src/ui/rich-text-editor.tsx"
+    },
+    {
+      "id": "CMP-DUI-P-34",
+      "system": "dashboard",
+      "name": "scroll-area",
+      "file": "packages/dashboard-ui/src/ui/scroll-area.tsx"
+    },
+    {
+      "id": "CMP-DUI-P-35",
+      "system": "dashboard",
+      "name": "select",
+      "file": "packages/dashboard-ui/src/ui/select.tsx"
+    },
+    {
+      "id": "CMP-DUI-P-36",
+      "system": "dashboard",
+      "name": "separator",
+      "file": "packages/dashboard-ui/src/ui/separator.tsx"
+    },
+    {
+      "id": "CMP-DUI-P-37",
+      "system": "dashboard",
+      "name": "sheet",
+      "file": "packages/dashboard-ui/src/ui/sheet.tsx"
+    },
+    {
+      "id": "CMP-DUI-P-38",
+      "system": "dashboard",
+      "name": "sidebar",
+      "file": "packages/dashboard-ui/src/ui/sidebar.tsx"
+    },
+    {
+      "id": "CMP-DUI-P-39",
+      "system": "dashboard",
+      "name": "skeleton",
+      "file": "packages/dashboard-ui/src/ui/skeleton.tsx"
+    },
+    {
+      "id": "CMP-DUI-P-40",
+      "system": "dashboard",
+      "name": "slot",
+      "file": "packages/dashboard-ui/src/ui/slot.tsx"
+    },
+    {
+      "id": "CMP-DUI-P-41",
+      "system": "dashboard",
+      "name": "switch",
+      "file": "packages/dashboard-ui/src/ui/switch.tsx"
+    },
+    {
+      "id": "CMP-DUI-P-42",
+      "system": "dashboard",
+      "name": "tabs",
+      "file": "packages/dashboard-ui/src/ui/tabs.tsx"
+    },
+    {
+      "id": "CMP-DUI-P-43",
+      "system": "dashboard",
+      "name": "textarea",
+      "file": "packages/dashboard-ui/src/ui/textarea.tsx"
+    },
+    {
+      "id": "CMP-DUI-P-44",
+      "system": "dashboard",
+      "name": "thumbnail",
+      "file": "packages/dashboard-ui/src/ui/thumbnail.tsx"
+    },
+    {
+      "id": "CMP-DUI-P-45",
+      "system": "dashboard",
+      "name": "toast",
+      "file": "packages/dashboard-ui/src/ui/toast.tsx"
+    },
+    {
+      "id": "CMP-DUI-P-46",
+      "system": "dashboard",
+      "name": "tooltip",
+      "file": "packages/dashboard-ui/src/ui/tooltip.tsx"
+    },
+    {
+      "id": "CMP-DUI-C-01",
+      "system": "dashboard",
+      "name": "address-block",
+      "file": "packages/dashboard-ui/src/spree/address-block.tsx"
+    },
+    {
+      "id": "CMP-DUI-C-02",
+      "system": "dashboard",
+      "name": "address-book-row",
+      "file": "packages/dashboard-ui/src/spree/address-book-row.tsx"
+    },
+    {
+      "id": "CMP-DUI-C-03",
+      "system": "dashboard",
+      "name": "back-button",
+      "file": "packages/dashboard-ui/src/spree/back-button.tsx"
+    },
+    {
+      "id": "CMP-DUI-C-04",
+      "system": "dashboard",
+      "name": "bulk-dialog",
+      "file": "packages/dashboard-ui/src/spree/bulk-dialog.tsx"
+    },
+    {
+      "id": "CMP-DUI-C-05",
+      "system": "dashboard",
+      "name": "bulk-price-table",
+      "file": "packages/dashboard-ui/src/spree/bulk-price-table.tsx"
+    },
+    {
+      "id": "CMP-DUI-C-06",
+      "system": "dashboard",
+      "name": "bulk-variants-table",
+      "file": "packages/dashboard-ui/src/spree/bulk-variants-table.tsx"
+    },
+    {
+      "id": "CMP-DUI-C-07",
+      "system": "dashboard",
+      "name": "calculator-summary",
+      "file": "packages/dashboard-ui/src/spree/calculator-summary.tsx"
+    },
+    {
+      "id": "CMP-DUI-C-08",
+      "system": "dashboard",
+      "name": "claim-resolve-dialog",
+      "file": "packages/dashboard-ui/src/spree/claim-resolve-dialog.tsx"
+    },
+    {
+      "id": "CMP-DUI-C-09",
+      "system": "dashboard",
+      "name": "color-picker",
+      "file": "packages/dashboard-ui/src/spree/color-picker.tsx"
+    },
+    {
+      "id": "CMP-DUI-C-10",
+      "system": "dashboard",
+      "name": "confirm-dialog",
+      "file": "packages/dashboard-ui/src/spree/confirm-dialog.tsx"
+    },
+    {
+      "id": "CMP-DUI-C-11",
+      "system": "dashboard",
+      "name": "copy-to-clipboard-button",
+      "file": "packages/dashboard-ui/src/spree/copy-to-clipboard-button.tsx"
+    },
+    {
+      "id": "CMP-DUI-C-12",
+      "system": "dashboard",
+      "name": "country-flag",
+      "file": "packages/dashboard-ui/src/spree/country-flag.tsx"
+    },
+    {
+      "id": "CMP-DUI-C-13",
+      "system": "dashboard",
+      "name": "data-grid/cells",
+      "file": "packages/dashboard-ui/src/spree/data-grid/cells.tsx"
+    },
+    {
+      "id": "CMP-DUI-C-14",
+      "system": "dashboard",
+      "name": "data-grid/data-grid",
+      "file": "packages/dashboard-ui/src/spree/data-grid/data-grid.tsx"
+    },
+    {
+      "id": "CMP-DUI-C-15",
+      "system": "dashboard",
+      "name": "data-grid/fill-handle",
+      "file": "packages/dashboard-ui/src/spree/data-grid/fill-handle.tsx"
+    },
+    {
+      "id": "CMP-DUI-C-16",
+      "system": "dashboard",
+      "name": "delivery-form-dialog",
+      "file": "packages/dashboard-ui/src/spree/delivery-form-dialog.tsx"
+    },
+    {
+      "id": "CMP-DUI-C-17",
+      "system": "dashboard",
+      "name": "drag-handle",
+      "file": "packages/dashboard-ui/src/spree/drag-handle.tsx"
+    },
+    {
+      "id": "CMP-DUI-C-18",
+      "system": "dashboard",
+      "name": "editable-note-card",
+      "file": "packages/dashboard-ui/src/spree/editable-note-card.tsx"
+    },
+    {
+      "id": "CMP-DUI-C-19",
+      "system": "dashboard",
+      "name": "external-link",
+      "file": "packages/dashboard-ui/src/spree/external-link.tsx"
+    },
+    {
+      "id": "CMP-DUI-C-20",
+      "system": "dashboard",
+      "name": "file-type-icon",
+      "file": "packages/dashboard-ui/src/spree/file-type-icon.tsx"
+    },
+    {
+      "id": "CMP-DUI-C-21",
+      "system": "dashboard",
+      "name": "form-actions",
+      "file": "packages/dashboard-ui/src/spree/form-actions.tsx"
+    },
+    {
+      "id": "CMP-DUI-C-22",
+      "system": "dashboard",
+      "name": "form-section",
+      "file": "packages/dashboard-ui/src/spree/form-section.tsx"
+    },
+    {
+      "id": "CMP-DUI-C-23",
+      "system": "dashboard",
+      "name": "fulfill-items-form",
+      "file": "packages/dashboard-ui/src/spree/fulfill-items-form.tsx"
+    },
+    {
+      "id": "CMP-DUI-C-24",
+      "system": "dashboard",
+      "name": "fulfillment-edit-dialog",
+      "file": "packages/dashboard-ui/src/spree/fulfillment-edit-dialog.tsx"
+    },
+    {
+      "id": "CMP-DUI-C-25",
+      "system": "dashboard",
+      "name": "fulfillment-item-list",
+      "file": "packages/dashboard-ui/src/spree/fulfillment-item-list.tsx"
+    },
+    {
+      "id": "CMP-DUI-C-26",
+      "system": "dashboard",
+      "name": "fulfillment-panel",
+      "file": "packages/dashboard-ui/src/spree/fulfillment-panel.tsx"
+    },
+    {
+      "id": "CMP-DUI-C-27",
+      "system": "dashboard",
+      "name": "json-preview-drawer",
+      "file": "packages/dashboard-ui/src/spree/json-preview-drawer.tsx"
+    },
+    {
+      "id": "CMP-DUI-C-28",
+      "system": "dashboard",
+      "name": "json-value-view",
+      "file": "packages/dashboard-ui/src/spree/json-value-view.tsx"
+    },
+    {
+      "id": "CMP-DUI-C-29",
+      "system": "dashboard",
+      "name": "label-upload-dialog",
+      "file": "packages/dashboard-ui/src/spree/label-upload-dialog.tsx"
+    },
+    {
+      "id": "CMP-DUI-C-30",
+      "system": "dashboard",
+      "name": "language-menu-items",
+      "file": "packages/dashboard-ui/src/spree/language-menu-items.tsx"
+    },
+    {
+      "id": "CMP-DUI-C-31",
+      "system": "dashboard",
+      "name": "metadata/metadata-card",
+      "file": "packages/dashboard-ui/src/spree/metadata/metadata-card.tsx"
+    },
+    {
+      "id": "CMP-DUI-C-32",
+      "system": "dashboard",
+      "name": "order-cancel-dialog",
+      "file": "packages/dashboard-ui/src/spree/order-cancel-dialog.tsx"
+    },
+    {
+      "id": "CMP-DUI-C-33",
+      "system": "dashboard",
+      "name": "post-sale-create-dialogs",
+      "file": "packages/dashboard-ui/src/spree/post-sale-create-dialogs.tsx"
+    },
+    {
+      "id": "CMP-DUI-C-34",
+      "system": "dashboard",
+      "name": "post-sale-fields",
+      "file": "packages/dashboard-ui/src/spree/post-sale-fields.tsx"
+    },
+    {
+      "id": "CMP-DUI-C-35",
+      "system": "dashboard",
+      "name": "product-membership-list",
+      "file": "packages/dashboard-ui/src/spree/product-membership-list.tsx"
+    },
+    {
+      "id": "CMP-DUI-C-36",
+      "system": "dashboard",
+      "name": "products/status-card",
+      "file": "packages/dashboard-ui/src/spree/products/status-card.tsx"
+    },
+    {
+      "id": "CMP-DUI-C-37",
+      "system": "dashboard",
+      "name": "quantity-tier-editor",
+      "file": "packages/dashboard-ui/src/spree/quantity-tier-editor.tsx"
+    },
+    {
+      "id": "CMP-DUI-C-38",
+      "system": "dashboard",
+      "name": "relative-time",
+      "file": "packages/dashboard-ui/src/spree/relative-time.tsx"
+    },
+    {
+      "id": "CMP-DUI-C-39",
+      "system": "dashboard",
+      "name": "resource-combobox",
+      "file": "packages/dashboard-ui/src/spree/resource-combobox.tsx"
+    },
+    {
+      "id": "CMP-DUI-C-40",
+      "system": "dashboard",
+      "name": "resource-layout",
+      "file": "packages/dashboard-ui/src/spree/resource-layout.tsx"
+    },
+    {
+      "id": "CMP-DUI-C-41",
+      "system": "dashboard",
+      "name": "resource-multi-autocomplete",
+      "file": "packages/dashboard-ui/src/spree/resource-multi-autocomplete.tsx"
+    },
+    {
+      "id": "CMP-DUI-C-42",
+      "system": "dashboard",
+      "name": "resource-name-cell",
+      "file": "packages/dashboard-ui/src/spree/resource-name-cell.tsx"
+    },
+    {
+      "id": "CMP-DUI-C-43",
+      "system": "dashboard",
+      "name": "return-dialogs",
+      "file": "packages/dashboard-ui/src/spree/return-dialogs.tsx"
+    },
+    {
+      "id": "CMP-DUI-C-44",
+      "system": "dashboard",
+      "name": "route-error-boundary",
+      "file": "packages/dashboard-ui/src/spree/route-error-boundary.tsx"
+    },
+    {
+      "id": "CMP-DUI-C-45",
+      "system": "dashboard",
+      "name": "row-actions",
+      "file": "packages/dashboard-ui/src/spree/row-actions.tsx"
+    },
+    {
+      "id": "CMP-DUI-C-46",
+      "system": "dashboard",
+      "name": "row-click-bridge",
+      "file": "packages/dashboard-ui/src/spree/row-click-bridge.tsx"
+    },
+    {
+      "id": "CMP-DUI-C-47",
+      "system": "dashboard",
+      "name": "search-input",
+      "file": "packages/dashboard-ui/src/spree/search-input.tsx"
+    },
+    {
+      "id": "CMP-DUI-C-48",
+      "system": "dashboard",
+      "name": "secret-input",
+      "file": "packages/dashboard-ui/src/spree/secret-input.tsx"
+    },
+    {
+      "id": "CMP-DUI-C-49",
+      "system": "dashboard",
+      "name": "storefront-visible-switch",
+      "file": "packages/dashboard-ui/src/spree/storefront-visible-switch.tsx"
+    },
+    {
+      "id": "CMP-DUI-C-50",
+      "system": "dashboard",
+      "name": "tag-list",
+      "file": "packages/dashboard-ui/src/spree/tag-list.tsx"
+    },
+    {
+      "id": "CMP-DUI-C-51",
+      "system": "dashboard",
+      "name": "tax-identifiers-card",
+      "file": "packages/dashboard-ui/src/spree/tax-identifiers-card.tsx"
+    },
+    {
+      "id": "CMP-DUI-C-52",
+      "system": "dashboard",
+      "name": "theme-provider",
+      "file": "packages/dashboard-ui/src/spree/theme-provider.tsx"
+    },
+    {
+      "id": "CMP-DUI-C-53",
+      "system": "dashboard",
+      "name": "theme-toggle",
+      "file": "packages/dashboard-ui/src/spree/theme-toggle.tsx"
+    },
+    {
+      "id": "CMP-DUI-C-54",
+      "system": "dashboard",
+      "name": "wizard",
+      "file": "packages/dashboard-ui/src/spree/wizard.tsx"
+    },
+    {
+      "id": "CMP-CORE-01",
+      "system": "dashboard",
+      "name": "address-form-dialog",
+      "file": "packages/dashboard-core/src/components/address-form-dialog.tsx"
+    },
+    {
+      "id": "CMP-CORE-02",
+      "system": "dashboard",
+      "name": "app-shell",
+      "file": "packages/dashboard-core/src/components/app-shell.tsx"
+    },
+    {
+      "id": "CMP-CORE-03",
+      "system": "dashboard",
+      "name": "app-sidebar",
+      "file": "packages/dashboard-core/src/components/app-sidebar.tsx"
+    },
+    {
+      "id": "CMP-CORE-04",
+      "system": "dashboard",
+      "name": "bulk-action-bar",
+      "file": "packages/dashboard-core/src/components/bulk-action-bar.tsx"
+    },
+    {
+      "id": "CMP-CORE-05",
+      "system": "dashboard",
+      "name": "can",
+      "file": "packages/dashboard-core/src/components/can.tsx"
+    },
+    {
+      "id": "CMP-CORE-06",
+      "system": "dashboard",
+      "name": "country-combobox",
+      "file": "packages/dashboard-core/src/components/country-combobox.tsx"
+    },
+    {
+      "id": "CMP-CORE-07",
+      "system": "dashboard",
+      "name": "country-state-fields",
+      "file": "packages/dashboard-core/src/components/country-state-fields.tsx"
+    },
+    {
+      "id": "CMP-CORE-08",
+      "system": "dashboard",
+      "name": "currency-select",
+      "file": "packages/dashboard-core/src/components/currency-select.tsx"
+    },
+    {
+      "id": "CMP-CORE-09",
+      "system": "dashboard",
+      "name": "export-button",
+      "file": "packages/dashboard-core/src/components/export-button.tsx"
+    },
+    {
+      "id": "CMP-CORE-10",
+      "system": "dashboard",
+      "name": "file-upload-field",
+      "file": "packages/dashboard-core/src/components/file-upload-field.tsx"
+    },
+    {
+      "id": "CMP-CORE-11",
+      "system": "dashboard",
+      "name": "image-upload-field",
+      "file": "packages/dashboard-core/src/components/image-upload-field.tsx"
+    },
+    {
+      "id": "CMP-CORE-12",
+      "system": "dashboard",
+      "name": "import-button",
+      "file": "packages/dashboard-core/src/components/import-button.tsx"
+    },
+    {
+      "id": "CMP-CORE-13",
+      "system": "dashboard",
+      "name": "import-wizard-dialog",
+      "file": "packages/dashboard-core/src/components/import-wizard-dialog.tsx"
+    },
+    {
+      "id": "CMP-CORE-14",
+      "system": "dashboard",
+      "name": "locale-select",
+      "file": "packages/dashboard-core/src/components/locale-select.tsx"
+    },
+    {
+      "id": "CMP-CORE-15",
+      "system": "dashboard",
+      "name": "market-combobox",
+      "file": "packages/dashboard-core/src/components/market-combobox.tsx"
+    },
+    {
+      "id": "CMP-CORE-16",
+      "system": "dashboard",
+      "name": "media-picker-sheet",
+      "file": "packages/dashboard-core/src/components/media-picker-sheet.tsx"
+    },
+    {
+      "id": "CMP-CORE-17",
+      "system": "dashboard",
+      "name": "mobile-top-bar",
+      "file": "packages/dashboard-core/src/components/mobile-top-bar.tsx"
+    },
+    {
+      "id": "CMP-CORE-18",
+      "system": "dashboard",
+      "name": "money",
+      "file": "packages/dashboard-core/src/components/money.tsx"
+    },
+    {
+      "id": "CMP-CORE-19",
+      "system": "dashboard",
+      "name": "nav-main",
+      "file": "packages/dashboard-core/src/components/nav-main.tsx"
+    },
+    {
+      "id": "CMP-CORE-20",
+      "system": "dashboard",
+      "name": "page-header",
+      "file": "packages/dashboard-core/src/components/page-header.tsx"
+    },
+    {
+      "id": "CMP-CORE-21",
+      "system": "dashboard",
+      "name": "page-tabs",
+      "file": "packages/dashboard-core/src/components/page-tabs.tsx"
+    },
+    {
+      "id": "CMP-CORE-22",
+      "system": "dashboard",
+      "name": "preferences-form",
+      "file": "packages/dashboard-core/src/components/preferences-form.tsx"
+    },
+    {
+      "id": "CMP-CORE-23",
+      "system": "dashboard",
+      "name": "resource-combobox",
+      "file": "packages/dashboard-core/src/components/resource-combobox.tsx"
+    },
+    {
+      "id": "CMP-CORE-24",
+      "system": "dashboard",
+      "name": "resource-multi-autocomplete",
+      "file": "packages/dashboard-core/src/components/resource-multi-autocomplete.tsx"
+    },
+    {
+      "id": "CMP-CORE-25",
+      "system": "dashboard",
+      "name": "resource-picker-sheet",
+      "file": "packages/dashboard-core/src/components/resource-picker-sheet.tsx"
+    },
+    {
+      "id": "CMP-CORE-26",
+      "system": "dashboard",
+      "name": "resource-table",
+      "file": "packages/dashboard-core/src/components/resource-table.tsx"
+    },
+    {
+      "id": "CMP-CORE-27",
+      "system": "dashboard",
+      "name": "route-announcer",
+      "file": "packages/dashboard-core/src/components/route-announcer.tsx"
+    },
+    {
+      "id": "CMP-CORE-28",
+      "system": "dashboard",
+      "name": "section-heading",
+      "file": "packages/dashboard-core/src/components/section-heading.tsx"
+    },
+    {
+      "id": "CMP-CORE-29",
+      "system": "dashboard",
+      "name": "settings-sidebar",
+      "file": "packages/dashboard-core/src/components/settings-sidebar.tsx"
+    },
+    {
+      "id": "CMP-CORE-30",
+      "system": "dashboard",
+      "name": "sheet-top-bar",
+      "file": "packages/dashboard-core/src/components/sheet-top-bar.tsx"
+    },
+    {
+      "id": "CMP-CORE-31",
+      "system": "dashboard",
+      "name": "sidebar-search",
+      "file": "packages/dashboard-core/src/components/sidebar-search.tsx"
+    },
+    {
+      "id": "CMP-CORE-32",
+      "system": "dashboard",
+      "name": "sidebar-user",
+      "file": "packages/dashboard-core/src/components/sidebar-user.tsx"
+    },
+    {
+      "id": "CMP-CORE-33",
+      "system": "dashboard",
+      "name": "skip-link",
+      "file": "packages/dashboard-core/src/components/skip-link.tsx"
+    },
+    {
+      "id": "CMP-CORE-34",
+      "system": "dashboard",
+      "name": "slot",
+      "file": "packages/dashboard-core/src/components/slot.tsx"
+    },
+    {
+      "id": "CMP-CORE-35",
+      "system": "dashboard",
+      "name": "store-date-picker",
+      "file": "packages/dashboard-core/src/components/store-date-picker.tsx"
+    },
+    {
+      "id": "CMP-CORE-36",
+      "system": "dashboard",
+      "name": "store-switcher",
+      "file": "packages/dashboard-core/src/components/store-switcher.tsx"
+    },
+    {
+      "id": "CMP-CORE-37",
+      "system": "dashboard",
+      "name": "table-toolbar",
+      "file": "packages/dashboard-core/src/components/table-toolbar.tsx"
+    },
+    {
+      "id": "CMP-CORE-38",
+      "system": "dashboard",
+      "name": "tag-combobox",
+      "file": "packages/dashboard-core/src/components/tag-combobox.tsx"
+    },
+    {
+      "id": "CMP-CORE-39",
+      "system": "dashboard",
+      "name": "top-bar-breadcrumbs",
+      "file": "packages/dashboard-core/src/components/top-bar-breadcrumbs.tsx"
+    },
+    {
+      "id": "CMP-CORE-PG-01",
+      "system": "dashboard",
+      "name": "package-types",
+      "file": "packages/dashboard-core/src/pages/package-types.tsx"
+    },
+    {
+      "id": "CMP-CORE-PG-02",
+      "system": "dashboard",
+      "name": "settings-index",
+      "file": "packages/dashboard-core/src/pages/settings-index.tsx"
+    },
+    {
+      "id": "CMP-CORE-PG-03",
+      "system": "dashboard",
+      "name": "stock-locations",
+      "file": "packages/dashboard-core/src/pages/stock-locations.tsx"
+    },
+    {
+      "id": "CMP-CORE-PF-01",
+      "system": "dashboard",
+      "name": "add-video-dialog",
+      "file": "packages/dashboard-core/src/products/add-video-dialog.tsx"
+    },
+    {
+      "id": "CMP-CORE-PF-02",
+      "system": "dashboard",
+      "name": "bulk-variants-dialog",
+      "file": "packages/dashboard-core/src/products/bulk-variants-dialog.tsx"
+    },
+    {
+      "id": "CMP-CORE-PF-03",
+      "system": "dashboard",
+      "name": "inventory-section",
+      "file": "packages/dashboard-core/src/products/inventory-section.tsx"
+    },
+    {
+      "id": "CMP-CORE-PF-04",
+      "system": "dashboard",
+      "name": "media-edit-sheet",
+      "file": "packages/dashboard-core/src/products/media-edit-sheet.tsx"
+    },
+    {
+      "id": "CMP-CORE-PF-05",
+      "system": "dashboard",
+      "name": "product-bulk-price-editor",
+      "file": "packages/dashboard-core/src/products/product-bulk-price-editor.tsx"
+    },
+    {
+      "id": "CMP-CORE-PF-06",
+      "system": "dashboard",
+      "name": "product-form-cards",
+      "file": "packages/dashboard-core/src/products/product-form-cards.tsx"
+    },
+    {
+      "id": "CMP-CORE-PF-07",
+      "system": "dashboard",
+      "name": "variant-edit-sheet",
+      "file": "packages/dashboard-core/src/products/variant-edit-sheet.tsx"
+    },
+    {
+      "id": "CMP-CORE-PF-08",
+      "system": "dashboard",
+      "name": "variants-options-builder",
+      "file": "packages/dashboard-core/src/products/variants-options-builder.tsx"
+    },
+    {
+      "id": "CMP-CORE-PF-09",
+      "system": "dashboard",
+      "name": "variants-section",
+      "file": "packages/dashboard-core/src/products/variants-section.tsx"
+    },
+    {
+      "id": "CMP-DA-G-01",
+      "system": "dashboard",
+      "name": "api-key-create-sheet",
+      "file": "packages/dashboard/src/components/spree/api-keys/api-key-create-sheet.tsx"
+    },
+    {
+      "id": "CMP-DA-G-01",
+      "system": "dashboard",
+      "name": "api-key-edit-sheet",
+      "file": "packages/dashboard/src/components/spree/api-keys/api-key-edit-sheet.tsx"
+    },
+    {
+      "id": "CMP-DA-G-01",
+      "system": "dashboard",
+      "name": "api-key-form-fields",
+      "file": "packages/dashboard/src/components/spree/api-keys/api-key-form-fields.tsx"
+    },
+    {
+      "id": "CMP-DA-G-01",
+      "system": "dashboard",
+      "name": "api-key-scope-picker",
+      "file": "packages/dashboard/src/components/spree/api-keys/api-key-scope-picker.tsx"
+    },
+    {
+      "id": "CMP-DA-G-01",
+      "system": "dashboard",
+      "name": "api-key-table",
+      "file": "packages/dashboard/src/components/spree/api-keys/api-key-table.tsx"
+    },
+    {
+      "id": "CMP-DA-G-01",
+      "system": "dashboard",
+      "name": "api-key-token-reveal-dialog",
+      "file": "packages/dashboard/src/components/spree/api-keys/api-key-token-reveal-dialog.tsx"
+    },
+    {
+      "id": "CMP-DA-G-02",
+      "system": "dashboard",
+      "name": "bulk-price-editor",
+      "file": "packages/dashboard/src/components/spree/bulk-price-editor/bulk-price-editor.tsx"
+    },
+    {
+      "id": "CMP-DA-G-02",
+      "system": "dashboard",
+      "name": "bulk-price-editor-dialog",
+      "file": "packages/dashboard/src/components/spree/bulk-price-editor/bulk-price-editor-dialog.tsx"
+    },
+    {
+      "id": "CMP-DA-G-03",
+      "system": "dashboard",
+      "name": "category-form",
+      "file": "packages/dashboard/src/components/spree/categories/category-form.tsx"
+    },
+    {
+      "id": "CMP-DA-G-03",
+      "system": "dashboard",
+      "name": "category-list",
+      "file": "packages/dashboard/src/components/spree/categories/category-list.tsx"
+    },
+    {
+      "id": "CMP-DA-G-03",
+      "system": "dashboard",
+      "name": "category-products-card",
+      "file": "packages/dashboard/src/components/spree/categories/category-products-card.tsx"
+    },
+    {
+      "id": "CMP-DA-G-03",
+      "system": "dashboard",
+      "name": "category-tree",
+      "file": "packages/dashboard/src/components/spree/categories/category-tree.tsx"
+    },
+    {
+      "id": "CMP-DA-G-04",
+      "system": "dashboard",
+      "name": "collection-form",
+      "file": "packages/dashboard/src/components/spree/collections/collection-form.tsx"
+    },
+    {
+      "id": "CMP-DA-G-04",
+      "system": "dashboard",
+      "name": "collection-products-card",
+      "file": "packages/dashboard/src/components/spree/collections/collection-products-card.tsx"
+    },
+    {
+      "id": "CMP-DA-G-04",
+      "system": "dashboard",
+      "name": "collection-rules-card",
+      "file": "packages/dashboard/src/components/spree/collections/collection-rules-card.tsx"
+    },
+    {
+      "id": "CMP-DA-G-05",
+      "system": "dashboard",
+      "name": "command-palette",
+      "file": "packages/dashboard/src/components/spree/command-palette/command-palette.tsx"
+    },
+    {
+      "id": "CMP-DA-G-06",
+      "system": "dashboard",
+      "name": "custom-fields-inline",
+      "file": "packages/dashboard/src/components/spree/custom-fields/custom-fields-inline.tsx"
+    },
+    {
+      "id": "CMP-DA-G-06",
+      "system": "dashboard",
+      "name": "definition-form",
+      "file": "packages/dashboard/src/components/spree/custom-fields/definition-form.tsx"
+    },
+    {
+      "id": "CMP-DA-G-07",
+      "system": "dashboard",
+      "name": "customer-addresses-card",
+      "file": "packages/dashboard/src/components/spree/customers/customer-addresses-card.tsx"
+    },
+    {
+      "id": "CMP-DA-G-07",
+      "system": "dashboard",
+      "name": "customer-groups-card",
+      "file": "packages/dashboard/src/components/spree/customers/customer-groups-card.tsx"
+    },
+    {
+      "id": "CMP-DA-G-07",
+      "system": "dashboard",
+      "name": "customer-internal-note-card",
+      "file": "packages/dashboard/src/components/spree/customers/customer-internal-note-card.tsx"
+    },
+    {
+      "id": "CMP-DA-G-07",
+      "system": "dashboard",
+      "name": "customer-last-order-card",
+      "file": "packages/dashboard/src/components/spree/customers/customer-last-order-card.tsx"
+    },
+    {
+      "id": "CMP-DA-G-07",
+      "system": "dashboard",
+      "name": "customer-lifetime-stats-card",
+      "file": "packages/dashboard/src/components/spree/customers/customer-lifetime-stats-card.tsx"
+    },
+    {
+      "id": "CMP-DA-G-07",
+      "system": "dashboard",
+      "name": "customer-orders-card",
+      "file": "packages/dashboard/src/components/spree/customers/customer-orders-card.tsx"
+    },
+    {
+      "id": "CMP-DA-G-07",
+      "system": "dashboard",
+      "name": "customer-privacy-card",
+      "file": "packages/dashboard/src/components/spree/customers/customer-privacy-card.tsx"
+    },
+    {
+      "id": "CMP-DA-G-07",
+      "system": "dashboard",
+      "name": "customer-profile-card",
+      "file": "packages/dashboard/src/components/spree/customers/customer-profile-card.tsx"
+    },
+    {
+      "id": "CMP-DA-G-07",
+      "system": "dashboard",
+      "name": "customer-store-credits-card",
+      "file": "packages/dashboard/src/components/spree/customers/customer-store-credits-card.tsx"
+    },
+    {
+      "id": "CMP-DA-G-07",
+      "system": "dashboard",
+      "name": "customer-tax-identifiers-card",
+      "file": "packages/dashboard/src/components/spree/customers/customer-tax-identifiers-card.tsx"
+    },
+    {
+      "id": "CMP-DA-G-08",
+      "system": "dashboard",
+      "name": "conflict-dialog",
+      "file": "packages/dashboard/src/components/spree/email-templates/conflict-dialog.tsx"
+    },
+    {
+      "id": "CMP-DA-G-08",
+      "system": "dashboard",
+      "name": "default-diff-dialog",
+      "file": "packages/dashboard/src/components/spree/email-templates/default-diff-dialog.tsx"
+    },
+    {
+      "id": "CMP-DA-G-08",
+      "system": "dashboard",
+      "name": "email-preview-frame",
+      "file": "packages/dashboard/src/components/spree/email-templates/email-preview-frame.tsx"
+    },
+    {
+      "id": "CMP-DA-G-08",
+      "system": "dashboard",
+      "name": "emails-tabs",
+      "file": "packages/dashboard/src/components/spree/email-templates/emails-tabs.tsx"
+    },
+    {
+      "id": "CMP-DA-G-08",
+      "system": "dashboard",
+      "name": "history-sheet",
+      "file": "packages/dashboard/src/components/spree/email-templates/history-sheet.tsx"
+    },
+    {
+      "id": "CMP-DA-G-08",
+      "system": "dashboard",
+      "name": "preview-card",
+      "file": "packages/dashboard/src/components/spree/email-templates/preview-card.tsx"
+    },
+    {
+      "id": "CMP-DA-G-08",
+      "system": "dashboard",
+      "name": "problems-alert",
+      "file": "packages/dashboard/src/components/spree/email-templates/problems-alert.tsx"
+    },
+    {
+      "id": "CMP-DA-G-08",
+      "system": "dashboard",
+      "name": "variables-card",
+      "file": "packages/dashboard/src/components/spree/email-templates/variables-card.tsx"
+    },
+    {
+      "id": "CMP-DA-G-09",
+      "system": "dashboard",
+      "name": "import-wizard-dialog",
+      "file": "packages/dashboard/src/components/spree/imports/import-wizard-dialog.tsx"
+    },
+    {
+      "id": "CMP-DA-G-10",
+      "system": "dashboard",
+      "name": "configure-integration-sheet",
+      "file": "packages/dashboard/src/components/spree/integrations/configure-integration-sheet.tsx"
+    },
+    {
+      "id": "CMP-DA-G-10",
+      "system": "dashboard",
+      "name": "integration-card",
+      "file": "packages/dashboard/src/components/spree/integrations/integration-card.tsx"
+    },
+    {
+      "id": "CMP-DA-G-10",
+      "system": "dashboard",
+      "name": "setup-guide-link",
+      "file": "packages/dashboard/src/components/spree/integrations/setup-guide-link.tsx"
+    },
+    {
+      "id": "CMP-DA-G-11",
+      "system": "dashboard",
+      "name": "fulfillment-deliveries",
+      "file": "packages/dashboard/src/components/spree/orders/fulfillment-deliveries.tsx"
+    },
+    {
+      "id": "CMP-DA-G-11",
+      "system": "dashboard",
+      "name": "fulfillment-delivery-dialog",
+      "file": "packages/dashboard/src/components/spree/orders/fulfillment-delivery-dialog.tsx"
+    },
+    {
+      "id": "CMP-DA-G-11",
+      "system": "dashboard",
+      "name": "fulfillment-edit-dialog",
+      "file": "packages/dashboard/src/components/spree/orders/fulfillment-edit-dialog.tsx"
+    },
+    {
+      "id": "CMP-DA-G-11",
+      "system": "dashboard",
+      "name": "fulfillment-fulfill-form",
+      "file": "packages/dashboard/src/components/spree/orders/fulfillment-fulfill-form.tsx"
+    },
+    {
+      "id": "CMP-DA-G-11",
+      "system": "dashboard",
+      "name": "fulfillment-label-upload-dialog",
+      "file": "packages/dashboard/src/components/spree/orders/fulfillment-label-upload-dialog.tsx"
+    },
+    {
+      "id": "CMP-DA-G-11",
+      "system": "dashboard",
+      "name": "fulfillments-card",
+      "file": "packages/dashboard/src/components/spree/orders/fulfillments-card.tsx"
+    },
+    {
+      "id": "CMP-DA-G-11",
+      "system": "dashboard",
+      "name": "line-item-dialogs",
+      "file": "packages/dashboard/src/components/spree/orders/line-item-dialogs.tsx"
+    },
+    {
+      "id": "CMP-DA-G-11",
+      "system": "dashboard",
+      "name": "line-item-price-source",
+      "file": "packages/dashboard/src/components/spree/orders/line-item-price-source.tsx"
+    },
+    {
+      "id": "CMP-DA-G-11",
+      "system": "dashboard",
+      "name": "order-adjustments-cards",
+      "file": "packages/dashboard/src/components/spree/orders/order-adjustments-cards.tsx"
+    },
+    {
+      "id": "CMP-DA-G-11",
+      "system": "dashboard",
+      "name": "order-cancel-dialog",
+      "file": "packages/dashboard/src/components/spree/orders/order-cancel-dialog.tsx"
+    },
+    {
+      "id": "CMP-DA-G-11",
+      "system": "dashboard",
+      "name": "order-commission-lines-card",
+      "file": "packages/dashboard/src/components/spree/orders/order-commission-lines-card.tsx"
+    },
+    {
+      "id": "CMP-DA-G-11",
+      "system": "dashboard",
+      "name": "order-customer-card",
+      "file": "packages/dashboard/src/components/spree/orders/order-customer-card.tsx"
+    },
+    {
+      "id": "CMP-DA-G-11",
+      "system": "dashboard",
+      "name": "order-discounts-sidebar-card",
+      "file": "packages/dashboard/src/components/spree/orders/order-discounts-sidebar-card.tsx"
+    },
+    {
+      "id": "CMP-DA-G-11",
+      "system": "dashboard",
+      "name": "order-edit-items-table",
+      "file": "packages/dashboard/src/components/spree/orders/order-edit-items-table.tsx"
+    },
+    {
+      "id": "CMP-DA-G-11",
+      "system": "dashboard",
+      "name": "order-header",
+      "file": "packages/dashboard/src/components/spree/orders/order-header.tsx"
+    },
+    {
+      "id": "CMP-DA-G-11",
+      "system": "dashboard",
+      "name": "order-logistics-card",
+      "file": "packages/dashboard/src/components/spree/orders/order-logistics-card.tsx"
+    },
+    {
+      "id": "CMP-DA-G-11",
+      "system": "dashboard",
+      "name": "order-marketplace-card",
+      "file": "packages/dashboard/src/components/spree/orders/order-marketplace-card.tsx"
+    },
+    {
+      "id": "CMP-DA-G-11",
+      "system": "dashboard",
+      "name": "order-notes-cards",
+      "file": "packages/dashboard/src/components/spree/orders/order-notes-cards.tsx"
+    },
+    {
+      "id": "CMP-DA-G-11",
+      "system": "dashboard",
+      "name": "order-payments-card",
+      "file": "packages/dashboard/src/components/spree/orders/order-payments-card.tsx"
+    },
+    {
+      "id": "CMP-DA-G-11",
+      "system": "dashboard",
+      "name": "order-purchase-order-card",
+      "file": "packages/dashboard/src/components/spree/orders/order-purchase-order-card.tsx"
+    },
+    {
+      "id": "CMP-DA-G-11",
+      "system": "dashboard",
+      "name": "order-seller-transfers-card",
+      "file": "packages/dashboard/src/components/spree/orders/order-seller-transfers-card.tsx"
+    },
+    {
+      "id": "CMP-DA-G-11",
+      "system": "dashboard",
+      "name": "order-skeleton",
+      "file": "packages/dashboard/src/components/spree/orders/order-skeleton.tsx"
+    },
+    {
+      "id": "CMP-DA-G-11",
+      "system": "dashboard",
+      "name": "order-summary-card",
+      "file": "packages/dashboard/src/components/spree/orders/order-summary-card.tsx"
+    },
+    {
+      "id": "CMP-DA-G-11",
+      "system": "dashboard",
+      "name": "payment-details-dialog",
+      "file": "packages/dashboard/src/components/spree/orders/payment-details-dialog.tsx"
+    },
+    {
+      "id": "CMP-DA-G-11",
+      "system": "dashboard",
+      "name": "shipping-documents",
+      "file": "packages/dashboard/src/components/spree/orders/shipping-documents.tsx"
+    },
+    {
+      "id": "CMP-DA-G-11",
+      "system": "dashboard",
+      "name": "shipping-label-row",
+      "file": "packages/dashboard/src/components/spree/orders/shipping-label-row.tsx"
+    },
+    {
+      "id": "CMP-DA-G-12",
+      "system": "dashboard",
+      "name": "payment-method-form",
+      "file": "packages/dashboard/src/components/spree/payment-method-editors/payment-method-form.tsx"
+    },
+    {
+      "id": "CMP-DA-G-12",
+      "system": "dashboard",
+      "name": "payment-method-sheets",
+      "file": "packages/dashboard/src/components/spree/payment-method-editors/payment-method-sheets.tsx"
+    },
+    {
+      "id": "CMP-DA-G-13",
+      "system": "dashboard",
+      "name": "price-list-form",
+      "file": "packages/dashboard/src/components/spree/price-list-editors/price-list-form.tsx"
+    },
+    {
+      "id": "CMP-DA-G-13",
+      "system": "dashboard",
+      "name": "rule-channel",
+      "file": "packages/dashboard/src/components/spree/price-list-editors/rule-channel.tsx"
+    },
+    {
+      "id": "CMP-DA-G-13",
+      "system": "dashboard",
+      "name": "rule-customer",
+      "file": "packages/dashboard/src/components/spree/price-list-editors/rule-customer.tsx"
+    },
+    {
+      "id": "CMP-DA-G-13",
+      "system": "dashboard",
+      "name": "rule-customer-group",
+      "file": "packages/dashboard/src/components/spree/price-list-editors/rule-customer-group.tsx"
+    },
+    {
+      "id": "CMP-DA-G-13",
+      "system": "dashboard",
+      "name": "rule-market",
+      "file": "packages/dashboard/src/components/spree/price-list-editors/rule-market.tsx"
+    },
+    {
+      "id": "CMP-DA-G-13",
+      "system": "dashboard",
+      "name": "rule-volume",
+      "file": "packages/dashboard/src/components/spree/price-list-editors/rule-volume.tsx"
+    },
+    {
+      "id": "CMP-DA-G-13",
+      "system": "dashboard",
+      "name": "status-badge",
+      "file": "packages/dashboard/src/components/spree/price-list-editors/status-badge.tsx"
+    },
+    {
+      "id": "CMP-DA-G-14",
+      "system": "dashboard",
+      "name": "digital-asset-edit-sheet",
+      "file": "packages/dashboard/src/components/spree/products/digital-asset-edit-sheet.tsx"
+    },
+    {
+      "id": "CMP-DA-G-14",
+      "system": "dashboard",
+      "name": "digital-asset-provider-sheet",
+      "file": "packages/dashboard/src/components/spree/products/digital-asset-provider-sheet.tsx"
+    },
+    {
+      "id": "CMP-DA-G-14",
+      "system": "dashboard",
+      "name": "digital-assets-card",
+      "file": "packages/dashboard/src/components/spree/products/digital-assets-card.tsx"
+    },
+    {
+      "id": "CMP-DA-G-14",
+      "system": "dashboard",
+      "name": "digital-files-form-card",
+      "file": "packages/dashboard/src/components/spree/products/digital-files-form-card.tsx"
+    },
+    {
+      "id": "CMP-DA-G-14",
+      "system": "dashboard",
+      "name": "product-custom-fields-provider",
+      "file": "packages/dashboard/src/components/spree/products/product-custom-fields-provider.tsx"
+    },
+    {
+      "id": "CMP-DA-G-14",
+      "system": "dashboard",
+      "name": "product-review-actions",
+      "file": "packages/dashboard/src/components/spree/products/product-review-actions.tsx"
+    },
+    {
+      "id": "CMP-DA-G-14",
+      "system": "dashboard",
+      "name": "product-seller-card",
+      "file": "packages/dashboard/src/components/spree/products/product-seller-card.tsx"
+    },
+    {
+      "id": "CMP-DA-G-14",
+      "system": "dashboard",
+      "name": "provider-settings-fields",
+      "file": "packages/dashboard/src/components/spree/products/provider-settings-fields.tsx"
+    },
+    {
+      "id": "CMP-DA-G-14",
+      "system": "dashboard",
+      "name": "publishing-card",
+      "file": "packages/dashboard/src/components/spree/products/publishing-card.tsx"
+    },
+    {
+      "id": "CMP-DA-G-15",
+      "system": "dashboard",
+      "name": "action-adjustment",
+      "file": "packages/dashboard/src/components/spree/promotion-editors/action-adjustment.tsx"
+    },
+    {
+      "id": "CMP-DA-G-15",
+      "system": "dashboard",
+      "name": "action-create-line-items",
+      "file": "packages/dashboard/src/components/spree/promotion-editors/action-create-line-items.tsx"
+    },
+    {
+      "id": "CMP-DA-G-15",
+      "system": "dashboard",
+      "name": "editor-shell",
+      "file": "packages/dashboard/src/components/spree/promotion-editors/editor-shell.tsx"
+    },
+    {
+      "id": "CMP-DA-G-15",
+      "system": "dashboard",
+      "name": "match-policy-picker",
+      "file": "packages/dashboard/src/components/spree/promotion-editors/match-policy-picker.tsx"
+    },
+    {
+      "id": "CMP-DA-G-15",
+      "system": "dashboard",
+      "name": "promotion-form",
+      "file": "packages/dashboard/src/components/spree/promotion-editors/promotion-form.tsx"
+    },
+    {
+      "id": "CMP-DA-G-15",
+      "system": "dashboard",
+      "name": "rule-category",
+      "file": "packages/dashboard/src/components/spree/promotion-editors/rule-category.tsx"
+    },
+    {
+      "id": "CMP-DA-G-15",
+      "system": "dashboard",
+      "name": "rule-channel",
+      "file": "packages/dashboard/src/components/spree/promotion-editors/rule-channel.tsx"
+    },
+    {
+      "id": "CMP-DA-G-15",
+      "system": "dashboard",
+      "name": "rule-country",
+      "file": "packages/dashboard/src/components/spree/promotion-editors/rule-country.tsx"
+    },
+    {
+      "id": "CMP-DA-G-15",
+      "system": "dashboard",
+      "name": "rule-customer-group",
+      "file": "packages/dashboard/src/components/spree/promotion-editors/rule-customer-group.tsx"
+    },
+    {
+      "id": "CMP-DA-G-15",
+      "system": "dashboard",
+      "name": "rule-market",
+      "file": "packages/dashboard/src/components/spree/promotion-editors/rule-market.tsx"
+    },
+    {
+      "id": "CMP-DA-G-15",
+      "system": "dashboard",
+      "name": "rule-option-value",
+      "file": "packages/dashboard/src/components/spree/promotion-editors/rule-option-value.tsx"
+    },
+    {
+      "id": "CMP-DA-G-15",
+      "system": "dashboard",
+      "name": "rule-product",
+      "file": "packages/dashboard/src/components/spree/promotion-editors/rule-product.tsx"
+    },
+    {
+      "id": "CMP-DA-G-15",
+      "system": "dashboard",
+      "name": "rule-user",
+      "file": "packages/dashboard/src/components/spree/promotion-editors/rule-user.tsx"
+    },
+    {
+      "id": "CMP-DA-G-16",
+      "system": "dashboard",
+      "name": "reason-section",
+      "file": "packages/dashboard/src/components/spree/reasons/reason-section.tsx"
+    },
+    {
+      "id": "CMP-DA-G-17",
+      "system": "dashboard",
+      "name": "growth-badge",
+      "file": "packages/dashboard/src/components/spree/reporting/growth-badge.tsx"
+    },
+    {
+      "id": "CMP-DA-G-17",
+      "system": "dashboard",
+      "name": "report-builder",
+      "file": "packages/dashboard/src/components/spree/reporting/report-builder.tsx"
+    },
+    {
+      "id": "CMP-DA-G-17",
+      "system": "dashboard",
+      "name": "report-view",
+      "file": "packages/dashboard/src/components/spree/reporting/report-view.tsx"
+    },
+    {
+      "id": "CMP-DA-G-17",
+      "system": "dashboard",
+      "name": "report-workspace",
+      "file": "packages/dashboard/src/components/spree/reporting/report-workspace.tsx"
+    },
+    {
+      "id": "CMP-DA-G-17",
+      "system": "dashboard",
+      "name": "save-report-dialog",
+      "file": "packages/dashboard/src/components/spree/reporting/save-report-dialog.tsx"
+    },
+    {
+      "id": "CMP-DA-G-18",
+      "system": "dashboard",
+      "name": "payout-complete-dialog",
+      "file": "packages/dashboard/src/components/spree/sellers/payout-complete-dialog.tsx"
+    },
+    {
+      "id": "CMP-DA-G-18",
+      "system": "dashboard",
+      "name": "seller-address-card",
+      "file": "packages/dashboard/src/components/spree/sellers/seller-address-card.tsx"
+    },
+    {
+      "id": "CMP-DA-G-18",
+      "system": "dashboard",
+      "name": "seller-at-a-glance-card",
+      "file": "packages/dashboard/src/components/spree/sellers/seller-at-a-glance-card.tsx"
+    },
+    {
+      "id": "CMP-DA-G-18",
+      "system": "dashboard",
+      "name": "seller-balance-card",
+      "file": "packages/dashboard/src/components/spree/sellers/seller-balance-card.tsx"
+    },
+    {
+      "id": "CMP-DA-G-18",
+      "system": "dashboard",
+      "name": "seller-brand-card",
+      "file": "packages/dashboard/src/components/spree/sellers/seller-brand-card.tsx"
+    },
+    {
+      "id": "CMP-DA-G-18",
+      "system": "dashboard",
+      "name": "seller-contact-card",
+      "file": "packages/dashboard/src/components/spree/sellers/seller-contact-card.tsx"
+    },
+    {
+      "id": "CMP-DA-G-18",
+      "system": "dashboard",
+      "name": "seller-edit-profile-sheet",
+      "file": "packages/dashboard/src/components/spree/sellers/seller-edit-profile-sheet.tsx"
+    },
+    {
+      "id": "CMP-DA-G-18",
+      "system": "dashboard",
+      "name": "seller-edit-settlement-sheet",
+      "file": "packages/dashboard/src/components/spree/sellers/seller-edit-settlement-sheet.tsx"
+    },
+    {
+      "id": "CMP-DA-G-18",
+      "system": "dashboard",
+      "name": "seller-invite-sheet",
+      "file": "packages/dashboard/src/components/spree/sellers/seller-invite-sheet.tsx"
+    },
+    {
+      "id": "CMP-DA-G-18",
+      "system": "dashboard",
+      "name": "seller-onboarding-card",
+      "file": "packages/dashboard/src/components/spree/sellers/seller-onboarding-card.tsx"
+    },
+    {
+      "id": "CMP-DA-G-18",
+      "system": "dashboard",
+      "name": "seller-read-row",
+      "file": "packages/dashboard/src/components/spree/sellers/seller-read-row.tsx"
+    },
+    {
+      "id": "CMP-DA-G-18",
+      "system": "dashboard",
+      "name": "seller-settlement-card",
+      "file": "packages/dashboard/src/components/spree/sellers/seller-settlement-card.tsx"
+    },
+    {
+      "id": "CMP-DA-G-18",
+      "system": "dashboard",
+      "name": "seller-status-card",
+      "file": "packages/dashboard/src/components/spree/sellers/seller-status-card.tsx"
+    },
+    {
+      "id": "CMP-DA-G-18",
+      "system": "dashboard",
+      "name": "seller-team-card",
+      "file": "packages/dashboard/src/components/spree/sellers/seller-team-card.tsx"
+    },
+    {
+      "id": "CMP-DA-G-19",
+      "system": "dashboard",
+      "name": "add-products-task",
+      "file": "packages/dashboard/src/components/spree/setup-tasks/add-products-task.tsx"
+    },
+    {
+      "id": "CMP-DA-G-19",
+      "system": "dashboard",
+      "name": "store-address-task",
+      "file": "packages/dashboard/src/components/spree/setup-tasks/store-address-task.tsx"
+    },
+    {
+      "id": "CMP-DA-G-19",
+      "system": "dashboard",
+      "name": "storefront-connect-task",
+      "file": "packages/dashboard/src/components/spree/setup-tasks/storefront-connect-task.tsx"
+    },
+    {
+      "id": "CMP-DA-G-20",
+      "system": "dashboard",
+      "name": "delivery-digital-methods-card",
+      "file": "packages/dashboard/src/components/spree/shipping/delivery-digital-methods-card.tsx"
+    },
+    {
+      "id": "CMP-DA-G-20",
+      "system": "dashboard",
+      "name": "delivery-method-form",
+      "file": "packages/dashboard/src/components/spree/shipping/delivery-method-form.tsx"
+    },
+    {
+      "id": "CMP-DA-G-20",
+      "system": "dashboard",
+      "name": "delivery-method-list",
+      "file": "packages/dashboard/src/components/spree/shipping/delivery-method-list.tsx"
+    },
+    {
+      "id": "CMP-DA-G-20",
+      "system": "dashboard",
+      "name": "delivery-method-sheet",
+      "file": "packages/dashboard/src/components/spree/shipping/delivery-method-sheet.tsx"
+    },
+    {
+      "id": "CMP-DA-G-20",
+      "system": "dashboard",
+      "name": "delivery-origin-group-dialog",
+      "file": "packages/dashboard/src/components/spree/shipping/delivery-origin-group-dialog.tsx"
+    },
+    {
+      "id": "CMP-DA-G-20",
+      "system": "dashboard",
+      "name": "delivery-origin-group-section",
+      "file": "packages/dashboard/src/components/spree/shipping/delivery-origin-group-section.tsx"
+    },
+    {
+      "id": "CMP-DA-G-20",
+      "system": "dashboard",
+      "name": "delivery-pickup-card",
+      "file": "packages/dashboard/src/components/spree/shipping/delivery-pickup-card.tsx"
+    },
+    {
+      "id": "CMP-DA-G-20",
+      "system": "dashboard",
+      "name": "delivery-profile-general-card",
+      "file": "packages/dashboard/src/components/spree/shipping/delivery-profile-general-card.tsx"
+    },
+    {
+      "id": "CMP-DA-G-20",
+      "system": "dashboard",
+      "name": "delivery-profile-origins-card",
+      "file": "packages/dashboard/src/components/spree/shipping/delivery-profile-origins-card.tsx"
+    },
+    {
+      "id": "CMP-DA-G-20",
+      "system": "dashboard",
+      "name": "delivery-zone-card",
+      "file": "packages/dashboard/src/components/spree/shipping/delivery-zone-card.tsx"
+    },
+    {
+      "id": "CMP-DA-G-20",
+      "system": "dashboard",
+      "name": "delivery-zone-region-picker",
+      "file": "packages/dashboard/src/components/spree/shipping/delivery-zone-region-picker.tsx"
+    },
+    {
+      "id": "CMP-DA-G-20",
+      "system": "dashboard",
+      "name": "delivery-zone-sheet",
+      "file": "packages/dashboard/src/components/spree/shipping/delivery-zone-sheet.tsx"
+    },
+    {
+      "id": "CMP-DA-G-20",
+      "system": "dashboard",
+      "name": "delivery-zones-and-methods-section",
+      "file": "packages/dashboard/src/components/spree/shipping/delivery-zones-and-methods-section.tsx"
+    },
+    {
+      "id": "CMP-DA-G-20",
+      "system": "dashboard",
+      "name": "stock-location-scope-field",
+      "file": "packages/dashboard/src/components/spree/shipping/stock-location-scope-field.tsx"
+    },
+    {
+      "id": "CMP-DA-G-21",
+      "system": "dashboard",
+      "name": "edit-store-credit-dialog",
+      "file": "packages/dashboard/src/components/spree/store-credits/edit-store-credit-dialog.tsx"
+    },
+    {
+      "id": "CMP-DA-G-21",
+      "system": "dashboard",
+      "name": "issue-store-credit-dialog",
+      "file": "packages/dashboard/src/components/spree/store-credits/issue-store-credit-dialog.tsx"
+    },
+    {
+      "id": "CMP-DA-G-22",
+      "system": "dashboard",
+      "name": "market-tax-providers",
+      "file": "packages/dashboard/src/components/spree/taxes/market-tax-providers.tsx"
+    },
+    {
+      "id": "CMP-DA-G-22",
+      "system": "dashboard",
+      "name": "taxes-tabs",
+      "file": "packages/dashboard/src/components/spree/taxes/taxes-tabs.tsx"
+    },
+    {
+      "id": "CMP-DA-G-23",
+      "system": "dashboard",
+      "name": "resource-translations-card",
+      "file": "packages/dashboard/src/components/spree/translations/resource-translations-card.tsx"
+    },
+    {
+      "id": "CMP-DA-G-23",
+      "system": "dashboard",
+      "name": "resource-translations-dialog",
+      "file": "packages/dashboard/src/components/spree/translations/resource-translations-dialog.tsx"
+    },
+    {
+      "id": "CMP-DA-G-24",
+      "system": "dashboard",
+      "name": "actor-label",
+      "file": "packages/dashboard/src/components/spree/actor-label.tsx"
+    },
+    {
+      "id": "CMP-DA-G-24",
+      "system": "dashboard",
+      "name": "agent-connections-card",
+      "file": "packages/dashboard/src/components/spree/agent-connections-card.tsx"
+    },
+    {
+      "id": "CMP-DA-G-24",
+      "system": "dashboard",
+      "name": "auth-shell",
+      "file": "packages/dashboard/src/components/spree/auth-shell.tsx"
+    },
+    {
+      "id": "CMP-DA-G-24",
+      "system": "dashboard",
+      "name": "catalog-audience",
+      "file": "packages/dashboard/src/components/spree/catalog-audience.tsx"
+    },
+    {
+      "id": "CMP-DA-G-24",
+      "system": "dashboard",
+      "name": "catalog-price-columns",
+      "file": "packages/dashboard/src/components/spree/catalog-price-columns.tsx"
+    },
+    {
+      "id": "CMP-DA-G-24",
+      "system": "dashboard",
+      "name": "catalog-pricing-fields",
+      "file": "packages/dashboard/src/components/spree/catalog-pricing-fields.tsx"
+    },
+    {
+      "id": "CMP-DA-G-24",
+      "system": "dashboard",
+      "name": "catalog-terms-card",
+      "file": "packages/dashboard/src/components/spree/catalog-terms-card.tsx"
+    },
+    {
+      "id": "CMP-DA-G-24",
+      "system": "dashboard",
+      "name": "catalog-wizard-dialog",
+      "file": "packages/dashboard/src/components/spree/catalog-wizard-dialog.tsx"
+    },
+    {
+      "id": "CMP-DA-G-24",
+      "system": "dashboard",
+      "name": "channel-select",
+      "file": "packages/dashboard/src/components/spree/channel-select.tsx"
+    },
+    {
+      "id": "CMP-DA-G-24",
+      "system": "dashboard",
+      "name": "choice-card-picker",
+      "file": "packages/dashboard/src/components/spree/choice-card-picker.tsx"
+    },
+    {
+      "id": "CMP-DA-G-24",
+      "system": "dashboard",
+      "name": "close-short-dialog",
+      "file": "packages/dashboard/src/components/spree/close-short-dialog.tsx"
+    },
+    {
+      "id": "CMP-DA-G-24",
+      "system": "dashboard",
+      "name": "company-address-sheet",
+      "file": "packages/dashboard/src/components/spree/company-address-sheet.tsx"
+    },
+    {
+      "id": "CMP-DA-G-24",
+      "system": "dashboard",
+      "name": "company-combobox-option",
+      "file": "packages/dashboard/src/components/spree/company-combobox-option.tsx"
+    },
+    {
+      "id": "CMP-DA-G-24",
+      "system": "dashboard",
+      "name": "company-kind-badge",
+      "file": "packages/dashboard/src/components/spree/company-kind-badge.tsx"
+    },
+    {
+      "id": "CMP-DA-G-24",
+      "system": "dashboard",
+      "name": "deferred-product-membership-card",
+      "file": "packages/dashboard/src/components/spree/deferred-product-membership-card.tsx"
+    },
+    {
+      "id": "CMP-DA-G-24",
+      "system": "dashboard",
+      "name": "enterprise-upsell",
+      "file": "packages/dashboard/src/components/spree/enterprise-upsell.tsx"
+    },
+    {
+      "id": "CMP-DA-G-24",
+      "system": "dashboard",
+      "name": "getting-started-nav-badge",
+      "file": "packages/dashboard/src/components/spree/getting-started-nav-badge.tsx"
+    },
+    {
+      "id": "CMP-DA-G-24",
+      "system": "dashboard",
+      "name": "inventory-cells",
+      "file": "packages/dashboard/src/components/spree/inventory-cells.tsx"
+    },
+    {
+      "id": "CMP-DA-G-24",
+      "system": "dashboard",
+      "name": "inventory-status-badge",
+      "file": "packages/dashboard/src/components/spree/inventory-status-badge.tsx"
+    },
+    {
+      "id": "CMP-DA-G-24",
+      "system": "dashboard",
+      "name": "jurisdiction-label",
+      "file": "packages/dashboard/src/components/spree/jurisdiction-label.tsx"
+    },
+    {
+      "id": "CMP-DA-G-24",
+      "system": "dashboard",
+      "name": "mcp-connect-sheet",
+      "file": "packages/dashboard/src/components/spree/mcp-connect-sheet.tsx"
+    },
+    {
+      "id": "CMP-DA-G-24",
+      "system": "dashboard",
+      "name": "media-rich-text-editor",
+      "file": "packages/dashboard/src/components/spree/media-rich-text-editor.tsx"
+    },
+    {
+      "id": "CMP-DA-G-24",
+      "system": "dashboard",
+      "name": "nav-counter-badge",
+      "file": "packages/dashboard/src/components/spree/nav-counter-badge.tsx"
+    },
+    {
+      "id": "CMP-DA-G-24",
+      "system": "dashboard",
+      "name": "no-store-access",
+      "file": "packages/dashboard/src/components/spree/no-store-access.tsx"
+    },
+    {
+      "id": "CMP-DA-G-24",
+      "system": "dashboard",
+      "name": "notifications",
+      "file": "packages/dashboard/src/components/spree/notifications.tsx"
+    },
+    {
+      "id": "CMP-DA-G-24",
+      "system": "dashboard",
+      "name": "oauth-application-sheet",
+      "file": "packages/dashboard/src/components/spree/oauth-application-sheet.tsx"
+    },
+    {
+      "id": "CMP-DA-G-24",
+      "system": "dashboard",
+      "name": "order-digital-links-card",
+      "file": "packages/dashboard/src/components/spree/order-digital-links-card.tsx"
+    },
+    {
+      "id": "CMP-DA-G-24",
+      "system": "dashboard",
+      "name": "order-post-sale-cards",
+      "file": "packages/dashboard/src/components/spree/order-post-sale-cards.tsx"
+    },
+    {
+      "id": "CMP-DA-G-24",
+      "system": "dashboard",
+      "name": "order-returns-card",
+      "file": "packages/dashboard/src/components/spree/order-returns-card.tsx"
+    },
+    {
+      "id": "CMP-DA-G-24",
+      "system": "dashboard",
+      "name": "order-routing-rules-section",
+      "file": "packages/dashboard/src/components/spree/order-routing-rules-section.tsx"
+    },
+    {
+      "id": "CMP-DA-G-24",
+      "system": "dashboard",
+      "name": "permission-picker",
+      "file": "packages/dashboard/src/components/spree/permission-picker.tsx"
+    },
+    {
+      "id": "CMP-DA-G-24",
+      "system": "dashboard",
+      "name": "post-sale-create-dialogs",
+      "file": "packages/dashboard/src/components/spree/post-sale-create-dialogs.tsx"
+    },
+    {
+      "id": "CMP-DA-G-24",
+      "system": "dashboard",
+      "name": "price-list-csv-buttons",
+      "file": "packages/dashboard/src/components/spree/price-list-csv-buttons.tsx"
+    },
+    {
+      "id": "CMP-DA-G-24",
+      "system": "dashboard",
+      "name": "product-membership-staging",
+      "file": "packages/dashboard/src/components/spree/product-membership-staging.tsx"
+    },
+    {
+      "id": "CMP-DA-G-24",
+      "system": "dashboard",
+      "name": "profile-dialog",
+      "file": "packages/dashboard/src/components/spree/profile-dialog.tsx"
+    },
+    {
+      "id": "CMP-DA-G-24",
+      "system": "dashboard",
+      "name": "purchase-order-form",
+      "file": "packages/dashboard/src/components/spree/purchase-order-form.tsx"
+    },
+    {
+      "id": "CMP-DA-G-24",
+      "system": "dashboard",
+      "name": "quantity-cell",
+      "file": "packages/dashboard/src/components/spree/quantity-cell.tsx"
+    },
+    {
+      "id": "CMP-DA-G-24",
+      "system": "dashboard",
+      "name": "reason-field",
+      "file": "packages/dashboard/src/components/spree/reason-field.tsx"
+    },
+    {
+      "id": "CMP-DA-G-24",
+      "system": "dashboard",
+      "name": "receive-delivery-card",
+      "file": "packages/dashboard/src/components/spree/receive-delivery-card.tsx"
+    },
+    {
+      "id": "CMP-DA-G-24",
+      "system": "dashboard",
+      "name": "release-notes",
+      "file": "packages/dashboard/src/components/spree/release-notes.tsx"
+    },
+    {
+      "id": "CMP-DA-G-24",
+      "system": "dashboard",
+      "name": "resource-image-field",
+      "file": "packages/dashboard/src/components/spree/resource-image-field.tsx"
+    },
+    {
+      "id": "CMP-DA-G-24",
+      "system": "dashboard",
+      "name": "role-sheet",
+      "file": "packages/dashboard/src/components/spree/role-sheet.tsx"
+    },
+    {
+      "id": "CMP-DA-G-24",
+      "system": "dashboard",
+      "name": "route-pending",
+      "file": "packages/dashboard/src/components/spree/route-pending.tsx"
+    },
+    {
+      "id": "CMP-DA-G-24",
+      "system": "dashboard",
+      "name": "settings-list-card",
+      "file": "packages/dashboard/src/components/spree/settings-list-card.tsx"
+    },
+    {
+      "id": "CMP-DA-G-24",
+      "system": "dashboard",
+      "name": "stock-history-card",
+      "file": "packages/dashboard/src/components/spree/stock-history-card.tsx"
+    },
+    {
+      "id": "CMP-DA-G-24",
+      "system": "dashboard",
+      "name": "stock-levels-panel",
+      "file": "packages/dashboard/src/components/spree/stock-levels-panel.tsx"
+    },
+    {
+      "id": "CMP-DA-G-24",
+      "system": "dashboard",
+      "name": "stock-receipts-card",
+      "file": "packages/dashboard/src/components/spree/stock-receipts-card.tsx"
+    },
+    {
+      "id": "CMP-DA-G-24",
+      "system": "dashboard",
+      "name": "stock-transfer-form",
+      "file": "packages/dashboard/src/components/spree/stock-transfer-form.tsx"
+    },
+    {
+      "id": "CMP-DA-G-24",
+      "system": "dashboard",
+      "name": "store-setup-fields",
+      "file": "packages/dashboard/src/components/spree/store-setup-fields.tsx"
+    },
+    {
+      "id": "CMP-DA-G-24",
+      "system": "dashboard",
+      "name": "storefront-connect-sheet",
+      "file": "packages/dashboard/src/components/spree/storefront-connect-sheet.tsx"
+    },
+    {
+      "id": "CMP-DA-G-24",
+      "system": "dashboard",
+      "name": "supplier-sheet",
+      "file": "packages/dashboard/src/components/spree/supplier-sheet.tsx"
+    },
+    {
+      "id": "CMP-DA-G-24",
+      "system": "dashboard",
+      "name": "tax-category-label",
+      "file": "packages/dashboard/src/components/spree/tax-category-label.tsx"
+    },
+    {
+      "id": "CMP-DA-G-24",
+      "system": "dashboard",
+      "name": "tax-exemption-certificates-card",
+      "file": "packages/dashboard/src/components/spree/tax-exemption-certificates-card.tsx"
+    },
+    {
+      "id": "CMP-DA-G-24",
+      "system": "dashboard",
+      "name": "tax-identifiers-card",
+      "file": "packages/dashboard/src/components/spree/tax-identifiers-card.tsx"
+    },
+    {
+      "id": "CMP-DA-G-24",
+      "system": "dashboard",
+      "name": "tax-provider-field",
+      "file": "packages/dashboard/src/components/spree/tax-provider-field.tsx"
+    },
+    {
+      "id": "CMP-DA-G-24",
+      "system": "dashboard",
+      "name": "transfer-cancel-dialog",
+      "file": "packages/dashboard/src/components/spree/transfer-cancel-dialog.tsx"
+    },
+    {
+      "id": "CMP-DA-G-24",
+      "system": "dashboard",
+      "name": "type-picker-sheet",
+      "file": "packages/dashboard/src/components/spree/type-picker-sheet.tsx"
+    },
+    {
+      "id": "CMP-DA-G-24",
+      "system": "dashboard",
+      "name": "variant-line-editor",
+      "file": "packages/dashboard/src/components/spree/variant-line-editor.tsx"
+    },
+    {
+      "id": "CMP-DA-G-24",
+      "system": "dashboard",
+      "name": "variant-link",
+      "file": "packages/dashboard/src/components/spree/variant-link.tsx"
+    },
+    {
+      "id": "CMP-DA-G-24",
+      "system": "dashboard",
+      "name": "webhook-endpoint-form",
+      "file": "packages/dashboard/src/components/spree/webhook-endpoint-form.tsx"
+    },
+    {
+      "id": "CMP-SP-G-01",
+      "system": "dashboard",
+      "name": "balance-summary",
+      "file": "packages/seller-dashboard/src/components/finance/balance-summary.tsx"
+    },
+    {
+      "id": "CMP-SP-G-02",
+      "system": "dashboard",
+      "name": "fulfillment-deliveries",
+      "file": "packages/seller-dashboard/src/components/orders/fulfillment-deliveries.tsx"
+    },
+    {
+      "id": "CMP-SP-G-02",
+      "system": "dashboard",
+      "name": "fulfillment-delivery-dialog",
+      "file": "packages/seller-dashboard/src/components/orders/fulfillment-delivery-dialog.tsx"
+    },
+    {
+      "id": "CMP-SP-G-02",
+      "system": "dashboard",
+      "name": "fulfillment-edit-dialog",
+      "file": "packages/seller-dashboard/src/components/orders/fulfillment-edit-dialog.tsx"
+    },
+    {
+      "id": "CMP-SP-G-02",
+      "system": "dashboard",
+      "name": "fulfillment-fulfill-form",
+      "file": "packages/seller-dashboard/src/components/orders/fulfillment-fulfill-form.tsx"
+    },
+    {
+      "id": "CMP-SP-G-02",
+      "system": "dashboard",
+      "name": "fulfillment-label-upload-dialog",
+      "file": "packages/seller-dashboard/src/components/orders/fulfillment-label-upload-dialog.tsx"
+    },
+    {
+      "id": "CMP-SP-G-02",
+      "system": "dashboard",
+      "name": "fulfillment-split-dialog",
+      "file": "packages/seller-dashboard/src/components/orders/fulfillment-split-dialog.tsx"
+    },
+    {
+      "id": "CMP-SP-G-02",
+      "system": "dashboard",
+      "name": "fulfillments-card",
+      "file": "packages/seller-dashboard/src/components/orders/fulfillments-card.tsx"
+    },
+    {
+      "id": "CMP-SP-G-02",
+      "system": "dashboard",
+      "name": "order-cancel-dialog",
+      "file": "packages/seller-dashboard/src/components/orders/order-cancel-dialog.tsx"
+    },
+    {
+      "id": "CMP-SP-G-02",
+      "system": "dashboard",
+      "name": "order-cards",
+      "file": "packages/seller-dashboard/src/components/orders/order-cards.tsx"
+    },
+    {
+      "id": "CMP-SP-G-02",
+      "system": "dashboard",
+      "name": "order-earnings-card",
+      "file": "packages/seller-dashboard/src/components/orders/order-earnings-card.tsx"
+    },
+    {
+      "id": "CMP-SP-G-02",
+      "system": "dashboard",
+      "name": "order-notes-cards",
+      "file": "packages/seller-dashboard/src/components/orders/order-notes-cards.tsx"
+    },
+    {
+      "id": "CMP-SP-G-02",
+      "system": "dashboard",
+      "name": "order-payment-card",
+      "file": "packages/seller-dashboard/src/components/orders/order-payment-card.tsx"
+    },
+    {
+      "id": "CMP-SP-G-02",
+      "system": "dashboard",
+      "name": "post-sale-cards",
+      "file": "packages/seller-dashboard/src/components/orders/post-sale-cards.tsx"
+    },
+    {
+      "id": "CMP-SP-G-02",
+      "system": "dashboard",
+      "name": "post-sale-create-dialogs",
+      "file": "packages/seller-dashboard/src/components/orders/post-sale-create-dialogs.tsx"
+    },
+    {
+      "id": "CMP-SP-G-02",
+      "system": "dashboard",
+      "name": "returns-card",
+      "file": "packages/seller-dashboard/src/components/orders/returns-card.tsx"
+    },
+    {
+      "id": "CMP-SP-G-02",
+      "system": "dashboard",
+      "name": "shipping-label-row",
+      "file": "packages/seller-dashboard/src/components/orders/shipping-label-row.tsx"
+    },
+    {
+      "id": "CMP-SP-G-03",
+      "system": "dashboard",
+      "name": "account-dialog",
+      "file": "packages/seller-dashboard/src/components/account-dialog.tsx"
+    },
+    {
+      "id": "CMP-SP-G-03",
+      "system": "dashboard",
+      "name": "centered-message",
+      "file": "packages/seller-dashboard/src/components/centered-message.tsx"
+    },
+    {
+      "id": "CMP-SP-G-03",
+      "system": "dashboard",
+      "name": "onboarding-nav-badge",
+      "file": "packages/seller-dashboard/src/components/onboarding-nav-badge.tsx"
+    },
+    {
+      "id": "CMP-SP-G-03",
+      "system": "dashboard",
+      "name": "product-status-card",
+      "file": "packages/seller-dashboard/src/components/product-status-card.tsx"
+    },
+    {
+      "id": "CMP-SP-G-03",
+      "system": "dashboard",
+      "name": "read-row",
+      "file": "packages/seller-dashboard/src/components/read-row.tsx"
+    },
+    {
+      "id": "CMP-SP-G-03",
+      "system": "dashboard",
+      "name": "retryable-error",
+      "file": "packages/seller-dashboard/src/components/retryable-error.tsx"
+    },
+    {
+      "id": "CMP-SP-G-03",
+      "system": "dashboard",
+      "name": "seller-address-card",
+      "file": "packages/seller-dashboard/src/components/seller-address-card.tsx"
+    },
+    {
+      "id": "CMP-SP-G-03",
+      "system": "dashboard",
+      "name": "seller-business-card",
+      "file": "packages/seller-dashboard/src/components/seller-business-card.tsx"
+    },
+    {
+      "id": "CMP-SP-G-03",
+      "system": "dashboard",
+      "name": "seller-returns-location-card",
+      "file": "packages/seller-dashboard/src/components/seller-returns-location-card.tsx"
+    },
+    {
+      "id": "CMP-SP-G-03",
+      "system": "dashboard",
+      "name": "seller-switcher",
+      "file": "packages/seller-dashboard/src/components/seller-switcher.tsx"
+    },
+    {
+      "id": "CMP-SP-G-03",
+      "system": "dashboard",
+      "name": "seller-tax-identifiers-card",
+      "file": "packages/seller-dashboard/src/components/seller-tax-identifiers-card.tsx"
+    }
+  ],
+  "tokens": [
+    {
+      "id": "TK-DUI-001",
+      "system": "dashboard",
+      "name": "--brand-blue",
+      "family": "Brand",
+      "light": "oklch(0.5967 0.2212 258)",
+      "dark": "Same as light"
+    },
+    {
+      "id": "TK-DUI-002",
+      "system": "dashboard",
+      "name": "--brand-blue-strong",
+      "family": "Brand",
+      "light": "oklch(0.5106 0.1868 257.7)",
+      "dark": "Same as light"
+    },
+    {
+      "id": "TK-DUI-003",
+      "system": "dashboard",
+      "name": "--link",
+      "family": "Link",
+      "light": "oklch(0.5106 0.1868 257.7)",
+      "dark": "oklch(0.7 0.16 258)"
+    },
+    {
+      "id": "TK-DUI-004",
+      "system": "dashboard",
+      "name": "--link-hover",
+      "family": "Link",
+      "light": "oklch(0.44 0.16 257.7)",
+      "dark": "oklch(0.78 0.14 258)"
+    },
+    {
+      "id": "TK-DUI-005",
+      "system": "dashboard",
+      "name": "--background",
+      "family": "Surface",
+      "light": "oklch(98.5% 0.001 106.423)",
+      "dark": "oklch(17% 0 0)"
+    },
+    {
+      "id": "TK-DUI-006",
+      "system": "dashboard",
+      "name": "--foreground",
+      "family": "Surface",
+      "light": "oklch(14.7% 0.004 49.25)",
+      "dark": "oklch(95% 0 0)"
+    },
+    {
+      "id": "TK-DUI-007",
+      "system": "dashboard",
+      "name": "--card",
+      "family": "Surface",
+      "light": "oklch(1 0 0)",
+      "dark": "oklch(21.6% 0 0)"
+    },
+    {
+      "id": "TK-DUI-008",
+      "system": "dashboard",
+      "name": "--card-foreground",
+      "family": "Surface",
+      "light": "var(--foreground)",
+      "dark": "var(--foreground)"
+    },
+    {
+      "id": "TK-DUI-009",
+      "system": "dashboard",
+      "name": "--popover",
+      "family": "Surface",
+      "light": "var(--card)",
+      "dark": "var(--card)"
+    },
+    {
+      "id": "TK-DUI-010",
+      "system": "dashboard",
+      "name": "--popover-foreground",
+      "family": "Surface",
+      "light": "var(--foreground)",
+      "dark": "var(--foreground)"
+    },
+    {
+      "id": "TK-DUI-011",
+      "system": "dashboard",
+      "name": "--primary",
+      "family": "Primary",
+      "light": "var(--foreground)",
+      "dark": "var(--foreground)"
+    },
+    {
+      "id": "TK-DUI-012",
+      "system": "dashboard",
+      "name": "--primary-foreground",
+      "family": "Primary",
+      "light": "var(--card)",
+      "dark": "oklch(14.7% 0 0)"
+    },
+    {
+      "id": "TK-DUI-013",
+      "system": "dashboard",
+      "name": "--secondary",
+      "family": "Secondary",
+      "light": "oklch(97% 0.001 106.424)",
+      "dark": "oklch(25% 0 0)"
+    },
+    {
+      "id": "TK-DUI-014",
+      "system": "dashboard",
+      "name": "--secondary-foreground",
+      "family": "Secondary",
+      "light": "var(--foreground)",
+      "dark": "var(--foreground)"
+    },
+    {
+      "id": "TK-DUI-015",
+      "system": "dashboard",
+      "name": "--muted",
+      "family": "Muted",
+      "light": "var(--background)",
+      "dark": "oklch(17% 0 0)"
+    },
+    {
+      "id": "TK-DUI-016",
+      "system": "dashboard",
+      "name": "--muted-foreground",
+      "family": "Muted",
+      "light": "oklch(0.535 0.0127 58.071)",
+      "dark": "oklch(70.9% 0 0)"
+    },
+    {
+      "id": "TK-DUI-017",
+      "system": "dashboard",
+      "name": "--accent",
+      "family": "Accent",
+      "light": "var(--secondary)",
+      "dark": "oklch(29.5% 0 0)"
+    },
+    {
+      "id": "TK-DUI-018",
+      "system": "dashboard",
+      "name": "--accent-foreground",
+      "family": "Accent",
+      "light": "var(--foreground)",
+      "dark": "var(--foreground)"
+    },
+    {
+      "id": "TK-DUI-019",
+      "system": "dashboard",
+      "name": "--accent-strong",
+      "family": "Accent",
+      "light": "oklch(94.7% 0.002 56)",
+      "dark": "oklch(38% 0 0)"
+    },
+    {
+      "id": "TK-DUI-020",
+      "system": "dashboard",
+      "name": "--accent-hover",
+      "family": "Accent",
+      "light": "oklch(95.9% 0.002 56)",
+      "dark": "oklch(33% 0 0)"
+    },
+    {
+      "id": "TK-DUI-021",
+      "system": "dashboard",
+      "name": "--accent-strong-hover",
+      "family": "Accent",
+      "light": "oklch(92.3% 0.003 48.717)",
+      "dark": "oklch(44.4% 0 0)"
+    },
+    {
+      "id": "TK-DUI-022",
+      "system": "dashboard",
+      "name": "--destructive",
+      "family": "Destructive",
+      "light": "oklch(0.58 0.22 27)",
+      "dark": "oklch(0.704 0.191 22.216)"
+    },
+    {
+      "id": "TK-DUI-023",
+      "system": "dashboard",
+      "name": "--destructive-foreground",
+      "family": "Destructive",
+      "light": "var(--card)",
+      "dark": "Same as light"
+    },
+    {
+      "id": "TK-DUI-024",
+      "system": "dashboard",
+      "name": "--border-base",
+      "family": "Border",
+      "light": "oklch(92.3% 0.003 48.717)",
+      "dark": "oklch(1 0 0 / 16%)"
+    },
+    {
+      "id": "TK-DUI-025",
+      "system": "dashboard",
+      "name": "--border",
+      "family": "Border",
+      "light": "var(--border-base)",
+      "dark": "var(--border-base)"
+    },
+    {
+      "id": "TK-DUI-026",
+      "system": "dashboard",
+      "name": "--border-card",
+      "family": "Border",
+      "light": "color-mix(in srgb, var(--border-base) 70%, transparent)",
+      "dark": "color-mix(in srgb, var(--border-base) 70%, transparent)"
+    },
+    {
+      "id": "TK-DUI-027",
+      "system": "dashboard",
+      "name": "--border-subtle",
+      "family": "Border",
+      "light": "color-mix(in srgb, var(--border-base) 50%, transparent)",
+      "dark": "color-mix(in srgb, var(--border-base) 50%, transparent)"
+    },
+    {
+      "id": "TK-DUI-028",
+      "system": "dashboard",
+      "name": "--border-control",
+      "family": "Border",
+      "light": "oklch(86.9% 0.005 56.366)",
+      "dark": "oklch(52% 0 0)"
+    },
+    {
+      "id": "TK-DUI-029",
+      "system": "dashboard",
+      "name": "--card-container",
+      "family": "Surface",
+      "light": "var(--background)",
+      "dark": "var(--background)"
+    },
+    {
+      "id": "TK-DUI-030",
+      "system": "dashboard",
+      "name": "--nested-raised",
+      "family": "Surface",
+      "light": "var(--card)",
+      "dark": "oklch(25% 0 0)"
+    },
+    {
+      "id": "TK-DUI-031",
+      "system": "dashboard",
+      "name": "--track-recessed",
+      "family": "Surface",
+      "light": "var(--accent)",
+      "dark": "var(--muted)"
+    },
+    {
+      "id": "TK-DUI-032",
+      "system": "dashboard",
+      "name": "--input",
+      "family": "Control",
+      "light": "color-mix(in srgb, var(--border-base) 80%, transparent)",
+      "dark": "color-mix(in srgb, var(--border-base) 80%, transparent)"
+    },
+    {
+      "id": "TK-DUI-033",
+      "system": "dashboard",
+      "name": "--ring",
+      "family": "Focus",
+      "light": "var(--brand-blue)",
+      "dark": "oklch(0.68 0.19 258)"
+    },
+    {
+      "id": "TK-DUI-034",
+      "system": "dashboard",
+      "name": "--chart-1",
+      "family": "Chart",
+      "light": "oklch(0.7663 0.1067 254.4)",
+      "dark": "oklch(0.809 0.105 251.813)"
+    },
+    {
+      "id": "TK-DUI-035",
+      "system": "dashboard",
+      "name": "--chart-2",
+      "family": "Chart",
+      "light": "oklch(0.5967 0.2212 258)",
+      "dark": "oklch(0.623 0.214 259.815)"
+    },
+    {
+      "id": "TK-DUI-036",
+      "system": "dashboard",
+      "name": "--chart-3",
+      "family": "Chart",
+      "light": "oklch(0.5106 0.1868 257.7)",
+      "dark": "oklch(0.546 0.245 262.881)"
+    },
+    {
+      "id": "TK-DUI-037",
+      "system": "dashboard",
+      "name": "--chart-4",
+      "family": "Chart",
+      "light": "oklch(0.4232 0.1524 257.4)",
+      "dark": "oklch(0.488 0.243 264.376)"
+    },
+    {
+      "id": "TK-DUI-038",
+      "system": "dashboard",
+      "name": "--chart-5",
+      "family": "Chart",
+      "light": "oklch(0.3358 0.118 257.1)",
+      "dark": "oklch(0.424 0.199 265.638)"
+    },
+    {
+      "id": "TK-DUI-039",
+      "system": "dashboard",
+      "name": "--radius",
+      "family": "Radius",
+      "light": "0.75rem",
+      "dark": "Same as light"
+    },
+    {
+      "id": "TK-DUI-040",
+      "system": "dashboard",
+      "name": "--sidebar",
+      "family": "Sidebar",
+      "light": "oklch(97% 0.001 106.424)",
+      "dark": "oklch(14% 0 0)"
+    },
+    {
+      "id": "TK-DUI-041",
+      "system": "dashboard",
+      "name": "--sidebar-foreground",
+      "family": "Sidebar",
+      "light": "oklch(26.8% 0.007 34.298)",
+      "dark": "var(--foreground)"
+    },
+    {
+      "id": "TK-DUI-042",
+      "system": "dashboard",
+      "name": "--sidebar-primary",
+      "family": "Sidebar",
+      "light": "var(--primary)",
+      "dark": "var(--primary)"
+    },
+    {
+      "id": "TK-DUI-043",
+      "system": "dashboard",
+      "name": "--sidebar-primary-foreground",
+      "family": "Sidebar",
+      "light": "var(--primary-foreground)",
+      "dark": "var(--primary-foreground)"
+    },
+    {
+      "id": "TK-DUI-044",
+      "system": "dashboard",
+      "name": "--sidebar-accent",
+      "family": "Sidebar",
+      "light": "oklch(92.3% 0.003 48.717)",
+      "dark": "var(--accent)"
+    },
+    {
+      "id": "TK-DUI-045",
+      "system": "dashboard",
+      "name": "--sidebar-accent-foreground",
+      "family": "Sidebar",
+      "light": "var(--accent-foreground)",
+      "dark": "var(--accent-foreground)"
+    },
+    {
+      "id": "TK-DUI-046",
+      "system": "dashboard",
+      "name": "--sidebar-accent-hover",
+      "family": "Sidebar",
+      "light": "var(--accent-strong)",
+      "dark": "var(--accent-hover)"
+    },
+    {
+      "id": "TK-DUI-047",
+      "system": "dashboard",
+      "name": "--sidebar-border",
+      "family": "Sidebar",
+      "light": "color-mix(in srgb, var(--border) 75%, transparent)",
+      "dark": "color-mix(in srgb, var(--border) 75%, transparent)"
+    },
+    {
+      "id": "TK-DUI-048",
+      "system": "dashboard",
+      "name": "--sidebar-ring",
+      "family": "Sidebar",
+      "light": "var(--ring)",
+      "dark": "var(--ring)"
+    },
+    {
+      "id": "TK-DUI-049",
+      "system": "dashboard",
+      "name": "--status-green-bg",
+      "family": "Status",
+      "light": "var(--color-green-100)",
+      "dark": "var(--color-green-900)"
+    },
+    {
+      "id": "TK-DUI-050",
+      "system": "dashboard",
+      "name": "--status-green-border",
+      "family": "Status",
+      "light": "var(--color-green-200)",
+      "dark": "var(--color-green-900)"
+    },
+    {
+      "id": "TK-DUI-051",
+      "system": "dashboard",
+      "name": "--status-green-fg",
+      "family": "Status",
+      "light": "var(--color-green-700)",
+      "dark": "var(--color-green-300)"
+    },
+    {
+      "id": "TK-DUI-052",
+      "system": "dashboard",
+      "name": "--status-amber-bg",
+      "family": "Status",
+      "light": "var(--color-amber-100)",
+      "dark": "var(--color-amber-900)"
+    },
+    {
+      "id": "TK-DUI-053",
+      "system": "dashboard",
+      "name": "--status-amber-border",
+      "family": "Status",
+      "light": "var(--color-amber-200)",
+      "dark": "var(--color-amber-900)"
+    },
+    {
+      "id": "TK-DUI-054",
+      "system": "dashboard",
+      "name": "--status-amber-fg",
+      "family": "Status",
+      "light": "var(--color-amber-700)",
+      "dark": "var(--color-amber-300)"
+    },
+    {
+      "id": "TK-DUI-055",
+      "system": "dashboard",
+      "name": "--status-red-bg",
+      "family": "Status",
+      "light": "var(--color-red-100)",
+      "dark": "var(--color-red-900)"
+    },
+    {
+      "id": "TK-DUI-056",
+      "system": "dashboard",
+      "name": "--status-red-border",
+      "family": "Status",
+      "light": "var(--color-red-200)",
+      "dark": "var(--color-red-900)"
+    },
+    {
+      "id": "TK-DUI-057",
+      "system": "dashboard",
+      "name": "--status-red-fg",
+      "family": "Status",
+      "light": "var(--color-red-700)",
+      "dark": "var(--color-red-300)"
+    },
+    {
+      "id": "TK-DUI-058",
+      "system": "dashboard",
+      "name": "--status-blue-bg",
+      "family": "Status",
+      "light": "var(--color-sky-100)",
+      "dark": "var(--color-sky-900)"
+    },
+    {
+      "id": "TK-DUI-059",
+      "system": "dashboard",
+      "name": "--status-blue-border",
+      "family": "Status",
+      "light": "var(--color-sky-200)",
+      "dark": "var(--color-sky-900)"
+    },
+    {
+      "id": "TK-DUI-060",
+      "system": "dashboard",
+      "name": "--status-blue-fg",
+      "family": "Status",
+      "light": "var(--color-sky-700)",
+      "dark": "var(--color-sky-300)"
+    },
+    {
+      "id": "TK-DUI-061",
+      "system": "dashboard",
+      "name": "--scrollbar-thumb",
+      "family": "Scrollbar",
+      "light": "oklch(86.9% 0.005 56.366)",
+      "dark": "oklch(37.4% 0.01 67.558)"
+    },
+    {
+      "id": "TK-DUI-062",
+      "system": "dashboard",
+      "name": "--scrollbar-thumb-hover",
+      "family": "Scrollbar",
+      "light": "oklch(70.9% 0.01 56.259)",
+      "dark": "oklch(44.4% 0.011 73.639)"
+    },
+    {
+      "id": "TK-DUI-T-01",
+      "system": "dashboard",
+      "name": "--font-sans",
+      "value": "\"Geist Variable\", ui-sans-serif, system-ui, sans-serif"
+    },
+    {
+      "id": "TK-DUI-T-02",
+      "system": "dashboard",
+      "name": "--font-mono",
+      "value": "\"Geist Mono Variable\", ui-monospace, monospace"
+    },
+    {
+      "id": "TK-DUI-T-03",
+      "system": "dashboard",
+      "name": "--text-xs",
+      "value": "0.75rem"
+    },
+    {
+      "id": "TK-DUI-T-04",
+      "system": "dashboard",
+      "name": "--text-sm",
+      "value": "0.8125rem"
+    },
+    {
+      "id": "TK-DUI-T-05",
+      "system": "dashboard",
+      "name": "--text-base",
+      "value": "0.875rem"
+    },
+    {
+      "id": "TK-DUI-T-06",
+      "system": "dashboard",
+      "name": "--text-lg",
+      "value": "1rem"
+    },
+    {
+      "id": "TK-DUI-T-07",
+      "system": "dashboard",
+      "name": "--text-xl",
+      "value": "1.25rem"
+    },
+    {
+      "id": "TK-DUI-T-08",
+      "system": "dashboard",
+      "name": "--text-2xl",
+      "value": "1.5rem"
+    },
+    {
+      "id": "TK-DUI-T-09",
+      "system": "dashboard",
+      "name": "--text-3xl",
+      "value": "1.75rem"
+    },
+    {
+      "id": "TK-DUI-T-10",
+      "system": "dashboard",
+      "name": "--text-4xl",
+      "value": "2rem"
+    },
+    {
+      "id": "TK-DUI-T-11",
+      "system": "dashboard",
+      "name": "--shadow-xs",
+      "value": "0 0px 1px 0 rgb(0 0 0 / 0.05)"
+    },
+    {
+      "id": "TK-DUI-T-12",
+      "system": "dashboard",
+      "name": "--shadow-control",
+      "value": "0 0.5px 1px 0 rgb(0 0 0 / 0.05)"
+    },
+    {
+      "id": "TK-DUI-T-13",
+      "system": "dashboard",
+      "name": "--shadow-sm",
+      "value": "0 1px 2px 0 rgb(0 0 0 / 0.05)"
+    },
+    {
+      "id": "TK-DUI-T-14",
+      "system": "dashboard",
+      "name": "--shadow-nav",
+      "value": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.04) 0px 0px 0px 1px, rgba(0, 0, 0, 0.04) 0px 1px 2px -1px, rgba(0, 0, 0, 0.02) 0px 2px 4px 0px"
+    },
+    {
+      "id": "TK-DUI-T-15",
+      "system": "dashboard",
+      "name": "--shadow-md",
+      "value": "0 4px 16px -4px rgb(0 0 0 / 0.08), 0 1px 4px -2px rgb(0 0 0 / 0.05)"
+    },
+    {
+      "id": "TK-DUI-T-16",
+      "system": "dashboard",
+      "name": "--shadow-lg",
+      "value": "0 8px 32px -8px rgb(0 0 0 / 0.10), 0 2px 8px -4px rgb(0 0 0 / 0.06)"
+    },
+    {
+      "id": "TK-DUI-T-17",
+      "system": "dashboard",
+      "name": "--radius-sm",
+      "value": "0.4rem"
+    },
+    {
+      "id": "TK-DUI-T-18",
+      "system": "dashboard",
+      "name": "--radius-md",
+      "value": "0.5rem"
+    },
+    {
+      "id": "TK-DUI-T-19",
+      "system": "dashboard",
+      "name": "--radius-lg",
+      "value": "0.625rem"
+    },
+    {
+      "id": "TK-DUI-T-20",
+      "system": "dashboard",
+      "name": "--radius-xl",
+      "value": "0.875rem"
+    },
+    {
+      "id": "TK-DUI-T-21",
+      "system": "dashboard",
+      "name": "--radius-2xl",
+      "value": "1.125rem"
+    },
+    {
+      "id": "TK-DUI-T-22",
+      "system": "dashboard",
+      "name": "--spacing-sidebar-width",
+      "value": "240px"
+    },
+    {
+      "id": "TK-DUI-T-23",
+      "system": "dashboard",
+      "name": "--spacing-header-height",
+      "value": "0px"
+    },
+    {
+      "id": "TK-DUI-T-24",
+      "system": "dashboard",
+      "name": "--spacing-rail-header-height",
+      "value": "42px"
+    },
+    {
+      "id": "TK-DUI-T-25",
+      "system": "dashboard",
+      "name": "--ease-out",
+      "value": "cubic-bezier(0.23, 1, 0.32, 1)"
+    },
+    {
+      "id": "TK-DUI-T-26",
+      "system": "dashboard",
+      "name": "--ease-in-out",
+      "value": "cubic-bezier(0.77, 0, 0.175, 1)"
+    },
+    {
+      "id": "TK-DUI-A",
+      "system": "dashboard",
+      "name": "--color-sidebar-ring",
+      "family": "Colour utility alias"
+    },
+    {
+      "id": "TK-DUI-A",
+      "system": "dashboard",
+      "name": "--color-sidebar-border",
+      "family": "Colour utility alias"
+    },
+    {
+      "id": "TK-DUI-A",
+      "system": "dashboard",
+      "name": "--color-sidebar-accent-foreground",
+      "family": "Colour utility alias"
+    },
+    {
+      "id": "TK-DUI-A",
+      "system": "dashboard",
+      "name": "--color-sidebar-accent-hover",
+      "family": "Colour utility alias"
+    },
+    {
+      "id": "TK-DUI-A",
+      "system": "dashboard",
+      "name": "--color-sidebar-accent",
+      "family": "Colour utility alias"
+    },
+    {
+      "id": "TK-DUI-A",
+      "system": "dashboard",
+      "name": "--color-sidebar-primary-foreground",
+      "family": "Colour utility alias"
+    },
+    {
+      "id": "TK-DUI-A",
+      "system": "dashboard",
+      "name": "--color-sidebar-primary",
+      "family": "Colour utility alias"
+    },
+    {
+      "id": "TK-DUI-A",
+      "system": "dashboard",
+      "name": "--color-sidebar-foreground",
+      "family": "Colour utility alias"
+    },
+    {
+      "id": "TK-DUI-A",
+      "system": "dashboard",
+      "name": "--color-sidebar",
+      "family": "Colour utility alias"
+    },
+    {
+      "id": "TK-DUI-A",
+      "system": "dashboard",
+      "name": "--color-chart-5",
+      "family": "Colour utility alias"
+    },
+    {
+      "id": "TK-DUI-A",
+      "system": "dashboard",
+      "name": "--color-chart-4",
+      "family": "Colour utility alias"
+    },
+    {
+      "id": "TK-DUI-A",
+      "system": "dashboard",
+      "name": "--color-chart-3",
+      "family": "Colour utility alias"
+    },
+    {
+      "id": "TK-DUI-A",
+      "system": "dashboard",
+      "name": "--color-chart-2",
+      "family": "Colour utility alias"
+    },
+    {
+      "id": "TK-DUI-A",
+      "system": "dashboard",
+      "name": "--color-chart-1",
+      "family": "Colour utility alias"
+    },
+    {
+      "id": "TK-DUI-A",
+      "system": "dashboard",
+      "name": "--color-ring",
+      "family": "Colour utility alias"
+    },
+    {
+      "id": "TK-DUI-A",
+      "system": "dashboard",
+      "name": "--color-input",
+      "family": "Colour utility alias"
+    },
+    {
+      "id": "TK-DUI-A",
+      "system": "dashboard",
+      "name": "--color-border",
+      "family": "Colour utility alias"
+    },
+    {
+      "id": "TK-DUI-A",
+      "system": "dashboard",
+      "name": "--color-border-card",
+      "family": "Colour utility alias"
+    },
+    {
+      "id": "TK-DUI-A",
+      "system": "dashboard",
+      "name": "--color-border-subtle",
+      "family": "Colour utility alias"
+    },
+    {
+      "id": "TK-DUI-A",
+      "system": "dashboard",
+      "name": "--color-border-control",
+      "family": "Colour utility alias"
+    },
+    {
+      "id": "TK-DUI-A",
+      "system": "dashboard",
+      "name": "--color-card-container",
+      "family": "Colour utility alias"
+    },
+    {
+      "id": "TK-DUI-A",
+      "system": "dashboard",
+      "name": "--color-nested-raised",
+      "family": "Colour utility alias"
+    },
+    {
+      "id": "TK-DUI-A",
+      "system": "dashboard",
+      "name": "--color-track-recessed",
+      "family": "Colour utility alias"
+    },
+    {
+      "id": "TK-DUI-A",
+      "system": "dashboard",
+      "name": "--color-destructive",
+      "family": "Colour utility alias"
+    },
+    {
+      "id": "TK-DUI-A",
+      "system": "dashboard",
+      "name": "--color-destructive-foreground",
+      "family": "Colour utility alias"
+    },
+    {
+      "id": "TK-DUI-A",
+      "system": "dashboard",
+      "name": "--color-accent-foreground",
+      "family": "Colour utility alias"
+    },
+    {
+      "id": "TK-DUI-A",
+      "system": "dashboard",
+      "name": "--color-accent-strong",
+      "family": "Colour utility alias"
+    },
+    {
+      "id": "TK-DUI-A",
+      "system": "dashboard",
+      "name": "--color-accent-hover",
+      "family": "Colour utility alias"
+    },
+    {
+      "id": "TK-DUI-A",
+      "system": "dashboard",
+      "name": "--color-accent-strong-hover",
+      "family": "Colour utility alias"
+    },
+    {
+      "id": "TK-DUI-A",
+      "system": "dashboard",
+      "name": "--color-accent",
+      "family": "Colour utility alias"
+    },
+    {
+      "id": "TK-DUI-A",
+      "system": "dashboard",
+      "name": "--color-muted-foreground",
+      "family": "Colour utility alias"
+    },
+    {
+      "id": "TK-DUI-A",
+      "system": "dashboard",
+      "name": "--color-muted",
+      "family": "Colour utility alias"
+    },
+    {
+      "id": "TK-DUI-A",
+      "system": "dashboard",
+      "name": "--color-secondary-foreground",
+      "family": "Colour utility alias"
+    },
+    {
+      "id": "TK-DUI-A",
+      "system": "dashboard",
+      "name": "--color-secondary",
+      "family": "Colour utility alias"
+    },
+    {
+      "id": "TK-DUI-A",
+      "system": "dashboard",
+      "name": "--color-primary-foreground",
+      "family": "Colour utility alias"
+    },
+    {
+      "id": "TK-DUI-A",
+      "system": "dashboard",
+      "name": "--color-primary",
+      "family": "Colour utility alias"
+    },
+    {
+      "id": "TK-DUI-A",
+      "system": "dashboard",
+      "name": "--color-popover-foreground",
+      "family": "Colour utility alias"
+    },
+    {
+      "id": "TK-DUI-A",
+      "system": "dashboard",
+      "name": "--color-popover",
+      "family": "Colour utility alias"
+    },
+    {
+      "id": "TK-DUI-A",
+      "system": "dashboard",
+      "name": "--color-card-foreground",
+      "family": "Colour utility alias"
+    },
+    {
+      "id": "TK-DUI-A",
+      "system": "dashboard",
+      "name": "--color-card",
+      "family": "Colour utility alias"
+    },
+    {
+      "id": "TK-DUI-A",
+      "system": "dashboard",
+      "name": "--color-foreground",
+      "family": "Colour utility alias"
+    },
+    {
+      "id": "TK-DUI-A",
+      "system": "dashboard",
+      "name": "--color-background",
+      "family": "Colour utility alias"
+    },
+    {
+      "id": "TK-DUI-A",
+      "system": "dashboard",
+      "name": "--color-success",
+      "family": "Colour utility alias"
+    },
+    {
+      "id": "TK-DUI-A",
+      "system": "dashboard",
+      "name": "--color-success-bg",
+      "family": "Colour utility alias"
+    },
+    {
+      "id": "TK-DUI-A",
+      "system": "dashboard",
+      "name": "--color-success-border",
+      "family": "Colour utility alias"
+    },
+    {
+      "id": "TK-DUI-A",
+      "system": "dashboard",
+      "name": "--color-warning",
+      "family": "Colour utility alias"
+    },
+    {
+      "id": "TK-DUI-A",
+      "system": "dashboard",
+      "name": "--color-warning-bg",
+      "family": "Colour utility alias"
+    },
+    {
+      "id": "TK-DUI-A",
+      "system": "dashboard",
+      "name": "--color-warning-border",
+      "family": "Colour utility alias"
+    },
+    {
+      "id": "TK-DUI-A",
+      "system": "dashboard",
+      "name": "--color-danger",
+      "family": "Colour utility alias"
+    },
+    {
+      "id": "TK-DUI-A",
+      "system": "dashboard",
+      "name": "--color-danger-bg",
+      "family": "Colour utility alias"
+    },
+    {
+      "id": "TK-DUI-A",
+      "system": "dashboard",
+      "name": "--color-danger-border",
+      "family": "Colour utility alias"
+    },
+    {
+      "id": "TK-DUI-A",
+      "system": "dashboard",
+      "name": "--color-info",
+      "family": "Colour utility alias"
+    },
+    {
+      "id": "TK-DUI-A",
+      "system": "dashboard",
+      "name": "--color-info-bg",
+      "family": "Colour utility alias"
+    },
+    {
+      "id": "TK-DUI-A",
+      "system": "dashboard",
+      "name": "--color-info-border",
+      "family": "Colour utility alias"
+    },
+    {
+      "id": "TK-DUI-A",
+      "system": "dashboard",
+      "name": "--color-blue-500",
+      "family": "Colour utility alias"
+    },
+    {
+      "id": "TK-DUI-A",
+      "system": "dashboard",
+      "name": "--color-blue-600",
+      "family": "Colour utility alias"
+    },
+    {
+      "id": "TK-DUI-A",
+      "system": "dashboard",
+      "name": "--color-link",
+      "family": "Colour utility alias"
+    },
+    {
+      "id": "TK-DUI-A",
+      "system": "dashboard",
+      "name": "--color-link-hover",
+      "family": "Colour utility alias"
+    },
+    {
+      "id": "TK-TW-D",
+      "system": "dashboard",
+      "name": "--color-red-100",
+      "family": "Tailwind palette"
+    },
+    {
+      "id": "TK-TW-D",
+      "system": "dashboard",
+      "name": "--color-red-200",
+      "family": "Tailwind palette"
+    },
+    {
+      "id": "TK-TW-D",
+      "system": "dashboard",
+      "name": "--color-red-300",
+      "family": "Tailwind palette"
+    },
+    {
+      "id": "TK-TW-D",
+      "system": "dashboard",
+      "name": "--color-red-400",
+      "family": "Tailwind palette"
+    },
+    {
+      "id": "TK-TW-D",
+      "system": "dashboard",
+      "name": "--color-red-700",
+      "family": "Tailwind palette"
+    },
+    {
+      "id": "TK-TW-D",
+      "system": "dashboard",
+      "name": "--color-red-900",
+      "family": "Tailwind palette"
+    },
+    {
+      "id": "TK-TW-D",
+      "system": "dashboard",
+      "name": "--color-amber-100",
+      "family": "Tailwind palette"
+    },
+    {
+      "id": "TK-TW-D",
+      "system": "dashboard",
+      "name": "--color-amber-200",
+      "family": "Tailwind palette"
+    },
+    {
+      "id": "TK-TW-D",
+      "system": "dashboard",
+      "name": "--color-amber-300",
+      "family": "Tailwind palette"
+    },
+    {
+      "id": "TK-TW-D",
+      "system": "dashboard",
+      "name": "--color-amber-400",
+      "family": "Tailwind palette"
+    },
+    {
+      "id": "TK-TW-D",
+      "system": "dashboard",
+      "name": "--color-amber-500",
+      "family": "Tailwind palette"
+    },
+    {
+      "id": "TK-TW-D",
+      "system": "dashboard",
+      "name": "--color-amber-600",
+      "family": "Tailwind palette"
+    },
+    {
+      "id": "TK-TW-D",
+      "system": "dashboard",
+      "name": "--color-amber-700",
+      "family": "Tailwind palette"
+    },
+    {
+      "id": "TK-TW-D",
+      "system": "dashboard",
+      "name": "--color-amber-800",
+      "family": "Tailwind palette"
+    },
+    {
+      "id": "TK-TW-D",
+      "system": "dashboard",
+      "name": "--color-amber-900",
+      "family": "Tailwind palette"
+    },
+    {
+      "id": "TK-TW-D",
+      "system": "dashboard",
+      "name": "--color-green-100",
+      "family": "Tailwind palette"
+    },
+    {
+      "id": "TK-TW-D",
+      "system": "dashboard",
+      "name": "--color-green-200",
+      "family": "Tailwind palette"
+    },
+    {
+      "id": "TK-TW-D",
+      "system": "dashboard",
+      "name": "--color-green-300",
+      "family": "Tailwind palette"
+    },
+    {
+      "id": "TK-TW-D",
+      "system": "dashboard",
+      "name": "--color-green-600",
+      "family": "Tailwind palette"
+    },
+    {
+      "id": "TK-TW-D",
+      "system": "dashboard",
+      "name": "--color-green-700",
+      "family": "Tailwind palette"
+    },
+    {
+      "id": "TK-TW-D",
+      "system": "dashboard",
+      "name": "--color-green-900",
+      "family": "Tailwind palette"
+    },
+    {
+      "id": "TK-TW-D",
+      "system": "dashboard",
+      "name": "--color-emerald-300",
+      "family": "Tailwind palette"
+    },
+    {
+      "id": "TK-TW-D",
+      "system": "dashboard",
+      "name": "--color-emerald-400",
+      "family": "Tailwind palette"
+    },
+    {
+      "id": "TK-TW-D",
+      "system": "dashboard",
+      "name": "--color-emerald-500",
+      "family": "Tailwind palette"
+    },
+    {
+      "id": "TK-TW-D",
+      "system": "dashboard",
+      "name": "--color-emerald-600",
+      "family": "Tailwind palette"
+    },
+    {
+      "id": "TK-TW-D",
+      "system": "dashboard",
+      "name": "--color-emerald-700",
+      "family": "Tailwind palette"
+    },
+    {
+      "id": "TK-TW-D",
+      "system": "dashboard",
+      "name": "--color-sky-100",
+      "family": "Tailwind palette"
+    },
+    {
+      "id": "TK-TW-D",
+      "system": "dashboard",
+      "name": "--color-sky-200",
+      "family": "Tailwind palette"
+    },
+    {
+      "id": "TK-TW-D",
+      "system": "dashboard",
+      "name": "--color-sky-300",
+      "family": "Tailwind palette"
+    },
+    {
+      "id": "TK-TW-D",
+      "system": "dashboard",
+      "name": "--color-sky-700",
+      "family": "Tailwind palette"
+    },
+    {
+      "id": "TK-TW-D",
+      "system": "dashboard",
+      "name": "--color-sky-900",
+      "family": "Tailwind palette"
+    },
+    {
+      "id": "TK-TW-D",
+      "system": "dashboard",
+      "name": "--color-blue-50",
+      "family": "Tailwind palette"
+    },
+    {
+      "id": "TK-TW-D",
+      "system": "dashboard",
+      "name": "--color-blue-300",
+      "family": "Tailwind palette"
+    },
+    {
+      "id": "TK-TW-D",
+      "system": "dashboard",
+      "name": "--color-blue-400",
+      "family": "Tailwind palette"
+    },
+    {
+      "id": "TK-TW-D",
+      "system": "dashboard",
+      "name": "--color-blue-700",
+      "family": "Tailwind palette"
+    },
+    {
+      "id": "TK-TW-D",
+      "system": "dashboard",
+      "name": "--color-blue-800",
+      "family": "Tailwind palette"
+    },
+    {
+      "id": "TK-TW-D",
+      "system": "dashboard",
+      "name": "--color-purple-300",
+      "family": "Tailwind palette"
+    },
+    {
+      "id": "TK-TW-D",
+      "system": "dashboard",
+      "name": "--color-zinc-100",
+      "family": "Tailwind palette"
+    },
+    {
+      "id": "TK-TW-D",
+      "system": "dashboard",
+      "name": "--color-zinc-300",
+      "family": "Tailwind palette"
+    },
+    {
+      "id": "TK-TW-D",
+      "system": "dashboard",
+      "name": "--color-zinc-400",
+      "family": "Tailwind palette"
+    },
+    {
+      "id": "TK-TW-D",
+      "system": "dashboard",
+      "name": "--color-zinc-500",
+      "family": "Tailwind palette"
+    },
+    {
+      "id": "TK-TW-D",
+      "system": "dashboard",
+      "name": "--color-zinc-600",
+      "family": "Tailwind palette"
+    },
+    {
+      "id": "TK-TW-D",
+      "system": "dashboard",
+      "name": "--color-zinc-700",
+      "family": "Tailwind palette"
+    },
+    {
+      "id": "TK-TW-D",
+      "system": "dashboard",
+      "name": "--color-zinc-800",
+      "family": "Tailwind palette"
+    },
+    {
+      "id": "TK-TW-D",
+      "system": "dashboard",
+      "name": "--color-zinc-900",
+      "family": "Tailwind palette"
+    },
+    {
+      "id": "TK-TW-D",
+      "system": "dashboard",
+      "name": "--color-zinc-950",
+      "family": "Tailwind palette"
+    },
+    {
+      "id": "TK-TW-D",
+      "system": "dashboard",
+      "name": "--color-black",
+      "family": "Tailwind palette"
+    },
+    {
+      "id": "TK-TW-D",
+      "system": "dashboard",
+      "name": "--color-white",
+      "family": "Tailwind palette"
+    },
+    {
+      "id": "TK-EM-01",
+      "system": "email",
+      "name": "Accent colour",
+      "value": "None"
+    },
+    {
+      "id": "TK-EM-02",
+      "system": "email",
+      "name": "Background colour",
+      "value": "#FFFFFF"
+    },
+    {
+      "id": "TK-EM-03",
+      "system": "email",
+      "name": "Card colour",
+      "value": "#F6F6F6"
+    },
+    {
+      "id": "TK-EM-04",
+      "system": "email",
+      "name": "Text colour",
+      "value": "#726A6A"
+    },
+    {
+      "id": "TK-EM-05",
+      "system": "email",
+      "name": "Heading colour",
+      "value": "#332C2C"
+    },
+    {
+      "id": "TK-EM-06",
+      "system": "email",
+      "name": "Font",
+      "value": "Inter, with Geist for headings. The other choices are system, Helvetica, Georgia, Roboto, Lato and Merriweather"
+    }
+  ]
+}

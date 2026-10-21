@@ -1,7 +1,7 @@
 ---
 document_id: LIQ-009
 title: Spree Component and Token Inventory
-version: 0.2-draft
+version: 0.3-draft
 status: DRAFT
 owner: unassigned
 approved_by: null
@@ -20,15 +20,15 @@ Every component and design token in Spree's existing design systems, at the pinn
 - **Revisions.** Backend `liquorify` at `1d1f2d4` and storefront `liquorify-storefront` at `ac53c5b`.
 - **Method.** Reading only, on 2026-10-21. Components are the `.tsx` files in the folders named below, without tests. Tokens are the CSS custom properties declared in the two stylesheets below, read with their light and dark values; the email values come from `Spree::Emails::Branding`. Nothing was rendered or measured.
 - **IDs are permanent.** A component or token keeps its ID if it is renamed. One removed upstream keeps its row, marked as removed. A new one takes the next number in its table.
-- **Some IDs name a group.** The application components (CMP-DA-G, CMP-SP-G), the storefront feature components (CMP-SF-G) and the colour utility aliases (TK-DUI-A, TK-SF-A) have one ID per group, and each member is named in its row. The group ID with the member's name is that member's reference.
+- **Some IDs name a group.** The application components (CMP-DA-G, CMP-SP-G), the storefront feature components (CMP-SF-G), the colour utility aliases (TK-DUI-A, TK-SF-A) and the Tailwind palette colours (TK-TW-D, TK-TW-S) have one ID per group, and each member is named in its row. The group ID with the member's name is that member's reference.
 
 | System | Used by | Components | Tokens |
 |---|---|---|---|
-| Dashboard design system, `@spree/dashboard-ui` 1.0.0-rc.4 | Admin dashboard and seller panel | 46 primitives, 54 composed components | 62 light and 58 dark values in `:root` and `.dark`; 84 theme entries |
+| Dashboard design system, `@spree/dashboard-ui` 1.0.0-rc.4 | Admin dashboard and seller panel | 46 primitives, 54 composed components | 62 light and 58 dark values in `:root` and `.dark`; 84 theme entries; 48 Tailwind palette colours |
 | Dashboard framework, `@spree/dashboard-core` | Admin dashboard and seller panel | 39 components, 3 shared pages, 9 product form modules | Uses the design system's |
 | Admin dashboard application, `@spree/dashboard` | Admin dashboard | 200 components in 24 groups | Uses the design system's |
 | Seller panel application, `@spree/seller-dashboard` | Seller panel | 28 components | Uses the design system's |
-| Storefront | Shoppers | 22 primitives, 66 feature components, 13 page-level components | 32 light and 31 dark values; 58 theme entries |
+| Storefront | Shoppers | 22 primitives, 66 feature components, 13 page-level components | 32 light and 31 dark values; 58 theme entries; 44 Tailwind palette colours |
 | Emails | Customers, staff and sellers | 1 layout and 5 shared partials (LIQ-008 §6) | 5 colours and a font per store |
 
 ### How the systems relate
@@ -465,6 +465,8 @@ The `@theme inline` block turns tokens into Tailwind utilities.
 
 **Colour utility aliases** (TK-DUI-A, 58 entries). Each maps a Tailwind colour name to the token of the same name, such as `--color-card: var(--card)`. Four groups add meaning rather than repeating a name: `--color-success`, `--color-warning`, `--color-danger` and `--color-info`, with their `-bg` and `-border` variants, point at the status tokens; `--color-blue-500` and `--color-blue-600` replace Tailwind's blues with the brand blues; and `--color-link` and `--color-link-hover` point at the link tokens. The full list: `--color-sidebar-ring`, `--color-sidebar-border`, `--color-sidebar-accent-foreground`, `--color-sidebar-accent-hover`, `--color-sidebar-accent`, `--color-sidebar-primary-foreground`, `--color-sidebar-primary`, `--color-sidebar-foreground`, `--color-sidebar`, `--color-chart-5`, `--color-chart-4`, `--color-chart-3`, `--color-chart-2`, `--color-chart-1`, `--color-ring`, `--color-input`, `--color-border`, `--color-border-card`, `--color-border-subtle`, `--color-border-control`, `--color-card-container`, `--color-nested-raised`, `--color-track-recessed`, `--color-destructive`, `--color-destructive-foreground`, `--color-accent-foreground`, `--color-accent-strong`, `--color-accent-hover`, `--color-accent-strong-hover`, `--color-accent`, `--color-muted-foreground`, `--color-muted`, `--color-secondary-foreground`, `--color-secondary`, `--color-primary-foreground`, `--color-primary`, `--color-popover-foreground`, `--color-popover`, `--color-card-foreground`, `--color-card`, `--color-foreground`, `--color-background`, `--color-success`, `--color-success-bg`, `--color-success-border`, `--color-warning`, `--color-warning-bg`, `--color-warning-border`, `--color-danger`, `--color-danger-bg`, `--color-danger-border`, `--color-info`, `--color-info-bg`, `--color-info-border`, `--color-blue-500`, `--color-blue-600`, `--color-link`, `--color-link-hover`.
 
+**Tailwind palette colours** (TK-TW-D, 48 entries). Colours from Tailwind's own palette that the dashboard packages use without declaring them: 20 are referred to by the status tokens above, and the rest appear in class names such as `text-amber-700`. `--color-blue-500` and `--color-blue-600` are not among them, because the theme replaces them with the brand blues. The values come from Tailwind's theme file at the installed version, and the token script finds the list by searching the four dashboard packages' source, so a class name built at run time is missed. The full list: `--color-red-100`, `--color-red-200`, `--color-red-300`, `--color-red-400`, `--color-red-700`, `--color-red-900`, `--color-amber-100`, `--color-amber-200`, `--color-amber-300`, `--color-amber-400`, `--color-amber-500`, `--color-amber-600`, `--color-amber-700`, `--color-amber-800`, `--color-amber-900`, `--color-green-100`, `--color-green-200`, `--color-green-300`, `--color-green-600`, `--color-green-700`, `--color-green-900`, `--color-emerald-300`, `--color-emerald-400`, `--color-emerald-500`, `--color-emerald-600`, `--color-emerald-700`, `--color-sky-100`, `--color-sky-200`, `--color-sky-300`, `--color-sky-700`, `--color-sky-900`, `--color-blue-50`, `--color-blue-300`, `--color-blue-400`, `--color-blue-700`, `--color-blue-800`, `--color-purple-300`, `--color-zinc-100`, `--color-zinc-300`, `--color-zinc-400`, `--color-zinc-500`, `--color-zinc-600`, `--color-zinc-700`, `--color-zinc-800`, `--color-zinc-900`, `--color-zinc-950`, `--color-black`, `--color-white`.
+
 ## 7. Storefront design tokens
 
 Declared in `src/app/globals.css` in `liquorify-storefront`. The font comes from Next.js's font loader as `--font-geist`.
@@ -542,6 +544,8 @@ Declared in `src/app/globals.css` in `liquorify-storefront`. The font comes from
 
 **Colour utility aliases** (TK-SF-A, 31 entries), each mapping a Tailwind colour name to the token of the same name: `--color-background`, `--color-foreground`, `--color-sidebar-ring`, `--color-sidebar-border`, `--color-sidebar-accent-foreground`, `--color-sidebar-accent`, `--color-sidebar-primary-foreground`, `--color-sidebar-primary`, `--color-sidebar-foreground`, `--color-sidebar`, `--color-chart-5`, `--color-chart-4`, `--color-chart-3`, `--color-chart-2`, `--color-chart-1`, `--color-ring`, `--color-input`, `--color-border`, `--color-destructive`, `--color-accent-foreground`, `--color-accent`, `--color-muted-foreground`, `--color-muted`, `--color-secondary-foreground`, `--color-secondary`, `--color-primary-foreground`, `--color-primary`, `--color-popover-foreground`, `--color-popover`, `--color-card-foreground`, `--color-card`.
 
+**Tailwind palette colours** (TK-TW-S, 44 entries). Colours from Tailwind's own palette that the storefront uses in class names without declaring them, such as `text-gray-900`. None of its tokens refer to the palette. The values come from Tailwind's theme file at the installed version, and the token script finds the list by searching `src/`, so a class name built at run time is missed. One fixed colour in a class name, `rgba(114,114,114,0.9)`, is not in the palette and is not listed here. The full list: `--color-red-50`, `--color-red-100`, `--color-red-300`, `--color-red-500`, `--color-red-600`, `--color-red-700`, `--color-red-800`, `--color-amber-700`, `--color-yellow-100`, `--color-yellow-800`, `--color-green-100`, `--color-green-500`, `--color-green-600`, `--color-green-700`, `--color-green-800`, `--color-blue-50`, `--color-blue-100`, `--color-blue-800`, `--color-slate-50`, `--color-slate-100`, `--color-slate-200`, `--color-slate-300`, `--color-slate-400`, `--color-slate-500`, `--color-slate-600`, `--color-slate-700`, `--color-slate-800`, `--color-slate-900`, `--color-gray-50`, `--color-gray-100`, `--color-gray-200`, `--color-gray-300`, `--color-gray-400`, `--color-gray-500`, `--color-gray-600`, `--color-gray-700`, `--color-gray-800`, `--color-gray-900`, `--color-neutral-200`, `--color-neutral-300`, `--color-neutral-400`, `--color-neutral-800`, `--color-black`, `--color-white`.
+
 ## 8. Email branding values
 
 Each store may set these in the dashboard (DA-SET-03); a blank value keeps the shipped default (`spree/core/app/models/spree/emails/branding.rb`).
@@ -564,7 +568,7 @@ Ten agent skills are tracked in the backend under `.agents/skills/` and linked f
 - **How anything looks or behaves.** Nothing was rendered. No colour contrast was measured, and no component was checked for accessibility (PD-11 and QV-09 stay not assessed in [LIQ-003](LIQ-003-engineering-baseline.md#3-capability-baseline)).
 - **Variants and states of each component.** Those are recorded when each component's stories are written (FB-19), and they become the Figma component properties (FB-20).
 - **Component-level styles.** The dashboard stylesheet has rules beyond its tokens; they are part of the components they style.
-- **Colours used outside the tokens.** Components in both systems also use Tailwind's own palette colours in their class names, such as `text-gray-900`: 48 distinct colours in the dashboard packages, counting the 20 its tokens refer to, and 42 in the storefront, plus white and black. They are not custom properties declared in the stylesheets, so they have no IDs yet. The token preparation for FB-20 adds them ([LIQ-010 §3.4](LIQ-010-design-system-reproduction-architecture.md#34-colours-used-outside-the-tokens)).
+- **Colours outside the token files.** The storefront's one fixed colour, `rgba(114,114,114,0.9)`, has no ID. The Tailwind palette colours now have the group IDs TK-TW-D and TK-TW-S (§6 and §7); they are found by searching class names, which misses class names built at run time.
 - **Liquorify components and tokens.** None exist.
 
 ## 11. How this links to the other records
