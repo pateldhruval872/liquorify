@@ -49,7 +49,7 @@ Risk classes follow [LIQ-001 §4](LIQ-001-project-profile.md#4-review-and-verifi
 
 | # | Task | Repo | Risk | Done when | Depends on |
 |---|---|---|---|---|---|
-| FB-06 | Check the storefront against the Liquorify backend, not the upstream Spree image, and align the SDK version (storefront pins rc.3, backend ships rc.4) | S, B | Standard | Storefront end-to-end tests run against a backend built from a recorded `liquorify` revision | FB-02 |
+| FB-06 | Check the storefront against the Liquorify backend, not the upstream Spree image, and align the SDK version (storefront pins rc.3, backend ships rc.4). The end-to-end job first needs Stripe sandbox test keys: without them it stops before any test | S, B | Standard | Storefront end-to-end tests run against a backend built from a recorded `liquorify` revision | FB-02; the owner adds the test keys |
 | FB-07 | Publish a Liquorify security policy for the public repository | B | Low | `SECURITY.md` names a Liquorify contact and the supported revision; upstream reporting text removed | Contact decided |
 | FB-08 | Align agent configuration with the delegation in LIQ-001 §3: review the tracked `.claude/settings.local.json`, and the upstream commands that open pull requests on `spree/spree` | B | Protected | Agent settings and commands match the accepted delegation | D3 |
 | FB-09 | Decide whether Liquorify environments send Spree's update check and usage data (on by default; it includes the store's address) | B | Standard | The setting is decided and documented for each environment | Owner |

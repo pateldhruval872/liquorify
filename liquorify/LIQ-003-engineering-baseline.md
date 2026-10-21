@@ -69,7 +69,7 @@ A document existing does not prove a behaviour, and a configured tool does not p
 
 **Development setup.** Two upstream paths: Docker (`pnpm server:setup`, used on the Mac) and native worktrees (`wt`, Homebrew PostgreSQL, portless). `pnpm server:setup` and `pnpm server:teardown` delete the Docker database volume and `server/`; `scripts/worktree/make-template.sh` drops and rebuilds a database. A local test order is blocked until a payment method is visible to shoppers (A).
 
-**Tests and CI.** Verified in the cloud: storefront lint, types, unit tests and locale parity (C1); backend TypeScript lint, types and unit tests (C2). Operating: storefront CI on Dependabot pull requests (G), with one failure on the `jsdom` 30 bump. Configured, never run here: backend Ruby suites on PostgreSQL and MySQL, Brakeman, dashboard end-to-end, SDK integration, generated-code drift checks and the weekly dependency audit.
+**Tests and CI.** Verified in the cloud: storefront lint, types, unit tests and locale parity (C1); backend TypeScript lint, types and unit tests (C2). Operating: storefront lint, type check and unit test jobs on pull requests (G), with one failure on the `jsdom` 30 bump. The storefront end-to-end job has never run a test: on `main` and on the owner's pull requests it stops at its first step because the Stripe test key secret and variable are not set, and it is skipped for Dependabot (G, 2026-10-21). Configured, never run here: backend Ruby suites on PostgreSQL and MySQL, Brakeman, dashboard end-to-end, SDK integration, generated-code drift checks and the weekly dependency audit.
 
 **Security.** Configured, not verified for Liquorify: API rate limits, CanCanCan authorization, encryption of secret preferences when keys are set, a development-only store-scope guard. Verified: a staff member naming a store where they hold no role is refused, on the orders endpoint (C3). Missing: threat model, security contact, incident handling and secrets infrastructure.
 
@@ -162,7 +162,7 @@ Totals: 96 required, 63 conditional and 13 not required. Findings: 64 partial, 1
 | DR-06 | Required | Dependabot in both repositories (storefront Operating; backend Configured, no pull requests yet); weekly audit workflow in the backend (never run); no triage owner | Partial | G, R | FB-11 |
 | DR-07 | Conditional: Liquorify builds deployable artifacts | Upstream trusted publishing for Spree's gems only | Not assessed | R | — |
 | DR-08 | Conditional: Liquorify builds deployable artifacts | None | Not assessed | — | — |
-| DR-09 | Required | Backend `tests.yml` and `packages.yml` (Configured, never run here, path-triggered, no manual trigger); storefront `ci.yml` (Operating on pull requests) | Gap | G, R | FB-02 |
+| DR-09 | Required | Backend `tests.yml` and `packages.yml` (Configured, never run here, path-triggered, no manual trigger); storefront `ci.yml` (lint, types and unit tests Operating on pull requests; the end-to-end job never reaches its tests) | Gap | G, R | FB-02 |
 | DR-10 | Conditional: hosting is decided | None | Not assessed | — | — |
 | DR-11 | Conditional: a second environment exists | None | Not applicable: development only | — | — |
 | DR-12 | Required | Engine migrations installed into the host application; re-cloning `server/` renumbers them; no Liquorify migrations | Partial | R | FB-05 |
@@ -196,7 +196,7 @@ Totals: 96 required, 63 conditional and 13 not required. Findings: 64 partial, 1
 | QV-17 | Required | No required checks on either `main` | Gap | G | FB-02 |
 | QV-18 | Required | Upstream practices (deterministic OpenAPI generation); no flake tracking | Not assessed | R | — |
 | QV-19 | Required | Upstream test layers; a Liquorify isolation layer proposed in the specification | Partial | R | FB-03 |
-| QV-20 | Required | Storefront end-to-end tests against the upstream Spree image; dashboard end-to-end tests | Partial | R | FB-06 |
+| QV-20 | Required | Storefront end-to-end tests against the upstream Spree image, blocked in CI because the Stripe test keys are not set; dashboard end-to-end tests | Partial | R, G | FB-06 |
 | QV-21 | Required | Brakeman and the weekly dependency audit (Configured, never run here); no dynamic testing | Partial | R, G | FB-02 |
 
 ### SP
@@ -214,7 +214,7 @@ Totals: 96 required, 63 conditional and 13 not required. Findings: 64 partial, 1
 | SP-09 | Required | Store-owned records, server-side store choice, store-scoped cache keys, jobs in store context, development-only scope guard. 6 of 9 isolation checks fail | Gap | A, C3 | FB-03 |
 | SP-10 | Required | Spree data export and deletion requests; usage data sent to `spreecloud.io` by default; no privacy policy or data classification | Gap | R, U | FB-09 |
 | SP-11 | Required | Encryption of secret preferences when keys are set (`secret_preferences.rb`), Configured | Partial | A | — |
-| SP-12 | Required | `.env` files ignored in both repositories; examples hold names only; storefront CI uses a repository secret for Stripe test keys; no secret store | Partial | R, M | FB-16 |
+| SP-12 | Required | `.env` files ignored in both repositories; examples hold names only; storefront CI expects a Stripe test key secret and variable, neither of which is set; no secret store | Partial | R, M | FB-16 |
 | SP-13 | Required | Dependabot (storefront Operating, backend Configured); audit workflow and bundler-audit not run | Partial | G, R | FB-11 |
 | SP-14 | Required | `SECURITY.md` routes reports to Spree; no Liquorify triage | Gap | R | FB-07 |
 | SP-15 | Conditional: hosting is decided | None | Not assessed | — | — |
@@ -238,7 +238,7 @@ Totals: 96 required, 63 conditional and 13 not required. Findings: 64 partial, 1
 | PI-08 | Conditional: hosting is decided | None | Not assessed | — | — |
 | PI-09 | Required (development) | Docker path (Mac) and native worktree path; cloud containers; no test, staging or production environment; destructive commands identified (§2) | Partial | R, M, A | FB-04 |
 | PI-10 | Required | Environment variables and Spree preferences; storefront identity and Stripe key come from environment variables | Partial | R, A | — |
-| PI-11 | Required | GitHub-hosted runners; storefront Operating; backend unverified | Partial | G | FB-02 |
+| PI-11 | Required | GitHub-hosted runners; storefront Operating except the end-to-end job; backend unverified | Partial | G | FB-02 |
 | PI-12 | Conditional: hosting is decided | None | Not assessed | — | — |
 | PI-13 | Not required | — | Not applicable: no measured demand | — | — |
 | PI-14 | Required | Spree CLI, worktree scripts, test wrappers (`scripts/test/`), Lefthook and agent hooks; all assume upstream repositories | Partial | R | FB-04, FB-05 |
@@ -305,7 +305,7 @@ Totals: 96 required, 63 conditional and 13 not required. Findings: 64 partial, 1
 | State | Controls |
 |---|---|
 | Verified | Storefront lint, types, unit tests and locale parity (C1); backend TypeScript lint, types and unit tests (C2); frozen lockfile installs (C1, C2); staff refused for a store where they hold no role, on one endpoint (C3) |
-| Operating | Storefront CI and Dependabot on pull requests (G) |
-| Configured, not verified here | Backend Ruby suites on PostgreSQL and MySQL, Brakeman, dashboard end-to-end, SDK integration and drift checks; weekly dependency audit; backend Dependabot; Lefthook and agent hooks; API rate limits; encryption of secret preferences; development-only store-scope guard |
+| Operating | Storefront lint, type check and unit test jobs, and Dependabot, on pull requests (G) |
+| Configured, not verified here | Storefront end-to-end job (blocked: Stripe test keys not set); backend Ruby suites on PostgreSQL and MySQL, Brakeman, dashboard end-to-end, SDK integration and drift checks; weekly dependency audit; backend Dependabot; Lefthook and agent hooks; API rate limits; encryption of secret preferences; development-only store-scope guard |
 | Planned (proposals) | Risk-based review (LIQ-001 §4), delegation (LIQ-001 §3), isolation test suite and option A safeguards (specification), branch protection and CI baseline (FB-02) |
 | Missing | Branch protection; Liquorify security contact; shopper isolation (failing); accessibility and visual checks; cross-repository compatibility check; work tracking in the backend; any staging or production environment, backups, monitoring or runbooks |
