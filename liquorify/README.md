@@ -46,8 +46,8 @@ Records of what was run, on which revision, with its result and limitations ([EN
 | 2026-10-21 | [FB-02 first workflow run](verification/2026-10-21-fb-02-first-workflow-run.md) | FB-02 | PASS: all 29 pull request jobs passed. Codecov refused the coverage uploads because no token is set |
 | 2026-10-21 | [FB-02 merge push and branch protection](verification/2026-10-21-fb-02-merge-push-and-protection.md) | FB-02 | PASS: the merge push passed with all six release jobs skipped, and both saved rulesets match the agreed settings. NOT_RUN: the direct-push refusal, by the owner's instruction |
 | 2026-10-21 | [FB-18 baseline completion check](verification/2026-10-21-fb-18-baseline-completion.md) | FB-18 | PASS: all seven completion criteria hold after four corrections made in the same change. Behaviour was not run |
-| 2026-10-21 | [FB-19 pilot](verification/2026-10-21-fb-19-pilot.md) | FB-19 | PASS: both Storybooks build in CI, every image matched on two runs of the same revision, and a planted change failed with its images published. NOT_RUN: the comparison with running screens, and the owner's review of the images |
-| 2026-10-21 | [FB-19 dashboard primitives, part 1](verification/2026-10-21-fb-19-batch-dashboard-primitives-1.md) | FB-19 | PASS: 114 stories for 24 primitives, each image looked at, and all 310 images matched in CI. NOT_RUN: the comparison with running screens, and the owner's review of the images |
+| 2026-10-21 | [FB-19 pilot](verification/2026-10-21-fb-19-pilot.md) | FB-19 | PASS: both Storybooks build in CI, every comparison passed under the configured tolerance on two runs of the same revision, and a planted change failed with its images published. NOT_RUN: the comparison with running screens, and the owner's review of the images |
+| 2026-10-21 | [FB-19 dashboard primitives, part 1](verification/2026-10-21-fb-19-batch-dashboard-primitives-1.md) | FB-19 | PASS: 114 stories for 24 primitives, each image looked at, and all 310 comparisons passed in CI under the configured tolerance. NOT_RUN: the comparison with running screens, and the owner's review of the images |
 
 ## Supplied framework sources
 

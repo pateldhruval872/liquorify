@@ -19,7 +19,7 @@ result: PASS for the build, check, arrangement and visual criteria; NOT_RUN for 
 | 2 | The token check and the coverage report run | PASS |
 | 3 | Each story arranges the component's parts the way a Spree screen does, or says that no screen uses them | PASS |
 | 4 | Every new image was looked at in both modes before it was committed | PASS |
-| 5 | The reference images made in this session match CI's, and no existing image changed | PASS: all 310 comparisons passed on GitHub's runners, with no pixel different |
+| 5 | The reference images made in this session pass CI's comparison, and no existing image changed | PASS: all 310 comparisons passed on GitHub's runners under the configured tolerance (§3). Image hashes were not compared |
 | 6 | Each story matches the component in its running screen | NOT_RUN: no running instance at the pinned revisions in this session (FB-04 is not done) |
 | 7 | The owner reviews the reference images in the pull request | NOT_RUN: pull request [#9](https://github.com/pateldhruval872/liquorify/pull/9) is open |
 
@@ -111,7 +111,9 @@ The pull request's other checks also passed at `2281eb5`. The batch changes no f
 
 **4. Images looked at.** All 228 images were looked at in both modes, side by side, and the focus states were enlarged. Two findings came from this (§4).
 
-**5. Images match.** `pnpm visual:update` made the images in the pinned Playwright image through Docker. A full comparison run afterwards, from a fresh build, passed all 310 tests (155 stories in two modes) with no pixel different, so the pilot's 82 images still match. Run 39635086908 then compared the same 310 on GitHub's runners, and all matched.
+**5. Images pass.** `pnpm visual:update` made the images in the pinned Playwright image through Docker. A full comparison run afterwards, from a fresh build, passed all 310 tests (155 stories in two modes), so the pilot's 82 references still pass, and `git diff` shows none of their files changed. Run 39635086908 then compared the same 310 on GitHub's runners, and all passed.
+
+A pass means Playwright found no pixel whose colour differs from the reference by more than its default threshold of 0.2, on its scale from 0 to 1 (`maxDiffPixels: 0`). Pixels that differ by less still pass. Image hashes were not compared, so these runs do not show that the screenshots were identical to the references.
 
 **6. Fidelity.** Not run, as for the pilot.
 
@@ -134,4 +136,5 @@ None of these changes Spree's code. Findings 1 and 2 are Spree's behaviour, repr
 - **Automated, not independent.** The same session wrote the stories, made the images and ran these checks.
 - **Fidelity not checked against running screens** (criterion 6).
 - **One browser.** Chromium only, by design ([LIQ-010 §11.1](../LIQ-010-design-system-reproduction-architecture.md#111-environment)).
+- **Passing, not identical.** A matching image here means one that passed under the configured tolerance (§3, criterion 5). This wording was corrected before the record merged; it first said no pixel differed.
 - **Hover states** are captured only where the component changes on hover in a way the screens rely on (the scroll area's bar). Other hover colours are in the source and not captured.
