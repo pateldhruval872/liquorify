@@ -16,20 +16,9 @@ on:
       - "biome.json"
       - "scripts/sync-starter.mjs"
       - ".github/workflows/packages.yml"
+  # No path filter, so required checks report on every pull request.
   pull_request:
-    paths:
-      - "packages/**"
-      - "spree/api/app/**"
-      - "spree/api/lib/typelizer/**"
-      - "spree/core/app/**"
-      - "docs/developer/**"
-      - "docs/api-reference/**"
-      - "docs/integrations/**"
-      - "pnpm-lock.yaml"
-      - "turbo.json"
-      - "biome.json"
-      - "scripts/sync-starter.mjs"
-      - ".github/workflows/packages.yml"
+  workflow_dispatch:
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -379,7 +368,7 @@ jobs:
   release-sdk:
     name: "SDK - Release"
     needs: check
-    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    if: github.repository == 'spree/spree' && github.ref == 'refs/heads/main' && github.event_name == 'push'
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -447,7 +436,7 @@ jobs:
   release-admin-sdk:
     name: "Admin SDK - Release"
     needs: [check, scaffolded-app]
-    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    if: github.repository == 'spree/spree' && github.ref == 'refs/heads/main' && github.event_name == 'push'
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -517,7 +506,7 @@ jobs:
     # versions being released — publishing it before those versions exist on
     # npm would ship a scaffold whose install fails until they land.
     needs: [check, scaffolded-app, release-dashboard, release-seller]
-    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    if: github.repository == 'spree/spree' && github.ref == 'refs/heads/main' && github.event_name == 'push'
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -604,7 +593,7 @@ jobs:
     # the just-published dashboard packages fail until it does. (release-cli
     # waits on this job, completing the admin-sdk → dashboard → cli chain.)
     needs: [check, scaffolded-app, release-admin-sdk]
-    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    if: github.repository == 'spree/spree' && github.ref == 'refs/heads/main' && github.event_name == 'push'
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -666,7 +655,7 @@ jobs:
   release-seller:
     name: "Seller packages - Release"
     needs: [check, scaffolded-app]
-    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    if: github.repository == 'spree/spree' && github.ref == 'refs/heads/main' && github.event_name == 'push'
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -739,7 +728,7 @@ jobs:
     # (with the embedded starter) is on npm. Completes the release chain:
     # admin-sdk → dashboard → cli → create-spree-app.
     needs: [check, scaffolded-app, release-cli]
-    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    if: github.repository == 'spree/spree' && github.ref == 'refs/heads/main' && github.event_name == 'push'
     runs-on: ubuntu-latest
     permissions:
       contents: write
