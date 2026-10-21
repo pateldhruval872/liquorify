@@ -1,7 +1,7 @@
 ---
 document_id: LIQ-002
 title: Documentation Inventory and Migration Plan
-version: 0.1-draft
+version: 0.2-draft
 status: DRAFT
 owner: unassigned
 approved_by: null
@@ -26,8 +26,8 @@ The backend tracks 774 Markdown and MDX files, almost all from upstream Spree. T
 
 | Group | Files | Purpose | Origin | Relevance | Recommendation | Authoritative for |
 |---|---:|---|---|---|---|---|
-| `liquorify/` | 8 | Liquorify engineering home: framework, profile, inventory, baseline, backlog | Liquorify, plus 3 supplied | High | Retain; the canonical home | Liquorify engineering rules, decisions, baseline and backlog |
-| `CLAUDE.md` (and `AGENTS.md`, a link to it) | 1 | Rules for agents and developers: monorepo layout, setup, architecture, API, models, testing, git policy, docs | Upstream, plus a Liquorify pointer added now | High | Retain and reference. Its coding, API and database rules are Liquorify's working standards for Spree code until replaced. Conflicts are listed in LIQ-001 §6 | Spree coding, API and database conventions |
+| `liquorify/` | 9 | Liquorify engineering home: framework, profile, inventory, baseline, Spree adoption record, backlog | Liquorify, plus 3 supplied | High | Retain; the canonical home | Liquorify engineering rules, decisions, baseline and backlog |
+| `CLAUDE.md` (and `AGENTS.md`, a link to it) | 1 | Rules for agents and developers: monorepo layout, setup, architecture, API, models, testing, git policy, docs | Upstream, plus a Liquorify pointer added now | High | Retain and reference. Its coding, API and database rules are Liquorify's working standards for Spree code until replaced. The proposed baseline and its exceptions are in LIQ-001 §6, mechanism by mechanism in LIQ-005 | Spree coding, API and database conventions |
 | `README.md` | 1 | Spree product overview | Upstream, plus a Liquorify pointer added now | Low | Update when Liquorify branding is defined | Nothing for Liquorify |
 | `.github/CONTRIBUTING.md` | 1 | Setup (Docker and native), running tests, TypeScript packages | Upstream | High | Retain and reference. A Liquorify setup guide (FB-04) links to it instead of copying it | Development setup, until FB-04 verifies a Liquorify path |
 | `.github/SECURITY.md` | 1 | Vulnerability reporting | Upstream | High, because the repository is public | Update after a contact is decided (FB-07) | Nothing for Liquorify today: it routes reports to Spree |
@@ -71,11 +71,11 @@ Not tracked, so never authoritative: `server/` (cloned from upstream `spree-star
 
 ## Migration plan
 
-Ordered by priority. Only M1 is done in this change.
+Ordered by priority. Only M1 is done.
 
 | # | Step | Depends on | Size |
 |---|---|---|---|
-| M1 | Create `liquorify/` with the framework, profile, inventory, baseline and backlog; add pointers in both repositories | — | Done in this change |
+| M1 | Create `liquorify/` with the framework, profile, inventory, baseline, Spree adoption record and backlog; add pointers in both repositories | — | Done |
 | M2 | Replace `.github/SECURITY.md` with a Liquorify policy | Security contact decided (FB-07) | Small |
 | M3 | Move the merchant lifecycle specification into `liquorify/` as PROPOSED, without reproduction detail | D4, D7, D8 | Small |
 | M4 | Write a short Liquorify development setup guide that links to `CONTRIBUTING.md` and records the verified path, versions and destructive commands | FB-04 | Small |

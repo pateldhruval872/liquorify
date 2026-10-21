@@ -13,6 +13,8 @@ updated: 2026-10-21
 
 This records where Liquorify stands against each of the 172 capabilities in [SES-001](framework/SES-001.md#3-capability-catalog). It lists the existing mechanism, applicability, finding, evidence and next action for each ID. Capability names and purposes are defined only in SES-001 and are not repeated here.
 
+How Liquorify proposes to adopt each Spree mechanism is recorded in [LIQ-005](LIQ-005-spree-engineering-adoption.md). Adopting a convention changes no finding here.
+
 A document existing does not prove a behaviour, and a configured tool does not prove it is enforced. Each control is labeled with its state from [SES-001 §4](framework/SES-001.md#4-assess-only-what-the-decision-needs): **Planned**, **Configured**, **Verified** or **Operating**.
 
 ## 1. Scope, revisions and evidence
@@ -30,7 +32,7 @@ A document existing does not prove a behaviour, and a configured tool does not p
 | C1 | Storefront: `pnpm install --frozen-lockfile`, `pnpm run check`, `pnpm exec tsc --noEmit`, `pnpm run test`, `pnpm run check:locales`, 2026-10-20 23:55 UTC | Cloud container: Node 22.22.0, pnpm 10.33.4 | **PASS**: Biome clean on 278 files, no type errors, 34 test files and 248 tests passed, 4 locales in sync. Not run: production build, end-to-end tests. CI uses Node 20 |
 | C2 | Backend TypeScript workspace: `pnpm install --frozen-lockfile`, `pnpm lint`, `pnpm typecheck`, `pnpm test`, 2026-10-20 23:58 UTC | Cloud container: Node 22.22.0, pnpm 11.1.1 | **PASS**: 13 lint, 18 type-check and 16 test tasks; 1,374 tests in 8 packages. Not run: Ruby specs, browser tests, generated-code drift checks |
 | C3 | Cross-store shopper access reproduction (merchant lifecycle work), 2026-10-20 | Cloud container: Ruby 3.3.6, SQLite test app | **FAIL**: 9 examples, 6 failures. No same-store controls yet; not run on PostgreSQL. Details stay out of this public repository |
-| G | GitHub repository state through the GitHub API, 2026-10-20 | GitHub | Backend: public, no workflow run ever, issues off, `main` unprotected, no pull requests. Storefront: private, CI runs on pull requests, `main` unprotected, 10 open Dependabot pull requests |
+| G | GitHub repository state through the GitHub API, 2026-10-20 and 21 | GitHub | Backend: public, not a GitHub fork, no workflow run ever, and the Actions API lists no registered workflows although five workflow files are on `main` (2026-10-21); issues off; `main` unprotected. Storefront: private; CI runs on pull requests; `main` unprotected; 10 open Dependabot pull requests. Storefront end-to-end result: see Tests and CI in §2 |
 | M | Owner's Mac, read-only: Git remotes, branch, working-tree status and file names (this baseline); setting names and request log (assessment), 2026-10-20 | Owner's Mac | Nothing run; no values read |
 | U | Upstream documentation only | — | Not verified in code or behaviour |
 
@@ -48,14 +50,14 @@ A document existing does not prove a behaviour, and a configured tool does not p
 
 **Reusable Spree capabilities.** Store-owned records and server-side store selection; per-store staff roles with a permission catalog; separate shopper and staff account types; API v3 with generated OpenAPI, typed SDKs and Zod schemas; the dashboard design system (`@spree/dashboard-ui`) and plugin and slot extension points; store provisioning and the Getting Started checklist; workflows with statuses; background jobs that run in their record's store; events and webhooks; Liquid and MJML emails; the Stripe, EasyPost and Meilisearch providers; and an extensive test and CI setup.
 
-**Required extensions.** A business record above the store and explicit shopper ownership; store lifecycle and holds; merchant sign-up and onboarding; Liquorify subscription billing; a minimal operator console with its own permissions; a storefront that can serve more than one merchant, or one deployment per merchant; a merchant-as-seller payment model. All are proposals in the merchant lifecycle specification, none accepted.
+**Required extensions.** A business record above the store and explicit shopper ownership; store lifecycle and holds; merchant sign-up and onboarding; Liquorify subscription billing; a minimal operator console with its own permissions; a storefront that can serve more than one merchant, or one deployment per merchant; a payment flow that fits the qualified Technology Provider goal. All are proposals in the merchant lifecycle specification, none accepted.
 
 **Gaps and risks, in order of consequence.**
 
 1. **Tenant isolation fails for shoppers** (SP-09, C3). Confirmed: one store's admin can list, open and rename another store's shopper; a shopper can sign in at another store; registration at one store is refused because the email exists at another, which also reveals that the account exists; one store's tax rate completes another store's tax setup task. Open until FB-03 and the fixes land.
-2. **Backend checks have never run on `liquorify`** (DR-09, G). The workflows are configured but trigger only on changes under `spree/**`, `packages/**` and similar paths, with no manual trigger. Nothing has verified that the Ruby suites pass at this revision.
+2. **Backend checks have never run on `liquorify`** (DR-09, G). The workflows are configured but trigger only on changes under `spree/**`, `packages/**` and similar paths, with no manual trigger, and the Actions API lists no registered workflows, so Actions may be turned off for the repository. Nothing has verified that the Ruby suites pass at this revision.
 3. **Nothing is enforced on `main`** (DR-03, QV-17, G). Neither repository protects `main` or requires checks.
-4. **Upstream publishing workflows are live in a fork** (DR-13, R). `release.yml` publishes Spree's gems on a `v*` tag; `docs-package.yml` publishes Spree's docs npm package on pushes to `main` that touch the developer docs, API reference or the package itself. They would fail without credentials, but they should not run here.
+4. **Upstream publishing workflows are live in this copy** (DR-13, R). `release.yml` publishes Spree's gems on a `v*` tag; six `… - Release` jobs in `packages.yml` publish Spree's npm packages on pushes to `main` that touch its paths; `docs-package.yml` publishes Spree's docs npm package on pushes to `main` that touch the developer docs, API reference or the package itself. They would fail without Spree's publishing rights, but they should not run here.
 5. **The development path points at upstream** (PI-09, DR-02, R). Setup clones upstream `spree/storefront` and `spree/spree-starter`; `server/` is untracked, so the Ruby lockfile and host application are not reproducible from tracked files.
 6. **Storefront end-to-end tests run against upstream** (QV-20, R). They boot `ghcr.io/spree/spree:latest`, not a backend built from `liquorify`. The storefront pins `@spree/sdk` 2.0.0-rc.3 while the backend ships rc.4.
 7. **Security reporting and agent permissions are upstream's** (SP-14, GG-13, R). `SECURITY.md` routes reports to Spree. The tracked `.claude/settings.local.json` allows any shell command.
@@ -71,7 +73,7 @@ The proposed inheritance and Product & Design mapping is in [LIQ-001 §6.1](LIQ-
 
 **Development setup.** Two upstream paths: Docker (`pnpm server:setup`, used on the Mac) and native worktrees (`wt`, Homebrew PostgreSQL, portless). `pnpm server:setup` and `pnpm server:teardown` delete the Docker database volume and `server/`; `scripts/worktree/make-template.sh` drops and rebuilds a database. A local test order is blocked until a payment method is visible to shoppers (A).
 
-**Tests and CI.** Verified in the cloud: storefront lint, types, unit tests and locale parity (C1); backend TypeScript lint, types and unit tests (C2). Operating: storefront lint, type check and unit test jobs on pull requests (G), with one failure on the `jsdom` 30 bump. The reviewed storefront end-to-end runs on `main` and PR #13 failed at the Stripe-key preflight, before checkout or Playwright ran; browser tests are NOT_RUN. Dependabot skips that job. Supplying the configuration removes the preflight blocker; a new run is required to establish test results (G; runs 39368899612 and 39520058404). Configured, never run here: backend Ruby suites on PostgreSQL and MySQL, Brakeman, dashboard end-to-end, SDK integration, generated-code drift checks and the weekly dependency audit.
+**Tests and CI.** Verified in the cloud: storefront lint, types, unit tests and locale parity (C1); backend TypeScript lint, types and unit tests (C2). Operating: storefront lint, type check and unit test jobs on pull requests (G), with one failure on the `jsdom` 30 bump. The reviewed storefront end-to-end runs on `main` and PR #13 failed at the Stripe-key preflight, before checkout or Playwright ran; browser tests are NOT_RUN. Dependabot skips that job. Supplying the configuration removes the preflight blocker; a new run is required to establish test results (G; runs 39368899612 and 39520058404). Key setup is owner action OA-1 in LIQ-004. Configured, never run here: backend Ruby suites on PostgreSQL and MySQL, Brakeman, dashboard end-to-end, SDK integration, generated-code drift checks and the weekly dependency audit.
 
 **Security.** Configured, not verified for Liquorify: API rate limits, CanCanCan authorization, encryption of secret preferences when keys are set, a development-only store-scope guard. Verified: a staff member naming a store where they hold no role is refused, on the orders endpoint (C3). Missing: threat model, security contact, incident handling and secrets infrastructure.
 
@@ -161,14 +163,14 @@ Totals: 96 required, 63 conditional and 13 not required. Findings: 64 partial, 1
 | DR-03 | Required | Pull requests are possible; `main` unprotected in both; one person | Gap | G | FB-02 |
 | DR-04 | Required | Turbo, tsup and Vite builds (Verified during C2); storefront `next build` and `Dockerfile` (not run); gem builds (not run) | Partial | C2, R | — |
 | DR-05 | Required | Frozen pnpm lockfiles (Verified, C1 and C2); release-age and trust settings in `pnpm-workspace.yaml`. Ruby lockfiles are ignored or untracked | Partial | C1, C2, R | FB-05 |
-| DR-06 | Required | Dependabot in both repositories (storefront Operating; backend Configured, no pull requests yet); weekly audit workflow in the backend (never run); no triage owner | Partial | G, R | FB-11 |
+| DR-06 | Required | Dependabot in both repositories (storefront Operating; backend Configured, no pull requests yet); weekly audit workflow in the backend (never run; once Actions is on it opens pull requests with write access); no triage owner | Partial | G, R | FB-11 |
 | DR-07 | Conditional: Liquorify builds deployable artifacts | Upstream trusted publishing for Spree's gems only | Not assessed | R | — |
 | DR-08 | Conditional: Liquorify builds deployable artifacts | None | Not assessed | — | — |
-| DR-09 | Required | Backend `tests.yml` and `packages.yml` (Configured, never run here, path-triggered, no manual trigger); storefront `ci.yml` (lint, types and unit tests Operating on pull requests; the end-to-end job never reaches its tests) | Gap | G, R | FB-02 |
+| DR-09 | Required | Backend `tests.yml` and `packages.yml` (Configured, never run here, path-triggered, no manual trigger); storefront `ci.yml` (lint, types and unit tests Operating on pull requests; the end-to-end job fails at its configuration check) | Gap | G, R | FB-02 |
 | DR-10 | Conditional: hosting is decided | None | Not assessed | — | — |
 | DR-11 | Conditional: a second environment exists | None | Not applicable: development only | — | — |
 | DR-12 | Required | Engine migrations installed into the host application; re-cloning `server/` renumbers them; no Liquorify migrations | Partial | R | FB-05 |
-| DR-13 | Conditional: first deployable release | Upstream publishing workflows are live in this fork | Gap | R | FB-02 |
+| DR-13 | Conditional: first deployable release | Upstream publishing jobs in `release.yml`, `packages.yml` and `docs-package.yml` are live in this copy | Gap | R | FB-02 |
 | DR-14 | Conditional: hosting is decided | None | Not assessed | — | — |
 | DR-15 | Not required | None | Not applicable: no live traffic | — | — |
 | DR-16 | Conditional: first release | None | Not assessed | — | — |
@@ -179,7 +181,7 @@ Totals: 96 required, 63 conditional and 13 not required. Findings: 64 partial, 1
 
 | ID | Applicability | Current mechanism and location | Finding | Evidence | Next |
 |---|---|---|---|---|---|
-| QV-01 | Required | Risk-based expectations proposed in LIQ-001 §4; upstream testing rules in `CLAUDE.md` | Partial | R | D1 |
+| QV-01 | Required | Effect-based risk classes and change-specific verification proposed in LIQ-001 §4; upstream testing rules in `CLAUDE.md` | Partial | R | D1 |
 | QV-02 | Required | Biome and TypeScript in both repositories (Verified); Brakeman in backend CI (Configured); RuboCop and bundler-audit listed as gems, not wired in as gates | Partial | C1, C2, R | FB-02 |
 | QV-03 | Required | Vitest: 1,374 backend and 248 storefront tests pass (Verified); RSpec per engine (not run here) | Partial | C1, C2 | FB-02 |
 | QV-04 | Required | Testing Library component tests inside the Vitest runs (Verified) | Partial | C1, C2 | — |
@@ -198,7 +200,7 @@ Totals: 96 required, 63 conditional and 13 not required. Findings: 64 partial, 1
 | QV-17 | Required | No required checks on either `main` | Gap | G | FB-02 |
 | QV-18 | Required | Upstream practices (deterministic OpenAPI generation); no flake tracking | Not assessed | R | — |
 | QV-19 | Required | Upstream test layers; a Liquorify isolation layer proposed in the specification | Partial | R | FB-03 |
-| QV-20 | Required | Storefront end-to-end tests against the upstream Spree image, blocked in CI because the Stripe test keys are not set; dashboard end-to-end tests | Partial | R, G | FB-06 |
+| QV-20 | Required | Storefront end-to-end tests against the upstream Spree image; in CI the job fails at its Stripe configuration check, so the browser tests have not run; dashboard end-to-end tests | Partial | R, G | FB-06 |
 | QV-21 | Required | Brakeman and the weekly dependency audit (Configured, never run here); no dynamic testing | Partial | R, G | FB-02 |
 
 ### SP
@@ -216,7 +218,7 @@ Totals: 96 required, 63 conditional and 13 not required. Findings: 64 partial, 1
 | SP-09 | Required | Store-owned records, server-side store choice, store-scoped cache keys, jobs in store context, development-only scope guard. 6 of 9 isolation checks fail | Gap | A, C3 | FB-03 |
 | SP-10 | Required | Spree data export and deletion requests; usage data sent to `spreecloud.io` by default; no privacy policy or data classification | Gap | R, U | FB-09 |
 | SP-11 | Required | Encryption of secret preferences when keys are set (`secret_preferences.rb`), Configured | Partial | A | — |
-| SP-12 | Required | `.env` files ignored in both repositories; examples hold names only; storefront CI expects a Stripe test key secret and variable, neither of which is set; no secret store | Partial | R, M | FB-16 |
+| SP-12 | Required | `.env` files ignored in both repositories; examples hold names only; storefront CI requires a Stripe test secret and variable, which were unavailable to its runs; no secret store | Partial | R, M | FB-16 |
 | SP-13 | Required | Dependabot (storefront Operating, backend Configured); audit workflow and bundler-audit not run | Partial | G, R | FB-11 |
 | SP-14 | Required | `SECURITY.md` routes reports to Spree; no Liquorify triage | Gap | R | FB-07 |
 | SP-15 | Conditional: hosting is decided | None | Not assessed | — | — |
@@ -240,7 +242,7 @@ Totals: 96 required, 63 conditional and 13 not required. Findings: 64 partial, 1
 | PI-08 | Conditional: hosting is decided | None | Not assessed | — | — |
 | PI-09 | Required (development) | Docker path (Mac) and native worktree path; cloud containers; no test, staging or production environment; destructive commands identified (§2) | Partial | R, M, A | FB-04 |
 | PI-10 | Required | Environment variables and Spree preferences; storefront identity and Stripe key come from environment variables | Partial | R, A | — |
-| PI-11 | Required | GitHub-hosted runners; storefront Operating except the end-to-end job; backend unverified | Partial | G | FB-02 |
+| PI-11 | Required | GitHub-hosted runners; storefront Operating, with its end-to-end job failing at its configuration check; backend has no registered workflows | Partial | G | FB-02 |
 | PI-12 | Conditional: hosting is decided | None | Not assessed | — | — |
 | PI-13 | Not required | — | Not applicable: no measured demand | — | — |
 | PI-14 | Required | Spree CLI, worktree scripts, test wrappers (`scripts/test/`), Lefthook and agent hooks; all assume upstream repositories | Partial | R | FB-04, FB-05 |
@@ -293,8 +295,8 @@ Totals: 96 required, 63 conditional and 13 not required. Findings: 64 partial, 1
 | GG-13 | Required | Project instructions and LIQ-001 §3 (proposal); tracked `.claude/settings.local.json` allows any shell command; agent hooks gate commits | Gap | R | FB-08 |
 | GG-14 | Required | Monorepo layout table in `CLAUDE.md`; `server/` must not hold Liquorify code; code homes proposed in the specification | Decision | R | FB-05 |
 | GG-15 | Required | ENG-002 metadata applied to `liquorify/` only (Configured); upstream documents keep their conventions | Partial | R | D4 |
-| GG-16 | Required | Upstream standards in `CLAUDE.md`, used in practice but not adopted by decision | Partial | R | D1 |
-| GG-17 | Required | Upstream coding rules in both `CLAUDE.md` files; Biome (Verified); Lefthook pre-commit hooks; Ruby style not gated | Partial | C1, C2, R | — |
+| GG-16 | Required | Upstream standards in `CLAUDE.md`, used in practice but not adopted by decision; a default baseline is proposed in LIQ-001 §6 | Partial | R | D1 |
+| GG-17 | Required | Upstream coding rules in both `CLAUDE.md` files; Biome (Verified); Lefthook pre-commit hooks; Ruby style not gated: RuboCop is a dependency, but no configuration is tracked and nothing runs it | Partial | C1, C2, R | D1 |
 | GG-18 | Required | API v3 conventions in backend `CLAUDE.md` | Partial | R | D1 |
 | GG-19 | Required | Model and migration rules in backend `CLAUDE.md`; the store-ownership rule is not met by shopper accounts | Partial | R, C3 | FB-03 |
 | GG-20 | Required | Security sections of backend `CLAUDE.md`; nothing Liquorify-specific | Partial | R | — |
@@ -309,5 +311,5 @@ Totals: 96 required, 63 conditional and 13 not required. Findings: 64 partial, 1
 | Verified | Storefront lint, types, unit tests and locale parity (C1); backend TypeScript lint, types and unit tests (C2); frozen lockfile installs (C1, C2); staff refused for a store where they hold no role, on one endpoint (C3) |
 | Operating | Storefront lint, type check and unit test jobs, and Dependabot, on pull requests (G) |
 | Configured, not verified here | Storefront end-to-end workflow (job FAIL on missing Stripe configuration; browser tests NOT_RUN); backend Ruby suites on PostgreSQL and MySQL, Brakeman, dashboard end-to-end, SDK integration and drift checks; weekly dependency audit; backend Dependabot; Lefthook and agent hooks; API rate limits; encryption of secret preferences; development-only store-scope guard |
-| Planned (proposals) | Risk-based review (LIQ-001 §4), delegation (LIQ-001 §3), isolation test suite and option A safeguards (specification), branch protection and CI baseline (FB-02) |
+| Planned (proposals) | Effect-based risk classes and proportionate review (LIQ-001 §4), delegation (LIQ-001 §3), isolation test suite and option A safeguards (specification), branch protection and CI baseline (FB-02) |
 | Missing | Branch protection; Liquorify security contact; shopper isolation (failing); accessibility and visual checks; cross-repository compatibility check; work tracking in the backend; any staging or production environment, backups, monitoring or runbooks |

@@ -25,10 +25,11 @@ This folder is the one canonical home for shared Liquorify engineering documenta
 | SES-001 | [Software Engineering System](framework/SES-001.md) | 2.0-draft | DRAFT | Capability catalog (172 IDs) and baseline principles |
 | ENG-001 | [Engineering Charter](framework/ENG-001-engineering-charter.md) | 1.0-draft | DRAFT | Responsibilities, delivery stages, work items, release practice |
 | ENG-002 | [Documentation System](framework/ENG-002-documentation-system.md) | 1.0-draft | DRAFT | Document ownership, lifecycle, metadata and evidence records |
-| LIQ-001 | [Project Profile](LIQ-001-project-profile.md) | 0.2-draft | DRAFT | Liquorify facts, proposed roles and delegation, proportionate review, Spree engineering and Product & Design reuse mapping, conflicts and adoption decisions |
-| LIQ-002 | [Documentation Inventory](LIQ-002-documentation-inventory.md) | 0.1-draft | DRAFT | Existing documentation in both repositories and the migration plan |
+| LIQ-001 | [Project Profile](LIQ-001-project-profile.md) | 0.2-draft | DRAFT | Liquorify facts, proposed roles and delegation, proportionate review, Spree engineering and Product & Design reuse mapping, the proposed default baseline, conflicts and adoption decisions |
+| LIQ-002 | [Documentation Inventory](LIQ-002-documentation-inventory.md) | 0.2-draft | DRAFT | Existing documentation in both repositories and the migration plan |
 | LIQ-003 | [Engineering Baseline](LIQ-003-engineering-baseline.md) | 0.2-draft | DRAFT | The 172 capabilities measured against the current repositories, with evidence |
-| LIQ-004 | [Foundation Backlog](LIQ-004-foundation-backlog.md) | 0.2-draft | DRAFT | Prioritized foundation work, the open isolation findings, and the recommended next work item |
+| LIQ-004 | [Foundation Backlog](LIQ-004-foundation-backlog.md) | 0.2-draft | DRAFT | Prioritized foundation work, owner actions, the open isolation findings, and the recommended next work item |
+| LIQ-005 | [Spree Engineering Adoption Record](LIQ-005-spree-engineering-adoption.md) | 0.1-draft | DRAFT | Each relevant Spree engineering mechanism, the capabilities it supports, and whether to reuse, adapt, replace or investigate it |
 
 ## Supplied framework sources
 
@@ -49,7 +50,7 @@ The metadata, index and lifecycle rules of ENG-002 apply only to:
 - everything in this folder;
 - the short "Liquorify" pointer sections in `CLAUDE.md` and `README.md` of both repositories.
 
-Every other document in both repositories is upstream Spree documentation. It keeps its own conventions and is not converted (see [LIQ-002](LIQ-002-documentation-inventory.md)). Upstream rules in `CLAUDE.md` still govern code written in Spree's areas, except where an adopted Liquorify decision says otherwise. Known conflicts are listed in [LIQ-001 §6](LIQ-001-project-profile.md#6-conflicts-with-upstream-conventions).
+Every other document in both repositories is upstream Spree documentation. It keeps its own conventions and is not converted (see [LIQ-002](LIQ-002-documentation-inventory.md)). Upstream rules in `CLAUDE.md` still govern code written in Spree's areas, except where an adopted Liquorify decision says otherwise. The proposed default baseline is in [LIQ-001 §6.2](LIQ-001-project-profile.md#62-proposed-default-baseline), and known conflicts and exceptions are in [§6.3](LIQ-001-project-profile.md#63-conflicts-and-exceptions).
 
 ## Records kept outside the repositories
 
@@ -63,4 +64,4 @@ These Liquorify records live in the Liquorify project workspace, not in Git. The
 
 ## Changing these documents
 
-Until the framework is adopted, changes here go through a pull request reviewed by the project owner. Merging a change does not make a document accepted. A document becomes ACCEPTED only when its `status`, `approved_by` and `approved_at` fields record the owner's decision (proposed in LIQ-001, decision D5).
+Until the framework is adopted, changes here go through a pull request reviewed by the project owner. Each change is classed by its effect ([LIQ-001 §4](LIQ-001-project-profile.md#4-review-and-verification-expectations)): rewording is Low, and a change to a rule, role, delegation or acceptance condition is Protected where it changes authority or a control. Merging a change does not make a document accepted. A document becomes ACCEPTED only when its `status`, `approved_by` and `approved_at` fields record the owner's decision (proposed in LIQ-001, decision D5).
