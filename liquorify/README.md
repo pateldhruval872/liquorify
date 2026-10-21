@@ -46,7 +46,7 @@ Records of what was run, on which revision, with its result and limitations ([EN
 | 2026-10-21 | [FB-02 first workflow run](verification/2026-10-21-fb-02-first-workflow-run.md) | FB-02 | PASS: all 29 pull request jobs passed. Codecov refused the coverage uploads because no token is set |
 | 2026-10-21 | [FB-02 merge push and branch protection](verification/2026-10-21-fb-02-merge-push-and-protection.md) | FB-02 | PASS: the merge push passed with all six release jobs skipped, and both saved rulesets match the agreed settings. NOT_RUN: the direct-push refusal, by the owner's instruction |
 | 2026-10-21 | [FB-18 baseline completion check](verification/2026-10-21-fb-18-baseline-completion.md) | FB-18 | PASS: all seven completion criteria hold after four corrections made in the same change. Behaviour was not run |
-| 2026-10-21 | [Screenshot tolerance for the visual checks](verification/2026-10-21-fb-19-screenshot-tolerance.md) | FB-19 | PASS locally: a threshold of 0.005 with 25 pixels allowed passes every unchanged run and fails every deliberate background and colour token change measured, in both repositories. CI results recorded in it |
+| 2026-10-21 | [Screenshot tolerance for the visual checks](verification/2026-10-21-fb-19-screenshot-tolerance.md) | FB-19 | PASS: a threshold of 0.005 with 25 pixels allowed passes every unchanged run and fails every deliberate background and colour token change measured, in both repositories, and both pilots passed twice in CI under it |
 
 ## Supplied framework sources
 
