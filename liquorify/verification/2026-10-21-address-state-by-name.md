@@ -4,7 +4,7 @@ record: verification
 work_item: none; a defect in Spree's code found by FB-19's CI runs
 date: 2026-10-21
 verifier: Claude (automated session); not independent review
-result: PASS locally for six regression cases, which fail without the proposed fix and pass with it; the fix changes Spree's behaviour and awaits the owner's review
+result: PASS locally and in CI for six regression cases, which fail without the proposed fix and pass with it; the fix changes Spree's behaviour and awaits the owner's review
 ---
 
 # Changing an address's state by name keeps the old state code
@@ -18,7 +18,7 @@ result: PASS locally for six regression cases, which fail without the proposed f
 | 1 | The defect is reproduced by cases that do not depend on a random country | PASS: four of the six new cases fail at `main` `e408a63` |
 | 2 | The proposed fix makes every new case pass | PASS |
 | 3 | The fix breaks no other address, state or country spec | PASS: 236 examples, 0 failures, 1 pending that was pending before |
-| 4 | CI passes on the pull request | Pending until the pull request runs |
+| 4 | CI passes on the pull request | PASS at `10774ed`: [Tests](https://github.com/pateldhruval872/liquorify/actions/runs/39668752402), which runs every engine's specs on PostgreSQL and MySQL, and [Packages](https://github.com/pateldhruval872/liquorify/actions/runs/39668752680) |
 | 5 | The owner accepts the change in behaviour | NOT_RUN: pending review |
 
 ## 1. How it was found
@@ -58,5 +58,5 @@ The model cases are in `spree/core/spec/models/spree/address_spec.rb` ("changing
 ## 6. Limitations
 
 - **Automated, not independent.** The same session found the defect, wrote the cases and wrote the fix.
-- **SQLite locally.** CI runs the specs on PostgreSQL and MySQL too.
+- **SQLite locally.** CI ran the specs on PostgreSQL and MySQL too, once; the defect only appeared on runs that picked Hungary, so a single green run says little on its own, which is why the cases no longer pick a random country.
 - **Other callers.** Checkout, the Store and Admin APIs and imports all write addresses through the model, so the fix reaches them; their own specs were left to CI.
