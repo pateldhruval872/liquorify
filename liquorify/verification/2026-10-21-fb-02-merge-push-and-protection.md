@@ -64,8 +64,8 @@ Each repository has one ruleset named "Protect main". The owner created both at 
 
 **Required checks.** The backend's 15 are exactly the agreed names:
 
-- **`tests.yml`:** `Build (PostgreSQL)`, the ten PostgreSQL test jobs and `Brakeman`.
-- **`packages.yml`:** `Typecheck, Test & Build`, `Scaffolded app - Typecheck & Lint`, `SDK Integration Tests` and `Dashboard - E2E`.
+- **11 from `tests.yml`:** `Build (PostgreSQL)`, the nine PostgreSQL test jobs and `Brakeman`. The nine are `core (1/3)`, `core (2/3)`, `core (3/3)`, `api`, `emails`, `providers`, `dashboard`, `mcp` and `opentelemetry`, each named `PostgreSQL - … (n/n)`.
+- **4 from `packages.yml`:** `Typecheck, Test & Build`, `Scaffolded app - Typecheck & Lint`, `SDK Integration Tests` and `Dashboard - E2E`.
 
 The MySQL checks and the storefront's `E2E (Playwright + Spree)` are not required, as agreed.
 
