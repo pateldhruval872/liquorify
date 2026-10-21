@@ -19,7 +19,7 @@ result: PASS for the build, check, arrangement and visual criteria, including af
 | 2 | The token check and the coverage report run | PASS |
 | 3 | Each story arranges the component's parts the way a Spree screen does, or says that no screen uses them | PASS |
 | 4 | Every new image was looked at in both modes before it was committed | PASS |
-| 5 | The reference images made in this session pass CI's comparison, and no existing image changed | PASS: all 310 comparisons passed on GitHub's runners under the configured tolerance, before and after the batch's images were rewritten for the pilot's surface correction (§3). Image hashes were not compared |
+| 5 | The reference images made in this session pass CI's comparison, and no existing image changed | PASS: all 310 comparisons passed on GitHub's runners under the tolerance then configured, Playwright's default threshold of 0.2, before and after the batch's images were rewritten for the pilot's surface correction (§3). Under the explicit tolerance that replaced it, two local runs in the pinned image passed all 310 ([tolerance record](2026-10-21-fb-19-screenshot-tolerance.md)). Image hashes were not compared |
 | 6 | Each story matches the component in its running screen | NOT_RUN for this batch. The pilot's comparison with running screens found that every story sat on the wrong surface colour; that correction reaches this batch's stories too (§3). The batch waits for the pilot's acceptance before its own comparison |
 | 7 | The owner reviews the reference images in the pull request | NOT_RUN: pull request [#9](https://github.com/pateldhruval872/liquorify/pull/9) is open |
 
@@ -118,7 +118,7 @@ A pass means Playwright found no pixel whose colour differs from the reference b
 
 **After the pilot's correction.** The pilot's [comparison with running screens](2026-10-21-fb-19-pilot-fidelity.md) found that stories sat on the page grey, while both panels render their pages, sheets and dialogs on the card colour, and corrected the shared stylesheet (its C1). That reaches every story, so this batch's 228 images were rewritten at `8d53a5c` with `--update-snapshots=all`, in the pinned image. Every rewritten image kept its size. Comparing each with the one it replaced, the changed pixels are the old surface colour turned into the new one, and pixels blended with the surface: the edges of text and shapes, and translucent fills such as the info and warning alerts, the muted item, the progress track and the badge tints. The images of those components, and a sample of the rest, were looked at after the rewrite. The pilot's 82 images were left as #6 commits them.
 
-Rendering the pilot's stories again on this branch, in the same pinned image, gave files that differ from the committed ones for 8 of the 82, all in dark mode: 1 to 36 pixels each, by at most 14 of 255 on one colour channel. The comparison's tolerance absorbs differences of that size, which is one reason it cannot simply be set to zero ([fidelity record](2026-10-21-fb-19-pilot-fidelity.md) §6).
+Rendering the pilot's stories again on this branch, in the same pinned image, gave files that differ from the committed ones for 8 of the 82, all in dark mode: 1 to 36 pixels each, by at most 14 of 255 on one colour channel. The comparison's tolerance absorbs differences of that size, which is one reason it cannot simply be set to zero ([fidelity record](2026-10-21-fb-19-pilot-fidelity.md) §6). The [tolerance record](2026-10-21-fb-19-screenshot-tolerance.md) measures these differences on this batch's 310 images and sets the explicit tolerance with them.
 
 **6. Fidelity.** Not run for this batch's stories. The pilot's comparison found one defect that reaches them, corrected above.
 
@@ -142,5 +142,5 @@ None of these changes Spree's code. Findings 1 and 2 are Spree's behaviour, repr
 - **Fidelity not checked against running screens** (criterion 6), except that the pilot's surface correction reaches these stories.
 - **The rewritten images were not each looked at again.** The pixel comparison above shows what changed; the components with translucent fills and a sample of the rest were looked at.
 - **One browser.** Chromium only, by design ([LIQ-010 §11.1](../LIQ-010-design-system-reproduction-architecture.md#111-environment)).
-- **Passing, not identical.** A matching image here means one that passed under the configured tolerance (§3, criterion 5). This wording was corrected before the record merged; it first said no pixel differed.
+- **Passing, not identical.** A matching image here means one that passed under the tolerance configured at the time (§3, criterion 5). This wording was corrected before the record merged; it first said no pixel differed.
 - **Hover states** are captured only where the component changes on hover in a way the screens rely on (the scroll area's bar). Other hover colours are in the source and not captured.
