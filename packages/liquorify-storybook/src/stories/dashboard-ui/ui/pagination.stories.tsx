@@ -21,6 +21,7 @@ const stories = {
   component: Pagination,
   tags: ['CMP-DUI-P-29'],
   args: { meta: meta(1, 5), onPageChange: fn(), onPageSizeChange: fn() },
+  parameters: { liquorify: { column: 'page' } },
 } satisfies Meta<typeof Pagination>
 
 export default stories

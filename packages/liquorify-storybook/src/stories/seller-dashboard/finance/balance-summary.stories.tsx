@@ -7,7 +7,7 @@ const meta = {
   component: BalanceSummary,
   tags: ['CMP-SP-G-01'],
   args: { balances },
-  parameters: { liquorify: { panel: 'seller', sellerId: 'seller_2Wd7Np3c' } },
+  parameters: { liquorify: { panel: 'seller', sellerId: 'seller_2Wd7Np3c', column: 'page' } },
 } satisfies Meta<typeof BalanceSummary>
 
 export default meta
