@@ -307,7 +307,7 @@ The owner decided the requirements on 2026-10-21 (Q10, in [LIQ-007 §4](LIQ-007-
 2. Opens the story on its own (`iframe.html?id=<story id>`), with the theme the mode sets.
 3. Waits until Storybook reports the story rendered, the fonts have loaded and no request is pending.
 4. Takes a screenshot of the story's root element, with animations stopped and the text caret hidden. A story of an open popup or dialog takes the whole viewport instead, because Base UI and Radix render popups outside the root.
-5. Compares it with the committed reference using Playwright's own comparison. It starts strict: Playwright's default colour tolerance per pixel, and no pixel allowed to differ beyond it. A looser setting needs a recorded reason.
+5. Compares it with the committed reference using Playwright's own comparison, with an explicit tolerance in both repositories: a pixel counts as different when its colour moves by more than a threshold of 0.005 (about 2 of 255 levels), and the test fails when more than 25 pixels count. Playwright's default threshold of 0.2 let a change of every story's background pass. The allowance covers a few dark-mode corners that differ between unchanged runs. The measurements are in the [tolerance record](verification/2026-10-21-fb-19-screenshot-tolerance.md), and a change to either number needs a new record of the same kind.
 
 Reference images live in `visual/__screenshots__/<story id>/<mode>.png`, beside the test.
 

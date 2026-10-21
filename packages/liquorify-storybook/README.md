@@ -54,7 +54,7 @@ To add or change references:
 
 Comparisons run only in the pinned image, because another browser or font set renders differently. Images taken anywhere else are never references.
 
-`pnpm visual:update` rewrites only the images that fail the comparison, and the comparison tolerates small colour differences in each pixel. A change to something every story shares, such as the page surface, can therefore pass without rewriting any image. After such a change, rewrite them all with `sh visual/in-image.sh --update-snapshots=all`.
+`pnpm visual:update` rewrites only the images that fail the comparison. The comparison counts a pixel whose colour moves by about 2 of 255 levels, and allows 25 such pixels in an image, because a few dark-mode corners differ between unchanged runs ([the measurements](../../liquorify/verification/2026-10-21-fb-19-screenshot-tolerance.md)). A change smaller than that passes without rewriting any image. After a change to something every story shares, such as the page surface, rewrite them all with `sh visual/in-image.sh --update-snapshots=all`.
 
 ## Compare with Spree's running screens
 
