@@ -1,0 +1,137 @@
+---
+title: FB-19 batch of dashboard primitives, part 1
+record: verification
+work_item: FB-19
+date: 2026-10-21
+verifier: Claude (automated session); not independent review
+result: PASS for the build, check, arrangement and visual criteria; NOT_RUN for the comparison with running screens and for the owner's review of the reference images
+---
+
+# FB-19 batch of dashboard primitives, part 1
+
+**Claim.** 24 more of the dashboard design system's 46 primitives have Storybook stories, one for each state, with light and dark reference images that the visual check compares. This is the first batch after the [pilot](2026-10-21-fb-19-pilot.md), in the order [LIQ-010 §13](../LIQ-010-design-system-reproduction-architecture.md#13-pilot) sets.
+
+**Results.**
+
+| # | Criterion ([LIQ-010 §12.1](../LIQ-010-design-system-reproduction-architecture.md#121-each-batch)) | Result |
+|---|---|---|
+| 1 | Every story renders, and lint, the type check and the fixture tests pass | PASS |
+| 2 | The token check and the coverage report run | PASS |
+| 3 | Each story arranges the component's parts the way a Spree screen does, or says that no screen uses them | PASS |
+| 4 | Every new image was looked at in both modes before it was committed | PASS |
+| 5 | The reference images made in this session match CI's, and no existing image changed | PASS: all 310 comparisons passed on GitHub's runners, with no pixel different |
+| 6 | Each story matches the component in its running screen | NOT_RUN: no running instance at the pinned revisions in this session (FB-04 is not done) |
+| 7 | The owner reviews the reference images in the pull request | NOT_RUN: pull request [#9](https://github.com/pateldhruval872/liquorify/pull/9) is open |
+
+## 1. What was built
+
+| | |
+|---|---|
+| Pull request | [#9](https://github.com/pateldhruval872/liquorify/pull/9), into the branch of [#8](https://github.com/pateldhruval872/liquorify/pull/8) |
+| Revision | `2281eb5` |
+| Spree's code | Unchanged from `1d1f2d4`. The batch changes only `packages/liquorify-storybook/` and `liquorify/` |
+| Stories | 114 new, 155 in all |
+| Reference images | 228 new, light and dark at 1280 pixels, 1.0 MB, about 4.5 KB each. The pilot's 82 images are unchanged |
+| Fixture images | `public/fixtures/product-sand.png` and `avatar.png`, invented drawings made for these stories |
+| LIQ-009 | 0.4: the Storybook and Figma columns on the dashboard tables, filled for the pilot and this batch |
+
+### Coverage, from the coverage report at `2281eb5`
+
+| Section | Covered | Total |
+|---|---|---|
+| CMP-DUI-P | 27 | 46 |
+| CMP-DUI-C | 1 | 54 |
+| CMP-CORE | 1 | 39 |
+| CMP-CORE-PG | 0 | 3 |
+| CMP-CORE-PF | 0 | 9 |
+| CMP-DA-G | 1 | 200 |
+| CMP-SP-G | 1 | 28 |
+| Tokens | All 200 | 200 |
+
+### States recorded per component
+
+These are the story names, which FB-20 uses as Figma component properties. Each is captured in light and dark at 1280 pixels.
+
+| ID | Component | States | Arranged as |
+|---|---|---|---|
+| CMP-DUI-P-01 | `accordion` | Closed, One open, Several open, Focus visible | The getting started checklist |
+| CMP-DUI-P-02 | `alert` | Default, With icon, Info, Warning, Destructive, Title only, With action | |
+| CMP-DUI-P-04 | `avatar` | Image, Initials, Sizes, With badge, Group | The order's customer card. No screen uses the group |
+| CMP-DUI-P-05 | `badge` | Default, Variants, With icon, Linked, Statuses, Dots, Active | The order cards' status badges |
+| CMP-DUI-P-06 | `breadcrumb` | Default, Collapsed, Custom separator | |
+| CMP-DUI-P-09 | `card` | Default, With action, Content only, Container with nested | The privacy, payments and fulfillments cards |
+| CMP-DUI-P-11 | `checkbox` | Unchecked, Checked, Indeterminate, Disabled, Disabled checked, Invalid, Focus visible | The report builder |
+| CMP-DUI-P-13 | `collapsible` | Closed, Open | The stock location's stock levels |
+| CMP-DUI-P-22 | `empty` | Default, With action, Title only, Error | The API key table and the report view |
+| CMP-DUI-P-23 | `field` | Vertical, Invalid, Several errors, Horizontal, Disabled, Choice cards, Field set, Legend, Separator | The choice card picker and the report builder. No screen uses the separator |
+| CMP-DUI-P-24 | `input-group` | Currency prefix, Percent suffix, Icon and button, Block addons, Disabled, Invalid, Focus visible | |
+| CMP-DUI-P-25 | `input` | Empty, Filled, Number, File, Disabled, Invalid, Focused | |
+| CMP-DUI-P-26 | `item` | Default, Outline, Muted, Sizes, Icon media, Linked, Header and footer, Group | |
+| CMP-DUI-P-27 | `label` | Default, With control, Disabled control | |
+| CMP-DUI-P-31 | `progress` | Default, Empty, Complete, With label, Indeterminate | The getting started page |
+| CMP-DUI-P-32 | `radio-group` | None selected, Selected, Disabled, Focus visible | |
+| CMP-DUI-P-34 | `scroll-area` | Vertical, Hovered, Horizontal | |
+| CMP-DUI-P-36 | `separator` | Horizontal, Vertical | |
+| CMP-DUI-P-39 | `skeleton` | Line, Row | |
+| CMP-DUI-P-40 | `slot` | Merges onto child | |
+| CMP-DUI-P-41 | `switch` | Off, On, Disabled, Disabled on, Focus visible | |
+| CMP-DUI-P-42 | `tabs` | Default, Second selected, Vertical, Focus visible, Focus on selected tab | No screen uses vertical tabs |
+| CMP-DUI-P-43 | `textarea` | Empty, Filled, Disabled, Invalid, Focused | |
+| CMP-DUI-P-44 | `thumbnail` | Image, Placeholder, Custom fallback, Sizes, Shapes | |
+
+Where the last column is empty, the component appears across many screens in the same simple form, and the story shows it on its own.
+
+### States not recorded
+
+- **A disabled accordion item.** Spree's accordion has no style for it, and no Spree screen disables an item. The story would look the same as "Closed".
+- **A slot with no child.** It renders nothing, so there is nothing to capture.
+
+### Stand-ins and cases not rendered
+
+None. These primitives need no provider beyond the pilot's decorators, and no request is made.
+
+## 2. CI runs
+
+| Run | Revision | Result |
+|---|---|---|
+| [39635086908](https://github.com/pateldhruval872/liquorify/actions/runs/39635086908) | `2281eb5` | Built, token check and coverage passed, 310 comparisons passed in 3.6 minutes; no failure images to publish |
+
+The pull request's other checks also passed at `2281eb5`. The batch changes no file they test.
+
+## 3. Procedure and evidence for each criterion
+
+**1. Stories render, and checks pass.** In this session, at `2281eb5`: `pnpm build-storybook` built; `pnpm lint` (Biome) and `pnpm typecheck` passed; `pnpm test` passed its 5 fixture tests. Every story reached Storybook's finished render phase without an error in each comparison run.
+
+**2. Token check and coverage.** `pnpm tokens:check` found the token files and the ID list current after LIQ-009 moved to 0.4; the version is the only change to either. `pnpm coverage` gave the table in §1 and found no unknown tag.
+
+**3. Arranged as Spree arranges it.** For each component the dashboard and seller panel source was searched for the screens that use it, and the stories were written from those screens (the last column in §1). Reviewing the first images found three stories that did not follow a screen, and they were rewritten before committing:
+- the card's first story put a description and an action in one header. No Spree screen does, and the header's grid placed the description beside the title and the button under it. It became two stories, one with a description and one with an action, as Spree's cards are;
+- the field set story put a separator inside the set. Spree's report builder uses the set with a label legend and checkboxes and never uses the separator, so the separator now has its own story on the page background it was made for;
+- the vertical tabs story let the list take the whole width. No screen uses vertical tabs; the story now puts the list in a fixed column.
+
+**4. Images looked at.** All 228 images were looked at in both modes, side by side, and the focus states were enlarged. Two findings came from this (§4).
+
+**5. Images match.** `pnpm visual:update` made the images in the pinned Playwright image through Docker. A full comparison run afterwards, from a fresh build, passed all 310 tests (155 stories in two modes) with no pixel different, so the pilot's 82 images still match. Run 39635086908 then compared the same 310 on GitHub's runners, and all matched.
+
+**6. Fidelity.** Not run, as for the pilot.
+
+**7. Review.** The owner reviews the images in pull request #9.
+
+## 4. What the batch found
+
+| # | Finding | Where it is recorded |
+|---|---|---|
+| 1 | The selected tab shows no keyboard focus ring. The tab's focus ring and its selected look are both box shadows, and the selected rule comes later in the compiled stylesheet, so it wins; the next tab shows the ring. "Focus on selected tab" records it and matches "Default" | LIQ-010 §2.4 |
+| 2 | The avatar group overlaps each avatar with the next by more than the room around two-letter initials, so they are cut off. No Spree screen uses the group | LIQ-010 §2.4 |
+| 3 | Some parts have no style for a state no screen uses, such as a disabled accordion item; no story is written for such a state | LIQ-010 §2.4, and §1 here |
+| 4 | Stories must follow a Spree screen's arrangement, and every image must be looked at before committing | LIQ-010 §12.1 |
+| 5 | A token page shows a whole family, so LIQ-009 names it once per section, not on every row; the storefront's tables gain the columns with its first batch | LIQ-010 §10, LIQ-009 §1 |
+
+None of these changes Spree's code. Findings 1 and 2 are Spree's behaviour, reproduced as it is.
+
+## 5. Limitations
+
+- **Automated, not independent.** The same session wrote the stories, made the images and ran these checks.
+- **Fidelity not checked against running screens** (criterion 6).
+- **One browser.** Chromium only, by design ([LIQ-010 §11.1](../LIQ-010-design-system-reproduction-architecture.md#111-environment)).
+- **Hover states** are captured only where the component changes on hover in a way the screens rely on (the scroll area's bar). Other hover colours are in the source and not captured.
