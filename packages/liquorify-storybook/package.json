@@ -14,9 +14,9 @@
     "visual": "sh visual/in-image.sh",
     "visual:update": "sh visual/in-image.sh --update-snapshots=changed",
     "visual:copy": "node scripts/copy-references.mjs",
-    "lint": "biome check .storybook src scripts visual",
-    "lint:fix": "biome check --fix .storybook src scripts visual",
-    "format": "biome format --write .storybook src scripts visual",
+    "lint": "biome check .storybook src scripts visual fidelity",
+    "lint:fix": "biome check --fix .storybook src scripts visual fidelity",
+    "format": "biome format --write .storybook src scripts visual fidelity",
     "typecheck": "tsc --noEmit",
     "test": "vitest run"
   },
