@@ -1,7 +1,7 @@
 ---
 document_id: LIQ-004
 title: Foundation Backlog
-version: 0.4-draft
+version: 0.5-draft
 status: DRAFT
 owner: unassigned
 approved_by: null
@@ -13,7 +13,7 @@ updated: 2026-10-21
 
 These are the smallest engineering tasks needed for reproducible development, relevant checks and reliable verification, in priority order. Each one traces to findings in [LIQ-003](LIQ-003-engineering-baseline.md). Implementing all 172 capabilities is not a prerequisite for anything here; most stay "not assessed" until real work activates them.
 
-This list is a planning record. Once decision D6 picks a tracker, each item becomes a work item there and this file links to it instead of describing it ([ENG-002 §2](framework/ENG-002-documentation-system.md#2-what-belongs-where)). Nothing here is authorized for implementation until the owner says so. FB-02 was authorized on 2026-10-21 ([LIQ-001 §1](LIQ-001-project-profile.md#recorded-instructions-that-shape-engineering-work)).
+This list is a planning record. Once decision D6 picks a tracker, each item becomes a work item there and this file links to it instead of describing it ([ENG-002 §2](framework/ENG-002-documentation-system.md#2-what-belongs-where)). Nothing here is authorized for implementation until the owner says so. FB-02 was authorized on 2026-10-21, and FB-19 and FB-20 the same day ([LIQ-001 §1](LIQ-001-project-profile.md#recorded-instructions-that-shape-engineering-work)).
 
 ## Open isolation findings
 
@@ -44,7 +44,7 @@ Risk classes follow [LIQ-001 §4](LIQ-001-project-profile.md#4-review-and-verifi
 | FB-03 | Validate option A: same-store controls, the tax task before-and-after control, PostgreSQL and SQLite runs, the wider surfaces chosen, and the shopper-ownership analysis, as defined at the end of the merchant lifecycle specification | B | Protected | A validation report with results per surface and database, accepted or rejected by the owner | Decisions N1 to N6 in the specification |
 | FB-04 | Verify one development path from a clean checkout to a local test order through the Liquorify storefront: choose Docker or native, settle Ruby and Node versions, list destructive commands, make a payment method visible, confirm the Mac's `liquor` remotes are the renamed repositories | B, S | Standard | A short setup guide (migration step M4) whose steps were run once, with the evidence recorded | FB-01 |
 | FB-05 | Point the setup scripts at the Liquorify repositories (they clone upstream `spree/storefront` and `spree/spree-starter`) and decide where the tracked host application and its Ruby lockfile live | B | Standard | A fresh setup uses `liquorify-storefront`; the host application and lockfile are tracked or their home is decided | Hosting direction |
-| FB-18 | **Complete the existing Spree product baseline across the pinned revisions, and propose how Liquorify adopts and later extends Spree's design systems** (the documentation item below; in progress since 2026-10-21) | B | Standard. The decision record stays PROPOSED until the owner decides, and any CI, account or service change it leads to is Protected | The completion criteria in [LIQ-006 §14](LIQ-006-product-capability-baseline.md#14-when-the-baseline-is-complete) hold, and the owner has reviewed LIQ-006 to LIQ-009 | The owner's instruction to start (given 2026-10-21) |
+| FB-18 | **Complete the existing Spree product baseline across the pinned revisions, and propose how Liquorify adopts and later extends Spree's design systems** (the documentation item below). **Done 2026-10-21** ([record](verification/2026-10-21-fb-18-baseline-completion.md)) | B | Standard. The decision record stays PROPOSED until the owner decides, and any CI, account or service change it leads to is Protected | The completion criteria in [LIQ-006 §14](LIQ-006-product-capability-baseline.md#14-when-the-baseline-is-complete) hold, and the owner has reviewed LIQ-006 to LIQ-009 | The owner's instruction to start (given 2026-10-21) |
 
 ### P1: soon after
 
@@ -67,8 +67,8 @@ Risk classes follow [LIQ-001 §4](LIQ-001-project-profile.md#4-review-and-verifi
 | FB-15 | Set an accessibility target and add automated accessibility checks. LIQ-007 proposes WCAG 2.2 level AA, with checks in Storybook as a first, advisory signal | First Liquorify screen, which follows the Spree baseline |
 | FB-16 | Hosting, staging environment, secrets storage, backups, monitoring and runbooks | Hosting decision; required before any real merchant data |
 | FB-17 | Link, metadata and capability-ID checks for `liquorify/` only | Documentation drift actually appears |
-| FB-19 | Document the existing Spree components in Storybook, in the backend workspace and the storefront, with Chromatic visual baselines ([details](#fb-19-the-existing-components-in-storybook-with-chromatic-baselines)). Protected: it adds dependencies, CI steps, an account and a secret | **Spree baselining:** FB-18 complete and reviewed, and the owner's instruction. It does not wait for a Liquorify component or Liquorify branding |
-| FB-20 | Reproduce the existing design systems in Figma: the dashboard's and the storefront's components and tokens, and the email branding values ([details](#fb-20-the-existing-design-systems-in-figma)). Protected where it adds accounts or paid seats | **Spree baselining:** FB-18 complete and reviewed, and the owner's instruction. It does not wait for a Liquorify component or Liquorify branding |
+| FB-19 | Document the existing Spree components in Storybook, in the backend workspace and the storefront, with Playwright visual baselines ([details](#fb-19-the-existing-components-in-storybook-with-playwright-visual-baselines)). Protected: it adds dependencies and CI steps. **In progress since 2026-10-21** | **Spree baselining:** FB-18 complete and reviewed, and the owner's instruction. It does not wait for a Liquorify component or Liquorify branding |
+| FB-20 | Reproduce the existing design systems in Figma: the dashboard's and the storefront's components and tokens, and the email branding values ([details](#fb-20-the-existing-design-systems-in-figma)). Protected where it adds accounts or paid seats. **In progress since 2026-10-21:** token preparation only, until the seat exists | **Spree baselining:** FB-18 complete and reviewed, and the owner's instruction. It does not wait for a Liquorify component or Liquorify branding |
 | FB-21 | Reproduce the existing screens, wireframes, flows and emails in Figma ([details](#fb-21-the-existing-screens-wireframes-and-flows-in-figma)). Standard, or Protected where it adds seats | FB-20's libraries, a running instance at the pinned revisions, and the owner's instruction |
 
 ## Owner actions
@@ -80,8 +80,27 @@ These change repository settings or credentials, so they stay with the owner and
 | OA-1 | Add a Stripe sandbox test key pair to `liquorify-storefront`: a `STRIPE_SECRET_KEY` repository secret and a `STRIPE_PUBLISHABLE_KEY` repository variable | The storefront end-to-end job's configuration check (FB-06) | Adding the keys removes only this blocker. The next run determines whether the browser tests pass |
 | OA-2 | Turn GitHub Actions on for `liquorify` (Settings, then Actions) | Every backend workflow, including the FB-02 checks | **Done 2026-10-21.** Both workflows then ran on the FB-02 pull request ([record](verification/2026-10-21-fb-02-first-workflow-run.md)). FB-02 has since merged, so the publishing jobs on `main` run only upstream. The weekly dependency audit is now live too; its first scheduled run is Monday 2026-10-26 |
 | OA-3 | Apply the proposed branch protection settings in both repositories, after the backend checks have reported once | FB-02 acceptance criterion 4 | **Done 2026-10-21.** The owner saved a "Protect main" ruleset in each repository; both match the proposal ([record](verification/2026-10-21-fb-02-merge-push-and-protection.md)). The storefront turned out to be public, which GitHub Free enforces, and the owner chose to keep it public |
-| OA-4 | Create a Chromatic account and one project for each Storybook, and add each project's `CHROMATIC_PROJECT_TOKEN` as a repository secret | FB-19's visual baselines | When FB-19 is instructed. The free plan's limits are in [LIQ-007 §4](LIQ-007-design-system-adoption-and-extension.md#4-how-each-tool-is-used) |
-| OA-5 | Set up the Figma team and choose its plan and seats | FB-20 and FB-21 | When FB-20 is instructed. Light and dark modes and shared libraries need a paid plan ([LIQ-007 §4](LIQ-007-design-system-adoption-and-extension.md#4-how-each-tool-is-used), Q4) |
+| OA-4 | Create a Chromatic account and one project for each Storybook, and add each project's `CHROMATIC_PROJECT_TOKEN` as a repository secret | FB-19's visual baselines, when Chromatic was the tool | **Superseded on 2026-10-21.** The owner replaced Chromatic with Playwright screenshot comparisons ([LIQ-007](LIQ-007-design-system-adoption-and-extension.md#decided-on-2026-10-21) Q10, superseding Q5). No account, project or secret is needed, and this work created none. The row stays as history |
+| OA-5 | Set up the Figma team and choose its plan and seats | FB-20 and FB-21 | **Due now:** FB-20 was instructed on 2026-10-21, and Q4 chose one Professional Full seat. The steps and the exact billing choice are [below](#owner-action-steps); nothing is bought until the owner does it |
+
+### Owner action steps
+
+**OA-4: superseded.** Nothing to do. The steps for a Chromatic account were listed here before Q10 replaced Chromatic with Playwright on 2026-10-21. If a Chromatic project or a `CHROMATIC_PROJECT_TOKEN` secret was created in the meantime, nothing uses it, and it can be deleted.
+
+**OA-5: Figma.** The billing choice, shown before any purchase as Q4 asks:
+
+- **Do not use the existing Figma team.** Its plan is one Figma restricts to non-commercial use, so its seat is not suitable for Liquorify's work (read through the Figma connection on 2026-10-21).
+- **The choice:** a new team on the **Professional** plan with **one Full seat**, for you. No Dev or Collab seats, and not the Organization plan.
+- **The price**, from Figma's published euro prices on 2026-10-21, before tax: **€20 a month billed monthly**, or **€16 a month billed annually** (€192 for the year). Figma's US page shows $16 a month billed annually. The price at checkout is the one that counts; if it differs, stop and say so.
+- **Recommended: billed monthly.** It costs €4 a month more, but it can be stopped any month while the reproduction proves itself, and it can be switched to annual later.
+
+The steps, once you have decided:
+
+1. Sign in at figma.com with the account you will use for Liquorify's design work.
+2. Open the team menu at the top of the sidebar and choose **Create new team**. Name it `Liquorify`.
+3. Choose the **Professional** plan, the billing period you picked, and one Full seat.
+4. Pay, and check that the receipt shows the plan, the period and one Full seat.
+5. Say "OA-5 done" with the team's name. The Figma connection then confirms that the new team is on the Professional plan before anything is created in it.
 
 ## Recommended next work item
 
@@ -164,7 +183,7 @@ Effects to expect:
 
 ## Next documentation work item
 
-**FB-18: complete the existing Spree product baseline, then propose how Liquorify adopts and extends Spree's design systems.** Tracked and started on 2026-10-21 at the owner's instruction, as a documentation-only pull request. Revised the same day by the owner's sequencing instruction ([LIQ-001 §1](LIQ-001-project-profile.md#recorded-instructions-that-shape-engineering-work)): the existing Spree baseline is completed first, across the pinned revisions of both repositories, and Liquorify-specific product work comes afterward.
+**FB-18: complete the existing Spree product baseline, then propose how Liquorify adopts and extends Spree's design systems.** Tracked and started on 2026-10-21 at the owner's instruction, as a documentation-only pull request. **Done on 2026-10-21:** every completion criterion holds after four corrections ([record](verification/2026-10-21-fb-18-baseline-completion.md)), and the owner instructed the reproduction to start. Revised the same day by the owner's sequencing instruction ([LIQ-001 §1](LIQ-001-project-profile.md#recorded-instructions-that-shape-engineering-work)): the existing Spree baseline is completed first, across the pinned revisions of both repositories, and Liquorify-specific product work comes afterward.
 
 | Part | Record | What it covers |
 |---|---|---|
@@ -172,7 +191,7 @@ Effects to expect:
 | Screen inventory | [LIQ-008](LIQ-008-spree-screen-inventory.md) (DRAFT) | Every screen and overlay with an ID, its route, roles and permission scopes, workflows, meaningful states and code; every email; 24 cross-screen flows |
 | Component and token inventory | [LIQ-009](LIQ-009-spree-component-and-token-inventory.md) (DRAFT) | Every component and design token, with an ID and the SES capabilities it supports |
 | Reproduction work items | [Below](#spree-baseline-reproduction-work-items) | FB-19, FB-20 and FB-21, with completion criteria tied to the IDs in LIQ-008 and LIQ-009 |
-| Decision record | [LIQ-007](LIQ-007-design-system-adoption-and-extension.md) (PROPOSED) | How Figma, Storybook and Chromatic reproduce the baseline first, and how Liquorify would extend the systems later. It stays PROPOSED while the owner reviews the revised scope |
+| Decision record | [LIQ-007](LIQ-007-design-system-adoption-and-extension.md) (PROPOSED) | How Figma, Storybook and Playwright's visual checks reproduce the baseline first, and how Liquorify would extend the systems later. It stays PROPOSED while the owner reviews the revised scope |
 
 - **Done when** the completion criteria in [LIQ-006 §14](LIQ-006-product-capability-baseline.md#14-when-the-baseline-is-complete) hold and the owner has reviewed LIQ-006 to LIQ-009. Accepting LIQ-007 is a separate decision.
 - **What comes after.** Liquorify-specific product and design work starts once the baseline is complete, meaning FB-18 reviewed and FB-19 to FB-21 done, and the owner instructs it. That includes Liquorify branding (FB-14), merchant onboarding, the merchant subscription and the platform Admin Console (specification F2, F3 and F5), which the owner has deferred. The foundation engineering items (FB-02 to FB-12, FB-16 and FB-17) are not product work and keep their own dependencies.
@@ -180,7 +199,7 @@ Effects to expect:
 
 ## Spree baseline reproduction work items
 
-These reproduce and document what Spree already has, so that Figma, Storybook and Chromatic start from Spree's real screens, components and tokens, and later Liquorify work extends them rather than redrawing them. **Spree baselining activates them**: each starts once FB-18 is complete and reviewed and the owner instructs it. None waits for a Liquorify component, Liquorify branding or the acceptance of LIQ-007 as a whole; the tool choices each one needs are LIQ-007's open questions, answered when the owner instructs it.
+These reproduce and document what Spree already has, so that Figma, Storybook and Playwright's visual checks start from Spree's real screens, components and tokens, and later Liquorify work extends them rather than redrawing them. **Spree baselining activates them**: each starts once FB-18 is complete and reviewed and the owner instructs it. None waits for a Liquorify component, Liquorify branding or the acceptance of LIQ-007 as a whole. The tool choices they need were decided on 2026-10-21 (LIQ-007 Q4, Q7 and Q10, which superseded Q5), and [LIQ-010](LIQ-010-design-system-reproduction-architecture.md) plans how they are built, checked and kept up to date.
 
 Rules for all three:
 
@@ -190,30 +209,38 @@ Rules for all three:
 - **Coverage is recorded against the IDs.** LIQ-008 and LIQ-009 gain a column showing, for each ID, where it is reproduced. A new ID added after an upstream update (FB-12) is reproduced in the same change that records it.
 - **Each item closes with a verification record** in `liquorify/verification/`, listing what was built, what was compared, the results (PASS, FAIL, BLOCKED or NOT_RUN) and what could not be reproduced, with the reason.
 
-### FB-19: the existing components in Storybook, with Chromatic baselines
+### FB-19: the existing components in Storybook, with Playwright visual baselines
 
-- **Outcome.** Every existing component in LIQ-009 is documented in Storybook with its meaningful variants and states, and Chromatic holds an accepted visual baseline for every story.
+- **Status.** In progress since 2026-10-21, at the owner's instruction. The pull requests are, in order:
+  1. this plan ([LIQ-010](LIQ-010-design-system-reproduction-architecture.md)), with the corrections the inventory checks found;
+  2. the backend pilot: the Storybook package, its providers and mocks, seven representative stories, the dashboard token file and its check, the Playwright visual check with its first reference images, and the advisory workflow;
+  3. the storefront pilot: the same for the storefront, with three representative stories;
+  4. then batches by LIQ-009 section, each small enough to review ([LIQ-010 §13](LIQ-010-design-system-reproduction-architecture.md#13-pilot)).
+
+  The batches start only once the pilot works, and this plan is corrected first if it does not.
+- **Outcome.** Every existing component in LIQ-009 is documented in Storybook with its meaningful variants and states, and every story has a committed reference screenshot that Playwright compares on pull requests.
 - **In scope.**
   - One Storybook in the backend workspace (React with Vite) for `@spree/dashboard-ui` (CMP-DUI-P, CMP-DUI-C), `@spree/dashboard-core` (CMP-CORE, its shared pages and product form modules), and the dashboard's and seller panel's components (CMP-DA-G, CMP-SP-G), with stand-in providers and mocked API responses.
   - One Storybook in the storefront (Next.js with Vite) for CMP-SF-P, CMP-SF-G and the page-level components, with mocked data. Server components are covered where Storybook's experimental support renders them; the rest are recorded.
   - Token pages showing every TK-DUI and TK-SF token with its light and dark values, read from the stylesheets rather than retyped, and the email branding defaults (TK-EM).
-  - One Chromatic project per Storybook, with an advisory step on pull requests that change components, stories or styles (owner action OA-4 provides the accounts and secrets).
-- **Out of scope.** Changing any component or token; Liquorify components; the accessibility target and any accessibility gate (FB-15); making Chromatic a required check; the email templates, which have their own previews.
+  - Playwright screenshot comparisons against each built Storybook ([LIQ-010 §11](LIQ-010-design-system-reproduction-architecture.md#11-visual-checks-with-playwright)): one pinned container image with Chromium, deterministic sample data, reference images committed beside the stories, and comparison reports and failure images published as CI artifacts with a set retention. An advisory workflow runs them on pull requests that change components, stories, styles or their configuration.
+- **Out of scope.** Changing any component or token; Liquorify components; the accessibility target and any accessibility gate (FB-15); making the visual check a required check; accepting a changed screenshot automatically in CI; the email templates, which have their own previews.
 - **Completion criteria.**
   1. Every component ID in LIQ-009 §2 to §5 has a story, or LIQ-009 names the story that shows it and says why it has none of its own (for example, a part only ever rendered inside its parent).
-  2. Each story covers the component's meaningful variants and states, such as default, disabled, loading, empty, error, invalid, selected and open, in light and dark. The states found are recorded per component, because FB-20 uses them as Figma component properties.
+  2. Each story covers the component's meaningful variants and states, such as default, disabled, loading, empty, error, invalid, selected and open, in each theme its surface shows: light and dark for the dashboard and the seller panel, and light for the storefront, which never shows its dark values ([LIQ-010 §8](LIQ-010-design-system-reproduction-architecture.md#8-themes-and-widths-captured)). The states found are recorded per component, because FB-20 uses them as Figma component properties.
   3. Every token in LIQ-009 §6 to §8 appears on a token page with its values.
   4. Both Storybooks build in CI from a recorded revision.
-  5. Each Chromatic project has an accepted baseline for every story on `main`, and the advisory step runs on the pull requests described above. It is not a required check.
-  6. Only development dependencies, Storybook configuration, stories, mocks and the CI step are added. No application code or production dependency changes.
-- **Risk.** Protected: it adds dependencies, CI steps, an account and a secret.
-- **Depends on.** FB-18 complete and reviewed; the owner's instruction, with LIQ-007's Q5 and Q7 answered; OA-4.
+  5. Every story has a committed reference screenshot for each theme and width it is captured in, made in the pinned environment and reviewed in the pull request that added it. The advisory workflow compares them on the pull requests described above, publishes its report and any failure images as artifacts, and never writes or accepts a reference image itself. It is not a required check.
+  6. Only development dependencies, Storybook and Playwright configuration, stories, mocks, reference images and the CI step are added. No application code or production dependency changes.
+- **Risk.** Protected: it adds dependencies and CI steps.
+- **Depends on.** FB-18 complete and reviewed, the owner's instruction, and LIQ-007's Q7 and Q10, all done on 2026-10-21. No owner action is needed now that OA-4 is superseded.
 
 ### FB-20: the existing design systems in Figma
 
+- **Status.** In progress since 2026-10-21, at the owner's instruction. Until the seat exists (OA-5), only the token preparation runs: token files generated from the stylesheets, with a check that they match, and the palette colours the components use outside the tokens ([LIQ-010 §9](LIQ-010-design-system-reproduction-architecture.md#9-token-preparation-and-the-css-to-figma-mapping)).
 - **Outcome.** Figma libraries that match the dashboard design system (shared by the admin dashboard and the seller panel), the storefront's system and the email branding values, so FB-21 can rebuild every screen from them and later Liquorify designs start from Spree's real parts.
 - **In scope.**
-  - Variables for every TK-DUI, TK-SF and TK-EM token, with the code's names and light and dark as modes; text and effect styles from the theme entries (fonts, type scale, radius and shadows).
+  - Variables for every TK-DUI, TK-SF and TK-EM token, with the code's names and light and dark as modes; text and effect styles from the theme entries (fonts, type scale, radius and shadows); and the Tailwind palette colours the components use, which LIQ-009 adds with the token preparation.
   - Figma components for every CMP-DUI-P, CMP-DUI-C and CMP-SF-P component, named as in the code, with the variants and states FB-19 recorded, using only the library's variables.
   - Figma components for the CMP-CORE, CMP-SF-G and application components that FB-21's screens reuse.
   - The Lucide icons the components use.
@@ -222,9 +249,9 @@ Rules for all three:
   1. Every token in LIQ-009 §6 to §8 is a Figma variable or style with the same name, and its light and dark values match the stylesheets, checked against an export rather than by eye.
   2. Every CMP-DUI-P, CMP-DUI-C and CMP-SF-P component is a published Figma component with the variants and states FB-19 recorded for it.
   3. LIQ-009 records, against each component ID, whether it is in Figma; every component FB-21's screens use is.
-  4. Each Figma component was compared with its Chromatic baseline in light and dark, and each difference was fixed in Figma or recorded with a reason.
+  4. Each Figma component was compared with its Playwright reference screenshots in each theme, and each difference was fixed in Figma or recorded with a reason.
 - **Risk.** Protected where it adds accounts or paid seats: light and dark modes and shared libraries need a paid Figma plan (OA-5).
-- **Depends on.** FB-18 complete and reviewed; the owner's instruction, with LIQ-007's Q4 answered; OA-5. Tokens can start at once; each component follows its FB-19 stories, which record its states.
+- **Depends on.** FB-18 complete and reviewed, the owner's instruction, and LIQ-007's Q4, all done on 2026-10-21; OA-5 for everything inside Figma. Tokens start at once; each component follows its FB-19 stories, which record its states.
 
 ### FB-21: the existing screens, wireframes and flows in Figma
 

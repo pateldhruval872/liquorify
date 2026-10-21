@@ -1,7 +1,7 @@
 ---
 document_id: LIQ-009
 title: Spree Component and Token Inventory
-version: 0.1-draft
+version: 0.2-draft
 status: DRAFT
 owner: unassigned
 approved_by: null
@@ -11,7 +11,7 @@ updated: 2026-10-21
 
 # Spree Component and Token Inventory
 
-Every component and design token in Spree's existing design systems, at the pinned revisions, with a stable ID and the SES capabilities each one supports. It is part of the Spree product baseline ([LIQ-006](LIQ-006-product-capability-baseline.md)) and is the list the Figma reproduction (FB-20) and the Storybook and Chromatic baselines (FB-19) must cover ([LIQ-004](LIQ-004-foundation-backlog.md#spree-baseline-reproduction-work-items)). The screens built from these components are in [LIQ-008](LIQ-008-spree-screen-inventory.md).
+Every component and design token in Spree's existing design systems, at the pinned revisions, with a stable ID and the SES capabilities each one supports. It is part of the Spree product baseline ([LIQ-006](LIQ-006-product-capability-baseline.md)) and is the list the Figma reproduction (FB-20) and the Storybook stories and Playwright reference screenshots (FB-19) must cover ([LIQ-004](LIQ-004-foundation-backlog.md#spree-baseline-reproduction-work-items)). The screens built from these components are in [LIQ-008](LIQ-008-spree-screen-inventory.md).
 
 **It describes what exists.** No Liquorify component or token exists yet, and none is proposed here. How Liquorify would later extend these systems is the subject of the proposed decision record [LIQ-007](LIQ-007-design-system-adoption-and-extension.md).
 
@@ -20,6 +20,7 @@ Every component and design token in Spree's existing design systems, at the pinn
 - **Revisions.** Backend `liquorify` at `1d1f2d4` and storefront `liquorify-storefront` at `ac53c5b`.
 - **Method.** Reading only, on 2026-10-21. Components are the `.tsx` files in the folders named below, without tests. Tokens are the CSS custom properties declared in the two stylesheets below, read with their light and dark values; the email values come from `Spree::Emails::Branding`. Nothing was rendered or measured.
 - **IDs are permanent.** A component or token keeps its ID if it is renamed. One removed upstream keeps its row, marked as removed. A new one takes the next number in its table.
+- **Some IDs name a group.** The application components (CMP-DA-G, CMP-SP-G), the storefront feature components (CMP-SF-G) and the colour utility aliases (TK-DUI-A, TK-SF-A) have one ID per group, and each member is named in its row. The group ID with the member's name is that member's reference.
 
 | System | Used by | Components | Tokens |
 |---|---|---|---|
@@ -35,7 +36,7 @@ Every component and design token in Spree's existing design systems, at the pinn
 - **The dashboard and the seller panel share one design system.** The seller panel's stylesheet imports `@spree/dashboard-ui/styles.css`, so both have the same components, tokens and look. Shared pages and data-bound pieces live in `@spree/dashboard-core`.
 - **Design system components are headless.** They take data through props and import no providers or data hooks (backend `CLAUDE.md`). An application wraps one with its own data; for example, the dashboard and the seller panel each have a `fulfillments-card` built on the same design system parts.
 - **The storefront has its own system.** shadcn components on Radix, in its own repository, with its own tokens. It shares no code with the dashboard.
-- **What the two share.** Tailwind 4, shadcn's token names, neutral palettes in the oklch colour space, Lucide icons, the Geist font, and light and dark themes switched by a `.dark` class. Both are configured with shadcn's `radix-nova` style name (`packages/dashboard/components.json`, the storefront's `components.json`), but 22 of the dashboard's 46 primitives are built on Base UI, not Radix.
+- **What the two share.** Tailwind 4, shadcn's token names, neutral palettes in the oklch colour space, Lucide icons, the Geist font, and light and dark token values switched by a `.dark` class. The dashboard applies that class; the storefront declares dark values but never applies it (§7). Both are configured with shadcn's `radix-nova` style name (`packages/dashboard/components.json`, the storefront's `components.json`), but 22 of the dashboard's 46 primitives are built on Base UI, not Radix.
 - **Emails are separate.** Their look comes from the Liquid layout and each store's branding values, not from either stylesheet.
 
 ### Kinds and the SES capabilities they support
@@ -221,10 +222,27 @@ The package also has 5 hooks (`use-copy-to-clipboard`, `use-debounced-value`, `u
 | CMP-CORE-38 | `tag-combobox` | Input |
 | CMP-CORE-39 | `top-bar-breadcrumbs` | Navigation |
 
-Also in `@spree/dashboard-core`:
+Also in `@spree/dashboard-core`, the shared pages in `src/pages/`, used by both the dashboard and the seller panel:
 
-- **Shared pages** in `src/pages/`: `package-types`, `settings-index` and `stock-locations`, used by both the dashboard (DA-SET-01, DA-SET-18, DA-SET-19) and the seller panel (SP-SET-03, SP-SET-05).
-- **Product form modules** in `src/products/`: `add-video-dialog`, `bulk-variants-dialog`, `inventory-section`, `media-edit-sheet`, `product-bulk-price-editor`, `product-form-cards`, `variant-edit-sheet`, `variants-options-builder` and `variants-section`, used by DA-PRD-02 and DA-PRD-03.
+| ID | Page | Kind | Used on |
+|---|---|---|---|
+| CMP-CORE-PG-01 | `package-types` | Data | DA-SET-19, SP-SET-03 |
+| CMP-CORE-PG-02 | `settings-index` | Navigation | DA-SET-01, SP-SET-01 |
+| CMP-CORE-PG-03 | `stock-locations` | Data | DA-SET-18, SP-SET-05 |
+
+And the product form modules in `src/products/`, used by DA-PRD-02 and DA-PRD-03:
+
+| ID | Module | Kind |
+|---|---|---|
+| CMP-CORE-PF-01 | `add-video-dialog` | Overlay |
+| CMP-CORE-PF-02 | `bulk-variants-dialog` | Overlay |
+| CMP-CORE-PF-03 | `inventory-section` | Input |
+| CMP-CORE-PF-04 | `media-edit-sheet` | Overlay |
+| CMP-CORE-PF-05 | `product-bulk-price-editor` | Data |
+| CMP-CORE-PF-06 | `product-form-cards` | Input |
+| CMP-CORE-PF-07 | `variant-edit-sheet` | Overlay |
+| CMP-CORE-PF-08 | `variants-options-builder` | Input |
+| CMP-CORE-PF-09 | `variants-section` | Data |
 
 ## 4. Application components
 
@@ -321,7 +339,23 @@ These are compositions bound to one application's data hooks and API. They are l
 | CMP-SF-G-11 | `search/` | 1 | SearchBar | SF-OVL-03 |
 | CMP-SF-G-12 | `seo/` | 1 | JsonLd | Every shop page (structured data, not visible) |
 
-**Page-level components** (13), kept beside their pages: `CheckoutPageContent` and `CheckoutSidebar` (SF-CHK-01), `CategoryBanner` (SF-SHOP-03), `ProductDetails` (SF-SHOP-04), the wholesale `WholesaleApplicationPending`, `WholesaleGate`, `WholesaleGuestBrowse`, `WholesaleHeader` and `WholesaleSignInWall`, `WholesaleCartView` (SF-WHL-05), `QuickOrderView` and `SkuCombobox` (SF-WHL-06), and `global-error` (SF-SYS-01).
+**Page-level components** (13), kept beside their pages under `src/app/[country]/[locale]/`, except `global-error`, which is `src/app/global-error.tsx`:
+
+| ID | Component | Where | Kind | Used on |
+|---|---|---|---|---|
+| CMP-SF-PG-01 | CheckoutPageContent | `(checkout)/checkout/[id]/` | Layout | SF-CHK-01 |
+| CMP-SF-PG-02 | CheckoutSidebar | `(checkout)/checkout/[id]/` | Display | SF-CHK-01 |
+| CMP-SF-PG-03 | CategoryBanner | `(storefront)/c/[...permalink]/` | Display | SF-SHOP-03 |
+| CMP-SF-PG-04 | ProductDetails | `(storefront)/products/[slug]/` | Display | SF-SHOP-04 |
+| CMP-SF-PG-05 | WholesaleApplicationPending | `(wholesale)/wholesale/_components/` | Feedback | SF-WHL |
+| CMP-SF-PG-06 | WholesaleGate | `(wholesale)/wholesale/_components/` | Extension | SF-WHL |
+| CMP-SF-PG-07 | WholesaleGuestBrowse | `(wholesale)/wholesale/_components/` | Layout | SF-WHL |
+| CMP-SF-PG-08 | WholesaleHeader | `(wholesale)/wholesale/_components/` | Navigation | SF-WHL |
+| CMP-SF-PG-09 | WholesaleSignInWall | `(wholesale)/wholesale/_components/` | Feedback | SF-WHL |
+| CMP-SF-PG-10 | WholesaleCartView | `(wholesale)/wholesale/cart/` | Data | SF-WHL-05 |
+| CMP-SF-PG-11 | QuickOrderView | `(wholesale)/wholesale/quick-order/` | Input | SF-WHL-06 |
+| CMP-SF-PG-12 | SkuCombobox | `(wholesale)/wholesale/quick-order/` | Input | SF-WHL-06 |
+| CMP-SF-PG-13 | global-error | `src/app/` | Feedback | SF-SYS-01 |
 
 ## 6. Dashboard design tokens
 
@@ -435,6 +469,8 @@ The `@theme inline` block turns tokens into Tailwind utilities.
 
 Declared in `src/app/globals.css` in `liquorify-storefront`. The font comes from Next.js's font loader as `--font-geist`.
 
+**The dark values are declared but never shown.** Nothing in the storefront adds the `dark` class, so shoppers always see the light values. Only the toast container and the focus outline follow the operating system's dark setting ([LIQ-010 §3.3](LIQ-010-design-system-reproduction-architecture.md#33-styling-and-a-correction-the-storefront-never-shows-dark-mode)).
+
 ### Semantic tokens, light and dark
 
 | ID | Token | Family | Light | Dark |
@@ -528,10 +564,11 @@ Ten agent skills are tracked in the backend under `.agents/skills/` and linked f
 - **How anything looks or behaves.** Nothing was rendered. No colour contrast was measured, and no component was checked for accessibility (PD-11 and QV-09 stay not assessed in [LIQ-003](LIQ-003-engineering-baseline.md#3-capability-baseline)).
 - **Variants and states of each component.** Those are recorded when each component's stories are written (FB-19), and they become the Figma component properties (FB-20).
 - **Component-level styles.** The dashboard stylesheet has rules beyond its tokens; they are part of the components they style.
+- **Colours used outside the tokens.** Components in both systems also use Tailwind's own palette colours in their class names, such as `text-gray-900`: 48 distinct colours in the dashboard packages, counting the 20 its tokens refer to, and 42 in the storefront, plus white and black. They are not custom properties declared in the stylesheets, so they have no IDs yet. The token preparation for FB-20 adds them ([LIQ-010 §3.4](LIQ-010-design-system-reproduction-architecture.md#34-colours-used-outside-the-tokens)).
 - **Liquorify components and tokens.** None exist.
 
 ## 11. How this links to the other records
 
 - **SES-001.** Design System Engineering (PD-13) and Visual Interface Design (PD-09) for what exists, with the kinds above for the rest ([LIQ-003](LIQ-003-engineering-baseline.md#3-capability-baseline)).
-- **Work items.** FB-19 documents these components in Storybook with Chromatic baselines; FB-20 reproduces these components and tokens in Figma ([LIQ-004](LIQ-004-foundation-backlog.md#spree-baseline-reproduction-work-items)).
+- **Work items.** FB-19 documents these components in Storybook with Playwright reference screenshots; FB-20 reproduces these components and tokens in Figma ([LIQ-004](LIQ-004-foundation-backlog.md#spree-baseline-reproduction-work-items)). How the IDs here are carried into stories, reference screenshots and Figma is in [LIQ-010 §10](LIQ-010-design-system-reproduction-architecture.md#10-traceability-to-the-inventory-ids).
 - **When to revise it.** When Liquorify takes a new Spree or storefront revision (FB-12), and when a Liquorify component or token is accepted.
