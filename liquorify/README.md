@@ -46,6 +46,7 @@ Records of what was run, on which revision, with its result and limitations ([EN
 | 2026-10-21 | [FB-02 first workflow run](verification/2026-10-21-fb-02-first-workflow-run.md) | FB-02 | PASS: all 29 pull request jobs passed. Codecov refused the coverage uploads because no token is set |
 | 2026-10-21 | [FB-02 merge push and branch protection](verification/2026-10-21-fb-02-merge-push-and-protection.md) | FB-02 | PASS: the merge push passed with all six release jobs skipped, and both saved rulesets match the agreed settings. NOT_RUN: the direct-push refusal, by the owner's instruction |
 | 2026-10-21 | [FB-18 baseline completion check](verification/2026-10-21-fb-18-baseline-completion.md) | FB-18 | PASS: all seven completion criteria hold after four corrections made in the same change. Behaviour was not run |
+| 2026-10-21 | [Changing an address's state by name](verification/2026-10-21-address-state-by-name.md) | None; a Spree defect found in FB-19's CI | PASS locally: six regression cases, four of which fail without the proposed fix. The change in behaviour awaits the owner's review |
 
 ## Supplied framework sources
 
