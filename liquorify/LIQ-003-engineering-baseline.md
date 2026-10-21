@@ -33,6 +33,7 @@ A document existing does not prove a behaviour, and a configured tool does not p
 | C2 | Backend TypeScript workspace: `pnpm install --frozen-lockfile`, `pnpm lint`, `pnpm typecheck`, `pnpm test`, 2026-10-20 23:58 UTC | Cloud container: Node 22.22.0, pnpm 11.1.1 | **PASS**: 13 lint, 18 type-check and 16 test tasks; 1,374 tests in 8 packages. Not run: Ruby specs, browser tests, generated-code drift checks |
 | C3 | Cross-store shopper access reproduction (merchant lifecycle work), 2026-10-20 | Cloud container: Ruby 3.3.6, SQLite test app | **FAIL**: 9 examples, 6 failures. No same-store controls yet; not run on PostgreSQL. Details stay out of this public repository |
 | G | GitHub repository state through the GitHub API, 2026-10-20 and 21 | GitHub | Backend: public, not a GitHub fork, no workflow run ever, and the Actions API lists no registered workflows although five workflow files are on `main` (2026-10-21); issues off; `main` unprotected. Storefront: private; CI runs on pull requests; `main` unprotected; 10 open Dependabot pull requests. Storefront end-to-end result: see Tests and CI in §2 |
+| V1 | FB-02 pull request checks ([record](verification/2026-10-21-fb-02-pull-request-checks.md)), 2026-10-21 01:39 to 01:47 UTC | GitHub, pull request #2 at `32db000`; `actionlint` in a cloud container | **BLOCKED**: no workflow started, most likely because Actions is off. Workflow syntax and the publishing guards PASS by static check and reading |
 | M | Owner's Mac, read-only: Git remotes, branch, working-tree status and file names (this baseline); setting names and request log (assessment), 2026-10-20 | Owner's Mac | Nothing run; no values read |
 | U | Upstream documentation only | — | Not verified in code or behaviour |
 
@@ -55,9 +56,9 @@ A document existing does not prove a behaviour, and a configured tool does not p
 **Gaps and risks, in order of consequence.**
 
 1. **Tenant isolation fails for shoppers** (SP-09, C3). Confirmed: one store's admin can list, open and rename another store's shopper; a shopper can sign in at another store; registration at one store is refused because the email exists at another, which also reveals that the account exists; one store's tax rate completes another store's tax setup task. Open until FB-03 and the fixes land.
-2. **Backend checks have never run on `liquorify`** (DR-09, G). The workflows are configured but trigger only on changes under `spree/**`, `packages/**` and similar paths, with no manual trigger, and the Actions API lists no registered workflows, so Actions may be turned off for the repository. Nothing has verified that the Ruby suites pass at this revision.
+2. **Backend checks have never run on `liquorify`** (DR-09, G). The workflows are configured but trigger only on changes under `spree/**`, `packages/**` and similar paths, with no manual trigger, and the Actions API lists no registered workflows, so Actions may be turned off for the repository. No check started on the FB-02 pull request either (V1). Nothing has verified that the Ruby suites pass at this revision.
 3. **Nothing is enforced on `main`** (DR-03, QV-17, G). Neither repository protects `main` or requires checks.
-4. **Upstream publishing workflows are live in this copy** (DR-13, R). `release.yml` publishes Spree's gems on a `v*` tag; six `… - Release` jobs in `packages.yml` publish Spree's npm packages on pushes to `main` that touch its paths; `docs-package.yml` publishes Spree's docs npm package on pushes to `main` that touch the developer docs, API reference or the package itself. They would fail without Spree's publishing rights, but they should not run here.
+4. **Upstream publishing workflows are live in this copy** (DR-13, R). `release.yml` publishes Spree's gems on a `v*` tag; six `… - Release` jobs in `packages.yml` publish Spree's npm packages on pushes to `main` that touch its paths; `docs-package.yml` publishes Spree's docs npm package on pushes to `main` that touch the developer docs, API reference or the package itself. They would fail without Spree's publishing rights, but they should not run here. The FB-02 pull request limits them to the upstream repository; until it merges they stay live.
 5. **The development path points at upstream** (PI-09, DR-02, R). Setup clones upstream `spree/storefront` and `spree/spree-starter`; `server/` is untracked, so the Ruby lockfile and host application are not reproducible from tracked files.
 6. **Storefront end-to-end tests run against upstream** (QV-20, R). They boot `ghcr.io/spree/spree:latest`, not a backend built from `liquorify`. The storefront pins `@spree/sdk` 2.0.0-rc.3 while the backend ships rc.4.
 7. **Security reporting and agent permissions are upstream's** (SP-14, GG-13, R). `SECURITY.md` routes reports to Spree. The tracked `.claude/settings.local.json` allows any shell command.
@@ -166,11 +167,11 @@ Totals: 96 required, 63 conditional and 13 not required. Findings: 67 partial, 1
 | DR-06 | Required | Dependabot in both repositories (storefront Operating; backend Configured, no pull requests yet); weekly audit workflow in the backend (never run; once Actions is on it opens pull requests with write access); no triage owner | Partial | G, R | FB-11 |
 | DR-07 | Conditional: Liquorify builds deployable artifacts | Upstream trusted publishing for Spree's gems only | Not assessed | R | — |
 | DR-08 | Conditional: Liquorify builds deployable artifacts | None | Not assessed | — | — |
-| DR-09 | Required | Backend `tests.yml` and `packages.yml` (Configured, never run here, path-triggered, no manual trigger); storefront `ci.yml` (lint, types and unit tests Operating on pull requests; the end-to-end job fails at its configuration check) | Gap | G, R | FB-02 |
+| DR-09 | Required | Backend `tests.yml` and `packages.yml` (Configured, never run here, path-triggered, no manual trigger; the FB-02 pull request drops the pull request filters and adds a manual trigger, and no check started on it); storefront `ci.yml` (lint, types and unit tests Operating on pull requests; the end-to-end job fails at its configuration check) | Gap | G, R, V1 | FB-02 |
 | DR-10 | Conditional: hosting is decided | None | Not assessed | — | — |
 | DR-11 | Conditional: a second environment exists | None | Not applicable: development only | — | — |
 | DR-12 | Required | Engine migrations installed into the host application; re-cloning `server/` renumbers them; no Liquorify migrations | Partial | R | FB-05 |
-| DR-13 | Conditional: first deployable release | Upstream publishing jobs in `release.yml`, `packages.yml` and `docs-package.yml` are live in this copy | Gap | R | FB-02 |
+| DR-13 | Conditional: first deployable release | Upstream publishing jobs in `release.yml`, `packages.yml` and `docs-package.yml` are live on `main`; the FB-02 pull request limits them to `spree/spree` (verified by reading) | Gap | R, V1 | FB-02 |
 | DR-14 | Conditional: hosting is decided | None | Not assessed | — | — |
 | DR-15 | Not required | None | Not applicable: no live traffic | — | — |
 | DR-16 | Conditional: first release | None | Not assessed | — | — |
@@ -196,7 +197,7 @@ Totals: 96 required, 63 conditional and 13 not required. Findings: 67 partial, 1
 | QV-13 | Required | Factories (`spree/core/lib/spree/testing_support/factories`), sample data, storefront end-to-end seed script. Shared API test helpers fix the store, so they cannot show isolation | Partial | A, C3 | FB-03 |
 | QV-14 | Required | Per-engine test app (`rake test_app`); CI service containers; cloud has PostgreSQL 16 installed but no Docker daemon | Partial | R, G | FB-03, FB-06 |
 | QV-15 | Conditional: a change needs human judgment | Upstream QA environment flow (`.claude/commands/implement-plan.md`) | Not assessed | R | — |
-| QV-16 | Required | Evidence codes in this baseline; reproduction output kept privately; no agreed location for verification records | Partial | R | FB-02 |
+| QV-16 | Required | Evidence codes in this baseline; verification records in `liquorify/verification/`, the first on 2026-10-21; reproduction output kept privately | Partial | R, V1 | FB-02 |
 | QV-17 | Required | No required checks on either `main` | Gap | G | FB-02 |
 | QV-18 | Required | Upstream practices (deterministic OpenAPI generation); no flake tracking | Not assessed | R | — |
 | QV-19 | Required | Upstream test layers; a Liquorify isolation layer proposed in the specification | Partial | R | FB-03 |

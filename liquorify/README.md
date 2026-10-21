@@ -26,10 +26,18 @@ This folder is the one canonical home for shared Liquorify engineering documenta
 | ENG-001 | [Engineering Charter](framework/ENG-001-engineering-charter.md) | 1.0-draft | DRAFT | Responsibilities, delivery stages, work items, release practice |
 | ENG-002 | [Documentation System](framework/ENG-002-documentation-system.md) | 1.0-draft | DRAFT | Document ownership, lifecycle, metadata and evidence records |
 | LIQ-001 | [Project Profile](LIQ-001-project-profile.md) | 0.3-draft | DRAFT | Liquorify facts, proposed roles and delegation, proportionate review, Spree engineering and Product & Design reuse mapping, the default baseline, its exceptions and the adoption decisions |
-| LIQ-002 | [Documentation Inventory](LIQ-002-documentation-inventory.md) | 0.2-draft | DRAFT | Existing documentation in both repositories and the migration plan |
+| LIQ-002 | [Documentation Inventory](LIQ-002-documentation-inventory.md) | 0.3-draft | DRAFT | Existing documentation in both repositories and the migration plan |
 | LIQ-003 | [Engineering Baseline](LIQ-003-engineering-baseline.md) | 0.3-draft | DRAFT | The 172 capabilities measured against the current repositories, with evidence |
 | LIQ-004 | [Foundation Backlog](LIQ-004-foundation-backlog.md) | 0.3-draft | DRAFT | Prioritized foundation work, owner actions, the open isolation findings, the work item in progress and the next documentation item |
 | LIQ-005 | [Spree Engineering Adoption Record](LIQ-005-spree-engineering-adoption.md) | 0.2-draft | DRAFT | Each relevant Spree engineering mechanism, the capabilities it supports, and whether to reuse, adapt, replace or investigate it |
+
+## Verification records
+
+Records of what was run, on which revision, with its result and limitations ([ENG-002 §6](framework/ENG-002-documentation-system.md#verification-record)). Each record stays as written; a new run gets a new record.
+
+| Date | Record | Work item | Result |
+|---|---|---|---|
+| 2026-10-21 | [FB-02 pull request checks](verification/2026-10-21-fb-02-pull-request-checks.md) | FB-02 | BLOCKED: no workflow started on the pull request |
 
 ## Supplied framework sources
 
