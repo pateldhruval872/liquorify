@@ -16,7 +16,7 @@ This folder is the one canonical home for shared Liquorify engineering documenta
 - [`pateldhruval872/liquorify`](https://github.com/pateldhruval872/liquorify) (this repository, public): commerce backend, admin dashboard and shared packages.
 - [`pateldhruval872/liquorify-storefront`](https://github.com/pateldhruval872/liquorify-storefront) (private): the customer storefront. It points here and keeps only its own local rules.
 
-**Status.** On 2026-10-21 the owner adopted the three framework documents as the working process for Liquorify-owned work, with the project profile's exceptions (decision D1 in [LIQ-001 §7](LIQ-001-project-profile.md#7-decisions-needed-to-adopt-the-foundation)). Unresolved product and architecture decisions stay proposed, and the adoption marks no capability satisfied. Every document here still carries DRAFT status, because how acceptance is recorded is decision D5, which is open.
+**Status.** On 2026-10-21 the owner adopted the three framework documents as the working process for Liquorify-owned work, with the project profile's exceptions (decision D1 in [LIQ-001 §7](LIQ-001-project-profile.md#7-decisions-needed-to-adopt-the-foundation)). Unresolved product and architecture decisions stay proposed, and the adoption marks no capability satisfied. Every document here still carries DRAFT status, except the design system decision record LIQ-007, which is PROPOSED for the owner's decision. How acceptance is recorded is decision D5, which is open.
 
 ## Index
 
@@ -30,6 +30,8 @@ This folder is the one canonical home for shared Liquorify engineering documenta
 | LIQ-003 | [Engineering Baseline](LIQ-003-engineering-baseline.md) | 0.3-draft | DRAFT | The 172 capabilities measured against the current repositories, with evidence |
 | LIQ-004 | [Foundation Backlog](LIQ-004-foundation-backlog.md) | 0.3-draft | DRAFT | Prioritized foundation work, owner actions, the open isolation findings, the work item in progress and the next documentation item |
 | LIQ-005 | [Spree Engineering Adoption Record](LIQ-005-spree-engineering-adoption.md) | 0.2-draft | DRAFT | Each relevant Spree engineering mechanism, the capabilities it supports, and whether to reuse, adapt, replace or investigate it |
+| LIQ-006 | [Spree Product Capability Baseline](LIQ-006-product-capability-baseline.md) | 0.1-draft | DRAFT | What Spree already offers shoppers, store staff and operators, with a proposed disposition for each feature, and the Liquorify needs Spree does not cover |
+| LIQ-007 | [Design System Adoption and Extension](LIQ-007-design-system-adoption-and-extension.md) | 0.1 | PROPOSED | Decision record: how Liquorify adopts and extends Spree's design systems, and uses Figma, Storybook and Chromatic |
 
 ## Verification records
 

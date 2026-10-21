@@ -44,7 +44,7 @@ Risk classes follow [LIQ-001 §4](LIQ-001-project-profile.md#4-review-and-verifi
 | FB-03 | Validate option A: same-store controls, the tax task before-and-after control, PostgreSQL and SQLite runs, the wider surfaces chosen, and the shopper-ownership analysis, as defined at the end of the merchant lifecycle specification | B | Protected | A validation report with results per surface and database, accepted or rejected by the owner | Decisions N1 to N6 in the specification |
 | FB-04 | Verify one development path from a clean checkout to a local test order through the Liquorify storefront: choose Docker or native, settle Ruby and Node versions, list destructive commands, make a payment method visible, confirm the Mac's `liquor` remotes are the renamed repositories | B, S | Standard | A short setup guide (migration step M4) whose steps were run once, with the evidence recorded | FB-01 |
 | FB-05 | Point the setup scripts at the Liquorify repositories (they clone upstream `spree/storefront` and `spree/spree-starter`) and decide where the tracked host application and its Ruby lockfile live | B | Standard | A fresh setup uses `liquorify-storefront`; the host application and lockfile are tracked or their home is decided | Hosting direction |
-| FB-18 | **Prepare the Spree product capability baseline and the Design System Adoption and Extension decision record** (the next documentation item, below; tracked, not started) | B | Standard. The decision record stays PROPOSED until the owner decides, and any CI, account or service change it leads to is Protected | Both documents are in `liquorify/` and reviewed by the owner | The owner's instruction to start |
+| FB-18 | **Prepare the Spree product capability baseline and the Design System Adoption and Extension decision record** (the documentation item below; in progress since 2026-10-21) | B | Standard. The decision record stays PROPOSED until the owner decides, and any CI, account or service change it leads to is Protected | Both documents are in `liquorify/` and reviewed by the owner | The owner's instruction to start (given 2026-10-21) |
 
 ### P1: soon after
 
@@ -63,10 +63,12 @@ Risk classes follow [LIQ-001 §4](LIQ-001-project-profile.md#4-review-and-verifi
 | # | Task | Activated by |
 |---|---|---|
 | FB-13 | Move the merchant lifecycle specification into `liquorify/` (migration step M3) | D7, D8 |
-| FB-14 | Decide the branding approach across `@spree/dashboard-ui` and the storefront's own components | First Liquorify screen |
-| FB-15 | Set an accessibility target and add automated accessibility checks | First Liquorify screen |
+| FB-14 | Decide the branding approach across `@spree/dashboard-ui` and the storefront's own components, and apply it. LIQ-007 proposes one set of brand values mapped onto each system's tokens; whose brand appears where is open | First Liquorify screen; the storefront hosting decision |
+| FB-15 | Set an accessibility target and add automated accessibility checks. LIQ-007 proposes WCAG 2.2 level AA, with checks in Storybook as a first, advisory signal | First Liquorify screen |
 | FB-16 | Hosting, staging environment, secrets storage, backups, monitoring and runbooks | Hosting decision; required before any real merchant data |
 | FB-17 | Link, metadata and capability-ID checks for `liquorify/` only | Documentation drift actually appears |
+| FB-19 | Set up Storybook in the backend workspace and in the storefront, and a Chromatic project for each with an advisory CI step and its project token secret. Protected: it adds dependencies, CI steps, an account and secrets | LIQ-007 accepted, the owner's instruction, and the first Liquorify component |
+| FB-20 | Set up the Figma team and the Liquorify brand values, as Figma variables and a tracked token file. Protected where it adds accounts or paid seats | LIQ-007 accepted, the owner's instruction, and branding work starting (FB-14) |
 
 ## Owner actions
 
@@ -150,8 +152,8 @@ Effects to expect:
 
 ## Next documentation work item
 
-**FB-18: the Spree product capability baseline and the Design System Adoption and Extension decision record.** Tracked on 2026-10-21 at the owner's request; not started.
+**FB-18: the Spree product capability baseline and the Design System Adoption and Extension decision record.** Tracked on 2026-10-21 at the owner's request, and started the same day at the owner's instruction, as a documentation-only pull request. The drafts are [LIQ-006](LIQ-006-product-capability-baseline.md) (DRAFT) and [LIQ-007](LIQ-007-design-system-adoption-and-extension.md) (PROPOSED). It is done when the owner has reviewed both; accepting LIQ-007 is a separate decision.
 
 - **Product capability baseline.** What Spree already offers merchants, shoppers and operators, measured against the Product & Design capabilities in [SES-001](framework/SES-001.md#3-capability-catalog) and the merchant lifecycle specification, and recorded for each feature as reuse, extend, not needed or unknown. It describes what exists. Under the recorded instruction in [LIQ-001 §1](LIQ-001-project-profile.md#recorded-instructions-that-shape-engineering-work), no Spree feature becomes a requirement by being listed.
 - **Design System Adoption and Extension decision record.** How Liquorify adopts and extends `@spree/dashboard-ui` and the storefront's components ([LIQ-005](LIQ-005-spree-engineering-adoption.md) SA-24, SA-25), including tokens and branding (FB-14) and the accessibility target (FB-15). It also sets how Liquorify uses the tools the owner selected on 2026-10-21 ([LIQ-001 §1](LIQ-001-project-profile.md#recorded-instructions-that-shape-engineering-work)): Figma for design files, Storybook for component documentation, and Chromatic for visual review. For each tool it states the cost, the accounts and CI secrets it needs, and what it would expose. It stays PROPOSED until the owner accepts it.
-- **Relation to other items.** It prepares the decisions that FB-14 and FB-15 make when the first Liquorify screen activates them. Setting up the selected tools adds accounts, dependencies, CI steps and credentials, so that is a separate Protected item.
+- **Relation to other items.** It prepares the decisions that FB-14 and FB-15 make when the first Liquorify screen activates them. Setting up the selected tools adds accounts, dependencies, CI steps and credentials, so that is separate Protected work: FB-19 (Storybook and Chromatic) and FB-20 (Figma and the brand values).
