@@ -1,0 +1,2 @@
+:root:not(.dark) { --ring: oklch(0.5967 0.2212 262); }
+.dark.dark { --ring: oklch(0.68 0.19 262); }

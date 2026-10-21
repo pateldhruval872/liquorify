@@ -1,0 +1,1449 @@
+{
+ "unchanged-1": {
+  "images": 38,
+  "identical": 38,
+  "failing": {
+   "0.2/0": 0,
+   "0.01/0": 0,
+   "0.01/25": 0,
+   "0.005/0": 0,
+   "0.005/25": 0,
+   "0.02/25": 0
+  },
+  "largestCount": {
+   "0": 0,
+   "0.005": 0,
+   "0.01": 0,
+   "0.02": 0,
+   "0.2": 0
+  },
+  "differing": []
+ },
+ "unchanged-2": {
+  "images": 38,
+  "identical": 38,
+  "failing": {
+   "0.2/0": 0,
+   "0.01/0": 0,
+   "0.01/25": 0,
+   "0.005/0": 0,
+   "0.005/25": 0,
+   "0.02/25": 0
+  },
+  "largestCount": {
+   "0": 0,
+   "0.005": 0,
+   "0.01": 0,
+   "0.02": 0,
+   "0.2": 0
+  },
+  "differing": []
+ },
+ "unchanged-3": {
+  "images": 38,
+  "identical": 38,
+  "failing": {
+   "0.2/0": 0,
+   "0.01/0": 0,
+   "0.01/25": 0,
+   "0.005/0": 0,
+   "0.005/25": 0,
+   "0.02/25": 0
+  },
+  "largestCount": {
+   "0": 0,
+   "0.005": 0,
+   "0.01": 0,
+   "0.02": 0,
+   "0.2": 0
+  },
+  "differing": []
+ },
+ "s1-background-stone50": {
+  "images": 38,
+  "identical": 0,
+  "failing": {
+   "0.2/0": 2,
+   "0.01/0": 38,
+   "0.01/25": 38,
+   "0.005/0": 38,
+   "0.005/25": 38,
+   "0.02/25": 2
+  },
+  "largestCount": {
+   "0": 2128300,
+   "0.005": 2116015,
+   "0.01": 2097099,
+   "0.02": 500,
+   "0.2": 367
+  },
+  "differing": [
+   {
+    "image": "storefront-cart-cart-drawer--empty/desktop.png",
+    "counts": {
+     "0": 1075405,
+     "0.005": 1075359,
+     "0.01": 1075312,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-cart-cart-drawer--empty/mobile.png",
+    "counts": {
+     "0": 325149,
+     "0.005": 325103,
+     "0.01": 325056,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-cart-cart-drawer--loading/desktop.png",
+    "counts": {
+     "0": 1046974,
+     "0.005": 1046954,
+     "0.01": 1046931,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-cart-cart-drawer--loading/mobile.png",
+    "counts": {
+     "0": 299022,
+     "0.005": 299002,
+     "0.01": 298979,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-cart-cart-drawer--with-items/desktop.png",
+    "counts": {
+     "0": 1031895,
+     "0.005": 1031657,
+     "0.01": 1031463,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-cart-cart-drawer--with-items/mobile.png",
+    "counts": {
+     "0": 284655,
+     "0.005": 284417,
+     "0.01": 284223,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-home-hero-section--default/desktop.png",
+    "counts": {
+     "0": 519631,
+     "0.005": 517719,
+     "0.01": 516690,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-home-hero-section--default/mobile.png",
+    "counts": {
+     "0": 301245,
+     "0.005": 299329,
+     "0.01": 298303,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-ui-button--default/desktop.png",
+    "counts": {
+     "0": 50904,
+     "0.005": 50904,
+     "0.01": 50904,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-ui-button--default/mobile.png",
+    "counts": {
+     "0": 11744,
+     "0.005": 11744,
+     "0.01": 11744,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-ui-button--destructive/desktop.png",
+    "counts": {
+     "0": 54698,
+     "0.005": 54619,
+     "0.01": 54573,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-ui-button--destructive/mobile.png",
+    "counts": {
+     "0": 15538,
+     "0.005": 15459,
+     "0.01": 15413,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-ui-button--disabled/desktop.png",
+    "counts": {
+     "0": 54598,
+     "0.005": 54598,
+     "0.01": 54465,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-ui-button--disabled/mobile.png",
+    "counts": {
+     "0": 15438,
+     "0.005": 15438,
+     "0.01": 15305,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-ui-button--focus-visible/desktop.png",
+    "counts": {
+     "0": 50637,
+     "0.005": 50603,
+     "0.01": 50589,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-ui-button--focus-visible/mobile.png",
+    "counts": {
+     "0": 11477,
+     "0.005": 11443,
+     "0.01": 11429,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-ui-button--ghost/desktop.png",
+    "counts": {
+     "0": 54593,
+     "0.005": 54508,
+     "0.01": 54478,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-ui-button--ghost/mobile.png",
+    "counts": {
+     "0": 15433,
+     "0.005": 15348,
+     "0.01": 15318,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-ui-button--link/desktop.png",
+    "counts": {
+     "0": 54691,
+     "0.005": 54619,
+     "0.01": 54562,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-ui-button--link/mobile.png",
+    "counts": {
+     "0": 15531,
+     "0.005": 15459,
+     "0.01": 15402,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-ui-button--outline/desktop.png",
+    "counts": {
+     "0": 54303,
+     "0.005": 54213,
+     "0.01": 54174,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-ui-button--outline/mobile.png",
+    "counts": {
+     "0": 15143,
+     "0.005": 15053,
+     "0.01": 15014,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-ui-button--secondary/desktop.png",
+    "counts": {
+     "0": 50910,
+     "0.005": 50910,
+     "0.01": 50910,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-ui-button--secondary/mobile.png",
+    "counts": {
+     "0": 11750,
+     "0.005": 11750,
+     "0.01": 11750,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-ui-button--sizes/desktop.png",
+    "counts": {
+     "0": 53128,
+     "0.005": 53128,
+     "0.01": 53128,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-ui-button--sizes/mobile.png",
+    "counts": {
+     "0": 26896,
+     "0.005": 26896,
+     "0.01": 26896,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-ui-button--with-icon/desktop.png",
+    "counts": {
+     "0": 50064,
+     "0.005": 50064,
+     "0.01": 50064,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-ui-button--with-icon/mobile.png",
+    "counts": {
+     "0": 10904,
+     "0.005": 10904,
+     "0.01": 10904,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-ui-toaster--error-toast/desktop-system-dark.png",
+    "counts": {
+     "0": 1060680,
+     "0.005": 1060672,
+     "0.01": 1060664,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-ui-toaster--error-toast/desktop.png",
+    "counts": {
+     "0": 1060680,
+     "0.005": 1060672,
+     "0.01": 1060664,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-ui-toaster--error-toast/mobile.png",
+    "counts": {
+     "0": 309410,
+     "0.005": 309402,
+     "0.01": 309394,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-ui-toaster--success/desktop-system-dark.png",
+    "counts": {
+     "0": 1060680,
+     "0.005": 1060672,
+     "0.01": 1060664,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-ui-toaster--success/desktop.png",
+    "counts": {
+     "0": 1060680,
+     "0.005": 1060672,
+     "0.01": 1060664,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-ui-toaster--success/mobile.png",
+    "counts": {
+     "0": 309410,
+     "0.005": 309402,
+     "0.01": 309394,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "tokens-storefront--colour-utility-aliases/desktop.png",
+    "counts": {
+     "0": 1514808,
+     "0.005": 1506804,
+     "0.01": 1495225,
+     "0.02": 500,
+     "0.2": 367
+    }
+   },
+   {
+    "image": "tokens-storefront--semantic-tokens/desktop.png",
+    "counts": {
+     "0": 1830833,
+     "0.005": 1820282,
+     "0.01": 1804269,
+     "0.02": 467,
+     "0.2": 351
+    }
+   },
+   {
+    "image": "tokens-storefront--tailwind-palette/desktop.png",
+    "counts": {
+     "0": 2128300,
+     "0.005": 2116015,
+     "0.01": 2097099,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "tokens-storefront--theme-entries/desktop.png",
+    "counts": {
+     "0": 1615555,
+     "0.005": 1606370,
+     "0.01": 1593857,
+     "0.02": 0,
+     "0.2": 0
+    }
+   }
+  ]
+ },
+ "s2-background": {
+  "images": 38,
+  "identical": 0,
+  "failing": {
+   "0.2/0": 2,
+   "0.01/0": 38,
+   "0.01/25": 38,
+   "0.005/0": 38,
+   "0.005/25": 38,
+   "0.02/25": 2
+  },
+  "largestCount": {
+   "0": 2126964,
+   "0.005": 2103339,
+   "0.01": 2080675,
+   "0.02": 340,
+   "0.2": 253
+  },
+  "differing": [
+   {
+    "image": "storefront-cart-cart-drawer--empty/desktop.png",
+    "counts": {
+     "0": 1075378,
+     "0.005": 1075314,
+     "0.01": 1075257,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-cart-cart-drawer--empty/mobile.png",
+    "counts": {
+     "0": 325122,
+     "0.005": 325058,
+     "0.01": 325001,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-cart-cart-drawer--loading/desktop.png",
+    "counts": {
+     "0": 1046964,
+     "0.005": 1046933,
+     "0.01": 1046926,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-cart-cart-drawer--loading/mobile.png",
+    "counts": {
+     "0": 299012,
+     "0.005": 298981,
+     "0.01": 298974,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-cart-cart-drawer--with-items/desktop.png",
+    "counts": {
+     "0": 1031733,
+     "0.005": 1031466,
+     "0.01": 1031227,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-cart-cart-drawer--with-items/mobile.png",
+    "counts": {
+     "0": 284493,
+     "0.005": 284226,
+     "0.01": 283987,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-home-hero-section--default/desktop.png",
+    "counts": {
+     "0": 519333,
+     "0.005": 517128,
+     "0.01": 515485,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-home-hero-section--default/mobile.png",
+    "counts": {
+     "0": 300947,
+     "0.005": 298741,
+     "0.01": 297135,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-ui-button--default/desktop.png",
+    "counts": {
+     "0": 50904,
+     "0.005": 50904,
+     "0.01": 50904,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-ui-button--default/mobile.png",
+    "counts": {
+     "0": 11744,
+     "0.005": 11744,
+     "0.01": 11744,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-ui-button--destructive/desktop.png",
+    "counts": {
+     "0": 54654,
+     "0.005": 54587,
+     "0.01": 54516,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-ui-button--destructive/mobile.png",
+    "counts": {
+     "0": 15494,
+     "0.005": 15427,
+     "0.01": 15356,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-ui-button--disabled/desktop.png",
+    "counts": {
+     "0": 54598,
+     "0.005": 54572,
+     "0.01": 50904,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-ui-button--disabled/mobile.png",
+    "counts": {
+     "0": 15438,
+     "0.005": 15412,
+     "0.01": 11744,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-ui-button--focus-visible/desktop.png",
+    "counts": {
+     "0": 50625,
+     "0.005": 50593,
+     "0.01": 50588,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-ui-button--focus-visible/mobile.png",
+    "counts": {
+     "0": 11465,
+     "0.005": 11433,
+     "0.01": 11428,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-ui-button--ghost/desktop.png",
+    "counts": {
+     "0": 54563,
+     "0.005": 54497,
+     "0.01": 54440,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-ui-button--ghost/mobile.png",
+    "counts": {
+     "0": 15403,
+     "0.005": 15337,
+     "0.01": 15280,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-ui-button--link/desktop.png",
+    "counts": {
+     "0": 54685,
+     "0.005": 54585,
+     "0.01": 54529,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-ui-button--link/mobile.png",
+    "counts": {
+     "0": 15525,
+     "0.005": 15425,
+     "0.01": 15369,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-ui-button--outline/desktop.png",
+    "counts": {
+     "0": 54272,
+     "0.005": 54194,
+     "0.01": 54136,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-ui-button--outline/mobile.png",
+    "counts": {
+     "0": 15112,
+     "0.005": 15034,
+     "0.01": 14976,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-ui-button--secondary/desktop.png",
+    "counts": {
+     "0": 50910,
+     "0.005": 50910,
+     "0.01": 50904,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-ui-button--secondary/mobile.png",
+    "counts": {
+     "0": 11750,
+     "0.005": 11750,
+     "0.01": 11744,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-ui-button--sizes/desktop.png",
+    "counts": {
+     "0": 53128,
+     "0.005": 53128,
+     "0.01": 53128,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-ui-button--sizes/mobile.png",
+    "counts": {
+     "0": 26896,
+     "0.005": 26896,
+     "0.01": 26896,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-ui-button--with-icon/desktop.png",
+    "counts": {
+     "0": 50064,
+     "0.005": 50064,
+     "0.01": 50064,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-ui-button--with-icon/mobile.png",
+    "counts": {
+     "0": 10904,
+     "0.005": 10904,
+     "0.01": 10904,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-ui-toaster--error-toast/desktop-system-dark.png",
+    "counts": {
+     "0": 1060672,
+     "0.005": 1060664,
+     "0.01": 1060659,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-ui-toaster--error-toast/desktop.png",
+    "counts": {
+     "0": 1060672,
+     "0.005": 1060664,
+     "0.01": 1060659,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-ui-toaster--error-toast/mobile.png",
+    "counts": {
+     "0": 309402,
+     "0.005": 309394,
+     "0.01": 309389,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-ui-toaster--success/desktop-system-dark.png",
+    "counts": {
+     "0": 1060672,
+     "0.005": 1060664,
+     "0.01": 1060659,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-ui-toaster--success/desktop.png",
+    "counts": {
+     "0": 1060672,
+     "0.005": 1060664,
+     "0.01": 1060659,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-ui-toaster--success/mobile.png",
+    "counts": {
+     "0": 309402,
+     "0.005": 309394,
+     "0.01": 309389,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "tokens-storefront--colour-utility-aliases/desktop.png",
+    "counts": {
+     "0": 1514097,
+     "0.005": 1499510,
+     "0.01": 1485473,
+     "0.02": 334,
+     "0.2": 253
+    }
+   },
+   {
+    "image": "tokens-storefront--semantic-tokens/desktop.png",
+    "counts": {
+     "0": 1829834,
+     "0.005": 1809208,
+     "0.01": 1790070,
+     "0.02": 340,
+     "0.2": 247
+    }
+   },
+   {
+    "image": "tokens-storefront--tailwind-palette/desktop.png",
+    "counts": {
+     "0": 2126964,
+     "0.005": 2103339,
+     "0.01": 2080675,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "tokens-storefront--theme-entries/desktop.png",
+    "counts": {
+     "0": 1614601,
+     "0.005": 1598568,
+     "0.01": 1582330,
+     "0.02": 0,
+     "0.2": 0
+    }
+   }
+  ]
+ },
+ "s3-primary": {
+  "images": 38,
+  "identical": 18,
+  "failing": {
+   "0.2/0": 2,
+   "0.01/0": 18,
+   "0.01/25": 18,
+   "0.005/0": 20,
+   "0.005/25": 20,
+   "0.02/25": 2
+  },
+  "largestCount": {
+   "0": 20306,
+   "0.005": 20286,
+   "0.01": 20269,
+   "0.02": 43,
+   "0.2": 23
+  },
+  "differing": [
+   {
+    "image": "storefront-cart-cart-drawer--empty/desktop.png",
+    "counts": {
+     "0": 224,
+     "0.005": 219,
+     "0.01": 207,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-cart-cart-drawer--empty/mobile.png",
+    "counts": {
+     "0": 224,
+     "0.005": 219,
+     "0.01": 207,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-cart-cart-drawer--with-items/desktop.png",
+    "counts": {
+     "0": 20306,
+     "0.005": 20286,
+     "0.01": 20269,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-cart-cart-drawer--with-items/mobile.png",
+    "counts": {
+     "0": 17406,
+     "0.005": 17386,
+     "0.01": 17369,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-home-hero-section--default/desktop.png",
+    "counts": {
+     "0": 5139,
+     "0.005": 5015,
+     "0.01": 4944,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-home-hero-section--default/mobile.png",
+    "counts": {
+     "0": 5140,
+     "0.005": 5016,
+     "0.01": 4945,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-ui-button--default/desktop.png",
+    "counts": {
+     "0": 3674,
+     "0.005": 3562,
+     "0.01": 3503,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-ui-button--default/mobile.png",
+    "counts": {
+     "0": 3674,
+     "0.005": 3562,
+     "0.01": 3503,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-ui-button--disabled/desktop.png",
+    "counts": {
+     "0": 3648,
+     "0.005": 3502,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-ui-button--disabled/mobile.png",
+    "counts": {
+     "0": 3648,
+     "0.005": 3502,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-ui-button--focus-visible/desktop.png",
+    "counts": {
+     "0": 3708,
+     "0.005": 3587,
+     "0.01": 3522,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-ui-button--focus-visible/mobile.png",
+    "counts": {
+     "0": 3708,
+     "0.005": 3587,
+     "0.01": 3522,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-ui-button--link/desktop.png",
+    "counts": {
+     "0": 220,
+     "0.005": 185,
+     "0.01": 158,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-ui-button--link/mobile.png",
+    "counts": {
+     "0": 220,
+     "0.005": 185,
+     "0.01": 158,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-ui-button--sizes/desktop.png",
+    "counts": {
+     "0": 10722,
+     "0.005": 10536,
+     "0.01": 10338,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-ui-button--sizes/mobile.png",
+    "counts": {
+     "0": 10722,
+     "0.005": 10536,
+     "0.01": 10338,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-ui-button--with-icon/desktop.png",
+    "counts": {
+     "0": 4414,
+     "0.005": 4297,
+     "0.01": 4205,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-ui-button--with-icon/mobile.png",
+    "counts": {
+     "0": 4414,
+     "0.005": 4297,
+     "0.01": 4205,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "tokens-storefront--colour-utility-aliases/desktop.png",
+    "counts": {
+     "0": 44,
+     "0.005": 44,
+     "0.01": 43,
+     "0.02": 43,
+     "0.2": 23
+    }
+   },
+   {
+    "image": "tokens-storefront--semantic-tokens/desktop.png",
+    "counts": {
+     "0": 41,
+     "0.005": 41,
+     "0.01": 41,
+     "0.02": 39,
+     "0.2": 22
+    }
+   }
+  ]
+ },
+ "s4-border": {
+  "images": 38,
+  "identical": 18,
+  "failing": {
+   "0.2/0": 2,
+   "0.01/0": 20,
+   "0.01/25": 20,
+   "0.005/0": 20,
+   "0.005/25": 20,
+   "0.02/25": 0
+  },
+  "largestCount": {
+   "0": 55982,
+   "0.005": 55926,
+   "0.01": 55816,
+   "0.02": 20,
+   "0.2": 16
+  },
+  "differing": [
+   {
+    "image": "storefront-cart-cart-drawer--empty/desktop.png",
+    "counts": {
+     "0": 1291,
+     "0.005": 1291,
+     "0.01": 1291,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-cart-cart-drawer--empty/mobile.png",
+    "counts": {
+     "0": 1233,
+     "0.005": 1233,
+     "0.01": 1233,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-cart-cart-drawer--loading/desktop.png",
+    "counts": {
+     "0": 1291,
+     "0.005": 1291,
+     "0.01": 1291,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-cart-cart-drawer--loading/mobile.png",
+    "counts": {
+     "0": 1233,
+     "0.005": 1233,
+     "0.01": 1233,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-cart-cart-drawer--with-items/desktop.png",
+    "counts": {
+     "0": 1291,
+     "0.005": 1291,
+     "0.01": 1291,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-cart-cart-drawer--with-items/mobile.png",
+    "counts": {
+     "0": 1233,
+     "0.005": 1233,
+     "0.01": 1233,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-home-hero-section--default/desktop.png",
+    "counts": {
+     "0": 786,
+     "0.005": 786,
+     "0.01": 782,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-home-hero-section--default/mobile.png",
+    "counts": {
+     "0": 786,
+     "0.005": 786,
+     "0.01": 782,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-ui-button--outline/desktop.png",
+    "counts": {
+     "0": 240,
+     "0.005": 237,
+     "0.01": 228,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-ui-button--outline/mobile.png",
+    "counts": {
+     "0": 240,
+     "0.005": 237,
+     "0.01": 228,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-ui-toaster--error-toast/desktop-system-dark.png",
+    "counts": {
+     "0": 768,
+     "0.005": 760,
+     "0.01": 747,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-ui-toaster--error-toast/desktop.png",
+    "counts": {
+     "0": 768,
+     "0.005": 760,
+     "0.01": 747,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-ui-toaster--error-toast/mobile.png",
+    "counts": {
+     "0": 772,
+     "0.005": 764,
+     "0.01": 751,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-ui-toaster--success/desktop-system-dark.png",
+    "counts": {
+     "0": 768,
+     "0.005": 760,
+     "0.01": 747,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-ui-toaster--success/desktop.png",
+    "counts": {
+     "0": 768,
+     "0.005": 760,
+     "0.01": 747,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "storefront-ui-toaster--success/mobile.png",
+    "counts": {
+     "0": 772,
+     "0.005": 764,
+     "0.01": 751,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "tokens-storefront--colour-utility-aliases/desktop.png",
+    "counts": {
+     "0": 39681,
+     "0.005": 39631,
+     "0.01": 39545,
+     "0.02": 17,
+     "0.2": 15
+    }
+   },
+   {
+    "image": "tokens-storefront--semantic-tokens/desktop.png",
+    "counts": {
+     "0": 41746,
+     "0.005": 41662,
+     "0.01": 41502,
+     "0.02": 20,
+     "0.2": 16
+    }
+   },
+   {
+    "image": "tokens-storefront--tailwind-palette/desktop.png",
+    "counts": {
+     "0": 55982,
+     "0.005": 55926,
+     "0.01": 55816,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "tokens-storefront--theme-entries/desktop.png",
+    "counts": {
+     "0": 33852,
+     "0.005": 33840,
+     "0.01": 33826,
+     "0.02": 0,
+     "0.2": 0
+    }
+   }
+  ]
+ },
+ "s5-muted-text": {
+  "images": 38,
+  "identical": 34,
+  "failing": {
+   "0.2/0": 2,
+   "0.01/0": 4,
+   "0.01/25": 4,
+   "0.005/0": 4,
+   "0.005/25": 4,
+   "0.02/25": 2
+  },
+  "largestCount": {
+   "0": 26549,
+   "0.005": 19072,
+   "0.01": 4512,
+   "0.02": 30,
+   "0.2": 12
+  },
+  "differing": [
+   {
+    "image": "tokens-storefront--colour-utility-aliases/desktop.png",
+    "counts": {
+     "0": 14156,
+     "0.005": 10535,
+     "0.01": 3269,
+     "0.02": 29,
+     "0.2": 12
+    }
+   },
+   {
+    "image": "tokens-storefront--semantic-tokens/desktop.png",
+    "counts": {
+     "0": 26549,
+     "0.005": 19072,
+     "0.01": 4406,
+     "0.02": 30,
+     "0.2": 11
+    }
+   },
+   {
+    "image": "tokens-storefront--tailwind-palette/desktop.png",
+    "counts": {
+     "0": 24625,
+     "0.005": 18284,
+     "0.01": 4512,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "tokens-storefront--theme-entries/desktop.png",
+    "counts": {
+     "0": 16000,
+     "0.005": 11537,
+     "0.01": 3361,
+     "0.02": 0,
+     "0.2": 0
+    }
+   }
+  ]
+ },
+ "s6-ring": {
+  "images": 38,
+  "identical": 36,
+  "failing": {
+   "0.2/0": 2,
+   "0.01/0": 2,
+   "0.01/25": 2,
+   "0.005/0": 2,
+   "0.005/25": 2,
+   "0.02/25": 2
+  },
+  "largestCount": {
+   "0": 82,
+   "0.005": 82,
+   "0.01": 82,
+   "0.02": 78,
+   "0.2": 46
+  },
+  "differing": [
+   {
+    "image": "tokens-storefront--colour-utility-aliases/desktop.png",
+    "counts": {
+     "0": 81,
+     "0.005": 81,
+     "0.01": 81,
+     "0.02": 78,
+     "0.2": 46
+    }
+   },
+   {
+    "image": "tokens-storefront--semantic-tokens/desktop.png",
+    "counts": {
+     "0": 82,
+     "0.005": 82,
+     "0.01": 82,
+     "0.02": 77,
+     "0.2": 40
+    }
+   }
+  ]
+ },
+ "s7-accent": {
+  "images": 38,
+  "identical": 36,
+  "failing": {
+   "0.2/0": 2,
+   "0.01/0": 2,
+   "0.01/25": 2,
+   "0.005/0": 2,
+   "0.005/25": 2,
+   "0.02/25": 2
+  },
+  "largestCount": {
+   "0": 52,
+   "0.005": 52,
+   "0.01": 52,
+   "0.02": 51,
+   "0.2": 35
+  },
+  "differing": [
+   {
+    "image": "tokens-storefront--colour-utility-aliases/desktop.png",
+    "counts": {
+     "0": 52,
+     "0.005": 52,
+     "0.01": 52,
+     "0.02": 51,
+     "0.2": 35
+    }
+   },
+   {
+    "image": "tokens-storefront--semantic-tokens/desktop.png",
+    "counts": {
+     "0": 45,
+     "0.005": 45,
+     "0.01": 45,
+     "0.02": 45,
+     "0.2": 33
+    }
+   }
+  ]
+ }
+}
