@@ -154,6 +154,7 @@ What this does not show: that the state looks the same on a screen that has it, 
 | Backend | [39643218184](https://github.com/pateldhruval872/liquorify/actions/runs/39643218184), attempt 1 | `8e1974c` | Passed: 82 comparisons with the rewritten images |
 | Backend | [39643218184](https://github.com/pateldhruval872/liquorify/actions/runs/39643218184), attempt 2 | `8e1974c` | Cancelled by the workflow when `d0898ad` was pushed |
 | Backend | [39645496605](https://github.com/pateldhruval872/liquorify/actions/runs/39645496605), attempt 1 | `d0898ad` | Passed: the same 82 images; `d0898ad` changes only the comparison with running screens |
+| Backend | [39645496605](https://github.com/pateldhruval872/liquorify/actions/runs/39645496605), attempt 2 | `d0898ad` | Passed: the same revision run again, unchanged |
 | Storefront | [39644938071](https://github.com/pateldhruval872/liquorify-storefront/actions/runs/39644938071) | `68900a3` | Passed |
 | Storefront | [39645293426](https://github.com/pateldhruval872/liquorify-storefront/actions/runs/39645293426) | `d84dc61` | Passed |
 
