@@ -307,7 +307,7 @@ The owner decided the requirements on 2026-10-21 (Q10, in [LIQ-007 §4](LIQ-007-
 2. Opens the story on its own (`iframe.html?id=<story id>`), with the theme the mode sets.
 3. Waits until Storybook reports the story rendered, the fonts have loaded and no request is pending.
 4. Takes a screenshot of the story's root element, with animations stopped and the text caret hidden. A story of an open popup or dialog takes the whole viewport instead, because Base UI and Radix render popups outside the root.
-5. Compares it with the committed reference using Playwright's own comparison. It starts strict: Playwright's default colour tolerance per pixel, and no pixel allowed to differ beyond it. A looser setting needs a recorded reason.
+5. Compares it with the committed reference using Playwright's own comparison, with an explicit tolerance in both repositories: a pixel counts as different when its colour moves by more than a threshold of 0.005 (about 2 of 255 levels), and the test fails when more than 25 pixels count. Playwright's default threshold of 0.2 let a change of every story's background pass. The allowance covers a few dark-mode corners that differ between unchanged runs. The measurements are in the [tolerance record](verification/2026-10-21-fb-19-screenshot-tolerance.md), and a change to either number needs a new record of the same kind.
 
 Reference images live in `visual/__screenshots__/<story id>/<mode>.png`, beside the test.
 
@@ -329,7 +329,7 @@ CI never writes, accepts or commits a reference image. Its configuration makes a
 
   Fourteen days covers a pull request's review and keeps storage small. Both repositories are public, so these artifacts are public too, and they show only invented data.
 - **Security.** The workflow reads the repository and nothing else: no secrets, and actions pinned to full commit identifiers, as the backend's security audit workflow already does.
-- **Advisory.** The job fails visibly when a screenshot differs, but it is not a required check, so it does not block merging. It runs only for some paths, so it must stay advisory while it does (LIQ-007 §4). Making it required later is a Protected change to the rulesets.
+- **Advisory.** The job fails visibly when a screenshot differs, but it is not a required check, so it does not block merging. It runs only on pull requests that change some paths, so it must stay advisory while it does (LIQ-007 §4). It does not run when a pull request merges, so checking `main` after a merge means starting the workflow by hand on `main` (its `workflow_dispatch` trigger), in both repositories. Making it required later is a Protected change to the rulesets.
 
 ### 11.6 Cost and size
 
@@ -343,7 +343,7 @@ CI never writes, accepts or commits a reference image. Its configuration makes a
 
 1. **Before the pull request:** stories render; lint, type check and fixture tests pass; the token check and coverage report run.
 2. **In the pull request:** the Storybook workflow builds, reports coverage and compares screenshots. The batch's new reference images are committed in the pull request, and the owner reviews them there (§11.4).
-3. **Fidelity.** Each story is compared with the same component in its screen in the running dashboard or storefront, where a running instance at the pinned revisions is available (FB-04, or the dashboard's browser-test set-up); otherwise the comparison is NOT_RUN and recorded. A difference is a defect in the story, its providers or its mocks, never a reason to change the component.
+3. **Fidelity.** Each story is compared with the same component in its screen in the running dashboard or storefront, where a running instance at the pinned revisions is available (FB-04, or the dashboard's browser-test set-up); otherwise the comparison is NOT_RUN and recorded. A difference is a defect in the story, its providers or its mocks, never a reason to change the component. The comparison scripts are diagnostic: they collect side-by-side images and computed styles for review, and a successful run alone does not establish fidelity. The owner accepts fidelity by reviewing that evidence, which the verification record links with its inventory IDs and revisions.
 4. **A verification record** in `liquorify/verification/` lists what was built, the revision, the coverage report, the reference images added or changed, the comparison results, the results (PASS, FAIL, BLOCKED, NOT_RUN) and the limits.
 
 ### 12.2 When Liquorify takes a new Spree or storefront release (FB-12)

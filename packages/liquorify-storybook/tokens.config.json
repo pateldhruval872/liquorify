@@ -1,0 +1,24 @@
+{
+  "idList": "inventory/ids.json",
+  "outputs": [
+    {
+      "system": "dashboard",
+      "file": "tokens/dashboard.tokens.json",
+      "stylesheet": "../dashboard-ui/src/styles.css",
+      "source": "packages/dashboard-ui/src/styles.css",
+      "scan": [
+        "../dashboard-ui/src",
+        "../dashboard-core/src",
+        "../dashboard/src",
+        "../seller-dashboard/src"
+      ],
+      "paletteId": "TK-TW-D"
+    },
+    {
+      "system": "email",
+      "file": "tokens/email.tokens.json",
+      "ruby": "../../spree/core/app/models/spree/emails/branding.rb",
+      "source": "spree/core/app/models/spree/emails/branding.rb"
+    }
+  ]
+}

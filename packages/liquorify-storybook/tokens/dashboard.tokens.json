@@ -1,0 +1,4636 @@
+{
+  "Brand": {
+    "brand-blue": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0,
+          0.4668,
+          1
+        ],
+        "alpha": 1,
+        "hex": "#0077ff"
+      },
+      "$description": "TK-DUI-001 · packages/dashboard-ui/src/styles.css:69",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-001",
+          "source": "packages/dashboard-ui/src/styles.css:69",
+          "css": {
+            "light": "oklch(0.5967 0.2212 258)"
+          },
+          "form": "oklch",
+          "clippedToSrgb": 0.0025
+        }
+      }
+    },
+    "brand-blue-strong": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0,
+          0.3766,
+          0.8077
+        ],
+        "alpha": 1,
+        "hex": "#0060ce"
+      },
+      "$description": "TK-DUI-002 · packages/dashboard-ui/src/styles.css:70",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-002",
+          "source": "packages/dashboard-ui/src/styles.css:70",
+          "css": {
+            "light": "oklch(0.5106 0.1868 257.7)"
+          },
+          "form": "oklch",
+          "clippedToSrgb": 0.0013
+        }
+      }
+    }
+  },
+  "Link": {
+    "link": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0,
+          0.3766,
+          0.8077
+        ],
+        "alpha": 1,
+        "hex": "#0060ce"
+      },
+      "$description": "TK-DUI-003 · packages/dashboard-ui/src/styles.css:74",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-003",
+          "source": "packages/dashboard-ui/src/styles.css:74",
+          "css": {
+            "light": "oklch(0.5106 0.1868 257.7)",
+            "dark": "oklch(0.7 0.16 258)"
+          },
+          "form": "oklch",
+          "modes": {
+            "dark": {
+              "colorSpace": "srgb",
+              "components": [
+                0.3577,
+                0.6194,
+                1
+              ],
+              "alpha": 1,
+              "hex": "#5b9eff"
+            }
+          },
+          "clippedToSrgb": 0.0013,
+          "clippedToSrgbDark": 0.0041
+        }
+      }
+    },
+    "link-hover": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.0037,
+          0.3038,
+          0.6593
+        ],
+        "alpha": 1,
+        "hex": "#014da8"
+      },
+      "$description": "TK-DUI-004 · packages/dashboard-ui/src/styles.css:75",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-004",
+          "source": "packages/dashboard-ui/src/styles.css:75",
+          "css": {
+            "light": "oklch(0.44 0.16 257.7)",
+            "dark": "oklch(0.78 0.14 258)"
+          },
+          "form": "oklch",
+          "modes": {
+            "dark": {
+              "colorSpace": "srgb",
+              "components": [
+                0.4919,
+                0.7236,
+                1
+              ],
+              "alpha": 1,
+              "hex": "#7db9ff"
+            }
+          },
+          "clippedToSrgbDark": 0.0662
+        }
+      }
+    }
+  },
+  "Surface": {
+    "background": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.9805,
+          0.9805,
+          0.9776
+        ],
+        "alpha": 1,
+        "hex": "#fafaf9"
+      },
+      "$description": "TK-DUI-005 · packages/dashboard-ui/src/styles.css:77",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-005",
+          "source": "packages/dashboard-ui/src/styles.css:77",
+          "css": {
+            "light": "oklch(98.5% 0.001 106.423)",
+            "dark": "oklch(17% 0 0)"
+          },
+          "form": "oklch",
+          "modes": {
+            "dark": {
+              "colorSpace": "srgb",
+              "components": [
+                0.0602,
+                0.0602,
+                0.0602
+              ],
+              "alpha": 1,
+              "hex": "#0f0f0f"
+            }
+          }
+        }
+      }
+    },
+    "foreground": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.047,
+          0.0394,
+          0.0355
+        ],
+        "alpha": 1,
+        "hex": "#0c0a09"
+      },
+      "$description": "TK-DUI-006 · packages/dashboard-ui/src/styles.css:78",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-006",
+          "source": "packages/dashboard-ui/src/styles.css:78",
+          "css": {
+            "light": "oklch(14.7% 0.004 49.25)",
+            "dark": "oklch(95% 0 0)"
+          },
+          "form": "oklch",
+          "modes": {
+            "dark": {
+              "colorSpace": "srgb",
+              "components": [
+                0.9345,
+                0.9345,
+                0.9345
+              ],
+              "alpha": 1,
+              "hex": "#eeeeee"
+            }
+          }
+        }
+      }
+    },
+    "card": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          1,
+          1,
+          1
+        ],
+        "alpha": 1,
+        "hex": "#ffffff"
+      },
+      "$description": "TK-DUI-007 · packages/dashboard-ui/src/styles.css:79",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-007",
+          "source": "packages/dashboard-ui/src/styles.css:79",
+          "css": {
+            "light": "oklch(1 0 0)",
+            "dark": "oklch(21.6% 0 0)"
+          },
+          "form": "oklch",
+          "modes": {
+            "dark": {
+              "colorSpace": "srgb",
+              "components": [
+                0.1004,
+                0.1004,
+                0.1004
+              ],
+              "alpha": 1,
+              "hex": "#1a1a1a"
+            }
+          }
+        }
+      }
+    },
+    "card-foreground": {
+      "$type": "color",
+      "$value": "{Surface.foreground}",
+      "$description": "TK-DUI-008 · packages/dashboard-ui/src/styles.css:80",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-008",
+          "source": "packages/dashboard-ui/src/styles.css:80",
+          "css": {
+            "light": "var(--foreground)",
+            "dark": "var(--foreground)"
+          },
+          "form": "reference",
+          "modes": {
+            "dark": "{Surface.foreground}"
+          }
+        }
+      }
+    },
+    "popover": {
+      "$type": "color",
+      "$value": "{Surface.card}",
+      "$description": "TK-DUI-009 · packages/dashboard-ui/src/styles.css:81",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-009",
+          "source": "packages/dashboard-ui/src/styles.css:81",
+          "css": {
+            "light": "var(--card)",
+            "dark": "var(--card)"
+          },
+          "form": "reference",
+          "modes": {
+            "dark": "{Surface.card}"
+          }
+        }
+      }
+    },
+    "popover-foreground": {
+      "$type": "color",
+      "$value": "{Surface.foreground}",
+      "$description": "TK-DUI-010 · packages/dashboard-ui/src/styles.css:82",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-010",
+          "source": "packages/dashboard-ui/src/styles.css:82",
+          "css": {
+            "light": "var(--foreground)",
+            "dark": "var(--foreground)"
+          },
+          "form": "reference",
+          "modes": {
+            "dark": "{Surface.foreground}"
+          }
+        }
+      }
+    },
+    "card-container": {
+      "$type": "color",
+      "$value": "{Surface.background}",
+      "$description": "TK-DUI-029 · packages/dashboard-ui/src/styles.css:201",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-029",
+          "source": "packages/dashboard-ui/src/styles.css:201",
+          "css": {
+            "light": "var(--background)",
+            "dark": "var(--background)"
+          },
+          "form": "reference",
+          "modes": {
+            "dark": "{Surface.background}"
+          }
+        }
+      }
+    },
+    "nested-raised": {
+      "$type": "color",
+      "$value": "{Surface.card}",
+      "$description": "TK-DUI-030 · packages/dashboard-ui/src/styles.css:203",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-030",
+          "source": "packages/dashboard-ui/src/styles.css:203",
+          "css": {
+            "light": "var(--card)",
+            "dark": "oklch(25% 0 0)"
+          },
+          "form": "reference",
+          "modes": {
+            "dark": {
+              "colorSpace": "srgb",
+              "components": [
+                0.1315,
+                0.1315,
+                0.1315
+              ],
+              "alpha": 1,
+              "hex": "#222222"
+            }
+          }
+        }
+      }
+    },
+    "track-recessed": {
+      "$type": "color",
+      "$value": "{Accent.accent}",
+      "$description": "TK-DUI-031 · packages/dashboard-ui/src/styles.css:208",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-031",
+          "source": "packages/dashboard-ui/src/styles.css:208",
+          "css": {
+            "light": "var(--accent)",
+            "dark": "var(--muted)"
+          },
+          "form": "reference",
+          "modes": {
+            "dark": "{Muted.muted}"
+          }
+        }
+      }
+    }
+  },
+  "Primary": {
+    "primary": {
+      "$type": "color",
+      "$value": "{Surface.foreground}",
+      "$description": "TK-DUI-011 · packages/dashboard-ui/src/styles.css:83",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-011",
+          "source": "packages/dashboard-ui/src/styles.css:83",
+          "css": {
+            "light": "var(--foreground)",
+            "dark": "var(--foreground)"
+          },
+          "form": "reference",
+          "modes": {
+            "dark": "{Surface.foreground}"
+          }
+        }
+      }
+    },
+    "primary-foreground": {
+      "$type": "color",
+      "$value": "{Surface.card}",
+      "$description": "TK-DUI-012 · packages/dashboard-ui/src/styles.css:84",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-012",
+          "source": "packages/dashboard-ui/src/styles.css:84",
+          "css": {
+            "light": "var(--card)",
+            "dark": "oklch(14.7% 0 0)"
+          },
+          "form": "reference",
+          "modes": {
+            "dark": {
+              "colorSpace": "srgb",
+              "components": [
+                0.041,
+                0.041,
+                0.041
+              ],
+              "alpha": 1,
+              "hex": "#0a0a0a"
+            }
+          }
+        }
+      }
+    }
+  },
+  "Secondary": {
+    "secondary": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.9609,
+          0.9609,
+          0.9579
+        ],
+        "alpha": 1,
+        "hex": "#f5f5f4"
+      },
+      "$description": "TK-DUI-013 · packages/dashboard-ui/src/styles.css:87",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-013",
+          "source": "packages/dashboard-ui/src/styles.css:87",
+          "css": {
+            "light": "oklch(97% 0.001 106.424)",
+            "dark": "oklch(25% 0 0)"
+          },
+          "form": "oklch",
+          "modes": {
+            "dark": {
+              "colorSpace": "srgb",
+              "components": [
+                0.1315,
+                0.1315,
+                0.1315
+              ],
+              "alpha": 1,
+              "hex": "#222222"
+            }
+          }
+        }
+      }
+    },
+    "secondary-foreground": {
+      "$type": "color",
+      "$value": "{Surface.foreground}",
+      "$description": "TK-DUI-014 · packages/dashboard-ui/src/styles.css:88",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-014",
+          "source": "packages/dashboard-ui/src/styles.css:88",
+          "css": {
+            "light": "var(--foreground)",
+            "dark": "var(--foreground)"
+          },
+          "form": "reference",
+          "modes": {
+            "dark": "{Surface.foreground}"
+          }
+        }
+      }
+    }
+  },
+  "Muted": {
+    "muted": {
+      "$type": "color",
+      "$value": "{Surface.background}",
+      "$description": "TK-DUI-015 · packages/dashboard-ui/src/styles.css:89",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-015",
+          "source": "packages/dashboard-ui/src/styles.css:89",
+          "css": {
+            "light": "var(--background)",
+            "dark": "oklch(17% 0 0)"
+          },
+          "form": "reference",
+          "modes": {
+            "dark": {
+              "colorSpace": "srgb",
+              "components": [
+                0.0602,
+                0.0602,
+                0.0602
+              ],
+              "alpha": 1,
+              "hex": "#0f0f0f"
+            }
+          }
+        }
+      }
+    },
+    "muted-foreground": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.4516,
+          0.4218,
+          0.4005
+        ],
+        "alpha": 1,
+        "hex": "#736c66"
+      },
+      "$description": "TK-DUI-016 · packages/dashboard-ui/src/styles.css:94",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-016",
+          "source": "packages/dashboard-ui/src/styles.css:94",
+          "css": {
+            "light": "oklch(0.535 0.0127 58.071)",
+            "dark": "oklch(70.9% 0 0)"
+          },
+          "form": "oklch",
+          "modes": {
+            "dark": {
+              "colorSpace": "srgb",
+              "components": [
+                0.6314,
+                0.6314,
+                0.6314
+              ],
+              "alpha": 1,
+              "hex": "#a1a1a1"
+            }
+          }
+        }
+      }
+    }
+  },
+  "Accent": {
+    "accent": {
+      "$type": "color",
+      "$value": "{Secondary.secondary}",
+      "$description": "TK-DUI-017 · packages/dashboard-ui/src/styles.css:103",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-017",
+          "source": "packages/dashboard-ui/src/styles.css:103",
+          "css": {
+            "light": "var(--secondary)",
+            "dark": "oklch(29.5% 0 0)"
+          },
+          "form": "reference",
+          "modes": {
+            "dark": {
+              "colorSpace": "srgb",
+              "components": [
+                0.1744,
+                0.1744,
+                0.1744
+              ],
+              "alpha": 1,
+              "hex": "#2c2c2c"
+            }
+          }
+        }
+      }
+    },
+    "accent-foreground": {
+      "$type": "color",
+      "$value": "{Surface.foreground}",
+      "$description": "TK-DUI-018 · packages/dashboard-ui/src/styles.css:104",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-018",
+          "source": "packages/dashboard-ui/src/styles.css:104",
+          "css": {
+            "light": "var(--foreground)",
+            "dark": "var(--foreground)"
+          },
+          "form": "reference",
+          "modes": {
+            "dark": "{Surface.foreground}"
+          }
+        }
+      }
+    },
+    "accent-strong": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.9351,
+          0.9295,
+          0.9258
+        ],
+        "alpha": 1,
+        "hex": "#eeedec"
+      },
+      "$description": "TK-DUI-019 · packages/dashboard-ui/src/styles.css:120",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-019",
+          "source": "packages/dashboard-ui/src/styles.css:120",
+          "css": {
+            "light": "oklch(94.7% 0.002 56)",
+            "dark": "oklch(38% 0 0)"
+          },
+          "form": "oklch",
+          "modes": {
+            "dark": {
+              "colorSpace": "srgb",
+              "components": [
+                0.2598,
+                0.2598,
+                0.2598
+              ],
+              "alpha": 1,
+              "hex": "#424242"
+            }
+          }
+        }
+      }
+    },
+    "accent-hover": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.9508,
+          0.9451,
+          0.9414
+        ],
+        "alpha": 1,
+        "hex": "#f2f1f0"
+      },
+      "$description": "TK-DUI-020 · packages/dashboard-ui/src/styles.css:128",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-020",
+          "source": "packages/dashboard-ui/src/styles.css:128",
+          "css": {
+            "light": "oklch(95.9% 0.002 56)",
+            "dark": "oklch(33% 0 0)"
+          },
+          "form": "oklch",
+          "modes": {
+            "dark": {
+              "colorSpace": "srgb",
+              "components": [
+                0.2089,
+                0.2089,
+                0.2089
+              ],
+              "alpha": 1,
+              "hex": "#353535"
+            }
+          }
+        }
+      }
+    },
+    "accent-strong-hover": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.9067,
+          0.8975,
+          0.8929
+        ],
+        "alpha": 1,
+        "hex": "#e7e5e4"
+      },
+      "$description": "TK-DUI-021 · packages/dashboard-ui/src/styles.css:133",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-021",
+          "source": "packages/dashboard-ui/src/styles.css:133",
+          "css": {
+            "light": "oklch(92.3% 0.003 48.717)",
+            "dark": "oklch(44.4% 0 0)"
+          },
+          "form": "oklch",
+          "modes": {
+            "dark": {
+              "colorSpace": "srgb",
+              "components": [
+                0.3274,
+                0.3274,
+                0.3274
+              ],
+              "alpha": 1,
+              "hex": "#535353"
+            }
+          }
+        }
+      }
+    }
+  },
+  "Destructive": {
+    "destructive": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.8742,
+          0.1327,
+          0.1467
+        ],
+        "alpha": 1,
+        "hex": "#df2225"
+      },
+      "$description": "TK-DUI-022 · packages/dashboard-ui/src/styles.css:134",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-022",
+          "source": "packages/dashboard-ui/src/styles.css:134",
+          "css": {
+            "light": "oklch(0.58 0.22 27)",
+            "dark": "oklch(0.704 0.191 22.216)"
+          },
+          "form": "oklch",
+          "modes": {
+            "dark": {
+              "colorSpace": "srgb",
+              "components": [
+                1,
+                0.3912,
+                0.4039
+              ],
+              "alpha": 1,
+              "hex": "#ff6467"
+            }
+          },
+          "clippedToSrgbDark": 0.0056
+        }
+      }
+    },
+    "destructive-foreground": {
+      "$type": "color",
+      "$value": "{Surface.card}",
+      "$description": "TK-DUI-023 · packages/dashboard-ui/src/styles.css:135",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-023",
+          "source": "packages/dashboard-ui/src/styles.css:135",
+          "css": {
+            "light": "var(--card)"
+          },
+          "form": "reference"
+        }
+      }
+    }
+  },
+  "Border": {
+    "border-base": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.9067,
+          0.8975,
+          0.8929
+        ],
+        "alpha": 1,
+        "hex": "#e7e5e4"
+      },
+      "$description": "TK-DUI-024 · packages/dashboard-ui/src/styles.css:143",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-024",
+          "source": "packages/dashboard-ui/src/styles.css:143",
+          "css": {
+            "light": "oklch(92.3% 0.003 48.717)",
+            "dark": "oklch(1 0 0 / 16%)"
+          },
+          "form": "oklch",
+          "modes": {
+            "dark": {
+              "colorSpace": "srgb",
+              "components": [
+                1,
+                1,
+                1
+              ],
+              "alpha": 0.16,
+              "hex": "#ffffff29"
+            }
+          }
+        }
+      }
+    },
+    "border": {
+      "$type": "color",
+      "$value": "{Border.border-base}",
+      "$description": "TK-DUI-025 · packages/dashboard-ui/src/styles.css:151",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-025",
+          "source": "packages/dashboard-ui/src/styles.css:151",
+          "css": {
+            "light": "var(--border-base)",
+            "dark": "var(--border-base)"
+          },
+          "form": "reference",
+          "modes": {
+            "dark": "{Border.border-base}"
+          }
+        }
+      }
+    },
+    "border-card": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.9067,
+          0.8975,
+          0.8929
+        ],
+        "alpha": 0.7,
+        "hex": "#e7e5e4b3"
+      },
+      "$description": "TK-DUI-026 · packages/dashboard-ui/src/styles.css:156",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-026",
+          "source": "packages/dashboard-ui/src/styles.css:156",
+          "css": {
+            "light": "color-mix(in srgb, var(--border-base) 70%, transparent)",
+            "dark": "color-mix(in srgb, var(--border-base) 70%, transparent)"
+          },
+          "form": "colour mix",
+          "modes": {
+            "dark": {
+              "colorSpace": "srgb",
+              "components": [
+                1,
+                1,
+                1
+              ],
+              "alpha": 0.112,
+              "hex": "#ffffff1d"
+            }
+          },
+          "derived": "color-mix(in srgb, var(--border-base) 70%, transparent)"
+        }
+      }
+    },
+    "border-subtle": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.9067,
+          0.8975,
+          0.8929
+        ],
+        "alpha": 0.5,
+        "hex": "#e7e5e480"
+      },
+      "$description": "TK-DUI-027 · packages/dashboard-ui/src/styles.css:167",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-027",
+          "source": "packages/dashboard-ui/src/styles.css:167",
+          "css": {
+            "light": "color-mix(in srgb, var(--border-base) 50%, transparent)",
+            "dark": "color-mix(in srgb, var(--border-base) 50%, transparent)"
+          },
+          "form": "colour mix",
+          "modes": {
+            "dark": {
+              "colorSpace": "srgb",
+              "components": [
+                1,
+                1,
+                1
+              ],
+              "alpha": 0.08,
+              "hex": "#ffffff14"
+            }
+          },
+          "derived": "color-mix(in srgb, var(--border-base) 50%, transparent)"
+        }
+      }
+    },
+    "border-control": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.8412,
+          0.8275,
+          0.8184
+        ],
+        "alpha": 1,
+        "hex": "#d6d3d1"
+      },
+      "$description": "TK-DUI-028 · packages/dashboard-ui/src/styles.css:182",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-028",
+          "source": "packages/dashboard-ui/src/styles.css:182",
+          "css": {
+            "light": "oklch(86.9% 0.005 56.366)",
+            "dark": "oklch(52% 0 0)"
+          },
+          "form": "oklch",
+          "modes": {
+            "dark": {
+              "colorSpace": "srgb",
+              "components": [
+                0.4109,
+                0.4109,
+                0.4109
+              ],
+              "alpha": 1,
+              "hex": "#696969"
+            }
+          }
+        }
+      }
+    }
+  },
+  "Control": {
+    "input": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.9067,
+          0.8975,
+          0.8929
+        ],
+        "alpha": 0.8,
+        "hex": "#e7e5e4cc"
+      },
+      "$description": "TK-DUI-032 · packages/dashboard-ui/src/styles.css:209",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-032",
+          "source": "packages/dashboard-ui/src/styles.css:209",
+          "css": {
+            "light": "color-mix(in srgb, var(--border-base) 80%, transparent)",
+            "dark": "color-mix(in srgb, var(--border-base) 80%, transparent)"
+          },
+          "form": "colour mix",
+          "modes": {
+            "dark": {
+              "colorSpace": "srgb",
+              "components": [
+                1,
+                1,
+                1
+              ],
+              "alpha": 0.128,
+              "hex": "#ffffff21"
+            }
+          },
+          "derived": "color-mix(in srgb, var(--border-base) 80%, transparent)"
+        }
+      }
+    }
+  },
+  "Focus": {
+    "ring": {
+      "$type": "color",
+      "$value": "{Brand.brand-blue}",
+      "$description": "TK-DUI-033 · packages/dashboard-ui/src/styles.css:210",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-033",
+          "source": "packages/dashboard-ui/src/styles.css:210",
+          "css": {
+            "light": "var(--brand-blue)",
+            "dark": "oklch(0.68 0.19 258)"
+          },
+          "form": "reference",
+          "modes": {
+            "dark": {
+              "colorSpace": "srgb",
+              "components": [
+                0.2676,
+                0.5861,
+                1
+              ],
+              "alpha": 1,
+              "hex": "#4495ff"
+            }
+          },
+          "clippedToSrgbDark": 0.0456
+        }
+      }
+    }
+  },
+  "Chart": {
+    "chart-1": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.515,
+          0.7151,
+          0.9646
+        ],
+        "alpha": 1,
+        "hex": "#83b6f6"
+      },
+      "$description": "TK-DUI-034 · packages/dashboard-ui/src/styles.css:211",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-034",
+          "source": "packages/dashboard-ui/src/styles.css:211",
+          "css": {
+            "light": "oklch(0.7663 0.1067 254.4)",
+            "dark": "oklch(0.809 0.105 251.813)"
+          },
+          "form": "oklch",
+          "modes": {
+            "dark": {
+              "colorSpace": "srgb",
+              "components": [
+                0.5566,
+                0.7732,
+                1
+              ],
+              "alpha": 1,
+              "hex": "#8ec5ff"
+            }
+          },
+          "clippedToSrgbDark": 0.0146
+        }
+      }
+    },
+    "chart-2": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0,
+          0.4668,
+          1
+        ],
+        "alpha": 1,
+        "hex": "#0077ff"
+      },
+      "$description": "TK-DUI-035 · packages/dashboard-ui/src/styles.css:212",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-035",
+          "source": "packages/dashboard-ui/src/styles.css:212",
+          "css": {
+            "light": "oklch(0.5967 0.2212 258)",
+            "dark": "oklch(0.623 0.214 259.815)"
+          },
+          "form": "oklch",
+          "modes": {
+            "dark": {
+              "colorSpace": "srgb",
+              "components": [
+                0.1693,
+                0.498,
+                1
+              ],
+              "alpha": 1,
+              "hex": "#2b7fff"
+            }
+          },
+          "clippedToSrgb": 0.0025,
+          "clippedToSrgbDark": 0.0228
+        }
+      }
+    },
+    "chart-3": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0,
+          0.3766,
+          0.8077
+        ],
+        "alpha": 1,
+        "hex": "#0060ce"
+      },
+      "$description": "TK-DUI-036 · packages/dashboard-ui/src/styles.css:213",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-036",
+          "source": "packages/dashboard-ui/src/styles.css:213",
+          "css": {
+            "light": "oklch(0.5106 0.1868 257.7)",
+            "dark": "oklch(0.546 0.245 262.881)"
+          },
+          "form": "oklch",
+          "modes": {
+            "dark": {
+              "colorSpace": "srgb",
+              "components": [
+                0.0836,
+                0.3644,
+                0.9863
+              ],
+              "alpha": 1,
+              "hex": "#155dfc"
+            }
+          },
+          "clippedToSrgb": 0.0013
+        }
+      }
+    },
+    "chart-4": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.0013,
+          0.2881,
+          0.6221
+        ],
+        "alpha": 1,
+        "hex": "#00499f"
+      },
+      "$description": "TK-DUI-037 · packages/dashboard-ui/src/styles.css:214",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-037",
+          "source": "packages/dashboard-ui/src/styles.css:214",
+          "css": {
+            "light": "oklch(0.4232 0.1524 257.4)",
+            "dark": "oklch(0.488 0.243 264.376)"
+          },
+          "form": "oklch",
+          "modes": {
+            "dark": {
+              "colorSpace": "srgb",
+              "components": [
+                0.0779,
+                0.2791,
+                0.9018
+              ],
+              "alpha": 1,
+              "hex": "#1447e6"
+            }
+          }
+        }
+      }
+    },
+    "chart-5": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.0048,
+          0.2036,
+          0.4463
+        ],
+        "alpha": 1,
+        "hex": "#013472"
+      },
+      "$description": "TK-DUI-038 · packages/dashboard-ui/src/styles.css:215",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-038",
+          "source": "packages/dashboard-ui/src/styles.css:215",
+          "css": {
+            "light": "oklch(0.3358 0.118 257.1)",
+            "dark": "oklch(0.424 0.199 265.638)"
+          },
+          "form": "oklch",
+          "modes": {
+            "dark": {
+              "colorSpace": "srgb",
+              "components": [
+                0.0998,
+                0.2338,
+                0.7229
+              ],
+              "alpha": 1,
+              "hex": "#193cb8"
+            }
+          }
+        }
+      }
+    }
+  },
+  "Radius": {
+    "radius": {
+      "$type": "dimension",
+      "$value": {
+        "value": 0.75,
+        "unit": "rem"
+      },
+      "$description": "TK-DUI-039 · packages/dashboard-ui/src/styles.css:216",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-039",
+          "source": "packages/dashboard-ui/src/styles.css:216",
+          "css": {
+            "light": "0.75rem"
+          },
+          "form": "length",
+          "pixels": 12
+        }
+      }
+    },
+    "radius-sm": {
+      "$type": "dimension",
+      "$value": {
+        "value": 0.4,
+        "unit": "rem"
+      },
+      "$description": "TK-DUI-T-17 · packages/dashboard-ui/src/styles.css:450",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-T-17",
+          "source": "packages/dashboard-ui/src/styles.css:450",
+          "css": {
+            "light": "0.4rem"
+          },
+          "form": "length",
+          "pixels": 6.4
+        }
+      }
+    },
+    "radius-md": {
+      "$type": "dimension",
+      "$value": {
+        "value": 0.5,
+        "unit": "rem"
+      },
+      "$description": "TK-DUI-T-18 · packages/dashboard-ui/src/styles.css:451",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-T-18",
+          "source": "packages/dashboard-ui/src/styles.css:451",
+          "css": {
+            "light": "0.5rem"
+          },
+          "form": "length",
+          "pixels": 8
+        }
+      }
+    },
+    "radius-lg": {
+      "$type": "dimension",
+      "$value": {
+        "value": 0.625,
+        "unit": "rem"
+      },
+      "$description": "TK-DUI-T-19 · packages/dashboard-ui/src/styles.css:452",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-T-19",
+          "source": "packages/dashboard-ui/src/styles.css:452",
+          "css": {
+            "light": "0.625rem"
+          },
+          "form": "length",
+          "pixels": 10
+        }
+      }
+    },
+    "radius-xl": {
+      "$type": "dimension",
+      "$value": {
+        "value": 0.875,
+        "unit": "rem"
+      },
+      "$description": "TK-DUI-T-20 · packages/dashboard-ui/src/styles.css:453",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-T-20",
+          "source": "packages/dashboard-ui/src/styles.css:453",
+          "css": {
+            "light": "0.875rem"
+          },
+          "form": "length",
+          "pixels": 14
+        }
+      }
+    },
+    "radius-2xl": {
+      "$type": "dimension",
+      "$value": {
+        "value": 1.125,
+        "unit": "rem"
+      },
+      "$description": "TK-DUI-T-21 · packages/dashboard-ui/src/styles.css:454",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-T-21",
+          "source": "packages/dashboard-ui/src/styles.css:454",
+          "css": {
+            "light": "1.125rem"
+          },
+          "form": "length",
+          "pixels": 18
+        }
+      }
+    }
+  },
+  "Sidebar": {
+    "sidebar": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.9609,
+          0.9609,
+          0.9579
+        ],
+        "alpha": 1,
+        "hex": "#f5f5f4"
+      },
+      "$description": "TK-DUI-040 · packages/dashboard-ui/src/styles.css:223",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-040",
+          "source": "packages/dashboard-ui/src/styles.css:223",
+          "css": {
+            "light": "oklch(97% 0.001 106.424)",
+            "dark": "oklch(14% 0 0)"
+          },
+          "form": "oklch",
+          "modes": {
+            "dark": {
+              "colorSpace": "srgb",
+              "components": [
+                0.0355,
+                0.0355,
+                0.0355
+              ],
+              "alpha": 1,
+              "hex": "#090909"
+            }
+          }
+        }
+      }
+    },
+    "sidebar-foreground": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.1616,
+          0.1442,
+          0.1398
+        ],
+        "alpha": 1,
+        "hex": "#292524"
+      },
+      "$description": "TK-DUI-041 · packages/dashboard-ui/src/styles.css:224",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-041",
+          "source": "packages/dashboard-ui/src/styles.css:224",
+          "css": {
+            "light": "oklch(26.8% 0.007 34.298)",
+            "dark": "var(--foreground)"
+          },
+          "form": "oklch",
+          "modes": {
+            "dark": "{Surface.foreground}"
+          }
+        }
+      }
+    },
+    "sidebar-primary": {
+      "$type": "color",
+      "$value": "{Primary.primary}",
+      "$description": "TK-DUI-042 · packages/dashboard-ui/src/styles.css:225",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-042",
+          "source": "packages/dashboard-ui/src/styles.css:225",
+          "css": {
+            "light": "var(--primary)",
+            "dark": "var(--primary)"
+          },
+          "form": "reference",
+          "modes": {
+            "dark": "{Primary.primary}"
+          }
+        }
+      }
+    },
+    "sidebar-primary-foreground": {
+      "$type": "color",
+      "$value": "{Primary.primary-foreground}",
+      "$description": "TK-DUI-043 · packages/dashboard-ui/src/styles.css:226",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-043",
+          "source": "packages/dashboard-ui/src/styles.css:226",
+          "css": {
+            "light": "var(--primary-foreground)",
+            "dark": "var(--primary-foreground)"
+          },
+          "form": "reference",
+          "modes": {
+            "dark": "{Primary.primary-foreground}"
+          }
+        }
+      }
+    },
+    "sidebar-accent": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.9067,
+          0.8975,
+          0.8929
+        ],
+        "alpha": 1,
+        "hex": "#e7e5e4"
+      },
+      "$description": "TK-DUI-044 · packages/dashboard-ui/src/styles.css:227",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-044",
+          "source": "packages/dashboard-ui/src/styles.css:227",
+          "css": {
+            "light": "oklch(92.3% 0.003 48.717)",
+            "dark": "var(--accent)"
+          },
+          "form": "oklch",
+          "modes": {
+            "dark": "{Accent.accent}"
+          }
+        }
+      }
+    },
+    "sidebar-accent-foreground": {
+      "$type": "color",
+      "$value": "{Accent.accent-foreground}",
+      "$description": "TK-DUI-045 · packages/dashboard-ui/src/styles.css:228",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-045",
+          "source": "packages/dashboard-ui/src/styles.css:228",
+          "css": {
+            "light": "var(--accent-foreground)",
+            "dark": "var(--accent-foreground)"
+          },
+          "form": "reference",
+          "modes": {
+            "dark": "{Accent.accent-foreground}"
+          }
+        }
+      }
+    },
+    "sidebar-accent-hover": {
+      "$type": "color",
+      "$value": "{Accent.accent-strong}",
+      "$description": "TK-DUI-046 · packages/dashboard-ui/src/styles.css:229",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-046",
+          "source": "packages/dashboard-ui/src/styles.css:229",
+          "css": {
+            "light": "var(--accent-strong)",
+            "dark": "var(--accent-hover)"
+          },
+          "form": "reference",
+          "modes": {
+            "dark": "{Accent.accent-hover}"
+          }
+        }
+      }
+    },
+    "sidebar-border": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.9067,
+          0.8975,
+          0.8929
+        ],
+        "alpha": 0.75,
+        "hex": "#e7e5e4bf"
+      },
+      "$description": "TK-DUI-047 · packages/dashboard-ui/src/styles.css:232",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-047",
+          "source": "packages/dashboard-ui/src/styles.css:232",
+          "css": {
+            "light": "color-mix(in srgb, var(--border) 75%, transparent)",
+            "dark": "color-mix(in srgb, var(--border) 75%, transparent)"
+          },
+          "form": "colour mix",
+          "modes": {
+            "dark": {
+              "colorSpace": "srgb",
+              "components": [
+                1,
+                1,
+                1
+              ],
+              "alpha": 0.12,
+              "hex": "#ffffff1f"
+            }
+          },
+          "derived": "color-mix(in srgb, var(--border) 75%, transparent)"
+        }
+      }
+    },
+    "sidebar-ring": {
+      "$type": "color",
+      "$value": "{Focus.ring}",
+      "$description": "TK-DUI-048 · packages/dashboard-ui/src/styles.css:233",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-048",
+          "source": "packages/dashboard-ui/src/styles.css:233",
+          "css": {
+            "light": "var(--ring)",
+            "dark": "var(--ring)"
+          },
+          "form": "reference",
+          "modes": {
+            "dark": "{Focus.ring}"
+          }
+        }
+      }
+    }
+  },
+  "Status": {
+    "status-green-bg": {
+      "$type": "color",
+      "$value": "{Tailwind palette.color-green-100}",
+      "$description": "TK-DUI-049 · packages/dashboard-ui/src/styles.css:254",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-049",
+          "source": "packages/dashboard-ui/src/styles.css:254",
+          "css": {
+            "light": "var(--color-green-100)",
+            "dark": "var(--color-green-900)"
+          },
+          "form": "reference",
+          "modes": {
+            "dark": "{Tailwind palette.color-green-900}"
+          }
+        }
+      }
+    },
+    "status-green-border": {
+      "$type": "color",
+      "$value": "{Tailwind palette.color-green-200}",
+      "$description": "TK-DUI-050 · packages/dashboard-ui/src/styles.css:255",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-050",
+          "source": "packages/dashboard-ui/src/styles.css:255",
+          "css": {
+            "light": "var(--color-green-200)",
+            "dark": "var(--color-green-900)"
+          },
+          "form": "reference",
+          "modes": {
+            "dark": "{Tailwind palette.color-green-900}"
+          }
+        }
+      }
+    },
+    "status-green-fg": {
+      "$type": "color",
+      "$value": "{Tailwind palette.color-green-700}",
+      "$description": "TK-DUI-051 · packages/dashboard-ui/src/styles.css:256",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-051",
+          "source": "packages/dashboard-ui/src/styles.css:256",
+          "css": {
+            "light": "var(--color-green-700)",
+            "dark": "var(--color-green-300)"
+          },
+          "form": "reference",
+          "modes": {
+            "dark": "{Tailwind palette.color-green-300}"
+          }
+        }
+      }
+    },
+    "status-amber-bg": {
+      "$type": "color",
+      "$value": "{Tailwind palette.color-amber-100}",
+      "$description": "TK-DUI-052 · packages/dashboard-ui/src/styles.css:258",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-052",
+          "source": "packages/dashboard-ui/src/styles.css:258",
+          "css": {
+            "light": "var(--color-amber-100)",
+            "dark": "var(--color-amber-900)"
+          },
+          "form": "reference",
+          "modes": {
+            "dark": "{Tailwind palette.color-amber-900}"
+          }
+        }
+      }
+    },
+    "status-amber-border": {
+      "$type": "color",
+      "$value": "{Tailwind palette.color-amber-200}",
+      "$description": "TK-DUI-053 · packages/dashboard-ui/src/styles.css:259",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-053",
+          "source": "packages/dashboard-ui/src/styles.css:259",
+          "css": {
+            "light": "var(--color-amber-200)",
+            "dark": "var(--color-amber-900)"
+          },
+          "form": "reference",
+          "modes": {
+            "dark": "{Tailwind palette.color-amber-900}"
+          }
+        }
+      }
+    },
+    "status-amber-fg": {
+      "$type": "color",
+      "$value": "{Tailwind palette.color-amber-700}",
+      "$description": "TK-DUI-054 · packages/dashboard-ui/src/styles.css:260",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-054",
+          "source": "packages/dashboard-ui/src/styles.css:260",
+          "css": {
+            "light": "var(--color-amber-700)",
+            "dark": "var(--color-amber-300)"
+          },
+          "form": "reference",
+          "modes": {
+            "dark": "{Tailwind palette.color-amber-300}"
+          }
+        }
+      }
+    },
+    "status-red-bg": {
+      "$type": "color",
+      "$value": "{Tailwind palette.color-red-100}",
+      "$description": "TK-DUI-055 · packages/dashboard-ui/src/styles.css:262",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-055",
+          "source": "packages/dashboard-ui/src/styles.css:262",
+          "css": {
+            "light": "var(--color-red-100)",
+            "dark": "var(--color-red-900)"
+          },
+          "form": "reference",
+          "modes": {
+            "dark": "{Tailwind palette.color-red-900}"
+          }
+        }
+      }
+    },
+    "status-red-border": {
+      "$type": "color",
+      "$value": "{Tailwind palette.color-red-200}",
+      "$description": "TK-DUI-056 · packages/dashboard-ui/src/styles.css:263",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-056",
+          "source": "packages/dashboard-ui/src/styles.css:263",
+          "css": {
+            "light": "var(--color-red-200)",
+            "dark": "var(--color-red-900)"
+          },
+          "form": "reference",
+          "modes": {
+            "dark": "{Tailwind palette.color-red-900}"
+          }
+        }
+      }
+    },
+    "status-red-fg": {
+      "$type": "color",
+      "$value": "{Tailwind palette.color-red-700}",
+      "$description": "TK-DUI-057 · packages/dashboard-ui/src/styles.css:264",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-057",
+          "source": "packages/dashboard-ui/src/styles.css:264",
+          "css": {
+            "light": "var(--color-red-700)",
+            "dark": "var(--color-red-300)"
+          },
+          "form": "reference",
+          "modes": {
+            "dark": "{Tailwind palette.color-red-300}"
+          }
+        }
+      }
+    },
+    "status-blue-bg": {
+      "$type": "color",
+      "$value": "{Tailwind palette.color-sky-100}",
+      "$description": "TK-DUI-058 · packages/dashboard-ui/src/styles.css:269",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-058",
+          "source": "packages/dashboard-ui/src/styles.css:269",
+          "css": {
+            "light": "var(--color-sky-100)",
+            "dark": "var(--color-sky-900)"
+          },
+          "form": "reference",
+          "modes": {
+            "dark": "{Tailwind palette.color-sky-900}"
+          }
+        }
+      }
+    },
+    "status-blue-border": {
+      "$type": "color",
+      "$value": "{Tailwind palette.color-sky-200}",
+      "$description": "TK-DUI-059 · packages/dashboard-ui/src/styles.css:270",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-059",
+          "source": "packages/dashboard-ui/src/styles.css:270",
+          "css": {
+            "light": "var(--color-sky-200)",
+            "dark": "var(--color-sky-900)"
+          },
+          "form": "reference",
+          "modes": {
+            "dark": "{Tailwind palette.color-sky-900}"
+          }
+        }
+      }
+    },
+    "status-blue-fg": {
+      "$type": "color",
+      "$value": "{Tailwind palette.color-sky-700}",
+      "$description": "TK-DUI-060 · packages/dashboard-ui/src/styles.css:271",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-060",
+          "source": "packages/dashboard-ui/src/styles.css:271",
+          "css": {
+            "light": "var(--color-sky-700)",
+            "dark": "var(--color-sky-300)"
+          },
+          "form": "reference",
+          "modes": {
+            "dark": "{Tailwind palette.color-sky-300}"
+          }
+        }
+      }
+    }
+  },
+  "Scrollbar": {
+    "scrollbar-thumb": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.8412,
+          0.8275,
+          0.8184
+        ],
+        "alpha": 1,
+        "hex": "#d6d3d1"
+      },
+      "$description": "TK-DUI-061 · packages/dashboard-ui/src/styles.css:701",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-061",
+          "source": "packages/dashboard-ui/src/styles.css:701",
+          "css": {
+            "light": "oklch(86.9% 0.005 56.366)",
+            "dark": "oklch(37.4% 0.01 67.558)"
+          },
+          "form": "oklch",
+          "modes": {
+            "dark": {
+              "colorSpace": "srgb",
+              "components": [
+                0.2685,
+                0.2504,
+                0.2323
+              ],
+              "alpha": 1,
+              "hex": "#44403b"
+            }
+          }
+        }
+      }
+    },
+    "scrollbar-thumb-hover": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.6521,
+          0.6262,
+          0.6089
+        ],
+        "alpha": 1,
+        "hex": "#a6a09b"
+      },
+      "$description": "TK-DUI-062 · packages/dashboard-ui/src/styles.css:702",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-062",
+          "source": "packages/dashboard-ui/src/styles.css:702",
+          "css": {
+            "light": "oklch(70.9% 0.01 56.259)",
+            "dark": "oklch(44.4% 0.011 73.639)"
+          },
+          "form": "oklch",
+          "modes": {
+            "dark": {
+              "colorSpace": "srgb",
+              "components": [
+                0.3427,
+                0.3247,
+                0.3022
+              ],
+              "alpha": 1,
+              "hex": "#57534d"
+            }
+          }
+        }
+      }
+    }
+  },
+  "Font": {
+    "font-sans": {
+      "$type": "fontFamily",
+      "$value": [
+        "Geist Variable",
+        "ui-sans-serif",
+        "system-ui",
+        "sans-serif"
+      ],
+      "$description": "TK-DUI-T-01 · packages/dashboard-ui/src/styles.css:412",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-T-01",
+          "source": "packages/dashboard-ui/src/styles.css:412",
+          "css": {
+            "light": "\"Geist Variable\", ui-sans-serif, system-ui, sans-serif"
+          },
+          "form": "font stack"
+        }
+      }
+    },
+    "font-mono": {
+      "$type": "fontFamily",
+      "$value": [
+        "Geist Mono Variable",
+        "ui-monospace",
+        "monospace"
+      ],
+      "$description": "TK-DUI-T-02 · packages/dashboard-ui/src/styles.css:413",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-T-02",
+          "source": "packages/dashboard-ui/src/styles.css:413",
+          "css": {
+            "light": "\"Geist Mono Variable\", ui-monospace, monospace"
+          },
+          "form": "font stack"
+        }
+      }
+    }
+  },
+  "Text size": {
+    "text-xs": {
+      "$type": "dimension",
+      "$value": {
+        "value": 0.75,
+        "unit": "rem"
+      },
+      "$description": "TK-DUI-T-03 · packages/dashboard-ui/src/styles.css:416",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-T-03",
+          "source": "packages/dashboard-ui/src/styles.css:416",
+          "css": {
+            "light": "0.75rem"
+          },
+          "form": "length",
+          "pixels": 12
+        }
+      }
+    },
+    "text-sm": {
+      "$type": "dimension",
+      "$value": {
+        "value": 0.8125,
+        "unit": "rem"
+      },
+      "$description": "TK-DUI-T-04 · packages/dashboard-ui/src/styles.css:417",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-T-04",
+          "source": "packages/dashboard-ui/src/styles.css:417",
+          "css": {
+            "light": "0.8125rem"
+          },
+          "form": "length",
+          "pixels": 13
+        }
+      }
+    },
+    "text-base": {
+      "$type": "dimension",
+      "$value": {
+        "value": 0.875,
+        "unit": "rem"
+      },
+      "$description": "TK-DUI-T-05 · packages/dashboard-ui/src/styles.css:418",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-T-05",
+          "source": "packages/dashboard-ui/src/styles.css:418",
+          "css": {
+            "light": "0.875rem"
+          },
+          "form": "length",
+          "pixels": 14
+        }
+      }
+    },
+    "text-lg": {
+      "$type": "dimension",
+      "$value": {
+        "value": 1,
+        "unit": "rem"
+      },
+      "$description": "TK-DUI-T-06 · packages/dashboard-ui/src/styles.css:419",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-T-06",
+          "source": "packages/dashboard-ui/src/styles.css:419",
+          "css": {
+            "light": "1rem"
+          },
+          "form": "length",
+          "pixels": 16
+        }
+      }
+    },
+    "text-xl": {
+      "$type": "dimension",
+      "$value": {
+        "value": 1.25,
+        "unit": "rem"
+      },
+      "$description": "TK-DUI-T-07 · packages/dashboard-ui/src/styles.css:420",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-T-07",
+          "source": "packages/dashboard-ui/src/styles.css:420",
+          "css": {
+            "light": "1.25rem"
+          },
+          "form": "length",
+          "pixels": 20
+        }
+      }
+    },
+    "text-2xl": {
+      "$type": "dimension",
+      "$value": {
+        "value": 1.5,
+        "unit": "rem"
+      },
+      "$description": "TK-DUI-T-08 · packages/dashboard-ui/src/styles.css:421",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-T-08",
+          "source": "packages/dashboard-ui/src/styles.css:421",
+          "css": {
+            "light": "1.5rem"
+          },
+          "form": "length",
+          "pixels": 24
+        }
+      }
+    },
+    "text-3xl": {
+      "$type": "dimension",
+      "$value": {
+        "value": 1.75,
+        "unit": "rem"
+      },
+      "$description": "TK-DUI-T-09 · packages/dashboard-ui/src/styles.css:422",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-T-09",
+          "source": "packages/dashboard-ui/src/styles.css:422",
+          "css": {
+            "light": "1.75rem"
+          },
+          "form": "length",
+          "pixels": 28
+        }
+      }
+    },
+    "text-4xl": {
+      "$type": "dimension",
+      "$value": {
+        "value": 2,
+        "unit": "rem"
+      },
+      "$description": "TK-DUI-T-10 · packages/dashboard-ui/src/styles.css:423",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-T-10",
+          "source": "packages/dashboard-ui/src/styles.css:423",
+          "css": {
+            "light": "2rem"
+          },
+          "form": "length",
+          "pixels": 32
+        }
+      }
+    }
+  },
+  "Shadow": {
+    "shadow-xs": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "color": {
+            "colorSpace": "srgb",
+            "components": [
+              0,
+              0,
+              0
+            ],
+            "alpha": 0.05,
+            "hex": "#0000000d"
+          },
+          "offsetX": {
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 0,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 1,
+            "unit": "px"
+          },
+          "spread": {
+            "value": 0,
+            "unit": "px"
+          },
+          "inset": false
+        }
+      ],
+      "$description": "TK-DUI-T-11 · packages/dashboard-ui/src/styles.css:429",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-T-11",
+          "source": "packages/dashboard-ui/src/styles.css:429",
+          "css": {
+            "light": "0 0px 1px 0 rgb(0 0 0 / 0.05)"
+          },
+          "form": "shadow"
+        }
+      }
+    },
+    "shadow-control": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "color": {
+            "colorSpace": "srgb",
+            "components": [
+              0,
+              0,
+              0
+            ],
+            "alpha": 0.05,
+            "hex": "#0000000d"
+          },
+          "offsetX": {
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 0.5,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 1,
+            "unit": "px"
+          },
+          "spread": {
+            "value": 0,
+            "unit": "px"
+          },
+          "inset": false
+        }
+      ],
+      "$description": "TK-DUI-T-12 · packages/dashboard-ui/src/styles.css:433",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-T-12",
+          "source": "packages/dashboard-ui/src/styles.css:433",
+          "css": {
+            "light": "0 0.5px 1px 0 rgb(0 0 0 / 0.05)"
+          },
+          "form": "shadow"
+        }
+      }
+    },
+    "shadow-sm": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "color": {
+            "colorSpace": "srgb",
+            "components": [
+              0,
+              0,
+              0
+            ],
+            "alpha": 0.05,
+            "hex": "#0000000d"
+          },
+          "offsetX": {
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 1,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 2,
+            "unit": "px"
+          },
+          "spread": {
+            "value": 0,
+            "unit": "px"
+          },
+          "inset": false
+        }
+      ],
+      "$description": "TK-DUI-T-13 · packages/dashboard-ui/src/styles.css:434",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-T-13",
+          "source": "packages/dashboard-ui/src/styles.css:434",
+          "css": {
+            "light": "0 1px 2px 0 rgb(0 0 0 / 0.05)"
+          },
+          "form": "shadow"
+        }
+      }
+    },
+    "shadow-nav": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "color": {
+            "colorSpace": "srgb",
+            "components": [
+              0,
+              0,
+              0
+            ],
+            "alpha": 0,
+            "hex": "#00000000"
+          },
+          "offsetX": {
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 0,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 0,
+            "unit": "px"
+          },
+          "spread": {
+            "value": 0,
+            "unit": "px"
+          },
+          "inset": false
+        },
+        {
+          "color": {
+            "colorSpace": "srgb",
+            "components": [
+              0,
+              0,
+              0
+            ],
+            "alpha": 0,
+            "hex": "#00000000"
+          },
+          "offsetX": {
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 0,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 0,
+            "unit": "px"
+          },
+          "spread": {
+            "value": 0,
+            "unit": "px"
+          },
+          "inset": false
+        },
+        {
+          "color": {
+            "colorSpace": "srgb",
+            "components": [
+              0,
+              0,
+              0
+            ],
+            "alpha": 0.04,
+            "hex": "#0000000a"
+          },
+          "offsetX": {
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 0,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 0,
+            "unit": "px"
+          },
+          "spread": {
+            "value": 1,
+            "unit": "px"
+          },
+          "inset": false
+        },
+        {
+          "color": {
+            "colorSpace": "srgb",
+            "components": [
+              0,
+              0,
+              0
+            ],
+            "alpha": 0.04,
+            "hex": "#0000000a"
+          },
+          "offsetX": {
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 1,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 2,
+            "unit": "px"
+          },
+          "spread": {
+            "value": -1,
+            "unit": "px"
+          },
+          "inset": false
+        },
+        {
+          "color": {
+            "colorSpace": "srgb",
+            "components": [
+              0,
+              0,
+              0
+            ],
+            "alpha": 0.02,
+            "hex": "#00000005"
+          },
+          "offsetX": {
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 2,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 4,
+            "unit": "px"
+          },
+          "spread": {
+            "value": 0,
+            "unit": "px"
+          },
+          "inset": false
+        }
+      ],
+      "$description": "TK-DUI-T-14 · packages/dashboard-ui/src/styles.css:435",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-T-14",
+          "source": "packages/dashboard-ui/src/styles.css:435",
+          "css": {
+            "light": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.04) 0px 0px 0px 1px, rgba(0, 0, 0, 0.04) 0px 1px 2px -1px, rgba(0, 0, 0, 0.02) 0px 2px 4px 0px"
+          },
+          "form": "shadow"
+        }
+      }
+    },
+    "shadow-md": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "color": {
+            "colorSpace": "srgb",
+            "components": [
+              0,
+              0,
+              0
+            ],
+            "alpha": 0.08,
+            "hex": "#00000014"
+          },
+          "offsetX": {
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 4,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 16,
+            "unit": "px"
+          },
+          "spread": {
+            "value": -4,
+            "unit": "px"
+          },
+          "inset": false
+        },
+        {
+          "color": {
+            "colorSpace": "srgb",
+            "components": [
+              0,
+              0,
+              0
+            ],
+            "alpha": 0.05,
+            "hex": "#0000000d"
+          },
+          "offsetX": {
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 1,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 4,
+            "unit": "px"
+          },
+          "spread": {
+            "value": -2,
+            "unit": "px"
+          },
+          "inset": false
+        }
+      ],
+      "$description": "TK-DUI-T-15 · packages/dashboard-ui/src/styles.css:441",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-T-15",
+          "source": "packages/dashboard-ui/src/styles.css:441",
+          "css": {
+            "light": "0 4px 16px -4px rgb(0 0 0 / 0.08), 0 1px 4px -2px rgb(0 0 0 / 0.05)"
+          },
+          "form": "shadow"
+        }
+      }
+    },
+    "shadow-lg": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "color": {
+            "colorSpace": "srgb",
+            "components": [
+              0,
+              0,
+              0
+            ],
+            "alpha": 0.1,
+            "hex": "#0000001a"
+          },
+          "offsetX": {
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 8,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 32,
+            "unit": "px"
+          },
+          "spread": {
+            "value": -8,
+            "unit": "px"
+          },
+          "inset": false
+        },
+        {
+          "color": {
+            "colorSpace": "srgb",
+            "components": [
+              0,
+              0,
+              0
+            ],
+            "alpha": 0.06,
+            "hex": "#0000000f"
+          },
+          "offsetX": {
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 2,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 8,
+            "unit": "px"
+          },
+          "spread": {
+            "value": -4,
+            "unit": "px"
+          },
+          "inset": false
+        }
+      ],
+      "$description": "TK-DUI-T-16 · packages/dashboard-ui/src/styles.css:442",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-T-16",
+          "source": "packages/dashboard-ui/src/styles.css:442",
+          "css": {
+            "light": "0 8px 32px -8px rgb(0 0 0 / 0.10), 0 2px 8px -4px rgb(0 0 0 / 0.06)"
+          },
+          "form": "shadow"
+        }
+      }
+    }
+  },
+  "Spacing": {
+    "spacing-sidebar-width": {
+      "$type": "dimension",
+      "$value": {
+        "value": 240,
+        "unit": "px"
+      },
+      "$description": "TK-DUI-T-22 · packages/dashboard-ui/src/styles.css:457",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-T-22",
+          "source": "packages/dashboard-ui/src/styles.css:457",
+          "css": {
+            "light": "240px"
+          },
+          "form": "length",
+          "pixels": 240
+        }
+      }
+    },
+    "spacing-header-height": {
+      "$type": "dimension",
+      "$value": {
+        "value": 0,
+        "unit": "px"
+      },
+      "$description": "TK-DUI-T-23 · packages/dashboard-ui/src/styles.css:464",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-T-23",
+          "source": "packages/dashboard-ui/src/styles.css:464",
+          "css": {
+            "light": "0px"
+          },
+          "form": "length",
+          "pixels": 0
+        }
+      }
+    },
+    "spacing-rail-header-height": {
+      "$type": "dimension",
+      "$value": {
+        "value": 42,
+        "unit": "px"
+      },
+      "$description": "TK-DUI-T-24 · packages/dashboard-ui/src/styles.css:469",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-T-24",
+          "source": "packages/dashboard-ui/src/styles.css:469",
+          "css": {
+            "light": "42px"
+          },
+          "form": "length",
+          "pixels": 42
+        }
+      }
+    }
+  },
+  "Easing": {
+    "ease-out": {
+      "$type": "cubicBezier",
+      "$value": [
+        0.23,
+        1,
+        0.32,
+        1
+      ],
+      "$description": "TK-DUI-T-25 · packages/dashboard-ui/src/styles.css:478",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-T-25",
+          "source": "packages/dashboard-ui/src/styles.css:478",
+          "css": {
+            "light": "cubic-bezier(0.23, 1, 0.32, 1)"
+          },
+          "form": "easing"
+        }
+      }
+    },
+    "ease-in-out": {
+      "$type": "cubicBezier",
+      "$value": [
+        0.77,
+        0,
+        0.175,
+        1
+      ],
+      "$description": "TK-DUI-T-26 · packages/dashboard-ui/src/styles.css:479",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-T-26",
+          "source": "packages/dashboard-ui/src/styles.css:479",
+          "css": {
+            "light": "cubic-bezier(0.77, 0, 0.175, 1)"
+          },
+          "form": "easing"
+        }
+      }
+    }
+  },
+  "Colour utility alias": {
+    "color-sidebar-ring": {
+      "$type": "color",
+      "$value": "{Sidebar.sidebar-ring}",
+      "$description": "TK-DUI-A · packages/dashboard-ui/src/styles.css:482",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-A",
+          "source": "packages/dashboard-ui/src/styles.css:482",
+          "css": {
+            "light": "var(--sidebar-ring)"
+          },
+          "form": "reference"
+        }
+      }
+    },
+    "color-sidebar-border": {
+      "$type": "color",
+      "$value": "{Sidebar.sidebar-border}",
+      "$description": "TK-DUI-A · packages/dashboard-ui/src/styles.css:483",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-A",
+          "source": "packages/dashboard-ui/src/styles.css:483",
+          "css": {
+            "light": "var(--sidebar-border)"
+          },
+          "form": "reference"
+        }
+      }
+    },
+    "color-sidebar-accent-foreground": {
+      "$type": "color",
+      "$value": "{Sidebar.sidebar-accent-foreground}",
+      "$description": "TK-DUI-A · packages/dashboard-ui/src/styles.css:484",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-A",
+          "source": "packages/dashboard-ui/src/styles.css:484",
+          "css": {
+            "light": "var(--sidebar-accent-foreground)"
+          },
+          "form": "reference"
+        }
+      }
+    },
+    "color-sidebar-accent-hover": {
+      "$type": "color",
+      "$value": "{Sidebar.sidebar-accent-hover}",
+      "$description": "TK-DUI-A · packages/dashboard-ui/src/styles.css:485",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-A",
+          "source": "packages/dashboard-ui/src/styles.css:485",
+          "css": {
+            "light": "var(--sidebar-accent-hover)"
+          },
+          "form": "reference"
+        }
+      }
+    },
+    "color-sidebar-accent": {
+      "$type": "color",
+      "$value": "{Sidebar.sidebar-accent}",
+      "$description": "TK-DUI-A · packages/dashboard-ui/src/styles.css:486",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-A",
+          "source": "packages/dashboard-ui/src/styles.css:486",
+          "css": {
+            "light": "var(--sidebar-accent)"
+          },
+          "form": "reference"
+        }
+      }
+    },
+    "color-sidebar-primary-foreground": {
+      "$type": "color",
+      "$value": "{Sidebar.sidebar-primary-foreground}",
+      "$description": "TK-DUI-A · packages/dashboard-ui/src/styles.css:487",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-A",
+          "source": "packages/dashboard-ui/src/styles.css:487",
+          "css": {
+            "light": "var(--sidebar-primary-foreground)"
+          },
+          "form": "reference"
+        }
+      }
+    },
+    "color-sidebar-primary": {
+      "$type": "color",
+      "$value": "{Sidebar.sidebar-primary}",
+      "$description": "TK-DUI-A · packages/dashboard-ui/src/styles.css:488",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-A",
+          "source": "packages/dashboard-ui/src/styles.css:488",
+          "css": {
+            "light": "var(--sidebar-primary)"
+          },
+          "form": "reference"
+        }
+      }
+    },
+    "color-sidebar-foreground": {
+      "$type": "color",
+      "$value": "{Sidebar.sidebar-foreground}",
+      "$description": "TK-DUI-A · packages/dashboard-ui/src/styles.css:489",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-A",
+          "source": "packages/dashboard-ui/src/styles.css:489",
+          "css": {
+            "light": "var(--sidebar-foreground)"
+          },
+          "form": "reference"
+        }
+      }
+    },
+    "color-sidebar": {
+      "$type": "color",
+      "$value": "{Sidebar.sidebar}",
+      "$description": "TK-DUI-A · packages/dashboard-ui/src/styles.css:490",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-A",
+          "source": "packages/dashboard-ui/src/styles.css:490",
+          "css": {
+            "light": "var(--sidebar)"
+          },
+          "form": "reference"
+        }
+      }
+    },
+    "color-chart-5": {
+      "$type": "color",
+      "$value": "{Chart.chart-5}",
+      "$description": "TK-DUI-A · packages/dashboard-ui/src/styles.css:491",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-A",
+          "source": "packages/dashboard-ui/src/styles.css:491",
+          "css": {
+            "light": "var(--chart-5)"
+          },
+          "form": "reference"
+        }
+      }
+    },
+    "color-chart-4": {
+      "$type": "color",
+      "$value": "{Chart.chart-4}",
+      "$description": "TK-DUI-A · packages/dashboard-ui/src/styles.css:492",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-A",
+          "source": "packages/dashboard-ui/src/styles.css:492",
+          "css": {
+            "light": "var(--chart-4)"
+          },
+          "form": "reference"
+        }
+      }
+    },
+    "color-chart-3": {
+      "$type": "color",
+      "$value": "{Chart.chart-3}",
+      "$description": "TK-DUI-A · packages/dashboard-ui/src/styles.css:493",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-A",
+          "source": "packages/dashboard-ui/src/styles.css:493",
+          "css": {
+            "light": "var(--chart-3)"
+          },
+          "form": "reference"
+        }
+      }
+    },
+    "color-chart-2": {
+      "$type": "color",
+      "$value": "{Chart.chart-2}",
+      "$description": "TK-DUI-A · packages/dashboard-ui/src/styles.css:494",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-A",
+          "source": "packages/dashboard-ui/src/styles.css:494",
+          "css": {
+            "light": "var(--chart-2)"
+          },
+          "form": "reference"
+        }
+      }
+    },
+    "color-chart-1": {
+      "$type": "color",
+      "$value": "{Chart.chart-1}",
+      "$description": "TK-DUI-A · packages/dashboard-ui/src/styles.css:495",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-A",
+          "source": "packages/dashboard-ui/src/styles.css:495",
+          "css": {
+            "light": "var(--chart-1)"
+          },
+          "form": "reference"
+        }
+      }
+    },
+    "color-ring": {
+      "$type": "color",
+      "$value": "{Focus.ring}",
+      "$description": "TK-DUI-A · packages/dashboard-ui/src/styles.css:496",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-A",
+          "source": "packages/dashboard-ui/src/styles.css:496",
+          "css": {
+            "light": "var(--ring)"
+          },
+          "form": "reference"
+        }
+      }
+    },
+    "color-input": {
+      "$type": "color",
+      "$value": "{Control.input}",
+      "$description": "TK-DUI-A · packages/dashboard-ui/src/styles.css:497",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-A",
+          "source": "packages/dashboard-ui/src/styles.css:497",
+          "css": {
+            "light": "var(--input)"
+          },
+          "form": "reference"
+        }
+      }
+    },
+    "color-border": {
+      "$type": "color",
+      "$value": "{Border.border}",
+      "$description": "TK-DUI-A · packages/dashboard-ui/src/styles.css:498",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-A",
+          "source": "packages/dashboard-ui/src/styles.css:498",
+          "css": {
+            "light": "var(--border)"
+          },
+          "form": "reference"
+        }
+      }
+    },
+    "color-border-card": {
+      "$type": "color",
+      "$value": "{Border.border-card}",
+      "$description": "TK-DUI-A · packages/dashboard-ui/src/styles.css:499",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-A",
+          "source": "packages/dashboard-ui/src/styles.css:499",
+          "css": {
+            "light": "var(--border-card)"
+          },
+          "form": "reference"
+        }
+      }
+    },
+    "color-border-subtle": {
+      "$type": "color",
+      "$value": "{Border.border-subtle}",
+      "$description": "TK-DUI-A · packages/dashboard-ui/src/styles.css:500",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-A",
+          "source": "packages/dashboard-ui/src/styles.css:500",
+          "css": {
+            "light": "var(--border-subtle)"
+          },
+          "form": "reference"
+        }
+      }
+    },
+    "color-border-control": {
+      "$type": "color",
+      "$value": "{Border.border-control}",
+      "$description": "TK-DUI-A · packages/dashboard-ui/src/styles.css:501",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-A",
+          "source": "packages/dashboard-ui/src/styles.css:501",
+          "css": {
+            "light": "var(--border-control)"
+          },
+          "form": "reference"
+        }
+      }
+    },
+    "color-card-container": {
+      "$type": "color",
+      "$value": "{Surface.card-container}",
+      "$description": "TK-DUI-A · packages/dashboard-ui/src/styles.css:502",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-A",
+          "source": "packages/dashboard-ui/src/styles.css:502",
+          "css": {
+            "light": "var(--card-container)"
+          },
+          "form": "reference"
+        }
+      }
+    },
+    "color-nested-raised": {
+      "$type": "color",
+      "$value": "{Surface.nested-raised}",
+      "$description": "TK-DUI-A · packages/dashboard-ui/src/styles.css:503",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-A",
+          "source": "packages/dashboard-ui/src/styles.css:503",
+          "css": {
+            "light": "var(--nested-raised)"
+          },
+          "form": "reference"
+        }
+      }
+    },
+    "color-track-recessed": {
+      "$type": "color",
+      "$value": "{Surface.track-recessed}",
+      "$description": "TK-DUI-A · packages/dashboard-ui/src/styles.css:504",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-A",
+          "source": "packages/dashboard-ui/src/styles.css:504",
+          "css": {
+            "light": "var(--track-recessed)"
+          },
+          "form": "reference"
+        }
+      }
+    },
+    "color-destructive": {
+      "$type": "color",
+      "$value": "{Destructive.destructive}",
+      "$description": "TK-DUI-A · packages/dashboard-ui/src/styles.css:505",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-A",
+          "source": "packages/dashboard-ui/src/styles.css:505",
+          "css": {
+            "light": "var(--destructive)"
+          },
+          "form": "reference"
+        }
+      }
+    },
+    "color-destructive-foreground": {
+      "$type": "color",
+      "$value": "{Destructive.destructive-foreground}",
+      "$description": "TK-DUI-A · packages/dashboard-ui/src/styles.css:506",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-A",
+          "source": "packages/dashboard-ui/src/styles.css:506",
+          "css": {
+            "light": "var(--destructive-foreground)"
+          },
+          "form": "reference"
+        }
+      }
+    },
+    "color-accent-foreground": {
+      "$type": "color",
+      "$value": "{Accent.accent-foreground}",
+      "$description": "TK-DUI-A · packages/dashboard-ui/src/styles.css:507",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-A",
+          "source": "packages/dashboard-ui/src/styles.css:507",
+          "css": {
+            "light": "var(--accent-foreground)"
+          },
+          "form": "reference"
+        }
+      }
+    },
+    "color-accent-strong": {
+      "$type": "color",
+      "$value": "{Accent.accent-strong}",
+      "$description": "TK-DUI-A · packages/dashboard-ui/src/styles.css:508",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-A",
+          "source": "packages/dashboard-ui/src/styles.css:508",
+          "css": {
+            "light": "var(--accent-strong)"
+          },
+          "form": "reference"
+        }
+      }
+    },
+    "color-accent-hover": {
+      "$type": "color",
+      "$value": "{Accent.accent-hover}",
+      "$description": "TK-DUI-A · packages/dashboard-ui/src/styles.css:509",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-A",
+          "source": "packages/dashboard-ui/src/styles.css:509",
+          "css": {
+            "light": "var(--accent-hover)"
+          },
+          "form": "reference"
+        }
+      }
+    },
+    "color-accent-strong-hover": {
+      "$type": "color",
+      "$value": "{Accent.accent-strong-hover}",
+      "$description": "TK-DUI-A · packages/dashboard-ui/src/styles.css:510",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-A",
+          "source": "packages/dashboard-ui/src/styles.css:510",
+          "css": {
+            "light": "var(--accent-strong-hover)"
+          },
+          "form": "reference"
+        }
+      }
+    },
+    "color-accent": {
+      "$type": "color",
+      "$value": "{Accent.accent}",
+      "$description": "TK-DUI-A · packages/dashboard-ui/src/styles.css:511",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-A",
+          "source": "packages/dashboard-ui/src/styles.css:511",
+          "css": {
+            "light": "var(--accent)"
+          },
+          "form": "reference"
+        }
+      }
+    },
+    "color-muted-foreground": {
+      "$type": "color",
+      "$value": "{Muted.muted-foreground}",
+      "$description": "TK-DUI-A · packages/dashboard-ui/src/styles.css:512",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-A",
+          "source": "packages/dashboard-ui/src/styles.css:512",
+          "css": {
+            "light": "var(--muted-foreground)"
+          },
+          "form": "reference"
+        }
+      }
+    },
+    "color-muted": {
+      "$type": "color",
+      "$value": "{Muted.muted}",
+      "$description": "TK-DUI-A · packages/dashboard-ui/src/styles.css:513",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-A",
+          "source": "packages/dashboard-ui/src/styles.css:513",
+          "css": {
+            "light": "var(--muted)"
+          },
+          "form": "reference"
+        }
+      }
+    },
+    "color-secondary-foreground": {
+      "$type": "color",
+      "$value": "{Secondary.secondary-foreground}",
+      "$description": "TK-DUI-A · packages/dashboard-ui/src/styles.css:514",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-A",
+          "source": "packages/dashboard-ui/src/styles.css:514",
+          "css": {
+            "light": "var(--secondary-foreground)"
+          },
+          "form": "reference"
+        }
+      }
+    },
+    "color-secondary": {
+      "$type": "color",
+      "$value": "{Secondary.secondary}",
+      "$description": "TK-DUI-A · packages/dashboard-ui/src/styles.css:515",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-A",
+          "source": "packages/dashboard-ui/src/styles.css:515",
+          "css": {
+            "light": "var(--secondary)"
+          },
+          "form": "reference"
+        }
+      }
+    },
+    "color-primary-foreground": {
+      "$type": "color",
+      "$value": "{Primary.primary-foreground}",
+      "$description": "TK-DUI-A · packages/dashboard-ui/src/styles.css:516",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-A",
+          "source": "packages/dashboard-ui/src/styles.css:516",
+          "css": {
+            "light": "var(--primary-foreground)"
+          },
+          "form": "reference"
+        }
+      }
+    },
+    "color-primary": {
+      "$type": "color",
+      "$value": "{Primary.primary}",
+      "$description": "TK-DUI-A · packages/dashboard-ui/src/styles.css:517",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-A",
+          "source": "packages/dashboard-ui/src/styles.css:517",
+          "css": {
+            "light": "var(--primary)"
+          },
+          "form": "reference"
+        }
+      }
+    },
+    "color-popover-foreground": {
+      "$type": "color",
+      "$value": "{Surface.popover-foreground}",
+      "$description": "TK-DUI-A · packages/dashboard-ui/src/styles.css:518",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-A",
+          "source": "packages/dashboard-ui/src/styles.css:518",
+          "css": {
+            "light": "var(--popover-foreground)"
+          },
+          "form": "reference"
+        }
+      }
+    },
+    "color-popover": {
+      "$type": "color",
+      "$value": "{Surface.popover}",
+      "$description": "TK-DUI-A · packages/dashboard-ui/src/styles.css:519",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-A",
+          "source": "packages/dashboard-ui/src/styles.css:519",
+          "css": {
+            "light": "var(--popover)"
+          },
+          "form": "reference"
+        }
+      }
+    },
+    "color-card-foreground": {
+      "$type": "color",
+      "$value": "{Surface.card-foreground}",
+      "$description": "TK-DUI-A · packages/dashboard-ui/src/styles.css:520",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-A",
+          "source": "packages/dashboard-ui/src/styles.css:520",
+          "css": {
+            "light": "var(--card-foreground)"
+          },
+          "form": "reference"
+        }
+      }
+    },
+    "color-card": {
+      "$type": "color",
+      "$value": "{Surface.card}",
+      "$description": "TK-DUI-A · packages/dashboard-ui/src/styles.css:521",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-A",
+          "source": "packages/dashboard-ui/src/styles.css:521",
+          "css": {
+            "light": "var(--card)"
+          },
+          "form": "reference"
+        }
+      }
+    },
+    "color-foreground": {
+      "$type": "color",
+      "$value": "{Surface.foreground}",
+      "$description": "TK-DUI-A · packages/dashboard-ui/src/styles.css:522",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-A",
+          "source": "packages/dashboard-ui/src/styles.css:522",
+          "css": {
+            "light": "var(--foreground)"
+          },
+          "form": "reference"
+        }
+      }
+    },
+    "color-background": {
+      "$type": "color",
+      "$value": "{Surface.background}",
+      "$description": "TK-DUI-A · packages/dashboard-ui/src/styles.css:523",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-A",
+          "source": "packages/dashboard-ui/src/styles.css:523",
+          "css": {
+            "light": "var(--background)"
+          },
+          "form": "reference"
+        }
+      }
+    },
+    "color-success": {
+      "$type": "color",
+      "$value": "{Status.status-green-fg}",
+      "$description": "TK-DUI-A · packages/dashboard-ui/src/styles.css:531",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-A",
+          "source": "packages/dashboard-ui/src/styles.css:531",
+          "css": {
+            "light": "var(--status-green-fg)"
+          },
+          "form": "reference"
+        }
+      }
+    },
+    "color-success-bg": {
+      "$type": "color",
+      "$value": "{Status.status-green-bg}",
+      "$description": "TK-DUI-A · packages/dashboard-ui/src/styles.css:532",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-A",
+          "source": "packages/dashboard-ui/src/styles.css:532",
+          "css": {
+            "light": "var(--status-green-bg)"
+          },
+          "form": "reference"
+        }
+      }
+    },
+    "color-success-border": {
+      "$type": "color",
+      "$value": "{Status.status-green-border}",
+      "$description": "TK-DUI-A · packages/dashboard-ui/src/styles.css:533",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-A",
+          "source": "packages/dashboard-ui/src/styles.css:533",
+          "css": {
+            "light": "var(--status-green-border)"
+          },
+          "form": "reference"
+        }
+      }
+    },
+    "color-warning": {
+      "$type": "color",
+      "$value": "{Status.status-amber-fg}",
+      "$description": "TK-DUI-A · packages/dashboard-ui/src/styles.css:535",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-A",
+          "source": "packages/dashboard-ui/src/styles.css:535",
+          "css": {
+            "light": "var(--status-amber-fg)"
+          },
+          "form": "reference"
+        }
+      }
+    },
+    "color-warning-bg": {
+      "$type": "color",
+      "$value": "{Status.status-amber-bg}",
+      "$description": "TK-DUI-A · packages/dashboard-ui/src/styles.css:536",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-A",
+          "source": "packages/dashboard-ui/src/styles.css:536",
+          "css": {
+            "light": "var(--status-amber-bg)"
+          },
+          "form": "reference"
+        }
+      }
+    },
+    "color-warning-border": {
+      "$type": "color",
+      "$value": "{Status.status-amber-border}",
+      "$description": "TK-DUI-A · packages/dashboard-ui/src/styles.css:537",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-A",
+          "source": "packages/dashboard-ui/src/styles.css:537",
+          "css": {
+            "light": "var(--status-amber-border)"
+          },
+          "form": "reference"
+        }
+      }
+    },
+    "color-danger": {
+      "$type": "color",
+      "$value": "{Status.status-red-fg}",
+      "$description": "TK-DUI-A · packages/dashboard-ui/src/styles.css:539",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-A",
+          "source": "packages/dashboard-ui/src/styles.css:539",
+          "css": {
+            "light": "var(--status-red-fg)"
+          },
+          "form": "reference"
+        }
+      }
+    },
+    "color-danger-bg": {
+      "$type": "color",
+      "$value": "{Status.status-red-bg}",
+      "$description": "TK-DUI-A · packages/dashboard-ui/src/styles.css:540",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-A",
+          "source": "packages/dashboard-ui/src/styles.css:540",
+          "css": {
+            "light": "var(--status-red-bg)"
+          },
+          "form": "reference"
+        }
+      }
+    },
+    "color-danger-border": {
+      "$type": "color",
+      "$value": "{Status.status-red-border}",
+      "$description": "TK-DUI-A · packages/dashboard-ui/src/styles.css:541",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-A",
+          "source": "packages/dashboard-ui/src/styles.css:541",
+          "css": {
+            "light": "var(--status-red-border)"
+          },
+          "form": "reference"
+        }
+      }
+    },
+    "color-info": {
+      "$type": "color",
+      "$value": "{Status.status-blue-fg}",
+      "$description": "TK-DUI-A · packages/dashboard-ui/src/styles.css:543",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-A",
+          "source": "packages/dashboard-ui/src/styles.css:543",
+          "css": {
+            "light": "var(--status-blue-fg)"
+          },
+          "form": "reference"
+        }
+      }
+    },
+    "color-info-bg": {
+      "$type": "color",
+      "$value": "{Status.status-blue-bg}",
+      "$description": "TK-DUI-A · packages/dashboard-ui/src/styles.css:544",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-A",
+          "source": "packages/dashboard-ui/src/styles.css:544",
+          "css": {
+            "light": "var(--status-blue-bg)"
+          },
+          "form": "reference"
+        }
+      }
+    },
+    "color-info-border": {
+      "$type": "color",
+      "$value": "{Status.status-blue-border}",
+      "$description": "TK-DUI-A · packages/dashboard-ui/src/styles.css:545",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-A",
+          "source": "packages/dashboard-ui/src/styles.css:545",
+          "css": {
+            "light": "var(--status-blue-border)"
+          },
+          "form": "reference"
+        }
+      }
+    },
+    "color-blue-500": {
+      "$type": "color",
+      "$value": "{Brand.brand-blue}",
+      "$description": "TK-DUI-A · packages/dashboard-ui/src/styles.css:554",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-A",
+          "source": "packages/dashboard-ui/src/styles.css:554",
+          "css": {
+            "light": "var(--brand-blue)"
+          },
+          "form": "reference"
+        }
+      }
+    },
+    "color-blue-600": {
+      "$type": "color",
+      "$value": "{Brand.brand-blue-strong}",
+      "$description": "TK-DUI-A · packages/dashboard-ui/src/styles.css:555",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-A",
+          "source": "packages/dashboard-ui/src/styles.css:555",
+          "css": {
+            "light": "var(--brand-blue-strong)"
+          },
+          "form": "reference"
+        }
+      }
+    },
+    "color-link": {
+      "$type": "color",
+      "$value": "{Link.link}",
+      "$description": "TK-DUI-A · packages/dashboard-ui/src/styles.css:556",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-A",
+          "source": "packages/dashboard-ui/src/styles.css:556",
+          "css": {
+            "light": "var(--link)"
+          },
+          "form": "reference"
+        }
+      }
+    },
+    "color-link-hover": {
+      "$type": "color",
+      "$value": "{Link.link-hover}",
+      "$description": "TK-DUI-A · packages/dashboard-ui/src/styles.css:557",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-DUI-A",
+          "source": "packages/dashboard-ui/src/styles.css:557",
+          "css": {
+            "light": "var(--link-hover)"
+          },
+          "form": "reference"
+        }
+      }
+    }
+  },
+  "Tailwind palette": {
+    "color-red-100": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.9993,
+          0.8856,
+          0.8857
+        ],
+        "alpha": 1,
+        "hex": "#ffe2e2"
+      },
+      "$description": "TK-TW-D · tailwindcss/theme.css",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-TW-D",
+          "source": "tailwindcss/theme.css",
+          "css": {
+            "light": "oklch(93.6% 0.032 17.717)"
+          },
+          "form": "oklch"
+        }
+      }
+    },
+    "color-red-200": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          1,
+          0.7898,
+          0.79
+        ],
+        "alpha": 1,
+        "hex": "#ffc9c9"
+      },
+      "$description": "TK-TW-D · tailwindcss/theme.css",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-TW-D",
+          "source": "tailwindcss/theme.css",
+          "css": {
+            "light": "oklch(88.5% 0.062 18.334)"
+          },
+          "form": "oklch",
+          "clippedToSrgb": 0.0029
+        }
+      }
+    },
+    "color-red-300": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          1,
+          0.6347,
+          0.6364
+        ],
+        "alpha": 1,
+        "hex": "#ffa2a2"
+      },
+      "$description": "TK-TW-D · tailwindcss/theme.css",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-TW-D",
+          "source": "tailwindcss/theme.css",
+          "css": {
+            "light": "oklch(80.8% 0.114 19.571)"
+          },
+          "form": "oklch",
+          "clippedToSrgb": 0.0097
+        }
+      }
+    },
+    "color-red-400": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          1,
+          0.3912,
+          0.4039
+        ],
+        "alpha": 1,
+        "hex": "#ff6467"
+      },
+      "$description": "TK-TW-D · tailwindcss/theme.css",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-TW-D",
+          "source": "tailwindcss/theme.css",
+          "css": {
+            "light": "oklch(70.4% 0.191 22.216)"
+          },
+          "form": "oklch",
+          "clippedToSrgb": 0.0056
+        }
+      }
+    },
+    "color-red-700": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.7569,
+          0,
+          0.0288
+        ],
+        "alpha": 1,
+        "hex": "#c10007"
+      },
+      "$description": "TK-TW-D · tailwindcss/theme.css",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-TW-D",
+          "source": "tailwindcss/theme.css",
+          "css": {
+            "light": "oklch(50.5% 0.213 27.518)"
+          },
+          "form": "oklch",
+          "clippedToSrgb": 0.0624
+        }
+      }
+    },
+    "color-red-900": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.5092,
+          0.0923,
+          0.1007
+        ],
+        "alpha": 1,
+        "hex": "#82181a"
+      },
+      "$description": "TK-TW-D · tailwindcss/theme.css",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-TW-D",
+          "source": "tailwindcss/theme.css",
+          "css": {
+            "light": "oklch(39.6% 0.141 25.723)"
+          },
+          "form": "oklch"
+        }
+      }
+    },
+    "color-amber-100": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.997,
+          0.9531,
+          0.7775
+        ],
+        "alpha": 1,
+        "hex": "#fef3c6"
+      },
+      "$description": "TK-TW-D · tailwindcss/theme.css",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-TW-D",
+          "source": "tailwindcss/theme.css",
+          "css": {
+            "light": "oklch(96.2% 0.059 95.617)"
+          },
+          "form": "oklch"
+        }
+      }
+    },
+    "color-amber-200": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.9957,
+          0.9012,
+          0.5222
+        ],
+        "alpha": 1,
+        "hex": "#fee685"
+      },
+      "$description": "TK-TW-D · tailwindcss/theme.css",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-TW-D",
+          "source": "tailwindcss/theme.css",
+          "css": {
+            "light": "oklch(92.4% 0.12 95.746)"
+          },
+          "form": "oklch"
+        }
+      }
+    },
+    "color-amber-300": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          1,
+          0.8238,
+          0.1876
+        ],
+        "alpha": 1,
+        "hex": "#ffd230"
+      },
+      "$description": "TK-TW-D · tailwindcss/theme.css",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-TW-D",
+          "source": "tailwindcss/theme.css",
+          "css": {
+            "light": "oklch(87.9% 0.169 91.605)"
+          },
+          "form": "oklch",
+          "clippedToSrgb": 0.003
+        }
+      }
+    },
+    "color-amber-400": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          1,
+          0.7273,
+          0
+        ],
+        "alpha": 1,
+        "hex": "#ffb900"
+      },
+      "$description": "TK-TW-D · tailwindcss/theme.css",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-TW-D",
+          "source": "tailwindcss/theme.css",
+          "css": {
+            "light": "oklch(82.8% 0.189 84.429)"
+          },
+          "form": "oklch",
+          "clippedToSrgb": 0.2298
+        }
+      }
+    },
+    "color-amber-500": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.9943,
+          0.6021,
+          0
+        ],
+        "alpha": 1,
+        "hex": "#fe9a00"
+      },
+      "$description": "TK-TW-D · tailwindcss/theme.css",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-TW-D",
+          "source": "tailwindcss/theme.css",
+          "css": {
+            "light": "oklch(76.9% 0.188 70.08)"
+          },
+          "form": "oklch",
+          "clippedToSrgb": 0.2175
+        }
+      }
+    },
+    "color-amber-600": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.8838,
+          0.4434,
+          0
+        ],
+        "alpha": 1,
+        "hex": "#e17100"
+      },
+      "$description": "TK-TW-D · tailwindcss/theme.css",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-TW-D",
+          "source": "tailwindcss/theme.css",
+          "css": {
+            "light": "oklch(66.6% 0.179 58.318)"
+          },
+          "form": "oklch",
+          "clippedToSrgb": 0.1698
+        }
+      }
+    },
+    "color-amber-700": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.7318,
+          0.301,
+          0
+        ],
+        "alpha": 1,
+        "hex": "#bb4d00"
+      },
+      "$description": "TK-TW-D · tailwindcss/theme.css",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-TW-D",
+          "source": "tailwindcss/theme.css",
+          "css": {
+            "light": "oklch(55.5% 0.163 48.998)"
+          },
+          "form": "oklch",
+          "clippedToSrgb": 0.1038
+        }
+      }
+    },
+    "color-amber-800": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.5903,
+          0.2338,
+          0
+        ],
+        "alpha": 1,
+        "hex": "#973c00"
+      },
+      "$description": "TK-TW-D · tailwindcss/theme.css",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-TW-D",
+          "source": "tailwindcss/theme.css",
+          "css": {
+            "light": "oklch(47.3% 0.137 46.201)"
+          },
+          "form": "oklch",
+          "clippedToSrgb": 0.0308
+        }
+      }
+    },
+    "color-amber-900": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.4804,
+          0.1998,
+          0.0248
+        ],
+        "alpha": 1,
+        "hex": "#7b3306"
+      },
+      "$description": "TK-TW-D · tailwindcss/theme.css",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-TW-D",
+          "source": "tailwindcss/theme.css",
+          "css": {
+            "light": "oklch(41.4% 0.112 45.904)"
+          },
+          "form": "oklch"
+        }
+      }
+    },
+    "color-green-100": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.8609,
+          0.9882,
+          0.9047
+        ],
+        "alpha": 1,
+        "hex": "#dcfce7"
+      },
+      "$description": "TK-TW-D · tailwindcss/theme.css",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-TW-D",
+          "source": "tailwindcss/theme.css",
+          "css": {
+            "light": "oklch(96.2% 0.044 156.743)"
+          },
+          "form": "oklch"
+        }
+      }
+    },
+    "color-green-200": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.7251,
+          0.9713,
+          0.8118
+        ],
+        "alpha": 1,
+        "hex": "#b9f8cf"
+      },
+      "$description": "TK-TW-D · tailwindcss/theme.css",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-TW-D",
+          "source": "tailwindcss/theme.css",
+          "css": {
+            "light": "oklch(92.5% 0.084 155.995)"
+          },
+          "form": "oklch"
+        }
+      }
+    },
+    "color-green-300": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.4815,
+          0.9463,
+          0.657
+        ],
+        "alpha": 1,
+        "hex": "#7bf1a8"
+      },
+      "$description": "TK-TW-D · tailwindcss/theme.css",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-TW-D",
+          "source": "tailwindcss/theme.css",
+          "css": {
+            "light": "oklch(87.1% 0.15 154.449)"
+          },
+          "form": "oklch"
+        }
+      }
+    },
+    "color-green-600": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0,
+          0.6513,
+          0.242
+        ],
+        "alpha": 1,
+        "hex": "#00a63e"
+      },
+      "$description": "TK-TW-D · tailwindcss/theme.css",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-TW-D",
+          "source": "tailwindcss/theme.css",
+          "css": {
+            "light": "oklch(62.7% 0.194 149.214)"
+          },
+          "form": "oklch",
+          "clippedToSrgb": 0.166
+        }
+      }
+    },
+    "color-green-700": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0,
+          0.51,
+          0.2098
+        ],
+        "alpha": 1,
+        "hex": "#008236"
+      },
+      "$description": "TK-TW-D · tailwindcss/theme.css",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-TW-D",
+          "source": "tailwindcss/theme.css",
+          "css": {
+            "light": "oklch(52.7% 0.154 150.069)"
+          },
+          "form": "oklch",
+          "clippedToSrgb": 0.0904
+        }
+      }
+    },
+    "color-green-900": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.0511,
+          0.3287,
+          0.1702
+        ],
+        "alpha": 1,
+        "hex": "#0d542b"
+      },
+      "$description": "TK-TW-D · tailwindcss/theme.css",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-TW-D",
+          "source": "tailwindcss/theme.css",
+          "css": {
+            "light": "oklch(39.3% 0.095 152.535)"
+          },
+          "form": "oklch"
+        }
+      }
+    },
+    "color-emerald-300": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.3699,
+          0.9151,
+          0.7088
+        ],
+        "alpha": 1,
+        "hex": "#5ee9b5"
+      },
+      "$description": "TK-TW-D · tailwindcss/theme.css",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-TW-D",
+          "source": "tailwindcss/theme.css",
+          "css": {
+            "light": "oklch(84.5% 0.143 164.978)"
+          },
+          "form": "oklch"
+        }
+      }
+    },
+    "color-emerald-400": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0,
+          0.8326,
+          0.5723
+        ],
+        "alpha": 1,
+        "hex": "#00d492"
+      },
+      "$description": "TK-TW-D · tailwindcss/theme.css",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-TW-D",
+          "source": "tailwindcss/theme.css",
+          "css": {
+            "light": "oklch(76.5% 0.177 163.223)"
+          },
+          "form": "oklch",
+          "clippedToSrgb": 0.1938
+        }
+      }
+    },
+    "color-emerald-500": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0,
+          0.7388,
+          0.4893
+        ],
+        "alpha": 1,
+        "hex": "#00bc7d"
+      },
+      "$description": "TK-TW-D · tailwindcss/theme.css",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-TW-D",
+          "source": "tailwindcss/theme.css",
+          "css": {
+            "light": "oklch(69.6% 0.17 162.48)"
+          },
+          "form": "oklch",
+          "clippedToSrgb": 0.2167
+        }
+      }
+    },
+    "color-emerald-600": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0,
+          0.5989,
+          0.399
+        ],
+        "alpha": 1,
+        "hex": "#009966"
+      },
+      "$description": "TK-TW-D · tailwindcss/theme.css",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-TW-D",
+          "source": "tailwindcss/theme.css",
+          "css": {
+            "light": "oklch(59.6% 0.145 163.225)"
+          },
+          "form": "oklch",
+          "clippedToSrgb": 0.1745
+        }
+      }
+    },
+    "color-emerald-700": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0,
+          0.4782,
+          0.3335
+        ],
+        "alpha": 1,
+        "hex": "#007a55"
+      },
+      "$description": "TK-TW-D · tailwindcss/theme.css",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-TW-D",
+          "source": "tailwindcss/theme.css",
+          "css": {
+            "light": "oklch(50.8% 0.118 165.612)"
+          },
+          "form": "oklch",
+          "clippedToSrgb": 0.1233
+        }
+      }
+    },
+    "color-sky-100": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.8756,
+          0.9489,
+          0.9978
+        ],
+        "alpha": 1,
+        "hex": "#dff2fe"
+      },
+      "$description": "TK-TW-D · tailwindcss/theme.css",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-TW-D",
+          "source": "tailwindcss/theme.css",
+          "css": {
+            "light": "oklch(95.1% 0.026 236.824)"
+          },
+          "form": "oklch"
+        }
+      }
+    },
+    "color-sky-200": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.7219,
+          0.9027,
+          0.997
+        ],
+        "alpha": 1,
+        "hex": "#b8e6fe"
+      },
+      "$description": "TK-TW-D · tailwindcss/theme.css",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-TW-D",
+          "source": "tailwindcss/theme.css",
+          "css": {
+            "light": "oklch(90.1% 0.058 230.902)"
+          },
+          "form": "oklch"
+        }
+      }
+    },
+    "color-sky-300": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.4532,
+          0.8317,
+          1
+        ],
+        "alpha": 1,
+        "hex": "#74d4ff"
+      },
+      "$description": "TK-TW-D · tailwindcss/theme.css",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-TW-D",
+          "source": "tailwindcss/theme.css",
+          "css": {
+            "light": "oklch(82.8% 0.111 230.318)"
+          },
+          "form": "oklch",
+          "clippedToSrgb": 0.0084
+        }
+      }
+    },
+    "color-sky-700": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0,
+          0.4116,
+          0.6603
+        ],
+        "alpha": 1,
+        "hex": "#0069a8"
+      },
+      "$description": "TK-TW-D · tailwindcss/theme.css",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-TW-D",
+          "source": "tailwindcss/theme.css",
+          "css": {
+            "light": "oklch(50% 0.134 242.749)"
+          },
+          "form": "oklch",
+          "clippedToSrgb": 0.1107
+        }
+      }
+    },
+    "color-sky-900": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.0068,
+          0.2903,
+          0.4411
+        ],
+        "alpha": 1,
+        "hex": "#024a70"
+      },
+      "$description": "TK-TW-D · tailwindcss/theme.css",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-TW-D",
+          "source": "tailwindcss/theme.css",
+          "css": {
+            "light": "oklch(39.1% 0.09 240.876)"
+          },
+          "form": "oklch"
+        }
+      }
+    },
+    "color-blue-50": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.9369,
+          0.964,
+          0.9989
+        ],
+        "alpha": 1,
+        "hex": "#eff6ff"
+      },
+      "$description": "TK-TW-D · tailwindcss/theme.css",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-TW-D",
+          "source": "tailwindcss/theme.css",
+          "css": {
+            "light": "oklch(97% 0.014 254.604)"
+          },
+          "form": "oklch"
+        }
+      }
+    },
+    "color-blue-300": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.5566,
+          0.7732,
+          1
+        ],
+        "alpha": 1,
+        "hex": "#8ec5ff"
+      },
+      "$description": "TK-TW-D · tailwindcss/theme.css",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-TW-D",
+          "source": "tailwindcss/theme.css",
+          "css": {
+            "light": "oklch(80.9% 0.105 251.813)"
+          },
+          "form": "oklch",
+          "clippedToSrgb": 0.0146
+        }
+      }
+    },
+    "color-blue-400": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.3158,
+          0.6356,
+          1
+        ],
+        "alpha": 1,
+        "hex": "#51a2ff"
+      },
+      "$description": "TK-TW-D · tailwindcss/theme.css",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-TW-D",
+          "source": "tailwindcss/theme.css",
+          "css": {
+            "light": "oklch(70.7% 0.165 254.624)"
+          },
+          "form": "oklch",
+          "clippedToSrgb": 0.021
+        }
+      }
+    },
+    "color-blue-700": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.0779,
+          0.2791,
+          0.9018
+        ],
+        "alpha": 1,
+        "hex": "#1447e6"
+      },
+      "$description": "TK-TW-D · tailwindcss/theme.css",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-TW-D",
+          "source": "tailwindcss/theme.css",
+          "css": {
+            "light": "oklch(48.8% 0.243 264.376)"
+          },
+          "form": "oklch"
+        }
+      }
+    },
+    "color-blue-800": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.0998,
+          0.2338,
+          0.7229
+        ],
+        "alpha": 1,
+        "hex": "#193cb8"
+      },
+      "$description": "TK-TW-D · tailwindcss/theme.css",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-TW-D",
+          "source": "tailwindcss/theme.css",
+          "css": {
+            "light": "oklch(42.4% 0.199 265.638)"
+          },
+          "form": "oklch"
+        }
+      }
+    },
+    "color-purple-300": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.8544,
+          0.6978,
+          1
+        ],
+        "alpha": 1,
+        "hex": "#dab2ff"
+      },
+      "$description": "TK-TW-D · tailwindcss/theme.css",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-TW-D",
+          "source": "tailwindcss/theme.css",
+          "css": {
+            "light": "oklch(82.7% 0.119 306.383)"
+          },
+          "form": "oklch",
+          "clippedToSrgb": 0.0174
+        }
+      }
+    },
+    "color-zinc-100": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.9564,
+          0.9564,
+          0.9593
+        ],
+        "alpha": 1,
+        "hex": "#f4f4f5"
+      },
+      "$description": "TK-TW-D · tailwindcss/theme.css",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-TW-D",
+          "source": "tailwindcss/theme.css",
+          "css": {
+            "light": "oklch(96.7% 0.001 286.375)"
+          },
+          "form": "oklch"
+        }
+      }
+    },
+    "color-zinc-300": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.8311,
+          0.8311,
+          0.8483
+        ],
+        "alpha": 1,
+        "hex": "#d4d4d8"
+      },
+      "$description": "TK-TW-D · tailwindcss/theme.css",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-TW-D",
+          "source": "tailwindcss/theme.css",
+          "css": {
+            "light": "oklch(87.1% 0.006 286.286)"
+          },
+          "form": "oklch"
+        }
+      }
+    },
+    "color-zinc-400": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.6226,
+          0.6226,
+          0.6634
+        ],
+        "alpha": 1,
+        "hex": "#9f9fa9"
+      },
+      "$description": "TK-TW-D · tailwindcss/theme.css",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-TW-D",
+          "source": "tailwindcss/theme.css",
+          "css": {
+            "light": "oklch(70.5% 0.015 286.067)"
+          },
+          "form": "oklch"
+        }
+      }
+    },
+    "color-zinc-500": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.443,
+          0.4429,
+          0.4838
+        ],
+        "alpha": 1,
+        "hex": "#71717b"
+      },
+      "$description": "TK-TW-D · tailwindcss/theme.css",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-TW-D",
+          "source": "tailwindcss/theme.css",
+          "css": {
+            "light": "oklch(55.2% 0.016 285.938)"
+          },
+          "form": "oklch"
+        }
+      }
+    },
+    "color-zinc-600": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.3212,
+          0.3211,
+          0.3621
+        ],
+        "alpha": 1,
+        "hex": "#52525c"
+      },
+      "$description": "TK-TW-D · tailwindcss/theme.css",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-TW-D",
+          "source": "tailwindcss/theme.css",
+          "css": {
+            "light": "oklch(44.2% 0.017 285.786)"
+          },
+          "form": "oklch"
+        }
+      }
+    },
+    "color-zinc-700": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.2465,
+          0.2464,
+          0.2765
+        ],
+        "alpha": 1,
+        "hex": "#3f3f46"
+      },
+      "$description": "TK-TW-D · tailwindcss/theme.css",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-TW-D",
+          "source": "tailwindcss/theme.css",
+          "css": {
+            "light": "oklch(37% 0.013 285.805)"
+          },
+          "form": "oklch"
+        }
+      }
+    },
+    "color-zinc-800": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.1529,
+          0.1529,
+          0.1658
+        ],
+        "alpha": 1,
+        "hex": "#27272a"
+      },
+      "$description": "TK-TW-D · tailwindcss/theme.css",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-TW-D",
+          "source": "tailwindcss/theme.css",
+          "css": {
+            "light": "oklch(27.4% 0.006 286.033)"
+          },
+          "form": "oklch"
+        }
+      }
+    },
+    "color-zinc-900": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.0938,
+          0.0938,
+          0.1058
+        ],
+        "alpha": 1,
+        "hex": "#18181b"
+      },
+      "$description": "TK-TW-D · tailwindcss/theme.css",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-TW-D",
+          "source": "tailwindcss/theme.css",
+          "css": {
+            "light": "oklch(21% 0.006 285.885)"
+          },
+          "form": "oklch"
+        }
+      }
+    },
+    "color-zinc-950": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.0354,
+          0.0354,
+          0.0443
+        ],
+        "alpha": 1,
+        "hex": "#09090b"
+      },
+      "$description": "TK-TW-D · tailwindcss/theme.css",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-TW-D",
+          "source": "tailwindcss/theme.css",
+          "css": {
+            "light": "oklch(14.1% 0.005 285.823)"
+          },
+          "form": "oklch"
+        }
+      }
+    },
+    "color-black": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0,
+          0,
+          0
+        ],
+        "alpha": 1,
+        "hex": "#000000"
+      },
+      "$description": "TK-TW-D · tailwindcss/theme.css",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-TW-D",
+          "source": "tailwindcss/theme.css",
+          "css": {
+            "light": "#000"
+          },
+          "form": "hex"
+        }
+      }
+    },
+    "color-white": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          1,
+          1,
+          1
+        ],
+        "alpha": 1,
+        "hex": "#ffffff"
+      },
+      "$description": "TK-TW-D · tailwindcss/theme.css",
+      "$extensions": {
+        "org.liquorify": {
+          "id": "TK-TW-D",
+          "source": "tailwindcss/theme.css",
+          "css": {
+            "light": "#fff"
+          },
+          "form": "hex"
+        }
+      }
+    }
+  },
+  "$extensions": {
+    "org.liquorify": {
+      "tailwindcss": "4.3.3",
+      "idList": "0.3-draft"
+    }
+  }
+}

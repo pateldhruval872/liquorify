@@ -1,0 +1,1175 @@
+{
+ "base-a": {
+  "images": 41,
+  "identical": 35,
+  "failing": {
+   "0.2/0": 0,
+   "0.01/0": 1,
+   "0.01/25": 0,
+   "0.005/0": 1,
+   "0.005/25": 0,
+   "0.02/25": 0
+  },
+  "largestCount": {
+   "0": 12,
+   "0.005": 1,
+   "0.01": 1,
+   "0.02": 1,
+   "0.2": 0
+  },
+  "differing": [
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--publishable-keys/dark.png",
+    "counts": {
+     "0": 1,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--scopes-open/dark.png",
+    "counts": {
+     "0": 12,
+     "0.005": 1,
+     "0.01": 1,
+     "0.02": 1,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--secret-keys/dark.png",
+    "counts": {
+     "0": 3,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-button--ghost/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "seller-panel-finance-balance-summary--one-currency/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "seller-panel-finance-balance-summary--two-currencies/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   }
+  ]
+ },
+ "base-b": {
+  "images": 41,
+  "identical": 34,
+  "failing": {
+   "0.2/0": 0,
+   "0.01/0": 1,
+   "0.01/25": 0,
+   "0.005/0": 2,
+   "0.005/25": 0,
+   "0.02/25": 0
+  },
+  "largestCount": {
+   "0": 20,
+   "0.005": 3,
+   "0.01": 2,
+   "0.02": 1,
+   "0.2": 0
+  },
+  "differing": [
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--publishable-keys/dark.png",
+    "counts": {
+     "0": 1,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--scopes-open/dark.png",
+    "counts": {
+     "0": 20,
+     "0.005": 3,
+     "0.01": 2,
+     "0.02": 1,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--secret-keys/dark.png",
+    "counts": {
+     "0": 8,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-button--ghost/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-button--with-icon/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "seller-panel-finance-balance-summary--one-currency/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "seller-panel-finance-balance-summary--two-currencies/dark.png",
+    "counts": {
+     "0": 3,
+     "0.005": 1,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   }
+  ]
+ },
+ "base-c": {
+  "images": 41,
+  "identical": 34,
+  "failing": {
+   "0.2/0": 0,
+   "0.01/0": 4,
+   "0.01/25": 0,
+   "0.005/0": 5,
+   "0.005/25": 0,
+   "0.02/25": 0
+  },
+  "largestCount": {
+   "0": 17,
+   "0.005": 11,
+   "0.01": 3,
+   "0.02": 1,
+   "0.2": 0
+  },
+  "differing": [
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--empty/dark.png",
+    "counts": {
+     "0": 2,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--scopes-open/dark.png",
+    "counts": {
+     "0": 13,
+     "0.005": 1,
+     "0.01": 1,
+     "0.02": 1,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--secret-keys/dark.png",
+    "counts": {
+     "0": 11,
+     "0.005": 2,
+     "0.01": 1,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-button--ghost/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-pagination--first-page/dark.png",
+    "counts": {
+     "0": 16,
+     "0.005": 10,
+     "0.01": 2,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-pagination--last-page/dark.png",
+    "counts": {
+     "0": 17,
+     "0.005": 11,
+     "0.01": 3,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "seller-panel-finance-balance-summary--two-currencies/dark.png",
+    "counts": {
+     "0": 3,
+     "0.005": 1,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   }
+  ]
+ },
+ "base-d": {
+  "images": 41,
+  "identical": 33,
+  "failing": {
+   "0.2/0": 0,
+   "0.01/0": 3,
+   "0.01/25": 0,
+   "0.005/0": 4,
+   "0.005/25": 0,
+   "0.02/25": 0
+  },
+  "largestCount": {
+   "0": 13,
+   "0.005": 5,
+   "0.01": 4,
+   "0.02": 1,
+   "0.2": 0
+  },
+  "differing": [
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--publishable-keys/dark.png",
+    "counts": {
+     "0": 1,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--scopes-open/dark.png",
+    "counts": {
+     "0": 10,
+     "0.005": 1,
+     "0.01": 1,
+     "0.02": 1,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--secret-keys/dark.png",
+    "counts": {
+     "0": 13,
+     "0.005": 2,
+     "0.01": 1,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-button--ghost/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-pagination--last-page/dark.png",
+    "counts": {
+     "0": 6,
+     "0.005": 5,
+     "0.01": 4,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "seller-panel-finance-balance-summary--empty/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "seller-panel-finance-balance-summary--one-currency/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "seller-panel-finance-balance-summary--two-currencies/dark.png",
+    "counts": {
+     "0": 3,
+     "0.005": 1,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   }
+  ]
+ },
+ "f1-a": {
+  "images": 41,
+  "identical": 34,
+  "failing": {
+   "0.2/0": 0,
+   "0.01/0": 1,
+   "0.01/25": 0,
+   "0.005/0": 1,
+   "0.005/25": 0,
+   "0.02/25": 0
+  },
+  "largestCount": {
+   "0": 22,
+   "0.005": 3,
+   "0.01": 2,
+   "0.02": 1,
+   "0.2": 0
+  },
+  "differing": [
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--empty/dark.png",
+    "counts": {
+     "0": 2,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--scopes-open/dark.png",
+    "counts": {
+     "0": 22,
+     "0.005": 3,
+     "0.01": 2,
+     "0.02": 1,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--secret-keys/dark.png",
+    "counts": {
+     "0": 3,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-button--ghost/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "seller-panel-finance-balance-summary--empty/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "seller-panel-finance-balance-summary--one-currency/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "seller-panel-finance-balance-summary--two-currencies/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   }
+  ]
+ },
+ "f1-b": {
+  "images": 41,
+  "identical": 34,
+  "failing": {
+   "0.2/0": 0,
+   "0.01/0": 3,
+   "0.01/25": 0,
+   "0.005/0": 3,
+   "0.005/25": 0,
+   "0.02/25": 0
+  },
+  "largestCount": {
+   "0": 17,
+   "0.005": 11,
+   "0.01": 4,
+   "0.02": 0,
+   "0.2": 0
+  },
+  "differing": [
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--publishable-keys/dark.png",
+    "counts": {
+     "0": 1,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--scopes-open/dark.png",
+    "counts": {
+     "0": 2,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--secret-keys/dark.png",
+    "counts": {
+     "0": 8,
+     "0.005": 2,
+     "0.01": 1,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-pagination--last-page/dark.png",
+    "counts": {
+     "0": 17,
+     "0.005": 11,
+     "0.01": 3,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-pagination--middle-page/dark.png",
+    "counts": {
+     "0": 6,
+     "0.005": 5,
+     "0.01": 4,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-pagination--without-page-size/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "seller-panel-finance-balance-summary--one-currency/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   }
+  ]
+ },
+ "f1-c": {
+  "images": 41,
+  "identical": 32,
+  "failing": {
+   "0.2/0": 0,
+   "0.01/0": 1,
+   "0.01/25": 0,
+   "0.005/0": 1,
+   "0.005/25": 0,
+   "0.02/25": 0
+  },
+  "largestCount": {
+   "0": 22,
+   "0.005": 15,
+   "0.01": 6,
+   "0.02": 0,
+   "0.2": 0
+  },
+  "differing": [
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--empty/dark.png",
+    "counts": {
+     "0": 2,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--publishable-keys/dark.png",
+    "counts": {
+     "0": 1,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--scopes-open/dark.png",
+    "counts": {
+     "0": 5,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--secret-keys/dark.png",
+    "counts": {
+     "0": 3,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-button--ghost/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-pagination--first-page/dark.png",
+    "counts": {
+     "0": 22,
+     "0.005": 15,
+     "0.01": 6,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "seller-panel-finance-balance-summary--empty/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "seller-panel-finance-balance-summary--one-currency/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "seller-panel-finance-balance-summary--two-currencies/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   }
+  ]
+ },
+ "f2-a": {
+  "images": 41,
+  "identical": 34,
+  "failing": {
+   "0.2/0": 0,
+   "0.01/0": 0,
+   "0.01/25": 0,
+   "0.005/0": 0,
+   "0.005/25": 0,
+   "0.02/25": 0
+  },
+  "largestCount": {
+   "0": 5,
+   "0.005": 0,
+   "0.01": 0,
+   "0.02": 0,
+   "0.2": 0
+  },
+  "differing": [
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--empty/dark.png",
+    "counts": {
+     "0": 2,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--scopes-open/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--secret-keys/dark.png",
+    "counts": {
+     "0": 5,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-button--ghost/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-pagination--without-page-size/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "seller-panel-finance-balance-summary--one-currency/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "seller-panel-finance-balance-summary--two-currencies/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   }
+  ]
+ },
+ "f2-b": {
+  "images": 41,
+  "identical": 34,
+  "failing": {
+   "0.2/0": 0,
+   "0.01/0": 1,
+   "0.01/25": 0,
+   "0.005/0": 2,
+   "0.005/25": 0,
+   "0.02/25": 0
+  },
+  "largestCount": {
+   "0": 15,
+   "0.005": 1,
+   "0.01": 1,
+   "0.02": 1,
+   "0.2": 0
+  },
+  "differing": [
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--empty/dark.png",
+    "counts": {
+     "0": 2,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--publishable-keys/dark.png",
+    "counts": {
+     "0": 1,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--scopes-open/dark.png",
+    "counts": {
+     "0": 15,
+     "0.005": 1,
+     "0.01": 1,
+     "0.02": 1,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--secret-keys/dark.png",
+    "counts": {
+     "0": 4,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-button--ghost/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "seller-panel-finance-balance-summary--empty/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "seller-panel-finance-balance-summary--two-currencies/dark.png",
+    "counts": {
+     "0": 3,
+     "0.005": 1,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   }
+  ]
+ },
+ "f2-c": {
+  "images": 41,
+  "identical": 35,
+  "failing": {
+   "0.2/0": 0,
+   "0.01/0": 2,
+   "0.01/25": 0,
+   "0.005/0": 2,
+   "0.005/25": 0,
+   "0.02/25": 0
+  },
+  "largestCount": {
+   "0": 20,
+   "0.005": 3,
+   "0.01": 2,
+   "0.02": 1,
+   "0.2": 0
+  },
+  "differing": [
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--empty/dark.png",
+    "counts": {
+     "0": 2,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--publishable-keys/dark.png",
+    "counts": {
+     "0": 1,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--scopes-open/dark.png",
+    "counts": {
+     "0": 20,
+     "0.005": 3,
+     "0.01": 2,
+     "0.02": 1,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--secret-keys/dark.png",
+    "counts": {
+     "0": 16,
+     "0.005": 3,
+     "0.01": 2,
+     "0.02": 1,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-button--ghost/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "seller-panel-finance-balance-summary--empty/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   }
+  ]
+ },
+ "f3-a": {
+  "images": 41,
+  "identical": 35,
+  "failing": {
+   "0.2/0": 0,
+   "0.01/0": 1,
+   "0.01/25": 0,
+   "0.005/0": 2,
+   "0.005/25": 0,
+   "0.02/25": 0
+  },
+  "largestCount": {
+   "0": 13,
+   "0.005": 1,
+   "0.01": 1,
+   "0.02": 1,
+   "0.2": 0
+  },
+  "differing": [
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--publishable-keys/dark.png",
+    "counts": {
+     "0": 1,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--scopes-open/dark.png",
+    "counts": {
+     "0": 13,
+     "0.005": 1,
+     "0.01": 1,
+     "0.02": 1,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--secret-keys/dark.png",
+    "counts": {
+     "0": 3,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-button--with-icon/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "seller-panel-finance-balance-summary--one-currency/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "seller-panel-finance-balance-summary--two-currencies/dark.png",
+    "counts": {
+     "0": 3,
+     "0.005": 1,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   }
+  ]
+ },
+ "f3-b": {
+  "images": 41,
+  "identical": 37,
+  "failing": {
+   "0.2/0": 0,
+   "0.01/0": 1,
+   "0.01/25": 0,
+   "0.005/0": 1,
+   "0.005/25": 0,
+   "0.02/25": 0
+  },
+  "largestCount": {
+   "0": 8,
+   "0.005": 1,
+   "0.01": 1,
+   "0.02": 1,
+   "0.2": 0
+  },
+  "differing": [
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--empty/dark.png",
+    "counts": {
+     "0": 2,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--scopes-open/dark.png",
+    "counts": {
+     "0": 8,
+     "0.005": 1,
+     "0.01": 1,
+     "0.02": 1,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--secret-keys/dark.png",
+    "counts": {
+     "0": 3,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "seller-panel-finance-balance-summary--two-currencies/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   }
+  ]
+ },
+ "f3-c": {
+  "images": 41,
+  "identical": 32,
+  "failing": {
+   "0.2/0": 0,
+   "0.01/0": 2,
+   "0.01/25": 0,
+   "0.005/0": 2,
+   "0.005/25": 0,
+   "0.02/25": 0
+  },
+  "largestCount": {
+   "0": 18,
+   "0.005": 3,
+   "0.01": 2,
+   "0.02": 1,
+   "0.2": 0
+  },
+  "differing": [
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--empty/dark.png",
+    "counts": {
+     "0": 2,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--publishable-keys/dark.png",
+    "counts": {
+     "0": 2,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--scopes-open/dark.png",
+    "counts": {
+     "0": 15,
+     "0.005": 3,
+     "0.01": 2,
+     "0.02": 1,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--secret-keys/dark.png",
+    "counts": {
+     "0": 18,
+     "0.005": 3,
+     "0.01": 2,
+     "0.02": 1,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-button--ghost/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-button--sizes/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "seller-panel-finance-balance-summary--empty/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "seller-panel-finance-balance-summary--one-currency/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "seller-panel-finance-balance-summary--two-currencies/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   }
+  ]
+ }
+}

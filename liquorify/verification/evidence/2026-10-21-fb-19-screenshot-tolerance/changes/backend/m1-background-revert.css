@@ -1,0 +1,7 @@
+/* m1-background-revert: removes this rule from src/styles.css, so stories sit on
+   the page colour again, as before correction C1:
+
+body {
+  @apply bg-card;
+}
+*/
