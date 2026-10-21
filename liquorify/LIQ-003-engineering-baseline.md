@@ -32,8 +32,9 @@ A document existing does not prove a behaviour, and a configured tool does not p
 | C1 | Storefront: `pnpm install --frozen-lockfile`, `pnpm run check`, `pnpm exec tsc --noEmit`, `pnpm run test`, `pnpm run check:locales`, 2026-10-20 23:55 UTC | Cloud container: Node 22.22.0, pnpm 10.33.4 | **PASS**: Biome clean on 278 files, no type errors, 34 test files and 248 tests passed, 4 locales in sync. Not run: production build, end-to-end tests. CI uses Node 20 |
 | C2 | Backend TypeScript workspace: `pnpm install --frozen-lockfile`, `pnpm lint`, `pnpm typecheck`, `pnpm test`, 2026-10-20 23:58 UTC | Cloud container: Node 22.22.0, pnpm 11.1.1 | **PASS**: 13 lint, 18 type-check and 16 test tasks; 1,374 tests in 8 packages. Not run: Ruby specs, browser tests, generated-code drift checks |
 | C3 | Cross-store shopper access reproduction (merchant lifecycle work), 2026-10-20 | Cloud container: Ruby 3.3.6, SQLite test app | **FAIL**: 9 examples, 6 failures. No same-store controls yet; not run on PostgreSQL. Details stay out of this public repository |
-| G | GitHub repository state through the GitHub API, 2026-10-20 and 21 | GitHub | Backend: public, not a GitHub fork, no workflow run ever, and the Actions API lists no registered workflows although five workflow files are on `main` (2026-10-21); issues off; `main` unprotected. Storefront: private; CI runs on pull requests; `main` unprotected; 10 open Dependabot pull requests. Storefront end-to-end result: see Tests and CI in §2 |
+| G | GitHub repository state through the GitHub API, 2026-10-20 and 21 | GitHub | Backend: public, not a GitHub fork, no workflow run ever, and the Actions API lists no registered workflows although five workflow files are on `main` (2026-10-21); issues off; `main` unprotected. The owner turned Actions on later on 2026-10-21 (V2). Storefront: private; CI runs on pull requests; `main` unprotected; 10 open Dependabot pull requests. Storefront end-to-end result: see Tests and CI in §2 |
 | V1 | FB-02 pull request checks ([record](verification/2026-10-21-fb-02-pull-request-checks.md)), 2026-10-21 01:39 to 01:47 UTC | GitHub, pull request #2 at `32db000`; `actionlint` in a cloud container | **BLOCKED**: no workflow started, most likely because Actions is off. Workflow syntax and the publishing guards PASS by static check and reading |
+| V2 | FB-02 first workflow run ([record](verification/2026-10-21-fb-02-first-workflow-run.md)), 2026-10-21 01:57 to 02:10 UTC | GitHub-hosted runners; pull request #2 at `0e86f0b`, tested as its merge commit `ab0d8a1`; PostgreSQL 16 and MySQL 8.0 | **PASS**: all 29 pull request jobs of `tests.yml` and `packages.yml`, including 17,404 Ruby examples on PostgreSQL and 17,373 on MySQL with no failures, Brakeman with no warnings, and 434 dashboard browser tests. Codecov refused the coverage uploads (no token). Spree's suites only: no isolation evidence |
 | M | Owner's Mac, read-only: Git remotes, branch, working-tree status and file names (this baseline); setting names and request log (assessment), 2026-10-20 | Owner's Mac | Nothing run; no values read |
 | U | Upstream documentation only | — | Not verified in code or behaviour |
 
@@ -56,7 +57,7 @@ A document existing does not prove a behaviour, and a configured tool does not p
 **Gaps and risks, in order of consequence.**
 
 1. **Tenant isolation fails for shoppers** (SP-09, C3). Confirmed: one store's admin can list, open and rename another store's shopper; a shopper can sign in at another store; registration at one store is refused because the email exists at another, which also reveals that the account exists; one store's tax rate completes another store's tax setup task. Open until FB-03 and the fixes land.
-2. **Backend checks have never run on `liquorify`** (DR-09, G). The workflows are configured but trigger only on changes under `spree/**`, `packages/**` and similar paths, with no manual trigger, and the Actions API lists no registered workflows, so Actions may be turned off for the repository. No check started on the FB-02 pull request either (V1). Nothing has verified that the Ruby suites pass at this revision.
+2. **Backend checks have run once, on a pull request** (DR-09, V2). Actions was off (V1) until the owner enabled it on 2026-10-21. Both workflows then ran on the FB-02 pull request and every job passed. On `main` they still trigger only on changes under `spree/**`, `packages/**` and similar paths, with no manual trigger, until FB-02 merges. A pass shows that Spree's own suites pass; it is not evidence of isolation.
 3. **Nothing is enforced on `main`** (DR-03, QV-17, G). Neither repository protects `main` or requires checks.
 4. **Upstream publishing workflows are live in this copy** (DR-13, R). `release.yml` publishes Spree's gems on a `v*` tag; six `… - Release` jobs in `packages.yml` publish Spree's npm packages on pushes to `main` that touch its paths; `docs-package.yml` publishes Spree's docs npm package on pushes to `main` that touch the developer docs, API reference or the package itself. They would fail without Spree's publishing rights, but they should not run here. The FB-02 pull request limits them to the upstream repository; until it merges they stay live.
 5. **The development path points at upstream** (PI-09, DR-02, R). Setup clones upstream `spree/storefront` and `spree/spree-starter`; `server/` is untracked, so the Ruby lockfile and host application are not reproducible from tracked files.
@@ -74,7 +75,7 @@ The proposed inheritance and Product & Design mapping is in [LIQ-001 §6.1](LIQ-
 
 **Development setup.** Two upstream paths: Docker (`pnpm server:setup`, used on the Mac) and native worktrees (`wt`, Homebrew PostgreSQL, portless). `pnpm server:setup` and `pnpm server:teardown` delete the Docker database volume and `server/`; `scripts/worktree/make-template.sh` drops and rebuilds a database. A local test order is blocked until a payment method is visible to shoppers (A).
 
-**Tests and CI.** Verified in the cloud: storefront lint, types, unit tests and locale parity (C1); backend TypeScript lint, types and unit tests (C2). Operating: storefront lint, type check and unit test jobs on pull requests (G), with one failure on the `jsdom` 30 bump. The reviewed storefront end-to-end runs on `main` and PR #13 failed at the Stripe-key preflight, before checkout or Playwright ran; browser tests are NOT_RUN. Dependabot skips that job. Supplying the configuration removes the preflight blocker; a new run is required to establish test results (G; runs 39368899612 and 39520058404). Key setup is owner action OA-1 in LIQ-004. Configured, never run here: backend Ruby suites on PostgreSQL and MySQL, Brakeman, dashboard end-to-end, SDK integration, generated-code drift checks and the weekly dependency audit.
+**Tests and CI.** Verified in the cloud: storefront lint, types, unit tests and locale parity (C1); backend TypeScript lint, types and unit tests (C2). Operating: storefront lint, type check and unit test jobs on pull requests (G), with one failure on the `jsdom` 30 bump. The reviewed storefront end-to-end runs on `main` and PR #13 failed at the Stripe-key preflight, before checkout or Playwright ran; browser tests are NOT_RUN. Dependabot skips that job. Supplying the configuration removes the preflight blocker; a new run is required to establish test results (G; runs 39368899612 and 39520058404). Key setup is owner action OA-1 in LIQ-004. Verified once, on the FB-02 pull request (V2): backend Ruby suites on PostgreSQL and MySQL, Brakeman, dashboard end-to-end, SDK integration and generated-code drift checks. Configured, not yet run: the weekly dependency audit, first scheduled for 2026-10-26.
 
 **Security.** Configured, not verified for Liquorify: API rate limits, CanCanCan authorization, encryption of secret preferences when keys are set, a development-only store-scope guard. Verified: a staff member naming a store where they hold no role is refused, on the orders endpoint (C3). Missing: threat model, security contact, incident handling and secrets infrastructure.
 
@@ -86,7 +87,7 @@ The proposed inheritance and Product & Design mapping is in [LIQ-001 §6.1](LIQ-
 **Finding:** *Satisfied*, *Partial*, *Gap*, *Decision* (depends on an unresolved decision), *Revalidate*, *Not assessed*, or *Not applicable* (outside this scope, reason given).
 **Next:** the smallest action, usually a backlog item in [LIQ-004](LIQ-004-foundation-backlog.md).
 
-Totals: 96 required, 63 conditional and 13 not required. Findings: 67 partial, 17 gaps, 17 waiting on a decision, 56 not assessed, 15 not applicable, and none fully satisfied. "Partial" usually means a reusable Spree mechanism exists but has not been verified or extended for Liquorify.
+Totals: 96 required, 63 conditional and 13 not required. Findings: 68 partial, 16 gaps, 17 waiting on a decision, 56 not assessed, 15 not applicable, and none fully satisfied. "Partial" usually means a reusable Spree mechanism exists but has not been verified or extended for Liquorify.
 
 ### PD
 
@@ -164,10 +165,10 @@ Totals: 96 required, 63 conditional and 13 not required. Findings: 67 partial, 1
 | DR-03 | Required | Pull requests are possible; `main` unprotected in both; one person | Gap | G | FB-02 |
 | DR-04 | Required | Turbo, tsup and Vite builds (Verified during C2); storefront `next build` and `Dockerfile` (not run); gem builds (not run) | Partial | C2, R | — |
 | DR-05 | Required | Frozen pnpm lockfiles (Verified, C1 and C2); release-age and trust settings in `pnpm-workspace.yaml`. Ruby lockfiles are ignored or untracked | Partial | C1, C2, R | FB-05 |
-| DR-06 | Required | Dependabot in both repositories (storefront Operating; backend Configured, no pull requests yet); weekly audit workflow in the backend (never run; once Actions is on it opens pull requests with write access); no triage owner | Partial | G, R | FB-11 |
+| DR-06 | Required | Dependabot in both repositories (storefront Operating; backend Configured, no pull requests yet); weekly audit workflow in the backend (live since Actions was turned on, first scheduled run 2026-10-26; it opens pull requests with write access); no triage owner | Partial | G, R | FB-11 |
 | DR-07 | Conditional: Liquorify builds deployable artifacts | Upstream trusted publishing for Spree's gems only | Not assessed | R | — |
 | DR-08 | Conditional: Liquorify builds deployable artifacts | None | Not assessed | — | — |
-| DR-09 | Required | Backend `tests.yml` and `packages.yml` (Configured, never run here, path-triggered, no manual trigger; the FB-02 pull request drops the pull request filters and adds a manual trigger, and no check started on it); storefront `ci.yml` (lint, types and unit tests Operating on pull requests; the end-to-end job fails at its configuration check) | Gap | G, R, V1 | FB-02 |
+| DR-09 | Required | Backend `tests.yml` and `packages.yml` (Verified once: every job passed on the FB-02 pull request, which drops the pull request filters and adds a manual trigger; on `main` still path-triggered with no manual trigger until it merges); storefront `ci.yml` (lint, types and unit tests Operating on pull requests; the end-to-end job fails at its configuration check) | Partial | G, R, V1, V2 | FB-02 |
 | DR-10 | Conditional: hosting is decided | None | Not assessed | — | — |
 | DR-11 | Conditional: a second environment exists | None | Not applicable: development only | — | — |
 | DR-12 | Required | Engine migrations installed into the host application; re-cloning `server/` renumbers them; no Liquorify migrations | Partial | R | FB-05 |
@@ -183,26 +184,26 @@ Totals: 96 required, 63 conditional and 13 not required. Findings: 67 partial, 1
 | ID | Applicability | Current mechanism and location | Finding | Evidence | Next |
 |---|---|---|---|---|---|
 | QV-01 | Required | Effect-based risk classes and change-specific verification in LIQ-001 §4, in use since D1 (2026-10-21); upstream testing rules in `CLAUDE.md` | Partial | R | — |
-| QV-02 | Required | Biome and TypeScript in both repositories (Verified); Brakeman in backend CI (Configured); RuboCop and bundler-audit listed as gems, not wired in as gates | Partial | C1, C2, R | FB-02 |
-| QV-03 | Required | Vitest: 1,374 backend and 248 storefront tests pass (Verified); RSpec per engine (not run here) | Partial | C1, C2 | FB-02 |
+| QV-02 | Required | Biome and TypeScript in both repositories (Verified); Brakeman in backend CI (Verified once, no warnings); RuboCop and bundler-audit listed as gems, not wired in as gates | Partial | C1, C2, R, V2 | FB-02 |
+| QV-03 | Required | Vitest: 1,374 backend and 248 storefront tests pass (Verified); RSpec per engine passed once in CI: 17,404 examples on PostgreSQL and 17,373 on MySQL, no failures (Verified) | Partial | C1, C2, V2 | FB-02 |
 | QV-04 | Required | Testing Library component tests inside the Vitest runs (Verified) | Partial | C1, C2 | — |
-| QV-05 | Required | RSpec request and integration specs; SDK integration tests in `packages.yml`. One targeted request spec ran on SQLite | Partial | C3, G | FB-02, FB-03 |
-| QV-06 | Required | OpenAPI generated from integration specs; Zod schemas checked against recorded responses (Verified inside C2); drift checks in CI (Configured) | Partial | C2, R | FB-02 |
-| QV-07 | Required | Playwright for the dashboard (`packages/dashboard/e2e`) and the storefront (`e2e/`); neither run here | Partial | R | FB-02, FB-06 |
+| QV-05 | Required | RSpec request and integration specs, inside the engine suites, and SDK integration tests in `packages.yml`, all passed once in CI (V2). One targeted request spec ran on SQLite (C3) | Partial | C3, G, V2 | FB-02, FB-03 |
+| QV-06 | Required | OpenAPI generated from integration specs; Zod schemas checked against recorded responses (Verified inside C2); drift checks in CI (Verified once) | Partial | C2, R, V2 | FB-02 |
+| QV-07 | Required | Playwright for the dashboard (`packages/dashboard/e2e`: 434 passed and 1 skipped once in CI) and the storefront (`e2e/`: not run, see QV-20) | Partial | R, V2 | FB-02, FB-06 |
 | QV-08 | Conditional: Liquorify branding or screens ship | None found; Chromatic selected on 2026-10-21, not set up (Planned) | Not assessed | R | FB-18 |
 | QV-09 | Required with the first Liquorify screen | No accessibility checks found | Gap | R | FB-15 |
 | QV-10 | Conditional: performance requirements are set | None | Not assessed | — | — |
 | QV-11 | Conditional: billing or inventory integrations are scoped | Webhook ordering and repeat tests proposed in the specification | Not assessed | R | — |
-| QV-12 | Required | Brakeman (never run here); isolation reproduction (C3) | Partial | C3, R | FB-02, FB-03 |
+| QV-12 | Required | Brakeman (no warnings, once in CI); isolation reproduction (C3) | Partial | C3, R, V2 | FB-02, FB-03 |
 | QV-13 | Required | Factories (`spree/core/lib/spree/testing_support/factories`), sample data, storefront end-to-end seed script. Shared API test helpers fix the store, so they cannot show isolation | Partial | A, C3 | FB-03 |
 | QV-14 | Required | Per-engine test app (`rake test_app`); CI service containers; cloud has PostgreSQL 16 installed but no Docker daemon | Partial | R, G | FB-03, FB-06 |
 | QV-15 | Conditional: a change needs human judgment | Upstream QA environment flow (`.claude/commands/implement-plan.md`) | Not assessed | R | — |
-| QV-16 | Required | Evidence codes in this baseline; verification records in `liquorify/verification/`, the first on 2026-10-21; reproduction output kept privately | Partial | R, V1 | FB-02 |
+| QV-16 | Required | Evidence codes in this baseline; verification records in `liquorify/verification/`, two so far, both on 2026-10-21; reproduction output kept privately | Partial | R, V1, V2 | FB-02 |
 | QV-17 | Required | No required checks on either `main` | Gap | G | FB-02 |
 | QV-18 | Required | Upstream practices (deterministic OpenAPI generation); no flake tracking | Not assessed | R | — |
 | QV-19 | Required | Upstream test layers; a Liquorify isolation layer proposed in the specification | Partial | R | FB-03 |
 | QV-20 | Required | Storefront end-to-end tests against the upstream Spree image; in CI the job fails at its Stripe configuration check, so the browser tests have not run; dashboard end-to-end tests | Partial | R, G | FB-06 |
-| QV-21 | Required | Brakeman and the weekly dependency audit (Configured, never run here); no dynamic testing | Partial | R, G | FB-02 |
+| QV-21 | Required | Brakeman (Verified once, V2); the weekly dependency audit (Configured, first scheduled run 2026-10-26); no dynamic testing | Partial | R, G, V2 | FB-02 |
 
 ### SP
 
@@ -243,7 +244,7 @@ Totals: 96 required, 63 conditional and 13 not required. Findings: 67 partial, 1
 | PI-08 | Conditional: hosting is decided | None | Not assessed | — | — |
 | PI-09 | Required (development) | Docker path (Mac) and native worktree path; cloud containers; no test, staging or production environment; destructive commands identified (§2) | Partial | R, M, A | FB-04 |
 | PI-10 | Required | Environment variables and Spree preferences; storefront identity and Stripe key come from environment variables | Partial | R, A | — |
-| PI-11 | Required | GitHub-hosted runners; storefront Operating, with its end-to-end job failing at its configuration check; backend has no registered workflows | Partial | G | FB-02 |
+| PI-11 | Required | GitHub-hosted runners; storefront Operating, with its end-to-end job failing at its configuration check; backend ran once on them, on the FB-02 pull request | Partial | G, V2 | FB-02 |
 | PI-12 | Conditional: hosting is decided | None | Not assessed | — | — |
 | PI-13 | Not required | — | Not applicable: no measured demand | — | — |
 | PI-14 | Required | Spree CLI, worktree scripts, test wrappers (`scripts/test/`), Lefthook and agent hooks; all assume upstream repositories | Partial | R | FB-04, FB-05 |
@@ -309,8 +310,8 @@ Totals: 96 required, 63 conditional and 13 not required. Findings: 67 partial, 1
 
 | State | Controls |
 |---|---|
-| Verified | Storefront lint, types, unit tests and locale parity (C1); backend TypeScript lint, types and unit tests (C2); frozen lockfile installs (C1, C2); staff refused for a store where they hold no role, on one endpoint (C3) |
+| Verified | Storefront lint, types, unit tests and locale parity (C1); backend TypeScript lint, types and unit tests (C2); backend Ruby suites on PostgreSQL and MySQL, Brakeman, dashboard end-to-end, SDK integration and drift checks, once, on the FB-02 pull request (V2); frozen lockfile installs (C1, C2); staff refused for a store where they hold no role, on one endpoint (C3) |
 | Operating | Storefront lint, type check and unit test jobs, and Dependabot, on pull requests (G) |
-| Configured, not verified here | The working process adopted under D1, as written rules: the LIQ-001 §4 risk classes and the §6.2 baseline; storefront end-to-end workflow (job FAIL on missing Stripe configuration; browser tests NOT_RUN); backend Ruby suites on PostgreSQL and MySQL, Brakeman, dashboard end-to-end, SDK integration and drift checks; weekly dependency audit; backend Dependabot; Lefthook and agent hooks; API rate limits; encryption of secret preferences; development-only store-scope guard |
+| Configured, not verified here | The working process adopted under D1, as written rules: the LIQ-001 §4 risk classes and the §6.2 baseline; storefront end-to-end workflow (job FAIL on missing Stripe configuration; browser tests NOT_RUN); the backend checks on `main`, which still use the old path filters until FB-02 merges; weekly dependency audit; backend Dependabot; Lefthook and agent hooks; API rate limits; encryption of secret preferences; development-only store-scope guard |
 | Planned (proposals) | Delegation (LIQ-001 §3), isolation test suite and option A safeguards (specification), branch protection and CI baseline (FB-02) |
 | Missing | Branch protection; Liquorify security contact; shopper isolation (failing); accessibility and visual checks; cross-repository compatibility check; work tracking in the backend; any staging or production environment, backups, monitoring or runbooks |

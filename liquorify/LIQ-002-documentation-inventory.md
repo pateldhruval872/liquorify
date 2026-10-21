@@ -26,7 +26,7 @@ The backend tracks 774 Markdown and MDX files, almost all from upstream Spree. T
 
 | Group | Files | Purpose | Origin | Relevance | Recommendation | Authoritative for |
 |---|---:|---|---|---|---|---|
-| `liquorify/` | 10 | Liquorify engineering home: framework, profile, inventory, baseline, Spree adoption record, backlog, verification records | Liquorify, plus 3 supplied | High | Retain; the canonical home | Liquorify engineering rules, decisions, baseline and backlog |
+| `liquorify/` | 11 | Liquorify engineering home: framework, profile, inventory, baseline, Spree adoption record, backlog, verification records | Liquorify, plus 3 supplied | High | Retain; the canonical home | Liquorify engineering rules, decisions, baseline and backlog |
 | `CLAUDE.md` (and `AGENTS.md`, a link to it) | 1 | Rules for agents and developers: monorepo layout, setup, architecture, API, models, testing, git policy, docs | Upstream, plus a Liquorify pointer added now | High | Retain and reference. Its coding, API and database rules are Liquorify's working standards for Spree code until replaced. The proposed baseline and its exceptions are in LIQ-001 §6, mechanism by mechanism in LIQ-005 | Spree coding, API and database conventions |
 | `README.md` | 1 | Spree product overview | Upstream, plus a Liquorify pointer added now | Low | Update when Liquorify branding is defined | Nothing for Liquorify |
 | `.github/CONTRIBUTING.md` | 1 | Setup (Docker and native), running tests, TypeScript packages | Upstream | High | Retain and reference. A Liquorify setup guide (FB-04) links to it instead of copying it | Development setup, until FB-04 verifies a Liquorify path |

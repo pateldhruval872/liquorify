@@ -38,6 +38,7 @@ Records of what was run, on which revision, with its result and limitations ([EN
 | Date | Record | Work item | Result |
 |---|---|---|---|
 | 2026-10-21 | [FB-02 pull request checks](verification/2026-10-21-fb-02-pull-request-checks.md) | FB-02 | BLOCKED: no workflow started on the pull request |
+| 2026-10-21 | [FB-02 first workflow run](verification/2026-10-21-fb-02-first-workflow-run.md) | FB-02 | PASS: all 29 pull request jobs passed. Codecov refused the coverage uploads because no token is set |
 
 ## Supplied framework sources
 

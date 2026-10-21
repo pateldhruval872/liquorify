@@ -40,7 +40,7 @@ Risk classes follow [LIQ-001 §4](LIQ-001-project-profile.md#4-review-and-verifi
 | # | Task | Repo | Risk | Done when | Depends on |
 |---|---|---|---|---|---|
 | FB-01 | Record the adoption decisions D1 to D8, resolving only those needed by the next work item. D1 and D4 were decided on 2026-10-21; D2, D3 and D5 to D8 are open | — | Protected where authority or control policy changes | Each decision is recorded in LIQ-001 with its date, and the documents' status fields match | Owner |
-| FB-02 | **Run the backend's existing checks on `liquorify` and protect `main` in both repositories** (recommended next, below) | B, S | Protected | See below | CI authorization (given 2026-10-21); OA-2 |
+| FB-02 | **Run the backend's existing checks on `liquorify` and protect `main` in both repositories** (recommended next, below) | B, S | Protected | See below | CI authorization (given 2026-10-21); OA-2 (done 2026-10-21); OA-3 |
 | FB-03 | Validate option A: same-store controls, the tax task before-and-after control, PostgreSQL and SQLite runs, the wider surfaces chosen, and the shopper-ownership analysis, as defined at the end of the merchant lifecycle specification | B | Protected | A validation report with results per surface and database, accepted or rejected by the owner | Decisions N1 to N6 in the specification |
 | FB-04 | Verify one development path from a clean checkout to a local test order through the Liquorify storefront: choose Docker or native, settle Ruby and Node versions, list destructive commands, make a payment method visible, confirm the Mac's `liquor` remotes are the renamed repositories | B, S | Standard | A short setup guide (migration step M4) whose steps were run once, with the evidence recorded | FB-01 |
 | FB-05 | Point the setup scripts at the Liquorify repositories (they clone upstream `spree/storefront` and `spree/spree-starter`) and decide where the tracked host application and its Ruby lockfile live | B | Standard | A fresh setup uses `liquorify-storefront`; the host application and lockfile are tracked or their home is decided | Hosting direction |
@@ -75,16 +75,16 @@ These change repository settings or credentials, so they stay with the owner and
 | # | Action | Unblocks | Note |
 |---|---|---|---|
 | OA-1 | Add a Stripe sandbox test key pair to `liquorify-storefront`: a `STRIPE_SECRET_KEY` repository secret and a `STRIPE_PUBLISHABLE_KEY` repository variable | The storefront end-to-end job's configuration check (FB-06) | Adding the keys removes only this blocker. The next run determines whether the browser tests pass |
-| OA-2 | Turn GitHub Actions on for `liquorify` (Settings, then Actions) | Every backend workflow, including the FB-02 checks | No workflow started on the FB-02 pull request, and GitHub lists no registered workflows ([record](verification/2026-10-21-fb-02-pull-request-checks.md)). Until FB-02 merges, avoid pushing a `v*` tag or merging other changes to `packages.yml` paths, because the publishing jobs on `main` are not yet limited to upstream. Actions also starts the weekly dependency audit |
+| OA-2 | Turn GitHub Actions on for `liquorify` (Settings, then Actions) | Every backend workflow, including the FB-02 checks | **Done 2026-10-21.** Both workflows then ran on the FB-02 pull request ([record](verification/2026-10-21-fb-02-first-workflow-run.md)). Until FB-02 merges, avoid pushing a `v*` tag or merging other changes to `packages.yml` paths, because the publishing jobs on `main` are not yet limited to upstream. The weekly dependency audit is now live too; its first scheduled run is Monday 2026-10-26 |
 | OA-3 | Apply the proposed branch protection settings in both repositories, after the backend checks have reported once | FB-02 acceptance criterion 4 | Part of the final approval step, with merging the FB-02 pull request. If the storefront's plan does not offer protection for a private repository, record that instead |
 
 ## Recommended next work item
 
 **FB-02: run the backend's existing checks on `liquorify` and protect `main` in both repositories.**
 
-**Status (2026-10-21).** In progress. The workflow changes are on [pull request #2](https://github.com/pateldhruval872/liquorify/pull/2), open for review. Its checks are BLOCKED: no workflow started, most likely because Actions is off (OA-2, [verification record](verification/2026-10-21-fb-02-pull-request-checks.md)). Merging and repository settings wait for the owner's final approval (OA-3).
+**Status (2026-10-21).** In progress. The workflow changes are on [pull request #2](https://github.com/pateldhruval872/liquorify/pull/2), open for review. The first check attempt was BLOCKED because Actions was off ([record](verification/2026-10-21-fb-02-pull-request-checks.md)). Once the owner turned it on (OA-2), both workflows ran at `0e86f0b` and all 29 pull request jobs passed; Codecov refused the coverage uploads, which does not fail a job ([record](verification/2026-10-21-fb-02-first-workflow-run.md)). Against the acceptance criteria below: 1 is met on the pull request; 2 has nothing to record, since no job failed; 3 is met by reading, and the merge push still has to show the skipped release jobs; 4 waits for the final approval step (OA-3); 5 holds. Merging and repository settings wait for the owner's final approval.
 
-Why this one: the backend has a large test suite, but it has never run on this repository, and nothing stops an unverified change from reaching `main` in either repository. Every later result, including the option A validation, is only as reliable as the checks behind it. It changes no application code. FB-03 can proceed in parallel in the cloud once its own decisions are made.
+Why this one: the backend has a large test suite, but it had never run on this repository before FB-02, and nothing stops an unverified change from reaching `main` in either repository. Every later result, including the option A validation, is only as reliable as the checks behind it. It changes no application code. FB-03 can proceed in parallel in the cloud once its own decisions are made.
 
 - **Outcome.** The backend's existing workflows have one recorded run at a known revision, upstream publishing jobs cannot run here, and both `main` branches accept changes only through pull requests with required checks.
 - **In scope.** The workflow changes in the table below; one run of `tests.yml` and `packages.yml` on the FB-02 pull request; branch protection in both repositories once those checks have reported.
@@ -92,8 +92,8 @@ Why this one: the backend has a large test suite, but it has never run on this r
 
 | Repository | Workflow file | Change in FB-02 | Proposed required checks (source: GitHub Actions) |
 |---|---|---|---|
-| `liquorify` | `.github/workflows/tests.yml` | Add a manual trigger; drop the pull request path filter | Not yet reported, so not yet selectable: `Build (PostgreSQL)`, `PostgreSQL - core (1/3)`, `PostgreSQL - core (2/3)`, `PostgreSQL - core (3/3)`, `PostgreSQL - api (1/1)`, `PostgreSQL - emails (1/1)`, `PostgreSQL - providers (1/1)`, `PostgreSQL - dashboard (1/1)`, `PostgreSQL - mcp (1/1)`, `PostgreSQL - opentelemetry (1/1)`, `Brakeman`. Advisory until Liquorify decides on MySQL: `Build (MySQL)` and the nine `MySQL - …` jobs |
-| `liquorify` | `.github/workflows/packages.yml` | Add a manual trigger; drop the pull request path filter; limit its six `… - Release` jobs to the upstream repository | Not yet reported: `Typecheck, Test & Build`, `Scaffolded app - Typecheck & Lint`, `SDK Integration Tests`, `Dashboard - E2E` (the job that summarizes the four `Dashboard - E2E (n/4)` shards) |
+| `liquorify` | `.github/workflows/tests.yml` | Add a manual trigger; drop the pull request path filter | Reported and passing at `0e86f0b` ([record](verification/2026-10-21-fb-02-first-workflow-run.md)): `Build (PostgreSQL)`, `PostgreSQL - core (1/3)`, `PostgreSQL - core (2/3)`, `PostgreSQL - core (3/3)`, `PostgreSQL - api (1/1)`, `PostgreSQL - emails (1/1)`, `PostgreSQL - providers (1/1)`, `PostgreSQL - dashboard (1/1)`, `PostgreSQL - mcp (1/1)`, `PostgreSQL - opentelemetry (1/1)`, `Brakeman`. Advisory until Liquorify decides on MySQL: `Build (MySQL)` and the nine `MySQL - …` jobs |
+| `liquorify` | `.github/workflows/packages.yml` | Add a manual trigger; drop the pull request path filter; limit its six `… - Release` jobs to the upstream repository | Reported and passing at `0e86f0b`: `Typecheck, Test & Build`, `Scaffolded app - Typecheck & Lint`, `SDK Integration Tests`, `Dashboard - E2E` (the job that summarizes the four `Dashboard - E2E (n/4)` shards) |
 | `liquorify` | `.github/workflows/release.yml` | Limit `Release gems to RubyGems` to the upstream repository | None |
 | `liquorify` | `.github/workflows/docs-package.yml` | Limit its `Release` job to the upstream repository | None |
 | `liquorify` | `.github/workflows/security-audit.yml` | None; it already has a manual trigger | None: it runs on a schedule, not on pull requests |
@@ -103,7 +103,7 @@ Why this one: the backend has a large test suite, but it has never run on this r
 
 **What stands in the way of running these checks from a pull request branch:**
 
-1. **Actions appears to be off** (OA-2). No workflow started on the FB-02 pull request. Once Actions is on, the next commit on the pull request starts both workflows.
+1. **Actions was off** (OA-2, done). No workflow started on the FB-02 pull request until the owner turned Actions on, on 2026-10-21. The next commit then started both workflows.
 2. **Path filters.** On `main`, `tests.yml` runs on a pull request only when it changes `spree/**` or the workflow file, and `packages.yml` only for its listed paths, so a documentation-only pull request, such as the one that added this folder, runs neither. FB-02 drops both pull request filters, so both run on every pull request, including its own. The push filters stay.
 3. **Required checks and path filters conflict.** A required check from a path-filtered workflow never reports on a pull request outside those paths, so that pull request waits indefinitely. The other option was one always-running summary job per workflow, with only those required. The owner chose to drop the filters for now (2026-10-21); runner minutes are free while the repository is public.
 4. **The manual trigger works only after merge.** GitHub offers a manual trigger only for a workflow whose file on the default branch declares it, so until FB-02 merges, the pull request run is the evidence.
@@ -122,7 +122,7 @@ One consequence of requiring checks, rather than a blocker to running them: the 
 - **Risk.** Protected: it changes CI configuration and repository settings. Its verification is the workflow runs and the branch protection demonstration above, not application or isolation tests.
 - **Decisions.**
   - Made on 2026-10-21: the CI file edits are authorized, the pull request path filters are dropped, and MySQL checks stay advisory until Liquorify decides whether it supports MySQL.
-  - Waiting for the final approval step: merging, the branch protection settings and the required checks (proposal below), after OA-2.
+  - Waiting for the final approval step: merging, the branch protection settings and the required checks (proposal below).
   - Decision D7 (backend visibility) does not block this item. The suite is free to run only while the repository is public.
 - **Limitations.** A green upstream suite shows only that Spree's own tests pass. It says nothing about tenant isolation, which stays open under ISO-1 to ISO-7. If the storefront's plan does not include branch protection, that is recorded as a limitation rather than worked around.
 
@@ -142,7 +142,7 @@ A proposal for the final approval step (OA-3); nothing is applied. Each reposito
 
 Effects to expect:
 
-- **Backend checks are not selectable yet.** GitHub offers a check once it has reported in the repository. The backend list can be applied only after OA-2 and one run, and must match the names that run reports.
+- **Backend checks are selectable now.** GitHub offers a check once it has reported in the repository. Every name in the backend list reported on 2026-10-21, exactly as written above ([record](verification/2026-10-21-fb-02-first-workflow-run.md)).
 - **Every backend pull request runs the full suite,** documentation included, because the path filters are gone. Runner minutes are free while the repository is public (D7).
 - **Dependency audit pull requests wait.** The weekly audit opens them with the default token, which does not start CI, so their required checks do not report until CI is started another way ([LIQ-005](LIQ-005-spree-engineering-adoption.md) SA-28).
 - **A renamed job needs the list updated** in the same change, or pull requests wait for a check that no longer exists.
