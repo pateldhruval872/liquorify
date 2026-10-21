@@ -20,7 +20,7 @@ result: PASS for the build, check, arrangement and visual criteria, including af
 | 3 | Each story arranges the component's parts the way a Spree screen does, or says that no screen uses them | PASS |
 | 4 | Every new image was looked at in both modes before it was committed | PASS |
 | 5 | The reference images made in this session pass CI's comparison, and no existing image changed | PASS: all 310 comparisons passed on GitHub's runners under the tolerance then configured, Playwright's default threshold of 0.2, before and after the batch's images were rewritten for the pilot's surface correction (§3). Under the explicit tolerance that replaced it, two local runs in the pinned image passed all 310 ([tolerance record](2026-10-21-fb-19-screenshot-tolerance.md)). Image hashes were not compared |
-| 6 | Each story matches the component in its running screen | NOT_RUN for this batch. The pilot's comparison with running screens found that every story sat on the wrong surface colour; that correction reaches this batch's stories too (§3). The batch waits for the pilot's acceptance before its own comparison |
+| 6 | Each story matches the component in its running screen | NOT_RUN for this batch. The pilot's comparison with running screens found that every story sat on the wrong surface colour; that correction reaches this batch's stories too (§3). The pilot was accepted on 2026-10-21 ([acceptance record](2026-10-21-fb-19-pilot-merge-and-acceptance.md)); this batch's own comparison has not run yet, and the pull request stays a draft until it and the owner's review are complete |
 | 7 | The owner reviews the reference images in the pull request | NOT_RUN: pull request [#9](https://github.com/pateldhruval872/liquorify/pull/9) is open |
 
 ## 1. What was built
