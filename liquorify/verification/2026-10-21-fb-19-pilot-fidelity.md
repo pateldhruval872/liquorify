@@ -20,7 +20,7 @@ The comparison scripts only collect evidence: side-by-side images and computed s
 | 1 | The diagnostic comparison finds no computed-style difference between each compared story and its running screen, apart from the differences recorded as expected (§5) | PASS after two corrections: 26 backend and 14 storefront comparisons, run again for the published evidence with the same differences |
 | 2 | Every token the running screens define has the same value in Storybook | PASS, except one value a page measures at run time (D5) |
 | 3 | Every difference is recorded, and each one that is a defect is corrected in the story, its providers or its mocks | PASS: two defects corrected (C1, C2), one story's description corrected (C3), six expected differences recorded |
-| 4 | What the comparison cannot cover is recorded as a coverage gap, with the check made instead | PASS: 35 stories checked against their source only, and the cart drawer as opened with a pointer, which no story shows (§4) |
+| 4 | What the comparison cannot cover is recorded as a coverage gap, with the check made instead | PASS: 35 stories checked against their source only, and the cart drawer as opened with a pointer, which is currently uncovered (§4) |
 | 5 | The owner accepts the reference images | NOT_RUN: pending, with the [review list](2026-10-21-fb-19-pilot-image-review.md) |
 | 6 | The owner accepts fidelity from the published side-by-side images and computed styles | NOT_RUN: pending, with the [evidence](evidence/2026-10-21-fb-19-pilot-fidelity/README.md) (§9) |
 
@@ -132,7 +132,7 @@ What this does not show: that the state looks the same on a screen that has it, 
 
 ### 4.2 The cart drawer opened with a pointer
 
-The cart drawer story opens on mount, so it shows the drawer as a keyboard user opens it, with the focus ring on the close button (D7). The storefront opened with a mouse or touch shows no ring there. No story reproduces that state: a click from inside the page cannot, because the browser hides the ring only after real pointer input. The comparison shows both states on the screen side (`cart-drawer-empty` and `cart-drawer-with-items` against their keyboard versions).
+The cart drawer story opens on mount, so it shows the drawer as a keyboard user opens it, with the focus ring on the close button (D7). The storefront opened with a mouse or touch shows no ring there. No story or capture shows that state yet, so it is currently uncovered. A story that renders the header's cart button, with a capture that clicks it as the comparison does on the running screen, could cover it; none has been written. The comparison shows both states on the screen side (`cart-drawer-empty` and `cart-drawer-with-items` against their keyboard versions).
 
 ## 5. Differences found
 
@@ -144,7 +144,7 @@ The cart drawer story opens on mount, so it shows the drawer as a keyboard user 
 | D4 | The select, the country combobox and the buttons take their width from their container or their label | Expected | Recorded |
 | D5 | `--spacing-header-height` is 93 pixels on the admin dashboard and 0 in Storybook. A page's header measures itself and sets it at run time; 0 is the stylesheet's own default for a page without one. Only a table's sticky header row uses it, when the page scrolls | Expected | Recorded |
 | D6 | The built storefront's font list names `"Geist Fallback"`, a face Next.js's font loader makes so text keeps its size while Geist loads. Storybook's stand-in for the loader makes none. The two differ only if Geist fails to load | Expected | Recorded |
-| D7 | The cart drawer story opens on mount, so focus moves to the close button and its focus ring shows, as when a shopper opens the cart from the keyboard. Opened with a click, the ring is not drawn. A click from inside the page cannot reproduce that, because the browser only hides the ring after real pointer input | Description defect | Story description corrected (C3); the clicked state is not reproduced |
+| D7 | The cart drawer story opens on mount, so focus moves to the close button and its focus ring shows, as when a shopper opens the cart from the keyboard. Opened with a click, the ring is not drawn, and no story shows that state yet | Description defect | Story description corrected (C3); the clicked state is currently uncovered (§4.2) |
 | D8 | The storefront's root defines variables from the toast and carousel libraries' stylesheets, which only load on pages that use them | Expected | Recorded |
 | D9 | Storybook's root defines dashboard variables the panels' roots do not, with no conflicting value | Expected | Recorded |
 
@@ -183,6 +183,6 @@ Locally, the backend's lint, type check, unit tests, token check and coverage re
 
 ## 9. Published evidence
 
-The side-by-side images and the computed styles of every case, from the run at `817e177` and `0a901eb`, are in [`evidence/2026-10-21-fb-19-pilot-fidelity/`](evidence/2026-10-21-fb-19-pilot-fidelity/README.md), indexed by inventory ID with the revisions compared. That run found the same differences as §3: none in the backend apart from the API key table's heights (D3), and in the storefront the font list's fallback name (D6), the focus ring when the drawer is clicked open (D7) and the cart data (D3). Its token files match §3's counts.
+The side-by-side images and the computed styles of every case, from the run at `817e177` and `0a901eb`, are in [`evidence/2026-10-21-fb-19-pilot-fidelity/`](evidence/2026-10-21-fb-19-pilot-fidelity/README.md), indexed by inventory ID with the revisions compared. That run found the same differences as §3: none in the backend apart from the API key table's heights (D3), and in the storefront the font list's fallback name (D6), the focus ring when the drawer is clicked open (D7) and the cart data (D3). Its token files match §3's counts. The folder holds 84 files, about 3.0 MB: the index, 52 backend case files and 2 token files, and 28 storefront case files and 1 token file.
 
 API key values are masked on both sides, because the running screens show keys from the test database. The images show only the browser tests' fixtures and invented data.
