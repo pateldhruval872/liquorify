@@ -22,7 +22,18 @@ export interface StoryNeeds {
   signedIn?: boolean
   /** The seller the panel acts for, as the seller panel's route layout sets it. */
   sellerId?: string
+  /** The page column a component fills on its screen, for components that take their container's width. */
+  column?: Column
 }
+
+/**
+ * The width of each page column in the running panels, measured at the
+ * 1280-pixel capture width: a page's main column, and a settings page beside
+ * its settings menu.
+ */
+const columnWidths = { page: 965, settings: 890 } as const
+
+type Column = keyof typeof columnWidths
 
 function ThemeFromToolbar({ theme }: { theme: 'light' | 'dark' }) {
   const { setMode } = useTheme()
@@ -63,7 +74,15 @@ export const withPanelProviders: Decorator = (Story, context) => {
       <ConfirmProvider>{children}</ConfirmProvider>
     </TooltipProvider>
   )
-  const story = tenant(<Story />)
+  const story = tenant(
+    needs.column ? (
+      <div data-story-column={needs.column} style={{ width: columnWidths[needs.column] }}>
+        <Story />
+      </div>
+    ) : (
+      <Story />
+    ),
+  )
 
   return (
     <QueryClientProvider client={queryClient}>

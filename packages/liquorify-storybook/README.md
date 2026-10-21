@@ -26,6 +26,7 @@ The toolbar's Theme menu switches between light and dark. Every request to the A
   - `signedIn: true` mounts the auth and permission providers;
   - `sellerId` sets the seller for seller panel queries;
   - `route: { pattern, path }` renders the story inside a memory router;
+  - `column: 'page'` or `column: 'settings'` shows a component that fills its container at the width of the page column it fills on its screen;
   - `capture: 'viewport'` captures the whole page, for open popups that render outside the story.
 
 ## Commands
@@ -52,3 +53,15 @@ To add or change references:
 3. Commit the images, and list in the pull request which ones changed and why.
 
 Comparisons run only in the pinned image, because another browser or font set renders differently. Images taken anywhere else are never references.
+
+`pnpm visual:update` rewrites only the images that fail the comparison, and the comparison tolerates small colour differences in each pixel. A change to something every story shares, such as the page surface, can therefore pass without rewriting any image. After such a change, rewrite them all with `sh visual/in-image.sh --update-snapshots=all`.
+
+## Compare with Spree's running screens
+
+`fidelity/compare.spec.ts` opens chosen stories beside the same components on Spree's running admin dashboard and seller panel, and saves both images and every computed style that differs to `fidelity/results/`. It needs Spree's browser-test server, the two built panels and the built Storybook running; the steps are at the top of the file. Run it with:
+
+```bash
+node node_modules/@playwright/test/cli.js test --config fidelity/playwright.config.ts
+```
+
+Run it in the pinned image (as in `visual/in-image.sh`, with `--network host`) when its images are compared with the reference images. It only reads the screens, and its results are evidence for a review, not references.
