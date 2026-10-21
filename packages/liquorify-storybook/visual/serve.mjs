@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 // Serves a built Storybook on the loopback interface for the visual checks.
 // Only Node is needed, so the check runs the same inside Playwright's image.
+// The storefront keeps an unchanged copy.
 //
 //   node serve.mjs <directory> <port>
 
