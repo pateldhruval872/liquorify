@@ -4,7 +4,7 @@ record: verification
 work_item: FB-19
 date: 2026-10-21
 verifier: Claude (automated session); not independent review
-result: PASS locally for the proposed setting (threshold 0.005, 25 pixels) in both repositories, for every unchanged run and every deliberate change measured; CI results under the new setting are in §7
+result: PASS for the proposed setting (threshold 0.005, 25 pixels) in both repositories, for every unchanged run and every deliberate change measured locally, and for two CI runs of each pilot's revision
 ---
 
 # Screenshot tolerance for the visual checks
@@ -19,7 +19,8 @@ result: PASS locally for the proposed setting (threshold 0.005, 25 pixels) in bo
 | 2 | The background change in the fidelity record (C1) fails | PASS: all 82 backend images fail. The same change on the storefront's page colour fails all 38 storefront images |
 | 3 | Subtle changes to single colour tokens fail | PASS: each of six backend and six storefront changes fails between 8 and 41 of the 82 backend images, and between 2 and 38 of the 38 storefront images |
 | 4 | The current setting is shown to miss them | Shown: Playwright's default threshold of 0.2 fails no image for C1, and fails the token changes only on the token pages, which print each value as text |
-| 5 | Two CI runs of the same revision pass under the proposed setting | Pending: filled in once CI has run on the pull requests (§7) |
+| 5 | Two CI runs of the same revision pass under the proposed setting | PASS: the backend pilot's 82 images and the storefront pilot's 38 passed twice each on GitHub's runners (§7) |
+| 6 | The visual check itself, not only the scoring, passes unchanged runs and fails the changes | PASS: locally, two unchanged runs passed in each repository; C1, the dark card change and the storefront's page colour change failed the images §4 predicts (§7) |
 
 ## 1. Why the setting changes
 
@@ -112,9 +113,26 @@ Under the default, every failure is again on the two token pages. No storefront 
 - A change only on the smoothed edges of text and shapes, which Playwright leaves out.
 - A story the check does not capture, or a state no story shows.
 
-## 7. CI under the proposed setting
+## 7. The setting in the visual check
 
-Pending: CI has not yet run under the proposed setting.
+§2 to §4 score captures with Playwright's comparison outside the visual check. Once the setting was in both configurations, the visual check itself was run.
+
+**Locally**, in the pinned images, with the same deliberate changes:
+
+| Repository | Unchanged, first run | Unchanged, second run | Change | Result | §4 predicted |
+|---|---|---|---|---|---|
+| Backend pilot at `817e177` | 82 passed | 82 passed | m1, C1 removed | 82 failed | 82 |
+| | | | m3, dark card | 41 failed, 41 passed | 41 |
+| Storefront pilot at `0a901eb` | 38 passed | 38 passed | s1, page colour | 38 failed | 38 |
+
+**In CI**, on GitHub's runners, each pilot's visual check ran when its revision was pushed and again as a re-run of the same workflow run:
+
+| Repository | Revision | Workflow run | First attempt | Second attempt |
+|---|---|---|---|---|
+| Backend pilot | [#6](https://github.com/pateldhruval872/liquorify/pull/6) at `817e177` | [Storybook](https://github.com/pateldhruval872/liquorify/actions/runs/39670252392) | 82 passed | 82 passed |
+| Storefront pilot | [storefront #15](https://github.com/pateldhruval872/liquorify-storefront/pull/15) at `0a901eb` | [Storybook](https://github.com/pateldhruval872/liquorify-storefront/actions/runs/39670260380) | 38 passed | 38 passed |
+
+Neither configuration retries a failed comparison, so each pass is a first-time pass. Two runs on one kind of runner are a small sample; §9 says what a later failure without a change means.
 
 ## 8. Evidence
 
