@@ -247,6 +247,33 @@ const cases: Case[] = [
   },
   {
     id: 'CMP-DUI-P-07',
+    name: 'button-focus-visible',
+    story: 'dashboard-ui-primitives-button--focus-visible',
+    screen: async (page) => {
+      await adminPage(page, '/settings/api-keys')
+      const button = page.getByRole('button', { name: 'New key' })
+      await button.focus()
+      return button
+    },
+    inStory: (page) => page.locator('[data-slot="button"]').first(),
+  },
+  {
+    id: 'CMP-DUI-C-03',
+    name: 'back-button-focus-visible',
+    story: 'dashboard-ui-composed-back-button--focus-visible',
+    screen: async (page) => {
+      await adminPage(page, '/products')
+      await page.getByRole('link', { name: 'E2E Inventory Product' }).click()
+      await page.waitForLoadState('networkidle')
+      const button = page.getByRole('button', { name: 'Back' }).first()
+      await page.keyboard.press('Tab')
+      await button.focus()
+      return button
+    },
+    inStory: (page) => page.getByRole('button', { name: 'Back' }),
+  },
+  {
+    id: 'CMP-DUI-P-07',
     name: 'button-outline',
     story: 'dashboard-ui-primitives-button--outline',
     screen: async (page) => {
