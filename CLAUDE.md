@@ -2,7 +2,7 @@
 
 ## Liquorify
 
-This repository is Liquorify's commerce backend, built on Spree. Shared Liquorify engineering documentation (the draft framework, project profile, baseline, Spree adoption record and backlog) lives in [`liquorify/README.md`](liquorify/README.md). Read it before Liquorify work. The Spree rules below still govern code in Spree's areas. `liquorify/LIQ-001-project-profile.md` §6 proposes which of these rules become Liquorify's default baseline and lists the exceptions where they conflict with Liquorify's situation; nothing there overrides these rules until it is adopted.
+This repository is Liquorify's commerce backend, built on Spree. Shared Liquorify engineering documentation (the framework, project profile, baseline, Spree adoption record and backlog) lives in [`liquorify/README.md`](liquorify/README.md). Read it before Liquorify work. The framework is the working process for Liquorify-owned work (decision D1, 2026-10-21). The Spree rules below still govern code in Spree's areas. `liquorify/LIQ-001-project-profile.md` §6 names which of these rules are Liquorify's default baseline and the exceptions where they conflict with Liquorify's situation; only those exceptions override the rules below, and only for Liquorify-owned work.
 
 ## Plans & Architecture Decisions
 
