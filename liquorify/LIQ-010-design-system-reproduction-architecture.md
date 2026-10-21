@@ -440,5 +440,5 @@ SES-001, ENG-001 and ENG-002 apply to this work, as the owner adopted them on 20
 
 - **Reading only, then a small pilot.** Part A was read from the files. Part B ran only on the pilot's eleven components and token pages; what the pilot did not reach (forms, the store provider, read-only permissions, server components that fetch data) is tried by the first batch that needs it.
 - **Counts** of palette colours were found by searching class names, which misses class names built at run time.
-- **Vendor behaviour.** Figma's import formats were not confirmed, and are checked once the seat exists. Screenshots passed the comparison from run to run in the pinned images during the pilot, under the configured tolerance; moving to a new Playwright image needs the same check again (§11.1).
+- **Vendor behaviour.** Figma's import formats were not confirmed, and are checked once the seat exists. Screenshots passed the comparison from run to run in the pinned images during the pilot, under the tolerance then configured, and again under the explicit tolerance in §11.3; moving to a new Playwright image needs the same check again (§11.1).
 - **Automated, not independent.** The same session wrote Part A, proposes Part B and will run the pilot.
