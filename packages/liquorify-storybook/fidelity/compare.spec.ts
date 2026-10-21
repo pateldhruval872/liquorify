@@ -3,8 +3,11 @@ import { expect, type Locator, type Page, test } from '@playwright/test'
 import { login, sellerLogin } from '../../dashboard/e2e/helpers'
 
 /**
- * The pilot's fidelity check (LIQ-010 §12.1): each story beside the same
- * component on Spree's running screen, in the same browser.
+ * The pilot's diagnostic comparison with running screens (LIQ-010 §12.1): each
+ * story beside the same component on Spree's running screen, in the same
+ * browser. It gathers evidence for a person to review and passes whenever it
+ * can capture both sides, so a successful run alone does not establish that a
+ * story matches its screen.
  *
  * Before running, start the screens at the revision under test:
  *   1. Spree's browser-test server, which the dashboard's own browser tests use:
@@ -14,13 +17,20 @@ import { login, sellerLogin } from '../../dashboard/e2e/helpers'
  *      with `VITE_API_PROXY_TARGET=http://localhost:3010`), as their browser tests do;
  *   3. the built Storybook on port 6007 (`node visual/serve.mjs storybook-static 6007`).
  *
- * For each case it saves both images side by side, and the computed styles that
- * differ between the two, to `fidelity/results/`. The data differs on purpose:
- * the screens show the browser tests' fixtures and the stories show invented ones.
+ * For each case it saves both images side by side, and the computed styles of
+ * both sides with the differences between them, to `fidelity/results/`. Set
+ * `FIDELITY_REVISION` to the commit under test to record it in each file. The
+ * data differs on purpose: the screens show the browser tests' fixtures and the
+ * stories show invented ones. API key values are masked on both sides, since
+ * the screens show keys from the test database.
  */
 
 const STORYBOOK = 'http://localhost:6007'
 const results = new URL('./results/', import.meta.url).pathname
+const revision = process.env.FIDELITY_REVISION ?? null
+
+/** Hides API key values in screenshots. */
+const keyValues = (page: Page) => [page.locator('[data-slot="card"] code')]
 
 /** The styles compared on every element, chosen to catch a wrong token, size or variant. */
 const properties = [
@@ -347,6 +357,7 @@ for (const theme of ['light', 'dark'] as const) {
       JSON.stringify(
         {
           theme,
+          revision,
           counts: {
             dashboard: Object.keys(dashboard).length,
             sellerPanel: Object.keys(sellerPanel).length,
@@ -372,7 +383,9 @@ for (const theme of ['light', 'dark'] as const) {
       const onScreen = await item.screen(page)
       await expect(onScreen).toBeVisible({ timeout: 20_000 })
       await page.waitForTimeout(500)
-      const screenImage = item.viewport ? await page.screenshot() : await onScreen.screenshot()
+      const screenImage = item.viewport
+        ? await page.screenshot({ mask: keyValues(page) })
+        : await onScreen.screenshot({ mask: keyValues(page) })
       const screenStyles = await collectStyles(onScreen)
       const screenWidth = (await onScreen.boundingBox())?.width
 
@@ -381,7 +394,9 @@ for (const theme of ['light', 'dark'] as const) {
       await openStory(storyPage, item.story, theme)
       const inStory = await item.inStory(storyPage)
       await expect(inStory).toBeVisible()
-      const storyImage = item.viewport ? await storyPage.screenshot() : await inStory.screenshot()
+      const storyImage = item.viewport
+        ? await storyPage.screenshot({ mask: keyValues(storyPage) })
+        : await inStory.screenshot({ mask: keyValues(storyPage) })
       const storyStyles = await collectStyles(inStory)
       const storyWidth = (await inStory.boundingBox())?.width
 
@@ -392,7 +407,16 @@ for (const theme of ['light', 'dark'] as const) {
       writeFileSync(
         `${folder}${theme}-styles.json`,
         JSON.stringify(
-          { id: item.id, story: item.story, theme, screenWidth, storyWidth, ...comparison },
+          {
+            id: item.id,
+            story: item.story,
+            theme,
+            revision,
+            screenWidth,
+            storyWidth,
+            ...comparison,
+            styles: { screen: screenStyles, story: storyStyles },
+          },
           null,
           2,
         ),

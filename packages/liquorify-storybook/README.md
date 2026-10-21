@@ -58,7 +58,7 @@ Comparisons run only in the pinned image, because another browser or font set re
 
 ## Compare with Spree's running screens
 
-`fidelity/compare.spec.ts` opens chosen stories beside the same components on Spree's running admin dashboard and seller panel, and saves both images and every computed style that differs to `fidelity/results/`. It needs Spree's browser-test server, the two built panels and the built Storybook running; the steps are at the top of the file. Run it with:
+`fidelity/compare.spec.ts` opens chosen stories beside the same components on Spree's running admin dashboard and seller panel. It saves both images side by side, and the computed styles of both sides with the differences between them, to `fidelity/results/`. It is a diagnostic comparison: it passes whenever it can capture both sides, so a successful run does not by itself show that a story matches its screen. A person reviews the images and styles. It needs Spree's browser-test server, the two built panels and the built Storybook running; the steps are at the top of the file. Run it with:
 
 ```bash
 node node_modules/@playwright/test/cli.js test --config fidelity/playwright.config.ts
