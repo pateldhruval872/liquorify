@@ -4,35 +4,38 @@ record: verification
 work_item: FB-19
 date: 2026-10-21
 verifier: Claude (automated session); not independent review
-result: PASS for the 18 stories and 8 token pages compared on running screens, after two corrections; NOT_RUN on running screens for 35 stories, which were checked against their source only
+result: Diagnostic comparison found no unexplained difference for 18 stories and 8 token pages after two corrections; NOT_RUN for the owner's acceptance of fidelity and of the reference images; coverage gaps for 35 stories checked against their source only and for the cart drawer opened with a pointer
 ---
 
 # FB-19 pilot stories compared with Spree's running screens
 
-**Claim.** The pilot's stories render as the same components do on Spree's running admin dashboard, seller panel and storefront, which is criterion 9 of the [pilot record](2026-10-21-fb-19-pilot.md) and step 3 of [LIQ-010 §12.1](../LIQ-010-design-system-reproduction-architecture.md#121-each-batch). Where they did not, the reproduction was corrected, never the component.
+**Claim.** A diagnostic comparison of the pilot's stories with the same components on Spree's running admin dashboard, seller panel and storefront finds no difference that is not explained, after two corrections. This is the evidence for criterion 9 of the [pilot record](2026-10-21-fb-19-pilot.md) and step 3 of [LIQ-010 §12.1](../LIQ-010-design-system-reproduction-architecture.md#121-each-batch). Where a story differed, the reproduction was corrected, never the component.
+
+The comparison scripts only collect evidence: side-by-side images and computed styles. A successful run shows that both sides could be captured, not that they match. Fidelity is accepted by the owner reviewing the [published evidence](evidence/2026-10-21-fb-19-pilot-fidelity/README.md) (criterion 6), which links each case to its inventory ID and the revisions compared.
 
 **Results.**
 
 | # | Criterion | Result |
 |---|---|---|
-| 1 | Each compared story matches its running screen in computed styles, apart from the differences recorded as expected (§5) | PASS after two corrections: 26 backend and 14 storefront comparisons |
+| 1 | The diagnostic comparison finds no computed-style difference between each compared story and its running screen, apart from the differences recorded as expected (§5) | PASS after two corrections: 26 backend and 14 storefront comparisons, run again for the published evidence with the same differences |
 | 2 | Every token the running screens define has the same value in Storybook | PASS, except one value a page measures at run time (D5) |
 | 3 | Every difference is recorded, and each one that is a defect is corrected in the story, its providers or its mocks | PASS: two defects corrected (C1, C2), one story's description corrected (C3), six expected differences recorded |
-| 4 | Stories with no running screen in the browser-test data are recorded, with the check made instead | PASS: 35 stories, listed in §4 |
+| 4 | What the comparison cannot cover is recorded as a coverage gap, with the check made instead | PASS: 35 stories checked against their source only, and the cart drawer as opened with a pointer, which no story shows (§4) |
 | 5 | The owner accepts the reference images | NOT_RUN: pending, with the [review list](2026-10-21-fb-19-pilot-image-review.md) |
+| 6 | The owner accepts fidelity from the published side-by-side images and computed styles | NOT_RUN: pending, with the [evidence](evidence/2026-10-21-fb-19-pilot-fidelity/README.md) (§9) |
 
 ## 1. What was compared, and at which revisions
 
 | | Backend | Storefront |
 |---|---|---|
-| Stories | Pilot branch of [#6](https://github.com/pateldhruval872/liquorify/pull/6), corrected at `8e1974c`, final `d0898ad` | Pilot branch of [storefront #15](https://github.com/pateldhruval872/liquorify-storefront/pull/15), final `d84dc61` |
+| Stories | Pilot branch of [#6](https://github.com/pateldhruval872/liquorify/pull/6), corrected at `8e1974c`, compared again at `d0898ad`, and for the published evidence at `817e177` | Pilot branch of [storefront #15](https://github.com/pateldhruval872/liquorify-storefront/pull/15), compared at `d84dc61`, and for the published evidence at `0a901eb` |
 | Running screens | Spree's code at main `e408a63`, which the pilot branch does not change | The storefront at main `a139771`, which the pilot branch does not change |
 | Backend for the screens | The admin dashboard's own browser-test server: Rails in its test environment, with the database and fixtures its browser tests create | The same server, reached with its seeded publishable key |
 | Screens | The built admin dashboard and seller panel (`vite preview`), as their browser tests serve them | The built storefront (`next build`, then `next start`) |
 | Browser | The visual check's pinned image, Playwright 1.64.1 | The visual check's pinned image, Playwright 1.60.0 |
 | Window | 1280 by 800 pixels, light and dark | 390 and 1280 pixels wide, light, and the system dark setting for the toast |
 
-The comparison is repeatable. It is committed beside each Storybook: `packages/liquorify-storybook/fidelity/` in the backend and `visual/fidelity/` in the storefront, each with the steps to start the screens at the top of `compare.spec.ts`. It only reads the screens, and it never writes a reference image.
+The comparison is repeatable. It is committed beside each Storybook: `packages/liquorify-storybook/fidelity/` in the backend and `visual/fidelity/` in the storefront, each with the steps to start the screens at the top of `compare.spec.ts`. It only reads the screens, and it never writes a reference image. It is diagnostic: it passes whenever it can capture both sides, and a person judges the result. `817e177` and `0a901eb` change the scripts to save the computed styles of both sides and the revision, and to mask API key values, so the results could be published; between them and the earlier revisions the stories and reference images are unchanged.
 
 Two set-up steps changed the browser-test database and nothing else. The storefront needs a product on its key's channel, so `E2E Promo Product` was listed on the default store's online channel. The toast case signs a new customer up through the storefront's own form.
 
@@ -98,7 +101,11 @@ The hero section also holds a large default button and a large outline button, s
 
 Every custom property Storybook's root defines has the same value on the running storefront's home page. The storefront's root also defines 10 properties from the toast and carousel libraries' own stylesheets, which the story page does not load (D8).
 
-## 4. Stories not compared on a running screen, and what was checked instead
+## 4. Coverage gaps, and what was checked instead
+
+Two kinds of case have no comparison on a running screen. Both stay open until a later run can cover them, for example with more browser-test data or FB-04's environment.
+
+### 4.1 Stories whose state no running screen shows
 
 The browser-test data has one seller with one currency, no secret API keys, no list longer than one page, and no form in an invalid state. Some states also exist only for a moment (loading) or only on input the data cannot produce (an error toast). These 35 stories were not compared on a running screen:
 
@@ -123,6 +130,10 @@ For each of them the check was made against the source, in three parts:
 
 What this does not show: that the state looks the same on a screen that has it, for example the pagination with several pages. A later run with more browser-test data, or FB-04's environment, can compare them.
 
+### 4.2 The cart drawer opened with a pointer
+
+The cart drawer story opens on mount, so it shows the drawer as a keyboard user opens it, with the focus ring on the close button (D7). The storefront opened with a mouse or touch shows no ring there. No story reproduces that state: a click from inside the page cannot, because the browser hides the ring only after real pointer input. The comparison shows both states on the screen side (`cart-drawer-empty` and `cart-drawer-with-items` against their keyboard versions).
+
 ## 5. Differences found
 
 | # | Difference | Kind | What was done |
@@ -145,7 +156,7 @@ What this does not show: that the state looks the same on a screen that has it, 
 | C2 | A story need, `column: 'page'` or `'settings'`, shows a component at its page column's width, and the image is cropped to that column. The API key table takes the settings column, and the balance summary and pagination the page column | Backend `src/decorators/providers.tsx`, `src/styles.css`, three story files, README | In 26 of the 82, those three components are narrower |
 | C3 | The cart drawer story says it shows the drawer as opened from the keyboard | Storefront `stories/cart/cart-drawer.stories.tsx` | None |
 
-**A finding about the visual check.** C1 changed the background colour in every backend image: in the button's Default image, 41,053 of its 44,928 pixels changed, from (250, 250, 249) to white in light and from (15, 15, 15) to (26, 26, 26) in dark. Yet `pnpm visual:update` rewrote only the 26 images of the three components C2 narrowed, because each colour change is below the comparison's per-pixel threshold of 0.2, so the other 56 still passed. All 82 were rewritten with `--update-snapshots=all`, and each README now says to do that after a change every story shares. The threshold itself is unchanged: whether a whole-surface change like this one should fail the check is left for the owner as a proposed follow-up.
+**A finding about the visual check.** C1 changed the background colour in every backend image: in the button's Default image, 41,053 of its 44,928 pixels changed, from (250, 250, 249) to white in light and from (15, 15, 15) to (26, 26, 26) in dark. Yet `pnpm visual:update` rewrote only the 26 images of the three components C2 narrowed, because each colour change is below the comparison's per-pixel threshold of 0.2, so the other 56 still passed. All 82 were rewritten with `--update-snapshots=all`, and each README now says to do that after a change every story shares. The owner then asked for an explicit tolerance. The [tolerance record](2026-10-21-fb-19-screenshot-tolerance.md) measures one, a threshold of 0.005 with 25 pixels allowed, under which this change fails all 82 backend images; #6 and storefront #15 now use it.
 
 ## 7. CI after the corrections
 
@@ -162,9 +173,16 @@ Locally, the backend's lint, type check, unit tests, token check and coverage re
 
 ## 8. Limitations
 
+- **Diagnostic, not acceptance.** The comparison collects evidence. Its passing runs, and the results above, do not accept fidelity; the owner does, from the evidence (criterion 6).
 - **Automated, not independent.** The same session built the pilot, wrote the comparison and made these checks.
 - **Not every state.** 35 stories were checked against their source only (§4).
 - **The storefront's backend.** The storefront ran against this repository's browser-test server, not the published Spree release its own end-to-end tests use, because those need Stripe test keys (OA-1). Its pages rendered with this backend's data.
 - **Styles, not pixels.** Matching computed styles and the images side by side show the same rules applied. They do not compare images pixel by pixel, because the data differs on every screen.
 - **One window size for the dashboards.** The column widths in C2 were measured at 1,280 pixels, the width the visual check captures. At another width the columns differ.
 - **The panels' surroundings are not reproduced.** Stories show a component alone: no sidebar, page header, the card a page wraps it in, or the page behind a drawer.
+
+## 9. Published evidence
+
+The side-by-side images and the computed styles of every case, from the run at `817e177` and `0a901eb`, are in [`evidence/2026-10-21-fb-19-pilot-fidelity/`](evidence/2026-10-21-fb-19-pilot-fidelity/README.md), indexed by inventory ID with the revisions compared. That run found the same differences as §3: none in the backend apart from the API key table's heights (D3), and in the storefront the font list's fallback name (D6), the focus ring when the drawer is clicked open (D7) and the cart data (D3). Its token files match §3's counts.
+
+API key values are masked on both sides, because the running screens show keys from the test database. The images show only the browser tests' fixtures and invented data.

@@ -14,7 +14,7 @@ This list holds every reference image the pilot commits, by inventory ID ([LIQ-0
 **What to look at.** Each link opens the image at the pilot's final revision: backend `d0898ad` in [#6](https://github.com/pateldhruval872/liquorify/pull/6), storefront `d84dc61` in [storefront #15](https://github.com/pateldhruval872/liquorify-storefront/pull/15). The pull requests show the same images in their file lists.
 
 **What the Running screen column means.**
-- **Compared:** the story was put beside the same component on Spree's running admin dashboard, seller panel or storefront, and the result is in the [fidelity record](2026-10-21-fb-19-pilot-fidelity.md) §3. The images were looked at side by side and their computed styles compared.
+- **Compared:** the story was put beside the same component on Spree's running admin dashboard, seller panel or storefront, and the result is in the [fidelity record](2026-10-21-fb-19-pilot-fidelity.md) §3. The images were looked at side by side and their computed styles compared; both are published in the [evidence folder](evidence/2026-10-21-fb-19-pilot-fidelity/README.md). That comparison is diagnostic, so it informs the owner's review and does not replace it.
 - **Token values compared:** every token value on the token page was compared with the running screens' tokens.
 - **Not compared; checked against its source:** no running screen showed that state with the browser-test data, so it was checked against the component's source only ([fidelity record](2026-10-21-fb-19-pilot-fidelity.md) §4).
 
