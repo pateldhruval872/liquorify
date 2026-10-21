@@ -4,7 +4,7 @@ record: verification
 work_item: FB-19
 date: 2026-10-21
 verifier: Claude (automated session); not independent review
-result: Diagnostic comparison found no unexplained difference for 18 stories and 8 token pages after two corrections; NOT_RUN for the owner's acceptance of fidelity and of the reference images; coverage gaps for 35 stories checked against their source only and for the cart drawer opened with a pointer
+result: Diagnostic comparison found no unexplained difference for 18 stories and 8 token pages after two corrections; ACCEPTED by the owner within the pilot's scope on 2026-10-21; coverage gaps kept open for 35 stories checked against their source only and for the cart drawer opened with a pointer
 ---
 
 # FB-19 pilot stories compared with Spree's running screens
@@ -21,8 +21,8 @@ The comparison scripts only collect evidence: side-by-side images and computed s
 | 2 | Every token the running screens define has the same value in Storybook | PASS, except one value a page measures at run time (D5) |
 | 3 | Every difference is recorded, and each one that is a defect is corrected in the story, its providers or its mocks | PASS: two defects corrected (C1, C2), one story's description corrected (C3), six expected differences recorded |
 | 4 | What the comparison cannot cover is recorded as a coverage gap, with the check made instead | PASS: 35 stories checked against their source only, and the cart drawer as opened with a pointer, which is currently uncovered (§4) |
-| 5 | The owner accepts the reference images | NOT_RUN: pending, with the [review list](2026-10-21-fb-19-pilot-image-review.md) |
-| 6 | The owner accepts fidelity from the published side-by-side images and computed styles | NOT_RUN: pending, with the [evidence](evidence/2026-10-21-fb-19-pilot-fidelity/README.md) (§9) |
+| 5 | The owner accepts the reference images | ACCEPTED on 2026-10-21, with the [review list](2026-10-21-fb-19-pilot-image-review.md) ([acceptance record](2026-10-21-fb-19-pilot-merge-and-acceptance.md)) |
+| 6 | The owner accepts fidelity from the published side-by-side images and computed styles | ACCEPTED on 2026-10-21 within the pilot's scope, with the [evidence](evidence/2026-10-21-fb-19-pilot-fidelity/README.md) (§9). The coverage gaps in criterion 4 stay open ([acceptance record](2026-10-21-fb-19-pilot-merge-and-acceptance.md)) |
 
 ## 1. What was compared, and at which revisions
 
