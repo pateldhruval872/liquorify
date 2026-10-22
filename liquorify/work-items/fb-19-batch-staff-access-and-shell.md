@@ -23,7 +23,7 @@ The batch covers staff access and the admin dashboard's shell: the first half of
 - **Bounded:** 8 screens, 4 overlays, 3 flows, 3 staff emails and 38 new components, in two pull requests.
 - **Same shape as later batches:** screens, workflows, permissions, meaningful states and running-screen evidence progress alongside component coverage.
 - **Spree stays unchanged:** only Storybook files, mocks, scripts, evidence and records change. Liquorify's own changes to staff access (the public sign-up page and owner-only invitations in F1) stay deferred.
-- **Before it starts:** #8 is merged and accepted, and #9 finishes its own comparison with running screens, because this batch reuses #9's primitive stories. Both hold since 2026-10-22: #8 merged, and #9's comparison is recorded ([fidelity record](../verification/2026-10-22-fb-19-batch-dashboard-primitives-1-fidelity.md)); #9 itself stays a draft until the owner's review.
+- **Before it starts:** #8 is merged and accepted, and #9 finishes its own comparison with running screens, because this batch reuses #9's primitive stories. Both hold since 2026-10-22: #8 merged, and #9's comparison is recorded ([fidelity record](../verification/2026-10-22-fb-19-batch-dashboard-primitives-1-fidelity.md)); the owner merged #9 on 2026-10-22.
 
 ## 2. Scope
 
@@ -138,7 +138,7 @@ The gaps the pilot left open stay open unless this batch's screens close one, in
 **Dependencies**
 
 - #8 is merged and accepted before part 1 starts. Done: #8 merged on 2026-10-22.
-- #9 finishes its own comparison with running screens and its review; part 1 builds on it. The comparison is done; the review is open.
+- #9 finishes its own comparison with running screens and its review; part 1 builds on it. Both are done: the comparison is recorded, and the owner merged #9 on 2026-10-22.
 - Figma work waits for OA-5. The storefront's end-to-end gap (OA-1) does not affect this backend batch.
 
 **Risks, with the fallback**
