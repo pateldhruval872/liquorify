@@ -73,9 +73,16 @@ for (const story of stories) {
       await page.waitForLoadState('networkidle')
 
       // A popup renders outside the story's root, so its story captures the viewport.
-      const capture = await page.evaluate(
-        () => window.__STORYBOOK_PREVIEW__?.currentRender?.story?.parameters?.liquorify?.capture,
-      )
+      const { capture, layout } = await page.evaluate(() => {
+        const parameters = window.__STORYBOOK_PREVIEW__?.currentRender?.story?.parameters
+        return { capture: parameters?.liquorify?.capture, layout: parameters?.layout }
+      })
+      // A focus ring or shadow paints up to a few pixels past the root, so the
+      // root is captured with room around it, taken from the padded layout's
+      // own padding without moving the story.
+      if (capture !== 'viewport' && layout === 'padded') {
+        await page.addStyleTag({ content: '#storybook-root { margin: -8px; padding: 8px; }' })
+      }
       const target = capture === 'viewport' ? page : page.locator('#storybook-root')
       const name = [story.id, `${mode.name}.png`]
 

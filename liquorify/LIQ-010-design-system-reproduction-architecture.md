@@ -6,7 +6,7 @@ status: DRAFT
 owner: unassigned
 approved_by: null
 approved_at: null
-updated: 2026-10-21
+updated: 2026-10-22
 ---
 
 # Design System Reproduction Architecture
@@ -316,7 +316,7 @@ The owner decided the requirements on 2026-10-21 (Q10, in [LIQ-007 §4](LIQ-007-
 1. Reads the built Storybook's story index (`index.json`) and makes one test for each story and each mode it is captured in.
 2. Opens the story on its own (`iframe.html?id=<story id>`), with the theme the mode sets.
 3. Waits until Storybook's render phase reports the story finished, after its play function, and fails the test if the story errored. Then it waits for the fonts and for no request to be pending.
-4. Takes a screenshot of the story's root element, with animations stopped and the text caret hidden. A story of an open popup or dialog sets `capture: 'viewport'` and takes the whole viewport instead, because Base UI and Radix render popups outside the root.
+4. Takes a screenshot of the story's root element, with animations stopped and the text caret hidden. A story with the padded layout is captured with 8 pixels of room around its root, taken from the layout's own padding, because a focus ring or shadow paints a few pixels past the root and a capture at the root's edge cuts it off. A story of an open popup or dialog sets `capture: 'viewport'` and takes the whole viewport instead, because Base UI and Radix render popups outside the root.
 5. Compares it with the committed reference using Playwright's own comparison, with an explicit tolerance in both repositories: a pixel counts as different when its colour moves by more than a threshold of 0.005 on Playwright's scale from 0 to 1 (about 2 of 255 levels), and the test fails when more than 25 pixels count. Playwright's default threshold of 0.2 let a change of every story's background pass. The allowance covers a few dark-mode corners that differ between unchanged runs. Pixels that differ by less than the threshold still pass, so a pass is not a claim that two images are identical; that would need their hashes compared. The measurements are in the [tolerance record](verification/2026-10-21-fb-19-screenshot-tolerance.md), and a change to either number needs a new record of the same kind.
 
 Reference images live in `visual/__screenshots__/<story id>/<mode>.png`, beside the test.
