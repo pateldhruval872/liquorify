@@ -4,14 +4,14 @@ record: verification
 work_item: FB-19
 date: 2026-10-22
 verifier: Claude (automated session); not independent review
-result: PASS for the staff mail on the browser-test server, read from a folder the test app writes it to, with each link followed in the browser; PASS for the storefront's reset email, sent through Spree's webhook. BLOCKED for Spree's own customer reset email: that server does not load the gem that sends it. No fallback is accepted. P1's other checks are NOT_RUN. The owner's acceptance is NOT_RUN
+result: PASS for the staff mail on the browser-test server, read from a folder the test app writes it to, with each link followed in the browser; PASS for the storefront's reset email, sent through Spree's webhook. BLOCKED for Spree's own customer reset email: that server does not load the gem that sends it. No fallback is accepted. P1's other checks are in their own record, 2026-10-22-fb-19-platform-p1-checks.md. The owner's acceptance is NOT_RUN
 ---
 
 # FB-19 platform batch, step P1, the mail check
 
-**Claim.** The [platform batch](../work-items/fb-19-batch-platform.md) asked in step P1 whether Spree's browser-test server can deliver mail where a script can read it without changing Spree's code, which would close the email gaps of the staff and account batches. It can, for the staff emails and for the storefront's own reset email. Scripts now read those emails and follow their links in the browser through the flows they belong to. Spree's own customer reset email cannot be read on that server. P1's other checks have not run yet.
+**Claim.** The [platform batch](../work-items/fb-19-batch-platform.md) asked in step P1 whether Spree's browser-test server can deliver mail where a script can read it without changing Spree's code, which would close the email gaps of the staff and account batches. It can, for the staff emails and for the storefront's own reset email. Scripts now read those emails and follow their links in the browser through the flows they belong to. Spree's own customer reset email cannot be read on that server. P1's other checks are in [their own record](2026-10-22-fb-19-platform-p1-checks.md).
 
-**Scope.** The staff flows FL-02 and FL-03 from [part 1 of the staff batch](2026-10-22-fb-19-batch-staff-access-part-1.md), and the password reset steps of FL-09 from the [shopper accounts batch](2026-10-22-fb-19-batch-storefront-shopper-accounts.md). The other P1 checks (the API reference, the developer kits, the hosted dashboard, tracing, external references and price history) are outside this record.
+**Scope.** The staff flows FL-02 and FL-03 from [part 1 of the staff batch](2026-10-22-fb-19-batch-staff-access-part-1.md), and the password reset steps of FL-09 from the [shopper accounts batch](2026-10-22-fb-19-batch-storefront-shopper-accounts.md). The other P1 checks (the API reference, the developer kits, the hosted dashboard, tracing, external references and price history) are in [their own record](2026-10-22-fb-19-platform-p1-checks.md).
 
 **What the gap register said.** G-03, G-04 and G-05 for the staff emails and G-15 and G-16 for the storefront ([LIQ-004](../LIQ-004-foundation-backlog.md#deferred-gaps-and-the-owners-acceptance)) were deferred to this check. G-03 and G-04 say that Spree's API spec cannot close them, because a spec does not show the browser flow working. Nothing here accepts a gap; the owner answers each one as its pull request is reviewed.
 

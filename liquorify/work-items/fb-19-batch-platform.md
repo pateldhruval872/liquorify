@@ -12,7 +12,7 @@ updated: 2026-10-22
 
 The batch that checks what Spree offers without a screen of its own: the Store, Admin and Seller APIs, the developer kits, webhooks and events, dashboard plugins, providers, the command line tool and project scaffolding, tracing, the agent server and the hosted dashboards. It adds no stories and no Figma frames. It links each capability to its evidence, and keeps what exists apart from what was shown to work.
 
-**Status.** PROPOSED. On 2026-10-22 the owner added this batch, and the completion criterion that ties every capability to its evidence ([LIQ-006 §14](../LIQ-006-product-capability-baseline.md#14-when-the-baseline-is-complete), criteria 8 and 9). The owner asked for the coverage to be inventoried early and the checks to be scheduled around their dependencies. The inventory in §3 is done; the checks in §5 have not run. Nothing here changes Spree's code, Spree's tests or a workflow.
+**Status.** PROPOSED. On 2026-10-22 the owner added this batch, and the completion criterion that ties every capability to its evidence ([LIQ-006 §14](../LIQ-006-product-capability-baseline.md#14-when-the-baseline-is-complete), criteria 8 and 9). The owner asked for the coverage to be inventoried early and the checks to be scheduled around their dependencies. The inventory in §3 is done. Step P1 in §5 has run: the [mail check](../verification/2026-10-22-fb-19-platform-p1-mail.md) and the [API, kit, record, hosting and tracing checks](../verification/2026-10-22-fb-19-platform-p1-checks.md). Its results wait for the owner's review; the other steps have not run. Nothing here changes Spree's code, Spree's tests or a workflow.
 
 ## 1. Outcome
 
@@ -92,25 +92,25 @@ Spree's own tests passing is evidence at the level those tests work: models, con
 
 | Capability | Coverage | Functional verification | What would complete it | Step |
 |---|---|---|---|---|
-| CAP-11-06 APIs and kits | Mapped: each API's tests and reference; each kit's tests | PARTIAL: the Store kit's 22 integration tests reach a real server. The Admin and Seller kits: NOT_RUN against a server. The reference's regeneration: NOT_RUN | Regenerate the reference and compare it; call each kit's read endpoints against the running browser-test server | P1 |
+| CAP-11-06 APIs and kits | Mapped: each API's tests and reference; each kit's tests. P1 found 32 Admin reads whose route the reference does not document for reading | PARTIAL, pending the owner's review of [P1](../verification/2026-10-22-fb-19-platform-p1-checks.md): the reference regenerates with 0 failures, and is stale in two places (SD-4). 217 of the Admin and Seller kits' 326 reads were called against the running server with no server error; every checked answer fits the kit's schema except the Seller kit's orders (SD-3). The Store kit's 22 integration tests reach a real server in CI | The 109 reads not called, almost all for lack of a record; the kits' writes | P1, then the area batches |
 | CAP-04-06 Keys, OAuth, origins | Mapped | PARTIAL: Spree's specs only | Create a key and an OAuth application on the settings screens, then use each from outside | P2 |
 | CAP-04-07 Agent server | Mapped | PARTIAL: Spree's specs only | Connect an agent to the running server through an OAuth authorization | P2 |
 | CAP-04-08 Webhooks and events | Mapped. The storefront's receiver: no test | PARTIAL: Spree's specs only | Deliver an event to a local receiver and to the storefront's receiver, with a test delivery and automatic disabling | P2 |
 | CAP-11-07 Plugins | Mapped. The plugin example: no test | PARTIAL: unit tests and a type-checked scaffold | Load the plugin example into the dashboard starter and capture its route and slot entries on running screens | P3 |
-| CAP-11-08 Hosted dashboards | Mapped | PARTIAL: Spree's specs only | Serve the built dashboard from the Rails server and capture it | P1 |
+| CAP-11-08 Hosted dashboards | Mapped | PASS, pending the owner's review of [P1](../verification/2026-10-22-fb-19-platform-p1-checks.md): the dashboard and the seller panel are served at `/dashboard` and `/sellers` and signed in to, on the hosting gem's own test app | — | P1 |
 | CAP-11-09 Provider contracts | Mapped | PARTIAL: Spree's specs only | Each provider through its area batch's running screens (batches 4, 7 and 8) | P4 |
 | CAP-07-02 Stripe | Mapped | BLOCKED for sandbox calls: no test keys | A payment and a saved card through Stripe's sandbox | P4 |
 | CAP-07-07 EasyPost | Mapped | BLOCKED for sandbox calls: no test key | A rate and a label from EasyPost's test mode | P4 |
 | CAP-05-14 Meilisearch | Mapped | PARTIAL: Spree's specs against a real Meilisearch service | Search on the running storefront with Meilisearch, in batch 4 | P4 |
-| CAP-11-10 Tracing | Mapped | PARTIAL: an in-memory exporter only | Export a request's trace from the running server to a local collector | P1 |
+| CAP-11-10 Tracing | Mapped | PASS for a request's trace reaching a local collector, on the tracing gem's own test app, pending the owner's review of [P1](../verification/2026-10-22-fb-19-platform-p1-checks.md) | The layers not seen: job runs, mail, outgoing calls, extension hooks, gateway calls and webhook deliveries | P1; webhooks in P2 |
 | CAP-11-11 Command line and scaffolding | Mapped | PARTIAL: unit tests and a type-checked scaffold | Create a project and start it with the tool, where Docker is available | P5 |
 | CAP-11-13 Update check | Mapped | NOT_RUN on purpose: it would send data to Spree | FB-09's decision; then a run against a stand-in server, never Spree's | — |
 | CAP-03-03 Store provisioning | Mapped | PARTIAL: Spree's specs and the first-run setup browser test | Batch 3's first-run setup flow | Batch 3 |
-| CAP-03-12 External references | Mapped | PARTIAL: Spree's specs only | Write and read one through the Admin API on the running server | P1 |
-| CAP-05-11 Price history | Mapped | PARTIAL: Spree's specs only | Change a price on the running server and read its history | P1 |
+| CAP-03-12 External references | Mapped | PASS through the Admin kit on the running server, pending the owner's review of [P1](../verification/2026-10-22-fb-19-platform-p1-checks.md) | — | P1 |
+| CAP-05-11 Price history | Mapped | PASS for single price changes on the running server, pending the owner's review of [P1](../verification/2026-10-22-fb-19-platform-p1-checks.md). A bulk change leaves the prior price correct | Whether bulk changes are recorded | P1 |
 | CAP-05-16 Slugs | Mapped | PARTIAL: Spree's specs only | Open a product, a category and a store by slug on the running storefront, in batch 4 | Batch 4 |
 
-None of the 17 is functionally verified yet. All 17 are mapped.
+All 17 are mapped. After P1, four have a PASS that waits for the owner's review: hosted dashboards, tracing, external references and price history. None is accepted as functionally verified yet.
 
 ## 5. When each check runs
 
@@ -118,7 +118,7 @@ The inventory came first, as the owner asked. Each check runs once what it needs
 
 | Step | Checks | Depends on |
 |---|---|---|
-| P1 | Regenerate the API reference and compare it with the committed files; call the Admin and Seller kits' read endpoints against the running browser-test server; serve the hosted dashboard; export traces to a local collector; external references and price history through the Admin API. Also find out whether the browser-test server can deliver mail where a script can read it, without changing Spree's code, which would close the email gaps in the staff and account batches | Nothing new. It can run now. Started on 2026-10-22: the [mail check](../verification/2026-10-22-fb-19-platform-p1-mail.md) is done; the other checks are next |
+| P1 | Regenerate the API reference and compare it with the committed files; call the Admin and Seller kits' read endpoints against the running browser-test server; serve the hosted dashboard; export traces to a local collector; external references and price history through the Admin API. Also find out whether the browser-test server can deliver mail where a script can read it, without changing Spree's code, which would close the email gaps in the staff and account batches | Nothing new. It can run now. Run on 2026-10-22: the [mail check](../verification/2026-10-22-fb-19-platform-p1-mail.md) and the [other checks](../verification/2026-10-22-fb-19-platform-p1-checks.md). Waiting for the owner's review |
 | P2 | Webhook deliveries, API keys, OAuth applications and the agent server, set up on their settings screens and used from outside | Batch 2, developer and integration settings |
 | P3 | The plugin example loaded into a running dashboard, with its slot entries captured | Dashboard shell part 2 |
 | P4 | Stripe and EasyPost sandbox calls; the providers through their area screens; Meilisearch on the storefront | Batches 4, 7 and 8; test keys from the owner. OA-1 adds keys to the storefront's CI only; the backend's sandbox runs need keys the owner provides separately, and they are never printed or committed |

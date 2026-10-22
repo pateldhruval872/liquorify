@@ -8,11 +8,26 @@ import { defineConfig } from '@playwright/test'
  * compare.spec.ts). The comparison only opens them; the other two add their
  * own roles and teammates through the Admin API first. `mail.spec.ts` follows
  * the staff emails' links, and runs only against a server started to write its
- * mail to a folder (see that file).
+ * mail to a folder (see that file). `kits.spec.ts` calls the Admin and Seller
+ * kits' read methods against the server alone, and `records.spec.ts` writes and
+ * reads external references and price history through the Admin kit.
+ * `hosted.spec.ts` signs in to the dashboard and seller panel Spree serves at
+ * `/dashboard` and `/sellers`, on the hosting gem's own test app, and
+ * `tracing.spec.ts` collects the trace of a request from the tracing gem's own
+ * test app (see each file).
  */
 export default defineConfig({
   testDir: '.',
-  testMatch: ['compare.spec.ts', 'screens.spec.ts', 'refusals.spec.ts', 'mail.spec.ts'],
+  testMatch: [
+    'compare.spec.ts',
+    'screens.spec.ts',
+    'refusals.spec.ts',
+    'mail.spec.ts',
+    'kits.spec.ts',
+    'records.spec.ts',
+    'hosted.spec.ts',
+    'tracing.spec.ts',
+  ],
   outputDir: './results/test-output',
   workers: 1,
   timeout: 180_000,
