@@ -4,7 +4,7 @@ record: verification
 work_item: FB-19
 date: 2026-10-22
 verifier: Claude (automated session); not independent review
-result: Diagnostic comparison of 33 cases for 22 of the batch's 24 primitives found no unexplained difference after three corrections to the stories; coverage gaps kept open for 83 of the batch's 114 stories, including every story of the alert and the slot; owner acceptance NOT_RUN
+result: Diagnostic comparison of 33 cases for 22 of the batch's 24 primitives found no unexplained difference after three corrections to the stories; coverage gaps kept open for 83 of the batch's 114 stories, among them stories of the alert and the slot (82 once #11 compares the destructive alert); owner acceptance NOT_RUN
 ---
 
 # FB-19 dashboard primitives, part 1, compared with Spree's running screens
@@ -154,7 +154,7 @@ The same run also changed how six cases find their component, so each compares t
 
 - **Diagnostic, not acceptance.** The comparison collects evidence. Its passing run, and the results above, do not accept fidelity; the owner does, from the evidence (criterion 4).
 - **Automated, not independent.** The same session wrote the stories, the comparison and these checks.
-- **Not every state.** 83 stories, including every story of the alert and the slot, were checked against their source only (§3).
+- **Not every state.** 83 stories, among them stories of the alert and the slot, were checked against their source only (§3). #11 later compares the destructive alert with a running screen, which leaves 82.
 - **Styles, not pixels.** Matching computed styles and the images side by side show the same rules applied. They do not compare pixels, because the data differs on every screen.
 - **One window size.** 1280 pixels wide, the width the visual check captures.
 - **The panels' surroundings are not reproduced.** Stories show a component alone, so inherited sizes and colours can differ where nothing visible uses them (E3).
