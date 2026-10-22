@@ -1,0 +1,1248 @@
+{
+ "revision": "a4a1708",
+ "engine": "spree/api",
+ "database": "SQLite, Spree's test app",
+ "command": "bundle exec rspec with the eight controller spec files and seven Store API integration spec files listed below",
+ "summary": "214 examples, 0 failures",
+ "examples": [
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customer/credit_cards_controller_spec.rb",
+   "line": 84,
+   "description": "Spree::Api::V3::Store::Customer::CreditCardsController DELETE #destroy deletes the credit card",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customer/credit_cards_controller_spec.rb",
+   "line": 96,
+   "description": "Spree::Api::V3::Store::Customer::CreditCardsController DELETE #destroy when credit card belongs to another user returns not found",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customer/credit_cards_controller_spec.rb",
+   "line": 108,
+   "description": "Spree::Api::V3::Store::Customer::CreditCardsController DELETE #destroy without authentication returns unauthorized",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customer/credit_cards_controller_spec.rb",
+   "line": 24,
+   "description": "Spree::Api::V3::Store::Customer::CreditCardsController GET #index returns credit card attributes",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customer/credit_cards_controller_spec.rb",
+   "line": 17,
+   "description": "Spree::Api::V3::Store::Customer::CreditCardsController GET #index returns the user credit cards",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customer/credit_cards_controller_spec.rb",
+   "line": 31,
+   "description": "Spree::Api::V3::Store::Customer::CreditCardsController GET #index only returns credit cards belonging to the current user",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customer/credit_cards_controller_spec.rb",
+   "line": 45,
+   "description": "Spree::Api::V3::Store::Customer::CreditCardsController GET #index without authentication returns unauthorized",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customer/credit_cards_controller_spec.rb",
+   "line": 129,
+   "description": "Spree::Api::V3::Store::Customer::CreditCardsController cross-store isolation cannot show a card stored against another store",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customer/credit_cards_controller_spec.rb",
+   "line": 135,
+   "description": "Spree::Api::V3::Store::Customer::CreditCardsController cross-store isolation cannot delete a card stored against another store",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customer/credit_cards_controller_spec.rb",
+   "line": 121,
+   "description": "Spree::Api::V3::Store::Customer::CreditCardsController cross-store isolation excludes cards from other stores in the index",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customer/credit_cards_controller_spec.rb",
+   "line": 54,
+   "description": "Spree::Api::V3::Store::Customer::CreditCardsController GET #show returns the credit card",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customer/credit_cards_controller_spec.rb",
+   "line": 65,
+   "description": "Spree::Api::V3::Store::Customer::CreditCardsController GET #show when credit card belongs to another user returns not found",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customer/credit_cards_controller_spec.rb",
+   "line": 75,
+   "description": "Spree::Api::V3::Store::Customer::CreditCardsController GET #show without authentication returns unauthorized",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customer/gift_cards_controller_spec.rb",
+   "line": 137,
+   "description": "Spree::Api::V3::Store::Customer::GiftCardsController GET #show returns gift card with all attributes",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customer/gift_cards_controller_spec.rb",
+   "line": 130,
+   "description": "Spree::Api::V3::Store::Customer::GiftCardsController GET #show returns the gift card",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customer/gift_cards_controller_spec.rb",
+   "line": 162,
+   "description": "Spree::Api::V3::Store::Customer::GiftCardsController GET #show when gift card belongs to another store returns not found",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customer/gift_cards_controller_spec.rb",
+   "line": 172,
+   "description": "Spree::Api::V3::Store::Customer::GiftCardsController GET #show without authentication returns unauthorized",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customer/gift_cards_controller_spec.rb",
+   "line": 151,
+   "description": "Spree::Api::V3::Store::Customer::GiftCardsController GET #show when gift card belongs to another user returns not found",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customer/gift_cards_controller_spec.rb",
+   "line": 64,
+   "description": "Spree::Api::V3::Store::Customer::GiftCardsController GET #index only returns gift cards from the current store",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customer/gift_cards_controller_spec.rb",
+   "line": 44,
+   "description": "Spree::Api::V3::Store::Customer::GiftCardsController GET #index returns correct amounts",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customer/gift_cards_controller_spec.rb",
+   "line": 53,
+   "description": "Spree::Api::V3::Store::Customer::GiftCardsController GET #index only returns gift cards belonging to the current user",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customer/gift_cards_controller_spec.rb",
+   "line": 23,
+   "description": "Spree::Api::V3::Store::Customer::GiftCardsController GET #index returns gift card attributes",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customer/gift_cards_controller_spec.rb",
+   "line": 75,
+   "description": "Spree::Api::V3::Store::Customer::GiftCardsController GET #index returns gift cards ordered by created_at desc",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customer/gift_cards_controller_spec.rb",
+   "line": 16,
+   "description": "Spree::Api::V3::Store::Customer::GiftCardsController GET #index returns the user gift cards",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customer/gift_cards_controller_spec.rb",
+   "line": 121,
+   "description": "Spree::Api::V3::Store::Customer::GiftCardsController GET #index without authentication returns unauthorized",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customer/gift_cards_controller_spec.rb",
+   "line": 96,
+   "description": "Spree::Api::V3::Store::Customer::GiftCardsController GET #index with expired gift card shows correct expired state",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customer/gift_cards_controller_spec.rb",
+   "line": 89,
+   "description": "Spree::Api::V3::Store::Customer::GiftCardsController GET #index with expired gift card includes expired gift cards",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customer/gift_cards_controller_spec.rb",
+   "line": 109,
+   "description": "Spree::Api::V3::Store::Customer::GiftCardsController GET #index with partially redeemed gift card shows correct state and amounts",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/integration/spree/api/v3/store/addresses_spec.rb",
+   "description": "Addresses API /api/v3/store/customers/me/addresses get addresses found returns a 200 response",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/integration/spree/api/v3/store/addresses_spec.rb",
+   "description": "Addresses API /api/v3/store/customers/me/addresses get unauthorized returns a 401 response",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/integration/spree/api/v3/store/addresses_spec.rb",
+   "description": "Addresses API /api/v3/store/customers/me/addresses post validation error returns a 422 response",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/integration/spree/api/v3/store/addresses_spec.rb",
+   "description": "Addresses API /api/v3/store/customers/me/addresses post address created returns a 201 response",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/integration/spree/api/v3/store/addresses_spec.rb",
+   "description": "Addresses API /api/v3/store/customers/me/addresses/{id} get address found returns a 200 response",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/integration/spree/api/v3/store/addresses_spec.rb",
+   "description": "Addresses API /api/v3/store/customers/me/addresses/{id} get address not found returns a 404 response",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/integration/spree/api/v3/store/addresses_spec.rb",
+   "description": "Addresses API /api/v3/store/customers/me/addresses/{id} delete address deleted returns a 204 response",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/integration/spree/api/v3/store/addresses_spec.rb",
+   "description": "Addresses API /api/v3/store/customers/me/addresses/{id} delete address not found returns a 404 response",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/integration/spree/api/v3/store/addresses_spec.rb",
+   "description": "Addresses API /api/v3/store/customers/me/addresses/{id} patch address updated returns a 200 response",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customer/addresses_controller_spec.rb",
+   "line": 171,
+   "description": "Spree::Api::V3::Store::Customer::AddressesController PATCH #update returns the updated address",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customer/addresses_controller_spec.rb",
+   "line": 164,
+   "description": "Spree::Api::V3::Store::Customer::AddressesController PATCH #update updates the address",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customer/addresses_controller_spec.rb",
+   "line": 181,
+   "description": "Spree::Api::V3::Store::Customer::AddressesController PATCH #update when address belongs to another user returns not found",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customer/addresses_controller_spec.rb",
+   "line": 192,
+   "description": "Spree::Api::V3::Store::Customer::AddressesController PATCH #update without authentication returns unauthorized",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customer/addresses_controller_spec.rb",
+   "line": 307,
+   "description": "Spree::Api::V3::Store::Customer::AddressesController DELETE #destroy deletes the address",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customer/addresses_controller_spec.rb",
+   "line": 359,
+   "description": "Spree::Api::V3::Store::Customer::AddressesController DELETE #destroy when address belongs to another user returns not found",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customer/addresses_controller_spec.rb",
+   "line": 371,
+   "description": "Spree::Api::V3::Store::Customer::AddressesController DELETE #destroy without authentication returns unauthorized",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customer/addresses_controller_spec.rb",
+   "line": 331,
+   "description": "Spree::Api::V3::Store::Customer::AddressesController DELETE #destroy when the address is referenced by a completed order as the bill address behaves like soft-deletes the referenced address soft-deletes the address, keeping the order association intact",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customer/addresses_controller_spec.rb",
+   "line": 331,
+   "description": "Spree::Api::V3::Store::Customer::AddressesController DELETE #destroy when the address is referenced by a completed order as the ship address behaves like soft-deletes the referenced address soft-deletes the address, keeping the order association intact",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customer/addresses_controller_spec.rb",
+   "line": 318,
+   "description": "Spree::Api::V3::Store::Customer::AddressesController DELETE #destroy when the address is referenced by a shipment soft-deletes the address, keeping the shipment association intact",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customer/addresses_controller_spec.rb",
+   "line": 123,
+   "description": "Spree::Api::V3::Store::Customer::AddressesController POST #create still answers to the deprecated state_abbr on read",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customer/addresses_controller_spec.rb",
+   "line": 104,
+   "description": "Spree::Api::V3::Store::Customer::AddressesController POST #create creates a new address",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customer/addresses_controller_spec.rb",
+   "line": 112,
+   "description": "Spree::Api::V3::Store::Customer::AddressesController POST #create returns the created address",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customer/addresses_controller_spec.rb",
+   "line": 129,
+   "description": "Spree::Api::V3::Store::Customer::AddressesController POST #create still accepts the deprecated state_abbr on write",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customer/addresses_controller_spec.rb",
+   "line": 136,
+   "description": "Spree::Api::V3::Store::Customer::AddressesController POST #create accepts quick_checkout, relaxing the phone requirement",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customer/addresses_controller_spec.rb",
+   "line": 144,
+   "description": "Spree::Api::V3::Store::Customer::AddressesController POST #create with invalid params returns validation errors for missing first_name",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customer/addresses_controller_spec.rb",
+   "line": 155,
+   "description": "Spree::Api::V3::Store::Customer::AddressesController POST #create without authentication returns unauthorized",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customer/addresses_controller_spec.rb",
+   "line": 202,
+   "description": "Spree::Api::V3::Store::Customer::AddressesController is_default_billing / is_default_shipping response serialization includes is_default_billing and is_default_shipping in index response",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customer/addresses_controller_spec.rb",
+   "line": 212,
+   "description": "Spree::Api::V3::Store::Customer::AddressesController is_default_billing / is_default_shipping response serialization includes is_default_billing and is_default_shipping in show response",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customer/addresses_controller_spec.rb",
+   "line": 287,
+   "description": "Spree::Api::V3::Store::Customer::AddressesController is_default_billing / is_default_shipping PATCH #update sets default and updates fields in one request",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customer/addresses_controller_spec.rb",
+   "line": 295,
+   "description": "Spree::Api::V3::Store::Customer::AddressesController is_default_billing / is_default_shipping PATCH #update does not change defaults when not passed",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customer/addresses_controller_spec.rb",
+   "line": 263,
+   "description": "Spree::Api::V3::Store::Customer::AddressesController is_default_billing / is_default_shipping PATCH #update sets address as default billing",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customer/addresses_controller_spec.rb",
+   "line": 271,
+   "description": "Spree::Api::V3::Store::Customer::AddressesController is_default_billing / is_default_shipping PATCH #update sets address as default shipping",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customer/addresses_controller_spec.rb",
+   "line": 279,
+   "description": "Spree::Api::V3::Store::Customer::AddressesController is_default_billing / is_default_shipping PATCH #update sets both defaults at once",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customer/addresses_controller_spec.rb",
+   "line": 252,
+   "description": "Spree::Api::V3::Store::Customer::AddressesController is_default_billing / is_default_shipping POST #create sets both defaults on create",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customer/addresses_controller_spec.rb",
+   "line": 234,
+   "description": "Spree::Api::V3::Store::Customer::AddressesController is_default_billing / is_default_shipping POST #create sets default billing on create",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customer/addresses_controller_spec.rb",
+   "line": 243,
+   "description": "Spree::Api::V3::Store::Customer::AddressesController is_default_billing / is_default_shipping POST #create sets default shipping on create",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customer/addresses_controller_spec.rb",
+   "line": 62,
+   "description": "Spree::Api::V3::Store::Customer::AddressesController GET #show returns address attributes",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customer/addresses_controller_spec.rb",
+   "line": 55,
+   "description": "Spree::Api::V3::Store::Customer::AddressesController GET #show returns the address",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customer/addresses_controller_spec.rb",
+   "line": 82,
+   "description": "Spree::Api::V3::Store::Customer::AddressesController GET #show without authentication returns unauthorized",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customer/addresses_controller_spec.rb",
+   "line": 72,
+   "description": "Spree::Api::V3::Store::Customer::AddressesController GET #show when address belongs to another user returns not found",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customer/addresses_controller_spec.rb",
+   "line": 18,
+   "description": "Spree::Api::V3::Store::Customer::AddressesController GET #index returns the user addresses",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customer/addresses_controller_spec.rb",
+   "line": 25,
+   "description": "Spree::Api::V3::Store::Customer::AddressesController GET #index returns address attributes",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customer/addresses_controller_spec.rb",
+   "line": 32,
+   "description": "Spree::Api::V3::Store::Customer::AddressesController GET #index only returns addresses belonging to the current user",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customer/addresses_controller_spec.rb",
+   "line": 46,
+   "description": "Spree::Api::V3::Store::Customer::AddressesController GET #index without authentication returns unauthorized",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customer/orders_controller_spec.rb",
+   "line": 45,
+   "description": "Spree::Api::V3::Store::Customer::OrdersController GET #index ignores filters that reach beyond the order itself",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customer/orders_controller_spec.rb",
+   "line": 57,
+   "description": "Spree::Api::V3::Store::Customer::OrdersController GET #index returns pagination metadata",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customer/orders_controller_spec.rb",
+   "line": 51,
+   "description": "Spree::Api::V3::Store::Customer::OrdersController GET #index still filters on the order itself",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customer/orders_controller_spec.rb",
+   "line": 17,
+   "description": "Spree::Api::V3::Store::Customer::OrdersController GET #index returns user orders",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customer/orders_controller_spec.rb",
+   "line": 32,
+   "description": "Spree::Api::V3::Store::Customer::OrdersController GET #index does not return orders from other stores",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customer/orders_controller_spec.rb",
+   "line": 25,
+   "description": "Spree::Api::V3::Store::Customer::OrdersController GET #index does not return other users orders",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customer/orders_controller_spec.rb",
+   "line": 66,
+   "description": "Spree::Api::V3::Store::Customer::OrdersController GET #index without authentication returns unauthorized",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/policies_controller_spec.rb",
+   "line": 40,
+   "description": "Spree::Api::V3::Store::PoliciesController GET #index does not return policies from other stores",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/policies_controller_spec.rb",
+   "line": 52,
+   "description": "Spree::Api::V3::Store::PoliciesController GET #index does not return a seller\u2019s policies",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/policies_controller_spec.rb",
+   "line": 33,
+   "description": "Spree::Api::V3::Store::PoliciesController GET #index orders by name",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/policies_controller_spec.rb",
+   "line": 62,
+   "description": "Spree::Api::V3::Store::PoliciesController GET #index exposes when the policy was last updated",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/policies_controller_spec.rb",
+   "line": 24,
+   "description": "Spree::Api::V3::Store::PoliciesController GET #index returns policy attributes",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/policies_controller_spec.rb",
+   "line": 16,
+   "description": "Spree::Api::V3::Store::PoliciesController GET #index returns policies for the store",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/policies_controller_spec.rb",
+   "line": 81,
+   "description": "Spree::Api::V3::Store::PoliciesController GET #show returns a policy by prefixed ID",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/policies_controller_spec.rb",
+   "line": 88,
+   "description": "Spree::Api::V3::Store::PoliciesController GET #show returns 404 for non-existent policy",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/policies_controller_spec.rb",
+   "line": 71,
+   "description": "Spree::Api::V3::Store::PoliciesController GET #show returns a policy by slug",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customer/password_resets_controller_spec.rb",
+   "line": 87,
+   "description": "Spree::Api::V3::Store::Customer::PasswordResetsController POST #create with redirect_url without redirect_url does not include redirect_url in event payload",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customer/password_resets_controller_spec.rb",
+   "line": 76,
+   "description": "Spree::Api::V3::Store::Customer::PasswordResetsController POST #create with redirect_url when store has no allowed origins silently drops redirect_url to prevent open redirect",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customer/password_resets_controller_spec.rb",
+   "line": 52,
+   "description": "Spree::Api::V3::Store::Customer::PasswordResetsController POST #create with redirect_url when store has allowed origins returns 202 when redirect_url matches allowed origin",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customer/password_resets_controller_spec.rb",
+   "line": 58,
+   "description": "Spree::Api::V3::Store::Customer::PasswordResetsController POST #create with redirect_url when store has allowed origins includes redirect_url in event payload",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customer/password_resets_controller_spec.rb",
+   "line": 65,
+   "description": "Spree::Api::V3::Store::Customer::PasswordResetsController POST #create with redirect_url when store has allowed origins silently drops redirect_url when it does not match allowed origin",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customer/password_resets_controller_spec.rb",
+   "line": 16,
+   "description": "Spree::Api::V3::Store::Customer::PasswordResetsController POST #create with a valid email returns 202 accepted",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customer/password_resets_controller_spec.rb",
+   "line": 23,
+   "description": "Spree::Api::V3::Store::Customer::PasswordResetsController POST #create with a valid email publishes customer.password_reset_requested event",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customer/password_resets_controller_spec.rb",
+   "line": 32,
+   "description": "Spree::Api::V3::Store::Customer::PasswordResetsController POST #create with an unknown email returns 202 accepted (prevents email enumeration)",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customer/password_resets_controller_spec.rb",
+   "line": 41,
+   "description": "Spree::Api::V3::Store::Customer::PasswordResetsController POST #create with no email returns 202 accepted (prevents email enumeration)",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customer/password_resets_controller_spec.rb",
+   "line": 141,
+   "description": "Spree::Api::V3::Store::Customer::PasswordResetsController PATCH #update with a valid token and matching passwords publishes customer.password_reset event",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customer/password_resets_controller_spec.rb",
+   "line": 152,
+   "description": "Spree::Api::V3::Store::Customer::PasswordResetsController PATCH #update with a valid token and matching passwords invalidates the token after use",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customer/password_resets_controller_spec.rb",
+   "line": 125,
+   "description": "Spree::Api::V3::Store::Customer::PasswordResetsController PATCH #update with a valid token and matching passwords revokes every pre-existing session, keeping only the fresh one",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customer/password_resets_controller_spec.rb",
+   "line": 101,
+   "description": "Spree::Api::V3::Store::Customer::PasswordResetsController PATCH #update with a valid token and matching passwords resets the password and returns JWT",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customer/password_resets_controller_spec.rb",
+   "line": 114,
+   "description": "Spree::Api::V3::Store::Customer::PasswordResetsController PATCH #update with a valid token and matching passwords mints the fresh session for the store surface",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customer/password_resets_controller_spec.rb",
+   "line": 187,
+   "description": "Spree::Api::V3::Store::Customer::PasswordResetsController PATCH #update with mismatched passwords returns validation error",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customer/password_resets_controller_spec.rb",
+   "line": 174,
+   "description": "Spree::Api::V3::Store::Customer::PasswordResetsController PATCH #update with an invalid token returns error",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/auth_controller_spec.rb",
+   "line": 35,
+   "description": "Spree::Api::V3::Store::AuthController POST #create (login) returns user data on successful login",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/auth_controller_spec.rb",
+   "line": 22,
+   "description": "Spree::Api::V3::Store::AuthController POST #create (login) returns a refresh token on login",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/auth_controller_spec.rb",
+   "line": 15,
+   "description": "Spree::Api::V3::Store::AuthController POST #create (login) authenticates with email and password",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/auth_controller_spec.rb",
+   "line": 29,
+   "description": "Spree::Api::V3::Store::AuthController POST #create (login) creates a RefreshToken record",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/auth_controller_spec.rb",
+   "line": 160,
+   "description": "Spree::Api::V3::Store::AuthController POST #create (login) with an unregistered provider returns bad_request",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/auth_controller_spec.rb",
+   "line": 123,
+   "description": "Spree::Api::V3::Store::AuthController POST #create (login) with a custom identity provider creates a UserIdentity mapping on first login",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/auth_controller_spec.rb",
+   "line": 152,
+   "description": "Spree::Api::V3::Store::AuthController POST #create (login) with a custom identity provider does not create a RefreshToken when the strategy fails",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/auth_controller_spec.rb",
+   "line": 144,
+   "description": "Spree::Api::V3::Store::AuthController POST #create (login) with a custom identity provider returns unauthorized when the strategy fails",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/auth_controller_spec.rb",
+   "line": 114,
+   "description": "Spree::Api::V3::Store::AuthController POST #create (login) with a custom identity provider dispatches to the registered strategy and returns a Spree JWT",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/auth_controller_spec.rb",
+   "line": 133,
+   "description": "Spree::Api::V3::Store::AuthController POST #create (login) with a custom identity provider reuses the existing user on subsequent logins",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/auth_controller_spec.rb",
+   "line": 79,
+   "description": "Spree::Api::V3::Store::AuthController POST #create (login) without API key returns unauthorized",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/auth_controller_spec.rb",
+   "line": 69,
+   "description": "Spree::Api::V3::Store::AuthController POST #create (login) invalid credentials does not create a RefreshToken on failure",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/auth_controller_spec.rb",
+   "line": 57,
+   "description": "Spree::Api::V3::Store::AuthController POST #create (login) invalid credentials returns unauthorized for missing email",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/auth_controller_spec.rb",
+   "line": 50,
+   "description": "Spree::Api::V3::Store::AuthController POST #create (login) invalid credentials returns unauthorized for non-existent email",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/auth_controller_spec.rb",
+   "line": 63,
+   "description": "Spree::Api::V3::Store::AuthController POST #create (login) invalid credentials returns unauthorized for missing password",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/auth_controller_spec.rb",
+   "line": 43,
+   "description": "Spree::Api::V3::Store::AuthController POST #create (login) invalid credentials returns unauthorized for wrong password",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/auth_controller_spec.rb",
+   "line": 196,
+   "description": "Spree::Api::V3::Store::AuthController POST #refresh creates a new refresh token",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/auth_controller_spec.rb",
+   "line": 183,
+   "description": "Spree::Api::V3::Store::AuthController POST #refresh returns user data",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/auth_controller_spec.rb",
+   "line": 173,
+   "description": "Spree::Api::V3::Store::AuthController POST #refresh returns a new access token and rotated refresh token",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/auth_controller_spec.rb",
+   "line": 190,
+   "description": "Spree::Api::V3::Store::AuthController POST #refresh destroys the old refresh token",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/auth_controller_spec.rb",
+   "line": 223,
+   "description": "Spree::Api::V3::Store::AuthController POST #refresh with expired refresh token returns unauthorized",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/auth_controller_spec.rb",
+   "line": 203,
+   "description": "Spree::Api::V3::Store::AuthController POST #refresh without refresh_token param returns unauthorized",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/auth_controller_spec.rb",
+   "line": 212,
+   "description": "Spree::Api::V3::Store::AuthController POST #refresh with invalid refresh token returns unauthorized",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/auth_controller_spec.rb",
+   "line": 269,
+   "description": "Spree::Api::V3::Store::AuthController POST #logout succeeds without refresh token param",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/auth_controller_spec.rb",
+   "line": 236,
+   "description": "Spree::Api::V3::Store::AuthController POST #logout revokes the refresh token",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/auth_controller_spec.rb",
+   "line": 258,
+   "description": "Spree::Api::V3::Store::AuthController POST #logout leaves a token minted for another surface alone",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/auth_controller_spec.rb",
+   "line": 252,
+   "description": "Spree::Api::V3::Store::AuthController POST #logout succeeds even with invalid refresh token",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/auth_controller_spec.rb",
+   "line": 244,
+   "description": "Spree::Api::V3::Store::AuthController POST #logout works without an access token (the refresh token is the credential)",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customers_controller_spec.rb",
+   "line": 59,
+   "description": "Spree::Api::V3::Store::CustomersController POST #create saves accepts_email_marketing",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customers_controller_spec.rb",
+   "line": 67,
+   "description": "Spree::Api::V3::Store::CustomersController POST #create saves metadata",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customers_controller_spec.rb",
+   "line": 42,
+   "description": "Spree::Api::V3::Store::CustomersController POST #create saves first_name and last_name",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customers_controller_spec.rb",
+   "line": 35,
+   "description": "Spree::Api::V3::Store::CustomersController POST #create returns user data",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customers_controller_spec.rb",
+   "line": 21,
+   "description": "Spree::Api::V3::Store::CustomersController POST #create creates a new user",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customers_controller_spec.rb",
+   "line": 51,
+   "description": "Spree::Api::V3::Store::CustomersController POST #create saves phone",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customers_controller_spec.rb",
+   "line": 29,
+   "description": "Spree::Api::V3::Store::CustomersController POST #create returns a token",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customers_controller_spec.rb",
+   "line": 158,
+   "description": "Spree::Api::V3::Store::CustomersController POST #create without API key returns unauthorized",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customers_controller_spec.rb",
+   "line": 115,
+   "description": "Spree::Api::V3::Store::CustomersController POST #create validation errors returns validation error for blank email",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customers_controller_spec.rb",
+   "line": 123,
+   "description": "Spree::Api::V3::Store::CustomersController POST #create validation errors returns validation error for duplicate email",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customers_controller_spec.rb",
+   "line": 132,
+   "description": "Spree::Api::V3::Store::CustomersController POST #create validation errors rejects a blank password without creating a customer or issuing tokens",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customers_controller_spec.rb",
+   "line": 143,
+   "description": "Spree::Api::V3::Store::CustomersController POST #create validation errors rejects an omitted password without creating a customer or issuing tokens",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customers_controller_spec.rb",
+   "line": 76,
+   "description": "Spree::Api::V3::Store::CustomersController POST #create with a matching newsletter subscriber on the current store links an existing unverified subscriber to the new user without auto-opting them in",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customers_controller_spec.rb",
+   "line": 93,
+   "description": "Spree::Api::V3::Store::CustomersController POST #create with a matching newsletter subscriber on the current store links an existing verified subscriber and carries the opt-in onto the new user",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customers_controller_spec.rb",
+   "line": 299,
+   "description": "Spree::Api::V3::Store::CustomersController PATCH #update updates multiple fields",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customers_controller_spec.rb",
+   "line": 314,
+   "description": "Spree::Api::V3::Store::CustomersController PATCH #update updates phone",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customers_controller_spec.rb",
+   "line": 322,
+   "description": "Spree::Api::V3::Store::CustomersController PATCH #update updates accepts_email_marketing",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customers_controller_spec.rb",
+   "line": 330,
+   "description": "Spree::Api::V3::Store::CustomersController PATCH #update updates metadata",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customers_controller_spec.rb",
+   "line": 337,
+   "description": "Spree::Api::V3::Store::CustomersController PATCH #update ignores restricted attributes",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customers_controller_spec.rb",
+   "line": 308,
+   "description": "Spree::Api::V3::Store::CustomersController PATCH #update returns updated user data",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customers_controller_spec.rb",
+   "line": 292,
+   "description": "Spree::Api::V3::Store::CustomersController PATCH #update updates the current user first name",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customers_controller_spec.rb",
+   "line": 393,
+   "description": "Spree::Api::V3::Store::CustomersController PATCH #update when changing password requires current_password",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customers_controller_spec.rb",
+   "line": 400,
+   "description": "Spree::Api::V3::Store::CustomersController PATCH #update when changing password accepts correct current_password",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customers_controller_spec.rb",
+   "line": 354,
+   "description": "Spree::Api::V3::Store::CustomersController PATCH #update when changing email rejects wrong current_password",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customers_controller_spec.rb",
+   "line": 368,
+   "description": "Spree::Api::V3::Store::CustomersController PATCH #update when changing email refuses the right current_password while the account is locked",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customers_controller_spec.rb",
+   "line": 347,
+   "description": "Spree::Api::V3::Store::CustomersController PATCH #update when changing email requires current_password",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customers_controller_spec.rb",
+   "line": 384,
+   "description": "Spree::Api::V3::Store::CustomersController PATCH #update when changing email does not require current_password when email is unchanged",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customers_controller_spec.rb",
+   "line": 362,
+   "description": "Spree::Api::V3::Store::CustomersController PATCH #update when changing email counts a wrong current_password towards the lockout",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customers_controller_spec.rb",
+   "line": 377,
+   "description": "Spree::Api::V3::Store::CustomersController PATCH #update when changing email accepts correct current_password",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customers_controller_spec.rb",
+   "line": 429,
+   "description": "Spree::Api::V3::Store::CustomersController PATCH #update without authentication returns unauthorized",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customers_controller_spec.rb",
+   "line": 416,
+   "description": "Spree::Api::V3::Store::CustomersController PATCH #update validation errors returns errors for duplicate email with current password",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customers_controller_spec.rb",
+   "line": 408,
+   "description": "Spree::Api::V3::Store::CustomersController PATCH #update validation errors returns errors for blank email with current password",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customers_controller_spec.rb",
+   "line": 447,
+   "description": "Spree::Api::V3::Store::CustomersController a token issued before the account was erased stops being accepted",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customers_controller_spec.rb",
+   "line": 453,
+   "description": "Spree::Api::V3::Store::CustomersController a token issued before the account was erased cannot write the redacted details back",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customers_controller_spec.rb",
+   "line": 179,
+   "description": "Spree::Api::V3::Store::CustomersController GET #show returns user attributes",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customers_controller_spec.rb",
+   "line": 171,
+   "description": "Spree::Api::V3::Store::CustomersController GET #show returns the current user",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customers_controller_spec.rb",
+   "line": 265,
+   "description": "Spree::Api::V3::Store::CustomersController GET #show with invalid token returns unauthorized",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customers_controller_spec.rb",
+   "line": 254,
+   "description": "Spree::Api::V3::Store::CustomersController GET #show without authentication returns unauthorized",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customers_controller_spec.rb",
+   "line": 278,
+   "description": "Spree::Api::V3::Store::CustomersController GET #show with expired token returns unauthorized",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customers_controller_spec.rb",
+   "line": 236,
+   "description": "Spree::Api::V3::Store::CustomersController GET #show newsletter subscriber is null when the customer has no subscriber",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customers_controller_spec.rb",
+   "line": 228,
+   "description": "Spree::Api::V3::Store::CustomersController GET #show newsletter subscriber exposes the current store subscriber",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customers_controller_spec.rb",
+   "line": 242,
+   "description": "Spree::Api::V3::Store::CustomersController GET #show newsletter subscriber is null when the only subscriber is on a different store",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customers_controller_spec.rb",
+   "line": 198,
+   "description": "Spree::Api::V3::Store::CustomersController GET #show customer groups is empty when the customer belongs to no groups",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customers_controller_spec.rb",
+   "line": 186,
+   "description": "Spree::Api::V3::Store::CustomersController GET #show customer groups exposes current-store group memberships",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customers_controller_spec.rb",
+   "line": 207,
+   "description": "Spree::Api::V3::Store::CustomersController GET #show customer groups when the request store is not the default store derives currency fallbacks from the request store, not the default store",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/controllers/spree/api/v3/store/customers_controller_spec.rb",
+   "line": 213,
+   "description": "Spree::Api::V3::Store::CustomersController GET #show customer groups when the request store is not the default store reads memberships from the request store, not the default store",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/integration/spree/api/v3/store/auth_spec.rb",
+   "description": "Authentication API /api/v3/store/auth/refresh post missing or invalid refresh token returns a 401 response",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/integration/spree/api/v3/store/auth_spec.rb",
+   "description": "Authentication API /api/v3/store/auth/refresh post token refreshed returns a 200 response",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/integration/spree/api/v3/store/auth_spec.rb",
+   "description": "Authentication API /api/v3/store/auth/logout post logout successful returns a 204 response",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/integration/spree/api/v3/store/auth_spec.rb",
+   "description": "Authentication API /api/v3/store/auth/logout post logout without refresh token (no-op) returns a 204 response",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/integration/spree/api/v3/store/auth_spec.rb",
+   "description": "Authentication API /api/v3/store/auth/login post invalid credentials returns a 401 response",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/integration/spree/api/v3/store/auth_spec.rb",
+   "description": "Authentication API /api/v3/store/auth/login post missing API key returns a 401 response",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/integration/spree/api/v3/store/auth_spec.rb",
+   "description": "Authentication API /api/v3/store/auth/login post user not found returns a 401 response",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/integration/spree/api/v3/store/auth_spec.rb",
+   "description": "Authentication API /api/v3/store/auth/login post login successful returns a 200 response",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/integration/spree/api/v3/store/customer/password_resets_spec.rb",
+   "description": "Password Resets API /api/v3/store/password_resets/{token} patch password confirmation mismatch returns a 422 response",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/integration/spree/api/v3/store/customer/password_resets_spec.rb",
+   "description": "Password Resets API /api/v3/store/password_resets/{token} patch invalid or expired token returns a 422 response",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/integration/spree/api/v3/store/customer/password_resets_spec.rb",
+   "description": "Password Resets API /api/v3/store/password_resets/{token} patch missing API key returns a 401 response",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/integration/spree/api/v3/store/customer/password_resets_spec.rb",
+   "description": "Password Resets API /api/v3/store/password_resets/{token} patch password reset successful returns a 200 response",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/integration/spree/api/v3/store/customer/password_resets_spec.rb",
+   "description": "Password Resets API /api/v3/store/password_resets post password reset requested returns a 202 response",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/integration/spree/api/v3/store/customer/password_resets_spec.rb",
+   "description": "Password Resets API /api/v3/store/password_resets post missing API key returns a 401 response",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/integration/spree/api/v3/store/customer/password_resets_spec.rb",
+   "description": "Password Resets API /api/v3/store/password_resets post email not found (same response to prevent enumeration) returns a 202 response",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/integration/spree/api/v3/store/customers_spec.rb",
+   "description": "Customers API /api/v3/store/customers/me patch profile updated returns a 200 response",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/integration/spree/api/v3/store/customers_spec.rb",
+   "description": "Customers API /api/v3/store/customers/me patch validation error returns a 422 response",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/integration/spree/api/v3/store/customers_spec.rb",
+   "description": "Customers API /api/v3/store/customers/me get unauthorized - no token returns a 401 response",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/integration/spree/api/v3/store/customers_spec.rb",
+   "description": "Customers API /api/v3/store/customers/me get profile found returns a 200 response",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/integration/spree/api/v3/store/customers_spec.rb",
+   "description": "Customers API /api/v3/store/customers/me get unauthorized - invalid token returns a 401 response",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/integration/spree/api/v3/store/customers_spec.rb",
+   "description": "Customers API /api/v3/store/customers post email already taken returns a 422 response",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/integration/spree/api/v3/store/customers_spec.rb",
+   "description": "Customers API /api/v3/store/customers post registration successful returns a 201 response",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/integration/spree/api/v3/store/customer_orders_spec.rb",
+   "description": "Customer Orders API /api/v3/store/customers/me/orders/{id} get order found returns a 200 response",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/integration/spree/api/v3/store/customer_orders_spec.rb",
+   "description": "Customer Orders API /api/v3/store/customers/me/orders/{id} get order belongs to another user returns a 404 response",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/integration/spree/api/v3/store/customer_orders_spec.rb",
+   "description": "Customer Orders API /api/v3/store/customers/me/orders get orders listed returns a 200 response",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/integration/spree/api/v3/store/customer_orders_spec.rb",
+   "description": "Customer Orders API /api/v3/store/customers/me/orders get unauthorized returns a 401 response",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/integration/spree/api/v3/store/gift_cards_spec.rb",
+   "description": "Gift Cards API /api/v3/store/customers/me/gift_cards get unauthorized returns a 401 response",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/integration/spree/api/v3/store/gift_cards_spec.rb",
+   "description": "Gift Cards API /api/v3/store/customers/me/gift_cards get gift cards found returns a 200 response",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/integration/spree/api/v3/store/gift_cards_spec.rb",
+   "description": "Gift Cards API /api/v3/store/customers/me/gift_cards/{id} get gift card found returns a 200 response",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/integration/spree/api/v3/store/gift_cards_spec.rb",
+   "description": "Gift Cards API /api/v3/store/customers/me/gift_cards/{id} get gift card not found returns a 404 response",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/integration/spree/api/v3/store/credit_cards_spec.rb",
+   "description": "Credit Cards API /api/v3/store/customers/me/credit_cards/{id} get credit card found returns a 200 response",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/integration/spree/api/v3/store/credit_cards_spec.rb",
+   "description": "Credit Cards API /api/v3/store/customers/me/credit_cards/{id} get credit card not found returns a 404 response",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/integration/spree/api/v3/store/credit_cards_spec.rb",
+   "description": "Credit Cards API /api/v3/store/customers/me/credit_cards/{id} delete credit card deleted returns a 204 response",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/integration/spree/api/v3/store/credit_cards_spec.rb",
+   "description": "Credit Cards API /api/v3/store/customers/me/credit_cards/{id} delete credit card not found returns a 404 response",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/integration/spree/api/v3/store/credit_cards_spec.rb",
+   "description": "Credit Cards API /api/v3/store/customers/me/credit_cards get unauthorized returns a 401 response",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/integration/spree/api/v3/store/credit_cards_spec.rb",
+   "description": "Credit Cards API /api/v3/store/customers/me/credit_cards get credit cards found returns a 200 response",
+   "status": "passed"
+  }
+ ]
+}

@@ -1,0 +1,11 @@
+{
+  "screen": "SF-ACC-07",
+  "state": "save-refused",
+  "variant": "customer",
+  "theme": "light",
+  "width": 1280,
+  "revision": "8153a6b1ffbcd8dfd0c435f6fc24f90ff32b9fff",
+  "path": "/us/en/account/addresses",
+  "observed": "Changed the studio's ZIP code to \"ABCDE\" and saved; Spree refused it and the editor shows \"Zip Code is invalid\". Nothing was saved.",
+  "note": null
+}

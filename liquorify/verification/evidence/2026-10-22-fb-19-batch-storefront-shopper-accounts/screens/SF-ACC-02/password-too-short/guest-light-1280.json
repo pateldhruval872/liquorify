@@ -1,0 +1,11 @@
+{
+  "screen": "SF-ACC-02",
+  "state": "password-too-short",
+  "variant": "guest",
+  "theme": "light",
+  "width": 1280,
+  "revision": "8153a6b1ffbcd8dfd0c435f6fc24f90ff32b9fff",
+  "path": "/us/en/account/register",
+  "observed": "The page's own message is not shown: the browser refused the form first, with its own message \"Please lengthen this text to 6 characters or more (you are currently using 3 characters).\".",
+  "note": null
+}

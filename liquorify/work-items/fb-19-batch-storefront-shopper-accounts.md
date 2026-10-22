@@ -12,7 +12,7 @@ updated: 2026-10-22
 
 The storefront's first FB-19 batch organised by product area. It reproduces what the storefront already has for shopper accounts: signing in, registering, resetting a password, and the signed-in account's orders, addresses, saved cards, gift cards and profile. Nothing here changes the storefront's code or Spree's, or adds a Liquorify feature.
 
-**Status.** PROPOSED. On 2026-10-22 the owner allowed the storefront's shopper accounts baseline to run alongside the staff access batch in a separate pull request ([staff access work item](fb-19-batch-staff-access-and-shell.md) §6). It follows the batch rules of LIQ-010 0.4, which are under review in #11 with that batch; if the owner changes them, this batch follows the change.
+**Status.** PROPOSED. On 2026-10-22 the owner allowed the storefront's shopper accounts baseline to run alongside the staff access batch in a separate pull request ([staff access work item](fb-19-batch-staff-access-and-shell.md) §6). It follows the batch rules of LIQ-010 0.4, which are under review in #11 with that batch; if the owner changes them, this batch follows the change. The batch is built and verified in storefront draft pull request [#18](https://github.com/pateldhruval872/liquorify-storefront/pull/18) and in [#12](https://github.com/pateldhruval872/liquorify/pull/12) ([record](../verification/2026-10-22-fb-19-batch-storefront-shopper-accounts.md)), and awaits the owner's review; §9 records where the storefront differs from this proposal.
 
 **Reading of the instruction.** "The storefront account baseline" is read as the whole of CAP-08-01, the ten account screens, rather than only the four sign-in screens the staff access work item named as left out. The storefront has one pull request, as asked. Its records live here in the backend repository, as all Liquorify records do, in a draft pull request of their own, as the pilot's did.
 
@@ -133,3 +133,18 @@ The staff access batch's criteria, applied to the storefront:
 - **Risk.** Stories, fixtures, mocks, scripts, reference images and records only, with no dependency, CI step or application code. Data added for the captures goes only to the browser-test database.
 - **Release impact.** None. Nothing is deployed.
 - **Verification.** The batch's verification record in `liquorify/verification/`, with the published evidence.
+
+## 9. Corrections found during the batch
+
+The batch's running screens and tests showed where this proposal did not match the storefront at `8153a6b` and Spree at `a4a1708`. The proposal's text above is unchanged; these corrections govern. Each is recorded in the [verification record](../verification/2026-10-22-fb-19-batch-storefront-shopper-accounts.md) §5 and §6.
+
+| Where | The proposal says | The storefront does |
+|---|---|---|
+| §2.2, SF-ACC-01 | Four states | A fifth comes before "returned": an account page sends the guest to sign in, keeping the page in the address |
+| §2.2, SF-ACC-02 | "Password too short" | The browser refuses the form with its own message before the page's message can show |
+| §2.2, SF-ACC-04 | "Invalid or expired link", one state | Two: opened without a token, the page shows "Invalid link" in place of the form; given a token Spree refuses, the form shows "Password reset token is invalid or has expired." once submitted |
+| §2.2, SF-ACC-07 | "Set as default" | No such control. The storefront's messages hold the words, but no component uses them; Spree's API supports defaults |
+| §2.2, SF-ACC-09 | "Partially used", its own state | A partly used card is listed under "Expired / Redeemed", because the API reports it as not active |
+| §2.2, SF-ACC-10 | Three states | A fourth: a wrong current password is refused, "Current password is invalid or missing" |
+| §7, saved cards | Whether the browser-test server can add a card is found during the batch | It can, through an order placed by staff with Spree's test gateway, but that card has no brand and the page fails for it. A card with a brand needs a real gateway's test keys (OA-1) |
+| §2.1, CAP-03-09 | The consent at registration | The page requires the consent but does not send it, so Spree records none |

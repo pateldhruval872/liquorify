@@ -1,0 +1,11 @@
+{
+  "screen": "SF-ACC-01",
+  "state": "returned",
+  "variant": "guest",
+  "theme": "light",
+  "width": 1280,
+  "revision": "8153a6b1ffbcd8dfd0c435f6fc24f90ff32b9fff",
+  "path": "/us/en/account/orders",
+  "observed": "Signed in on the page the orders page sent the guest to, and was brought back to the orders.",
+  "note": null
+}
