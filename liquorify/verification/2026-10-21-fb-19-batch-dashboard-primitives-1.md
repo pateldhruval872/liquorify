@@ -37,6 +37,10 @@ The results above are kept as they were recorded. The batch's comparison with ru
 
 The progress story "With label" became "With value", so the states FB-20 uses for `progress` are Default, Empty, Complete, With value and Indeterminate. The pull request now targets `main`, because #8 merged on 2026-10-22.
 
+### Coverage, not functional verification
+
+Added on 2026-10-22, at the owner's instruction that the two be kept apart. Everything this batch records is coverage: the stories, their reference images and the comparison with running screens show what each component looks like in each state. The batch claims no capability, flow or behaviour, so it has no functional verification result. The 83 stories checked against their source only stay open as a coverage gap until the owner accepts their deferral or a later batch compares them.
+
 ## 1. What was built
 
 | | |
