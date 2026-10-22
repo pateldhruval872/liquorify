@@ -4,7 +4,7 @@ record: verification
 work_item: FB-19
 date: 2026-10-21
 verifier: Claude (automated session); not independent review
-result: PASS for the build, check, arrangement and visual criteria, including after the images were rewritten for the pilot's surface correction; NOT_RUN for the comparison with running screens and for the owner's review of the reference images. Revalidated on 2026-10-22: the comparison with running screens found three stories that did not follow a screen, so criterion 3 failed for them; they were corrected, and the comparison then found no unexplained difference. The owner's review stays NOT_RUN
+result: PASS for the build, check, arrangement and visual criteria, including after the images were rewritten for the pilot's surface correction; NOT_RUN for the comparison with running screens and for the owner's review of the reference images. Revalidated on 2026-10-22: the comparison with running screens found three stories that did not follow a screen, so criterion 3 failed for them; they were corrected, and the comparison then found no unexplained difference. The owner's review stays NOT_RUN. Corrected on 2026-10-22 after the owner's review found focus rings cut off: the capture now keeps 8 pixels of room around each story, and the 304 images captured by the story's root were regenerated, each identical inside to the image it replaced
 ---
 
 # FB-19 batch of dashboard primitives, part 1
@@ -32,14 +32,39 @@ The results above are kept as they were recorded. The batch's comparison with ru
 | 3 | Each story arranges the component's parts the way a Spree screen does | FAIL for three stories at `8d53a5c`: the invalid field stories, the progress caption and the loading row followed no screen. Corrected at `7b1f2b8` ([fidelity record](2026-10-22-fb-19-batch-dashboard-primitives-1-fidelity.md) §5), so PASS there |
 | 4 | Every new image was looked at in both modes | PASS at `7b1f2b8`: the six rewritten or added images were looked at in both modes |
 | 5 | The reference images pass CI's comparison, and no other image changed | PASS at `c4d3d2c`, the revision that carries this note: all 310 comparisons passed on GitHub's runners in [39703070746](https://github.com/pateldhruval872/liquorify/actions/runs/39703070746) under the explicit tolerance, and the pull request's other checks passed (§2) |
-| 6 | Each story matches the component in its running screen | PASS, as a diagnostic: 33 cases for 22 of the 24 primitives found no unexplained difference after the three corrections ([fidelity record](2026-10-22-fb-19-batch-dashboard-primitives-1-fidelity.md)). 83 stories, including every story of the alert and the slot, were checked against their source only. The owner's acceptance of fidelity is NOT_RUN |
+| 6 | Each story matches the component in its running screen | PASS, as a diagnostic: 33 cases for 22 of the 24 primitives found no unexplained difference after the three corrections ([fidelity record](2026-10-22-fb-19-batch-dashboard-primitives-1-fidelity.md)). 83 stories, among them stories of the alert and the slot, were checked against their source only. #11 later compares the destructive alert with a running screen, which leaves 82. The owner's acceptance of fidelity is NOT_RUN |
 | 7 | The owner reviews the reference images | NOT_RUN: #9 stays a draft |
 
 The progress story "With label" became "With value", so the states FB-20 uses for `progress` are Default, Empty, Complete, With value and Indeterminate. The pull request now targets `main`, because #8 merged on 2026-10-22.
 
 ### Coverage, not functional verification
 
-Added on 2026-10-22, at the owner's instruction that the two be kept apart. Everything this batch records is coverage: the stories, their reference images and the comparison with running screens show what each component looks like in each state. The batch claims no capability, flow or behaviour, so it has no functional verification result. The 83 stories checked against their source only stay open as a coverage gap until the owner accepts their deferral or a later batch compares them.
+Added on 2026-10-22, at the owner's instruction that the two be kept apart. Everything this batch records is coverage: the stories, their reference images and the comparison with running screens show what each component looks like in each state. The batch claims no capability, flow or behaviour, so it has no functional verification result. The 83 stories checked against their source only (82 once #11 compares the destructive alert) stay open as a coverage gap until the owner accepts their deferral or a later batch compares them.
+
+### Capture correction on 2026-10-22
+
+The owner's review found that the images of the focused switch and input cut off their focus rings. The visual check captured each story's root element, so a ring or shadow that paints past the root's edge was left out of the image.
+
+**What was cut off.** A one-off check captured every story with 16 pixels of room and looked for anything painted outside the root. 49 of the 155 stories had something there, never more than 4 pixels from the root:
+
+| Kind | Stories | How far past the root |
+|---|---|---|
+| Focus ring | 8: the button, back button, checkbox, radio group, switch, input, input group and textarea in focus | 2 to 4 pixels, in both themes |
+| Shadow under a field | 24: the input, input group, select, textarea and country picker stories, and the field separator | 1 pixel below; visible in light mode only |
+| Avatar ring and badge | 2: the avatar group and the avatar with a badge | 2 pixels |
+| Faint edge of text or a line in the root's first column | 15: tabs, field, separator and token stories | 1 pixel |
+
+15 of the 49 are the pilot's stories: the button and back button in focus, the select and country picker shadows, and the token pages.
+
+**The correction.** The visual check now captures a story with the padded layout with 8 pixels of room on each side, taken from the layout's own 16 pixels of padding, so the story does not move ([LIQ-010 §11.3](../LIQ-010-design-system-reproduction-architecture.md#113-what-the-test-does)). Spree's components, the stories and the screenshot tolerance are unchanged, and a story captured as the whole viewport is captured as before.
+
+**Images.** The 304 images captured by the story's root were regenerated in the pinned image, in both themes: the batch's 228 and 76 of the pilot's 82. The pilot's six viewport images are unchanged. Each new image is 16 pixels wider and taller than the one it replaced, and inside the room it is identical to that image, pixel for pixel, in all 304. The room holds something painted in 74 images, those of the 49 stories above, never more than 4 of its 8 pixels from the root and never at the image's edge; in the other 230 it is the page colour only. The 16 focus images, and the avatar, input, select, country picker and tabs images, were looked at before and after the correction at twice their size, in both themes: each ring and shadow is now whole, and nothing else moved.
+
+| # | Criterion | Result |
+|---|---|---|
+| 4 | Every image was looked at in both modes | FAIL at `a62e3f4`: the earlier look missed that the capture cut off 49 stories' focus rings, shadows and edges. PASS at the revision that carries this note, for the images named above |
+| 5 | The reference images pass the comparison | PASS locally at the revision that carries this note: two full runs in the pinned image passed all 310 under the unchanged tolerance. CI's run on that revision is reported in the pull request |
+| 7 | The owner reviews the reference images | NOT_RUN: #9 stays a draft |
 
 ## 1. What was built
 
