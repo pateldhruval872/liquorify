@@ -1,12 +1,12 @@
 ---
 document_id: LIQ-010
 title: Design System Reproduction Architecture
-version: 0.2-draft
+version: 0.3-draft
 status: DRAFT
 owner: unassigned
 approved_by: null
 approved_at: null
-updated: 2026-10-21
+updated: 2026-10-22
 ---
 
 # Design System Reproduction Architecture
@@ -90,6 +90,10 @@ What each provider needs:
   | Font stack, shadow, easing curve | — | — | 10 | `cubic-bezier(0.23, 1, 0.32, 1)` |
 
 - **Restyling** is done by overriding tokens below the stylesheet import, without forking components (`docs/developer/dashboard/customization/theming.mdx`).
+- **What the primitives' stories showed.** Each is reproduced as it is; none is changed in Spree's code:
+  - The selected tab's shadow replaces its keyboard focus ring. Both are box shadows, and the selected tab's rule comes later in the compiled stylesheet, so a keyboard user sees no ring on the selected tab; the next tab shows one.
+  - `AvatarGroup` overlaps each avatar with the next by more than the space around two-letter initials, so the initials are cut off. No Spree screen uses `AvatarGroup`.
+  - Some parts carry no style for a state Spree's screens never use: an accordion item has no disabled style, and no screen disables one. No story is written for such a state, and the batch's record names it.
 
 ## 3. The storefront
 
@@ -283,7 +287,7 @@ The storefront's dark values are still reproduced in full: on the token pages an
 - **Stories carry their IDs as tags**, for example `tags: ['CMP-DUI-P-07']`. Tags appear in the built Storybook's index, so a script can count them. A story for a component in a group (CMP-DA-G, CMP-SP-G, CMP-SF-G) carries the group's ID and names the file in the last part of its title: "API key table" covers `api-key-table.tsx`, and "Cart drawer" covers `CartDrawer.tsx`, ignoring case, spaces and punctuation. A token page carries its family's ID (`TK-DUI`), which covers every token in that family.
 - **Story names are the states**, such as "Default", "Disabled", "Loading", "Empty", "Error", "Read-only" and "Open". The list of stories for an ID is therefore the list of states FB-20 turns into Figma component properties.
 - **A coverage report** reads the built index, compares it with the repository's ID list (§9.1), and lists each section's covered and total counts and every covered component with its story and states. It runs in the Storybook workflow, writes to the run's summary page, and its output goes into each batch's record. It fails only on a tag that names no inventory ID, which is a typo; components without stories are expected until every batch is done. The recorded reasons (§7.5) are added to it once the first batch records one.
-- **LIQ-009 gains two columns:** "Storybook", with the story's title or a reason code, and "Figma", filled in by FB-20. LIQ-008 gains a "Figma" column for FB-21. Each batch fills its own rows; the pilot leaves the columns to the first batch, so LIQ-009 is not edited twice for the same components.
+- **LIQ-009 gains two columns:** "Storybook", with the story's title or a reason code, and "Figma", filled in by FB-20. LIQ-008 gains a "Figma" column for FB-21. Each batch fills its own rows. The first dashboard batch added the columns to LIQ-009's dashboard tables and filled the pilot's rows too; the storefront's tables gain them with the first storefront batch. A token page shows a whole family, so each token section names its page once instead of on every row.
 - **Reference images** are named by story and mode (`<story id>/<mode>.png`), so each traces to its inventory ID through the story's tags.
 - **Figma components** take the code's name, list their states as variant properties, and carry the ID, the source path and the story's title in their description. Code Connect is deferred (Q4), so the link is by name and description only.
 - **FB-21's frames** are named with their screen IDs, as LIQ-004 already requires.
@@ -312,7 +316,7 @@ The owner decided the requirements on 2026-10-21 (Q10, in [LIQ-007 §4](LIQ-007-
 1. Reads the built Storybook's story index (`index.json`) and makes one test for each story and each mode it is captured in.
 2. Opens the story on its own (`iframe.html?id=<story id>`), with the theme the mode sets.
 3. Waits until Storybook's render phase reports the story finished, after its play function, and fails the test if the story errored. Then it waits for the fonts and for no request to be pending.
-4. Takes a screenshot of the story's root element, with animations stopped and the text caret hidden. A story of an open popup or dialog sets `capture: 'viewport'` and takes the whole viewport instead, because Base UI and Radix render popups outside the root.
+4. Takes a screenshot of the story's root element, with animations stopped and the text caret hidden. A story with the padded layout is captured with 8 pixels of room around its root, taken from the layout's own padding, because a focus ring or shadow paints a few pixels past the root and a capture at the root's edge cuts it off. A story of an open popup or dialog sets `capture: 'viewport'` and takes the whole viewport instead, because Base UI and Radix render popups outside the root.
 5. Compares it with the committed reference using Playwright's own comparison, with an explicit tolerance in both repositories: a pixel counts as different when its colour moves by more than a threshold of 0.005 on Playwright's scale from 0 to 1 (about 2 of 255 levels), and the test fails when more than 25 pixels count. Playwright's default threshold of 0.2 let a change of every story's background pass. The allowance covers a few dark-mode corners that differ between unchanged runs. Pixels that differ by less than the threshold still pass, so a pass is not a claim that two images are identical; that would need their hashes compared. The measurements are in the [tolerance record](verification/2026-10-21-fb-19-screenshot-tolerance.md), and a change to either number needs a new record of the same kind.
 
 Reference images live in `visual/__screenshots__/<story id>/<mode>.png`, beside the test.
@@ -349,6 +353,8 @@ CI never writes, accepts or commits a reference image. Its configuration makes a
 ### 12.1 Each batch
 
 1. **Before the pull request:** stories render; lint, type check and fixture tests pass; the token check and coverage report run.
+   - Each story arranges the component's parts the way a Spree screen does, and says which screen in a comment where it is not obvious. Where no screen uses a part, the story says so instead of inventing a layout. In the first batch a card story put a description and an action in one header, which no Spree screen does and which the header's grid lays out badly.
+   - Every new image is looked at before it is committed, in both modes.
 2. **In the pull request:** the Storybook workflow builds, reports coverage and compares screenshots. The batch's new reference images are committed in the pull request, and the owner reviews them there (§11.4).
 3. **Fidelity.** Each story is compared with the same component in its screen in the running dashboard or storefront, where a running instance at the pinned revisions is available (FB-04, or the dashboard's browser-test set-up); otherwise the comparison is NOT_RUN and recorded. The comparison committed beside each Storybook (`fidelity/` in the backend, `visual/fidelity/` in the storefront) puts the two side by side and saves the computed styles of both sides and the tokens, with every one that differs. The comparison is diagnostic: it collects evidence for review, and a successful run alone does not establish fidelity. The owner accepts fidelity by reviewing that evidence, which the verification record links with its inventory IDs and revisions. A difference is a defect in the story, its providers or its mocks, never a reason to change the component. A state no running screen shows with the available data is checked against its source, and recorded as such.
 4. **A verification record** in `liquorify/verification/` lists what was built, the revision, the coverage report, the reference images added or changed, the comparison results, the results (PASS, FAIL, BLOCKED, NOT_RUN) and the limits.
@@ -387,7 +393,7 @@ A small batch from each system, chosen to try every arrangement above once befor
 
 **After the pilot,** coverage grows in batches by LIQ-009 section, each small enough to review:
 
-1. Dashboard design system primitives (46).
+1. Dashboard design system primitives (46), in two parts after the pilot's three: 24 on 2026-10-21 ([record](verification/2026-10-21-fb-19-batch-dashboard-primitives-1.md)) and 19.
 2. Dashboard design system composed components (54).
 3. Framework components, shared pages and product form modules (51).
 4. Admin dashboard groups (200 files), in about four batches.
