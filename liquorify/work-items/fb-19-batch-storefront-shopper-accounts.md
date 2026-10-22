@@ -83,7 +83,7 @@ LIQ-009 §5 gains its Storybook column with this batch, as its own text says it 
 ## 4. Delivery
 
 - **Storefront pull request** (draft, `liquorify-storefront`): stories, fixtures and mocks, reference images, and the scripts that capture and compare the running screens.
-- **Backend pull request** (draft, this repository): this work item, the verification record, the published evidence, the image review list and LIQ-009's storefront columns. It builds on #11 because it uses LIQ-010 0.4 and LIQ-006's capability IDs, and moves to `main` once #11 merges.
+- **Backend pull request** (draft, this repository): this work item, the verification record, the published evidence, the image review list and LIQ-009's storefront columns. It builds on #11 because it uses LIQ-010 0.4 and LIQ-006's capability IDs, and moved to `main` after #11 merged on 2026-10-22.
 - **Running screens:** the built storefront at `main` against the backend's browser-test server at Spree code `a4a1708`, as the pilot did, with a test customer whose orders, addresses, cards and gift cards are added to that server's database. The storefront pins `@spree/sdk` rc.3 while the backend ships rc.4 (FB-06); the captures record the versions used.
 
 ## 5. Acceptance criteria
