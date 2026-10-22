@@ -4,7 +4,7 @@ record: verification
 work_item: FB-19
 date: 2026-10-22
 verifier: Claude (automated session); not independent review
-result: PASS for the map, the stories and their images, the running-screen captures, the comparison with running screens after six corrections to the stories, the emails rendered from Spree's previews, and Spree's own staff and role specs. Two listed states and five flow steps are gaps. Coverage and functional verification are recorded apart (§2): no capability is functionally verified in full; FL-02, FL-03 and FL-24 are PARTIAL. The interface shows two behaviours the work item did not expect, recorded as Spree's behaviour. Tenant isolation and the owner's acceptance are NOT_RUN. CI passed at `0b0820d`, where the visual check passed twice
+result: PASS for the map, the stories and their images, the running-screen captures, the comparison with running screens after six corrections to the stories, the emails rendered from Spree's previews, and Spree's own staff and role specs. Two listed states and five flow steps are gaps. Coverage and functional verification are recorded apart (§2): no capability is functionally verified in full; FL-02, FL-03 and FL-24 are PARTIAL. The interface shows two behaviours the work item did not expect, recorded as Spree's behaviour. Tenant isolation and the owner's acceptance are NOT_RUN. CI passed at `0b0820d`, where the visual check passed twice. On 2026-10-22 the capture was corrected to leave room around each story, and part 1's 54 images captured by their root were regenerated, each identical inside to the one it replaced
 ---
 
 # FB-19 staff access batch, part 1
@@ -30,12 +30,18 @@ result: PASS for the map, the stories and their images, the running-screen captu
 | 5 | Each flow is mapped step by step, and the browser tests covering it pass on the part's revision | PASS for the mapping (§2.2): 19 test titles cover the three flows. Five steps no test covers are gaps. Spree's dashboard browser tests, these 19 titles among them, passed in all four shards at `0b0820d` (§8) |
 | 6 | The comparison finds no unexplained difference between each new story and its running screen; a defect is fixed in the story | PASS, as a diagnostic: 21 cases, 20 of them new stories, show no unexplained difference after six corrections to the stories (§4). The owner's acceptance of fidelity is criterion 11 |
 | 7 | A state no running screen shows is recorded as a gap, with the check made instead | PASS: 52 of the 72 stories were not compared by the script; 12 of them show a state seen in a running-screen capture, and 40 were checked against their source only (§7, image review list) |
-| 8 | The visual check passes twice in CI on the same revision; Tests and Packages pass; the check stays advisory | PASS at `0b0820d`: the visual check passed twice, 454 of 454 comparisons each time, once on the pull request and once started by hand. Tests and Packages passed. The check stays advisory (§8) |
+| 8 | The visual check passes twice in CI on the same revision; Tests and Packages pass; the check stays advisory | PASS at `0b0820d`: the visual check passed twice, 454 of 454 comparisons each time, once on the pull request and once started by hand. Tests and Packages passed. The check stays advisory (§8). After the capture correction below, two local runs passed 454 of 454; CI's run on the revision that carries it is reported in the pull request |
 | 9 | Spree's code, the storefront and every workflow outside Storybook are unchanged; nothing carries Liquorify branding or features | PASS: the pull request changes only `packages/liquorify-storybook/` and `liquorify/` |
 | 10 | The records are updated, with every link checked | PASS: this record, the image review list, the evidence index, LIQ-009's Storybook column, LIQ-004's FB-19 entry, the work item and the README index, with the link check run |
 | 11 | The owner accepts the reference images, the screen evidence and fidelity | NOT_RUN: #11 is a draft |
 | 12 | Backend authorization is recorded apart from criterion 4, from Spree's own specs at the part's revision | PASS for what Spree's specs exercise: 183 examples in 15 files, no failures (§3.2). What no Spree spec exercises is NOT_RUN as a spec result; the refusal check observed each such request refused, as an observation only |
 | 13 | Tenant isolation is recorded as NOT_RUN, with links to the open findings | NOT_RUN (§3.3). No new isolation defect was found; none was looked for beyond Spree's own specs |
+
+### Capture correction on 2026-10-22
+
+The owner's review of #9 found that the visual check cut off focus rings and shadows that paint past a story's root element. #9 corrected the capture: a story with the padded layout is now captured with 8 pixels of room on each side, taken from the layout's own padding, so the story does not move ([LIQ-010 §11.3](../LIQ-010-design-system-reproduction-architecture.md#113-what-the-test-does)). Part 1 carries that correction and #9's regenerated images.
+
+**This part's images.** The 54 images of part 1's 27 stories captured by their root were regenerated in the pinned image, in both themes. The other 45 stories are captured at the full 1280 by 800 window, which the correction does not change. Each new image is 16 pixels wider and taller than the one it replaced and, inside the room, identical to it pixel for pixel, in all 54. The room holds only the page colour in all 54: none of part 1's stories paints past its root, so none of its images had been cut off. Spree's components, the stories and the screenshot tolerance are unchanged.
 
 ## 1. What was built
 
