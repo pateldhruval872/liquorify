@@ -42,7 +42,7 @@ Work items for parts of a backlog item, with the fields of [ENG-001](framework/E
 
 | Work item | Backlog item | State | Purpose |
 |---|---|---|---|
-| [FB-19 batch: staff access and the dashboard shell](work-items/fb-19-batch-staff-access-and-shell.md) | FB-19 | PROPOSED | The first product-area batch: staff sign-in, invitations, roles and the dashboard's shell, in two parts, with its batch map and the acceptance criteria the owner reviews |
+| [FB-19 batch: staff access and the dashboard shell](work-items/fb-19-batch-staff-access-and-shell.md) | FB-19 | PROPOSED | The first product-area batch: staff sign-in, invitations, roles and the dashboard's shell, in two parts, with its batch map and the acceptance criteria the owner reviews. Part 1 is built and awaits review in #11 |
 
 ## Verification records
 
@@ -60,6 +60,8 @@ Records of what was run, on which revision, with its result and limitations ([EN
 | 2026-10-21 | [FB-19 pilot merges and acceptance](verification/2026-10-21-fb-19-pilot-merge-and-acceptance.md) | FB-19 | PASS: both merge commits hold exactly the reviewed revisions, and Storybook started by hand passed on each `main`. Packages passed on the backend's `main`, with its release jobs skipped. The storefront's end-to-end job still stops at the Stripe key check (OA-1). ACCEPTED: the pilot, within its scope, with three gaps kept open. FB-19 and the baseline are not complete |
 | 2026-10-21 | [FB-19 dashboard primitives, part 1](verification/2026-10-21-fb-19-batch-dashboard-primitives-1.md) | FB-19 | PASS: 114 stories for 24 primitives, each image looked at, and all 310 comparisons passed in CI under the tolerance then configured. NOT_RUN: the comparison with running screens, and the owner's review of the images. Revalidated on 2026-10-22: three stories failed the arrangement criterion and were corrected |
 | 2026-10-22 | [FB-19 dashboard primitives, part 1, compared with running screens](verification/2026-10-22-fb-19-batch-dashboard-primitives-1-fidelity.md) | FB-19 | Diagnostic comparison: no unexplained difference for 33 cases covering 22 of the 24 primitives, after three corrections to the stories, with the side-by-side images and computed styles published. Coverage gaps, kept open: 83 stories checked against their source only, including every story of the alert and the slot. NOT_RUN: the owner's acceptance |
+| 2026-10-22 | [FB-19 staff access batch, part 1](verification/2026-10-22-fb-19-batch-staff-access-part-1.md) | FB-19 | PASS: 72 stories for 16 components with their images looked at; the eight screens captured in 48 states and seven permission variants; 21 cases compared with running screens after six corrections to the stories; the three staff emails rendered; Spree's staff and role specs passed, 183 examples. What the interface shows, what the server refuses and tenant isolation are recorded apart. Gaps, kept open: two listed states, five flow steps, the slot and 40 stories checked against their source only. NOT_RUN: tenant isolation and the owner's acceptance |
+| 2026-10-22 | [FB-19 staff access batch, part 1, reference images](verification/2026-10-22-fb-19-batch-staff-access-part-1-image-review.md) | FB-19 | Review list: 144 images by inventory ID, awaiting the owner |
 
 ## Supplied framework sources
 

@@ -1,0 +1,18 @@
+{
+  "screen": "DA-SET-25",
+  "state": "direct-visit-without-permission",
+  "variant": "support",
+  "role": {
+    "name": "Support",
+    "permissions": [
+      "read_orders",
+      "read_customers",
+      "read_dashboard"
+    ]
+  },
+  "theme": "light",
+  "revision": "a4a1708",
+  "path": "/<store>/settings/roles",
+  "intercepted": null,
+  "settled": true
+}

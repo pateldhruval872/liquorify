@@ -22,10 +22,13 @@ export const readOnly: PermissionRule[] = [
   { allow: true, actions: ['read'], subjects: ['all'], has_conditions: false },
 ]
 
-export function meResponse(permissions: PermissionRule[]): MeResponse {
-  return {
-    user: adminUser,
-    permissions,
-    permission_keys: permissions === fullAccess ? ['write_all'] : ['read_all'],
-  }
+/**
+ * `/me` for the story's admin. `keys` are the permission keys their roles
+ * hold, which decide what a role or key they create may grant.
+ */
+export function meResponse(
+  permissions: PermissionRule[],
+  keys: string[] = permissions === fullAccess ? ['write_all'] : ['read_all'],
+): MeResponse {
+  return { user: adminUser, permissions, permission_keys: keys }
 }

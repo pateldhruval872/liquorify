@@ -22,6 +22,14 @@ export interface StoryNeeds {
   signedIn?: boolean
   /** The seller the panel acts for, as the seller panel's route layout sets it. */
   sellerId?: string
+  /**
+   * The store whose pages the component sits on, as the admin dashboard's
+   * store route sets it. Queries made below that route are keyed by the store,
+   * apart from the signed-in admin's own permissions, which load above every
+   * store; without it the role sheet's permission catalog and those
+   * permissions share one cache entry.
+   */
+  storeId?: string
   /** The page column a component fills on its screen, for components that take their container's width. */
   column?: Column
 }
@@ -31,9 +39,9 @@ export interface StoryNeeds {
  * 1280-pixel capture width: a page's main column, and a settings page beside
  * its settings menu.
  */
-const columnWidths = { page: 965, settings: 890 } as const
+export const columnWidths = { page: 965, settings: 890 } as const
 
-type Column = keyof typeof columnWidths
+export type Column = keyof typeof columnWidths
 
 function ThemeFromToolbar({ theme }: { theme: 'light' | 'dark' }) {
   const { setMode } = useTheme()
@@ -67,8 +75,9 @@ export const withPanelProviders: Decorator = (Story, context) => {
     ) : (
       children
     )
+  const tenantId = needs.sellerId ?? needs.storeId
   const tenant = (children: ReactNode) =>
-    needs.sellerId ? <TenantProvider id={needs.sellerId}>{children}</TenantProvider> : children
+    tenantId ? <TenantProvider id={tenantId}>{children}</TenantProvider> : children
   const chrome = (children: ReactNode) => (
     <TooltipProvider>
       <ConfirmProvider>{children}</ConfirmProvider>

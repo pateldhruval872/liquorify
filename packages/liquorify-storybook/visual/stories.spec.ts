@@ -21,7 +21,42 @@ declare global {
     __STORYBOOK_PREVIEW__?: {
       currentRender?: { phase?: string; story?: { parameters?: Record<string, any> } }
     }
+    __storyFailures?: string[]
   }
+}
+
+/**
+ * Records every failure Storybook reports for the story. A play function that
+ * throws still ends in the `finished` phase, so the phase alone would let a
+ * story whose steps failed be captured as if it had reached its state. The
+ * preview assigns its event channel to a global as it boots; the recorder
+ * subscribes the moment it does, before any story renders.
+ */
+function recordStoryFailures() {
+  const failures: string[] = []
+  window.__storyFailures = failures
+  let channel: { on: (event: string, listener: (detail: unknown) => void) => void } | undefined
+  Object.defineProperty(window, '__STORYBOOK_ADDONS_CHANNEL__', {
+    configurable: true,
+    get: () => channel,
+    set: (value) => {
+      channel = value
+      for (const event of [
+        'storyErrored',
+        'storyThrewException',
+        'playFunctionThrewException',
+        'unhandledErrorsWhilePlaying',
+      ]) {
+        value.on(event, (detail: unknown) => {
+          const message =
+            detail && typeof detail === 'object' && 'message' in detail
+              ? String(detail.message)
+              : JSON.stringify(detail)
+          failures.push(`${event}: ${message.split('\n')[0]}`)
+        })
+      }
+    },
+  })
 }
 
 const screenshotOptions = { animations: 'disabled', caret: 'hide', scale: 'css' } as const
@@ -56,6 +91,7 @@ for (const story of stories) {
         (route) => route.abort(),
       )
 
+      await page.addInitScript(recordStoryFailures)
       await page.setViewportSize({ width: mode.width, height: 800 })
       await page.emulateMedia({ colorScheme: mode.colorScheme, reducedMotion: 'reduce' })
       await page.clock.setFixedTime(FIXTURE_NOW)
@@ -69,6 +105,8 @@ for (const story of stories) {
       )
       const phase = await page.evaluate(() => window.__STORYBOOK_PREVIEW__?.currentRender?.phase)
       expect(phase, 'the story rendered without an error').not.toMatch(/errored|aborted/)
+      const failures = await page.evaluate(() => window.__storyFailures ?? [])
+      expect(failures, 'the story and its play function ran without an error').toEqual([])
       await page.evaluate(() => document.fonts.ready)
       await page.waitForLoadState('networkidle')
 

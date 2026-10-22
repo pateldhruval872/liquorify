@@ -14,6 +14,8 @@ The first FB-19 batch organised by product area, under [LIQ-010 §12.1](../LIQ-0
 
 **Status.** PROPOSED. The owner asked on 2026-10-21 for the proposal below, and on 2026-10-22 instructed that the batch proceed in two pull requests, with this proposal, its 11 acceptance criteria and the exact LIQ-010 §12.1 amendment included for review ([LIQ-001 §1](../LIQ-001-project-profile.md#recorded-instructions-that-shape-engineering-work)). This work item, the amendment and part 1's evidence are reviewed together in part 1's draft pull request. Sections 1 to 6 are the proposal as the owner saw it, with the proposal's "Part A" and "Part B" called part 1 and part 2 here, because LIQ-010 already has a Part A and a Part B. Section 7 adds what the owner's instruction of 2026-10-22 asked for, and marks each addition.
 
+**Part 1.** Built and recorded in the [part 1 verification record](../verification/2026-10-22-fb-19-batch-staff-access-part-1.md), with its [image review list](../verification/2026-10-22-fb-19-batch-staff-access-part-1-image-review.md), awaiting the owner's review. What part 1 found that differs from this proposal is in §7.6; the proposal's text is left as the owner saw it.
+
 ## 1. Outcome and summary
 
 The batch covers staff access and the admin dashboard's shell: the first half of [LIQ-006 §4](../LIQ-006-product-capability-baseline.md#4-authentication-staff-and-access), "Authentication, staff and access". It is the frame every later dashboard screen sits in, and the roles it sets up are what every later batch needs for its permission variants.
@@ -228,6 +230,20 @@ These are recorded now so none is lost. Each part's record says which it closes.
 | The teammate's own navigation after a role is given (FL-24, last step) | A browser test that signs in as the teammate |
 | Tenant isolation (criterion 13) | FB-03's validation and the fixes for ISO-1 to ISO-7 |
 | The pilot's 35 source-only stories, its pointer-opened cart drawer, OA-1, and #9's 83 source-only stories | Running screens that show those states; this batch can close some of #9's (§3) |
+
+### 7.6 Corrections found in part 1
+
+Part 1's running screens and tests showed where this proposal did not match Spree at `a4a1708`. The proposal's text above is unchanged; these corrections govern, and part 2 starts from them. Each is recorded in the [verification record](../verification/2026-10-22-fb-19-batch-staff-access-part-1.md) §5 and §6.
+
+| Where | The proposal says | Spree does |
+|---|---|---|
+| §2.1, DA-SET-24 | An invite sheet | Invites through a dialog, and edits a teammate in a sheet |
+| §2.1, DA-SET-24 | A resend confirmation | Resends at once and shows a toast; there is no confirmation |
+| §2.2, `read_staff` only | Controls hidden | Hidden on the roles page only. The staff page keeps Invite teammate and every row's actions, and the server refuses each request |
+| §2.2, a role without the `staff` scope | A direct visit shows DA-SHELL-02, "not authorized" | A direct visit shows the staff or roles page with an empty list, while the list requests are refused. "Not authorized" appears only for a plugin route that declares a permission subject |
+| §7.1, FL-24 | Whether giving a role to a teammate is covered is confirmed in part 1 | Covered: `roles.spec.ts`, "blocks deleting a role while staff hold it, allows after unassign", assigns the role in the edit teammate sheet |
+
+Part 1 also closed one of #9's source-only stories (§7.5): #9's destructive alert was compared with the sign-in page's providers alert.
 
 ## 8. Ownership, risk and release impact
 

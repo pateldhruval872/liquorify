@@ -309,7 +309,7 @@ From 0.4, each batch covers a product area (§12.1) and starts with a map that l
 
 - **Nothing in scope is left out of the map.** Every in-scope ID appears in it, and every row names its evidence or a gap.
 - **A gap is explicit.** It names the ID, what is missing, the check made instead and what would close it. Gaps from earlier batches stay open until a batch's evidence closes them, and that batch's record says which.
-- **Captures trace like reference images.** A running-screen capture is named `<screen ID>/<state>/<variant>-<theme>.png`, so it traces to its IDs as a reference image does through its story's tags.
+- **Captures trace like reference images.** A running-screen capture is named `<screen ID>/<state>/<variant>-<theme>.png`, so it traces to its IDs as a reference image does through its story's tags. The batch's published evidence keeps the name and may store the image as lossless WebP (`.webp`), which roughly halves its size, once every pixel has been checked equal to the PNG. Reference images stay PNG.
 - **Two lists of states, linked.** A component's stories name its states, which FB-20 uses; a screen's captures name the screen's states, which FB-21 uses. The map links the two without merging them.
 
 ## 11. Visual checks with Playwright
