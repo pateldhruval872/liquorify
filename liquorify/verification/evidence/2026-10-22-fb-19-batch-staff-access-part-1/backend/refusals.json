@@ -9,7 +9,13 @@
       "request": "POST /api/v3/admin/invitations",
       "status": 403,
       "code": "access_denied",
-      "requiredPermission": "write_staff"
+      "requiredPermission": "write_staff",
+      "expected": {
+        "status": 403,
+        "code": "access_denied",
+        "requiredPermission": "write_staff"
+      },
+      "asExpected": true
     },
     {
       "teammate": "staffViewer",
@@ -19,7 +25,13 @@
       "request": "PATCH /api/v3/admin/invitations/<id>/resend",
       "status": 403,
       "code": "access_denied",
-      "requiredPermission": "write_staff"
+      "requiredPermission": "write_staff",
+      "expected": {
+        "status": 403,
+        "code": "access_denied",
+        "requiredPermission": "write_staff"
+      },
+      "asExpected": true
     },
     {
       "teammate": "staffViewer",
@@ -29,7 +41,13 @@
       "request": "GET /api/v3/admin/invitations/<id>/acceptance_link",
       "status": 403,
       "code": "access_denied",
-      "requiredPermission": "write_staff"
+      "requiredPermission": "write_staff",
+      "expected": {
+        "status": 403,
+        "code": "access_denied",
+        "requiredPermission": "write_staff"
+      },
+      "asExpected": true
     },
     {
       "teammate": "staffViewer",
@@ -39,7 +57,13 @@
       "request": "DELETE /api/v3/admin/invitations/<id>",
       "status": 403,
       "code": "access_denied",
-      "requiredPermission": "write_staff"
+      "requiredPermission": "write_staff",
+      "expected": {
+        "status": 403,
+        "code": "access_denied",
+        "requiredPermission": "write_staff"
+      },
+      "asExpected": true
     },
     {
       "teammate": "staffViewer",
@@ -49,7 +73,13 @@
       "request": "PATCH /api/v3/admin/admin_users/<id>",
       "status": 403,
       "code": "access_denied",
-      "requiredPermission": "write_staff"
+      "requiredPermission": "write_staff",
+      "expected": {
+        "status": 403,
+        "code": "access_denied",
+        "requiredPermission": "write_staff"
+      },
+      "asExpected": true
     },
     {
       "teammate": "staffViewer",
@@ -59,7 +89,13 @@
       "request": "DELETE /api/v3/admin/admin_users/<id>",
       "status": 403,
       "code": "access_denied",
-      "requiredPermission": "write_staff"
+      "requiredPermission": "write_staff",
+      "expected": {
+        "status": 403,
+        "code": "access_denied",
+        "requiredPermission": "write_staff"
+      },
+      "asExpected": true
     },
     {
       "teammate": "staffViewer",
@@ -69,7 +105,13 @@
       "request": "POST /api/v3/admin/roles",
       "status": 403,
       "code": "access_denied",
-      "requiredPermission": "write_staff"
+      "requiredPermission": "write_staff",
+      "expected": {
+        "status": 403,
+        "code": "access_denied",
+        "requiredPermission": "write_staff"
+      },
+      "asExpected": true
     },
     {
       "teammate": "staffViewer",
@@ -79,7 +121,13 @@
       "request": "PATCH /api/v3/admin/roles/<id>",
       "status": 403,
       "code": "access_denied",
-      "requiredPermission": "write_staff"
+      "requiredPermission": "write_staff",
+      "expected": {
+        "status": 403,
+        "code": "access_denied",
+        "requiredPermission": "write_staff"
+      },
+      "asExpected": true
     },
     {
       "teammate": "staffViewer",
@@ -89,7 +137,13 @@
       "request": "DELETE /api/v3/admin/roles/<id>",
       "status": 403,
       "code": "access_denied",
-      "requiredPermission": "write_staff"
+      "requiredPermission": "write_staff",
+      "expected": {
+        "status": 403,
+        "code": "access_denied",
+        "requiredPermission": "write_staff"
+      },
+      "asExpected": true
     },
     {
       "teammate": "support",
@@ -101,7 +155,13 @@
       "request": "GET /api/v3/admin/admin_users",
       "status": 403,
       "code": "access_denied",
-      "requiredPermission": "read_staff"
+      "requiredPermission": "read_staff",
+      "expected": {
+        "status": 403,
+        "code": "access_denied",
+        "requiredPermission": "read_staff"
+      },
+      "asExpected": true
     },
     {
       "teammate": "support",
@@ -113,7 +173,13 @@
       "request": "GET /api/v3/admin/invitations",
       "status": 403,
       "code": "access_denied",
-      "requiredPermission": "read_staff"
+      "requiredPermission": "read_staff",
+      "expected": {
+        "status": 403,
+        "code": "access_denied",
+        "requiredPermission": "read_staff"
+      },
+      "asExpected": true
     },
     {
       "teammate": "support",
@@ -125,7 +191,13 @@
       "request": "GET /api/v3/admin/roles",
       "status": 403,
       "code": "access_denied",
-      "requiredPermission": "read_staff"
+      "requiredPermission": "read_staff",
+      "expected": {
+        "status": 403,
+        "code": "access_denied",
+        "requiredPermission": "read_staff"
+      },
+      "asExpected": true
     },
     {
       "teammate": "support",
@@ -137,7 +209,13 @@
       "request": "POST /api/v3/admin/invitations",
       "status": 403,
       "code": "access_denied",
-      "requiredPermission": "write_staff"
+      "requiredPermission": "write_staff",
+      "expected": {
+        "status": 403,
+        "code": "access_denied",
+        "requiredPermission": "write_staff"
+      },
+      "asExpected": true
     },
     {
       "teammate": "support",
@@ -149,7 +227,13 @@
       "request": "PATCH /api/v3/admin/invitations/<id>/resend",
       "status": 403,
       "code": "access_denied",
-      "requiredPermission": "write_staff"
+      "requiredPermission": "write_staff",
+      "expected": {
+        "status": 403,
+        "code": "access_denied",
+        "requiredPermission": "write_staff"
+      },
+      "asExpected": true
     },
     {
       "teammate": "support",
@@ -161,7 +245,13 @@
       "request": "GET /api/v3/admin/invitations/<id>/acceptance_link",
       "status": 403,
       "code": "access_denied",
-      "requiredPermission": "write_staff"
+      "requiredPermission": "write_staff",
+      "expected": {
+        "status": 403,
+        "code": "access_denied",
+        "requiredPermission": "write_staff"
+      },
+      "asExpected": true
     },
     {
       "teammate": "support",
@@ -173,7 +263,13 @@
       "request": "DELETE /api/v3/admin/invitations/<id>",
       "status": 404,
       "code": "record_not_found",
-      "requiredPermission": null
+      "requiredPermission": null,
+      "expected": {
+        "status": 404,
+        "code": "record_not_found",
+        "requiredPermission": null
+      },
+      "asExpected": true
     },
     {
       "teammate": "support",
@@ -185,7 +281,13 @@
       "request": "PATCH /api/v3/admin/admin_users/<id>",
       "status": 404,
       "code": "record_not_found",
-      "requiredPermission": null
+      "requiredPermission": null,
+      "expected": {
+        "status": 404,
+        "code": "record_not_found",
+        "requiredPermission": null
+      },
+      "asExpected": true
     },
     {
       "teammate": "support",
@@ -197,7 +299,13 @@
       "request": "DELETE /api/v3/admin/admin_users/<id>",
       "status": 404,
       "code": "record_not_found",
-      "requiredPermission": null
+      "requiredPermission": null,
+      "expected": {
+        "status": 404,
+        "code": "record_not_found",
+        "requiredPermission": null
+      },
+      "asExpected": true
     },
     {
       "teammate": "support",
@@ -209,7 +317,13 @@
       "request": "POST /api/v3/admin/roles",
       "status": 403,
       "code": "access_denied",
-      "requiredPermission": "write_staff"
+      "requiredPermission": "write_staff",
+      "expected": {
+        "status": 403,
+        "code": "access_denied",
+        "requiredPermission": "write_staff"
+      },
+      "asExpected": true
     },
     {
       "teammate": "support",
@@ -221,7 +335,13 @@
       "request": "PATCH /api/v3/admin/roles/<id>",
       "status": 404,
       "code": "record_not_found",
-      "requiredPermission": null
+      "requiredPermission": null,
+      "expected": {
+        "status": 404,
+        "code": "record_not_found",
+        "requiredPermission": null
+      },
+      "asExpected": true
     },
     {
       "teammate": "support",
@@ -233,7 +353,13 @@
       "request": "DELETE /api/v3/admin/roles/<id>",
       "status": 404,
       "code": "record_not_found",
-      "requiredPermission": null
+      "requiredPermission": null,
+      "expected": {
+        "status": 404,
+        "code": "record_not_found",
+        "requiredPermission": null
+      },
+      "asExpected": true
     },
     {
       "teammate": "storeSettings",
@@ -244,7 +370,13 @@
       "request": "GET /api/v3/admin/admin_users",
       "status": 403,
       "code": "access_denied",
-      "requiredPermission": "read_staff"
+      "requiredPermission": "read_staff",
+      "expected": {
+        "status": 403,
+        "code": "access_denied",
+        "requiredPermission": "read_staff"
+      },
+      "asExpected": true
     },
     {
       "teammate": "storeSettings",
@@ -255,7 +387,13 @@
       "request": "GET /api/v3/admin/invitations",
       "status": 403,
       "code": "access_denied",
-      "requiredPermission": "read_staff"
+      "requiredPermission": "read_staff",
+      "expected": {
+        "status": 403,
+        "code": "access_denied",
+        "requiredPermission": "read_staff"
+      },
+      "asExpected": true
     },
     {
       "teammate": "storeSettings",
@@ -266,7 +404,13 @@
       "request": "GET /api/v3/admin/roles",
       "status": 403,
       "code": "access_denied",
-      "requiredPermission": "read_staff"
+      "requiredPermission": "read_staff",
+      "expected": {
+        "status": 403,
+        "code": "access_denied",
+        "requiredPermission": "read_staff"
+      },
+      "asExpected": true
     },
     {
       "teammate": "storeSettings",
@@ -277,7 +421,13 @@
       "request": "POST /api/v3/admin/invitations",
       "status": 403,
       "code": "access_denied",
-      "requiredPermission": "write_staff"
+      "requiredPermission": "write_staff",
+      "expected": {
+        "status": 403,
+        "code": "access_denied",
+        "requiredPermission": "write_staff"
+      },
+      "asExpected": true
     },
     {
       "teammate": "storeSettings",
@@ -288,7 +438,13 @@
       "request": "PATCH /api/v3/admin/invitations/<id>/resend",
       "status": 403,
       "code": "access_denied",
-      "requiredPermission": "write_staff"
+      "requiredPermission": "write_staff",
+      "expected": {
+        "status": 403,
+        "code": "access_denied",
+        "requiredPermission": "write_staff"
+      },
+      "asExpected": true
     },
     {
       "teammate": "storeSettings",
@@ -299,7 +455,13 @@
       "request": "GET /api/v3/admin/invitations/<id>/acceptance_link",
       "status": 403,
       "code": "access_denied",
-      "requiredPermission": "write_staff"
+      "requiredPermission": "write_staff",
+      "expected": {
+        "status": 403,
+        "code": "access_denied",
+        "requiredPermission": "write_staff"
+      },
+      "asExpected": true
     },
     {
       "teammate": "storeSettings",
@@ -310,7 +472,13 @@
       "request": "DELETE /api/v3/admin/invitations/<id>",
       "status": 404,
       "code": "record_not_found",
-      "requiredPermission": null
+      "requiredPermission": null,
+      "expected": {
+        "status": 404,
+        "code": "record_not_found",
+        "requiredPermission": null
+      },
+      "asExpected": true
     },
     {
       "teammate": "storeSettings",
@@ -321,7 +489,13 @@
       "request": "PATCH /api/v3/admin/admin_users/<id>",
       "status": 404,
       "code": "record_not_found",
-      "requiredPermission": null
+      "requiredPermission": null,
+      "expected": {
+        "status": 404,
+        "code": "record_not_found",
+        "requiredPermission": null
+      },
+      "asExpected": true
     },
     {
       "teammate": "storeSettings",
@@ -332,7 +506,13 @@
       "request": "DELETE /api/v3/admin/admin_users/<id>",
       "status": 404,
       "code": "record_not_found",
-      "requiredPermission": null
+      "requiredPermission": null,
+      "expected": {
+        "status": 404,
+        "code": "record_not_found",
+        "requiredPermission": null
+      },
+      "asExpected": true
     },
     {
       "teammate": "storeSettings",
@@ -343,7 +523,13 @@
       "request": "POST /api/v3/admin/roles",
       "status": 403,
       "code": "access_denied",
-      "requiredPermission": "write_staff"
+      "requiredPermission": "write_staff",
+      "expected": {
+        "status": 403,
+        "code": "access_denied",
+        "requiredPermission": "write_staff"
+      },
+      "asExpected": true
     },
     {
       "teammate": "storeSettings",
@@ -354,7 +540,13 @@
       "request": "PATCH /api/v3/admin/roles/<id>",
       "status": 404,
       "code": "record_not_found",
-      "requiredPermission": null
+      "requiredPermission": null,
+      "expected": {
+        "status": 404,
+        "code": "record_not_found",
+        "requiredPermission": null
+      },
+      "asExpected": true
     },
     {
       "teammate": "storeSettings",
@@ -365,7 +557,13 @@
       "request": "DELETE /api/v3/admin/roles/<id>",
       "status": 404,
       "code": "record_not_found",
-      "requiredPermission": null
+      "requiredPermission": null,
+      "expected": {
+        "status": 404,
+        "code": "record_not_found",
+        "requiredPermission": null
+      },
+      "asExpected": true
     }
   ]
 }
