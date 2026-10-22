@@ -31,7 +31,7 @@ The results above are kept as they were recorded. The batch's comparison with ru
 |---|---|---|
 | 3 | Each story arranges the component's parts the way a Spree screen does | FAIL for three stories at `8d53a5c`: the invalid field stories, the progress caption and the loading row followed no screen. Corrected at `7b1f2b8` ([fidelity record](2026-10-22-fb-19-batch-dashboard-primitives-1-fidelity.md) §5), so PASS there |
 | 4 | Every new image was looked at in both modes | PASS at `7b1f2b8`: the six rewritten or added images were looked at in both modes |
-| 5 | The reference images pass CI's comparison, and no other image changed | Recorded in the pull request's CI run at the revision that carries this note |
+| 5 | The reference images pass CI's comparison, and no other image changed | PASS at `c4d3d2c`, the revision that carries this note: all 310 comparisons passed on GitHub's runners in [39703070746](https://github.com/pateldhruval872/liquorify/actions/runs/39703070746) under the explicit tolerance, and the pull request's other checks passed (§2) |
 | 6 | Each story matches the component in its running screen | PASS, as a diagnostic: 33 cases for 22 of the 24 primitives found no unexplained difference after the three corrections ([fidelity record](2026-10-22-fb-19-batch-dashboard-primitives-1-fidelity.md)). 83 stories, including every story of the alert and the slot, were checked against their source only. The owner's acceptance of fidelity is NOT_RUN |
 | 7 | The owner reviews the reference images | NOT_RUN: #9 stays a draft |
 
@@ -110,8 +110,9 @@ None. These primitives need no provider beyond the pilot's decorators, and no re
 |---|---|---|
 | [39635086908](https://github.com/pateldhruval872/liquorify/actions/runs/39635086908) | `2281eb5` | Built, token check and coverage passed, 310 comparisons passed in 3.6 minutes; no failure images to publish |
 | [39647604906](https://github.com/pateldhruval872/liquorify/actions/runs/39647604906) | `8d53a5c` | Built, token check and coverage passed, and all 310 comparisons passed in 3.7 minutes with the batch's rewritten images |
+| [39703070746](https://github.com/pateldhruval872/liquorify/actions/runs/39703070746) | `c4d3d2c` | Built, token check and coverage passed, and all 310 comparisons passed in 2.9 minutes with the three corrected stories, under the explicit tolerance |
 
-The pull request's other checks also passed at `2281eb5`. The batch changes no file they test. At `e69b514`, `PostgreSQL - core (1/3)` failed one of Spree's address specs, which fails on any run where its randomly chosen country is Hungary; the cause is in Spree's code, and it is described on [#6](https://github.com/pateldhruval872/liquorify/pull/6#issuecomment-6322907935).
+The pull request's other checks also passed at `2281eb5` and at `c4d3d2c`. The batch changes no file they test. At `e69b514`, `PostgreSQL - core (1/3)` failed one of Spree's address specs, which fails on any run where its randomly chosen country is Hungary; the cause is in Spree's code, and it is described on [#6](https://github.com/pateldhruval872/liquorify/pull/6#issuecomment-6322907935).
 
 ## 3. Procedure and evidence for each criterion
 

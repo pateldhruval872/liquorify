@@ -84,7 +84,7 @@ The avatar and the label were not in the first run. Searching the screens for wh
 
 ## 3. Coverage gaps, and what was checked instead
 
-These stay open until a later run can cover them, for example Part A of the staff access batch, more browser-test data, or FB-04's environment.
+These stay open until a later run can cover them, for example part 1 of the staff access batch, more browser-test data, or FB-04's environment.
 
 ### 3.1 Components with no comparison
 
@@ -126,7 +126,7 @@ The 33 cases compare 31 of the batch's 114 stories; the badge's Variants story i
 
 For each, the check was made against the source in the pilot's three parts ([pilot fidelity record](2026-10-21-fb-19-pilot-fidelity.md) §4.1): the story renders Spree's own component with the props it declares; it shares its surroundings with a compared story of the same component; and its image was looked at and matches what the source describes. What this does not show is that the state looks the same on a screen that has it.
 
-Part A of the staff access batch is expected to close some of these: its sign-in and staff screens show disabled and invalid inputs, the avatar's image state, and the label beside a control.
+Part 1 of the staff access batch is expected to close some of these: its sign-in and staff screens show disabled and invalid inputs, the avatar's image state, and the label beside a control.
 
 ## 4. Differences found
 
@@ -136,7 +136,7 @@ Part A of the staff access batch is expected to close some of these: its sign-in
 | E2 | Components that fill their container take its width: a settings column of 864 or 890 pixels, a page column of 963 or 965, or the sign-in form's 384. Stories show them at the width their story sets | Expected | Recorded |
 | E3 | Elements inherit a font size or text colour that nothing in them paints with: the dashboard's table headers and some panels set 13 pixels where Storybook's page sets 14, and the avatar's root inherits its card's text colour. The visible text in each case sets its own size and colour, which match | Expected | Recorded |
 | E4 | A screen adds its own class names to a component, such as the staff page's role badge, the customer page's stat item and the home page's ranking list, so the script cannot pair those elements; the images show them | Expected | Recorded. The scroll area story follows the seller panel's onboarding list (`h-72 rounded-md border`), not the home page's |
-| E5 | The sign-in pages sit on the page colour (`bg-background`, in `auth-shell.tsx`), not the card colour the pilot's correction gives every story. The label was compared there; it paints no background, so it is unaffected | Expected for this batch | Recorded for Part A, whose sign-in stories need the page colour |
+| E5 | The sign-in pages sit on the page colour (`bg-background`, in `auth-shell.tsx`), not the card colour the pilot's correction gives every story. The label was compared there; it paints no background, so it is unaffected | Expected for this batch | Recorded for part 1 of the staff access batch, whose sign-in stories need the page colour |
 
 ## 5. Corrections made
 
