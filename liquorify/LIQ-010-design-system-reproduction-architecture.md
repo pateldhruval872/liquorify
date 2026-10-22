@@ -1,7 +1,7 @@
 ---
 document_id: LIQ-010
 title: Design System Reproduction Architecture
-version: 0.3-draft
+version: 0.4-draft
 status: DRAFT
 owner: unassigned
 approved_by: null
@@ -16,7 +16,7 @@ The implementation plan for reproducing Spree's design systems in Storybook and 
 It has two parts, kept apart on purpose:
 
 - **Part A (§2 to §5) is what Spree already has**, read at backend `1d1f2d4` and storefront `ac53c5b`, the revisions LIQ-008 and LIQ-009 pin. It is fact, with the files named.
-- **Part B (§6 to §14) is the proposed tooling around it.** Nothing in Part B is decided. Each arrangement was tried in the pilot (§13) on 2026-10-21, and version 0.2 corrects this plan with what the pilot found ([record](verification/2026-10-21-fb-19-pilot.md)) before coverage grows.
+- **Part B (§6 to §14) is the proposed tooling around it.** Nothing in Part B is decided. Each arrangement was tried in the pilot (§13) on 2026-10-21, and version 0.2 corrects this plan with what the pilot found ([record](verification/2026-10-21-fb-19-pilot.md)) before coverage grows. Version 0.4 makes each later batch a product area, with its capabilities, screens, flows, permissions and states linked to their evidence (§10.1, §12.1).
 
 ## 1. Status of the decisions this plan relies on
 
@@ -292,6 +292,26 @@ The storefront's dark values are still reproduced in full: on the token pages an
 - **Figma components** take the code's name, list their states as variant properties, and carry the ID, the source path and the story's title in their description. Code Connect is deferred (Q4), so the link is by name and description only.
 - **FB-21's frames** are named with their screen IDs, as LIQ-004 already requires.
 
+### 10.1 The batch map
+
+From 0.4, each batch covers a product area (§12.1) and starts with a map that links, by inventory ID, every capability in its scope to what reproduces it and what checks it. The map is planned in the batch's work item and completed in its verification record, with the evidence and result of each row.
+
+| Column | Holds | Taken from |
+|---|---|---|
+| Capability | The capability's ID and name, such as CAP-04-03 Staff invitations | [LIQ-006](LIQ-006-product-capability-baseline.md) |
+| Screens and overlays | Screen IDs | LIQ-008 §3 to §5 |
+| Flows | Flow IDs, each traced step by step | LIQ-008 §7 |
+| Emails | Email IDs | LIQ-008 §6 |
+| Permission | The scope each screen needs, the role templates that grant it, and every permission variant the batch captures | LIQ-008 §2 |
+| Meaningful states | Each screen's states, named as its captures are | LIQ-008, and the screen's source |
+| Components | Component IDs, split into those new in the batch and those already covered | LIQ-009, and what the screens import at the pinned revision |
+| Evidence | For each row: stories and reference images, running-screen captures, browser test titles with the CI run, the three permission claims (§12.1, step 6), and the result of each | The batch's runs |
+
+- **Nothing in scope is left out of the map.** Every in-scope ID appears in it, and every row names its evidence or a gap.
+- **A gap is explicit.** It names the ID, what is missing, the check made instead and what would close it. Gaps from earlier batches stay open until a batch's evidence closes them, and that batch's record says which.
+- **Captures trace like reference images.** A running-screen capture is named `<screen ID>/<state>/<variant>-<theme>.png`, so it traces to its IDs as a reference image does through its story's tags. The batch's published evidence keeps the name and may store the image as lossless WebP (`.webp`), which roughly halves its size, once every pixel has been checked equal to the PNG. Reference images stay PNG.
+- **Two lists of states, linked.** A component's stories name its states, which FB-20 uses; a screen's captures name the screen's states, which FB-21 uses. The map links the two without merging them.
+
 ## 11. Visual checks with Playwright
 
 The owner decided the requirements on 2026-10-21 (Q10, in [LIQ-007 §4](LIQ-007-design-system-adoption-and-extension.md#4-how-each-tool-is-used)): screenshot comparisons against the built Storybooks, a consistent browser environment, deterministic sample data, reference images under version control, reports and failure images as CI artifacts with an appropriate retention, no automatic approval of changed screenshots, and advisory checks at first. Everything below is the proposed way to meet them.
@@ -352,12 +372,22 @@ CI never writes, accepts or commits a reference image. Its configuration makes a
 
 ### 12.1 Each batch
 
-1. **Before the pull request:** stories render; lint, type check and fixture tests pass; the token check and coverage report run.
+A batch covers one product area: a section of LIQ-006, or part of one. It brings the area's capabilities, screens, flows, emails, permissions and meaningful states with the components they use, and the evidence that checks each one. A batch too large to review is split into parts, each with its own pull request and verification record. The first two dashboard primitive batches were planned by component section before this rule, and keep that scope.
+
+1. **Before work starts: the work item.** A work item in `liquorify/work-items/`, with ENG-001's fields (outcome, scope, ownership, acceptance criteria, dependencies, risk, verification and release impact) and the batch map (§10.1), built from LIQ-006, LIQ-008 and LIQ-009 and from what the screens import at the pinned revision. It names what the batch leaves out and which batch takes it. The owner reviews it in the batch's first pull request.
+2. **Before the pull request:** stories render; lint, type check and fixture tests pass; the token check and coverage report run.
    - Each story arranges the component's parts the way a Spree screen does, and says which screen in a comment where it is not obvious. Where no screen uses a part, the story says so instead of inventing a layout. In the first batch a card story put a description and an action in one header, which no Spree screen does and which the header's grid lays out badly.
+   - Each story sits on the surface of the screen it names: the card colour for pages, sheets and dialogs inside the panels (§7.2), and the page colour for the sign-in pages, which render outside them.
    - Every new image is looked at before it is committed, in both modes.
-2. **In the pull request:** the Storybook workflow builds, reports coverage and compares screenshots. The batch's new reference images are committed in the pull request, and the owner reviews them there (§11.4).
-3. **Fidelity.** Each story is compared with the same component in its screen in the running dashboard or storefront, where a running instance at the pinned revisions is available (FB-04, or the dashboard's browser-test set-up); otherwise the comparison is NOT_RUN and recorded. The comparison committed beside each Storybook (`fidelity/` in the backend, `visual/fidelity/` in the storefront) puts the two side by side and saves the computed styles of both sides and the tokens, with every one that differs. The comparison is diagnostic: it collects evidence for review, and a successful run alone does not establish fidelity. The owner accepts fidelity by reviewing that evidence, which the verification record links with its inventory IDs and revisions. A difference is a defect in the story, its providers or its mocks, never a reason to change the component. A state no running screen shows with the available data is checked against its source, and recorded as such.
-4. **A verification record** in `liquorify/verification/` lists what was built, the revision, the coverage report, the reference images added or changed, the comparison results, the results (PASS, FAIL, BLOCKED, NOT_RUN) and the limits.
+3. **In the pull request:** the Storybook workflow builds, reports coverage and compares screenshots. The batch's new reference images are committed in the pull request, and the owner reviews them there (§11.4).
+4. **Running screens.** Each screen and overlay in the map is captured on the running dashboard, seller panel or storefront at the batch's revision, in each meaningful state and permission variant, with the comparison scripts and set-up of step 5. Data a state needs that the browser-test set-up lacks, such as a staff member holding a custom role, is created through the application's own API in that set-up; Spree's code, tests and fixtures are not changed. A state that cannot be reached that way is a gap. Emails are rendered from Spree's mailer previews where the set-up reaches them, and are otherwise NOT_RUN.
+5. **Fidelity.** Each story is compared with the same component in its screen in the running dashboard or storefront, where a running instance at the pinned revisions is available (FB-04, or the dashboard's browser-test set-up); otherwise the comparison is NOT_RUN and recorded. The comparison committed beside each Storybook (`fidelity/` in the backend, `visual/fidelity/` in the storefront) puts the two side by side and saves the computed styles of both sides and the tokens, with every one that differs. The comparison is diagnostic: it collects evidence for review, and a successful run alone does not establish fidelity. The owner accepts fidelity by reviewing that evidence, which the verification record links with its inventory IDs and revisions. A difference is a defect in the story, its providers or its mocks, never a reason to change the component. A state no running screen shows with the available data is checked against its source, and recorded as such.
+6. **Permissions, as three separate claims.** The record states each with its own evidence and result, and never lets one stand for another.
+   - **What the interface shows each role.** The navigation entries, the controls hidden without write, and the "Not authorized" and "No store access" screens, from running-screen captures for each permission variant with the role's permission keys. This shows only what the interface displays: hiding a control does not stop a request.
+   - **What the server refuses.** Whether the API refuses what the caller's role or key does not allow, from Spree's own controller and request specs, or tests written for the batch outside Spree's code, run at the batch's revision and listed by name with the endpoints and permissions they exercise. What they do not exercise is NOT_RUN, never inferred from the interface.
+   - **Whether each store's data stays in that store.** Tenant isolation is FB-03's claim, with the open isolation findings in [LIQ-004](LIQ-004-foundation-backlog.md#open-isolation-findings). A batch records it NOT_RUN, links the findings that touch its area, and claims nothing about it, unless FB-03's validation has run at the batch's revision. A new isolation defect found during a batch is reported to the owner privately and is not reproduced in either public repository while it is open.
+7. **Flows.** Each flow in the map is traced step by step to its screens and emails, with the browser test titles that cover each step, and those tests pass in CI at the batch's revision. A step no test covers is a gap; the batch does not add tests to Spree's suites.
+8. **A verification record** in `liquorify/verification/` lists what was built, the revision, the coverage report, the reference images added or changed, the completed batch map with the result of each row (PASS, FAIL, BLOCKED or NOT_RUN), the three permission claims, the comparison results, the gaps and the limits. With it go an image review list by inventory ID and an index of the published captures. The owner's acceptance is recorded as for the pilot until decision D5 says how acceptance is recorded.
 
 ### 12.2 When Liquorify takes a new Spree or storefront release (FB-12)
 
@@ -391,7 +421,7 @@ A small batch from each system, chosen to try every arrangement above once befor
 
 **Result.** The pilot ran on 2026-10-21 ([record](verification/2026-10-21-fb-19-pilot.md)). Both Storybooks built in CI, the token check and the coverage report ran, every comparison passed on two CI runs of the same revision under the tolerance then configured, and a planted change failed in CI with the failure images published. The findings are corrected in this version. Each case was then compared, as a diagnostic, with its running screen, using the dashboard's browser-test server and the built panels and storefront ([record](verification/2026-10-21-fb-19-pilot-fidelity.md)). That found two defects, both corrected in §7.2: stories sat on the page grey instead of the card colour, and three components were wider than the page column they fill. It also found that the tolerance let the page colour change pass, so an explicit, measured tolerance replaced it (§11.3).
 
-**After the pilot,** coverage grows in batches by LIQ-009 section, each small enough to review:
+**After the pilot,** coverage grew in batches by LIQ-009 section, each small enough to review. From 0.4, batches follow product areas instead (§12.1), so the sections below are what the product-area batches cover between them, not their order. The first product-area batch is staff access and the dashboard shell, in two parts ([work item](work-items/fb-19-batch-staff-access-and-shell.md)). The sections:
 
 1. Dashboard design system primitives (46), in two parts after the pilot's three: 24 on 2026-10-21 ([record](verification/2026-10-21-fb-19-batch-dashboard-primitives-1.md)) and 19.
 2. Dashboard design system composed components (54).

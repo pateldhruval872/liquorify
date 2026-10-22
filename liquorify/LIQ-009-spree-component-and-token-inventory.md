@@ -6,7 +6,7 @@ status: DRAFT
 owner: unassigned
 approved_by: null
 approved_at: null
-updated: 2026-10-21
+updated: 2026-10-22
 ---
 
 # Spree Component and Token Inventory
@@ -83,10 +83,10 @@ Every component and token supports Design System Engineering (PD-13), and each i
 | CMP-DUI-P-14 | `combobox` | Input | Base UI | | |
 | CMP-DUI-P-15 | `command` | Overlay | cmdk | | |
 | CMP-DUI-P-16 | `context-menu` | Overlay | Base UI | | |
-| CMP-DUI-P-17 | `data-table` | Data | — | | |
+| CMP-DUI-P-17 | `data-table` | Data | — | Dashboard UI/Primitives/Data table | |
 | CMP-DUI-P-18 | `date-picker` | Input | date-fns, date-fns-tz | | |
 | CMP-DUI-P-19 | `date-range-picker` | Input | react-day-picker, date-fns | | |
-| CMP-DUI-P-20 | `dialog` | Overlay | Base UI | | |
+| CMP-DUI-P-20 | `dialog` | Overlay | Base UI | Dashboard UI/Primitives/Dialog | |
 | CMP-DUI-P-21 | `dropdown-menu` | Overlay | Base UI | | |
 | CMP-DUI-P-22 | `empty` | Feedback | — | Dashboard UI/Primitives/Empty | |
 | CMP-DUI-P-23 | `field` | Input | — | Dashboard UI/Primitives/Field | |
@@ -103,7 +103,7 @@ Every component and token supports Design System Engineering (PD-13), and each i
 | CMP-DUI-P-34 | `scroll-area` | Layout | Base UI | Dashboard UI/Primitives/Scroll area | |
 | CMP-DUI-P-35 | `select` | Input | Base UI | Dashboard UI/Primitives/Select | |
 | CMP-DUI-P-36 | `separator` | Layout | Base UI | Dashboard UI/Primitives/Separator | |
-| CMP-DUI-P-37 | `sheet` | Overlay | Base UI | | |
+| CMP-DUI-P-37 | `sheet` | Overlay | Base UI | Dashboard UI/Primitives/Sheet | |
 | CMP-DUI-P-38 | `sidebar` | Navigation | — | | |
 | CMP-DUI-P-39 | `skeleton` | Feedback | — | Dashboard UI/Primitives/Skeleton | |
 | CMP-DUI-P-40 | `slot` | Extension | Plugin slot outlet | Dashboard UI/Primitives/Slot | |
@@ -111,8 +111,8 @@ Every component and token supports Design System Engineering (PD-13), and each i
 | CMP-DUI-P-42 | `tabs` | Navigation | Base UI | Dashboard UI/Primitives/Tabs | |
 | CMP-DUI-P-43 | `textarea` | Input | — | Dashboard UI/Primitives/Textarea | |
 | CMP-DUI-P-44 | `thumbnail` | Display | — | Dashboard UI/Primitives/Thumbnail | |
-| CMP-DUI-P-45 | `toast` | Feedback | Base UI | | |
-| CMP-DUI-P-46 | `tooltip` | Overlay | Base UI | | |
+| CMP-DUI-P-45 | `toast` | Feedback | Base UI | Dashboard UI/Primitives/Toast | |
+| CMP-DUI-P-46 | `tooltip` | Overlay | Base UI | Dashboard UI/Primitives/Tooltip | |
 
 ### Composed components
 
@@ -129,7 +129,7 @@ Every component and token supports Design System Engineering (PD-13), and each i
 | CMP-DUI-C-07 | `calculator-summary` | Display | | |
 | CMP-DUI-C-08 | `claim-resolve-dialog` | Overlay | | |
 | CMP-DUI-C-09 | `color-picker` | Input | | |
-| CMP-DUI-C-10 | `confirm-dialog` | Overlay | | |
+| CMP-DUI-C-10 | `confirm-dialog` | Overlay | Dashboard UI/Composed/Confirm dialog | |
 | CMP-DUI-C-11 | `copy-to-clipboard-button` | Action | | |
 | CMP-DUI-C-12 | `country-flag` | Display | | |
 | CMP-DUI-C-13 | `data-grid/cells` | Data | | |
@@ -138,7 +138,7 @@ Every component and token supports Design System Engineering (PD-13), and each i
 | CMP-DUI-C-16 | `delivery-form-dialog` | Overlay | | |
 | CMP-DUI-C-17 | `drag-handle` | Action | | |
 | CMP-DUI-C-18 | `editable-note-card` | Input | | |
-| CMP-DUI-C-19 | `external-link` | Navigation | | |
+| CMP-DUI-C-19 | `external-link` | Navigation | Dashboard UI/Composed/External link | |
 | CMP-DUI-C-20 | `file-type-icon` | Display | | |
 | CMP-DUI-C-21 | `form-actions` | Action | | |
 | CMP-DUI-C-22 | `form-section` | Layout | | |
@@ -157,14 +157,14 @@ Every component and token supports Design System Engineering (PD-13), and each i
 | CMP-DUI-C-35 | `product-membership-list` | Data | | |
 | CMP-DUI-C-36 | `products/status-card` | Input | | |
 | CMP-DUI-C-37 | `quantity-tier-editor` | Input | | |
-| CMP-DUI-C-38 | `relative-time` | Display | | |
+| CMP-DUI-C-38 | `relative-time` | Display | Dashboard UI/Composed/Relative time | |
 | CMP-DUI-C-39 | `resource-combobox` | Input | | |
 | CMP-DUI-C-40 | `resource-layout` | Layout | | |
 | CMP-DUI-C-41 | `resource-multi-autocomplete` | Input | | |
 | CMP-DUI-C-42 | `resource-name-cell` | Data | | |
 | CMP-DUI-C-43 | `return-dialogs` | Overlay | | |
-| CMP-DUI-C-44 | `route-error-boundary` | Feedback | | |
-| CMP-DUI-C-45 | `row-actions` | Action | | |
+| CMP-DUI-C-44 | `route-error-boundary` | Feedback | Dashboard UI/Composed/Route error boundary | |
+| CMP-DUI-C-45 | `row-actions` | Action | Dashboard UI/Composed/Row actions | |
 | CMP-DUI-C-46 | `row-click-bridge` | Action | | |
 | CMP-DUI-C-47 | `search-input` | Input | | |
 | CMP-DUI-C-48 | `secret-input` | Input | | |
@@ -202,7 +202,7 @@ The package also has 5 hooks (`use-copy-to-clipboard`, `use-debounced-value`, `u
 | CMP-CORE-17 | `mobile-top-bar` | Navigation | | |
 | CMP-CORE-18 | `money` | Display | | |
 | CMP-CORE-19 | `nav-main` | Navigation | | |
-| CMP-CORE-20 | `page-header` | Layout | | |
+| CMP-CORE-20 | `page-header` | Layout | Dashboard core/Page header | |
 | CMP-CORE-21 | `page-tabs` | Navigation | | |
 | CMP-CORE-22 | `preferences-form` | Input | | |
 | CMP-CORE-23 | `resource-combobox` | Input | | |
@@ -216,7 +216,7 @@ The package also has 5 hooks (`use-copy-to-clipboard`, `use-debounced-value`, `u
 | CMP-CORE-31 | `sidebar-search` | Navigation | | |
 | CMP-CORE-32 | `sidebar-user` | Navigation | | |
 | CMP-CORE-33 | `skip-link` | Navigation | | |
-| CMP-CORE-34 | `slot` | Extension | | |
+| CMP-CORE-34 | `slot` | Extension | Dashboard core/Slot | |
 | CMP-CORE-35 | `store-date-picker` | Input | | |
 | CMP-CORE-36 | `store-switcher` | Navigation | | |
 | CMP-CORE-37 | `table-toolbar` | Data | | |
@@ -278,7 +278,7 @@ These are compositions bound to one application's data hooks and API. They are l
 | CMP-DA-G-21 | `store-credits/` | 2 | `edit-store-credit-dialog`, `issue-store-credit-dialog` | DA-LOY-02, DA-CUS-02 | | |
 | CMP-DA-G-22 | `taxes/` | 2 | `market-tax-providers`, `taxes-tabs` | DA-SET-13 to DA-SET-15 | | |
 | CMP-DA-G-23 | `translations/` | 2 | `resource-translations-card`, `resource-translations-dialog` | DA-PRD-03, DA-PRD-05, DA-PRD-06 | | |
-| CMP-DA-G-24 | Top level | 60 | `actor-label`, `agent-connections-card`, `auth-shell`, `catalog-audience`, `catalog-price-columns`, `catalog-pricing-fields`, `catalog-terms-card`, `catalog-wizard-dialog`, `channel-select`, `choice-card-picker`, `close-short-dialog`, `company-address-sheet`, `company-combobox-option`, `company-kind-badge`, `deferred-product-membership-card`, `enterprise-upsell`, `getting-started-nav-badge`, `inventory-cells`, `inventory-status-badge`, `jurisdiction-label`, `mcp-connect-sheet`, `media-rich-text-editor`, `nav-counter-badge`, `no-store-access`, `notifications`, `oauth-application-sheet`, `order-digital-links-card`, `order-post-sale-cards`, `order-returns-card`, `order-routing-rules-section`, `permission-picker`, `post-sale-create-dialogs`, `price-list-csv-buttons`, `product-membership-staging`, `profile-dialog`, `purchase-order-form`, `quantity-cell`, `reason-field`, `receive-delivery-card`, `release-notes`, `resource-image-field`, `role-sheet`, `route-pending`, `settings-list-card`, `stock-history-card`, `stock-levels-panel`, `stock-receipts-card`, `stock-transfer-form`, `store-setup-fields`, `storefront-connect-sheet`, `supplier-sheet`, `tax-category-label`, `tax-exemption-certificates-card`, `tax-identifiers-card`, `tax-provider-field`, `transfer-cancel-dialog`, `type-picker-sheet`, `variant-line-editor`, `variant-link`, `webhook-endpoint-form` | Across the dashboard; for example `auth-shell` on DA-AUTH-01 to DA-AUTH-04, the `catalog-*` parts on DA-PRD-13 and DA-PRD-14, `role-sheet` and `permission-picker` on DA-SET-25, `webhook-endpoint-form` on DA-SET-28 and DA-SET-29, `enterprise-upsell` on DA-CUS-05 | | |
+| CMP-DA-G-24 | Top level | 60 | `actor-label`, `agent-connections-card`, `auth-shell`, `catalog-audience`, `catalog-price-columns`, `catalog-pricing-fields`, `catalog-terms-card`, `catalog-wizard-dialog`, `channel-select`, `choice-card-picker`, `close-short-dialog`, `company-address-sheet`, `company-combobox-option`, `company-kind-badge`, `deferred-product-membership-card`, `enterprise-upsell`, `getting-started-nav-badge`, `inventory-cells`, `inventory-status-badge`, `jurisdiction-label`, `mcp-connect-sheet`, `media-rich-text-editor`, `nav-counter-badge`, `no-store-access`, `notifications`, `oauth-application-sheet`, `order-digital-links-card`, `order-post-sale-cards`, `order-returns-card`, `order-routing-rules-section`, `permission-picker`, `post-sale-create-dialogs`, `price-list-csv-buttons`, `product-membership-staging`, `profile-dialog`, `purchase-order-form`, `quantity-cell`, `reason-field`, `receive-delivery-card`, `release-notes`, `resource-image-field`, `role-sheet`, `route-pending`, `settings-list-card`, `stock-history-card`, `stock-levels-panel`, `stock-receipts-card`, `stock-transfer-form`, `store-setup-fields`, `storefront-connect-sheet`, `supplier-sheet`, `tax-category-label`, `tax-exemption-certificates-card`, `tax-identifiers-card`, `tax-provider-field`, `transfer-cancel-dialog`, `type-picker-sheet`, `variant-line-editor`, `variant-link`, `webhook-endpoint-form` | Across the dashboard; for example `auth-shell` on DA-AUTH-01 to DA-AUTH-04, the `catalog-*` parts on DA-PRD-13 and DA-PRD-14, `role-sheet` and `permission-picker` on DA-SET-25, `webhook-endpoint-form` on DA-SET-28 and DA-SET-29, `enterprise-upsell` on DA-CUS-05 | `auth-shell`: Admin dashboard/Sign-in/Auth shell; `no-store-access`: Admin dashboard/Sign-in/No store access; `permission-picker`: Admin dashboard/Roles/Permission picker; `role-sheet`: Admin dashboard/Roles/Role sheet | |
 
 ### Seller panel
 

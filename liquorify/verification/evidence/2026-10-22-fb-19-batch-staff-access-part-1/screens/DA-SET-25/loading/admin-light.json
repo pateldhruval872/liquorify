@@ -1,0 +1,11 @@
+{
+  "screen": "DA-SET-25",
+  "state": "loading",
+  "variant": "admin",
+  "role": null,
+  "theme": "light",
+  "revision": "a4a1708",
+  "path": "/<store>/settings/roles",
+  "intercepted": "The roles request is held open",
+  "settled": null
+}

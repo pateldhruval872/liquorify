@@ -1,0 +1,11 @@
+{
+  "screen": "DA-AUTH-02",
+  "state": "field-errors",
+  "variant": "public",
+  "role": null,
+  "theme": "light",
+  "revision": "a4a1708",
+  "path": "/forgot-password",
+  "intercepted": null,
+  "settled": true
+}

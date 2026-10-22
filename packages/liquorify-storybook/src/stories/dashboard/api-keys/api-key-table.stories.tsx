@@ -43,6 +43,6 @@ export const ScopesOpen: Story = {
   parameters: { liquorify: { capture: 'viewport' } },
   play: async () => {
     await userEvent.click(await screen.findByRole('button', { name: /2/ }))
-    await screen.findAllByText('Write orders')
+    await screen.findAllByText('Manage Orders')
   },
 }

@@ -1,6 +1,17 @@
 import { mkdirSync, writeFileSync } from 'node:fs'
 import { expect, type Locator, type Page, test } from '@playwright/test'
 import { login, sellerLogin } from '../../dashboard/e2e/helpers'
+import {
+  openRoleMenu,
+  openRowMenu,
+  PASSWORD,
+  pendingEmail,
+  removed,
+  roleRow,
+  roles,
+  seed,
+  teammates,
+} from './staff'
 
 /**
  * The pilot's diagnostic comparison with running screens (LIQ-010 §12.1): each
@@ -22,7 +33,8 @@ import { login, sellerLogin } from '../../dashboard/e2e/helpers'
  * `FIDELITY_REVISION` to the commit under test to record it in each file. The
  * data differs on purpose: the screens show the browser tests' fixtures and the
  * stories show invented ones. API key values are masked on both sides, since
- * the screens show keys from the test database.
+ * the screens show keys from the test database. The staff cases add the
+ * teammates, roles and invitations they open first (`staff.ts`).
  */
 
 const STORYBOOK = 'http://localhost:6007'
@@ -720,7 +732,307 @@ const primitivesBatchOne: Case[] = [
   },
 ]
 
-const cases: Case[] = [...pilotCases, ...primitivesBatchOne]
+/** The page header: the `<header>` that holds the page's only first-level heading. */
+const pageHeader = (page: Page) =>
+  page
+    .locator('header')
+    .filter({ has: page.getByRole('heading', { level: 1 }) })
+    .first()
+const tableCard = (page: Page) =>
+  page
+    .locator('[data-slot="card"]')
+    .filter({ has: page.getByRole('table') })
+    .first()
+const permissionGrid = (scope: Page | Locator) =>
+  scope.locator('div.rounded-md.border').filter({ hasText: 'Resource' }).first()
+const authShell = (page: Page) => page.locator('.min-h-svh').first()
+
+/** Signs in as a seeded teammate through the API, as the capture script does. */
+async function teammatePage(page: Page, email: string, path = '/') {
+  const res = await page.request.post('/api/v3/admin/auth/login', {
+    data: { email, password: PASSWORD },
+  })
+  expect(res.ok(), await res.text()).toBeTruthy()
+  await page.goto(path)
+  await page.waitForLoadState('networkidle')
+}
+
+async function staffPage(page: Page) {
+  await adminPage(page, '/settings/staff')
+  await expect(page.locator('tr').filter({ hasText: pendingEmail })).toBeVisible({
+    timeout: 20_000,
+  })
+}
+
+async function rolesPage(page: Page) {
+  await adminPage(page, '/settings/roles')
+  await expect(roleRow(page, roles.unused.name)).toBeVisible({ timeout: 20_000 })
+}
+
+async function openRoleSheet(page: Page) {
+  await rolesPage(page)
+  await page.getByRole('button', { name: /add role/i }).click()
+  await expect(page.getByRole('dialog').getByRole('button', { name: /^save$/i })).toBeVisible()
+}
+
+// Staff access part 1: each new story beside the same component on the
+// staff, roles and sign-in screens, with the staff and roles `staff.ts` seeds.
+const staffAccessPartOne: Case[] = [
+  {
+    id: 'CMP-CORE-20',
+    name: 'page-header-staff',
+    story: 'dashboard-core-page-header--default',
+    screen: async (page) => {
+      await staffPage(page)
+      return pageHeader(page)
+    },
+    inStory: pageHeader,
+  },
+  {
+    id: 'CMP-DUI-C-19',
+    name: 'external-link-in-a-description',
+    story: 'dashboard-ui-composed-external-link--in-a-description',
+    screen: async (page) => {
+      await staffPage(page)
+      return slot(page, 'external-link').first()
+    },
+    inStory: (page) => slot(page, 'external-link'),
+  },
+  {
+    id: 'CMP-DUI-P-17',
+    name: 'data-table-members',
+    story: 'dashboard-ui-primitives-data-table--default',
+    screen: async (page) => {
+      await staffPage(page)
+      return card(page, 'Members')
+    },
+    inStory: tableCard,
+  },
+  {
+    id: 'CMP-DUI-P-17',
+    name: 'data-table-roles',
+    story: 'dashboard-ui-primitives-data-table--roles',
+    screen: async (page) => {
+      await rolesPage(page)
+      return tableCard(page)
+    },
+    inStory: tableCard,
+  },
+  {
+    id: 'CMP-DUI-C-38',
+    name: 'relative-time-future',
+    story: 'dashboard-ui-composed-relative-time--future',
+    screen: async (page) => {
+      await staffPage(page)
+      return page.locator('tr').filter({ hasText: pendingEmail }).locator('time')
+    },
+    inStory: (page) => page.locator('time'),
+  },
+  {
+    id: 'CMP-DUI-C-45',
+    name: 'row-actions-open',
+    story: 'dashboard-ui-composed-row-actions--open',
+    viewport: true,
+    screen: async (page) => {
+      await staffPage(page)
+      await openRowMenu(page, teammates.support.email)
+      return slot(page, 'dropdown-menu-content')
+    },
+    inStory: (page) => slot(page, 'dropdown-menu-content'),
+  },
+  {
+    id: 'CMP-DUI-P-20',
+    name: 'dialog-invite',
+    story: 'dashboard-ui-primitives-dialog--default',
+    viewport: true,
+    screen: async (page) => {
+      await staffPage(page)
+      await page.getByRole('button', { name: /invite teammate/i }).click()
+      return slot(page, 'dialog-content')
+    },
+    inStory: (page) => slot(page, 'dialog-content'),
+  },
+  {
+    id: 'CMP-DUI-P-20',
+    name: 'dialog-role-required',
+    story: 'dashboard-ui-primitives-dialog--field-errors',
+    viewport: true,
+    screen: async (page) => {
+      await staffPage(page)
+      await page.getByRole('button', { name: /invite teammate/i }).click()
+      await page.locator('#invite-email').fill('fidelity-unsent@example.com')
+      await page.getByRole('button', { name: /send invitation/i }).click()
+      await expect(page.getByRole('alert').filter({ hasText: /pick a role/i })).toBeVisible()
+      return slot(page, 'dialog-content')
+    },
+    inStory: (page) => slot(page, 'dialog-content'),
+  },
+  {
+    id: 'CMP-DUI-P-37',
+    name: 'sheet-edit-teammate',
+    story: 'dashboard-ui-primitives-sheet--default',
+    viewport: true,
+    screen: async (page) => {
+      await staffPage(page)
+      await openRowMenu(page, teammates.support.email)
+      await page.getByRole('menuitem', { name: /^edit$/i }).click()
+      await expect(page.locator('#staff-first-name')).toBeVisible()
+      return slot(page, 'sheet-content')
+    },
+    inStory: (page) => slot(page, 'sheet-content'),
+  },
+  {
+    id: 'CMP-DUI-C-10',
+    name: 'confirm-remove-teammate',
+    story: 'dashboard-ui-composed-confirm-dialog--remove-teammate',
+    viewport: true,
+    screen: async (page) => {
+      await staffPage(page)
+      await openRowMenu(page, teammates.support.email)
+      await page.getByRole('menuitem', { name: /remove from staff/i }).click()
+      return slot(page, 'dialog-content')
+    },
+    inStory: (page) => slot(page, 'dialog-content'),
+  },
+  {
+    id: 'CMP-DUI-C-10',
+    name: 'confirm-delete-role',
+    story: 'dashboard-ui-composed-confirm-dialog--delete-role',
+    viewport: true,
+    screen: async (page) => {
+      await rolesPage(page)
+      await openRoleMenu(page, roles.unused.name)
+      await page.getByRole('menuitem', { name: /delete/i }).click()
+      return slot(page, 'dialog-content')
+    },
+    inStory: (page) => slot(page, 'dialog-content'),
+  },
+  {
+    id: 'CMP-DUI-P-45',
+    name: 'toast-invitation-resent',
+    story: 'dashboard-ui-primitives-toast--success',
+    viewport: true,
+    screen: async (page) => {
+      await staffPage(page)
+      await openRowMenu(page, pendingEmail)
+      await page.getByRole('menuitem', { name: /^resend$/i }).click()
+      return slot(page, 'toast').filter({ hasText: /invitation resent/i })
+    },
+    inStory: (page) => slot(page, 'toast'),
+  },
+  {
+    id: 'CMP-DUI-P-46',
+    name: 'tooltip-more-permissions',
+    story: 'dashboard-ui-primitives-tooltip--list',
+    viewport: true,
+    screen: async (page) => {
+      await rolesPage(page)
+      await roleRow(page, roles.orderManager.name)
+        .getByRole('button', { name: /\+\d+ more/i })
+        .hover()
+      return slot(page, 'tooltip-content')
+    },
+    inStory: (page) => slot(page, 'tooltip-content'),
+  },
+  {
+    id: 'CMP-DUI-C-44',
+    name: 'route-error-not-found',
+    story: 'dashboard-ui-composed-route-error-boundary--not-found',
+    screen: async (page) => {
+      await adminPage(page, '/fidelity-no-such-page')
+      return slot(page, 'empty')
+    },
+    inStory: (page) => slot(page, 'empty'),
+  },
+  {
+    id: 'CMP-DUI-P-02',
+    name: 'alert-sign-in-providers-failed',
+    story: 'dashboard-ui-primitives-alert--destructive',
+    screen: async (page) => {
+      await page.route('**/api/v3/admin/auth/providers', (route) =>
+        route.fulfill({
+          status: 500,
+          json: { error: { code: 'internal_error', message: 'Internal error' } },
+        }),
+      )
+      await page.goto('/login')
+      return slot(page, 'alert')
+    },
+    inStory: (page) => slot(page, 'alert'),
+  },
+  {
+    id: 'CMP-DA-G-24',
+    name: 'auth-shell-forgot-password',
+    story: 'admin-dashboard-sign-in-auth-shell--with-a-form',
+    viewport: true,
+    screen: async (page) => {
+      await page.goto('/forgot-password')
+      await page.waitForLoadState('networkidle')
+      return authShell(page)
+    },
+    inStory: authShell,
+  },
+  {
+    id: 'CMP-DA-G-24',
+    name: 'auth-shell-invitation-not-found',
+    story: 'admin-dashboard-sign-in-auth-shell--with-a-message',
+    viewport: true,
+    screen: async (page) => {
+      await page.goto('/accept-invitation/inv_doesnotexist?token=fidelity-invented-token')
+      await expect(page.getByText(/invitation not found/i)).toBeVisible({ timeout: 15_000 })
+      return authShell(page)
+    },
+    inStory: authShell,
+  },
+  {
+    id: 'CMP-DA-G-24',
+    name: 'no-store-access',
+    story: 'admin-dashboard-sign-in-no-store-access--default',
+    viewport: true,
+    screen: async (page) => {
+      await teammatePage(page, removed.email)
+      await expect(page.getByText(/access to any store/i)).toBeVisible({ timeout: 15_000 })
+      return authShell(page)
+    },
+    inStory: authShell,
+  },
+  {
+    id: 'CMP-DA-G-24',
+    name: 'permission-grid-new-role',
+    story: 'admin-dashboard-roles-permission-picker--nothing-granted',
+    screen: async (page) => {
+      await openRoleSheet(page)
+      return permissionGrid(page.getByRole('dialog'))
+    },
+    inStory: permissionGrid,
+  },
+  {
+    id: 'CMP-DA-G-24',
+    name: 'role-sheet-new-role',
+    story: 'admin-dashboard-roles-role-sheet--new-role',
+    viewport: true,
+    screen: async (page) => {
+      await openRoleSheet(page)
+      return slot(page, 'sheet-content')
+    },
+    inStory: (page) => slot(page, 'sheet-content'),
+  },
+  {
+    id: 'CMP-DA-G-24',
+    name: 'role-sheet-admin-role',
+    story: 'admin-dashboard-roles-role-sheet--protected-role',
+    viewport: true,
+    screen: async (page) => {
+      await rolesPage(page)
+      await page.getByRole('cell', { name: /^admin/i }).click()
+      await expect(page.locator('#role-name')).toBeDisabled({ timeout: 15_000 })
+      return slot(page, 'sheet-content')
+    },
+    inStory: (page) => slot(page, 'sheet-content'),
+  },
+]
+
+const cases: Case[] = [...pilotCases, ...primitivesBatchOne, ...staffAccessPartOne]
 
 /** Every custom property the page's root element computes: the tokens, as the browser resolves them. */
 async function rootTokens(page: Page): Promise<Record<string, string>> {
@@ -733,6 +1045,12 @@ async function rootTokens(page: Page): Promise<Record<string, string>> {
     return tokens
   })
 }
+
+// The staff cases need the teammates, roles and invitations `staff.ts` adds;
+// adding them again reuses them.
+test.beforeAll(async ({ baseURL }) => {
+  await seed(baseURL ?? 'http://localhost:5174')
+})
 
 for (const theme of ['light', 'dark'] as const) {
   test(`tokens on the running screens and in Storybook ${theme}`, async ({ page, browser }) => {

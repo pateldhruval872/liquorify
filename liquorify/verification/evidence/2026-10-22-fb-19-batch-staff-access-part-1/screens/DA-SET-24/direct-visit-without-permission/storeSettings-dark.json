@@ -1,0 +1,16 @@
+{
+  "screen": "DA-SET-24",
+  "state": "direct-visit-without-permission",
+  "variant": "storeSettings",
+  "role": {
+    "name": "Store settings",
+    "permissions": [
+      "write_settings"
+    ]
+  },
+  "theme": "dark",
+  "revision": "a4a1708",
+  "path": "/<store>/settings/staff",
+  "intercepted": null,
+  "settled": true
+}

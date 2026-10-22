@@ -1,0 +1,11 @@
+{
+  "screen": "DA-AUTH-03",
+  "state": "default",
+  "variant": "public",
+  "role": null,
+  "theme": "light",
+  "revision": "a4a1708",
+  "path": "/reset-password",
+  "intercepted": null,
+  "settled": true
+}

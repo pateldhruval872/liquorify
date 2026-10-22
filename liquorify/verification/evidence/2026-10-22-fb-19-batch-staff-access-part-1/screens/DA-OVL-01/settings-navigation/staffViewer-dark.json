@@ -1,0 +1,16 @@
+{
+  "screen": "DA-OVL-01",
+  "state": "settings-navigation",
+  "variant": "staffViewer",
+  "role": {
+    "name": "Staff viewer",
+    "permissions": [
+      "read_staff"
+    ]
+  },
+  "theme": "dark",
+  "revision": "a4a1708",
+  "path": "/<store>/settings",
+  "intercepted": null,
+  "settled": true
+}

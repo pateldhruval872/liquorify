@@ -1,0 +1,11 @@
+{
+  "screen": "DA-AUTH-01",
+  "state": "fresh-installation",
+  "variant": "public",
+  "role": null,
+  "theme": "dark",
+  "revision": "a4a1708",
+  "path": "/login",
+  "intercepted": "The setup status request is answered with setup required",
+  "settled": true
+}
