@@ -21,7 +21,7 @@ The captures, comparisons, emails and backend results behind the [verification r
 | `screens/<screen ID>/<state>/` | `<variant>-light.webp` and `<variant>-dark.webp` for each permission variant, and `<variant>-<theme>.json`: the screen, the state, the variant's role and permission keys, the theme, the revision, the path, the request held or answered to reach the state (`intercepted`), and whether the page settled |
 | `comparison/<case>/` | `<theme>-side-by-side.webp`: the running screen on the left and the story on the right; `<theme>-styles.json`: the computed styles of every distinct element on both sides, the elements compared, those found on one side only, and every style that differs |
 | `emails/` | `<email ID>.webp` as the browser-test data has it, `<email ID>-named.webp` with the staff member given a name, and `emails.json`: for each, the preview, the template, the subject and the parts |
-| `backend/` | `api-specs.json` and `core-specs.json`: every example of Spree's staff and role specs with its file, line, description and result; `refusals.json`: what the running server answered each refused request (§3.2 of the record) |
+| `backend/` | `api-specs.json` and `core-specs.json`: every example of Spree's staff and role specs with its file, line, description and result; `refusals.json`: what the running server answered each refused request, and the refusal each expected (§3.2 of the record); `refusals-fault-check.json`: the run in which one answer was turned into a 500 |
 
 ## Comparison with running screens, light and dark
 
@@ -126,4 +126,5 @@ Subjects and templates: [emails.json](emails/emails.json).
 |---|---|
 | [api-specs.json](backend/api-specs.json) | Spree's API engine specs for staff, invitations, roles, permissions, the signed-in staff member and password reset: 92 examples in 8 files, no failures |
 | [core-specs.json](backend/core-specs.json) | Spree's core engine specs for abilities, roles, role assignments, invitations, staff accounts and account lockout: 91 examples in 7 files, no failures |
-| [refusals.json](backend/refusals.json) | 33 requests sent to the running server as teammates whose roles do not allow them, and the status of each: 23 answered 403, 10 answered 404, none allowed. An observation, not a spec |
+| [refusals.json](backend/refusals.json) | 33 requests sent to the running server as teammates whose roles do not allow them. For each: the status, the error code and the missing permission the server answered, the refusal expected, and whether they match. All 33 match: 23 answered 403 `access_denied`, 10 answered 404 `record_not_found`. Rerun on 2026-10-22 after the check's correction. An observation, not a spec |
+| [refusals-fault-check.json](backend/refusals-fault-check.json) | The same check run through a proxy that answered one request with a 500. The check before its correction passed with the 500 recorded; the corrected check failed, naming the request, its 500 and the refusal expected |

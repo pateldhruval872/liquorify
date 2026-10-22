@@ -1,0 +1,46 @@
+{
+  "revision": "a4a1708",
+  "fault": "A proxy in front of the running browser-test server answered the first DELETE of a role with 500 and the code internal_server_error, and passed every other request through unchanged.",
+  "checks": [
+    {
+      "checker": "refusals.spec.ts before the correction (status of 400 or more counts as refused)",
+      "result": "passed",
+      "answersOf500": [
+        {
+          "teammate": "staffViewer",
+          "permissionKeys": [
+            "read_staff"
+          ],
+          "request": "DELETE /api/v3/admin/roles/<id>",
+          "status": 500,
+          "code": "internal_server_error",
+          "requiredPermission": null
+        }
+      ]
+    },
+    {
+      "checker": "refusals.spec.ts after the correction (each request's exact refusal)",
+      "result": "failed",
+      "unexpected": [
+        {
+          "teammate": "staffViewer",
+          "permissionKeys": [
+            "read_staff"
+          ],
+          "request": "DELETE /api/v3/admin/roles/<id>",
+          "status": 500,
+          "code": "internal_server_error",
+          "requiredPermission": null,
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_staff"
+          },
+          "asExpected": false
+        }
+      ],
+      "asExpected": 32,
+      "requests": 33
+    }
+  ]
+}
