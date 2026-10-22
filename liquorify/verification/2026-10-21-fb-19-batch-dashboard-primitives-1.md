@@ -4,7 +4,7 @@ record: verification
 work_item: FB-19
 date: 2026-10-21
 verifier: Claude (automated session); not independent review
-result: PASS for the build, check, arrangement and visual criteria, including after the images were rewritten for the pilot's surface correction; NOT_RUN for the comparison with running screens and for the owner's review of the reference images
+result: PASS for the build, check, arrangement and visual criteria, including after the images were rewritten for the pilot's surface correction; NOT_RUN for the comparison with running screens and for the owner's review of the reference images. Revalidated on 2026-10-22: the comparison with running screens found three stories that did not follow a screen, so criterion 3 failed for them; they were corrected, and the comparison then found no unexplained difference. The owner's review stays NOT_RUN
 ---
 
 # FB-19 batch of dashboard primitives, part 1
@@ -22,6 +22,20 @@ result: PASS for the build, check, arrangement and visual criteria, including af
 | 5 | The reference images made in this session pass CI's comparison, and no existing image changed | PASS: all 310 comparisons passed on GitHub's runners under the tolerance then configured, Playwright's default threshold of 0.2, before and after the batch's images were rewritten for the pilot's surface correction (§3). Under the explicit tolerance that replaced it, two local runs in the pinned image passed all 310 ([tolerance record](2026-10-21-fb-19-screenshot-tolerance.md)). Image hashes were not compared |
 | 6 | Each story matches the component in its running screen | NOT_RUN for this batch. The pilot's comparison with running screens found that every story sat on the wrong surface colour; that correction reaches this batch's stories too (§3). The pilot was accepted on 2026-10-21 ([acceptance record](2026-10-21-fb-19-pilot-merge-and-acceptance.md)); this batch's own comparison has not run yet, and the pull request stays a draft until it and the owner's review are complete |
 | 7 | The owner reviews the reference images in the pull request | NOT_RUN: pull request [#9](https://github.com/pateldhruval872/liquorify/pull/9) is open |
+
+### Revalidation on 2026-10-22
+
+The results above are kept as they were recorded. The batch's comparison with running screens then ran, and changed what can be relied on:
+
+| # | Criterion | Result on 2026-10-22 |
+|---|---|---|
+| 3 | Each story arranges the component's parts the way a Spree screen does | FAIL for three stories at `8d53a5c`: the invalid field stories, the progress caption and the loading row followed no screen. Corrected at `7b1f2b8` ([fidelity record](2026-10-22-fb-19-batch-dashboard-primitives-1-fidelity.md) §5), so PASS there |
+| 4 | Every new image was looked at in both modes | PASS at `7b1f2b8`: the six rewritten or added images were looked at in both modes |
+| 5 | The reference images pass CI's comparison, and no other image changed | Recorded in the pull request's CI run at the revision that carries this note |
+| 6 | Each story matches the component in its running screen | PASS, as a diagnostic: 33 cases for 22 of the 24 primitives found no unexplained difference after the three corrections ([fidelity record](2026-10-22-fb-19-batch-dashboard-primitives-1-fidelity.md)). 83 stories, including every story of the alert and the slot, were checked against their source only. The owner's acceptance of fidelity is NOT_RUN |
+| 7 | The owner reviews the reference images | NOT_RUN: #9 stays a draft |
+
+The progress story "With label" became "With value", so the states FB-20 uses for `progress` are Default, Empty, Complete, With value and Indeterminate. The pull request now targets `main`, because #8 merged on 2026-10-22.
 
 ## 1. What was built
 

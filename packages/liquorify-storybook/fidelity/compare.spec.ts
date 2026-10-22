@@ -360,6 +360,18 @@ const primitivesBatchOne: Case[] = [
     inStory: (page) => slot(page, 'accordion'),
   },
   {
+    id: 'CMP-DUI-P-04',
+    name: 'avatar-initials',
+    story: story('avatar--initials'),
+    screen: async (page) => {
+      await adminPage(page, '/orders')
+      await page.getByRole('link', { name: 'R1001' }).first().click()
+      await page.waitForLoadState('networkidle')
+      return slot(page, 'avatar').first()
+    },
+    inStory: (page) => slot(page, 'avatar'),
+  },
+  {
     id: 'CMP-DUI-P-05',
     name: 'badge-default',
     story: story('badge--variants'),
@@ -577,6 +589,17 @@ const primitivesBatchOne: Case[] = [
       return slot(page, 'item').first()
     },
     inStory: (page) => slot(page, 'item').first(),
+  },
+  {
+    id: 'CMP-DUI-P-27',
+    name: 'label-default',
+    story: story('label--default'),
+    screen: async (page) => {
+      await page.goto('/forgot-password')
+      await page.waitForLoadState('networkidle')
+      return slot(page, 'label').first()
+    },
+    inStory: (page) => slot(page, 'label'),
   },
   {
     id: 'CMP-DUI-P-31',

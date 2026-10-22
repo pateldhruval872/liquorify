@@ -1,0 +1,64 @@
+{
+  "id": "CMP-DUI-P-05",
+  "story": "dashboard-ui-primitives-badge--variants",
+  "theme": "light",
+  "revision": "7b1f2b8",
+  "screenWidth": 23,
+  "storyWidth": 78,
+  "compared": 1,
+  "onlyOnScreen": [],
+  "onlyInStory": [],
+  "differences": [],
+  "styles": {
+    "screen": {
+      "span|badge|group/badge inline-flex h-5 w-fit shrink-0 items-center justify-center gap-1 overflow-hidden rounded-sm border px-2 py-0.5 text-xs font-medium whitespace-nowrap transition-[color,background-color,border-color,box-shadow] duration-100 ease-out focus-visible:border-ring focus-visible:shadow-[0_0_0_3px_color-mix(in_srgb,var(--ring)_15%,transparent)] has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&>svg]:pointer-events-none [&>svg]:size-3! border-transparent bg-secondary text-secondary-foreground [a]:hover:bg-secondary/80": {
+        "color": "oklch(0.147 0.004 49.25)",
+        "background-color": "oklch(0.97 0.001 106.424)",
+        "font-family": "\"Geist Variable\", ui-sans-serif, system-ui, sans-serif",
+        "font-size": "12px",
+        "font-weight": "500",
+        "line-height": "16px",
+        "letter-spacing": "normal",
+        "border-top-width": "1px",
+        "border-top-style": "solid",
+        "border-top-color": "rgba(0, 0, 0, 0)",
+        "border-bottom-width": "1px",
+        "border-bottom-color": "rgba(0, 0, 0, 0)",
+        "border-top-left-radius": "6.4px",
+        "padding-top": "2px",
+        "padding-right": "8px",
+        "padding-bottom": "2px",
+        "padding-left": "8px",
+        "height": "20px",
+        "box-shadow": "none",
+        "opacity": "1",
+        "gap": "4px"
+      }
+    },
+    "story": {
+      "span|badge|group/badge inline-flex h-5 w-fit shrink-0 items-center justify-center gap-1 overflow-hidden rounded-sm border px-2 py-0.5 text-xs font-medium whitespace-nowrap transition-[color,background-color,border-color,box-shadow] duration-100 ease-out focus-visible:border-ring focus-visible:shadow-[0_0_0_3px_color-mix(in_srgb,var(--ring)_15%,transparent)] has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&>svg]:pointer-events-none [&>svg]:size-3! border-transparent bg-secondary text-secondary-foreground [a]:hover:bg-secondary/80": {
+        "color": "oklch(0.147 0.004 49.25)",
+        "background-color": "oklch(0.97 0.001 106.424)",
+        "font-family": "\"Geist Variable\", ui-sans-serif, system-ui, sans-serif",
+        "font-size": "12px",
+        "font-weight": "500",
+        "line-height": "16px",
+        "letter-spacing": "normal",
+        "border-top-width": "1px",
+        "border-top-style": "solid",
+        "border-top-color": "rgba(0, 0, 0, 0)",
+        "border-bottom-width": "1px",
+        "border-bottom-color": "rgba(0, 0, 0, 0)",
+        "border-top-left-radius": "6.4px",
+        "padding-top": "2px",
+        "padding-right": "8px",
+        "padding-bottom": "2px",
+        "padding-left": "8px",
+        "height": "20px",
+        "box-shadow": "none",
+        "opacity": "1",
+        "gap": "4px"
+      }
+    }
+  }
+}

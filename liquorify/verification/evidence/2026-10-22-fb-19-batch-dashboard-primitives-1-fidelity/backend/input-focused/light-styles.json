@@ -1,0 +1,64 @@
+{
+  "id": "CMP-DUI-P-25",
+  "story": "dashboard-ui-primitives-input--focused",
+  "theme": "light",
+  "revision": "7b1f2b8",
+  "screenWidth": 864,
+  "storyWidth": 320,
+  "compared": 1,
+  "onlyOnScreen": [],
+  "onlyInStory": [],
+  "differences": [],
+  "styles": {
+    "screen": {
+      "input|input|block w-full min-w-0 min-h-8 rounded-md border border-border shadow-control bg-card py-1.5 px-2.5 text-base font-normal leading-normal text-foreground transition-[color,background-color,border-color,box-shadow] duration-100 ease-out outline-none placeholder:text-muted-foreground focus:border-blue-500 focus:shadow-[0_0_0_3px_color-mix(in_srgb,var(--ring)_15%,transparent)] disabled:cursor-not-allowed disabled:bg-muted disabled:text-muted-foreground aria-invalid:border-destructive file:inline-flex file:h-6 file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground": {
+        "color": "oklch(0.147 0.004 49.25)",
+        "background-color": "oklch(1 0 0)",
+        "font-family": "\"Geist Variable\", ui-sans-serif, system-ui, sans-serif",
+        "font-size": "14px",
+        "font-weight": "400",
+        "line-height": "21px",
+        "letter-spacing": "normal",
+        "border-top-width": "1px",
+        "border-top-style": "solid",
+        "border-top-color": "oklch(0.5967 0.2212 258)",
+        "border-bottom-width": "1px",
+        "border-bottom-color": "oklch(0.5967 0.2212 258)",
+        "border-top-left-radius": "8px",
+        "padding-top": "6px",
+        "padding-right": "10px",
+        "padding-bottom": "6px",
+        "padding-left": "10px",
+        "height": "35px",
+        "box-shadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, color(srgb -0.00289093 0.466849 1.00012 / 0.15) 0px 0px 0px 3px",
+        "opacity": "1",
+        "gap": "normal"
+      }
+    },
+    "story": {
+      "input|input|block w-full min-w-0 min-h-8 rounded-md border border-border shadow-control bg-card py-1.5 px-2.5 text-base font-normal leading-normal text-foreground transition-[color,background-color,border-color,box-shadow] duration-100 ease-out outline-none placeholder:text-muted-foreground focus:border-blue-500 focus:shadow-[0_0_0_3px_color-mix(in_srgb,var(--ring)_15%,transparent)] disabled:cursor-not-allowed disabled:bg-muted disabled:text-muted-foreground aria-invalid:border-destructive file:inline-flex file:h-6 file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground": {
+        "color": "oklch(0.147 0.004 49.25)",
+        "background-color": "oklch(1 0 0)",
+        "font-family": "\"Geist Variable\", ui-sans-serif, system-ui, sans-serif",
+        "font-size": "14px",
+        "font-weight": "400",
+        "line-height": "21px",
+        "letter-spacing": "normal",
+        "border-top-width": "1px",
+        "border-top-style": "solid",
+        "border-top-color": "oklch(0.5967 0.2212 258)",
+        "border-bottom-width": "1px",
+        "border-bottom-color": "oklch(0.5967 0.2212 258)",
+        "border-top-left-radius": "8px",
+        "padding-top": "6px",
+        "padding-right": "10px",
+        "padding-bottom": "6px",
+        "padding-left": "10px",
+        "height": "35px",
+        "box-shadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, color(srgb -0.00289093 0.466849 1.00012 / 0.15) 0px 0px 0px 3px",
+        "opacity": "1",
+        "gap": "normal"
+      }
+    }
+  }
+}
