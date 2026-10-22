@@ -1,7 +1,7 @@
 ---
 document_id: LIQ-004
 title: Foundation Backlog
-version: 0.8-draft
+version: 0.9-draft
 status: DRAFT
 owner: unassigned
 approved_by: null
@@ -274,3 +274,56 @@ Rules for all three:
   7. LIQ-008 records, against each screen, overlay, email and flow ID, that it is in Figma.
 - **Risk.** Standard, or Protected where it adds seats.
 - **Depends on.** FB-20's libraries; a running instance of the dashboard, seller panel and storefront at the pinned revisions with sample data (FB-04, or the dashboard's browser-test setup); the owner's instruction.
+
+### Baseline progress by product area
+
+Kept in this backlog rather than a separate tracker, at the owner's instruction of 2026-10-22 ([LIQ-001 §1](LIQ-001-project-profile.md#recorded-instructions-that-shape-engineering-work)). Each batch updates its own rows in the pull request that changes their state. Three words stay apart: **built** means the work exists on a branch; **verified** means a verification record holds its evidence and its checks passed; **accepted** means the owner merged it and recorded the acceptance. Counts are at 2026-10-22, from the coverage reports and the batches' records.
+
+| Work | Built | Verified | Accepted |
+|---|---|---|---|
+| Inventories: LIQ-006 (105 capabilities), LIQ-008, LIQ-009 (FB-18) | Yes | Yes ([record](verification/2026-10-21-fb-18-baseline-completion.md)) | Reviewed by the owner on 2026-10-21; still DRAFT. The capability IDs were added in #11, which awaits review |
+| Storybook foundation in both repositories: both Storybooks, the visual checks, every token on a token page, 11 components (the pilot) | Yes | Yes ([record](verification/2026-10-21-fb-19-pilot.md)) | Yes, within its scope ([record](verification/2026-10-21-fb-19-pilot-merge-and-acceptance.md)) |
+| 24 dashboard primitives (#9) | Yes | Yes ([record](verification/2026-10-21-fb-19-batch-dashboard-primitives-1.md)) | No: draft, awaiting review |
+| Staff access part 1 (#11): CAP-04-01 to CAP-04-04 | Yes | Yes ([record](verification/2026-10-22-fb-19-batch-staff-access-part-1.md)), with six gaps and tenant isolation NOT_RUN | No: draft, awaiting review |
+| Dashboard shell part 2: CAP-04-05 | No: follows the review of part 1 | No | No |
+| Storefront shopper accounts: CAP-08-01, with parts of CAP-03-09, CAP-05-13, CAP-06-09 and CAP-07-01 | Started ([work item](work-items/fb-19-batch-storefront-shopper-accounts.md)) | No | No |
+
+| Area (LIQ-006) | Capabilities | State |
+|---|---|---|
+| §4 Authentication, staff and access | 9 | In progress: four in part 1, one in part 2; CAP-04-06 to CAP-04-09 not started |
+| §8 Customers and shopper accounts | 6 | In progress on the storefront; the dashboard's customer screens not started |
+| §3 Setup, stores and settings | 12 | Not started |
+| §5 Catalog and pricing | 17 | Not started, apart from the shopper's gift card list in the accounts batch |
+| §6 Cart, checkout and orders | 9 | Not started, apart from the shopper's order history in the accounts batch |
+| §7 Payments, delivery, inventory and tax | 12 | Not started, apart from the shopper's saved cards in the accounts batch |
+| §9 Wholesale | 6 | Not started |
+| §10 Marketplace | 9 | Not started |
+| §11 Analytics, emails, platform and developer surfaces | 13 | Not started; three staff emails rendered in part 1 |
+| §12 Enterprise and documentation-only | 12 | Listed only and left out of the reproduction (LIQ-006 §12) |
+
+**What remains after the current batches.** Components with stories: 47 of the dashboard side's 379 (7 merged, 40 in drafts) and 4 of the storefront's 101, with 25 more in the accounts batch; every token is already shown. Screens captured on a running system in each state: 8 of the dashboard's and seller panel's 117 and none of their 7 overlays; none of the storefront's 29, with 10 in progress. Emails rendered: 3 of 27. Flows traced to browser tests: 3 of 24. Capabilities mapped to evidence: 4 of 93, with 5 more planned.
+
+**Blocked**, each by one thing: Figma by OA-5; the storefront's browser tests in CI by OA-1 (FB-06); any claim about tenant isolation by FB-03. The Stripe, Adyen and PayPal payment form states need test keys; without them they are gaps.
+
+**Proposed order of the remaining batches.** A proposal: the owner may reorder it. The dashboard and storefront tracks run side by side.
+
+| # | Batch | Depends on |
+|---|---|---|
+| 1 | Dashboard shell part 2 (CAP-04-05; DA-OVL-01 to DA-OVL-04) | The owner's review of part 1 |
+| 2 | Developer and integration settings (CAP-04-06 to CAP-04-09) | Part 2 |
+| 3 | Setup, stores and settings (§3; DA-SETUP-01, FL-01) | Part 2 |
+| 4 | Storefront shop (CAP-05-14, CAP-05-17; SF-SHOP, SF-OVL-01, SF-OVL-03, SF-OVL-04, SF-SYS) | Storefront accounts; sample catalog data |
+| 5 | Catalog and pricing (§5), in two or three parts | Setup |
+| 6 | Inventory (CAP-07-09, CAP-07-10) | Catalog |
+| 7 | Payments, delivery and tax settings (the rest of §7) | Setup; test keys for the providers' states |
+| 8 | Orders, returns and fulfilment (§6 in the dashboard), with the order emails | Catalog, inventory, payments and delivery |
+| 9 | Storefront cart and checkout (CAP-06-01, CAP-06-02, CAP-07-03), with the confirmation emails | Storefront shop; batch 7; OA-1 for its browser tests in CI |
+| 10 | Customers in the dashboard (CAP-08-02 to CAP-08-06) | Orders |
+| 11 | Home figures, reports and the email template editor (CAP-11-01 to CAP-11-05), with the remaining emails | Orders |
+| 12 | Wholesale (§9) | Customers, catalog pricing, checkout |
+| 13 | Marketplace (§10): the operator's seller screens, then the seller panel | Orders, payments |
+| 14 | Platform check (proposed): CAP-11-06 to CAP-11-13 and the other capabilities without screens, verified by Spree's own API, developer kit, webhook and provider tests at the recorded revision | Batch 2 |
+
+**A gap in the completion criteria.** FB-19 to FB-21 reproduce what can be seen, and each batch records only what the server refuses in its own area, so nothing checks the capabilities that have no screen: the APIs, the developer kits, webhooks, plugins, providers, the command line tool and tracing. Proposed, for the owner's decision: add to [LIQ-006 §14](LIQ-006-product-capability-baseline.md#14-when-the-baseline-is-complete) that every capability in §3 to §11 appears in a batch map with its evidence or a named gap, and take those without screens in batch 14. Until the owner decides, the criteria stay as they are.
+
+**Figma, apart from the repositories.** FB-20's token files are prepared and checked against the stylesheets, and were accepted with the pilot. Everything inside Figma, FB-20's libraries and then FB-21's screens and flows, waits for OA-5. Once the seat exists, Figma follows the batches in the order their stories and captures are verified.
