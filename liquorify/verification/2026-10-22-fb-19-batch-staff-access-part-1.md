@@ -4,7 +4,7 @@ record: verification
 work_item: FB-19
 date: 2026-10-22
 verifier: Claude (automated session); not independent review
-result: PASS for the map, the stories and their images, the running-screen captures, the comparison with running screens after six corrections to the stories, the emails rendered from Spree's previews, and Spree's own staff and role specs. Two listed states and five flow steps are gaps. Coverage and functional verification are recorded apart (§2): no capability is functionally verified in full; FL-02, FL-03 and FL-24 are PARTIAL. The interface shows two behaviours the work item did not expect, recorded as Spree's behaviour. Tenant isolation and the owner's acceptance are NOT_RUN. CI passed at `0b0820d`, where the visual check passed twice. On 2026-10-22 the capture was corrected to leave room around each story, and part 1's 54 images captured by their root were regenerated, each identical inside to the one it replaced
+result: PASS for the map, the stories and their images, the running-screen captures, the comparison with running screens after six corrections to the stories, the emails rendered from Spree's previews, and Spree's own staff and role specs. Two listed states and five flow steps are gaps. Coverage and functional verification are recorded apart (§2): no capability is functionally verified in full; FL-02, FL-03 and FL-24 are PARTIAL. The interface shows two behaviours the work item did not expect, recorded as Spree's behaviour. Tenant isolation and the owner's acceptance are NOT_RUN. CI passed at `0b0820d`, where the visual check passed twice. On 2026-10-22 the capture was corrected to leave room around each story, and part 1's 54 images captured by their root were regenerated, each identical inside to the one it replaced. Later the same day the refusal check was corrected to expect each request's exact refusal: rerun twice, all 33 answers were the expected refusal, and a 500 now fails it
 ---
 
 # FB-19 staff access batch, part 1
@@ -34,7 +34,7 @@ result: PASS for the map, the stories and their images, the running-screen captu
 | 9 | Spree's code, the storefront and every workflow outside Storybook are unchanged; nothing carries Liquorify branding or features | PASS: the pull request changes only `packages/liquorify-storybook/` and `liquorify/` |
 | 10 | The records are updated, with every link checked | PASS: this record, the image review list, the evidence index, LIQ-009's Storybook column, LIQ-004's FB-19 entry, the work item and the README index, with the link check run |
 | 11 | The owner accepts the reference images, the screen evidence and fidelity | NOT_RUN: #11 is a draft |
-| 12 | Backend authorization is recorded apart from criterion 4, from Spree's own specs at the part's revision | PASS for what Spree's specs exercise: 183 examples in 15 files, no failures (§3.2). What no Spree spec exercises is NOT_RUN as a spec result; the refusal check observed each such request refused, as an observation only |
+| 12 | Backend authorization is recorded apart from criterion 4, from Spree's own specs at the part's revision | PASS for what Spree's specs exercise: 183 examples in 15 files, no failures (§3.2). What no Spree spec exercises is NOT_RUN as a spec result; the refusal check observed each such request answered with its expected refusal, as an observation only (corrected on 2026-10-22, below) |
 | 13 | Tenant isolation is recorded as NOT_RUN, with links to the open findings | NOT_RUN (§3.3). No new isolation defect was found; none was looked for beyond Spree's own specs |
 
 ### Capture correction on 2026-10-22
@@ -42,6 +42,22 @@ result: PASS for the map, the stories and their images, the running-screen captu
 The owner's review of #9 found that the visual check cut off focus rings and shadows that paint past a story's root element. #9 corrected the capture: a story with the padded layout is now captured with 8 pixels of room on each side, taken from the layout's own padding, so the story does not move ([LIQ-010 §11.3](../LIQ-010-design-system-reproduction-architecture.md#113-what-the-test-does)). Part 1 carries that correction and #9's regenerated images.
 
 **This part's images.** The 54 images of part 1's 27 stories captured by their root were regenerated in the pinned image, in both themes. The other 45 stories are captured at the full 1280 by 800 window, which the correction does not change. Each new image is 16 pixels wider and taller than the one it replaced and, inside the room, identical to it pixel for pixel, in all 54. The room holds only the page colour in all 54: none of part 1's stories paints past its root, so none of its images had been cut off. Spree's components, the stories and the screenshot tolerance are unchanged.
+
+### Refusal check correction on 2026-10-22
+
+The owner's review of #11 found that the refusal check (`fidelity/refusals.spec.ts`, §3.2) counted any answer of 400 or more as a refusal, so a 500 server error would have passed as one. The check now names, for each request and each teammate, the exact refusal it expects:
+
+- 403 with the code `access_denied` and the missing permission the answer names, `write_staff` or `read_staff`;
+- or 404 with the code `record_not_found`, where Spree answers that way for a teammate who cannot read staff.
+
+Any other answer fails the run, a server error or a success included, and is still recorded as it happened. Only the check changed. Spree's code, its tests and #10 are unchanged.
+
+**The 33 recorded answers stay valid.** Each of them was already its expected refusal. The corrected check ran twice against the browser-test server, at Spree's code `a4a1708`. Both runs passed, with all 33 answers as expected, and gave the same answers as the first recording: 23 with 403 and 10 with 404 ([refusals.json](evidence/2026-10-22-fb-19-batch-staff-access-part-1/backend/refusals.json)).
+
+**A 500 now fails the check.** This was shown in two ways ([refusals-fault-check.json](evidence/2026-10-22-fb-19-batch-staff-access-part-1/backend/refusals-fault-check.json)):
+
+- **Against the running server.** A proxy in front of the server answered the staff viewer's request to delete a role with a 500, and passed every other request through unchanged. The old check passed that run with the 500 recorded. The corrected check failed it, naming that request, its 500 and the expected 403 `access_denied` for `write_staff`.
+- **Inside the check.** A second test in the same file sends nine answers from a stub server through the same code. It accepts only the expected 403. It rejects a 500 with an error code, a 500 page, a 200, a 201, a 401, a 403 with another code, a 403 naming another permission, and a 404. This test needs nothing running, and it passed in both runs.
 
 ## 1. What was built
 
@@ -180,7 +196,7 @@ None of the three templates holds a staff key, as the work item expected.
 
 **What no Spree spec exercises, NOT_RUN as a spec result.** No Spree spec sends, as a staff JWT whose role does not allow it: a list request to `/admin_users`, `/invitations` or `/roles`; `PATCH` or `DELETE` on a role; `DELETE` on a teammate; resending or revoking an invitation; or asking for an acceptance link with `read_staff` only.
 
-**An observation of the running server, not a spec.** The refusal check sent each of these, and every other staff and role request the interface offers, to the running browser-test server at `a4a1708`, as the staff viewer (`read_staff`), support and store settings teammates. All 33 requests were refused: 23 with 403 `access_denied` naming `write_staff` or `read_staff`, and 10 with 404 for a record the caller may not read ([refusals.json](evidence/2026-10-22-fb-19-batch-staff-access-part-1/backend/refusals.json)). This shows the server refused these requests at that revision. It is not one of Spree's specs and is not run in CI.
+**An observation of the running server, not a spec.** The refusal check sent each of these, and every other staff and role request the interface offers, to the running browser-test server at `a4a1708`, as the staff viewer (`read_staff`), support and store settings teammates. All 33 requests were refused: 23 with 403 `access_denied` naming `write_staff` or `read_staff`, and 10 with 404 `record_not_found` for a record the caller may not read ([refusals.json](evidence/2026-10-22-fb-19-batch-staff-access-part-1/backend/refusals.json)). Since its correction on 2026-10-22 the check expects each of these exact answers, and fails on any other, a server error included ([correction](#refusal-check-correction-on-2026-10-22)). This shows the server refused these requests at that revision. It is not one of Spree's specs and is not run in CI.
 
 ### 3.3 Whether each store's data stays in that store
 
@@ -292,7 +308,7 @@ Each names what is missing, the check made instead and what would close it.
 
 The commit that adds these results changes only this record and the evidence index.
 
-**Local checks, in this session, before the commit.** Lint (Biome), the type check and the fixture tests passed; the token check and the coverage report ran. Every visual comparison passed in the pinned image, 454 of 454 for 227 stories in two modes, the older stories included under the stricter check of §1. The comparison and the refusal check passed against the browser-test server.
+**Local checks, in this session, before the commit.** Lint (Biome), the type check and the fixture tests passed; the token check and the coverage report ran. Every visual comparison passed in the pinned image, 454 of 454 for 227 stories in two modes, the older stories included under the stricter check of §1. The comparison and the refusal check passed against the browser-test server. After the refusal check's correction on 2026-10-22, it passed twice more, with every answer its expected refusal, and Biome passed on it.
 
 ## 9. Limitations
 
