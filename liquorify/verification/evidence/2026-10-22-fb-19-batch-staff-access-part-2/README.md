@@ -6,7 +6,7 @@ The captures, comparisons and backend results behind the [verification record](.
 
 | What | Revision |
 |---|---|
-| Stories and scripts | Draft pull request [#14](https://github.com/pateldhruval872/liquorify/pull/14), at its first commit |
+| Stories and scripts | Draft pull request [#14](https://github.com/pateldhruval872/liquorify/pull/14) at `b56b647` |
 | Running screens and Spree's specs | Spree's code at `a4a1708`, which the pull request does not change: the built admin dashboard against the dashboard browser tests' own Rails server and fixtures |
 | Browser | The pinned Playwright 1.64.1 image. Captures at 1280 by 960 pixels, or 390 by 844 on a phone; comparisons at 1280 by 800, or 390 by 844 for the phone's cases |
 
