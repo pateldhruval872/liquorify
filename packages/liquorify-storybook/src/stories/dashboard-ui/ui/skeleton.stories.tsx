@@ -1,3 +1,4 @@
+import { TableBody, TableCell } from '@spree/dashboard-ui/ui/data-table'
 import { Skeleton } from '@spree/dashboard-ui/ui/skeleton'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
@@ -12,16 +13,19 @@ type Story = StoryObj<typeof meta>
 
 export const Line: Story = { args: { className: 'h-4 w-48' } }
 
-// A table row while it loads, as listing pages show it.
+// A listing table's first page while it loads: one bar per row across every column.
 export const Row: Story = {
   render: () => (
-    <div className="flex w-[28rem] items-center gap-3">
-      <Skeleton className="size-10 rounded-md" />
-      <div className="flex flex-1 flex-col gap-2">
-        <Skeleton className="h-4 w-3/5" />
-        <Skeleton className="h-3 w-2/5" />
-      </div>
-      <Skeleton className="h-5 w-14" />
-    </div>
+    <table className="w-[28rem]">
+      <TableBody className="bg-card">
+        {['first', 'second', 'third'].map((row) => (
+          <tr key={row} className="last:*:border-b-0">
+            <TableCell>
+              <Skeleton className="h-5 w-full" />
+            </TableCell>
+          </tr>
+        ))}
+      </TableBody>
+    </table>
   ),
 }

@@ -1,4 +1,4 @@
-import { Progress, ProgressLabel, ProgressValue } from '@spree/dashboard-ui/ui/progress'
+import { Progress, ProgressValue } from '@spree/dashboard-ui/ui/progress'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
@@ -18,14 +18,13 @@ export const Empty: Story = { args: { value: 0 } }
 
 export const Complete: Story = { args: { value: 100 } }
 
-// The getting started page's caption: a label and the value beside it.
-export const WithLabel: Story = {
-  name: 'With label',
-  args: { value: 60, 'aria-label': undefined },
+// The getting started page's caption: the value after the bar, on one row.
+export const WithValue: Story = {
+  name: 'With value',
+  args: { value: 2, max: 6, 'aria-label': undefined, className: 'flex-nowrap gap-3' },
   render: (args) => (
     <Progress {...args}>
-      <ProgressLabel>3 of 5 steps done</ProgressLabel>
-      <ProgressValue />
+      <ProgressValue className="order-last shrink-0">{() => '2 of 6 completed'}</ProgressValue>
     </Progress>
   ),
 }

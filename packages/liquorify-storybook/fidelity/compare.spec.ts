@@ -166,7 +166,7 @@ const paginationRow = (page: Page) =>
 const balances = (page: Page) =>
   page.locator('[class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3"]').first()
 
-const cases: Case[] = [
+const pilotCases: Case[] = [
   {
     id: 'CMP-SP-G-01',
     name: 'balance-summary-one-currency',
@@ -318,6 +318,386 @@ const cases: Case[] = [
     inStory: (page) => page.locator('[data-slot="combobox-content"]'),
   },
 ]
+
+const story = (id: string) => `dashboard-ui-primitives-${id}`
+const slot = (page: Page, name: string) => page.locator(`[data-slot="${name}"]`)
+const storeSettingsCard = (page: Page, title: string) =>
+  card(page, title).filter({ has: page.locator('[data-slot="card-title"]', { hasText: title }) })
+
+async function productsList(page: Page) {
+  await adminPage(page, '/products')
+  await expect(slot(page, 'thumbnail').first()).toBeVisible({ timeout: 20_000 })
+}
+
+async function productDetail(page: Page) {
+  await adminPage(page, '/products')
+  await page.getByRole('link', { name: 'E2E Inventory Product' }).click()
+  await page.waitForLoadState('networkidle')
+}
+
+/** Holds every Admin API request for a path open, so the screen stays in its loading state. */
+async function holdRequests(page: Page, pattern: string) {
+  await page.route(pattern, () => new Promise(() => {}))
+}
+
+/** Moves keyboard focus onto an element the way a keyboard user does, so it shows its focus ring. */
+async function keyboardFocus(page: Page, target: Locator) {
+  await page.keyboard.press('Tab')
+  await target.focus()
+  return target
+}
+
+/** The first dashboard primitives batch (#9), compared with the screens that use each component. */
+const primitivesBatchOne: Case[] = [
+  {
+    id: 'CMP-DUI-P-01',
+    name: 'accordion-one-open',
+    story: story('accordion--one-open'),
+    screen: async (page) => {
+      await adminPage(page, '/getting-started')
+      return slot(page, 'accordion').first()
+    },
+    inStory: (page) => slot(page, 'accordion'),
+  },
+  {
+    id: 'CMP-DUI-P-05',
+    name: 'badge-default',
+    story: story('badge--variants'),
+    screen: async (page) => {
+      await adminPage(page, '/settings/roles')
+      return page.locator('[data-slot="badge"][data-variant="default"]').first()
+    },
+    inStory: (page) => page.locator('[data-slot="badge"][data-variant="default"]').first(),
+  },
+  {
+    id: 'CMP-DUI-P-05',
+    name: 'badge-secondary',
+    story: story('badge--variants'),
+    screen: async (page) => {
+      await adminPage(page, '/settings/roles')
+      return page.locator('[data-slot="badge"][data-variant="secondary"]').first()
+    },
+    inStory: (page) => page.locator('[data-slot="badge"][data-variant="secondary"]').first(),
+  },
+  {
+    id: 'CMP-DUI-P-05',
+    name: 'badge-info',
+    story: story('badge--variants'),
+    screen: async (page) => {
+      await adminPage(page, '/settings/staff')
+      return page.locator('[data-slot="badge"][data-variant="info"]').first()
+    },
+    inStory: (page) => page.locator('[data-slot="badge"][data-variant="info"]').first(),
+  },
+  {
+    id: 'CMP-DUI-P-06',
+    name: 'breadcrumb-default',
+    story: story('breadcrumb--default'),
+    screen: async (page) => {
+      await adminPage(page, '/settings/store')
+      return slot(page, 'breadcrumb').first()
+    },
+    inStory: (page) => slot(page, 'breadcrumb'),
+  },
+  {
+    id: 'CMP-DUI-P-09',
+    name: 'card-default',
+    story: story('card--default'),
+    screen: async (page) => {
+      await adminPage(page, '/settings/store')
+      return storeSettingsCard(page, 'General')
+    },
+    inStory: (page) => slot(page, 'card').first(),
+  },
+  {
+    id: 'CMP-DUI-P-11',
+    name: 'checkbox-unchecked',
+    story: story('checkbox--unchecked'),
+    screen: async (page) => {
+      await productsList(page)
+      return page.locator('tbody [data-slot="checkbox"]').first()
+    },
+    inStory: (page) => slot(page, 'checkbox'),
+  },
+  {
+    id: 'CMP-DUI-P-11',
+    name: 'checkbox-checked',
+    story: story('checkbox--checked'),
+    screen: async (page) => {
+      await productsList(page)
+      const checkbox = page.locator('tbody [data-slot="checkbox"]').first()
+      await checkbox.click()
+      await checkbox.blur()
+      await page.mouse.move(0, 0)
+      return checkbox
+    },
+    inStory: (page) => slot(page, 'checkbox'),
+  },
+  {
+    id: 'CMP-DUI-P-11',
+    name: 'checkbox-indeterminate',
+    story: story('checkbox--indeterminate'),
+    screen: async (page) => {
+      await productsList(page)
+      const row = page.locator('tbody [data-slot="checkbox"]').first()
+      await row.click()
+      await row.blur()
+      await page.mouse.move(0, 0)
+      return page.locator('thead [data-slot="checkbox"]').first()
+    },
+    inStory: (page) => slot(page, 'checkbox'),
+  },
+  {
+    id: 'CMP-DUI-P-11',
+    name: 'checkbox-focus-visible',
+    story: story('checkbox--focus-visible'),
+    screen: async (page) => {
+      await productsList(page)
+      return keyboardFocus(page, page.locator('tbody [data-slot="checkbox"]').first())
+    },
+    inStory: (page) => slot(page, 'checkbox'),
+  },
+  {
+    id: 'CMP-DUI-P-13',
+    name: 'collapsible-open',
+    story: story('collapsible--open'),
+    screen: async (page) => {
+      await adminPage(page, '/settings/stock-locations')
+      await page.getByText('Shop location', { exact: true }).click()
+      return slot(page, 'collapsible').first()
+    },
+    inStory: (page) => slot(page, 'collapsible'),
+  },
+  {
+    id: 'CMP-DUI-P-22',
+    name: 'empty-title-and-description',
+    story: story('empty--default'),
+    screen: async (page) => {
+      await adminPage(page, '/does-not-exist')
+      return slot(page, 'empty').first()
+    },
+    inStory: (page) => slot(page, 'empty'),
+  },
+  {
+    id: 'CMP-DUI-P-23',
+    name: 'field-vertical',
+    story: story('field--vertical'),
+    screen: async (page) => {
+      await adminPage(page, '/settings/store')
+      return storeSettingsCard(page, 'General').locator('[data-slot="field"]').first()
+    },
+    inStory: (page) => slot(page, 'field').first(),
+  },
+  {
+    id: 'CMP-DUI-P-23',
+    name: 'field-invalid',
+    story: story('field--invalid'),
+    screen: async (page) => {
+      await adminPage(page, '/settings/store')
+      const general = storeSettingsCard(page, 'General')
+      await general.locator('input').first().fill('')
+      await page.getByRole('button', { name: 'Save' }).click()
+      await expect(general.locator('[data-slot="field-error"]')).toBeVisible()
+      await page.mouse.click(1, 1)
+      return general.locator('[data-slot="field"]').first()
+    },
+    inStory: (page) => slot(page, 'field').first(),
+  },
+  {
+    id: 'CMP-DUI-P-23',
+    name: 'field-set',
+    story: story('field--fieldset'),
+    screen: async (page) => {
+      // The metrics set is taller than the window; a taller window keeps the page header off it.
+      await page.setViewportSize({ width: 1280, height: 1600 })
+      await adminPage(page, '/reports/new')
+      return slot(page, 'field-set').first()
+    },
+    inStory: (page) => slot(page, 'field-set'),
+  },
+  {
+    id: 'CMP-DUI-P-24',
+    name: 'input-group-suffix',
+    story: story('input-group--percent-suffix'),
+    screen: async (page) => {
+      await adminPage(page, '/settings/store')
+      return page
+        .locator('[data-slot="card"] [data-slot="input-group"]')
+        .filter({ hasText: 'units' })
+        .first()
+    },
+    inStory: (page) => slot(page, 'input-group'),
+  },
+  {
+    id: 'CMP-DUI-P-25',
+    name: 'input-filled',
+    story: story('input--filled'),
+    screen: async (page) => {
+      await adminPage(page, '/settings/store')
+      return storeSettingsCard(page, 'General').locator('[data-slot="input"]').first()
+    },
+    inStory: (page) => slot(page, 'input'),
+  },
+  {
+    id: 'CMP-DUI-P-25',
+    name: 'input-focused',
+    story: story('input--focused'),
+    screen: async (page) => {
+      await adminPage(page, '/settings/store')
+      const input = storeSettingsCard(page, 'General').locator('[data-slot="input"]').first()
+      await input.focus()
+      return input
+    },
+    inStory: (page) => slot(page, 'input'),
+  },
+  {
+    id: 'CMP-DUI-P-25',
+    name: 'input-invalid',
+    story: story('input--invalid'),
+    screen: async (page) => {
+      await adminPage(page, '/settings/store')
+      const general = storeSettingsCard(page, 'General')
+      await general.locator('input').first().fill('')
+      await page.getByRole('button', { name: 'Save' }).click()
+      await expect(general.locator('[data-slot="field-error"]')).toBeVisible()
+      await page.mouse.click(1, 1)
+      return general.locator('[data-slot="input"]').first()
+    },
+    inStory: (page) => slot(page, 'input'),
+  },
+  {
+    id: 'CMP-DUI-P-26',
+    name: 'item-outline',
+    story: story('item--outline'),
+    screen: async (page) => {
+      await adminPage(page, '/customers')
+      await page.getByRole('row').filter({ hasText: 'Promo Customer' }).locator('a').first().click()
+      await expect(page.getByRole('heading', { name: 'Promo Customer' })).toBeVisible()
+      await page.waitForLoadState('networkidle')
+      return slot(page, 'item').first()
+    },
+    inStory: (page) => slot(page, 'item').first(),
+  },
+  {
+    id: 'CMP-DUI-P-31',
+    name: 'progress-with-value',
+    story: story('progress--with-value'),
+    screen: async (page) => {
+      await adminPage(page, '/getting-started')
+      return slot(page, 'progress').first()
+    },
+    inStory: (page) => slot(page, 'progress'),
+  },
+  {
+    id: 'CMP-DUI-P-32',
+    name: 'radio-group-choice-cards',
+    story: story('field--choice-cards'),
+    screen: async (page) => {
+      await adminPage(page, '/settings/store')
+      return slot(page, 'radio-group').first()
+    },
+    inStory: (page) => slot(page, 'radio-group'),
+  },
+  {
+    id: 'CMP-DUI-P-34',
+    name: 'scroll-area-vertical',
+    story: story('scroll-area--vertical'),
+    screen: async (page) => {
+      await adminPage(page, '')
+      return slot(page, 'scroll-area').first()
+    },
+    inStory: (page) => slot(page, 'scroll-area'),
+  },
+  {
+    id: 'CMP-DUI-P-36',
+    name: 'separator-horizontal',
+    story: story('separator--horizontal'),
+    screen: async (page) => {
+      await adminPage(page, '/orders')
+      await page.getByRole('link', { name: 'R1001' }).first().click()
+      await page.waitForLoadState('networkidle')
+      return slot(page, 'separator').first()
+    },
+    inStory: (page) => slot(page, 'separator'),
+  },
+  {
+    id: 'CMP-DUI-P-39',
+    name: 'skeleton-row',
+    story: story('skeleton--row'),
+    screen: async (page) => {
+      const session = await login(page)
+      await holdRequests(page, '**/api/v3/admin/products?**')
+      await page.goto(`/${session.store_id}/products`)
+      return page
+        .locator('tbody tr')
+        .filter({ has: slot(page, 'skeleton') })
+        .first()
+    },
+    inStory: (page) => slot(page, 'skeleton').first().locator('..'),
+  },
+  {
+    id: 'CMP-DUI-P-41',
+    name: 'switch-on',
+    story: story('switch--on'),
+    screen: async (page) => {
+      await adminPage(page, '/settings/store')
+      return page.locator('[data-slot="switch"][data-checked]').first()
+    },
+    inStory: (page) => slot(page, 'switch'),
+  },
+  {
+    id: 'CMP-DUI-P-41',
+    name: 'switch-off',
+    story: story('switch--off'),
+    screen: async (page) => {
+      await adminPage(page, '/settings/store')
+      return page.locator('[data-slot="switch"][data-unchecked]').first()
+    },
+    inStory: (page) => slot(page, 'switch'),
+  },
+  {
+    id: 'CMP-DUI-P-41',
+    name: 'switch-focus-visible',
+    story: story('switch--focus-visible'),
+    screen: async (page) => {
+      await adminPage(page, '/settings/store')
+      return keyboardFocus(page, page.locator('[data-slot="switch"][data-unchecked]').first())
+    },
+    inStory: (page) => slot(page, 'switch'),
+  },
+  {
+    id: 'CMP-DUI-P-42',
+    name: 'tabs-default',
+    story: story('tabs--default'),
+    screen: async (page) => {
+      await adminPage(page, '/settings/taxes')
+      return slot(page, 'tabs-list').first()
+    },
+    inStory: (page) => slot(page, 'tabs-list'),
+  },
+  {
+    id: 'CMP-DUI-P-43',
+    name: 'textarea-empty',
+    story: story('textarea--empty'),
+    screen: async (page) => {
+      await productDetail(page)
+      return slot(page, 'textarea').first()
+    },
+    inStory: (page) => slot(page, 'textarea'),
+  },
+  {
+    id: 'CMP-DUI-P-44',
+    name: 'thumbnail-custom-fallback',
+    story: story('thumbnail--custom-fallback'),
+    screen: async (page) => {
+      await productsList(page)
+      return slot(page, 'thumbnail').first()
+    },
+    inStory: (page) => slot(page, 'thumbnail'),
+  },
+]
+
+const cases: Case[] = [...pilotCases, ...primitivesBatchOne]
 
 /** Every custom property the page's root element computes: the tokens, as the browser resolves them. */
 async function rootTokens(page: Page): Promise<Record<string, string>> {

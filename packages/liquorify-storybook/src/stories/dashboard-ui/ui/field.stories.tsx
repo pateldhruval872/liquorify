@@ -36,9 +36,10 @@ export const Vertical: Story = {
   ),
 }
 
+// Spree's forms mark only the control and show the message; the label keeps its colour.
 export const Invalid: Story = {
   render: () => (
-    <Field data-invalid="true">
+    <Field>
       <FieldLabel htmlFor="slug">Slug</FieldLabel>
       <Input id="slug" defaultValue="linen shirt" aria-invalid />
       <FieldError errors={[{ message: 'Slug can only contain letters, numbers and hyphens' }]} />
@@ -49,7 +50,7 @@ export const Invalid: Story = {
 export const SeveralErrors: Story = {
   name: 'Several errors',
   render: () => (
-    <Field data-invalid="true">
+    <Field>
       <FieldLabel htmlFor="code">Promotion code</FieldLabel>
       <Input id="code" defaultValue="" aria-invalid />
       <FieldError errors={[{ message: "Code can't be blank" }, { message: 'Code is too short' }]} />
