@@ -347,14 +347,14 @@ Each blocks a different part of the baseline, and none waits for another.
 
 ### Deferred gaps and the owner's acceptance
 
-Each gap a batch leaves open, with the batch's proposal for it. A gap stays open until evidence closes it or the owner explicitly accepts its deferral; the owner's answer is recorded here with its date. Nothing is accepted yet. **Coverage** gaps are states or stories not shown on a running screen; **function** gaps are flow steps or behaviours not shown to work. Tenant isolation is an outstanding item above, not a gap here.
+Each gap a batch leaves open, with the batch's proposal for it. A gap stays open until evidence closes it or the owner explicitly accepts its deferral; the owner's answer is recorded here with its date. On 2026-10-22 the owner chose to answer pull request by pull request, as each is reviewed: #9, then #11, then storefront #18 with #12. Nothing is accepted yet. **Coverage** gaps are states or stories not shown on a running screen; **function** gaps are flow steps or behaviours not shown to work. Tenant isolation is an outstanding item above, not a gap here.
 
 | # | Batch | Gap | Kind | Proposal | Owner |
 |---|---|---|---|---|---|
-| G-01 | #9 | 82 of the 114 primitive stories checked against their source only, every story of the alert and the slot among them | Coverage | Defer: later batches compare each state when one of their running screens shows it; what no stock screen shows stays checked against its source | PENDING |
+| G-01 | #9 | 83 of the 114 primitive stories checked against their source only, stories of the alert and the slot among them; 82 once #11 compares the destructive alert | Coverage | Defer: later batches compare each state when one of their running screens shows it; what no stock screen shows stays checked against its source | PENDING |
 | G-02 | Pilot | 35 stories checked against their source only, and the cart drawer opened with a pointer, both open since the pilot's acceptance | Coverage | Defer to the storefront shop and cart batches (4 and 9) | PENDING |
-| G-03 | #11 | DA-AUTH-03 "saved" not captured | Coverage | Defer to the platform batch's mail check (P1). If no mail can be read without changing Spree, accept it as checked through Spree's API spec | PENDING |
-| G-04 | #11 | Saving a new staff password in the browser (FL-03) | Function | As G-03 | PENDING |
+| G-03 | #11 | DA-AUTH-03 "saved" not captured | Coverage | Defer to the platform batch's mail check (P1). Spree's API spec covers the request, not the screen, so it cannot close this; if P1 cannot close it, it stays open | PENDING |
+| G-04 | #11 | Saving a new staff password in the browser (FL-03) | Function | Defer to the mail check (P1). An API spec cannot show that the browser flow works, so if P1 cannot close it, FL-03 stays PARTIAL | PENDING |
 | G-05 | #11 | EM-S-01, EM-S-03 and EM-S-04 not seen sent during their flows | Function | Defer to the mail check (P1) | PENDING |
 | G-06 | #11 | DA-SHELL-02 "not authorized": no stock route shows it | Coverage | Accept: not reachable on a stock screen; its story stays checked against its source | PENDING |
 | G-07 | #11 | The teammate's own navigation after a role is given (FL-24's last step) | Function | Defer to part 2, whose capture run signs in as the teammate after the role is given | PENDING |
