@@ -43,6 +43,7 @@ Work items for parts of a backlog item, with the fields of [ENG-001](framework/E
 | Work item | Backlog item | State | Purpose |
 |---|---|---|---|
 | [FB-19 batch: staff access and the dashboard shell](work-items/fb-19-batch-staff-access-and-shell.md) | FB-19 | PROPOSED | The first product-area batch: staff sign-in, invitations, roles and the dashboard's shell, in two parts, with its batch map and the acceptance criteria the owner reviews. Part 1 is built and awaits review in #11 |
+| [FB-19 batch: storefront shopper accounts](work-items/fb-19-batch-storefront-shopper-accounts.md) | FB-19 | PROPOSED | The storefront's first product-area batch: signing in, registering, password reset and the signed-in account, with its map and acceptance criteria |
 
 ## Verification records
 
