@@ -4,7 +4,7 @@ record: verification
 work_item: FB-19
 date: 2026-10-22
 verifier: Claude (automated session); not independent review
-result: PASS for the map, the stories and their images, the running-screen captures, the comparison with running screens after six corrections to the stories, the emails rendered from Spree's previews, and Spree's own staff and role specs. Two listed states and four flow steps are gaps. The interface shows two behaviours the work item did not expect, recorded as Spree's behaviour. Tenant isolation and the owner's acceptance are NOT_RUN. The CI results are recorded in the pull request at the revision that carries this record
+result: PASS for the map, the stories and their images, the running-screen captures, the comparison with running screens after six corrections to the stories, the emails rendered from Spree's previews, and Spree's own staff and role specs. Two listed states and five flow steps are gaps. The interface shows two behaviours the work item did not expect, recorded as Spree's behaviour. Tenant isolation and the owner's acceptance are NOT_RUN. CI passed at `0b0820d`, where the visual check passed twice
 ---
 
 # FB-19 staff access batch, part 1
@@ -15,7 +15,7 @@ result: PASS for the map, the stories and their images, the running-screen captu
 
 | What | Revision |
 |---|---|
-| Stories, scripts and this record | Draft pull request [#11](https://github.com/pateldhruval872/liquorify/pull/11), at the revision that carries this record. It builds on #9's branch |
+| Stories, scripts and records | Draft pull request [#11](https://github.com/pateldhruval872/liquorify/pull/11) at `0b0820d`, which builds on #9's branch. The CI results in §8 were added in a later commit that changes only records |
 | Spree's code: the dashboard, its packages and the gems | `main` `a4a1708`. The branch changes none of it: `git diff a4a1708 HEAD` over `packages/dashboard`, `packages/dashboard-core`, `packages/dashboard-ui` and `spree/` is empty |
 | Running screens | The built admin dashboard against the dashboard browser tests' own Rails server and fixtures, at `a4a1708`, in the pinned Playwright 1.64.1 image at 1280 by 960 pixels (captures) and 1280 by 800 (comparison) |
 
@@ -27,10 +27,10 @@ result: PASS for the map, the stories and their images, the running-screen captu
 | 2 | Every component the part's screens use has a story for each meaningful state, in light and dark, with a reference image; components already covered are listed | PASS: 16 new components, 72 stories, 144 reference images, each looked at in both modes (§1, [image review list](2026-10-22-fb-19-batch-staff-access-part-1-image-review.md)). The 15 reused components are listed in §1 |
 | 3 | Every screen is captured on the running dashboard in each state listed under Scope | PASS for 34 of the 36 states the work item lists. The captures show 48 states of the eight screens in all, and the navigation for each variant. Two listed states are gaps: DA-AUTH-03 "saved" and DA-SHELL-02 "not authorized" (§2.1, §7) |
 | 4 | Each permission variant is captured, showing what its role allows | PASS as evidence of what the interface shows, for all seven variants with their roles' permission keys (§3.1). Two of the work item's expectations do not match Spree: the staff page keeps its write controls for a read-only teammate, and a direct visit without the staff scope shows the page, not "not authorized". Both are recorded as Spree's behaviour (§5) and corrected in the work item |
-| 5 | Each flow is mapped step by step, and the browser tests covering it pass on the part's revision | PASS for the mapping (§2.2): 19 test titles cover the three flows. Five steps no test covers are gaps. The CI result is recorded in the pull request's run at the revision that carries this record (§8) |
+| 5 | Each flow is mapped step by step, and the browser tests covering it pass on the part's revision | PASS for the mapping (§2.2): 19 test titles cover the three flows. Five steps no test covers are gaps. Spree's dashboard browser tests, these 19 titles among them, passed in all four shards at `0b0820d` (§8) |
 | 6 | The comparison finds no unexplained difference between each new story and its running screen; a defect is fixed in the story | PASS, as a diagnostic: 21 cases, 20 of them new stories, show no unexplained difference after six corrections to the stories (§4). The owner's acceptance of fidelity is criterion 11 |
 | 7 | A state no running screen shows is recorded as a gap, with the check made instead | PASS: 52 of the 72 stories were not compared by the script; 12 of them show a state seen in a running-screen capture, and 40 were checked against their source only (§7, image review list) |
-| 8 | The visual check passes twice in CI on the same revision; Tests and Packages pass; the check stays advisory | Recorded in the pull request at the revision that carries this record (§8). Locally, in the pinned image, every comparison passed (§8) |
+| 8 | The visual check passes twice in CI on the same revision; Tests and Packages pass; the check stays advisory | PASS at `0b0820d`: the visual check passed twice, 454 of 454 comparisons each time, once on the pull request and once started by hand. Tests and Packages passed. The check stays advisory (§8) |
 | 9 | Spree's code, the storefront and every workflow outside Storybook are unchanged; nothing carries Liquorify branding or features | PASS: the pull request changes only `packages/liquorify-storybook/` and `liquorify/` |
 | 10 | The records are updated, with every link checked | PASS: this record, the image review list, the evidence index, LIQ-009's Storybook column, LIQ-004's FB-19 entry, the work item and the README index, with the link check run |
 | 11 | The owner accepts the reference images, the screen evidence and fidelity | NOT_RUN: #11 is a draft |
@@ -276,9 +276,13 @@ Each names what is missing, the check made instead and what would close it.
 | Run | Revision | Result |
 |---|---|---|
 | [Packages 39703670323](https://github.com/pateldhruval872/liquorify/actions/runs/39703670323) | `9b0b0ad`, the work item and the LIQ-010 amendment only | The dashboard's browser tests passed in all four shards, at Spree code identical to `a4a1708` |
-| [Tests 39703670458](https://github.com/pateldhruval872/liquorify/actions/runs/39703670458) | `9b0b0ad` | `PostgreSQL - core (1/3)` failed; every other job passed. The commit changed only records, so the failure is not this batch's; it is examined in the pull request |
+| [Tests 39703670458](https://github.com/pateldhruval872/liquorify/actions/runs/39703670458) | `9b0b0ad` | `PostgreSQL - core (1/3)` failed on one example, `spec/services/spree/addresses/update_spec.rb:90`; every other job passed. The commit changed only records. The example depends on randomly generated countries and states and fails when they collide: it is the Spree defect #10 fixes, which the owner kept separate, so the fix is not carried here ([comment](https://github.com/pateldhruval872/liquorify/pull/11#issuecomment-6331543753)) |
+| [Storybook 39713828522](https://github.com/pateldhruval872/liquorify/actions/runs/39713828522) | `0b0820d`, every story, image, script and record of part 1 | Built, token check and coverage passed, and all 454 comparisons passed in 4.8 minutes under the explicit tolerance. The coverage report counts the 16 new components |
+| [Storybook 39713873942](https://github.com/pateldhruval872/liquorify/actions/runs/39713873942) | `0b0820d`, started by hand | All 454 comparisons passed again, in 5.3 minutes |
+| [Tests 39713828589](https://github.com/pateldhruval872/liquorify/actions/runs/39713828589) | `0b0820d` | Every job passed, on PostgreSQL and MySQL, `PostgreSQL - core (1/3)` included |
+| [Packages 39713828539](https://github.com/pateldhruval872/liquorify/actions/runs/39713828539) | `0b0820d` | Every job passed, the dashboard's browser tests in all four shards |
 
-The runs at the revision that carries this record are recorded in the pull request; the visual check is run a second time on the same revision for criterion 8.
+The commit that adds these results changes only this record and the evidence index.
 
 **Local checks, in this session, before the commit.** Lint (Biome), the type check and the fixture tests passed; the token check and the coverage report ran. Every visual comparison passed in the pinned image, 454 of 454 for 227 stories in two modes, the older stories included under the stricter check of §1. The comparison and the refusal check passed against the browser-test server.
 

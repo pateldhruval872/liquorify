@@ -6,7 +6,7 @@ The captures, comparisons, emails and backend results behind the [verification r
 
 | What | Revision |
 |---|---|
-| Stories and scripts | Draft pull request [#11](https://github.com/pateldhruval872/liquorify/pull/11), at the revision that carries this folder |
+| Stories and scripts | Draft pull request [#11](https://github.com/pateldhruval872/liquorify/pull/11) at `0b0820d` |
 | Running screens, emails and Spree's specs | Spree's code at `main` `a4a1708`, which #11 does not change: the built admin dashboard against the dashboard browser tests' own Rails server and fixtures |
 | Browser | The pinned Playwright 1.64.1 image. Screens at 1280 by 960 pixels; comparisons and emails at 1280 by 800 |
 
