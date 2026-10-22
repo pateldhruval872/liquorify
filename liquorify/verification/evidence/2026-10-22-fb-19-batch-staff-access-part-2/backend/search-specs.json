@@ -1,0 +1,2563 @@
+{
+  "engine": "spree/api",
+  "spree_code_at": "a4a1708",
+  "rspec": "3.13.6",
+  "summary": {
+    "example_count": 425,
+    "failure_count": 0,
+    "pending_count": 0,
+    "errors_outside_of_examples_count": 0
+  },
+  "examples": [
+    {
+      "file": "spec/controllers/spree/api/v3/admin/customer_groups_controller_spec.rb",
+      "line": 98,
+      "description": "Spree::Api::V3::Admin::CustomerGroupsController POST #create returns 422 when name is missing",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/customer_groups_controller_spec.rb",
+      "line": 87,
+      "description": "Spree::Api::V3::Admin::CustomerGroupsController POST #create attaches customers when customer_ids is given (decodes prefixed IDs)",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/customer_groups_controller_spec.rb",
+      "line": 103,
+      "description": "Spree::Api::V3::Admin::CustomerGroupsController POST #create returns 422 when name is duplicated within the same store",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/customer_groups_controller_spec.rb",
+      "line": 77,
+      "description": "Spree::Api::V3::Admin::CustomerGroupsController POST #create creates a group scoped to the current store",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/customer_groups_controller_spec.rb",
+      "line": 149,
+      "description": "Spree::Api::V3::Admin::CustomerGroupsController DELETE #destroy soft-deletes the customer group",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/customer_groups_controller_spec.rb",
+      "line": 159,
+      "description": "Spree::Api::V3::Admin::CustomerGroupsController DELETE #destroy returns 404 for a group from another store",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/customer_groups_controller_spec.rb",
+      "line": 66,
+      "description": "Spree::Api::V3::Admin::CustomerGroupsController GET #show returns 404 for a group from another store",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/customer_groups_controller_spec.rb",
+      "line": 55,
+      "description": "Spree::Api::V3::Admin::CustomerGroupsController GET #show embeds customers when expand=customers is passed",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/customer_groups_controller_spec.rb",
+      "line": 46,
+      "description": "Spree::Api::V3::Admin::CustomerGroupsController GET #show returns the group without customers by default",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/customer_groups_controller_spec.rb",
+      "line": 23,
+      "description": "Spree::Api::V3::Admin::CustomerGroupsController GET #index excludes groups from other stores",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/customer_groups_controller_spec.rb",
+      "line": 33,
+      "description": "Spree::Api::V3::Admin::CustomerGroupsController GET #index does not embed customers in the list payload",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/customer_groups_controller_spec.rb",
+      "line": 15,
+      "description": "Spree::Api::V3::Admin::CustomerGroupsController GET #index returns customer groups in the current store",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/customer_groups_controller_spec.rb",
+      "line": 110,
+      "description": "Spree::Api::V3::Admin::CustomerGroupsController PATCH #update updates name and description",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/customer_groups_controller_spec.rb",
+      "line": 131,
+      "description": "Spree::Api::V3::Admin::CustomerGroupsController PATCH #update clears membership when an empty array is sent",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/customer_groups_controller_spec.rb",
+      "line": 119,
+      "description": "Spree::Api::V3::Admin::CustomerGroupsController PATCH #update reconciles customer_ids on update (adds + removes)",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/customer_groups_controller_spec.rb",
+      "line": 140,
+      "description": "Spree::Api::V3::Admin::CustomerGroupsController PATCH #update returns 404 for a group from another store",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 59,
+      "description": "Spree::Api::V3::Admin::ProductsController GET #index includes admin-only fields",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 66,
+      "description": "Spree::Api::V3::Admin::ProductsController GET #index returns pagination metadata",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 49,
+      "description": "Spree::Api::V3::Admin::ProductsController GET #index returns products list",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 138,
+      "description": "Spree::Api::V3::Admin::ProductsController GET #index with ransack filtering filters by name",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 147,
+      "description": "Spree::Api::V3::Admin::ProductsController GET #index with ransack filtering filters by name case-insensitively with i_cont",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 168,
+      "description": "Spree::Api::V3::Admin::ProductsController GET #index with ransack filtering filtering by channel via channels_id_in returns only products published on the requested channel",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 238,
+      "description": "Spree::Api::V3::Admin::ProductsController GET #index with q[search] (full-text search) matches by default variant SKU",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 229,
+      "description": "Spree::Api::V3::Admin::ProductsController GET #index with q[search] (full-text search) matches by product name",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 249,
+      "description": "Spree::Api::V3::Admin::ProductsController GET #index with q[search] (full-text search) returns no results when nothing matches",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 260,
+      "description": "Spree::Api::V3::Admin::ProductsController GET #index with sorting sorts by name ascending",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 267,
+      "description": "Spree::Api::V3::Admin::ProductsController GET #index with sorting sorts by name descending",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 282,
+      "description": "Spree::Api::V3::Admin::ProductsController GET #index with sorting by name in a non-default locale sorts filtered products by the translation, falling back to the base name",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 312,
+      "description": "Spree::Api::V3::Admin::ProductsController GET #index with sorting by price sorts by price descending",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 320,
+      "description": "Spree::Api::V3::Admin::ProductsController GET #index with sorting by price paginates correctly when sorting by price",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 304,
+      "description": "Spree::Api::V3::Admin::ProductsController GET #index with sorting by price sorts by price ascending",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 333,
+      "description": "Spree::Api::V3::Admin::ProductsController GET #index without authentication returns 401 unauthorized",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 125,
+      "description": "Spree::Api::V3::Admin::ProductsController GET #index with custom field filtering and sorting exposes custom field values when expanded",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 104,
+      "description": "Spree::Api::V3::Admin::ProductsController GET #index with custom field filtering and sorting filters by a cf_* numeric predicate",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 97,
+      "description": "Spree::Api::V3::Admin::ProductsController GET #index with custom field filtering and sorting filters case-insensitively with the cf_* i_cont predicate",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 111,
+      "description": "Spree::Api::V3::Admin::ProductsController GET #index with custom field filtering and sorting sorts by a cf_* attribute",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 118,
+      "description": "Spree::Api::V3::Admin::ProductsController GET #index with custom field filtering and sorting ignores unknown cf_* predicates instead of erroring",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 90,
+      "description": "Spree::Api::V3::Admin::ProductsController GET #index with custom field filtering and sorting filters by a cf_* text predicate",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 213,
+      "description": "Spree::Api::V3::Admin::ProductsController GET #index with q[id_in] using prefixed IDs decodes prefixed IDs for q[id_not_in]",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 205,
+      "description": "Spree::Api::V3::Admin::ProductsController GET #index with q[id_in] using prefixed IDs decodes with q[id_eq] too",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 197,
+      "description": "Spree::Api::V3::Admin::ProductsController GET #index with q[id_in] using prefixed IDs still accepts raw integer IDs",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 187,
+      "description": "Spree::Api::V3::Admin::ProductsController GET #index with q[id_in] using prefixed IDs decodes prefixed IDs and returns matching rows",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 2429,
+      "description": "Spree::Api::V3::Admin::ProductsController extension-contributed attributes permits an attribute the model declares",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 2442,
+      "description": "Spree::Api::V3::Admin::ProductsController extension-contributed attributes drops an attribute nobody declared",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 1794,
+      "description": "Spree::Api::V3::Admin::ProductsController POST #bulk_remove_from_collections removes every product from every collection",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 1993,
+      "description": "Spree::Api::V3::Admin::ProductsController POST #bulk_remove_from_categories touches the categories",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 1967,
+      "description": "Spree::Api::V3::Admin::ProductsController POST #bulk_remove_from_categories is a no-op for products not in the category",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 1954,
+      "description": "Spree::Api::V3::Admin::ProductsController POST #bulk_remove_from_categories detaches every product from every category",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 2010,
+      "description": "Spree::Api::V3::Admin::ProductsController POST #bulk_remove_from_categories reassigns the positions of surviving products on the category list",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 1978,
+      "description": "Spree::Api::V3::Admin::ProductsController POST #bulk_remove_from_categories touches the products",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 1494,
+      "description": "Spree::Api::V3::Admin::ProductsController DELETE #destroy soft-deletes the product",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 1881,
+      "description": "Spree::Api::V3::Admin::ProductsController POST #bulk_add_to_categories is a no-op when category_ids is empty",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 1855,
+      "description": "Spree::Api::V3::Admin::ProductsController POST #bulk_add_to_categories silently drops products from other stores",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 1891,
+      "description": "Spree::Api::V3::Admin::ProductsController POST #bulk_add_to_categories is a no-op when ids is empty",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 1841,
+      "description": "Spree::Api::V3::Admin::ProductsController POST #bulk_add_to_categories silently ignores categories from other stores",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 1814,
+      "description": "Spree::Api::V3::Admin::ProductsController POST #bulk_add_to_categories attaches every product to every category",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 1826,
+      "description": "Spree::Api::V3::Admin::ProductsController POST #bulk_add_to_categories attaches to a taxonomy-less, store-owned category",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 1928,
+      "description": "Spree::Api::V3::Admin::ProductsController POST #bulk_add_to_categories touches the category",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 1913,
+      "description": "Spree::Api::V3::Admin::ProductsController POST #bulk_add_to_categories touches the products",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 1900,
+      "description": "Spree::Api::V3::Admin::ProductsController POST #bulk_add_to_categories assigns the product positions on the category list",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 1869,
+      "description": "Spree::Api::V3::Admin::ProductsController POST #bulk_add_to_categories is idempotent — re-adding existing categories is a no-op",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 2173,
+      "description": "Spree::Api::V3::Admin::ProductsController POST #bulk_add_tags is idempotent — re-adding the same tag does not duplicate it",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 2209,
+      "description": "Spree::Api::V3::Admin::ProductsController POST #bulk_add_tags is a no-op when tags is empty",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 2185,
+      "description": "Spree::Api::V3::Admin::ProductsController POST #bulk_add_tags strips whitespace from tag names",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 2161,
+      "description": "Spree::Api::V3::Admin::ProductsController POST #bulk_add_tags adds the listed tags to every listed product",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 2195,
+      "description": "Spree::Api::V3::Admin::ProductsController POST #bulk_add_tags silently drops products from other stores",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 2226,
+      "description": "Spree::Api::V3::Admin::ProductsController POST #bulk_add_tags reindexes products",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 2219,
+      "description": "Spree::Api::V3::Admin::ProductsController POST #bulk_add_tags is a no-op when ids is empty",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 2153,
+      "description": "Spree::Api::V3::Admin::ProductsController POST #bulk_add_tags auto matching collections on a store without any automatic collections skips auto matching collections",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 2138,
+      "description": "Spree::Api::V3::Admin::ProductsController POST #bulk_add_tags auto matching collections on a store with automatic collections auto matches collections in bulk only for live active products",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 2091,
+      "description": "Spree::Api::V3::Admin::ProductsController POST #bulk_remove_from_channels unpublishes every listed product from every listed channel",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 2103,
+      "description": "Spree::Api::V3::Admin::ProductsController POST #bulk_remove_from_channels silently ignores channels from other stores",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 345,
+      "description": "Spree::Api::V3::Admin::ProductsController GET #show returns the product",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 354,
+      "description": "Spree::Api::V3::Admin::ProductsController GET #show includes admin-only fields",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 361,
+      "description": "Spree::Api::V3::Admin::ProductsController GET #show with expand expands variants",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 370,
+      "description": "Spree::Api::V3::Admin::ProductsController GET #show with non-existent product returns 404",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 1570,
+      "description": "Spree::Api::V3::Admin::ProductsController POST #clone clones the product",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 384,
+      "description": "Spree::Api::V3::Admin::ProductsController POST #create creates a minimal product",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 515,
+      "description": "Spree::Api::V3::Admin::ProductsController POST #create with invalid params returns validation errors",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 670,
+      "description": "Spree::Api::V3::Admin::ProductsController POST #create with inline custom fields attaches inline digital files to the new product",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 625,
+      "description": "Spree::Api::V3::Admin::ProductsController POST #create with inline custom fields creates a simple product with media + variant stock items in one POST (regression for dashboard payload)",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 694,
+      "description": "Spree::Api::V3::Admin::ProductsController POST #create with inline custom fields refuses an inline digital file uploaded to public storage",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 581,
+      "description": "Spree::Api::V3::Admin::ProductsController POST #create with inline custom fields skips entries with a missing custom_field_definition_id",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 563,
+      "description": "Spree::Api::V3::Admin::ProductsController POST #create with inline custom fields skips entries with a blank value on create",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 598,
+      "description": "Spree::Api::V3::Admin::ProductsController POST #create with inline custom fields persists a Hash value for a JSON-typed custom field",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 712,
+      "description": "Spree::Api::V3::Admin::ProductsController POST #create with inline custom fields returns 422 with field-level details for an unknown custom_field_definition_id",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 540,
+      "description": "Spree::Api::V3::Admin::ProductsController POST #create with inline custom fields persists custom_fields inline on create",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 504,
+      "description": "Spree::Api::V3::Admin::ProductsController POST #create with full payload: multiple variants, multi-currency prices, categories, tags returns fresh variant_count and price in the create response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 449,
+      "description": "Spree::Api::V3::Admin::ProductsController POST #create with full payload: multiple variants, multi-currency prices, categories, tags creates product with all nested data",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 751,
+      "description": "Spree::Api::V3::Admin::ProductsController POST #create with top-level prices (simple-product flow) accepts amounts as canonical decimal strings (symmetric with reads)",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 729,
+      "description": "Spree::Api::V3::Admin::ProductsController POST #create with top-level prices (simple-product flow) forwards prices to the auto-created default variant",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 796,
+      "description": "Spree::Api::V3::Admin::ProductsController POST #create with inline media attaches an external video inline on create",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 818,
+      "description": "Spree::Api::V3::Admin::ProductsController POST #create with inline media rejects an unknown media type",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 775,
+      "description": "Spree::Api::V3::Admin::ProductsController POST #create with inline media attaches media inline on create",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 1509,
+      "description": "Spree::Api::V3::Admin::ProductsController reviewing a submitted product approves it onto sale",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 1516,
+      "description": "Spree::Api::V3::Admin::ProductsController reviewing a submitted product rejects it with a reason the seller can read",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 1524,
+      "description": "Spree::Api::V3::Admin::ProductsController reviewing a submitted product refuses to approve a product nobody submitted",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 2373,
+      "description": "Spree::Api::V3::Admin::ProductsController validate hooks rejects a create with the handler's field errors",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 2405,
+      "description": "Spree::Api::V3::Admin::ProductsController validate hooks refuses a destroy",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 2395,
+      "description": "Spree::Api::V3::Admin::ProductsController validate hooks rejects an update",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 2282,
+      "description": "Spree::Api::V3::Admin::ProductsController POST #bulk_remove_tags reindexes products",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 2262,
+      "description": "Spree::Api::V3::Admin::ProductsController POST #bulk_remove_tags is a no-op for products without the tag",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 2273,
+      "description": "Spree::Api::V3::Admin::ProductsController POST #bulk_remove_tags is a no-op for tags that don't exist",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 2249,
+      "description": "Spree::Api::V3::Admin::ProductsController POST #bulk_remove_tags removes the listed tags from every listed product",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 1752,
+      "description": "Spree::Api::V3::Admin::ProductsController POST #bulk_add_to_collections silently ignores automatic collections (curation is manual-only)",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 1726,
+      "description": "Spree::Api::V3::Admin::ProductsController POST #bulk_add_to_collections adds every product to every collection",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 1766,
+      "description": "Spree::Api::V3::Admin::ProductsController POST #bulk_add_to_collections silently drops products from other stores",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 1779,
+      "description": "Spree::Api::V3::Admin::ProductsController POST #bulk_add_to_collections returns 422 when ids is missing",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 1738,
+      "description": "Spree::Api::V3::Admin::ProductsController POST #bulk_add_to_collections silently ignores collections from other stores",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 2038,
+      "description": "Spree::Api::V3::Admin::ProductsController POST #bulk_add_to_channels publishes every product on every channel",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 2064,
+      "description": "Spree::Api::V3::Admin::ProductsController POST #bulk_add_to_channels silently drops products from other stores",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 2050,
+      "description": "Spree::Api::V3::Admin::ProductsController POST #bulk_add_to_channels silently ignores channels from other stores",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 1543,
+      "description": "Spree::Api::V3::Admin::ProductsController assigning a review status directly ignores proposed",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 1557,
+      "description": "Spree::Api::V3::Admin::ProductsController assigning a review status directly still writes the statuses an operator does assign",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 1550,
+      "description": "Spree::Api::V3::Admin::ProductsController assigning a review status directly ignores rejected",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 36,
+      "description": "Spree::Api::V3::Admin::ProductsController seller filters to the products nobody sells but the marketplace",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 29,
+      "description": "Spree::Api::V3::Admin::ProductsController seller filters to one seller",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 19,
+      "description": "Spree::Api::V3::Admin::ProductsController seller serializes the seller, and nothing for a first-party product",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 2359,
+      "description": "Spree::Api::V3::Admin::ProductsController translations matrix on show returns the matrix only when ?expand=translations is requested",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 2299,
+      "description": "Spree::Api::V3::Admin::ProductsController DELETE #bulk_destroy soft-deletes the listed products",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 2332,
+      "description": "Spree::Api::V3::Admin::ProductsController DELETE #bulk_destroy rejects an omitted ids param with 422",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 2323,
+      "description": "Spree::Api::V3::Admin::ProductsController DELETE #bulk_destroy is a no-op when ids is empty",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 2339,
+      "description": "Spree::Api::V3::Admin::ProductsController DELETE #bulk_destroy returns 0 when the only IDs reference unreachable products",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 2310,
+      "description": "Spree::Api::V3::Admin::ProductsController DELETE #bulk_destroy silently drops products from other stores",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 839,
+      "description": "Spree::Api::V3::Admin::ProductsController PATCH #update updates basic product attributes",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 889,
+      "description": "Spree::Api::V3::Admin::ProductsController PATCH #update assigns a product type by prefixed id and returns it",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 899,
+      "description": "Spree::Api::V3::Admin::ProductsController PATCH #update clears the product type with null",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 1305,
+      "description": "Spree::Api::V3::Admin::ProductsController PATCH #update with inline custom fields upserts an existing custom field value by definition id",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 1290,
+      "description": "Spree::Api::V3::Admin::ProductsController PATCH #update with inline custom fields creates new custom field values on PATCH",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 1340,
+      "description": "Spree::Api::V3::Admin::ProductsController PATCH #update with inline custom fields destroys an existing custom field when value is blank on PATCH",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 1323,
+      "description": "Spree::Api::V3::Admin::ProductsController PATCH #update with inline custom fields leaves unrelated custom fields untouched on partial PATCH",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 1359,
+      "description": "Spree::Api::V3::Admin::ProductsController PATCH #update with inline custom fields persists a Boolean false value instead of treating it as blank",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 1380,
+      "description": "Spree::Api::V3::Admin::ProductsController PATCH #update with inline custom fields skips entries with a blank custom_field_definition_id",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 1395,
+      "description": "Spree::Api::V3::Admin::ProductsController PATCH #update with inline custom fields accepts a raw (non-prefixed) custom_field_definition_id",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 1156,
+      "description": "Spree::Api::V3::Admin::ProductsController PATCH #update with product_publications is idempotent when re-submitting an existing channel by channel_id",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 1179,
+      "description": "Spree::Api::V3::Admin::ProductsController PATCH #update with product_publications persists the published_at window submitted with the channel",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 1209,
+      "description": "Spree::Api::V3::Admin::ProductsController PATCH #update with product_publications ignores a channel that belongs to another store",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 1143,
+      "description": "Spree::Api::V3::Admin::ProductsController PATCH #update with product_publications attaches a new channel via product_publications",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 1167,
+      "description": "Spree::Api::V3::Admin::ProductsController PATCH #update with product_publications detaches every channel when given an empty array",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 1197,
+      "description": "Spree::Api::V3::Admin::ProductsController PATCH #update with product_publications removes channels absent from the payload",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 957,
+      "description": "Spree::Api::V3::Admin::ProductsController PATCH #update with full payload: name, description, status, categories, tags, SEO, variants with multi-currency prices updates product with all nested data",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 995,
+      "description": "Spree::Api::V3::Admin::ProductsController PATCH #update with full payload: name, description, status, categories, tags, SEO, variants with multi-currency prices carries the carton packing chain inline with the variant",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 1417,
+      "description": "Spree::Api::V3::Admin::ProductsController PATCH #update with inline media creates a new media item from a signed_id",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 1451,
+      "description": "Spree::Api::V3::Admin::ProductsController PATCH #update with inline media assigns variant_ids when patching an existing media item",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 1468,
+      "description": "Spree::Api::V3::Admin::ProductsController PATCH #update with inline media leaves persisted media untouched when omitted from the payload",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 1433,
+      "description": "Spree::Api::V3::Admin::ProductsController PATCH #update with inline media patches an existing media item by id",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 1126,
+      "description": "Spree::Api::V3::Admin::ProductsController PATCH #update with tags updates product tags",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 868,
+      "description": "Spree::Api::V3::Admin::ProductsController PATCH #update when the request resolves a comma-decimal locale refuses an amount it would otherwise misread",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 879,
+      "description": "Spree::Api::V3::Admin::ProductsController PATCH #update when the request resolves a comma-decimal locale keeps a price stable across repeated saves of what the API returned",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 864,
+      "description": "Spree::Api::V3::Admin::ProductsController PATCH #update when the request resolves a comma-decimal locale stores a canonical amount as written",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 1027,
+      "description": "Spree::Api::V3::Admin::ProductsController PATCH #update with collection_ids assigns manual collections via prefixed IDs",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 1039,
+      "description": "Spree::Api::V3::Admin::ProductsController PATCH #update with collection_ids ignores automatic collections",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 1051,
+      "description": "Spree::Api::V3::Admin::ProductsController PATCH #update with collection_ids ignores a collection that belongs to another store",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 1110,
+      "description": "Spree::Api::V3::Admin::ProductsController PATCH #update with category_ids patches an inline digital asset by id without duplicating it",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 1065,
+      "description": "Spree::Api::V3::Admin::ProductsController PATCH #update with category_ids assigns categories via prefixed IDs",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 1086,
+      "description": "Spree::Api::V3::Admin::ProductsController PATCH #update with category_ids clears categories when empty array",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 1097,
+      "description": "Spree::Api::V3::Admin::ProductsController PATCH #update with category_ids ignores a category that belongs to another store",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 1075,
+      "description": "Spree::Api::V3::Admin::ProductsController PATCH #update with category_ids replaces existing categories",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 1227,
+      "description": "Spree::Api::V3::Admin::ProductsController PATCH #update with invalid params returns validation errors",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 1243,
+      "description": "Spree::Api::V3::Admin::ProductsController PATCH #update with nested stock_levels updates updates count_on_hand and backorderable per location",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 1585,
+      "description": "Spree::Api::V3::Admin::ProductsController POST #bulk_status_update updates status across the listed products and returns the count",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 1639,
+      "description": "Spree::Api::V3::Admin::ProductsController POST #bulk_status_update rejects an omitted ids param with 422",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 1662,
+      "description": "Spree::Api::V3::Admin::ProductsController POST #bulk_status_update reindexes products",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 1609,
+      "description": "Spree::Api::V3::Admin::ProductsController POST #bulk_status_update silently drops products from other stores",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 1621,
+      "description": "Spree::Api::V3::Admin::ProductsController POST #bulk_status_update returns 0 when none of the IDs are reachable",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 1655,
+      "description": "Spree::Api::V3::Admin::ProductsController POST #bulk_status_update rejects a missing status with 422",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 1632,
+      "description": "Spree::Api::V3::Admin::ProductsController POST #bulk_status_update is a no-op when ids is empty",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 1597,
+      "description": "Spree::Api::V3::Admin::ProductsController POST #bulk_status_update accepts raw integer IDs alongside prefixed IDs",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 1646,
+      "description": "Spree::Api::V3::Admin::ProductsController POST #bulk_status_update rejects an invalid status with 422",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 1679,
+      "description": "Spree::Api::V3::Admin::ProductsController POST #bulk_status_update when product is in archived status behaves like updates status to active updates status to active",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 1679,
+      "description": "Spree::Api::V3::Admin::ProductsController POST #bulk_status_update when product is in draft status behaves like updates status to active updates status to active",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 1702,
+      "description": "Spree::Api::V3::Admin::ProductsController POST #bulk_status_update when product is in rejected status leaves it in review and reports it skipped",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 1702,
+      "description": "Spree::Api::V3::Admin::ProductsController POST #bulk_status_update when product is in proposed status leaves it in review and reports it skipped",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+      "line": 1679,
+      "description": "Spree::Api::V3::Admin::ProductsController POST #bulk_status_update when product is in active status behaves like updates status to active updates status to active",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/customers_controller_spec.rb",
+      "line": 128,
+      "description": "Spree::Api::V3::Admin::CustomersController POST #create creates a customer",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/customers_controller_spec.rb",
+      "line": 155,
+      "description": "Spree::Api::V3::Admin::CustomersController POST #create without password creates the customer",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/customers_controller_spec.rb",
+      "line": 162,
+      "description": "Spree::Api::V3::Admin::CustomersController POST #create without password leaves the customer with no usable credential",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/customers_controller_spec.rb",
+      "line": 139,
+      "description": "Spree::Api::V3::Admin::CustomersController POST #create with invalid params returns validation errors for missing email",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/customers_controller_spec.rb",
+      "line": 73,
+      "description": "Spree::Api::V3::Admin::CustomersController GET #show returns the customer with computed stats",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/customers_controller_spec.rb",
+      "line": 84,
+      "description": "Spree::Api::V3::Admin::CustomersController GET #show returns 404 for unknown id",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/customers_controller_spec.rb",
+      "line": 107,
+      "description": "Spree::Api::V3::Admin::CustomersController GET #show expands orders for a caller who can read them",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/customers_controller_spec.rb",
+      "line": 96,
+      "description": "Spree::Api::V3::Admin::CustomersController GET #show with a key that reads customers only drops expansions into orders and store credits",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/customers_controller_spec.rb",
+      "line": 313,
+      "description": "Spree::Api::V3::Admin::CustomersController POST #bulk_remove_from_groups is a no-op for non-members",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/customers_controller_spec.rb",
+      "line": 304,
+      "description": "Spree::Api::V3::Admin::CustomersController POST #bulk_remove_from_groups removes the listed customers from every listed group",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/customers_controller_spec.rb",
+      "line": 329,
+      "description": "Spree::Api::V3::Admin::CustomersController POST #bulk_add_tags adds the listed tags to every listed customer",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/customers_controller_spec.rb",
+      "line": 357,
+      "description": "Spree::Api::V3::Admin::CustomersController POST #bulk_add_tags silently drops unreachable IDs",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/customers_controller_spec.rb",
+      "line": 366,
+      "description": "Spree::Api::V3::Admin::CustomersController POST #bulk_add_tags is a no-op when tags is empty",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/customers_controller_spec.rb",
+      "line": 341,
+      "description": "Spree::Api::V3::Admin::CustomersController POST #bulk_add_tags is idempotent — re-adding the same tag does not duplicate it",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/customers_controller_spec.rb",
+      "line": 385,
+      "description": "Spree::Api::V3::Admin::CustomersController POST #bulk_remove_tags removes the listed tags from every listed customer",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/customers_controller_spec.rb",
+      "line": 398,
+      "description": "Spree::Api::V3::Admin::CustomersController POST #bulk_remove_tags is a no-op for customers without the tag",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/customers_controller_spec.rb",
+      "line": 284,
+      "description": "Spree::Api::V3::Admin::CustomersController POST #bulk_add_to_groups ignores customer groups from other stores",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/customers_controller_spec.rb",
+      "line": 273,
+      "description": "Spree::Api::V3::Admin::CustomersController POST #bulk_add_to_groups is idempotent — re-adding existing members is a no-op",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/customers_controller_spec.rb",
+      "line": 261,
+      "description": "Spree::Api::V3::Admin::CustomersController POST #bulk_add_to_groups adds the listed customers to every listed group",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/customers_controller_spec.rb",
+      "line": 13,
+      "description": "Spree::Api::V3::Admin::CustomersController GET #index returns customers",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/customers_controller_spec.rb",
+      "line": 24,
+      "description": "Spree::Api::V3::Admin::CustomersController GET #index with ransack search filters by search scope",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/customers_controller_spec.rb",
+      "line": 31,
+      "description": "Spree::Api::V3::Admin::CustomersController GET #index with ransack search filters by email_cont",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/customers_controller_spec.rb",
+      "line": 52,
+      "description": "Spree::Api::V3::Admin::CustomersController GET #index filtering by company standing returns members of the node and of its ancestors",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/customers_controller_spec.rb",
+      "line": 60,
+      "description": "Spree::Api::V3::Admin::CustomersController GET #index filtering by company standing returns nothing for a company belonging to another store",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/customers_controller_spec.rb",
+      "line": 233,
+      "description": "Spree::Api::V3::Admin::CustomersController DELETE #destroy destroys a customer with no orders",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/customers_controller_spec.rb",
+      "line": 247,
+      "description": "Spree::Api::V3::Admin::CustomersController DELETE #destroy when customer has completed orders returns 422 with error",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/customers_controller_spec.rb",
+      "line": 179,
+      "description": "Spree::Api::V3::Admin::CustomersController PATCH #update replaces tags (not append)",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/customers_controller_spec.rb",
+      "line": 172,
+      "description": "Spree::Api::V3::Admin::CustomersController PATCH #update updates the customer",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/customers_controller_spec.rb",
+      "line": 204,
+      "description": "Spree::Api::V3::Admin::CustomersController PATCH #update with customer_group_ids clears membership with an empty array",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/customers_controller_spec.rb",
+      "line": 192,
+      "description": "Spree::Api::V3::Admin::CustomersController PATCH #update with customer_group_ids replaces group membership using prefixed ids",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/customers_controller_spec.rb",
+      "line": 219,
+      "description": "Spree::Api::V3::Admin::CustomersController PATCH #update without password updates profile fields without touching the existing credential",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/collections_controller_spec.rb",
+      "line": 130,
+      "description": "Spree::Api::V3::Admin::CollectionsController PATCH #update updates collection attributes",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/collections_controller_spec.rb",
+      "line": 174,
+      "description": "Spree::Api::V3::Admin::CollectionsController PATCH #update rules sync rejects a rule type that is not registered",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/collections_controller_spec.rb",
+      "line": 163,
+      "description": "Spree::Api::V3::Admin::CollectionsController PATCH #update rules sync accepts the api_type shorthand for a rule type",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/collections_controller_spec.rb",
+      "line": 144,
+      "description": "Spree::Api::V3::Admin::CollectionsController PATCH #update rules sync updates present rules, creates new ones, and destroys omitted ones",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/collections_controller_spec.rb",
+      "line": 40,
+      "description": "Spree::Api::V3::Admin::CollectionsController GET #index returns collections in list order when filtered by permalink",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/collections_controller_spec.rb",
+      "line": 62,
+      "description": "Spree::Api::V3::Admin::CollectionsController GET #index omits rules unless expanded",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/collections_controller_spec.rb",
+      "line": 28,
+      "description": "Spree::Api::V3::Admin::CollectionsController GET #index returns collections in list order",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/collections_controller_spec.rb",
+      "line": 19,
+      "description": "Spree::Api::V3::Admin::CollectionsController GET #index lists collections for the current store only",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/collections_controller_spec.rb",
+      "line": 53,
+      "description": "Spree::Api::V3::Admin::CollectionsController GET #index exposes the merchandising config + timestamps (admin surface)",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/collections_controller_spec.rb",
+      "line": 208,
+      "description": "Spree::Api::V3::Admin::CollectionsController reordering via position on update moves a collection above its siblings when position is sent",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/collections_controller_spec.rb",
+      "line": 187,
+      "description": "Spree::Api::V3::Admin::CollectionsController DELETE #destroy deletes the collection",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/collections_controller_spec.rb",
+      "line": 74,
+      "description": "Spree::Api::V3::Admin::CollectionsController GET #show returns the collection with its rules when expanded",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/collections_controller_spec.rb",
+      "line": 87,
+      "description": "Spree::Api::V3::Admin::CollectionsController GET #show returns not found for another store's collection",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/collections_controller_spec.rb",
+      "line": 94,
+      "description": "Spree::Api::V3::Admin::CollectionsController POST #create creates a manual collection owned by the store",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/collections_controller_spec.rb",
+      "line": 104,
+      "description": "Spree::Api::V3::Admin::CollectionsController POST #create creates an automatic collection with typed rules from the flat rules payload",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/collections_controller_spec.rb",
+      "line": 123,
+      "description": "Spree::Api::V3::Admin::CollectionsController POST #create returns 422 for a blank name",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/categories_controller_spec.rb",
+      "line": 203,
+      "description": "Spree::Api::V3::Admin::CategoriesController DELETE #destroy deletes the category",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/categories_controller_spec.rb",
+      "line": 120,
+      "description": "Spree::Api::V3::Admin::CategoriesController PATCH #update purges the image when image is set to null",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/categories_controller_spec.rb",
+      "line": 96,
+      "description": "Spree::Api::V3::Admin::CategoriesController PATCH #update updates category attributes",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/categories_controller_spec.rb",
+      "line": 113,
+      "description": "Spree::Api::V3::Admin::CategoriesController PATCH #update sanitizes the description on write",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/categories_controller_spec.rb",
+      "line": 105,
+      "description": "Spree::Api::V3::Admin::CategoriesController PATCH #update stores the description as HTML and reads back both shapes",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/categories_controller_spec.rb",
+      "line": 177,
+      "description": "Spree::Api::V3::Admin::CategoriesController PATCH #update with inline custom fields persists custom_fields inline on update",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/categories_controller_spec.rb",
+      "line": 191,
+      "description": "Spree::Api::V3::Admin::CategoriesController PATCH #update with inline custom fields leaves existing values untouched when custom_fields is omitted",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/categories_controller_spec.rb",
+      "line": 164,
+      "description": "Spree::Api::V3::Admin::CategoriesController PATCH #update with inline custom fields round-trips an object-shaped JSON custom field value",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/categories_controller_spec.rb",
+      "line": 151,
+      "description": "Spree::Api::V3::Admin::CategoriesController PATCH #update with inline custom fields round-trips an array-shaped JSON custom field value",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/categories_controller_spec.rb",
+      "line": 18,
+      "description": "Spree::Api::V3::Admin::CategoriesController GET #index lists the store categories",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/categories_controller_spec.rb",
+      "line": 34,
+      "description": "Spree::Api::V3::Admin::CategoriesController GET #index sorted by name in a non-default locale sorts by the translation, falling back to the base name",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/categories_controller_spec.rb",
+      "line": 89,
+      "description": "Spree::Api::V3::Admin::CategoriesController POST #create returns 422 for a blank name",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/categories_controller_spec.rb",
+      "line": 79,
+      "description": "Spree::Api::V3::Admin::CategoriesController POST #create creates a top-level category (no parent, owned by the store) when no parent is given",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/categories_controller_spec.rb",
+      "line": 71,
+      "description": "Spree::Api::V3::Admin::CategoriesController POST #create creates a category nested under the given parent",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/categories_controller_spec.rb",
+      "line": 311,
+      "description": "Spree::Api::V3::Admin::CategoriesController PATCH #reposition reordering top-level categories (no parent change) clamps an out-of-range top-level index to the end",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/categories_controller_spec.rb",
+      "line": 288,
+      "description": "Spree::Api::V3::Admin::CategoriesController PATCH #reposition reordering top-level categories (no parent change) moves a root category to the first position among its siblings",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/categories_controller_spec.rb",
+      "line": 297,
+      "description": "Spree::Api::V3::Admin::CategoriesController PATCH #reposition reordering top-level categories (no parent change) moves a root category to the last position",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/categories_controller_spec.rb",
+      "line": 304,
+      "description": "Spree::Api::V3::Admin::CategoriesController PATCH #reposition reordering top-level categories (no parent change) moves a root category to a middle position",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/categories_controller_spec.rb",
+      "line": 271,
+      "description": "Spree::Api::V3::Admin::CategoriesController PATCH #reposition changing the parent returns 422 for an impossible move (into its own descendant)",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/categories_controller_spec.rb",
+      "line": 240,
+      "description": "Spree::Api::V3::Admin::CategoriesController PATCH #reposition changing the parent reorders among an existing parent's children",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/categories_controller_spec.rb",
+      "line": 250,
+      "description": "Spree::Api::V3::Admin::CategoriesController PATCH #reposition changing the parent clamps an out-of-range index instead of 404ing",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/categories_controller_spec.rb",
+      "line": 231,
+      "description": "Spree::Api::V3::Admin::CategoriesController PATCH #reposition changing the parent inserts among existing children at the requested index",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/categories_controller_spec.rb",
+      "line": 223,
+      "description": "Spree::Api::V3::Admin::CategoriesController PATCH #reposition changing the parent moves a category under a new parent at the given index",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/categories_controller_spec.rb",
+      "line": 262,
+      "description": "Spree::Api::V3::Admin::CategoriesController PATCH #reposition changing the parent promotes a nested category to the top level when no parent is given",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/categories_controller_spec.rb",
+      "line": 325,
+      "description": "Spree::Api::V3::Admin::CategoriesController PATCH #reposition invalid new_position returns 422 for a non-integer new_position",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/categories_controller_spec.rb",
+      "line": 320,
+      "description": "Spree::Api::V3::Admin::CategoriesController PATCH #reposition invalid new_position returns 422 for a missing new_position",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/categories_controller_spec.rb",
+      "line": 52,
+      "description": "Spree::Api::V3::Admin::CategoriesController GET #show exposes the product count",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/categories_controller_spec.rb",
+      "line": 59,
+      "description": "Spree::Api::V3::Admin::CategoriesController GET #show rolls subcategory products up into the product count",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/categories_controller_spec.rb",
+      "line": 45,
+      "description": "Spree::Api::V3::Admin::CategoriesController GET #show returns the category",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/sellers_controller_spec.rb",
+      "line": 122,
+      "description": "Spree::Api::V3::Admin::SellersController POST #create opens a seller record awaiting invitation",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/sellers_controller_spec.rb",
+      "line": 130,
+      "description": "Spree::Api::V3::Admin::SellersController POST #create refuses a slug already taken in this marketplace",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/sellers_controller_spec.rb",
+      "line": 298,
+      "description": "Spree::Api::V3::Admin::SellersController PATCH #suspend stops a trading seller and keeps the reason",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/sellers_controller_spec.rb",
+      "line": 279,
+      "description": "Spree::Api::V3::Admin::SellersController PATCH #approve lets an applicant under review trade",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/sellers_controller_spec.rb",
+      "line": 288,
+      "description": "Spree::Api::V3::Admin::SellersController PATCH #approve refuses one that has not applied yet",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/sellers_controller_spec.rb",
+      "line": 308,
+      "description": "Spree::Api::V3::Admin::SellersController PATCH #reject turns down an applicant",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/sellers_controller_spec.rb",
+      "line": 317,
+      "description": "Spree::Api::V3::Admin::SellersController PATCH #reject refuses one already trading — suspension is the right move there",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/sellers_controller_spec.rb",
+      "line": 259,
+      "description": "Spree::Api::V3::Admin::SellersController POST #invite invites someone into the seller's own team",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/sellers_controller_spec.rb",
+      "line": 267,
+      "description": "Spree::Api::V3::Admin::SellersController POST #invite refuses a role from another team",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/sellers_controller_spec.rb",
+      "line": 330,
+      "description": "Spree::Api::V3::Admin::SellersController DELETE #destroy removes a seller that has already been invited",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/sellers_controller_spec.rb",
+      "line": 341,
+      "description": "Spree::Api::V3::Admin::SellersController DELETE #destroy removes the seller but keeps their catalog",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/sellers_controller_spec.rb",
+      "line": 105,
+      "description": "Spree::Api::V3::Admin::SellersController GET #show returns the seller profile",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/sellers_controller_spec.rb",
+      "line": 112,
+      "description": "Spree::Api::V3::Admin::SellersController GET #show 404s on another marketplace's seller",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/sellers_controller_spec.rb",
+      "line": 171,
+      "description": "Spree::Api::V3::Admin::SellersController PATCH #update strips scripts out of the description",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/sellers_controller_spec.rb",
+      "line": 199,
+      "description": "Spree::Api::V3::Admin::SellersController PATCH #update creates the seller its own address from nested attributes",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/sellers_controller_spec.rb",
+      "line": 138,
+      "description": "Spree::Api::V3::Admin::SellersController PATCH #update edits the profile and the settlement configuration",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/sellers_controller_spec.rb",
+      "line": 212,
+      "description": "Spree::Api::V3::Admin::SellersController PATCH #update attaches branding from a signed id",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/sellers_controller_spec.rb",
+      "line": 191,
+      "description": "Spree::Api::V3::Admin::SellersController PATCH #update ignores a raw integer address id too",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/sellers_controller_spec.rb",
+      "line": 237,
+      "description": "Spree::Api::V3::Admin::SellersController PATCH #update purges the logo when logo is set to null",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/sellers_controller_spec.rb",
+      "line": 153,
+      "description": "Spree::Api::V3::Admin::SellersController PATCH #update ignores a status sent through mass assignment",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/sellers_controller_spec.rb",
+      "line": 225,
+      "description": "Spree::Api::V3::Admin::SellersController PATCH #update attaches a cover photo the same way",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/sellers_controller_spec.rb",
+      "line": 162,
+      "description": "Spree::Api::V3::Admin::SellersController PATCH #update keeps the markup in the description",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/sellers_controller_spec.rb",
+      "line": 180,
+      "description": "Spree::Api::V3::Admin::SellersController PATCH #update refuses to bind an address by id",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/sellers_controller_spec.rb",
+      "line": 72,
+      "description": "Spree::Api::V3::Admin::SellersController asking the payout provider is not done per row on the list",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/sellers_controller_spec.rb",
+      "line": 84,
+      "description": "Spree::Api::V3::Admin::SellersController asking the payout provider is done for the seller being looked at",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/sellers_controller_spec.rb",
+      "line": 95,
+      "description": "Spree::Api::V3::Admin::SellersController asking the payout provider is done for the checklist staff read",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/sellers_controller_spec.rb",
+      "line": 253,
+      "description": "Spree::Api::V3::Admin::SellersController custom fields mounts the nested custom_fields resource",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/sellers_controller_spec.rb",
+      "line": 355,
+      "description": "Spree::Api::V3::Admin::SellersController the onboarding checklist on a page of sellers reads every seller’s box in one query",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/sellers_controller_spec.rb",
+      "line": 13,
+      "description": "Spree::Api::V3::Admin::SellersController GET #index lists the store sellers",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/sellers_controller_spec.rb",
+      "line": 34,
+      "description": "Spree::Api::V3::Admin::SellersController GET #index never loads a seller catalog to count it",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/sellers_controller_spec.rb",
+      "line": 53,
+      "description": "Spree::Api::V3::Admin::SellersController GET #index says whether a seller can be bought from right now",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/sellers_controller_spec.rb",
+      "line": 23,
+      "description": "Spree::Api::V3::Admin::SellersController GET #index hides another marketplace's sellers",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/promotions_controller_spec.rb",
+      "line": 23,
+      "description": "Spree::Api::V3::Admin::PromotionsController GET #index filters by name or code via name_or_code_cont",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/promotions_controller_spec.rb",
+      "line": 13,
+      "description": "Spree::Api::V3::Admin::PromotionsController GET #index returns promotions list",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/promotions_controller_spec.rb",
+      "line": 478,
+      "description": "Spree::Api::V3::Admin::PromotionsController DELETE #destroy destroys the promotion",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/promotions_controller_spec.rb",
+      "line": 38,
+      "description": "Spree::Api::V3::Admin::PromotionsController GET #show returns the promotion",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/promotions_controller_spec.rb",
+      "line": 229,
+      "description": "Spree::Api::V3::Admin::PromotionsController POST #create with rules and actions in the same request persists both atomically",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/promotions_controller_spec.rb",
+      "line": 82,
+      "description": "Spree::Api::V3::Admin::PromotionsController POST #create with rules creates an ItemTotal rule with multiple preferences",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/promotions_controller_spec.rb",
+      "line": 141,
+      "description": "Spree::Api::V3::Admin::PromotionsController POST #create with rules creates multiple rules of different types in one request",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/promotions_controller_spec.rb",
+      "line": 123,
+      "description": "Spree::Api::V3::Admin::PromotionsController POST #create with rules creates a Taxon rule with prefixed category_ids",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/promotions_controller_spec.rb",
+      "line": 157,
+      "description": "Spree::Api::V3::Admin::PromotionsController POST #create with rules silently ignores rules with an unknown type",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/promotions_controller_spec.rb",
+      "line": 101,
+      "description": "Spree::Api::V3::Admin::PromotionsController POST #create with rules creates a Product rule with prefixed product_ids on a new promotion",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/promotions_controller_spec.rb",
+      "line": 67,
+      "description": "Spree::Api::V3::Admin::PromotionsController POST #create with rules creates a Currency rule with preferences",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/promotions_controller_spec.rb",
+      "line": 248,
+      "description": "Spree::Api::V3::Admin::PromotionsController POST #create with shorthand type strings resolves shorthand to the correct rule subclass",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/promotions_controller_spec.rb",
+      "line": 261,
+      "description": "Spree::Api::V3::Admin::PromotionsController POST #create with shorthand type strings resolves shorthand for rules with overridden api_type",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/promotions_controller_spec.rb",
+      "line": 293,
+      "description": "Spree::Api::V3::Admin::PromotionsController POST #create with shorthand type strings exposes shorthand via the rule/action `type` attribute",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/promotions_controller_spec.rb",
+      "line": 276,
+      "description": "Spree::Api::V3::Admin::PromotionsController POST #create with shorthand type strings resolves shorthand for actions and calculators",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/promotions_controller_spec.rb",
+      "line": 307,
+      "description": "Spree::Api::V3::Admin::PromotionsController POST #create with shorthand type strings rejects unknown shorthand",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/promotions_controller_spec.rb",
+      "line": 196,
+      "description": "Spree::Api::V3::Admin::PromotionsController POST #create with actions creates a FreeShipping action without a calculator",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/promotions_controller_spec.rb",
+      "line": 208,
+      "description": "Spree::Api::V3::Admin::PromotionsController POST #create with actions creates a CreateAdjustment action with FlatPercentItemTotal calculator",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/promotions_controller_spec.rb",
+      "line": 175,
+      "description": "Spree::Api::V3::Admin::PromotionsController POST #create with actions creates a CreateItemAdjustments action with a FlatRate calculator",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/promotions_controller_spec.rb",
+      "line": 51,
+      "description": "Spree::Api::V3::Admin::PromotionsController POST #create with basic attributes only creates a promotion",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/promotions_controller_spec.rb",
+      "line": 59,
+      "description": "Spree::Api::V3::Admin::PromotionsController POST #create with basic attributes only returns 422 without a name",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/promotions_controller_spec.rb",
+      "line": 324,
+      "description": "Spree::Api::V3::Admin::PromotionsController PATCH #update updates basic attributes",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/promotions_controller_spec.rb",
+      "line": 398,
+      "description": "Spree::Api::V3::Admin::PromotionsController PATCH #update with rules destroys removed rules while keeping the ones explicitly passed",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/promotions_controller_spec.rb",
+      "line": 332,
+      "description": "Spree::Api::V3::Admin::PromotionsController PATCH #update with rules adds a new rule to an existing promotion",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/promotions_controller_spec.rb",
+      "line": 366,
+      "description": "Spree::Api::V3::Admin::PromotionsController PATCH #update with rules replaces product_ids on an existing Product rule",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/promotions_controller_spec.rb",
+      "line": 388,
+      "description": "Spree::Api::V3::Admin::PromotionsController PATCH #update with rules destroys rules omitted from the payload",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/promotions_controller_spec.rb",
+      "line": 346,
+      "description": "Spree::Api::V3::Admin::PromotionsController PATCH #update with rules updates an existing rule by prefixed id",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/promotions_controller_spec.rb",
+      "line": 439,
+      "description": "Spree::Api::V3::Admin::PromotionsController PATCH #update with actions destroys actions omitted from the payload",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/promotions_controller_spec.rb",
+      "line": 416,
+      "description": "Spree::Api::V3::Admin::PromotionsController PATCH #update with actions swaps the calculator type and persists new preferences",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/promotions_controller_spec.rb",
+      "line": 448,
+      "description": "Spree::Api::V3::Admin::PromotionsController PATCH #update with actions adds a FreeShipping action alongside an existing one",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/companies_controller_spec.rb",
+      "line": 50,
+      "description": "Spree::Api::V3::Admin::CompaniesController GET #index filters roots and children through Ransack",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/companies_controller_spec.rb",
+      "line": 15,
+      "description": "Spree::Api::V3::Admin::CompaniesController GET #index lists the store companies",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/companies_controller_spec.rb",
+      "line": 35,
+      "description": "Spree::Api::V3::Admin::CompaniesController GET #index counts children, and members across the whole subtree",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/companies_controller_spec.rb",
+      "line": 27,
+      "description": "Spree::Api::V3::Admin::CompaniesController GET #index hides companies belonging to another store",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/companies_controller_spec.rb",
+      "line": 146,
+      "description": "Spree::Api::V3::Admin::CompaniesController the PO requirement flag defaults to off",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/companies_controller_spec.rb",
+      "line": 152,
+      "description": "Spree::Api::V3::Admin::CompaniesController the PO requirement flag is switched on through the company form",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/companies_controller_spec.rb",
+      "line": 216,
+      "description": "Spree::Api::V3::Admin::CompaniesController DELETE #destroy removes the node and its subtree",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/companies_controller_spec.rb",
+      "line": 129,
+      "description": "Spree::Api::V3::Admin::CompaniesController POST #create updates the existing record when the external id is already known",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/companies_controller_spec.rb",
+      "line": 138,
+      "description": "Spree::Api::V3::Admin::CompaniesController POST #create rejects a company with no name",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/companies_controller_spec.rb",
+      "line": 99,
+      "description": "Spree::Api::V3::Admin::CompaniesController POST #create creates a division under a parent",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/companies_controller_spec.rb",
+      "line": 107,
+      "description": "Spree::Api::V3::Admin::CompaniesController POST #create 404s a parent belonging to another store",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/companies_controller_spec.rb",
+      "line": 115,
+      "description": "Spree::Api::V3::Admin::CompaniesController POST #create rejects a division at the root",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/companies_controller_spec.rb",
+      "line": 121,
+      "description": "Spree::Api::V3::Admin::CompaniesController POST #create records the external identity the connector sent",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/companies_controller_spec.rb",
+      "line": 90,
+      "description": "Spree::Api::V3::Admin::CompaniesController POST #create creates a root company bound to the current store",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/companies_controller_spec.rb",
+      "line": 176,
+      "description": "Spree::Api::V3::Admin::CompaniesController PATCH #update leaves other systems alone when one connector writes its key",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/companies_controller_spec.rb",
+      "line": 206,
+      "description": "Spree::Api::V3::Admin::CompaniesController PATCH #update refuses a cycle",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/companies_controller_spec.rb",
+      "line": 186,
+      "description": "Spree::Api::V3::Admin::CompaniesController PATCH #update does not reach a company in another store through its external id",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/companies_controller_spec.rb",
+      "line": 196,
+      "description": "Spree::Api::V3::Admin::CompaniesController PATCH #update re-parents a node, revalidating the tree",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/companies_controller_spec.rb",
+      "line": 169,
+      "description": "Spree::Api::V3::Admin::CompaniesController PATCH #update addresses the company by the identity the external system knows",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/companies_controller_spec.rb",
+      "line": 162,
+      "description": "Spree::Api::V3::Admin::CompaniesController PATCH #update renames a company",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/companies_controller_spec.rb",
+      "line": 72,
+      "description": "Spree::Api::V3::Admin::CompaniesController GET #show expands the address book and memberships on request",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/companies_controller_spec.rb",
+      "line": 82,
+      "description": "Spree::Api::V3::Admin::CompaniesController GET #show 404s for another store company",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/companies_controller_spec.rb",
+      "line": 62,
+      "description": "Spree::Api::V3::Admin::CompaniesController GET #show expands children on request",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 210,
+      "description": "Spree::Api::V3::Admin::OrdersController GET #show expands a grouped order's shares of the group's payments",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 197,
+      "description": "Spree::Api::V3::Admin::OrdersController GET #show expands the originating cart on a placed order",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 273,
+      "description": "Spree::Api::V3::Admin::OrdersController GET #show shows the full gift card code to a caller who can read gift cards",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 236,
+      "description": "Spree::Api::V3::Admin::OrdersController GET #show includes admin-only fields",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 228,
+      "description": "Spree::Api::V3::Admin::OrdersController GET #show returns the order",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 265,
+      "description": "Spree::Api::V3::Admin::OrdersController GET #show with a key that reads orders but not gift cards does not expand the customer or payments",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 258,
+      "description": "Spree::Api::V3::Admin::OrdersController GET #show with a key that reads orders but not gift cards masks the gift card code",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 244,
+      "description": "Spree::Api::V3::Admin::OrdersController GET #show with non-existent order returns 404",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 1213,
+      "description": "Spree::Api::V3::Admin::OrdersController PATCH #approve approves the order",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 896,
+      "description": "Spree::Api::V3::Admin::OrdersController DELETE #destroy deletes a draft order",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 907,
+      "description": "Spree::Api::V3::Admin::OrdersController DELETE #destroy with completed order returns 422 (completed orders cannot be deleted)",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 1228,
+      "description": "Spree::Api::V3::Admin::OrdersController POST #resend_confirmation returns the order",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 1069,
+      "description": "Spree::Api::V3::Admin::OrdersController PATCH #cancel leaves the reason unset when none is given",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 1062,
+      "description": "Spree::Api::V3::Admin::OrdersController PATCH #cancel cancels the order",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 1157,
+      "description": "Spree::Api::V3::Admin::OrdersController PATCH #cancel does not refund unless asked",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 1177,
+      "description": "Spree::Api::V3::Admin::OrdersController PATCH #cancel when notify_customer is not passed asks the workflow not to notify the customer",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 1197,
+      "description": "Spree::Api::V3::Admin::OrdersController PATCH #cancel when the order cannot be canceled returns 422 and leaves the order untouched",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 1078,
+      "description": "Spree::Api::V3::Admin::OrdersController PATCH #cancel who it records as the canceler names the signed-in admin on a JWT request",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 1092,
+      "description": "Spree::Api::V3::Admin::OrdersController PATCH #cancel who it records as the canceler when a secret API key made the call names the key",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 1109,
+      "description": "Spree::Api::V3::Admin::OrdersController PATCH #cancel with a reason and note stamps them on the order",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 1125,
+      "description": "Spree::Api::V3::Admin::OrdersController PATCH #cancel with refund_payments asks the workflow to refund what the order has been paid",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 1137,
+      "description": "Spree::Api::V3::Admin::OrdersController PATCH #cancel with refund_payments capped by refund_amount passes the cap through",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 1146,
+      "description": "Spree::Api::V3::Admin::OrdersController PATCH #cancel with refund_payments capped by refund_amount refuses the cap on an order whose payment is not shared",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 1168,
+      "description": "Spree::Api::V3::Admin::OrdersController PATCH #cancel with a reason belonging to another store returns 404 and leaves the order untouched",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 1187,
+      "description": "Spree::Api::V3::Admin::OrdersController PATCH #cancel when notify_customer is truthy asks the workflow to notify the customer",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 661,
+      "description": "Spree::Api::V3::Admin::OrdersController PATCH #update updates the order",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 689,
+      "description": "Spree::Api::V3::Admin::OrdersController PATCH #update with a whole edited order in one request applies none of the changes when one line is refused",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 675,
+      "description": "Spree::Api::V3::Admin::OrdersController PATCH #update with a whole edited order in one request applies the quantity changes and the removals together",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 840,
+      "description": "Spree::Api::V3::Admin::OrdersController PATCH #update adding items to a draft order with a shipping address creates fulfillments and rolls delivery_total into the response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 870,
+      "description": "Spree::Api::V3::Admin::OrdersController PATCH #update adding items to a draft order with a shipping address when the order already has shipments rebuilds shipments when items change (old shipment IDs are gone)",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 811,
+      "description": "Spree::Api::V3::Admin::OrdersController PATCH #update with an unusable price in the items batch refuses with an actionable message",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 762,
+      "description": "Spree::Api::V3::Admin::OrdersController PATCH #update with customer reassignment via customer_id reassigns to the new customer",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 715,
+      "description": "Spree::Api::V3::Admin::OrdersController PATCH #update assigning the business the order is for sets the node and reports it",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 726,
+      "description": "Spree::Api::V3::Admin::OrdersController PATCH #update assigning the business the order is for 404s a node belonging to another store",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 735,
+      "description": "Spree::Api::V3::Admin::OrdersController PATCH #update assigning the business the order is for clears the node when passed nothing",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 748,
+      "description": "Spree::Api::V3::Admin::OrdersController PATCH #update with customer assignment via customer_id assigns the customer",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 795,
+      "description": "Spree::Api::V3::Admin::OrdersController PATCH #update with tags leaves tags untouched when key is omitted",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 779,
+      "description": "Spree::Api::V3::Admin::OrdersController PATCH #update with tags replaces existing tags",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 787,
+      "description": "Spree::Api::V3::Admin::OrdersController PATCH #update with tags clears tags when given an empty array",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 771,
+      "description": "Spree::Api::V3::Admin::OrdersController PATCH #update with tags sets tags on a previously untagged order",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 15,
+      "description": "Spree::Api::V3::Admin::OrdersController GET #index returns orders list",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 31,
+      "description": "Spree::Api::V3::Admin::OrdersController GET #index returns pagination metadata",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 24,
+      "description": "Spree::Api::V3::Admin::OrdersController GET #index includes admin-only fields",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 167,
+      "description": "Spree::Api::V3::Admin::OrdersController GET #index on a marketplace narrows to one seller",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 148,
+      "description": "Spree::Api::V3::Admin::OrdersController GET #index on a marketplace leaves the operator’s own order without a seller",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 179,
+      "description": "Spree::Api::V3::Admin::OrdersController GET #index on a marketplace narrows to the orders of one purchase",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 142,
+      "description": "Spree::Api::V3::Admin::OrdersController GET #index on a marketplace carries the whole profile when asked to expand it",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 173,
+      "description": "Spree::Api::V3::Admin::OrdersController GET #index on a marketplace narrows to several sellers at once, as the picker sends them",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 161,
+      "description": "Spree::Api::V3::Admin::OrdersController GET #index on a marketplace leaves an ungrouped order without a purchase",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 136,
+      "description": "Spree::Api::V3::Admin::OrdersController GET #index on a marketplace names the seller on each row",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 155,
+      "description": "Spree::Api::V3::Admin::OrdersController GET #index on a marketplace names the purchase a row was part of",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 189,
+      "description": "Spree::Api::V3::Admin::OrdersController GET #index without authentication returns 401 unauthorized",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 83,
+      "description": "Spree::Api::V3::Admin::OrdersController GET #index with q[search] (full-text search) matches by order number substring",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 101,
+      "description": "Spree::Api::V3::Admin::OrdersController GET #index with q[search] (full-text search) returns no results when nothing matches",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 92,
+      "description": "Spree::Api::V3::Admin::OrdersController GET #index with q[search] (full-text search) matches by exact email",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 40,
+      "description": "Spree::Api::V3::Admin::OrdersController GET #index with ransack filtering filters by completion",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 62,
+      "description": "Spree::Api::V3::Admin::OrdersController GET #index with ransack filtering filtering by channel_id returns orders across multiple channels via channel_id_in",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 53,
+      "description": "Spree::Api::V3::Admin::OrdersController GET #index with ransack filtering filtering by channel_id returns only orders on the requested channel via channel_id_eq",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 296,
+      "description": "Spree::Api::V3::Admin::OrdersController POST #create stamps created_by from the authenticated admin",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 289,
+      "description": "Spree::Api::V3::Admin::OrdersController POST #create creates a draft order",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 501,
+      "description": "Spree::Api::V3::Admin::OrdersController POST #create creates order with status draft sets status to draft",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 309,
+      "description": "Spree::Api::V3::Admin::OrdersController POST #create with a company attaches the company to the draft",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 316,
+      "description": "Spree::Api::V3::Admin::OrdersController POST #create with a company 404s on another store's company rather than confirming the id exists",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 563,
+      "description": "Spree::Api::V3::Admin::OrdersController POST #create with preferred_stock_location_id (routes to that location) routes the resulting fulfillment to the preferred location, not the default",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 558,
+      "description": "Spree::Api::V3::Admin::OrdersController POST #create with preferred_stock_location_id (routes to that location) exposes preferred_stock_location_id in the JSON response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 550,
+      "description": "Spree::Api::V3::Admin::OrdersController POST #create with preferred_stock_location_id (routes to that location) persists the preferred_stock_location association",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 577,
+      "description": "Spree::Api::V3::Admin::OrdersController POST #create with preferred_stock_location_id (routes to that location) when the preferred location does not stock the variant falls back to the default location instead of erroring",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 595,
+      "description": "Spree::Api::V3::Admin::OrdersController POST #create with preferred_stock_location_id (routes to that location) with an unknown preferred_stock_location_id returns a not-found error rather than silently dropping the preference",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 369,
+      "description": "Spree::Api::V3::Admin::OrdersController POST #create with inline items creates the order with the line items",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 387,
+      "description": "Spree::Api::V3::Admin::OrdersController POST #create with inline items carrying a negotiated price creates the line at the negotiated price, stamped manual",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 407,
+      "description": "Spree::Api::V3::Admin::OrdersController POST #create with inline items carrying an unusable price refuses with an actionable message",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 490,
+      "description": "Spree::Api::V3::Admin::OrdersController POST #create with metadata stores metadata on the order",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 342,
+      "description": "Spree::Api::V3::Admin::OrdersController POST #create with customer assignment via customer_id creates order assigned to the customer",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 350,
+      "description": "Spree::Api::V3::Admin::OrdersController POST #create with customer assignment via customer_id refuses to attach a customer the principal is not allowed to see",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 329,
+      "description": "Spree::Api::V3::Admin::OrdersController POST #create with customer assignment via customer_id creates order assigned to the customer",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 471,
+      "description": "Spree::Api::V3::Admin::OrdersController POST #create with use_customer_default_address copies the customer default addresses onto the order",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 444,
+      "description": "Spree::Api::V3::Admin::OrdersController POST #create with items and shipping address (one-shot draft order) creates fulfillments and returns delivery_total in the response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 920,
+      "description": "Spree::Api::V3::Admin::OrdersController PATCH #complete completes the order",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 927,
+      "description": "Spree::Api::V3::Admin::OrdersController PATCH #complete accepts payment_pending flag without re-processing payments",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 946,
+      "description": "Spree::Api::V3::Admin::OrdersController PATCH #complete omits notify_customer when not given (service defaults to false)",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 934,
+      "description": "Spree::Api::V3::Admin::OrdersController PATCH #complete passes notify_customer flag to the service",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 972,
+      "description": "Spree::Api::V3::Admin::OrdersController PATCH #complete when the order cannot be completed surfaces validation errors from the order",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 963,
+      "description": "Spree::Api::V3::Admin::OrdersController PATCH #complete when the order cannot be completed returns 422 with order_cannot_complete code and the underlying error message",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 988,
+      "description": "Spree::Api::V3::Admin::OrdersController PATCH #complete when the order cannot be completed falls back to the service error when the order has no errors",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 1020,
+      "description": "Spree::Api::V3::Admin::OrdersController PATCH #complete when the order divides between sellers answers with the group and the orders it produced",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 1043,
+      "description": "Spree::Api::V3::Admin::OrdersController PATCH #complete when the order holds one seller answers with the order, carrying its seller",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 615,
+      "description": "Spree::Api::V3::Admin::OrdersController the buyer purchase order is correctable after placement",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 606,
+      "description": "Spree::Api::V3::Admin::OrdersController the buyer purchase order is set when staff key an order in",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 646,
+      "description": "Spree::Api::V3::Admin::OrdersController the buyer purchase order GET #po_document reports a validation error when the order has no document",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/orders_controller_spec.rb",
+      "line": 638,
+      "description": "Spree::Api::V3::Admin::OrdersController the buyer purchase order GET #po_document streams the document to an authorized admin",
+      "status": "passed"
+    }
+  ]
+}

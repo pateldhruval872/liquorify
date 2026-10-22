@@ -241,10 +241,10 @@ Each one is recorded against its component ID in LIQ-009, in the coverage column
 
 | Surface | Themes | Widths |
 |---|---|---|
-| Dashboard design system, framework, admin dashboard, seller panel | Light and dark | One desktop width, 1280 pixels |
+| Dashboard design system, framework, admin dashboard, seller panel | Light and dark. A story that leaves the theme on "System", where the running dashboard starts, follows the colour scheme each mode emulates | One desktop width, 1280 pixels. Stories tagged `phone`, which show a part of the dashboard that exists only below its 768-pixel breakpoint, such as the shell's top bar and drawer, at 390 pixels instead, in both themes (added by the staff access batch's part 2) |
 | Storefront | Light, because shoppers never see the dark theme (§3.3). Stories tagged `system-dark` are also captured at the desktop width with the operating system's dark setting emulated | 390 and 1280 pixels. Stories tagged `desktop-only`, the token pages, at 1280 only, because they are reference tables rather than shopper layouts |
 
-The viewport is 800 pixels high in the backend and 844 in the storefront, the height of the phone width it pairs with. A story captured by its root element is captured in full however tall it is; a viewport capture (§11.3) shows the viewport only.
+The viewport is 800 pixels high in the backend, except 844 for its `phone` stories, and 844 in the storefront, the height of the phone width it pairs with. A story captured by its root element is captured in full however tall it is; a viewport capture (§11.3) shows the viewport only.
 
 The storefront's dark values are still reproduced in full: on the token pages and as a Figma mode named "Dark (declared, not shown)". Things that follow the operating system's dark setting are tagged `system-dark` and captured with that setting emulated, which Playwright supports (`colorScheme: 'dark'`), while the page itself stays light. In the pilot that is the toast container. The base focus outline (§3.3) is tagged too when the batch that covers links and form fields reaches it; the button's own outline does not follow the setting, so its focus story is captured in light only.
 

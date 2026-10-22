@@ -1,0 +1,23 @@
+{
+  "screen": "DA-OVL-02",
+  "state": "open",
+  "variant": "support",
+  "role": {
+    "name": "Support",
+    "permissions": [
+      "read_orders",
+      "read_customers",
+      "read_dashboard"
+    ]
+  },
+  "theme": "dark",
+  "revision": "a4a1708",
+  "path": "/<store>",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": null,
+  "settled": true,
+  "outside": []
+}

@@ -245,6 +245,19 @@ Part 1's running screens and tests showed where this proposal did not match Spre
 
 Part 1 also closed one of #9's source-only stories (§7.5): #9's destructive alert was compared with the sign-in page's providers alert.
 
+### 7.7 Corrections found in part 2
+
+Part 2's running screens showed where this proposal did not match Spree at `a4a1708` for the shell. As in §7.6, the proposal's text is unchanged and these corrections govern. Each is recorded in the [part 2 verification record](../verification/2026-10-22-fb-19-batch-staff-access-part-2.md) §5 and §6.
+
+| Where | The proposal says | Spree does |
+|---|---|---|
+| §7.1, CAP-04-05's evidence | Outside update requests blocked and recorded | The update check is made by Spree's server, not the browser, and the test environment switches it off. The captures blocked and recorded every request that would have left the local servers instead; there were none |
+| §2.1, DA-OVL-03 | A "populated" state | The only notification is a newer release. With the check switched off, the state is reached only by answering the check in the browser |
+| §2.1, DA-OVL-04 | A "field errors" state | The server saved every value tried, a 300-letter name and an unknown language included, so the state is reached only by answering the save |
+| §2.2, the three templates | The sidebar each one produces | Captured in part 1, and compared with its story in part 2 |
+
+Part 2 also showed the teammate's own navigation after a role is given, which part 1 left as a gap (§7.5).
+
 ## 8. Ownership, risk and release impact
 
 - **Owner.** The owner reviews and accepts; an automated Claude session implements. Review is not independent ([LIQ-001 §2](../LIQ-001-project-profile.md#2-responsibilities)).

@@ -81,6 +81,17 @@ export const teammates: Record<
   },
 }
 
+/**
+ * A teammate who starts each run with the support role and is given the
+ * merchandiser role during it, to show their own navigation after a role is
+ * given (FL-24's last step).
+ */
+export const roleChange = {
+  email: 'fidelity-role-change@example.com',
+  first: 'Rae',
+  last: 'Changed',
+}
+
 /** A teammate removed from the store, so they hold no role anywhere. */
 export const removed = { email: 'fidelity-no-store@example.com', first: 'Noa', last: 'Removed' }
 /** An invitation nobody has accepted, for a new account. */
@@ -91,6 +102,8 @@ export interface Seeded {
   storeName: string
   pendingInvitationId: string
   existingAccountInvitationId: string
+  roleIds: Record<RoleKey, string>
+  roleChangeId: string
 }
 
 export async function admin(api: APIRequestContext) {
@@ -205,6 +218,8 @@ export async function seed(baseURL: string): Promise<Seeded> {
       await join(api, headers, baseURL, teammate, roleIds[teammate.role])
     }
 
+    await join(api, headers, baseURL, roleChange, roleIds.support)
+
     // A teammate who joined and was then removed keeps an account with no role.
     await join(api, headers, baseURL, removed, roleIds.support)
     const members = (
@@ -212,6 +227,14 @@ export async function seed(baseURL: string): Promise<Seeded> {
         data: { id: string; email: string }[]
       }
     ).data
+    const roleChangeId = members.find((item) => item.email === roleChange.email)?.id
+    expect(roleChangeId, 'the role-change teammate is on the staff').toBeTruthy()
+    // Back to the support role alone, whatever an earlier run gave them.
+    const reset = await api.patch(`/api/v3/admin/admin_users/${roleChangeId}`, {
+      headers,
+      data: { role_ids: [roleIds.support] },
+    })
+    expect(reset.ok(), await reset.text()).toBeTruthy()
     const member = members.find((item) => item.email === removed.email)
     if (member) {
       const res = await api.delete(`/api/v3/admin/admin_users/${member.id}`, { headers })
@@ -225,6 +248,8 @@ export async function seed(baseURL: string): Promise<Seeded> {
       storeName: creds.store_name,
       pendingInvitationId: pendingId,
       existingAccountInvitationId: existingId,
+      roleIds,
+      roleChangeId: roleChangeId as string,
     }
   } finally {
     await api.dispose()

@@ -1,0 +1,16 @@
+{
+  "screen": "DA-OVL-01",
+  "state": "navigation-loading",
+  "variant": "admin",
+  "role": null,
+  "theme": "dark",
+  "revision": "a4a1708",
+  "path": "/<store>",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": "The signed-in teammate's permissions request is held open",
+  "settled": null,
+  "outside": []
+}

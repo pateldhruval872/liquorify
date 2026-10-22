@@ -1,0 +1,25 @@
+{
+  "screen": "DA-OVL-01",
+  "state": "role-given-before",
+  "variant": "roleChange",
+  "role": [
+    {
+      "name": "Support",
+      "permissions": [
+        "read_orders",
+        "read_customers",
+        "read_dashboard"
+      ]
+    }
+  ],
+  "theme": "light",
+  "revision": "a4a1708",
+  "path": "/<store>",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": null,
+  "settled": true,
+  "outside": []
+}
