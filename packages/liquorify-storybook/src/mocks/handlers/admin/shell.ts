@@ -75,11 +75,14 @@ export function searchResults({ products = [], orders = [], customers = [] }: Fo
 /**
  * Refuses a profile change with a field error, in the shape the Admin API
  * reports one. The browser tests' server refused none of the changes tried, so
- * the refusal is Rails' own length limit, worded as Rails words it.
+ * the refusal is Rails' own length limit, worded as Rails words it. The answer
+ * waits a moment, as a server's does, so Save is always disabled while saving
+ * and loses its focus ring; answered at once, it sometimes kept it.
  */
 export const profileRefused = [
-  http.patch('/api/v3/admin/me', () =>
-    HttpResponse.json(
+  http.patch('/api/v3/admin/me', async () => {
+    await delay(100)
+    return HttpResponse.json(
       {
         error: {
           code: 'validation_error',
@@ -97,8 +100,8 @@ export const profileRefused = [
         },
       },
       { status: 422 },
-    ),
-  ),
+    )
+  }),
 ]
 
 /** Answers a profile save with the saved profile. */
