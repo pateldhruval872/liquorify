@@ -1,7 +1,7 @@
 ---
 document_id: LIQ-006
 title: Spree Product Capability Baseline
-version: 0.3-draft
+version: 0.4-draft
 status: DRAFT
 owner: unassigned
 approved_by: null
@@ -262,7 +262,7 @@ These come from the specification's proposals and its unresolved list. None is a
 
 ## 14. When the baseline is complete
 
-The baseline is complete when all of these hold. They are the completion criteria of FB-18 ([LIQ-004](LIQ-004-foundation-backlog.md#next-documentation-work-item)).
+The baseline is complete when all of these hold. Criteria 1 to 7 are the completion criteria of FB-18 ([LIQ-004](LIQ-004-foundation-backlog.md#next-documentation-work-item)), which held on 2026-10-21. The owner added criteria 8 and 9 on 2026-10-22; they hold only once the reproduction batches, including the platform batch ([work item](work-items/fb-19-batch-platform.md)), are done.
 
 1. **Screens.** Every route file in the dashboard, the seller panel and the storefront is classified in LIQ-008 as a screen, a layout or a redirect, and the counts in its §1 match the files at the pinned revisions.
 2. **Screen details.** Every screen has an ID, a route, who may open it with the permission scope, its workflows, its meaningful states and a code reference. Every email has an ID, and every cross-screen flow an FL ID.
@@ -271,6 +271,8 @@ The baseline is complete when all of these hold. They are the completion criteri
 5. **Enterprise and documentation-only features** are listed separately (§12) and left out of the reproduction work.
 6. **Reproduction work items** FB-19, FB-20 and FB-21 exist with completion criteria tied to the LIQ-008 and LIQ-009 IDs.
 7. **The owner has reviewed** LIQ-006, LIQ-008 and LIQ-009.
+8. **Every capability is tied to its evidence.** Every capability in §3 to §11 appears in a batch map, with its screens, flows, emails, permissions and platform parts each linked to evidence or to a named gap. The capabilities without screens, and the platform parts of the others (the APIs, the developer kits, webhooks, plugins, providers, the command line tool and tracing), are mapped in the platform batch.
+9. **Coverage is not verification.** Each capability records two results apart. Its coverage is what exists: mapped IDs, stories, captured screens, rendered emails and Spree's own tests. Its functional verification is whether each of its flows and behaviours was shown to work end to end at a recorded revision: PASS, PARTIAL, BLOCKED or NOT_RUN. A capability counts as complete only when each flow and behaviour passed, or when the owner has explicitly accepted each remaining gap as deferred, in the [gap register](LIQ-004-foundation-backlog.md#deferred-gaps-and-the-owners-acceptance).
 
 ## 15. What this baseline does not show
 

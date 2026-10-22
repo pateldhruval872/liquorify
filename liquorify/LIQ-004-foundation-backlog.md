@@ -1,7 +1,7 @@
 ---
 document_id: LIQ-004
 title: Foundation Backlog
-version: 0.9-draft
+version: 0.10-draft
 status: DRAFT
 owner: unassigned
 approved_by: null
@@ -30,6 +30,22 @@ Reproduced on 2026-10-20 at backend `394b53f` with real requests and nothing stu
 | ISO-7 | Customer order totals appear to be summed across stores | Seen in code, not tested |
 
 What this evidence does not show yet: same-store controls, a before-and-after check on the tax task, any PostgreSQL run, and the wider surfaces listed in the merchant lifecycle specification. The reproduction itself stays out of this public repository while the defect is open.
+
+
+## Existing defects found by the baseline
+
+Spree or storefront behaviour at the pinned revisions that stops a shopper or staff member, or loses a record the business needs. Tracked here at the owner's instruction of 2026-10-22. The baseline reproduces each one and changes nothing: the baseline pull requests keep the behaviour as it is, and their stories and captures show it. Whether and how to fix one is decided after the baseline, with the rest of Liquorify's own work ([LIQ-001 §1](LIQ-001-project-profile.md#recorded-instructions-that-shape-engineering-work)), unless the owner brings it forward. Reporting one to Spree is also the owner's call; nothing has been reported. Other differences the batches found stay in their records as behaviour, not defects.
+
+| Severity | Meaning |
+|---|---|
+| High | A shopper or staff member cannot complete a task, or a record the business needs, such as a consent, is missing or wrong |
+| Medium | The task completes, but the screen shows wrong or misleading information |
+| Low | Layout, wording or styling only |
+
+| # | Defect | Where | Severity | How often | Found by | Follow-up | Status |
+|---|---|---|---|---|---|---|---|
+| SD-1 | The saved cards page, and an order paid with a saved card, fail with the storefront's error page when the card has no brand. The storefront's card label helpers read the brand without checking for none (`src/lib/utils/credit-card.ts`), and checkout's saved card list calls the same helpers | Storefront `8153a6b`: SF-ACC-08 and SF-ACC-06, seen. SF-CHK-01's saved card list, read in code and not run | High: the shopper cannot open the page | Every card saved by Spree's test gateway, which gives none a brand. Whether a real gateway can save a card without one was not checked | The storefront shopper accounts batch, B1 ([record](verification/2026-10-22-fb-19-batch-storefront-shopper-accounts.md#5-the-storefronts-behaviour-found-recorded-and-not-changed)) | In the checkout batch (9), with OA-1's test keys: whether a real gateway's cards can reach it, and whether checkout fails the same way. Then a fix decision, after the baseline | Open. Kept as it is in storefront #18 and in #12 |
+| SD-2 | Registration requires the store's policy consent, but the storefront does not send it to Spree, so Spree records no terms consent for the new customer. Spree's registration records one when it is sent | Storefront `8153a6b`: the `register` action in `src/lib/data/customer.ts`; SF-ACC-02 | High: a consent record is missing | Every registration through the storefront | The storefront shopper accounts batch, B9 (same record) | Weighed with data privacy (CAP-08-06) in the customers batch (10). A fix needs a storefront change, decided after the baseline | Open. Kept as it is in storefront #18 and in #12 |
 
 ## Backlog
 
@@ -218,7 +234,7 @@ Rules for all three:
   4. the pilot's [verification record](verification/2026-10-21-fb-19-pilot.md) and the corrections it found, in LIQ-010 0.2;
   5. then batches by LIQ-009 section, each small enough to review ([LIQ-010 §13](LIQ-010-design-system-reproduction-architecture.md#13-pilot)).
 
-  The batches start only once the pilot works, and this plan is corrected first if it does not. The pilot worked on 2026-10-21. Its comparison with running screens found two defects in the stories, which were corrected the same day ([record](verification/2026-10-21-fb-19-pilot-fidelity.md)), and the owner merged it and accepted it within its scope the same day ([acceptance record](verification/2026-10-21-fb-19-pilot-merge-and-acceptance.md)). Three gaps stay open: 35 stories checked against their source only, the cart drawer opened with a pointer, and the storefront's end-to-end job (OA-1). The acceptance does not complete FB-19 or the baseline. The batches follow, each in its own pull request, so the owner can review and merge them in order. They are organised by product area, using LIQ-006, LIQ-008 and LIQ-009, so that each batch brings the screens, workflows, permissions and meaningful states of its area with the components they use, and the evidence that checks them. The first batch, 24 of the dashboard primitives, was built before this change, by component section rather than product area, and is draft pull request #9 ([record](verification/2026-10-21-fb-19-batch-dashboard-primitives-1.md)). Its comparison with running screens ran on 2026-10-22 and found three stories that followed no screen, which were corrected ([record](verification/2026-10-22-fb-19-batch-dashboard-primitives-1-fidelity.md)). It stays a draft until the owner's review is complete. The first product-area batch, staff access and the dashboard shell, follows in two parts ([work item](work-items/fb-19-batch-staff-access-and-shell.md)), under LIQ-010 0.4's batch rules, and the storefront's shopper accounts batch runs alongside it ([work item](work-items/fb-19-batch-storefront-shopper-accounts.md)). Part 1, sign-in, invitations, staff and roles, is draft pull request #11 ([record](verification/2026-10-22-fb-19-batch-staff-access-part-1.md)): 72 stories for 16 components, the eight screens captured in each state and permission variant, 21 cases compared with running screens, the three staff emails rendered, and Spree's own staff and role specs run. It keeps six gaps open, records tenant isolation as NOT_RUN, and awaits the owner's review. Part 2, the shell's overlays, follows that review. The storefront shopper accounts batch is storefront draft pull request [#18](https://github.com/pateldhruval872/liquorify-storefront/pull/18), with its records in draft #12 ([record](verification/2026-10-22-fb-19-batch-storefront-shopper-accounts.md)): 103 stories for 25 components, the ten account screens captured in 38 states for four kinds of visitor, 19 cases compared with running screens, the two password reset emails rendered, and Spree's account specs and the storefront's account browser tests run. It found eleven behaviours of the storefront the work item did not expect, keeps its gaps open, records tenant isolation as NOT_RUN, and awaits the owner's review.
+  The batches start only once the pilot works, and this plan is corrected first if it does not. The pilot worked on 2026-10-21. Its comparison with running screens found two defects in the stories, which were corrected the same day ([record](verification/2026-10-21-fb-19-pilot-fidelity.md)), and the owner merged it and accepted it within its scope the same day ([acceptance record](verification/2026-10-21-fb-19-pilot-merge-and-acceptance.md)). Three gaps stay open: 35 stories checked against their source only, the cart drawer opened with a pointer, and the storefront's end-to-end job (OA-1). The acceptance does not complete FB-19 or the baseline. The batches follow, each in its own pull request, so the owner can review and merge them in order. They are organised by product area, using LIQ-006, LIQ-008 and LIQ-009, so that each batch brings the screens, workflows, permissions and meaningful states of its area with the components they use, and the evidence that checks them. The first batch, 24 of the dashboard primitives, was built before this change, by component section rather than product area, and is draft pull request #9 ([record](verification/2026-10-21-fb-19-batch-dashboard-primitives-1.md)). Its comparison with running screens ran on 2026-10-22 and found three stories that followed no screen, which were corrected ([record](verification/2026-10-22-fb-19-batch-dashboard-primitives-1-fidelity.md)). It stays a draft until the owner's review is complete. The first product-area batch, staff access and the dashboard shell, follows in two parts ([work item](work-items/fb-19-batch-staff-access-and-shell.md)), under LIQ-010 0.4's batch rules, and the storefront's shopper accounts batch runs alongside it ([work item](work-items/fb-19-batch-storefront-shopper-accounts.md)). Part 1, sign-in, invitations, staff and roles, is draft pull request #11 ([record](verification/2026-10-22-fb-19-batch-staff-access-part-1.md)): 72 stories for 16 components, the eight screens captured in each state and permission variant, 21 cases compared with running screens, the three staff emails rendered, and Spree's own staff and role specs run. It keeps six gaps open, records tenant isolation as NOT_RUN, and awaits the owner's review. Part 2, the shell's overlays, follows that review. The storefront shopper accounts batch is storefront draft pull request [#18](https://github.com/pateldhruval872/liquorify-storefront/pull/18), with its records in draft #12 ([record](verification/2026-10-22-fb-19-batch-storefront-shopper-accounts.md)): 103 stories for 25 components, the ten account screens captured in 38 states for four kinds of visitor, 19 cases compared with running screens, the two password reset emails rendered, and Spree's account specs and the storefront's account browser tests run. It found eleven behaviours of the storefront the work item did not expect, keeps its gaps open, records tenant isolation as NOT_RUN, and awaits the owner's review. On 2026-10-22 the owner also added the platform batch, for the capabilities without screens ([work item](work-items/fb-19-batch-platform.md)), and two completion criteria: every capability tied to its evidence, and coverage kept apart from functional verification ([LIQ-006 §14](LIQ-006-product-capability-baseline.md#14-when-the-baseline-is-complete), criteria 8 and 9). Its coverage inventory is done; its checks run as their dependencies allow.
 - **Outcome.** Every existing component in LIQ-009 is documented in Storybook with its meaningful variants and states, and every story has a committed reference screenshot that Playwright compares on pull requests.
 - **In scope.**
   - One Storybook in the backend workspace (React with Vite) for `@spree/dashboard-ui` (CMP-DUI-P, CMP-DUI-C), `@spree/dashboard-core` (CMP-CORE, its shared pages and product form modules), and the dashboard's and seller panel's components (CMP-DA-G, CMP-SP-G), with stand-in providers and mocked API responses.
@@ -277,42 +293,93 @@ Rules for all three:
 
 ### Baseline progress by product area
 
-Kept in this backlog rather than a separate tracker, at the owner's instruction of 2026-10-22 ([LIQ-001 §1](LIQ-001-project-profile.md#recorded-instructions-that-shape-engineering-work)). Each batch updates its own rows in the pull request that changes their state. Three words stay apart: **built** means the work exists on a branch; **verified** means a verification record holds its evidence and its checks passed; **accepted** means the owner merged it and recorded the acceptance. Counts are at 2026-10-22, from the coverage reports and the batches' records.
+Kept in this backlog rather than a separate tracker, at the owner's instruction of 2026-10-22 ([LIQ-001 §1](LIQ-001-project-profile.md#recorded-instructions-that-shape-engineering-work)). Each batch updates its own rows in the pull request that changes their state. Counts are at 2026-10-22, from the coverage reports and the batches' records.
 
-| Work | Built | Verified | Accepted |
-|---|---|---|---|
-| Inventories: LIQ-006 (105 capabilities), LIQ-008, LIQ-009 (FB-18) | Yes | Yes ([record](verification/2026-10-21-fb-18-baseline-completion.md)) | Reviewed by the owner on 2026-10-21; still DRAFT. The capability IDs were added in #11, which awaits review |
-| Storybook foundation in both repositories: both Storybooks, the visual checks, every token on a token page, 11 components (the pilot) | Yes | Yes ([record](verification/2026-10-21-fb-19-pilot.md)) | Yes, within its scope ([record](verification/2026-10-21-fb-19-pilot-merge-and-acceptance.md)) |
-| 24 dashboard primitives (#9) | Yes | Yes ([record](verification/2026-10-21-fb-19-batch-dashboard-primitives-1.md)) | No: draft, awaiting review |
-| Staff access part 1 (#11): CAP-04-01 to CAP-04-04 | Yes | Yes ([record](verification/2026-10-22-fb-19-batch-staff-access-part-1.md)), with six gaps and tenant isolation NOT_RUN | No: draft, awaiting review |
-| Dashboard shell part 2: CAP-04-05 | No: follows the review of part 1 | No | No |
-| Storefront shopper accounts (storefront #18, records in #12): CAP-08-01, with parts of CAP-03-09, CAP-05-13, CAP-06-09 and CAP-07-01 | Yes ([work item](work-items/fb-19-batch-storefront-shopper-accounts.md)) | Yes ([record](verification/2026-10-22-fb-19-batch-storefront-shopper-accounts.md)), with three unreachable states, the password reset steps and the browser tests in CI as gaps, and tenant isolation NOT_RUN | No: drafts, awaiting review |
+Four words stay apart, at the owner's instruction of 2026-10-22:
+
+- **Built** means the work exists on a branch.
+- **Coverage** means what exists for an ID: a mapped capability, stories and their images, captured screens, rendered emails, Spree's own tests, or a named gap. Coverage never says that a flow works.
+- **Functionally verified** means each flow or behaviour was shown to work end to end at a recorded revision: PASS, PARTIAL (some steps or behaviours passed and the rest are named), BLOCKED (it cannot run until something named exists), FAIL, or NOT_RUN.
+- **Accepted** means the owner merged it and recorded the acceptance. A gap counts as deferred only once the owner has accepted it in the [gap register](#deferred-gaps-and-the-owners-acceptance).
+
+| Work | Built | Coverage | Functionally verified | Accepted |
+|---|---|---|---|---|
+| Inventories: LIQ-006 (105 capabilities), LIQ-008, LIQ-009 (FB-18) | Yes | Complete ([record](verification/2026-10-21-fb-18-baseline-completion.md)) | Not applicable: inventories only | Reviewed by the owner on 2026-10-21; still DRAFT. The capability IDs were added in #11, and criteria 8 and 9 in #12, both awaiting review |
+| Storybook foundation in both repositories: both Storybooks, the visual checks, every token on a token page, 11 components (the pilot) | Yes | PASS, with 35 stories checked against their source only ([record](verification/2026-10-21-fb-19-pilot.md)) | Not applicable: components only, no flow claimed | Yes, within its scope ([record](verification/2026-10-21-fb-19-pilot-merge-and-acceptance.md)) |
+| 24 dashboard primitives (#9) | Yes | PASS: 114 stories, 31 of them compared with running screens; 83 checked against their source only ([record](verification/2026-10-21-fb-19-batch-dashboard-primitives-1.md)) | Not applicable: components only, no flow claimed | No: draft, awaiting review |
+| Staff access part 1 (#11): CAP-04-01 to CAP-04-04 | Yes | PASS for the map; 34 of 36 listed states captured; 72 stories, 20 of them compared ([record](verification/2026-10-22-fb-19-batch-staff-access-part-1.md)) | PARTIAL: FL-02, FL-03 and FL-24 each have steps no test covers; CAP-04-02's provider sign-in NOT_RUN; the server's refusals PASS where Spree's specs send them; tenant isolation NOT_RUN | No: draft, awaiting review |
+| Dashboard shell part 2: CAP-04-05 | No: follows the acceptance of part 1 | No | NOT_RUN | No |
+| Storefront shopper accounts (storefront #18, records in #12): CAP-08-01, with parts of CAP-03-09, CAP-05-13, CAP-06-09 and CAP-07-01 | Yes ([work item](work-items/fb-19-batch-storefront-shopper-accounts.md)) | PASS for the map; 36 of 40 listed states captured; 103 stories, 21 of them compared ([record](verification/2026-10-22-fb-19-batch-storefront-shopper-accounts.md)) | PARTIAL: FL-09's three password reset steps have no test; its browser tests passed locally and are BLOCKED in CI by OA-1; recording the consent FAILs (SD-2); the saved cards page FAILs for the test gateway's card (SD-1) and is BLOCKED for a real card by OA-1; tenant isolation NOT_RUN | No: drafts, awaiting review |
+| Platform batch: 17 capabilities without screens, or their platform parts ([work item](work-items/fb-19-batch-platform.md)) | The coverage inventory, in #12 | Mapped: all 17, to Spree's own tests at a recorded CI run | PARTIAL for 14 (Spree's own tests only); BLOCKED for 2 (Stripe and EasyPost sandbox calls need test keys); NOT_RUN for 1 on purpose (the update check) | No: draft, awaiting review |
 
 | Area (LIQ-006) | Capabilities | State |
 |---|---|---|
-| §4 Authentication, staff and access | 9 | In progress: four in part 1, one in part 2; CAP-04-06 to CAP-04-09 not started |
-| §8 Customers and shopper accounts | 6 | In progress: the storefront's shopper accounts built and verified, awaiting review; the dashboard's customer screens not started |
-| §3 Setup, stores and settings | 12 | Not started |
-| §5 Catalog and pricing | 17 | Not started, apart from the shopper's gift card list in the accounts batch |
+| §4 Authentication, staff and access | 9 | In progress: four in part 1, one in part 2. CAP-04-06 to CAP-04-08 mapped for their platform parts only; their screens and CAP-04-09 not started |
+| §8 Customers and shopper accounts | 6 | In progress: the storefront's shopper accounts built and covered, PARTIAL, awaiting review; the dashboard's customer screens not started |
+| §3 Setup, stores and settings | 12 | Not started, apart from CAP-03-09's consent in the accounts batch, and CAP-03-03 and CAP-03-12 in the platform inventory |
+| §5 Catalog and pricing | 17 | Not started, apart from the shopper's gift card list, and CAP-05-11, CAP-05-14's Meilisearch provider and CAP-05-16 in the platform inventory |
 | §6 Cart, checkout and orders | 9 | Not started, apart from the shopper's order history in the accounts batch |
-| §7 Payments, delivery, inventory and tax | 12 | Not started, apart from the shopper's saved cards in the accounts batch |
+| §7 Payments, delivery, inventory and tax | 12 | Not started, apart from the shopper's saved cards, and the Stripe and EasyPost providers in the platform inventory |
 | §9 Wholesale | 6 | Not started |
 | §10 Marketplace | 9 | Not started |
-| §11 Analytics, emails, platform and developer surfaces | 13 | Not started; three staff emails rendered in part 1, and the two customer password reset emails in the accounts batch |
+| §11 Analytics, emails, platform and developer surfaces | 13 | CAP-11-06 to CAP-11-11 and CAP-11-13 mapped in the platform inventory; three staff emails rendered in part 1, and the two customer password reset emails in the accounts batch; the rest not started |
 | §12 Enterprise and documentation-only | 12 | Listed only and left out of the reproduction (LIQ-006 §12) |
 
-**What remains after the current batches.** Components with stories: 47 of the dashboard side's 379 (7 merged, 40 in drafts) and 29 of the storefront's 101 (4 merged, 25 in a draft); every token is already shown. Screens captured on a running system in each state: 8 of the dashboard's and seller panel's 117 and none of their 7 overlays; 10 of the storefront's 29, in a draft. Emails rendered: 5 of 27. Flows traced to browser tests: 4 of 24. Capabilities mapped to evidence: 9 of 93, four of them only in part.
+**What remains after the current batches.** Coverage and functional verification are counted apart.
 
-**Blocked**, each by one thing: Figma by OA-5; the storefront's browser tests in CI by OA-1 (FB-06); any claim about tenant isolation by FB-03. The Stripe, Adyen and PayPal payment form states need test keys; without them they are gaps.
+| What | Coverage | Functionally verified |
+|---|---|---|
+| Capabilities in §3 to §11 | 26 of 93 mapped to evidence: 9 in the screen batches, four of them only in part, and 17 in the platform inventory, six of them only for their platform part | None of the 93 end to end. Of the 26: 20 PARTIAL; 2 with a failing part, the existing defects (CAP-03-09, CAP-07-01); 2 BLOCKED (CAP-07-02, CAP-07-07); 2 NOT_RUN (CAP-04-02's provider sign-in; CAP-11-13, on purpose) |
+| Flows FL-01 to FL-24 | 4 of 24 mapped step by step (FL-02, FL-03, FL-09, FL-24) | None with every step passing a test; the four are PARTIAL |
+| Screens, captured on a running system in each state | 8 of the dashboard's and seller panel's 117 and none of their 7 overlays; 10 of the storefront's 29, in a draft | Counted with their flows above, not by capture |
+| Emails | 5 of 27 rendered | None seen sent during its flow |
+| Components with stories | 47 of the dashboard side's 379 (7 merged, 40 in drafts) and 29 of the storefront's 101 (4 merged, 25 in a draft); every token is already shown | Not applicable: components claim no flow |
 
-**Proposed order of the remaining batches.** A proposal: the owner may reorder it. The dashboard and storefront tracks run side by side.
+### Outstanding items, kept apart
+
+Each blocks a different part of the baseline, and none waits for another.
+
+| Item | What it blocks | Who acts | State |
+|---|---|---|---|
+| Figma's seat (OA-5) | Everything inside Figma: FB-20's libraries, then FB-21's screens and flows. FB-20's token files are prepared, checked and accepted with the pilot | The owner, with the billing choice [above](#owner-action-steps) | Open. Nothing has been bought |
+| Stripe test keys (OA-1) | The storefront's browser tests in CI (FB-06), so FL-09 runs only locally; the saved card states with a real card (SD-1); the Stripe, Adyen and PayPal payment form states | The owner, in the storefront repository's settings | Open. Storefront #18's E2E job stops at its keys check |
+| Tenant isolation (FB-03) | Any claim that a store's data stays in that store, in every batch; the open findings ISO-1 to ISO-7 | FB-03, once decisions N1 to N6 are made | Open. NOT_RUN in every batch, and never accepted as a batch's gap |
+
+### Deferred gaps and the owner's acceptance
+
+Each gap a batch leaves open, with the batch's proposal for it. A gap stays open until evidence closes it or the owner explicitly accepts its deferral; the owner's answer is recorded here with its date. Nothing is accepted yet. **Coverage** gaps are states or stories not shown on a running screen; **function** gaps are flow steps or behaviours not shown to work. Tenant isolation is an outstanding item above, not a gap here.
+
+| # | Batch | Gap | Kind | Proposal | Owner |
+|---|---|---|---|---|---|
+| G-01 | #9 | 82 of the 114 primitive stories checked against their source only, every story of the alert and the slot among them | Coverage | Defer: later batches compare each state when one of their running screens shows it; what no stock screen shows stays checked against its source | PENDING |
+| G-02 | Pilot | 35 stories checked against their source only, and the cart drawer opened with a pointer, both open since the pilot's acceptance | Coverage | Defer to the storefront shop and cart batches (4 and 9) | PENDING |
+| G-03 | #11 | DA-AUTH-03 "saved" not captured | Coverage | Defer to the platform batch's mail check (P1). If no mail can be read without changing Spree, accept it as checked through Spree's API spec | PENDING |
+| G-04 | #11 | Saving a new staff password in the browser (FL-03) | Function | As G-03 | PENDING |
+| G-05 | #11 | EM-S-01, EM-S-03 and EM-S-04 not seen sent during their flows | Function | Defer to the mail check (P1) | PENDING |
+| G-06 | #11 | DA-SHELL-02 "not authorized": no stock route shows it | Coverage | Accept: not reachable on a stock screen; its story stays checked against its source | PENDING |
+| G-07 | #11 | The teammate's own navigation after a role is given (FL-24's last step) | Function | Defer to part 2, whose capture run signs in as the teammate after the role is given | PENDING |
+| G-08 | #11 | Signing in through a real identity provider (CAP-04-02) | Function | Defer until an identity provider is chosen; its disposition is "not needed yet" | PENDING |
+| G-09 | #11 | The slot on a running screen | Coverage and function | Defer to the platform batch's plugin step (P3) | PENDING |
+| G-10 | #11 | 40 of part 1's stories checked against their source only | Coverage | As G-01 | PENDING |
+| G-11 | #11, #12 | Requests no Spree spec sends, and the storefront's own server code: the refusals were observed or captured, not tested | Function | Defer to FB-03, which adds negative access tests | PENDING |
+| G-12 | #12 | SF-ACC-07 "set as default": the storefront has no such control (B10) | Coverage | Accept: not reproducible without a storefront change | PENDING |
+| G-13 | #12 | SF-ACC-08 "cards listed" and "remove confirmation" with a real card | Coverage and function | Defer to the checkout batch (9), with OA-1's keys. SD-1 tracks the failure | PENDING |
+| G-14 | #12 | SF-ACC-09 "canceled": Spree offers no way to cancel a gift card | Coverage | Accept as checked against its source, unless a staff screen cancels one in the catalog batch (5) | PENDING |
+| G-15 | #12 | FL-09's three password reset steps in a browser test | Function | Defer to the mail check (P1) | PENDING |
+| G-16 | #12 | Whether EM-C-08 or EM-SF-04 is sent | Function | Defer to the mail check (P1) and the webhook deliveries (P2) | PENDING |
+| G-17 | #12 | 49 storefront stories checked against their source only | Coverage | As G-01 | PENDING |
+| G-18 | #18 | The storefront's browser tests in CI: its E2E job stops at the keys check | Function | It closes when OA-1 is done. Accepting it means #18 may merge with that advisory job failing; the tests passed locally | PENDING |
+
+### Proposed order of the remaining batches
+
+A proposal: the owner may reorder it. The dashboard and storefront tracks run side by side. Each batch starts once the batch it depends on is accepted.
 
 | # | Batch | Depends on |
 |---|---|---|
-| 1 | Dashboard shell part 2 (CAP-04-05; DA-OVL-01 to DA-OVL-04) | The owner's review of part 1 |
+| 1 | Dashboard shell part 2 (CAP-04-05; DA-OVL-01 to DA-OVL-04) | The owner's acceptance of part 1 |
 | 2 | Developer and integration settings (CAP-04-06 to CAP-04-09) | Part 2 |
 | 3 | Setup, stores and settings (§3; DA-SETUP-01, FL-01) | Part 2 |
-| 4 | Storefront shop (CAP-05-14, CAP-05-17; SF-SHOP, SF-OVL-01, SF-OVL-03, SF-OVL-04, SF-SYS) | Storefront accounts; sample catalog data |
+| 4 | Storefront shop (CAP-05-14, CAP-05-17; SF-SHOP, SF-OVL-01, SF-OVL-03, SF-OVL-04, SF-SYS) | The storefront accounts batch; sample catalog data |
 | 5 | Catalog and pricing (§5), in two or three parts | Setup |
 | 6 | Inventory (CAP-07-09, CAP-07-10) | Catalog |
 | 7 | Payments, delivery and tax settings (the rest of §7) | Setup; test keys for the providers' states |
@@ -322,8 +389,8 @@ Kept in this backlog rather than a separate tracker, at the owner's instruction 
 | 11 | Home figures, reports and the email template editor (CAP-11-01 to CAP-11-05), with the remaining emails | Orders |
 | 12 | Wholesale (§9) | Customers, catalog pricing, checkout |
 | 13 | Marketplace (§10): the operator's seller screens, then the seller panel | Orders, payments |
-| 14 | Platform check (proposed): CAP-11-06 to CAP-11-13 and the other capabilities without screens, verified by Spree's own API, developer kit, webhook and provider tests at the recorded revision | Batch 2 |
+| 14 | Platform batch ([work item](work-items/fb-19-batch-platform.md)), added by the owner on 2026-10-22. Its coverage inventory is done. Its checks run in five steps alongside the other batches, not after them | P1: nothing, so it can run now. P2: batch 2. P3: part 2. P4: batches 4, 7 and 8, and test keys. P5: FB-04 |
 
-**A gap in the completion criteria.** FB-19 to FB-21 reproduce what can be seen, and each batch records only what the server refuses in its own area, so nothing checks the capabilities that have no screen: the APIs, the developer kits, webhooks, plugins, providers, the command line tool and tracing. Proposed, for the owner's decision: add to [LIQ-006 §14](LIQ-006-product-capability-baseline.md#14-when-the-baseline-is-complete) that every capability in §3 to §11 appears in a batch map with its evidence or a named gap, and take those without screens in batch 14. Until the owner decides, the criteria stay as they are.
+**Completion.** The baseline is complete when LIQ-006 §14's criteria hold, including criteria 8 and 9, which the owner added on 2026-10-22: every capability in §3 to §11 is tied to its evidence or a named gap, and each records its coverage and its functional verification apart, with every remaining gap accepted in the register above.
 
 **Figma, apart from the repositories.** FB-20's token files are prepared and checked against the stylesheets, and were accepted with the pilot. Everything inside Figma, FB-20's libraries and then FB-21's screens and flows, waits for OA-5. Once the seat exists, Figma follows the batches in the order their stories and captures are verified.
