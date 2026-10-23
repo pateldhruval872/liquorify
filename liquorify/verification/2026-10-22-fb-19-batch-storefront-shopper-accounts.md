@@ -303,7 +303,7 @@ Each names what is missing, the check made instead and what would close it.
 | SF-ACC-09 "canceled" | The Canceled story, against its source | An API to cancel a gift card, which Spree does not offer, or a staff screen that does |
 | The password reset steps of FL-09 in a browser test | Captures, with a token made in the console; Spree's API specs | A browser test with a mailed reset link |
 | Whether EM-C-08 or EM-SF-04 is sent | Both rendered; Spree's spec for the reset event | A test that reads the sent mail or the webhook |
-| The storefront's browser tests in CI | Run locally, seven of seven passed | Met on 2026-10-23: OA-1's keys were added and the job passed at `2e5f119`, 21 of 21 (§8). G-18 awaits the owner's answer |
+| The storefront's browser tests in CI | Run locally, seven of seven passed | Closed on 2026-10-23: OA-1's keys were added, the job passed at `2e5f119`, 21 of 21 (§8), and the owner accepted that run as G-18's evidence. Running the tests against Liquorify's backend stays FB-06 |
 | 82 of the 103 stories not compared by the script | 33 show a state seen in a running-screen capture; 49 checked against their source only. Each is named in the [image review list](2026-10-22-fb-19-batch-storefront-shopper-accounts-image-review.md) | Running screens that show those states |
 | Requests no Spree spec sends, and the storefront's own server code (§3.2) | The capture of another customer's order | Specs or a refusal check against the storefront, which this batch does not add |
 | Tenant isolation, including ISO-4 and ISO-5 | None | FB-03's validation and the fixes for ISO-1 to ISO-7 |
