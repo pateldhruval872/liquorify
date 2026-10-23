@@ -1,0 +1,26 @@
+{
+  "test": "settings-search",
+  "revision": "58f44e2",
+  "steps": [
+    {
+      "step": "opened Staff",
+      "pagesListed": 24
+    },
+    {
+      "step": "typed “Taxes”",
+      "pagesListed": [
+        "Taxes"
+      ]
+    },
+    {
+      "step": "chose Taxes",
+      "path": "/store_UkLWZg9DAJ/settings/taxes/categories"
+    },
+    {
+      "step": "typed “zzqx”",
+      "pagesListed": 0,
+      "message": "No settings match “zzqx”."
+    }
+  ],
+  "outside": []
+}

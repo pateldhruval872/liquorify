@@ -1,0 +1,17 @@
+{
+  "test": "notifications-new-release",
+  "revision": "58f44e2",
+  "steps": [
+    {
+      "step": "opened the unread notice",
+      "intercepted": "The update check is answered with a newer release",
+      "dialog": "Notifications\nSpree 6.0.1 is available\n\nYou are running Spree 6.0.0.rc4.\n\nView on GitHub\n\nThe release notes could not be loaded. Read them on GitHub instead.\n\nClose"
+    },
+    {
+      "step": "closed it; the bell no longer shows it unread"
+    }
+  ],
+  "outside": [
+    "https://api.github.com/repos/spree/spree/releases/tags/v6.0.1"
+  ]
+}

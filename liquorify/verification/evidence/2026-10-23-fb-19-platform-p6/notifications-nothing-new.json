@@ -1,0 +1,19 @@
+{
+  "test": "notifications-nothing-new",
+  "revision": "58f44e2",
+  "steps": [
+    {
+      "step": "opened the notifications",
+      "serverAnswer": {
+        "current_version": "6.0.0.rc4",
+        "enabled": false,
+        "checked_at": null,
+        "update_available": false,
+        "latest_version": null,
+        "latest_release_url": null,
+        "latest_release_published_at": null
+      }
+    }
+  ],
+  "outside": []
+}

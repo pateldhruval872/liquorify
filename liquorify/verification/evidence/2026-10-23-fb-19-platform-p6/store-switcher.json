@@ -1,0 +1,23 @@
+{
+  "test": "store-switcher",
+  "revision": "58f44e2",
+  "steps": [
+    {
+      "step": "opened",
+      "path": "/store_UkLWZg9DAJ"
+    },
+    {
+      "step": "opened the switcher",
+      "stores": [
+        "Shop",
+        "Winkel"
+      ]
+    },
+    {
+      "step": "chose Winkel",
+      "path": "/store_gbHJdmfrXB",
+      "switcher": "W\nWinkel"
+    }
+  ],
+  "outside": []
+}

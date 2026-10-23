@@ -1,0 +1,18 @@
+{
+  "capture": "brands-page-server",
+  "revision": "58f44e2",
+  "path": "/store_UkLWZg9DAJ/brands",
+  "serverAnswers": [
+    {
+      "path": "/api/v3/admin/brands",
+      "status": 404
+    },
+    {
+      "path": "/api/v3/admin/brands",
+      "status": 404
+    }
+  ],
+  "settled": true,
+  "table": "Name\tSlug\tProducts\n\nNo brands yet",
+  "outside": []
+}
