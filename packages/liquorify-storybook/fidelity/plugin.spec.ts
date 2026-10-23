@@ -1,6 +1,8 @@
 import { mkdirSync, writeFileSync } from 'node:fs'
+import { stripVTControlCharacters } from 'node:util'
 import { expect, type Page, request, test } from '@playwright/test'
 import { FIXTURE_PROMO_PRODUCT, getCredentials, login } from '../../dashboard/e2e/helpers'
+import { animationsFinished } from './animations'
 import { admin } from './staff'
 
 /**
@@ -22,9 +24,11 @@ import { admin } from './staff'
  * The example ships no backend: its README says a real plugin would ship a
  * Rails engine for `/api/v3/admin/brands`. So the brand pages are opened twice,
  * once as they are, where the server answers that path with "not found", and
- * once with the browser answering it with invented brands. Results go to
- * `results/plugin/`: a screenshot and a JSON file for each entry, with the
- * revision from `FIDELITY_REVISION`.
+ * once with the browser answering it with invented brands. The table shows the
+ * same empty state whether the server answers "not found" or fails, so the
+ * check on the server's answers is also run against an injected 500, which it
+ * must reject. Results go to `results/plugin/`: a screenshot and a JSON file
+ * for each entry, with the revision from `FIDELITY_REVISION`.
  */
 
 const PLUGIN = process.env.PLUGIN_URL ?? 'http://localhost:5176'
@@ -84,6 +88,30 @@ function brandAnswers(page: Page) {
   return answers
 }
 
+/**
+ * The Brands page as the server answers it. Nothing on the server serves the
+ * example's brand list, so it must answer "not found" twice, since the
+ * dashboard retries a failed query once, and the table must settle on its
+ * empty state. A server error fails the check, though the table looks the same.
+ */
+async function checkServerBrands(page: Page, answers: { path: string; status: number }[]) {
+  await login(page)
+  await page.goto(`/${storeId}/products`)
+  await page.getByRole('link', { name: 'Brands', exact: true }).click()
+  await expect(page).toHaveURL(new RegExp(`/${storeId}/brands/?(\\?|$)`))
+  await expect.poll(() => answers.length, { timeout: 30_000 }).toBeGreaterThanOrEqual(2)
+  expect(
+    answers.filter((answer) => answer.status >= 500),
+    'brand requests the server failed',
+  ).toEqual([])
+  expect(
+    answers.map((answer) => answer.status),
+    'the server answers each brand request with not found',
+  ).toEqual([404, 404])
+  await expect(page.locator('[data-slot="skeleton"]:visible')).toHaveCount(0, { timeout: 30_000 })
+  await expect(page.getByRole('table')).toContainText('No brands yet')
+}
+
 /** Answers the example's brand endpoints in the browser, since nothing on the server serves them. */
 const answerBrands = (page: Page) =>
   page.route('**/api/v3/admin/brands**', (route) => {
@@ -101,6 +129,7 @@ const answerBrands = (page: Page) =>
 
 async function save(page: Page, name: string, facts: Record<string, unknown>) {
   mkdirSync(results, { recursive: true })
+  await animationsFinished(page)
   await page.screenshot({ path: `${results}${name}.png` })
   writeFileSync(
     `${results}${name}.json`,
@@ -147,24 +176,35 @@ test('navigation: Brands is listed under Products', async ({ page }) => {
 test('route: the Brands page, as the server answers it', async ({ page }) => {
   const outside = await blockOutside(page)
   const answers = brandAnswers(page)
-  await login(page)
-  await page.goto(`/${storeId}/products`)
-  await page.getByRole('link', { name: 'Brands', exact: true }).click()
-  await expect(page).toHaveURL(new RegExp(`/${storeId}/brands/?(\\?|$)`))
-  await expect(page.getByText('Brands').first()).toBeVisible()
-  await expect.poll(() => answers.length, { timeout: 15_000 }).toBeGreaterThan(0)
-  // The table retries a failed request before it gives up, so wait for its
-  // loading rows to clear, and record whether they did.
-  let settled = true
-  try {
-    await expect(page.locator('[data-slot="skeleton"]:visible')).toHaveCount(0, { timeout: 30_000 })
-  } catch {
-    settled = false
-  }
+  await checkServerBrands(page, answers)
   await save(page, 'brands-page-server', {
     path: new URL(page.url()).pathname,
     serverAnswers: answers,
-    settled,
+    table: await page.getByRole('table').innerText(),
+    outside,
+  })
+})
+
+test('route: the server-backed Brands check fails when the server answers 500', async ({
+  page,
+}) => {
+  const outside = await blockOutside(page)
+  const answers = brandAnswers(page)
+  await page.route('**/api/v3/admin/brands**', (route) =>
+    route.fulfill({ status: 500, json: { error: 'Injected server error' } }),
+  )
+  const failure = await checkServerBrands(page, answers).then(
+    () => null,
+    (error: Error) => stripVTControlCharacters(error.message),
+  )
+  expect(failure, 'the check accepted a server error').not.toBeNull()
+  expect(failure).toContain('brand requests the server failed')
+  await expect(page.locator('[data-slot="skeleton"]:visible')).toHaveCount(0, { timeout: 30_000 })
+  await save(page, 'brands-page-server-500', {
+    path: new URL(page.url()).pathname,
+    injected: 'The browser answers /api/v3/admin/brands with 500',
+    answers,
+    checkFailedWith: failure,
     table: await page.getByRole('table').innerText(),
     outside,
   })
@@ -244,14 +284,47 @@ test('control: the stock dashboard, built without the example, shows none of its
     data: { email: creds.admin_email, password: creds.admin_password },
   })
   expect(res.ok(), await res.text()).toBeTruthy()
+
+  // Navigation and slot: the product page, with Products' entries listed.
   await page.goto(`${STOCK}/${storeId}/products/${productId}`)
   await page.waitForLoadState('networkidle')
-  await expect(page.getByRole('link', { name: /^Products/ })).toBeVisible({ timeout: 15_000 })
-  await expect(page.getByRole('link', { name: 'Brands', exact: true })).toHaveCount(0)
+  await expect(page.getByRole('heading', { name: FIXTURE_PROMO_PRODUCT })).toBeVisible({
+    timeout: 15_000,
+  })
+  const productsEntries = await productsSection(page).getByRole('link').allInnerTexts()
+  expect(productsEntries).toContain('Catalogs')
+  expect(productsEntries).not.toContain('Brands')
   await expect(page.getByText('No brand assigned.')).toHaveCount(0)
   await save(page, 'stock-product-page', {
     path: new URL(page.url()).pathname,
-    productsSection: await productsSection(page).getByRole('link').allInnerTexts(),
+    productsSection: productsEntries,
+    outside,
+  })
+
+  // Table column: the products table's column menu.
+  await page.goto(`${STOCK}/${storeId}/products`)
+  await page.waitForLoadState('networkidle')
+  await page.getByRole('button', { name: 'Columns' }).click()
+  const options = page.getByRole('menuitemcheckbox')
+  await expect(options.first()).toBeVisible()
+  const columnOptions = await options.allInnerTexts()
+  expect(columnOptions).not.toContain('Brand')
+  await save(page, 'stock-products-columns', {
+    path: new URL(page.url()).pathname,
+    columnOptions,
+    outside,
+  })
+  await page.keyboard.press('Escape')
+
+  // Routes: the example's list and detail addresses.
+  for (const path of [`/${storeId}/brands`, `/${storeId}/brands/${brands[0].id}`]) {
+    await page.goto(`${STOCK}${path}`)
+    await page.waitForLoadState('networkidle')
+    await expect(page.getByText('Page not found')).toBeVisible({ timeout: 15_000 })
+  }
+  await save(page, 'stock-brand-routes', {
+    paths: [`/${storeId}/brands`, `/${storeId}/brands/${brands[0].id}`],
+    shown: 'Page not found',
     outside,
   })
 })

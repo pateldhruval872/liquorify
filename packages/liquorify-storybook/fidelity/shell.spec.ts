@@ -8,6 +8,7 @@ import {
   login,
 } from '../../dashboard/e2e/helpers'
 import { updateAvailable } from '../src/fixtures/admin/shell'
+import { animationsFinished } from './animations'
 import { admin } from './staff'
 
 /**
@@ -57,6 +58,7 @@ async function blockOutside(page: Page): Promise<string[]> {
 
 async function save(page: Page, name: string, steps: Record<string, unknown>[], outside: string[]) {
   mkdirSync(results, { recursive: true })
+  await animationsFinished(page)
   await page.screenshot({ path: `${results}${name}.png` })
   writeFileSync(
     `${results}${name}.json`,
