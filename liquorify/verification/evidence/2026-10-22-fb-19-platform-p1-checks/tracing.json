@@ -1,0 +1,156 @@
+{
+  "exports": 1,
+  "traces": [
+    {
+      "request": "GET products",
+      "service": "spree-p1-tracing",
+      "spans": 9,
+      "names": [
+        "internal Spree::ApiKey query",
+        "internal Spree::Store query",
+        "internal Spree::Market query",
+        "internal Spree::Channel query",
+        "internal Spree::Product query",
+        "producer default publish",
+        "server GET /api/v3/store/products"
+      ],
+      "scopes": [
+        "OpenTelemetry::Instrumentation::ActiveRecord",
+        "OpenTelemetry::Instrumentation::ActiveJob",
+        "OpenTelemetry::Instrumentation::Rack"
+      ],
+      "spree": [],
+      "allShareTheTrace": true
+    },
+    {
+      "request": "POST customers",
+      "service": "spree-p1-tracing",
+      "spans": 36,
+      "names": [
+        "internal Spree::ApiKey query",
+        "internal Spree::Store query",
+        "internal Spree::Market query",
+        "internal ActsAsTaggableOn::Tagging query",
+        "internal Spree::Customer#save",
+        "internal Spree::Policy query",
+        "internal Spree::ConsentRecord#save!",
+        "internal Spree::ConsentRecord.create!",
+        "internal Spree::StoreCredit query",
+        "internal Spree::Address query",
+        "internal Spree::NewsletterSubscriber query",
+        "internal Spree::CustomerGroup query",
+        "internal ActiveRecord.transaction",
+        "internal Spree::RefreshToken#save!",
+        "internal Spree::RefreshToken.create!",
+        "internal Spree::Channel query",
+        "producer default publish",
+        "server POST /api/v3/store/customers",
+        "internal customers.create adopt_existing_customer",
+        "internal customers.create build_customer",
+        "internal customers.create ensure_password",
+        "internal customers.create create_customer",
+        "internal customers.create link_order",
+        "internal customers.create record_consent",
+        "internal user.created dispatch",
+        "internal customers.create link_newsletter_subscriber",
+        "internal customers.create"
+      ],
+      "scopes": [
+        "OpenTelemetry::Instrumentation::ActiveRecord",
+        "OpenTelemetry::Instrumentation::ActiveJob",
+        "OpenTelemetry::Instrumentation::Rack",
+        "spree"
+      ],
+      "spree": [
+        {
+          "name": "customers.create adopt_existing_customer",
+          "kind": "internal",
+          "attributeKeys": [
+            "spree.workflow",
+            "spree.workflow.step",
+            "spree.workflow.step.external",
+            "spree.workflow.outcome"
+          ]
+        },
+        {
+          "name": "customers.create build_customer",
+          "kind": "internal",
+          "attributeKeys": [
+            "spree.workflow",
+            "spree.workflow.step",
+            "spree.workflow.step.external",
+            "spree.workflow.outcome"
+          ]
+        },
+        {
+          "name": "customers.create ensure_password",
+          "kind": "internal",
+          "attributeKeys": [
+            "spree.workflow",
+            "spree.workflow.step",
+            "spree.workflow.step.external",
+            "spree.workflow.outcome"
+          ]
+        },
+        {
+          "name": "customers.create create_customer",
+          "kind": "internal",
+          "attributeKeys": [
+            "spree.workflow",
+            "spree.workflow.step",
+            "spree.workflow.step.external",
+            "spree.workflow.outcome"
+          ]
+        },
+        {
+          "name": "customers.create link_order",
+          "kind": "internal",
+          "attributeKeys": [
+            "spree.workflow",
+            "spree.workflow.step",
+            "spree.workflow.step.external",
+            "spree.workflow.outcome"
+          ]
+        },
+        {
+          "name": "customers.create record_consent",
+          "kind": "internal",
+          "attributeKeys": [
+            "spree.workflow",
+            "spree.workflow.step",
+            "spree.workflow.step.external",
+            "spree.workflow.outcome"
+          ]
+        },
+        {
+          "name": "user.created dispatch",
+          "kind": "internal",
+          "attributeKeys": [
+            "spree.event.name",
+            "spree.event.subscriber",
+            "spree.event.async"
+          ]
+        },
+        {
+          "name": "customers.create link_newsletter_subscriber",
+          "kind": "internal",
+          "attributeKeys": [
+            "spree.workflow",
+            "spree.workflow.step",
+            "spree.workflow.step.external",
+            "spree.workflow.outcome"
+          ]
+        },
+        {
+          "name": "customers.create",
+          "kind": "internal",
+          "attributeKeys": [
+            "spree.workflow",
+            "spree.workflow.outcome"
+          ]
+        }
+      ],
+      "allShareTheTrace": true
+    }
+  ]
+}
