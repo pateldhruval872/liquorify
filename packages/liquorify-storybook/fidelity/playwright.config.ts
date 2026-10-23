@@ -15,7 +15,9 @@ import { defineConfig } from '@playwright/test'
  * `hosted.spec.ts` signs in to the dashboard and seller panel Spree serves at
  * `/dashboard` and `/sellers`, on the hosting gem's own test app, and
  * `tracing.spec.ts` collects the trace of a request from the tracing gem's own
- * test app (see each file).
+ * test app (see each file). `shell.spec.ts` drives the five shell behaviours
+ * step P6 tests, and `plugin.spec.ts` opens the dashboard built with the plugin
+ * example, for step P3 (see each file).
  */
 export default defineConfig({
   testDir: '.',
@@ -29,6 +31,8 @@ export default defineConfig({
     'records.spec.ts',
     'hosted.spec.ts',
     'tracing.spec.ts',
+    'shell.spec.ts',
+    'plugin.spec.ts',
   ],
   outputDir: './results/test-output',
   workers: 1,
