@@ -23,7 +23,7 @@ The captures, comparisons, emails and results behind the [verification record](.
 | `comparison/<case>/` | `<width>-side-by-side.webp`: the running screen on the left and the story on the right; `<width>-styles.json`: the computed styles of every distinct element on both sides, the elements compared, those found on one side only, and every style that differs. `mobile` is 390 pixels and `desktop` 1280 |
 | `emails/` | `<email ID>-390.webp` and `<email ID>-1280.webp`, and `emails.json`: for each, the sender, the template or component, the subject, the parts and how it was rendered |
 | `backend/` | `api-specs.json`, `core-specs.json` and `emails-specs.json`: every example of Spree's account, registration and customer email specs with its file, line, description and result |
-| `flows/` | `storefront-browser-tests.json`: each of the storefront's account browser tests with its result, run locally (record §2.2) |
+| `flows/` | `storefront-browser-tests.json`: each of the storefront's account browser tests with its result, run locally; `storefront-browser-tests-ci.json`: the end-to-end job's run in CI at `2e5f119` (record §2.2) |
 
 ## Comparison with running screens, at 390 and 1280 pixels
 
@@ -120,3 +120,4 @@ Senders, subjects and how each was rendered: [emails.json](emails/emails.json).
 | [core-specs.json](backend/core-specs.json) | Spree's registration workflow spec, which records consent at registration: 20 examples, no failures |
 | [emails-specs.json](backend/emails-specs.json) | Spree's customer mailer specs: 7 examples in 2 files, no failures |
 | [storefront-browser-tests.json](flows/storefront-browser-tests.json) | The storefront's seven account browser tests, run locally: 7 passed, none retried |
+| [storefront-browser-tests-ci.json](flows/storefront-browser-tests-ci.json) | The storefront's end-to-end job in CI at `2e5f119`, on 2026-10-23: all 21 browser tests passed, none retried, against Spree's published image |
