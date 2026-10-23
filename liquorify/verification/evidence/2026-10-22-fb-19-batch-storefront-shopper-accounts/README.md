@@ -6,7 +6,7 @@ The captures, comparisons, emails and results behind the [verification record](.
 
 | What | Revision |
 |---|---|
-| Stories and scripts | Storefront draft pull request [#18](https://github.com/pateldhruval872/liquorify-storefront/pull/18) at `49e1c37` |
+| Stories and scripts | Storefront draft pull request [#18](https://github.com/pateldhruval872/liquorify-storefront/pull/18) at `2e5f119` |
 | Running screens and the browser tests | The storefront at `main` `8153a6b`, which #18 does not change, built for production, against the backend's browser-test Rails server and fixtures at `a4a1708` |
 | Emails and Spree's specs | Spree's code at `a4a1708` |
 | Browser | The storefront's pinned Playwright 1.60.0 image, at 390 and 1280 pixels wide, with the fonts served offline |
@@ -53,7 +53,7 @@ The captures, comparisons, emails and results behind the [verification record](.
 
 ## Screens, by state and variant
 
-Variants are `guest`, `customer` (the test customer), `new-customer` (a customer registered by the capture run) and `another-customers-order` (the test customer opening another customer's order). The record §2.1 says how each state was reached.
+Variants are `guest`, `customer` (the test customer), `new-customer` (a customer registered by the capture run) and `another-customers-order` (the test customer opening another customer's order). The record §2.1 says how each state was reached and counts them: 39 states captured, two of them the page failing, and 3 not reached.
 
 | Screen | State | Captures |
 |---|---|---|
@@ -78,7 +78,7 @@ Variants are `guest`, `customer` (the test customer), `new-customer` (a customer
 | SF-ACC-06 | canceled | customer: [390](screens/SF-ACC-06/canceled/customer-light-390.webp), [1280](screens/SF-ACC-06/canceled/customer-light-1280.webp) |
 | SF-ACC-06 | no-tracking | customer: [390](screens/SF-ACC-06/no-tracking/customer-light-390.webp), [1280](screens/SF-ACC-06/no-tracking/customer-light-1280.webp) |
 | SF-ACC-06 | not-found | another-customers-order: [390](screens/SF-ACC-06/not-found/another-customers-order-light-390.webp), [1280](screens/SF-ACC-06/not-found/another-customers-order-light-1280.webp) |
-| SF-ACC-06 | paid-by-saved-card | customer: [390](screens/SF-ACC-06/paid-by-saved-card/customer-light-390.webp), [1280](screens/SF-ACC-06/paid-by-saved-card/customer-light-1280.webp) |
+| SF-ACC-06 | paid-by-saved-card, the page failing (B1) | customer: [390](screens/SF-ACC-06/paid-by-saved-card/customer-light-390.webp), [1280](screens/SF-ACC-06/paid-by-saved-card/customer-light-1280.webp) |
 | SF-ACC-06 | partially-shipped | customer: [390](screens/SF-ACC-06/partially-shipped/customer-light-390.webp), [1280](screens/SF-ACC-06/partially-shipped/customer-light-1280.webp) |
 | SF-ACC-06 | shipped | customer: [390](screens/SF-ACC-06/shipped/customer-light-390.webp), [1280](screens/SF-ACC-06/shipped/customer-light-1280.webp) |
 | SF-ACC-06 | unfulfilled | customer: [390](screens/SF-ACC-06/unfulfilled/customer-light-390.webp), [1280](screens/SF-ACC-06/unfulfilled/customer-light-1280.webp) |
@@ -89,7 +89,7 @@ Variants are `guest`, `customer` (the test customer), `new-customer` (a customer
 | SF-ACC-07 | no-addresses | new-customer: [390](screens/SF-ACC-07/no-addresses/new-customer-light-390.webp), [1280](screens/SF-ACC-07/no-addresses/new-customer-light-1280.webp) |
 | SF-ACC-07 | save-refused | customer: [390](screens/SF-ACC-07/save-refused/customer-light-390.webp), [1280](screens/SF-ACC-07/save-refused/customer-light-1280.webp) |
 | SF-ACC-07 | set-as-default | Not reached: [why](screens/SF-ACC-07/set-as-default/customer-unavailable.json) |
-| SF-ACC-08 | cards-listed | customer: [390](screens/SF-ACC-08/cards-listed/customer-light-390.webp), [1280](screens/SF-ACC-08/cards-listed/customer-light-1280.webp) |
+| SF-ACC-08 | cards-listed, the page failing (B1) | customer: [390](screens/SF-ACC-08/cards-listed/customer-light-390.webp), [1280](screens/SF-ACC-08/cards-listed/customer-light-1280.webp) |
 | SF-ACC-08 | no-cards | new-customer: [390](screens/SF-ACC-08/no-cards/new-customer-light-390.webp), [1280](screens/SF-ACC-08/no-cards/new-customer-light-1280.webp) |
 | SF-ACC-08 | remove-confirmation | Not reached: [why](screens/SF-ACC-08/remove-confirmation/customer-unavailable.json) |
 | SF-ACC-09 | canceled | Not reached: [why](screens/SF-ACC-09/canceled/customer-unavailable.json) |
