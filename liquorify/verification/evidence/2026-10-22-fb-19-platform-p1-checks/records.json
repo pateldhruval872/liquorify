@@ -1,0 +1,72 @@
+{
+  "revision": "local",
+  "observed": [
+    {
+      "check": "external references",
+      "step": "create with a key",
+      "result": {
+        "erp": "ERP-1792682849245"
+      }
+    },
+    {
+      "check": "external references",
+      "step": "read by the key",
+      "result": {
+        "sameProduct": true
+      }
+    },
+    {
+      "check": "external references",
+      "step": "create again with the same key",
+      "result": {
+        "sameProduct": true,
+        "renamed": true,
+        "productsWithTheName": 1
+      }
+    },
+    {
+      "check": "external references",
+      "step": "add a second system, addressed by the first key",
+      "result": {
+        "erp": "ERP-1792682849245",
+        "pim": "PIM-1792682849245"
+      }
+    },
+    {
+      "check": "external references",
+      "step": "give another product the first product's key",
+      "result": {
+        "status": 422,
+        "code": "conflicting_external_reference"
+      }
+    },
+    {
+      "check": "external references",
+      "step": "delete by the key",
+      "result": {
+        "status": 404,
+        "code": "record_not_found"
+      }
+    },
+    {
+      "check": "price history",
+      "step": "the store's setting before the run",
+      "result": {
+        "trackPriceHistory": true
+      }
+    },
+    {
+      "check": "price history",
+      "step": "prior price after 20.00, 15.00 and 25.00",
+      "result": "15.00"
+    },
+    {
+      "check": "price history",
+      "step": "prior price after a bulk upsert to 10.00",
+      "result": {
+        "price": "10.00",
+        "priorPrice": "15.00"
+      }
+    }
+  ]
+}
