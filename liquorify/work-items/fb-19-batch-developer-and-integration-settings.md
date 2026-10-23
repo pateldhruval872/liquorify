@@ -12,17 +12,17 @@ updated: 2026-10-23
 
 The second backend batch organised by product area: the rest of [LIQ-006 §4](../LIQ-006-product-capability-baseline.md#4-authentication-staff-and-access), the settings a developer or an integration uses to reach a store. It reproduces what Spree already has for API keys, OAuth clients, allowed origins, AI agent connections, webhooks and integrations. Nothing here changes Spree's code or the storefront's, or adds a Liquorify feature.
 
-**Status.** PROPOSED, for the owner's review before any of it is built. It is batch 2 in [LIQ-004's proposed order](../LIQ-004-foundation-backlog.md#proposed-order-of-the-remaining-batches), which depends on part 2 of the [staff access batch](fb-19-batch-staff-access-and-shell.md). The owner accepted part 2 and merged it on 2026-10-23 ([merge record](../verification/2026-10-23-fb-19-batch-staff-access-part-2-merge.md)). It follows the batch rules of LIQ-010 0.4, as part 1 and part 2 did. §7 holds the questions the owner is asked to answer.
+**Status.** PROPOSED, for the owner's review before any of it is built. It is batch 2 in [LIQ-004's proposed order](../LIQ-004-foundation-backlog.md#proposed-order-of-the-remaining-batches), which depends on part 2 of the [staff access batch](fb-19-batch-staff-access-and-shell.md). The owner accepted part 2 and merged it on 2026-10-23 ([merge record](../verification/2026-10-23-fb-19-batch-staff-access-part-2-merge.md)). It follows the batch rules of LIQ-010 0.4, as part 1 and part 2 did. On 2026-10-23 the owner answered the three questions in §7, and the sections below follow those answers.
 
 ## 1. Outcome and summary
 
 Every developer and integration settings screen has Storybook stories for the components it uses, captures of the running screen in each meaningful state and permission variant, a step-by-step map of its two flows, and the staff email it sends rendered from Spree's preview. The map links each capability to its evidence or to a named gap.
 
-- **Bounded:** 8 screens, 2 flows, 1 staff email, 6 browser test files and 19 new components, in one pull request (question 1 in §7).
+- **Bounded:** 8 screens, 2 flows, 1 staff email, 6 browser test files and 19 new components, in one bounded pull request, as the owner answered (§7).
 - **Same shape as part 1 and part 2:** screens, flows, permissions, meaningful states and running-screen evidence progress alongside component coverage, with what the interface shows kept apart from what the server enforces.
 - **No secret is published:** every key, token, client secret and webhook secret the running screens show is masked in the captures and replaced in the records (§5, criterion 14).
 - **Spree stays unchanged:** only Storybook files, mocks, scripts, evidence and records change.
-- **Function is a separate step:** whether a key, an OAuth client, the agent server and a webhook work from outside the dashboard is the platform batch's step [P2](fb-19-batch-platform.md), which depends on this batch (question 2 in §7).
+- **Function is a separate step:** whether a key, an OAuth client, the agent server and a webhook work from outside the dashboard is the platform batch's step [P2](fb-19-batch-platform.md), which runs after the owner accepts this batch, in its own pull request (§7).
 
 ## 2. Scope
 
@@ -82,7 +82,7 @@ The screens use 19 components from [LIQ-009](../LIQ-009-spree-component-and-toke
 | `integrations/` (CMP-DA-G-10) | `configure-integration-sheet`, `integration-card`, `setup-guide-link` |
 | Admin dashboard (CMP-DA-G-24, top level) | `agent-connections-card`, `mcp-connect-sheet`, `oauth-application-sheet`, `webhook-endpoint-form` |
 
-`resource-table` and `table-toolbar` are the listing framework most later settings and index screens use; this is the first batch whose screens use them (question 3 in §7). `can` draws nothing of its own, so its stories show what it renders with and without the permission, as `slot`'s did in part 1.
+`resource-table` and `table-toolbar` are the listing framework most later settings and index screens use; this is the first batch whose screens use them, and the owner included their stories here (§7). `can` draws nothing of its own, so its stories show what it renders with and without the permission, as `slot`'s did in part 1.
 
 **Already covered, reused here:** `api-key-table`, `permission-picker`, `page-header`, `slot`, `relative-time`, `row-actions`, `route-error-boundary`, `confirm-dialog`, `search-input`, and the primitives from the pilot, #9 and the staff access batch, including `sheet`, `dialog`, `tabs`, `switch`, `radio-group`, `scroll-area`, `badge` and `empty`.
 
@@ -137,17 +137,20 @@ DA-SET-27, OAuth clients, is not a step of FL-19 in LIQ-008, but CAP-04-06 inclu
 | Step | Browser tests |
 |---|---|
 | DA-SET-07: connect an agent | `ai-agents.spec.ts`: "both screens say so rather than showing an empty table", "connecting registers the first client", "registers the client and shows what to paste into it", "asks for a callback only once Something else is chosen" |
-| DA-SET-32: approve what it asks for | None drives this page: the tests make the approval through the API (`oauth-helpers.ts`) |
+| DA-SET-32: approve what it asks for | None drives this page: the tests make the approval through the API (`oauth-helpers.ts`). The owner assigned a browser test that approves on the page to platform step P2 (§7) |
 | DA-SET-07: see the connection and revoke it | "says who is connected through a registration", "names the person, what they approved, and when", "revokes that one person and keeps the registration" |
 | The agent uses the agent server | None: platform step P2 |
 
 DA-SET-10, integrations, is in no flow: `integrations.spec.ts`, "lists third-party payment providers alongside integrations", "connects an integration and keeps its settings", "opens the add sheet for the chosen provider without a provider picker", "switches a payment method off and back on from its card", "moves the switch at once and reverts it when the save fails", "saves the last choice when the switch is clicked again during a save".
 
-## 7. Questions for the owner, with a recommendation
+## 7. Questions for the owner, and the owner's answers
 
 1. **One pull request, or two parts?** The batch is about the size of one part of the staff access batch. Recommended: one pull request. The alternative is two: keys, origins, OAuth clients, AI agents and the authorize page first; webhooks and integrations second.
+   *The owner's answer, 2026-10-23:* one bounded pull request.
 2. **Does P2 run in this pull request?** Recommended: no. P2 runs after the owner accepts this batch, in its own pull request, as P3 and P6 ran after part 2. P2 needs a local webhook receiver, the agent server and the storefront's receiver, and carries G-16's webhook part, so keeping it apart keeps this batch to screens.
+   *The owner's answer, 2026-10-23:* P2 runs separately after this batch's acceptance. The browser-driven approval on the authorization page (DA-SET-32), which no browser test drives, is assigned explicitly to P2 ([platform work item](fb-19-batch-platform.md) §5).
 3. **Do the listing framework's stories belong here?** Recommended: yes, `resource-table` and `table-toolbar`, because this is the first batch whose screens use them and later batches reuse them. `bulk-action-bar` waits for a table with bulk actions (§2.3). The alternative is a separate small batch for the listing framework before this one.
+   *The owner's answer, 2026-10-23:* include the `resource-table` and `table-toolbar` stories here, and defer `bulk-action-bar` as proposed.
 
 ## 8. Gaps known before the work starts
 
@@ -157,7 +160,7 @@ Recorded now so none is lost. The batch's record says which it closes.
 |---|---|
 | Using a key, an OAuth client and the agent server from outside the dashboard, and a webhook delivered to a receiver (CAP-04-06 to CAP-04-08's function) | Platform step P2 |
 | An endpoint disabled automatically after repeated failed deliveries, and EM-S-07 sent when it is, with the other email configuration G-16 keeps pending | P2, with G-16 |
-| DA-SET-32 has no browser test that drives it: the approval is made through the API | A browser test that approves on the page; the batch's captures show its states |
+| DA-SET-32 has no browser test that drives it: the approval is made through the API | Platform step P2, to which the owner assigned a browser test that approves on the page; this batch's captures show the page's states |
 | Integrations and payment providers that need a real account: only the test app's integration and test gateway are connected | Test keys for the providers (P4, OA-1) |
 | What the server refuses to a role that may not read or write these resources | Criterion 12 records what Spree's specs exercise; the rest joins G-11 |
 | Tenant isolation (criterion 13), including keys and endpoints belonging to another store | FB-03's validation and the fixes for ISO-1 to ISO-7 |

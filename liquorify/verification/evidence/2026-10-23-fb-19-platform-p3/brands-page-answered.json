@@ -1,6 +1,6 @@
 {
   "capture": "brands-page-answered",
-  "revision": "58f44e2",
+  "revision": "1f0f598",
   "path": "/store_UkLWZg9DAJ/brands",
   "intercepted": "The browser answers /api/v3/admin/brands with two invented brands",
   "outside": []
