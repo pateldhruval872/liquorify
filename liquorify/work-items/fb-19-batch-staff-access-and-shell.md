@@ -5,7 +5,7 @@ work_item: FB-19
 status: PROPOSED
 owner: the owner reviews and accepts; an automated Claude session implements
 created: 2026-10-21
-updated: 2026-10-22
+updated: 2026-10-23
 ---
 
 # FB-19 batch: staff access and the dashboard shell
@@ -14,7 +14,11 @@ The first FB-19 batch organised by product area, under [LIQ-010 §12.1](../LIQ-0
 
 **Status.** PROPOSED. The owner asked on 2026-10-21 for the proposal below, and on 2026-10-22 instructed that the batch proceed in two pull requests, with this proposal, its 11 acceptance criteria and the exact LIQ-010 §12.1 amendment included for review ([LIQ-001 §1](../LIQ-001-project-profile.md#recorded-instructions-that-shape-engineering-work)). This work item, the amendment and part 1's evidence are reviewed together in part 1's draft pull request. Sections 1 to 6 are the proposal as the owner saw it, with the proposal's "Part A" and "Part B" called part 1 and part 2 here, because LIQ-010 already has a Part A and a Part B. Section 7 adds what the owner's instruction of 2026-10-22 asked for, and marks each addition.
 
-**Part 1.** Built and recorded in the [part 1 verification record](../verification/2026-10-22-fb-19-batch-staff-access-part-1.md), with its [image review list](../verification/2026-10-22-fb-19-batch-staff-access-part-1-image-review.md). The owner merged #11 on 2026-10-22 and accepted part 1, leaving its gaps pending ([record](../verification/2026-10-22-fb-19-batch-staff-access-part-1-merge.md)); part 2 follows. What part 1 found that differs from this proposal is in §7.6; the proposal's text is left as the owner saw it.
+**Part 1.** Built and recorded in the [part 1 verification record](../verification/2026-10-22-fb-19-batch-staff-access-part-1.md), with its [image review list](../verification/2026-10-22-fb-19-batch-staff-access-part-1-image-review.md). The owner merged #11 on 2026-10-22 and accepted part 1, leaving its gaps pending ([record](../verification/2026-10-22-fb-19-batch-staff-access-part-1-merge.md)).
+
+**Part 2.** Built and recorded in the [part 2 verification record](../verification/2026-10-22-fb-19-batch-staff-access-part-2.md), with its [image review list](../verification/2026-10-22-fb-19-batch-staff-access-part-2-image-review.md), in #14. On 2026-10-23 the owner accepted its reference images and diagnostic fidelity at `4e9c196` and answered its gaps ([record](../verification/2026-10-22-fb-19-batch-staff-access-part-2.md#11-the-owners-review-2026-10-23)); its merge is the owner's. CAP-04-05 stays PARTIAL until the platform batch's step P6 adds the five browser tests G-22 names.
+
+What part 1 found that differs from this proposal is in §7.6; the proposal's text is left as the owner saw it.
 
 ## 1. Outcome and summary
 

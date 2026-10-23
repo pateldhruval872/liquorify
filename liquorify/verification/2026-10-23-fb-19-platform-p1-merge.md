@@ -70,7 +70,7 @@ What the answer does not change:
 
 - **The results already recorded.** Each batch keeps the result its record gives at its revision. Closing G-04 and G-15 records that the missing browser steps now have a test in P1; it does not re-run part 1 or the shopper accounts batch.
 - **The defects.** SD-1 and SD-2 stay Open and High, and SD-3 and SD-4 stay Open, in LIQ-004's defect table.
-- **The other gaps.** Every gap other than G-01, G-03, G-04, G-05, G-15 and G-18 stays PENDING.
+- **The other gaps.** At this answer, every gap other than G-01, G-03, G-04, G-05, G-15 and G-18 stayed PENDING. The owner answered part 2's gaps, and G-07, later the same day ([part 2's record §11](2026-10-22-fb-19-batch-staff-access-part-2.md#11-the-owners-review-2026-10-23)).
 
 **What follows.** Part 2 of the staff access batch, [#14](https://github.com/pateldhruval872/liquorify/pull/14), has `main` brought in again and carries this record. It stays a draft with its own acceptance.
 

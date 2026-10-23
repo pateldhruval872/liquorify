@@ -4,7 +4,7 @@ record: verification
 work_item: FB-19
 date: 2026-10-22
 verifier: Claude (automated session); not independent review
-result: PASS for the map, the stories and their images, the running-screen captures, the comparison with running screens after five corrections to the stories, and Spree's own specs for the shell and for the command palette's searches. Every state the work item lists for DA-OVL-01 to DA-OVL-04 is captured; two of them only by answering a request. Coverage and functional verification are recorded apart (§2): CAP-04-05 is PARTIAL, because the theme, the store switcher, the notifications and the palette's record search have no browser test. The teammate's own navigation after a role is given (G-07) was observed, as part 1 proposed. The interface shows eleven behaviours the work item did not expect, recorded as Spree's behaviour. Tenant isolation and the owner's acceptance are NOT_RUN. CI at `b56b647`: Packages with the dashboard's browser tests passed, and the visual check passed twice, 594 of 594 each time, after correcting a story whose image CI found could settle two ways. Tests passed apart from one Spree address example, the existing defect #10 fixes, which failed in two jobs and passed when they were re-run once (§8).
+result: PASS for the map, the stories and their images, the running-screen captures, the comparison with running screens after five corrections to the stories, and Spree's own specs for the shell and for the command palette's searches. Every state the work item lists for DA-OVL-01 to DA-OVL-04 is captured; two of them only by answering a request. Coverage and functional verification are recorded apart (§2): CAP-04-05 is PARTIAL, because the theme, the store switcher, the notifications and the palette's record search have no browser test. The teammate's own navigation after a role is given (G-07) was observed, as part 1 proposed. The interface shows eleven behaviours the work item did not expect, recorded as Spree's behaviour. Tenant isolation is NOT_RUN. On 2026-10-23 the owner accepted the reference images and the diagnostic fidelity at `4e9c196`, within the limits this record gives, and answered part 2's gaps (§11). CI at `b56b647`: Packages with the dashboard's browser tests passed, and the visual check passed twice, 594 of 594 each time, after correcting a story whose image CI found could settle two ways. Tests passed apart from one Spree address example, the existing defect #10 fixes, which failed in two jobs and passed when they were re-run once (§8).
 ---
 
 # FB-19 staff access batch, part 2, the shell and its overlays
@@ -33,7 +33,7 @@ result: PASS for the map, the stories and their images, the running-screen captu
 | 8 | The visual check passes twice in CI on the same revision; Tests and Packages pass; the check stays advisory | PASS at `b56b647` (§8): the visual check passed twice in CI, 594 of 594 each time, the second run started by hand; Packages passed, and Tests passed apart from one Spree address example that is not this change's; the check is still advisory and never accepts an image. At `e2d282b` the second run failed one image, which was the story's defect and is corrected (§4.2) |
 | 9 | Spree's code, the storefront and every workflow outside Storybook are unchanged; nothing carries Liquorify branding or features | PASS: the pull request changes only `packages/liquorify-storybook/` and `liquorify/` |
 | 10 | The records are updated, with every link checked | PASS: this record, the image review list, the evidence index, LIQ-009's Storybook column, LIQ-010 §8, LIQ-004's FB-19 entry, the work item and the README index, with the link check run |
-| 11 | The owner accepts the reference images, the screen evidence and fidelity | NOT_RUN: the pull request is a draft |
+| 11 | The owner accepts the reference images, the screen evidence and fidelity | ACCEPTED on 2026-10-23 at `4e9c196`: the reference images and the diagnostic fidelity, within the limits in §9 (§11) |
 | 12 | Backend authorization is recorded apart from criterion 4, from Spree's own specs at the part's revision | PASS for what Spree's specs exercise: 521 examples in 14 files, no failures (§3.2). What no Spree spec exercises is NOT_RUN as a spec result; the refusal check observed each such request answered as the role allows, as an observation only |
 | 13 | Tenant isolation is recorded as NOT_RUN, with links to the open findings | NOT_RUN (§3.3). No new isolation defect was found; none was looked for beyond Spree's own specs |
 
@@ -263,7 +263,7 @@ Each names what is missing, the check made instead and what would close it. Part
 | G-23: The palette's searches as a teammate who may not read the resource | The refusal check's observation (§3.2) | Specs in Spree's suites | Joins G-11 |
 | Tenant isolation | None | FB-03's validation and the fixes for ISO-1 to ISO-7 | Outstanding item, not a gap |
 
-**G-07 from part 1.** Part 1 deferred the teammate's own navigation after a role is given to this part. Part 2's script now shows it (§2.2). The proposal is to close G-07 on that observation; it stays PENDING until the owner decides.
+**G-07 from part 1.** Part 1 deferred the teammate's own navigation after a role is given to this part. Part 2's script now shows it (§2.2). The owner closed G-07 on that evidence on 2026-10-23 (§11).
 
 ## 8. CI runs and local checks
 
@@ -295,3 +295,20 @@ The commit that adds these results changes only this record and the evidence ind
 ## 10. Evidence
 
 The [evidence index](evidence/2026-10-22-fb-19-batch-staff-access-part-2/README.md) lists every capture, comparison and result file, by inventory ID. The [image review list](2026-10-22-fb-19-batch-staff-access-part-2-image-review.md) lists every reference image for the owner's review.
+
+## 11. The owner's review, 2026-10-23
+
+On 2026-10-23 at 18:49 UTC the owner reviewed #14 at `4e9c196` and accepted part 2's reference images and its diagnostic fidelity within the limits in §9. The [image review list](2026-10-22-fb-19-batch-staff-access-part-2-image-review.md) records it for every image. The merge is the owner's to make.
+
+The owner also answered each of part 2's gaps, and G-07 from part 1. The [gap register](../LIQ-004-foundation-backlog.md#deferred-gaps-and-the-owners-acceptance) records the same answers.
+
+| Gap | The owner's answer | What it means |
+|---|---|---|
+| G-07 | CLOSED | The asserted capture of the teammate's navigation before and after a role is given (§2.2) is its evidence |
+| G-19 | ACCEPTED, deferred as G-01 | Later batches compare each state once one of their running screens shows it; what no stock screen shows stays checked against its source |
+| G-20 | ACCEPTED as simulated interface-state coverage | DA-OVL-03's unread and populated states were reached by answering the update check in the browser. Spree's real update service is not verified |
+| G-21 | ACCEPTED as simulated interface-state coverage | DA-OVL-04's field errors were reached by answering the save in the browser. The server's validation is not verified |
+| G-22 | ACCEPTED, deferred to a named follow-up | The platform batch's step [P6](../work-items/fb-19-batch-platform.md#p6-the-dashboard-shells-untested-behaviours) covers all five behaviours, with its own completion criteria. G-22 closes when the owner accepts P6's record |
+| G-23 | Linked to G-11 | Its checks, the palette's searches as a teammate who may not read the resource, are named in G-11's row and stay open there. G-23 keeps its row so it can be traced |
+
+What stays as it was: CAP-04-05 is PARTIAL (§2), tenant isolation is NOT_RUN (§3.3), and behaviours B1 to B11 are recorded and not changed (§5). G-16 stays pending and SD-1 to SD-4 stay open in LIQ-004.
