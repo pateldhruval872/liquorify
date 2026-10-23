@@ -1,0 +1,7 @@
+{
+  "screen": "SF-ACC-08",
+  "state": "remove-confirmation",
+  "variant": "customer",
+  "revision": "8153a6b1ffbcd8dfd0c435f6fc24f90ff32b9fff",
+  "unavailable": "The page fails for the customer's only card (see cards-listed), so its remove button cannot be reached."
+}

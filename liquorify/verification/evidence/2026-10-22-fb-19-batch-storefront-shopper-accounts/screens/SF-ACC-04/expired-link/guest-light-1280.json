@@ -1,0 +1,11 @@
+{
+  "screen": "SF-ACC-04",
+  "state": "expired-link",
+  "variant": "guest",
+  "theme": "light",
+  "width": 1280,
+  "revision": "8153a6b1ffbcd8dfd0c435f6fc24f90ff32b9fff",
+  "path": "/us/en/account/reset-password",
+  "observed": "Submitted an invented token; the page shows \"Password reset token is invalid or has expired.\".",
+  "note": null
+}

@@ -1,0 +1,11 @@
+{
+  "screen": "SF-ACC-10",
+  "state": "current-password-refused",
+  "variant": "customer",
+  "theme": "light",
+  "width": 1280,
+  "revision": "8153a6b1ffbcd8dfd0c435f6fc24f90ff32b9fff",
+  "path": "/us/en/account/profile",
+  "observed": "Changed the email and gave a wrong current password; Spree refused it and the page shows \"Current password is invalid or missing\". Nothing was saved.",
+  "note": null
+}

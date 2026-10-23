@@ -1,0 +1,11 @@
+{
+  "screen": "SF-ACC-04",
+  "state": "success",
+  "variant": "guest",
+  "theme": "light",
+  "width": 1280,
+  "revision": "8153a6b1ffbcd8dfd0c435f6fc24f90ff32b9fff",
+  "path": "/us/en/account/reset-password",
+  "observed": "Used a reset token for the customer, setting the same password again. A reset link works once, so the page was captured at 390 pixels and then widened to 1280 without reloading.",
+  "note": null
+}
