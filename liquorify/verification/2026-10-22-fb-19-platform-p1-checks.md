@@ -4,7 +4,7 @@ record: verification
 work_item: FB-19
 date: 2026-10-22
 verifier: Claude (automated session); not independent review
-result: PASS for regenerating the API reference, which found two stale spots in the committed reference (SD-4). PARTIAL for the Admin and Seller kits against the running server, which found the Seller kit's order addresses described wrongly (SD-3); after the owner's review, the kit check allows only SD-3's two address issues and fails on a server error from any request it sends, and its own tests show both. PASS for external references, price history, the hosted dashboard and seller panel, and tracing. The owner's acceptance is NOT_RUN
+result: PASS for regenerating the API reference, which found two stale spots in the committed reference (SD-4). PARTIAL for the Admin and Seller kits against the running server, which found the Seller kit's order addresses described wrongly (SD-3); after the owner's review, the kit check allows only SD-3's two address issues and fails on a server error from any request it sends, and its own tests show both. PASS for external references, price history, the hosted dashboard and seller panel, and tracing. The owner accepted P1 on 2026-10-23, after the merge
 ---
 
 # FB-19 platform batch, step P1, the API, kit, record, hosting and tracing checks
@@ -181,7 +181,7 @@ The gem also traces several layers that were not seen here:
 
 ## 3. What this means for the capabilities
 
-Each result stays pending the owner's review of P1.
+The owner accepted P1 on 2026-10-23, after #13 and storefront #19 merged ([merge record](2026-10-23-fb-19-platform-p1-merge.md)). Each result stands as below.
 
 | Capability | Functional verification after P1 | What remains |
 |---|---|---|

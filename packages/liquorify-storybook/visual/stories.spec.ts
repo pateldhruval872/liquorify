@@ -2,13 +2,14 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import path from 'node:path'
 import { expect, type Locator, type Page, test } from '@playwright/test'
 import { FIXTURE_NOW } from '../src/fixtures/clock'
-import { modes } from './modes'
+import { modes, phoneModes } from './modes'
 
 interface IndexEntry {
   id: string
   title: string
   name: string
   type: 'story' | 'docs'
+  tags?: string[]
 }
 
 const index: { entries: Record<string, IndexEntry> } = JSON.parse(
@@ -77,7 +78,7 @@ async function stableScreenshot(target: Page | Locator): Promise<Buffer> {
 }
 
 for (const story of stories) {
-  for (const mode of modes) {
+  for (const mode of story.tags?.includes('phone') ? phoneModes : modes) {
     test(`${story.title} / ${story.name} / ${mode.name}`, async ({ page, baseURL }, testInfo) => {
       const outside: string[] = []
       page.on('request', (request) => {
@@ -92,7 +93,7 @@ for (const story of stories) {
       )
 
       await page.addInitScript(recordStoryFailures)
-      await page.setViewportSize({ width: mode.width, height: 800 })
+      await page.setViewportSize({ width: mode.width, height: mode.height })
       await page.emulateMedia({ colorScheme: mode.colorScheme, reducedMotion: 'reduce' })
       await page.clock.setFixedTime(FIXTURE_NOW)
       await page.goto(`/iframe.html?id=${story.id}&viewMode=story&globals=theme:${mode.theme}`)

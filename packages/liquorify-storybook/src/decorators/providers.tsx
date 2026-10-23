@@ -32,6 +32,13 @@ export interface StoryNeeds {
   storeId?: string
   /** The page column a component fills on its screen, for components that take their container's width. */
   column?: Column
+  /**
+   * Leaves the theme on "System", where the running dashboard starts, so the
+   * browser's colour scheme decides it rather than the toolbar. The visual
+   * check reports the colour scheme of each capture's theme, so both still
+   * agree there; for the account menu, whose theme control shows the choice.
+   */
+  systemTheme?: boolean
 }
 
 /**
@@ -43,7 +50,7 @@ export const columnWidths = { page: 965, settings: 890 } as const
 
 export type Column = keyof typeof columnWidths
 
-function ThemeFromToolbar({ theme }: { theme: 'light' | 'dark' }) {
+function ThemeFromToolbar({ theme }: { theme: 'light' | 'dark' | 'system' }) {
   const { setMode } = useTheme()
   useEffect(() => setMode(theme), [theme, setMode])
   return null
@@ -66,7 +73,7 @@ export const withPanelProviders: Decorator = (Story, context) => {
     lastStoryId = context.id
   }
 
-  const theme = context.globals.theme === 'dark' ? 'dark' : 'light'
+  const theme = needs.systemTheme ? 'system' : context.globals.theme === 'dark' ? 'dark' : 'light'
   const signedIn = (children: ReactNode) =>
     needs.signedIn ? (
       <AuthProvider>

@@ -1,0 +1,16 @@
+{
+  "screen": "DA-OVL-01",
+  "state": "mobile-store-loading",
+  "variant": "admin",
+  "role": null,
+  "theme": "light",
+  "revision": "a4a1708",
+  "path": "/<store>",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "intercepted": "The store's request is held open",
+  "settled": null,
+  "outside": []
+}

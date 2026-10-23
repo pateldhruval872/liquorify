@@ -1,0 +1,16 @@
+{
+  "screen": "DA-OVL-01",
+  "state": "mobile-unread-notification",
+  "variant": "admin",
+  "role": null,
+  "theme": "light",
+  "revision": "a4a1708",
+  "path": "/<store>",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "intercepted": "The update check is answered with a newer release",
+  "settled": true,
+  "outside": []
+}

@@ -5,7 +5,7 @@ work_item: FB-19
 status: PROPOSED
 owner: the owner reviews and accepts; an automated Claude session implements
 created: 2026-10-21
-updated: 2026-10-22
+updated: 2026-10-23
 ---
 
 # FB-19 batch: staff access and the dashboard shell
@@ -14,7 +14,11 @@ The first FB-19 batch organised by product area, under [LIQ-010 §12.1](../LIQ-0
 
 **Status.** PROPOSED. The owner asked on 2026-10-21 for the proposal below, and on 2026-10-22 instructed that the batch proceed in two pull requests, with this proposal, its 11 acceptance criteria and the exact LIQ-010 §12.1 amendment included for review ([LIQ-001 §1](../LIQ-001-project-profile.md#recorded-instructions-that-shape-engineering-work)). This work item, the amendment and part 1's evidence are reviewed together in part 1's draft pull request. Sections 1 to 6 are the proposal as the owner saw it, with the proposal's "Part A" and "Part B" called part 1 and part 2 here, because LIQ-010 already has a Part A and a Part B. Section 7 adds what the owner's instruction of 2026-10-22 asked for, and marks each addition.
 
-**Part 1.** Built and recorded in the [part 1 verification record](../verification/2026-10-22-fb-19-batch-staff-access-part-1.md), with its [image review list](../verification/2026-10-22-fb-19-batch-staff-access-part-1-image-review.md). The owner merged #11 on 2026-10-22 and accepted part 1, leaving its gaps pending ([record](../verification/2026-10-22-fb-19-batch-staff-access-part-1-merge.md)); part 2 follows. What part 1 found that differs from this proposal is in §7.6; the proposal's text is left as the owner saw it.
+**Part 1.** Built and recorded in the [part 1 verification record](../verification/2026-10-22-fb-19-batch-staff-access-part-1.md), with its [image review list](../verification/2026-10-22-fb-19-batch-staff-access-part-1-image-review.md). The owner merged #11 on 2026-10-22 and accepted part 1, leaving its gaps pending ([record](../verification/2026-10-22-fb-19-batch-staff-access-part-1-merge.md)).
+
+**Part 2.** Built and recorded in the [part 2 verification record](../verification/2026-10-22-fb-19-batch-staff-access-part-2.md), with its [image review list](../verification/2026-10-22-fb-19-batch-staff-access-part-2-image-review.md), in #14. On 2026-10-23 the owner accepted its reference images and diagnostic fidelity at `4e9c196` and answered its gaps ([record](../verification/2026-10-22-fb-19-batch-staff-access-part-2.md#11-the-owners-review-2026-10-23)); its merge is the owner's. CAP-04-05 stays PARTIAL until the platform batch's step P6 adds the five browser tests G-22 names.
+
+What part 1 found that differs from this proposal is in §7.6; the proposal's text is left as the owner saw it.
 
 ## 1. Outcome and summary
 
@@ -244,6 +248,19 @@ Part 1's running screens and tests showed where this proposal did not match Spre
 | §7.1, FL-24 | Whether giving a role to a teammate is covered is confirmed in part 1 | Covered: `roles.spec.ts`, "blocks deleting a role while staff hold it, allows after unassign", assigns the role in the edit teammate sheet |
 
 Part 1 also closed one of #9's source-only stories (§7.5): #9's destructive alert was compared with the sign-in page's providers alert.
+
+### 7.7 Corrections found in part 2
+
+Part 2's running screens showed where this proposal did not match Spree at `a4a1708` for the shell. As in §7.6, the proposal's text is unchanged and these corrections govern. Each is recorded in the [part 2 verification record](../verification/2026-10-22-fb-19-batch-staff-access-part-2.md) §5 and §6.
+
+| Where | The proposal says | Spree does |
+|---|---|---|
+| §7.1, CAP-04-05's evidence | Outside update requests blocked and recorded | The update check is made by Spree's server, not the browser, and the test environment switches it off. The captures blocked and recorded every request that would have left the local servers instead; there were none |
+| §2.1, DA-OVL-03 | A "populated" state | The only notification is a newer release. With the check switched off, the state is reached only by answering the check in the browser |
+| §2.1, DA-OVL-04 | A "field errors" state | The server saved every value tried, a 300-letter name and an unknown language included, so the state is reached only by answering the save |
+| §2.2, the three templates | The sidebar each one produces | Captured in part 1, and compared with its story in part 2 |
+
+Part 2 also showed the teammate's own navigation after a role is given, which part 1 left as a gap (§7.5).
 
 ## 8. Ownership, risk and release impact
 

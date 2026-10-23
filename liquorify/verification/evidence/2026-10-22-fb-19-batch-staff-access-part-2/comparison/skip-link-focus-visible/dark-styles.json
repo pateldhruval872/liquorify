@@ -1,0 +1,64 @@
+{
+  "id": "CMP-CORE-33",
+  "story": "dashboard-core-shell-skip-link--focus-visible",
+  "theme": "dark",
+  "revision": "a4a1708",
+  "screenWidth": 128,
+  "storyWidth": 128,
+  "compared": 1,
+  "onlyOnScreen": [],
+  "onlyInStory": [],
+  "differences": [],
+  "styles": {
+    "screen": {
+      "a||sr-only focus-visible:not-sr-only focus-visible:fixed focus-visible:top-3 focus-visible:left-3 focus-visible:z-50 focus-visible:rounded-lg focus-visible:bg-card focus-visible:px-4 focus-visible:py-2 focus-visible:text-sm focus-visible:font-medium focus-visible:text-foreground focus-visible:shadow-md focus-visible:border focus-visible:border-border-control focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50": {
+        "color": "oklch(0.95 0 0)",
+        "background-color": "oklch(0.216 0 0)",
+        "font-family": "\"Geist Variable\", ui-sans-serif, system-ui, sans-serif",
+        "font-size": "13px",
+        "font-weight": "500",
+        "line-height": "18.5714px",
+        "letter-spacing": "normal",
+        "border-top-width": "1px",
+        "border-top-style": "solid",
+        "border-top-color": "oklch(0.52 0 0)",
+        "border-bottom-width": "1px",
+        "border-bottom-color": "oklch(0.52 0 0)",
+        "border-top-left-radius": "10px",
+        "padding-top": "8px",
+        "padding-right": "16px",
+        "padding-bottom": "8px",
+        "padding-left": "16px",
+        "height": "36.5625px",
+        "box-shadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, oklab(0.68 -0.0395033 -0.185848 / 0.5) 0px 0px 0px 3px, rgba(0, 0, 0, 0.08) 0px 4px 16px -4px, rgba(0, 0, 0, 0.05) 0px 1px 4px -2px",
+        "opacity": "1",
+        "gap": "normal"
+      }
+    },
+    "story": {
+      "a||sr-only focus-visible:not-sr-only focus-visible:fixed focus-visible:top-3 focus-visible:left-3 focus-visible:z-50 focus-visible:rounded-lg focus-visible:bg-card focus-visible:px-4 focus-visible:py-2 focus-visible:text-sm focus-visible:font-medium focus-visible:text-foreground focus-visible:shadow-md focus-visible:border focus-visible:border-border-control focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50": {
+        "color": "oklch(0.95 0 0)",
+        "background-color": "oklch(0.216 0 0)",
+        "font-family": "\"Geist Variable\", ui-sans-serif, system-ui, sans-serif",
+        "font-size": "13px",
+        "font-weight": "500",
+        "line-height": "18.5714px",
+        "letter-spacing": "normal",
+        "border-top-width": "1px",
+        "border-top-style": "solid",
+        "border-top-color": "oklch(0.52 0 0)",
+        "border-bottom-width": "1px",
+        "border-bottom-color": "oklch(0.52 0 0)",
+        "border-top-left-radius": "10px",
+        "padding-top": "8px",
+        "padding-right": "16px",
+        "padding-bottom": "8px",
+        "padding-left": "16px",
+        "height": "36.5625px",
+        "box-shadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, oklab(0.68 -0.0395033 -0.185848 / 0.5) 0px 0px 0px 3px, rgba(0, 0, 0, 0.08) 0px 4px 16px -4px, rgba(0, 0, 0, 0.05) 0px 1px 4px -2px",
+        "opacity": "1",
+        "gap": "normal"
+      }
+    }
+  }
+}

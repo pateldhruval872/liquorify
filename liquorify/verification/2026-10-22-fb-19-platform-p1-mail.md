@@ -4,7 +4,7 @@ record: verification
 work_item: FB-19
 date: 2026-10-22
 verifier: Claude (automated session); not independent review
-result: PASS for the staff mail on the browser-test server, read from a folder the test app writes it to, with each link followed in the browser; PASS for the storefront's reset email, sent through Spree's webhook. PASS for Spree's own customer reset email on the emails gem's own test app, read from a folder that app writes it to, with its link's token resetting the password through the Store API. On the browser-test server that email stays BLOCKED, because that server does not load the gem that sends it. P1's other checks are in their own record, 2026-10-22-fb-19-platform-p1-checks.md. The owner's acceptance is NOT_RUN
+result: PASS for the staff mail on the browser-test server, read from a folder the test app writes it to, with each link followed in the browser; PASS for the storefront's reset email, sent through Spree's webhook. PASS for Spree's own customer reset email on the emails gem's own test app, read from a folder that app writes it to, with its link's token resetting the password through the Store API. On the browser-test server that email stays BLOCKED, because that server does not load the gem that sends it. P1's other checks are in their own record, 2026-10-22-fb-19-platform-p1-checks.md. The owner accepted P1 on 2026-10-23, after the merge, and left its gaps pending
 ---
 
 # FB-19 platform batch, step P1, the mail check
@@ -78,15 +78,15 @@ Each run adds its own teammate, so the browser tests' admin keeps its password. 
 
 ## 3. What this means for the gaps
 
-The evidence above sits in P1's pull requests, which are drafts. Until the owner reviews P1, each gap stays as the register has it, with this evidence named.
+The owner accepted P1 on 2026-10-23, after #13 and storefront #19 merged, and chose to answer each of these gaps separately. Later that day the owner closed G-03, G-04, G-05 and G-15 against this evidence, and kept G-16 pending ([merge record §4](2026-10-23-fb-19-platform-p1-merge.md#4-the-owners-answer-on-four-of-p1s-gaps)).
 
 | Gap | What the evidence shows | What remains |
 |---|---|---|
-| G-03 DA-AUTH-03 "saved" not captured | Captured after a real reset from a mailed link (§2.1) | The owner's review of P1 |
-| G-04 Saving a new staff password in the browser (FL-03) | Saved from the mailed link, and the new password signs in (§2.1). FL-03 would then have a browser test for every step | The owner's review of P1 |
-| G-05 EM-S-01, EM-S-03 and EM-S-04 not seen sent | Each read during its flow (§2.1) | The owner's review of P1 |
-| G-15 FL-09's three password reset steps | Requested, mailed and saved in the browser (§2.2) | The owner's review of P1 |
-| G-16 Whether EM-C-08 or EM-SF-04 is sent | EM-SF-04 is sent through Spree's webhook (§2.2). EM-C-08 is sent on the emails gem's own test app, and its link's token resets the password there; the browser-test server cannot send it (§2.3) | The owner's review of P1, including whether the gem's test app is enough for EM-C-08. P2's webhook deliveries are still to come |
+| G-03 DA-AUTH-03 "saved" not captured | Captured after a real reset from a mailed link (§2.1) | Nothing: CLOSED on 2026-10-23 |
+| G-04 Saving a new staff password in the browser (FL-03) | Saved from the mailed link, and the new password signs in (§2.1). FL-03 would then have a browser test for every step | Nothing: CLOSED on 2026-10-23 |
+| G-05 EM-S-01, EM-S-03 and EM-S-04 not seen sent | Each read during its flow (§2.1) | Nothing: CLOSED on 2026-10-23 |
+| G-15 FL-09's three password reset steps | Requested, mailed and saved in the browser (§2.2) | Nothing: CLOSED on 2026-10-23 |
+| G-16 Whether EM-C-08 or EM-SF-04 is sent | EM-SF-04 is sent through Spree's webhook (§2.2). EM-C-08 is sent on the emails gem's own test app, and its link's token resets the password there; the browser-test server cannot send it (§2.3) | PENDING, at the owner's answer: the remaining email configuration, including whether the gem's test app is enough for EM-C-08, and P2's webhook deliveries |
 
 ## 4. Limitations
 

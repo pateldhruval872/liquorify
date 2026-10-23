@@ -5,19 +5,20 @@ import { type APIRequestContext, expect, request as playwright, test } from '@pl
 import { PASSWORD, pendingEmail, roles, seed, teammates } from './staff'
 
 /**
- * Sends each staff and roles request the interface offers, as teammates whose
- * roles do not allow it, to the running browser-test server, and records what
- * the server answers. It is an observation of the server at the revision under
- * test, recorded beside Spree's own specs and never in place of them (LIQ-010
- * §12.1, step 5). Each request names the refusal it expects: the status, the
+ * Sends each staff and roles request the interface offers, and each command
+ * palette search, as teammates whose roles do not allow it, to the running
+ * browser-test server, and records what the server answers. It is an
+ * observation of the server at the revision under test, recorded beside
+ * Spree's own specs and never in place of them (LIQ-010 §12.1, step 5). Each request names the refusal it expects: the status, the
  * error code and, for a 403, the permission the answer says is missing. Any
  * other answer fails the run, a server error or a success included, and is
  * recorded as it happened.
  *
  * Start the screens as `compare.spec.ts` describes. It adds the staff and
  * roles it needs first (`staff.ts`). Results go to `results/refusals.json`,
- * with no response bodies and no tokens. The second test checks the check
- * itself against a stub server and needs nothing running.
+ * with no response bodies and no tokens; the searches' to
+ * `results/refusals-search.json`. The last test checks the check itself
+ * against a stub server and needs nothing running.
  */
 
 const results = new URL('./results/', import.meta.url).pathname
@@ -214,6 +215,56 @@ test('each request a role does not allow gets its expected refusal', async ({
   writeFileSync(`${results}refusals.json`, JSON.stringify({ revision, outcomes }, null, 2))
   const unexpected = outcomes.filter((outcome) => !outcome.asExpected)
   expect(unexpected, 'every request got exactly its expected refusal').toEqual([])
+})
+
+/**
+ * The command palette searches every kind of record the reader may read
+ * (DA-OVL-02), one list request each, and leaves out the rest. Sends all nine
+ * searches as teammates with narrow roles: each one the role may read is
+ * answered, and each one it may not is refused with the read permission it
+ * lacks, exactly as the server at `a4a1708` answered. Results go to
+ * `results/refusals-search.json`.
+ */
+test('each palette search is answered or refused as the role allows', async ({
+  request,
+  baseURL,
+}) => {
+  await seed(baseURL ?? 'http://localhost:5174')
+  const searches: [resource: string, permission: string][] = [
+    ['products', 'read_products'],
+    ['categories', 'read_categories'],
+    ['collections', 'read_collections'],
+    ['orders', 'read_orders'],
+    ['customers', 'read_customers'],
+    ['customer_groups', 'read_customers'],
+    ['companies', 'read_customers'],
+    ['sellers', 'read_sellers'],
+    ['promotions', 'read_promotions'],
+  ]
+  const allowed: Answer = { status: 200, code: null, requiredPermission: null }
+
+  const outcomes: Outcome[] = []
+  for (const variant of ['staffViewer', 'support', 'orderManager', 'merchandiser'] as const) {
+    const teammate = await signIn(request, teammates[variant].email)
+    for (const [resource, permission] of searches) {
+      const path = `/api/v3/admin/${resource}?q[search]=e2e&limit=5`
+      const expected = teammate.keys.includes(permission) ? allowed : denied(permission)
+      const answer = await send(request, teammate.headers, { method: 'GET', path })
+      outcomes.push({
+        teammate: variant,
+        permissionKeys: teammate.keys,
+        request: `GET ${path}`,
+        ...answer,
+        expected,
+        asExpected: matches(answer, expected),
+      })
+    }
+  }
+
+  mkdirSync(results, { recursive: true })
+  writeFileSync(`${results}refusals-search.json`, JSON.stringify({ revision, outcomes }, null, 2))
+  const unexpected = outcomes.filter((outcome) => !outcome.asExpected)
+  expect(unexpected, 'every search got exactly its expected answer').toEqual([])
 })
 
 test('the check fails any answer but the expected refusal', async () => {

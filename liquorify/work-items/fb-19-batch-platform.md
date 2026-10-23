@@ -5,14 +5,14 @@ work_item: FB-19
 status: PROPOSED
 owner: the owner reviews and accepts; an automated Claude session implements
 created: 2026-10-22
-updated: 2026-10-22
+updated: 2026-10-23
 ---
 
 # FB-19 batch: the platform capabilities without screens
 
 The batch that checks what Spree offers without a screen of its own: the Store, Admin and Seller APIs, the developer kits, webhooks and events, dashboard plugins, providers, the command line tool and project scaffolding, tracing, the agent server and the hosted dashboards. It adds no stories and no Figma frames. It links each capability to its evidence, and keeps what exists apart from what was shown to work.
 
-**Status.** PROPOSED. On 2026-10-22 the owner added this batch, and the completion criterion that ties every capability to its evidence ([LIQ-006 §14](../LIQ-006-product-capability-baseline.md#14-when-the-baseline-is-complete), criteria 8 and 9). The owner asked for the coverage to be inventoried early and the checks to be scheduled around their dependencies. The inventory in §3 is done. Step P1 in §5 has run: the [mail check](../verification/2026-10-22-fb-19-platform-p1-mail.md) and the [API, kit, record, hosting and tracing checks](../verification/2026-10-22-fb-19-platform-p1-checks.md). Its results wait for the owner's review; the other steps have not run. Nothing here changes Spree's code, Spree's tests or a workflow.
+**Status.** PROPOSED. On 2026-10-22 the owner added this batch, and the completion criterion that ties every capability to its evidence ([LIQ-006 §14](../LIQ-006-product-capability-baseline.md#14-when-the-baseline-is-complete), criteria 8 and 9). The owner asked for the coverage to be inventoried early and the checks to be scheduled around their dependencies. The inventory in §3 is done. Step P1 in §5 has run: the [mail check](../verification/2026-10-22-fb-19-platform-p1-mail.md) and the [API, kit, record, hosting and tracing checks](../verification/2026-10-22-fb-19-platform-p1-checks.md). The owner merged it with #13 and storefront #19 and accepted it on 2026-10-23. The same day the owner closed G-03, G-04, G-05 and G-15 on the mail check's evidence and kept G-16 pending ([merge record](../verification/2026-10-23-fb-19-platform-p1-merge.md)). The other steps have not run. On 2026-10-23 the owner also deferred G-22, from part 2 of the staff access batch, to a new step, P6 (§5). Nothing here changes Spree's code, Spree's tests or a workflow.
 
 ## 1. Outcome
 
@@ -92,25 +92,25 @@ Spree's own tests passing is evidence at the level those tests work: models, con
 
 | Capability | Coverage | Functional verification | What would complete it | Step |
 |---|---|---|---|---|
-| CAP-11-06 APIs and kits | Mapped: each API's tests and reference; each kit's tests. P1 found 32 Admin reads whose route the reference does not document for reading | PARTIAL, pending the owner's review of [P1](../verification/2026-10-22-fb-19-platform-p1-checks.md): the reference regenerates with 0 failures, and is stale in two places (SD-4). 212 of the Admin and Seller kits' 326 reads were called against the running server, and no request answered with a server error; every checked answer fits the kit's schema except for the two address issues on the Seller kit's orders (SD-3). The Store kit's 22 integration tests reach a real server in CI | The 114 reads not called, almost all for lack of a record; the kits' writes | P1, then the area batches |
+| CAP-11-06 APIs and kits | Mapped: each API's tests and reference; each kit's tests. P1 found 32 Admin reads whose route the reference does not document for reading | PARTIAL, accepted with [P1](../verification/2026-10-22-fb-19-platform-p1-checks.md) on 2026-10-23: the reference regenerates with 0 failures, and is stale in two places (SD-4). 212 of the Admin and Seller kits' 326 reads were called against the running server, and no request answered with a server error; every checked answer fits the kit's schema except for the two address issues on the Seller kit's orders (SD-3). The Store kit's 22 integration tests reach a real server in CI | The 114 reads not called, almost all for lack of a record; the kits' writes | P1, then the area batches |
 | CAP-04-06 Keys, OAuth, origins | Mapped | PARTIAL: Spree's specs only | Create a key and an OAuth application on the settings screens, then use each from outside | P2 |
 | CAP-04-07 Agent server | Mapped | PARTIAL: Spree's specs only | Connect an agent to the running server through an OAuth authorization | P2 |
 | CAP-04-08 Webhooks and events | Mapped. The storefront's receiver: no test | PARTIAL: Spree's specs only | Deliver an event to a local receiver and to the storefront's receiver, with a test delivery and automatic disabling | P2 |
 | CAP-11-07 Plugins | Mapped. The plugin example: no test | PARTIAL: unit tests and a type-checked scaffold | Load the plugin example into the dashboard starter and capture its route and slot entries on running screens | P3 |
-| CAP-11-08 Hosted dashboards | Mapped | PASS, pending the owner's review of [P1](../verification/2026-10-22-fb-19-platform-p1-checks.md): the dashboard and the seller panel are served at `/dashboard` and `/sellers` and signed in to, on the hosting gem's own test app | — | P1 |
+| CAP-11-08 Hosted dashboards | Mapped | PASS, accepted with [P1](../verification/2026-10-22-fb-19-platform-p1-checks.md) on 2026-10-23: the dashboard and the seller panel are served at `/dashboard` and `/sellers` and signed in to, on the hosting gem's own test app | — | P1 |
 | CAP-11-09 Provider contracts | Mapped | PARTIAL: Spree's specs only | Each provider through its area batch's running screens (batches 4, 7 and 8) | P4 |
 | CAP-07-02 Stripe | Mapped | BLOCKED for sandbox calls: no test keys | A payment and a saved card through Stripe's sandbox | P4 |
 | CAP-07-07 EasyPost | Mapped | BLOCKED for sandbox calls: no test key | A rate and a label from EasyPost's test mode | P4 |
 | CAP-05-14 Meilisearch | Mapped | PARTIAL: Spree's specs against a real Meilisearch service | Search on the running storefront with Meilisearch, in batch 4 | P4 |
-| CAP-11-10 Tracing | Mapped | PASS for a request's trace reaching a local collector, on the tracing gem's own test app, pending the owner's review of [P1](../verification/2026-10-22-fb-19-platform-p1-checks.md) | The layers not seen: job runs, mail, outgoing calls, extension hooks, gateway calls and webhook deliveries | P1; webhooks in P2 |
+| CAP-11-10 Tracing | Mapped | PASS for a request's trace reaching a local collector, on the tracing gem's own test app, accepted with [P1](../verification/2026-10-22-fb-19-platform-p1-checks.md) on 2026-10-23 | The layers not seen: job runs, mail, outgoing calls, extension hooks, gateway calls and webhook deliveries | P1; webhooks in P2 |
 | CAP-11-11 Command line and scaffolding | Mapped | PARTIAL: unit tests and a type-checked scaffold | Create a project and start it with the tool, where Docker is available | P5 |
 | CAP-11-13 Update check | Mapped | NOT_RUN on purpose: it would send data to Spree | FB-09's decision; then a run against a stand-in server, never Spree's | — |
 | CAP-03-03 Store provisioning | Mapped | PARTIAL: Spree's specs and the first-run setup browser test | Batch 3's first-run setup flow | Batch 3 |
-| CAP-03-12 External references | Mapped | PASS through the Admin kit on the running server, pending the owner's review of [P1](../verification/2026-10-22-fb-19-platform-p1-checks.md) | — | P1 |
-| CAP-05-11 Price history | Mapped | PASS for single price changes on the running server, pending the owner's review of [P1](../verification/2026-10-22-fb-19-platform-p1-checks.md). A bulk change leaves the prior price correct | Whether bulk changes are recorded | P1 |
+| CAP-03-12 External references | Mapped | PASS through the Admin kit on the running server, accepted with [P1](../verification/2026-10-22-fb-19-platform-p1-checks.md) on 2026-10-23 | — | P1 |
+| CAP-05-11 Price history | Mapped | PASS for single price changes on the running server, accepted with [P1](../verification/2026-10-22-fb-19-platform-p1-checks.md) on 2026-10-23. A bulk change leaves the prior price correct | Whether bulk changes are recorded | P1 |
 | CAP-05-16 Slugs | Mapped | PARTIAL: Spree's specs only | Open a product, a category and a store by slug on the running storefront, in batch 4 | Batch 4 |
 
-All 17 are mapped. After P1, four have a PASS that waits for the owner's review: hosted dashboards, tracing, external references and price history. None is accepted as functionally verified yet.
+All 17 are mapped. After P1, which the owner accepted on 2026-10-23, four have a PASS: hosted dashboards, tracing, external references and price history, the last for single price changes. CAP-11-06 is PARTIAL.
 
 ## 5. When each check runs
 
@@ -118,12 +118,28 @@ The inventory came first, as the owner asked. Each check runs once what it needs
 
 | Step | Checks | Depends on |
 |---|---|---|
-| P1 | Regenerate the API reference and compare it with the committed files; call the Admin and Seller kits' read endpoints against the running browser-test server; serve the hosted dashboard; export traces to a local collector; external references and price history through the Admin API. Also find out whether the browser-test server can deliver mail where a script can read it, without changing Spree's code, which would close the email gaps in the staff and account batches | Nothing new. It can run now. Run on 2026-10-22: the [mail check](../verification/2026-10-22-fb-19-platform-p1-mail.md) and the [other checks](../verification/2026-10-22-fb-19-platform-p1-checks.md). Waiting for the owner's review |
+| P1 | Regenerate the API reference and compare it with the committed files; call the Admin and Seller kits' read endpoints against the running browser-test server; serve the hosted dashboard; export traces to a local collector; external references and price history through the Admin API. Also find out whether the browser-test server can deliver mail where a script can read it, without changing Spree's code, which would close the email gaps in the staff and account batches | Nothing new. It can run now. Run on 2026-10-22: the [mail check](../verification/2026-10-22-fb-19-platform-p1-mail.md) and the [other checks](../verification/2026-10-22-fb-19-platform-p1-checks.md). Merged with #13 and storefront #19, and accepted, on 2026-10-23 ([merge record](../verification/2026-10-23-fb-19-platform-p1-merge.md)) |
 | P2 | Webhook deliveries, API keys, OAuth applications and the agent server, set up on their settings screens and used from outside | Batch 2, developer and integration settings |
 | P3 | The plugin example loaded into a running dashboard, with its slot entries captured | Dashboard shell part 2 |
 | P4 | Stripe and EasyPost sandbox calls; the providers through their area screens; Meilisearch on the storefront | Batches 4, 7 and 8; test keys from the owner. OA-1 adds keys to the storefront's CI only; the backend's sandbox runs need keys the owner provides separately, and they are never printed or committed |
 | P5 | A project created and started with the command line tool | FB-04, the development path, in an environment with Docker |
+| P6 | Browser tests for the five dashboard shell behaviours that part 2 captured but no test drives (G-22): the theme, the store switcher, the notifications, the command palette's record search and the rail's settings search. Added on 2026-10-23, when the owner accepted G-22's deferral to it | Part 2's merge (#14). Its completion criteria are below |
 | — | The update check against a stand-in server | FB-09 |
+
+### P6: the dashboard shell's untested behaviours
+
+Part 2 of the staff access batch captured each of these on Spree's running dashboard, but no browser test drives them ([part 2's record §2.2](../verification/2026-10-22-fb-19-batch-staff-access-part-2.md#22-browser-tests-by-overlay)). P6 adds those tests in Liquorify's own scripts, as P1 did, and changes no Spree code, test or workflow. It is complete when all of these hold:
+
+1. **One browser test for each of the five behaviours**, driven through the dashboard as a teammate whose role shows the control, and asserting what the screen shows:
+    1. **Theme:** choosing light, then dark, then system in the account menu changes the dashboard's theme each time, and the last choice still applies after a reload.
+    2. **Store switcher:** with a second store the teammate may open, choosing it in the switcher opens that store's dashboard, and the switcher then names it.
+    3. **Notifications:** with the update check answered with a newer release, the bell shows an unread notice and opening it shows that release; without one, it reads "You're all caught up". The answer is simulated, as the owner accepted for G-20, so P6 does not verify Spree's real update service.
+    4. **The command palette's record search:** searching for an existing product, order and customer by name or number lists each one, and choosing it opens that record's page.
+    5. **The rail's settings search:** typing a settings page's name in the rail's settings menu leaves that page in the list, choosing it opens the page, and a query that matches nothing says so.
+2. **A recorded run.** The tests run against Spree's browser-test server at a recorded revision, in the pinned Playwright image, and pass twice in a row.
+3. **A record.** A verification record gives the revision, each test's result and its evidence. A failure is recorded as a defect in LIQ-004, not fixed in Spree's code.
+4. **Nothing else claimed.** Refused requests stay in G-11, which holds G-23's palette searches, and tenant isolation stays FB-03's validation. P6 claims neither, and it does not verify the server's validation of the profile dialog (G-21).
+5. **The owner's answer.** G-22 closes when the owner accepts P6's record. CAP-04-05 stays PARTIAL until then; that record says whether anything else keeps it PARTIAL.
 
 ## 6. Acceptance criteria
 

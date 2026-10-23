@@ -29,6 +29,7 @@ export const readOnly: PermissionRule[] = [
 export function meResponse(
   permissions: PermissionRule[],
   keys: string[] = permissions === fullAccess ? ['write_all'] : ['read_all'],
+  user: AdminUser = adminUser,
 ): MeResponse {
-  return { user: adminUser, permissions, permission_keys: keys }
+  return { user, permissions, permission_keys: keys }
 }

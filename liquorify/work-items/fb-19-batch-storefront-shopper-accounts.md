@@ -12,7 +12,7 @@ updated: 2026-10-22
 
 The storefront's first FB-19 batch organised by product area. It reproduces what the storefront already has for shopper accounts: signing in, registering, resetting a password, and the signed-in account's orders, addresses, saved cards, gift cards and profile. Nothing here changes the storefront's code or Spree's, or adds a Liquorify feature.
 
-**Status.** PROPOSED. On 2026-10-22 the owner allowed the storefront's shopper accounts baseline to run alongside the staff access batch in a separate pull request ([staff access work item](fb-19-batch-staff-access-and-shell.md) §6). It follows the batch rules of LIQ-010 0.4, which are under review in #11 with that batch; if the owner changes them, this batch follows the change. The batch is built and verified in storefront draft pull request [#18](https://github.com/pateldhruval872/liquorify-storefront/pull/18) and in [#12](https://github.com/pateldhruval872/liquorify/pull/12) ([record](../verification/2026-10-22-fb-19-batch-storefront-shopper-accounts.md)), and awaits the owner's review; §9 records where the storefront differs from this proposal.
+**Status.** PROPOSED. On 2026-10-22 the owner allowed the storefront's shopper accounts baseline to run alongside the staff access batch in a separate pull request ([staff access work item](fb-19-batch-staff-access-and-shell.md) §6). It follows the batch rules of LIQ-010 0.4, which the owner reviewed in #11 with that batch. The batch was built and verified in storefront pull request [#18](https://github.com/pateldhruval872/liquorify-storefront/pull/18) and in [#12](https://github.com/pateldhruval872/liquorify/pull/12) ([record](../verification/2026-10-22-fb-19-batch-storefront-shopper-accounts.md)). The owner merged both on 2026-10-23 and accepted the batch, leaving its gaps pending ([record](../verification/2026-10-23-fb-19-batch-storefront-shopper-accounts-merge.md)). §9 records where the storefront differs from this proposal.
 
 **Reading of the instruction.** "The storefront account baseline" is read as the whole of CAP-08-01, the ten account screens, rather than only the four sign-in screens the staff access work item named as left out. The storefront has one pull request, as asked. Its records live here in the backend repository, as all Liquorify records do, in a draft pull request of their own, as the pilot's did.
 
@@ -82,8 +82,8 @@ LIQ-009 §5 gains its Storybook column with this batch, as its own text says it 
 
 ## 4. Delivery
 
-- **Storefront pull request** (draft, `liquorify-storefront`): stories, fixtures and mocks, reference images, and the scripts that capture and compare the running screens.
-- **Backend pull request** (draft, this repository): this work item, the verification record, the published evidence, the image review list and LIQ-009's storefront columns. It builds on #11 because it uses LIQ-010 0.4 and LIQ-006's capability IDs, and moved to `main` after #11 merged on 2026-10-22.
+- **Storefront pull request** ([#18](https://github.com/pateldhruval872/liquorify-storefront/pull/18), merged on 2026-10-23): stories, fixtures and mocks, reference images, and the scripts that capture and compare the running screens.
+- **Backend pull request** ([#12](https://github.com/pateldhruval872/liquorify/pull/12), merged on 2026-10-23): this work item, the verification record, the published evidence, the image review list and LIQ-009's storefront columns. It builds on #11 because it uses LIQ-010 0.4 and LIQ-006's capability IDs, and moved to `main` after #11 merged on 2026-10-22.
 - **Running screens:** the built storefront at `main` against the backend's browser-test server at Spree code `a4a1708`, as the pilot did, with a test customer whose orders, addresses, cards and gift cards are added to that server's database. The storefront pins `@spree/sdk` rc.3 while the backend ships rc.4 (FB-06); the captures record the versions used.
 
 ## 5. Acceptance criteria

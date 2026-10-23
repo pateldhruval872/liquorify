@@ -1,6 +1,7 @@
 import { mkdirSync, writeFileSync } from 'node:fs'
 import { expect, type Locator, type Page, test } from '@playwright/test'
-import { login, sellerLogin } from '../../dashboard/e2e/helpers'
+import { getCredentials, login, sellerLogin } from '../../dashboard/e2e/helpers'
+import { dashboardCounters, releaseNotes, updateAvailable } from '../src/fixtures/admin/shell'
 import {
   openRoleMenu,
   openRowMenu,
@@ -123,7 +124,7 @@ function compareStyles(screen: Styles, story: Styles) {
   }
 }
 
-async function openStory(page: Page, id: string, theme: 'light' | 'dark') {
+async function openStory(page: Page, id: string, theme: 'light' | 'dark', held = false) {
   await page.goto(`${STORYBOOK}/iframe.html?id=${id}&viewMode=story&globals=theme:${theme}`)
   await page.waitForFunction(() =>
     ['completed', 'finished', 'afterEach'].includes(
@@ -131,7 +132,8 @@ async function openStory(page: Page, id: string, theme: 'light' | 'dark') {
     ),
   )
   await page.evaluate(() => document.fonts.ready)
-  await page.waitForLoadState('networkidle')
+  // A story that holds a request open never lets the network go quiet.
+  if (!held) await page.waitForLoadState('networkidle')
 }
 
 async function sideBySide(page: Page, screen: Buffer, story: Buffer, path: string) {
@@ -157,6 +159,10 @@ interface Case {
   inStory: (page: Page) => Promise<Locator> | Locator
   /** Captures the window instead of the component, for popups. */
   viewport?: boolean
+  /** Opens both sides at a phone's width. */
+  phone?: boolean
+  /** The story holds a request open, to show what loads. */
+  held?: boolean
 }
 
 async function adminPage(page: Page, path: string) {
@@ -1032,7 +1038,502 @@ const staffAccessPartOne: Case[] = [
   },
 ]
 
-const cases: Case[] = [...pilotCases, ...primitivesBatchOne, ...staffAccessPartOne]
+const phone = { width: 390, height: 844 }
+const rail = (page: Page) => page.locator('[data-slot="sidebar-inner"]').first()
+const settingsRail = (page: Page) =>
+  page.getByRole('complementary', { name: 'Settings navigation' })
+const phoneTopBar = (page: Page) => page.locator('[class*="sticky top-0 z-30 flex h-14"]').first()
+const menu = (page: Page) => page.getByRole('menu')
+const sheetTopBar = (page: Page) => page.locator('[class*="min-h-8 items-center gap-2 px-4 pt-3"]')
+
+/** Folds the rail, as the merchant does with its trigger; the top bar's breadcrumbs show only then. */
+async function collapseRail(page: Page) {
+  await page.getByRole('button', { name: 'Toggle Sidebar' }).click()
+  await expect(page.locator('[data-slot="sidebar"][data-state="collapsed"]')).toBeVisible()
+}
+const themeRow = (page: Page) =>
+  page
+    .locator('div')
+    .filter({ has: page.getByRole('button', { name: 'System', exact: true }) })
+    .filter({ hasText: 'Theme' })
+    .last()
+const languageRow = (page: Page) =>
+  page
+    .locator('div')
+    .filter({ has: page.locator('select') })
+    .filter({ hasText: 'Language' })
+    .last()
+const searchField = (scope: Page | Locator) =>
+  scope.locator('[data-slot="input-group"]:has([role="searchbox"])').first()
+const uploadField = (page: Page) =>
+  page
+    .locator('label')
+    .filter({ has: page.locator('input[type="file"]') })
+    .first()
+const dialog = (page: Page) => page.getByRole('dialog')
+
+async function openPalette(page: Page, query?: string) {
+  await page.getByRole('button', { name: /search anything/i }).click()
+  const input = page.getByPlaceholder('Search products, orders, customers…')
+  await expect(input).toBeVisible()
+  if (query) await input.fill(query)
+}
+
+async function openProfile(page: Page) {
+  await page.getByRole('button', { name: 'User menu' }).click()
+  await page.getByRole('menuitem', { name: 'Edit Profile' }).click()
+  await expect(page.getByLabel('First name')).toBeVisible()
+}
+
+/**
+ * Answers the navigation's counters with the stories' counts. Nothing is open
+ * in the browser tests' store, so its badges would otherwise stay empty.
+ */
+async function answerCounters(page: Page) {
+  await page.route('**/api/v3/admin/dashboard/counters**', (route) =>
+    route.fulfill({ json: { channel_id: null, counters: dashboardCounters } }),
+  )
+}
+
+/** The template teammates' rails beside the template stories (DA-OVL-01's permission evidence). */
+const templateRails = (['orderManager', 'merchandiser', 'support'] as const).map(
+  (key): Case => ({
+    id: 'CMP-CORE-03',
+    name: `app-sidebar-${key.replace(/[A-Z]/g, (letter) => `-${letter.toLowerCase()}`)}`,
+    story: `dashboard-core-shell-app-sidebar--${key.replace(/[A-Z]/g, (letter) => `-${letter.toLowerCase()}`)}`,
+    viewport: true,
+    screen: async (page) => {
+      await answerCounters(page)
+      await teammatePage(page, teammates[key].email)
+      return rail(page)
+    },
+    inStory: rail,
+  }),
+)
+
+// Staff access part 2: the shell and its overlays beside the same parts of the
+// running dashboard. The rail is captured as the window, since it fills it.
+const staffAccessPartTwo: Case[] = [
+  {
+    id: 'CMP-CORE-03',
+    name: 'app-sidebar-admin',
+    story: 'dashboard-core-shell-app-sidebar--admin',
+    viewport: true,
+    screen: async (page) => {
+      await answerCounters(page)
+      await adminPage(page, '')
+      return rail(page)
+    },
+    inStory: rail,
+  },
+  ...templateRails,
+  {
+    id: 'CMP-CORE-02',
+    name: 'app-shell-collapsed',
+    story: 'dashboard-core-shell-app-shell--collapsed',
+    viewport: true,
+    screen: async (page) => {
+      await adminPage(page, '/orders')
+      await collapseRail(page)
+      return rail(page)
+    },
+    inStory: rail,
+  },
+  {
+    id: 'CMP-CORE-29',
+    name: 'settings-sidebar',
+    story: 'dashboard-core-shell-app-shell--in-settings',
+    viewport: true,
+    screen: async (page) => {
+      await adminPage(page, '/settings/staff')
+      return settingsRail(page)
+    },
+    inStory: settingsRail,
+  },
+  {
+    id: 'CMP-CORE-36',
+    name: 'store-switcher-open',
+    story: 'dashboard-core-shell-store-switcher--open',
+    viewport: true,
+    screen: async (page) => {
+      await adminPage(page, '')
+      await page.getByRole('button', { name: 'Switch store' }).click()
+      return menu(page)
+    },
+    inStory: menu,
+  },
+  {
+    id: 'CMP-CORE-32',
+    name: 'sidebar-user-open',
+    story: 'dashboard-core-shell-sidebar-user--unnamed',
+    viewport: true,
+    screen: async (page) => {
+      await adminPage(page, '')
+      await page.getByRole('button', { name: 'User menu' }).click()
+      return menu(page)
+    },
+    inStory: menu,
+  },
+  {
+    id: 'CMP-CORE-31',
+    name: 'sidebar-search',
+    story: 'dashboard-core-shell-sidebar-search--focus-visible',
+    screen: async (page) => {
+      await adminPage(page, '')
+      const search = page.getByRole('button', { name: /search anything/i }).first()
+      await search.focus()
+      return search
+    },
+    inStory: (page) => page.getByRole('button', { name: /search anything/i }).first(),
+  },
+  {
+    id: 'CMP-CORE-33',
+    name: 'skip-link-focus-visible',
+    story: 'dashboard-core-shell-skip-link--focus-visible',
+    screen: async (page) => {
+      await adminPage(page, '')
+      // Tab then starts from the top of the page, as it does on arrival;
+      // after a blur it would start from the element that lost focus.
+      await page.evaluate(() => {
+        document.body.tabIndex = -1
+        document.body.focus()
+        document.body.removeAttribute('tabindex')
+      })
+      await page.keyboard.press('Tab')
+      return page.getByRole('link', { name: 'Skip to content' })
+    },
+    inStory: (page) => page.getByRole('link', { name: 'Skip to content' }),
+  },
+  {
+    id: 'CMP-CORE-17',
+    name: 'mobile-top-bar',
+    story: 'dashboard-core-shell-app-shell--on-a-phone',
+    phone: true,
+    screen: async (page) => {
+      await adminPage(page, '/orders')
+      return phoneTopBar(page)
+    },
+    inStory: phoneTopBar,
+  },
+  {
+    id: 'CMP-CORE-02',
+    name: 'app-shell-phone-navigation-open',
+    story: 'dashboard-core-shell-app-shell--on-a-phone-navigation-open',
+    phone: true,
+    viewport: true,
+    screen: async (page) => {
+      await answerCounters(page)
+      await adminPage(page, '/orders')
+      await page.getByRole('button', { name: 'Toggle Sidebar' }).click()
+      // Off the first link, where the tap that opened the drawer left it.
+      await page.mouse.move(370, 800)
+      return dialog(page)
+    },
+    inStory: dialog,
+  },
+  {
+    id: 'CMP-CORE-17',
+    name: 'mobile-account-menu',
+    story: 'dashboard-core-shell-mobile-top-bar--account-menu-open',
+    phone: true,
+    viewport: true,
+    screen: async (page) => {
+      // A teammate with a name, as the story's admin has; the browser tests'
+      // admin has none, and its menu then shows only the email.
+      await teammatePage(page, teammates.support.email, `/${getCredentials().store_id}/orders`)
+      await page.getByRole('button', { name: 'User menu' }).click()
+      return menu(page)
+    },
+    inStory: menu,
+  },
+  {
+    id: 'CMP-CORE-39',
+    name: 'breadcrumbs-phone-settings',
+    story: 'dashboard-core-shell-top-bar-breadcrumbs--on-a-phone-in-settings',
+    phone: true,
+    screen: async (page) => {
+      await adminPage(page, '/settings/staff')
+      return page.getByRole('navigation', { name: 'Breadcrumb' }).last()
+    },
+    inStory: (page) => page.getByRole('navigation', { name: 'Breadcrumb' }).last(),
+  },
+  {
+    id: 'CMP-DA-G-05',
+    name: 'command-palette-open',
+    story: 'admin-dashboard-shell-command-palette--open',
+    viewport: true,
+    screen: async (page) => {
+      await adminPage(page, '')
+      await openPalette(page)
+      await expect(page.getByRole('option', { name: 'Home' })).toBeVisible()
+      return dialog(page)
+    },
+    inStory: dialog,
+  },
+  {
+    id: 'CMP-DA-G-05',
+    name: 'command-palette-create-actions',
+    story: 'admin-dashboard-shell-command-palette--create-actions',
+    viewport: true,
+    screen: async (page) => {
+      await adminPage(page, '')
+      await openPalette(page, 'new')
+      await expect(page.getByRole('option', { name: 'New Product' })).toBeVisible()
+      return dialog(page)
+    },
+    inStory: dialog,
+  },
+  {
+    id: 'CMP-DA-G-05',
+    name: 'command-palette-nothing-matches',
+    story: 'admin-dashboard-shell-command-palette--nothing-matches',
+    viewport: true,
+    screen: async (page) => {
+      await adminPage(page, '')
+      await openPalette(page, 'zzqx')
+      await expect(page.getByText('No results for "zzqx".')).toBeVisible({ timeout: 15_000 })
+      return dialog(page)
+    },
+    inStory: dialog,
+  },
+  {
+    id: 'CMP-DA-G-24',
+    name: 'notifications-empty',
+    story: 'admin-dashboard-shell-notifications--nothing-new',
+    viewport: true,
+    screen: async (page) => {
+      await adminPage(page, '')
+      await page.getByRole('button', { name: 'Notifications' }).click()
+      await expect(page.getByText("You're all caught up.")).toBeVisible()
+      return dialog(page)
+    },
+    inStory: dialog,
+  },
+  {
+    // The browser-test server never reports a newer release, so the running
+    // screen is answered with the story's release and notes.
+    id: 'CMP-DA-G-24',
+    name: 'notifications-new-release',
+    story: 'admin-dashboard-shell-notifications--new-release',
+    viewport: true,
+    screen: async (page) => {
+      await page.route('**/api/v3/admin/updates', (route) =>
+        route.fulfill({ json: updateAvailable }),
+      )
+      await page.addInitScript(
+        ([key, notes]) => window.localStorage.setItem(key, notes),
+        [`spree-release-notes:v${updateAvailable.latest_version}`, releaseNotes],
+      )
+      await adminPage(page, '')
+      await page.getByRole('button', { name: 'Notifications, 1 unread' }).click()
+      await expect(page.getByRole('heading', { name: 'Highlights' })).toBeVisible()
+      return dialog(page)
+    },
+    inStory: dialog,
+  },
+  {
+    id: 'CMP-DA-G-24',
+    name: 'profile-dialog',
+    story: 'admin-dashboard-shell-profile-dialog--default',
+    viewport: true,
+    screen: async (page) => {
+      await adminPage(page, '')
+      await openProfile(page)
+      return dialog(page)
+    },
+    inStory: dialog,
+  },
+  {
+    id: 'CMP-DA-G-24',
+    name: 'profile-dialog-field-errors',
+    story: 'admin-dashboard-shell-profile-dialog--field-errors',
+    viewport: true,
+    screen: async (page) => {
+      await page.route('**/api/v3/admin/me', (route) =>
+        route.request().method() === 'PATCH'
+          ? route.fulfill({
+              status: 422,
+              json: {
+                error: {
+                  code: 'validation_error',
+                  message: 'First name is too long (maximum is 100 characters)',
+                  details: {
+                    first_name: [
+                      {
+                        code: 'too_long',
+                        message: 'is too long (maximum is 100 characters)',
+                        specific: false,
+                        count: 100,
+                      },
+                    ],
+                  },
+                },
+              },
+            })
+          : route.fallback(),
+      )
+      await adminPage(page, '')
+      await openProfile(page)
+      await page.getByLabel('First name').fill('Fidelity')
+      await page.getByRole('button', { name: 'Save' }).click()
+      await expect(
+        page.getByText('is too long (maximum is 100 characters)', { exact: true }),
+      ).toBeVisible()
+      // Off Save, which would otherwise keep its hover colour.
+      await page.mouse.move(0, 0)
+      return dialog(page)
+    },
+    inStory: dialog,
+  },
+  {
+    // Captured as the window: in light the placeholder rows are the rail's own
+    // colour, which the comparison of both sides shows.
+    id: 'CMP-CORE-03',
+    name: 'app-sidebar-loading',
+    story: 'dashboard-core-shell-app-sidebar--loading',
+    viewport: true,
+    screen: async (page) => {
+      await login(page)
+      await page.route('**/api/v3/admin/me', () => new Promise(() => {}))
+      await page.goto(`/${getCredentials().store_id}`)
+      await expect(rail(page).locator('[data-slot="skeleton"]').first()).toBeAttached({
+        timeout: 15_000,
+      })
+      return rail(page)
+    },
+    inStory: rail,
+    held: true,
+  },
+  {
+    id: 'CMP-CORE-19',
+    name: 'nav-main-child-page',
+    story: 'dashboard-core-shell-nav-main--child-page',
+    viewport: true,
+    screen: async (page) => {
+      await answerCounters(page)
+      await adminPage(page, '/returns')
+      return rail(page)
+    },
+    inStory: rail,
+  },
+  {
+    id: 'CMP-CORE-39',
+    name: 'breadcrumbs-child-page',
+    story: 'dashboard-core-shell-top-bar-breadcrumbs--child-page',
+    screen: async (page) => {
+      await adminPage(page, '/returns')
+      await collapseRail(page)
+      return page.getByRole('navigation', { name: 'Breadcrumb' }).first()
+    },
+    inStory: (page) => page.getByRole('navigation', { name: 'Breadcrumb' }).first(),
+  },
+  {
+    id: 'CMP-CORE-30',
+    name: 'sheet-top-bar-record-page',
+    story: 'dashboard-core-shell-sheet-top-bar--record-page',
+    screen: async (page) => {
+      const session = await login(page)
+      const orders = await page.request.get('/api/v3/admin/orders?limit=1', {
+        headers: {
+          Authorization: `Bearer ${session.accessToken}`,
+          'X-Spree-Store-Id': session.store_id,
+        },
+      })
+      const [order] = ((await orders.json()) as { data: { id: string }[] }).data
+      await page.goto(`/${session.store_id}/orders/${order.id}`)
+      await expect(page.getByRole('heading', { level: 1 })).toBeVisible({ timeout: 15_000 })
+      await collapseRail(page)
+      return sheetTopBar(page)
+    },
+    inStory: sheetTopBar,
+  },
+  {
+    id: 'CMP-DUI-P-38',
+    name: 'sidebar-primitive-expanded',
+    story: 'dashboard-ui-primitives-sidebar--expanded',
+    viewport: true,
+    screen: async (page) => {
+      await adminPage(page, '/orders')
+      return rail(page)
+    },
+    inStory: rail,
+  },
+  {
+    id: 'CMP-DUI-P-21',
+    name: 'dropdown-menu-open',
+    story: 'dashboard-ui-primitives-dropdown-menu--open',
+    viewport: true,
+    screen: async (page) => {
+      await staffPage(page)
+      await openRowMenu(page, teammates.support.email)
+      return menu(page)
+    },
+    inStory: menu,
+  },
+  {
+    id: 'CMP-DUI-P-15',
+    name: 'command-in-a-dialog',
+    story: 'dashboard-ui-primitives-command--in-a-dialog',
+    viewport: true,
+    screen: async (page) => {
+      await adminPage(page, '')
+      await openPalette(page)
+      await expect(page.getByRole('option', { name: 'Home' })).toBeVisible()
+      return dialog(page)
+    },
+    inStory: dialog,
+  },
+  {
+    id: 'CMP-DUI-C-53',
+    name: 'theme-toggle-system',
+    story: 'dashboard-ui-composed-theme-toggle--following-the-system',
+    screen: async (page) => {
+      await adminPage(page, '')
+      await page.getByRole('button', { name: 'User menu' }).click()
+      return themeRow(page)
+    },
+    inStory: themeRow,
+  },
+  {
+    id: 'CMP-DUI-C-30',
+    name: 'language-menu-items',
+    story: 'dashboard-ui-composed-language-menu-items--default',
+    screen: async (page) => {
+      await adminPage(page, '')
+      await page.getByRole('button', { name: 'User menu' }).click()
+      return languageRow(page)
+    },
+    inStory: languageRow,
+  },
+  {
+    id: 'CMP-DUI-C-47',
+    name: 'search-input-empty',
+    story: 'dashboard-ui-composed-search-input--empty',
+    screen: async (page) => {
+      await adminPage(page, '/settings/staff')
+      return searchField(settingsRail(page))
+    },
+    inStory: searchField,
+  },
+  {
+    id: 'CMP-CORE-11',
+    name: 'image-upload-field-empty',
+    story: 'dashboard-core-image-upload-field--empty',
+    screen: async (page) => {
+      await adminPage(page, '')
+      await openProfile(page)
+      return uploadField(page)
+    },
+    inStory: uploadField,
+  },
+]
+
+const cases: Case[] = [
+  ...pilotCases,
+  ...primitivesBatchOne,
+  ...staffAccessPartOne,
+  ...staffAccessPartTwo,
+]
 
 /** Every custom property the page's root element computes: the tokens, as the browser resolves them. */
 async function rootTokens(page: Page): Promise<Record<string, string>> {
@@ -1099,6 +1600,7 @@ for (const theme of ['light', 'dark'] as const) {
     test(`${item.id} ${item.name} ${theme}`, async ({ page, browser }) => {
       const folder = `${results}${item.name}/`
       mkdirSync(folder, { recursive: true })
+      if (item.phone) await page.setViewportSize(phone)
       await page.emulateMedia({ colorScheme: theme, reducedMotion: 'reduce' })
 
       const onScreen = await item.screen(page)
@@ -1110,9 +1612,11 @@ for (const theme of ['light', 'dark'] as const) {
       const screenStyles = await collectStyles(onScreen)
       const screenWidth = (await onScreen.boundingBox())?.width
 
-      const storyPage = await browser.newPage({ viewport: { width: 1280, height: 800 } })
+      const storyPage = await browser.newPage({
+        viewport: item.phone ? phone : { width: 1280, height: 800 },
+      })
       await storyPage.emulateMedia({ colorScheme: theme, reducedMotion: 'reduce' })
-      await openStory(storyPage, item.story, theme)
+      await openStory(storyPage, item.story, theme, item.held)
       const inStory = await item.inStory(storyPage)
       await expect(inStory).toBeVisible()
       const storyImage = item.viewport

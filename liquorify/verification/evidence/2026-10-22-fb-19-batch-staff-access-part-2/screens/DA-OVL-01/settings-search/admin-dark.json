@@ -1,0 +1,16 @@
+{
+  "screen": "DA-OVL-01",
+  "state": "settings-search",
+  "variant": "admin",
+  "role": null,
+  "theme": "dark",
+  "revision": "a4a1708",
+  "path": "/<store>/settings/staff",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": null,
+  "settled": true,
+  "outside": []
+}
