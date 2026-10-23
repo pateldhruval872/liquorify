@@ -384,7 +384,7 @@ A proposal: the owner may reorder it. The dashboard and storefront tracks run si
 | # | Batch | Depends on |
 |---|---|---|
 | 1 | Dashboard shell part 2 (CAP-04-05; DA-OVL-01 to DA-OVL-04) | The owner's acceptance of part 1, given on 2026-10-22. Built in #14, accepted and merged on 2026-10-23 |
-| 2 | Developer and integration settings (CAP-04-06 to CAP-04-09) | Part 2 |
+| 2 | Developer and integration settings (CAP-04-06 to CAP-04-09). Proposed in #15 ([work item](work-items/fb-19-batch-developer-and-integration-settings.md)), for the owner's review before it is built | Part 2, merged on 2026-10-23 |
 | 3 | Setup, stores and settings (§3; DA-SETUP-01, FL-01) | Part 2 |
 | 4 | Storefront shop (CAP-05-14, CAP-05-17; SF-SHOP, SF-OVL-01, SF-OVL-03, SF-OVL-04, SF-SYS) | The storefront accounts batch; sample catalog data |
 | 5 | Catalog and pricing (§5), in two or three parts | Setup |
