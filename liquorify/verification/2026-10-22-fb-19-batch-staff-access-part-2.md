@@ -9,7 +9,7 @@ result: PASS for the map, the stories and their images, the running-screen captu
 
 # FB-19 staff access batch, part 2, the shell and its overlays
 
-**Claim.** Part 2 of the [staff access and dashboard shell batch](../work-items/fb-19-batch-staff-access-and-shell.md) reproduces what Spree already has for the dashboard's shell: the rail and its menus, the phone's top bar, the command palette, the notifications and the profile dialog. It gives the 22 components those overlays use 70 Storybook stories, with light and dark reference images. It captures the four overlays on Spree's running dashboard in each listed state, on a desktop and a phone, compares 32 cases with their stories, and runs Spree's own specs for the endpoints the shell and the palette call. It starts from part 1's corrections, which the owner accepted on 2026-10-22 with part 1's gaps left pending ([record](https://github.com/pateldhruval872/liquorify/blob/8f97e679f1f0f837f20bd484f33f2c8a636652e6/liquorify/verification/2026-10-22-fb-19-batch-staff-access-part-1-merge.md), in #12, which has not merged yet).
+**Claim.** Part 2 of the [staff access and dashboard shell batch](../work-items/fb-19-batch-staff-access-and-shell.md) reproduces what Spree already has for the dashboard's shell: the rail and its menus, the phone's top bar, the command palette, the notifications and the profile dialog. It gives the 22 components those overlays use 70 Storybook stories, with light and dark reference images. It captures the four overlays on Spree's running dashboard in each listed state, on a desktop and a phone, compares 32 cases with their stories, and runs Spree's own specs for the endpoints the shell and the palette call. It starts from part 1's corrections, which the owner accepted on 2026-10-22 with part 1's gaps left pending ([record](2026-10-22-fb-19-batch-staff-access-part-1-merge.md)).
 
 **Revisions.**
 
@@ -252,15 +252,15 @@ Recorded in the [work item](../work-items/fb-19-batch-staff-access-and-shell.md)
 
 ## 7. Gaps
 
-Each names what is missing, the check made instead and what would close it. Part 2's gaps join the gap register in LIQ-004 once #12, which holds it, merges; until then they are listed here.
+Each names what is missing, the check made instead and what would close it. Part 2's gaps are G-19 to G-23 in LIQ-004's [gap register](../LIQ-004-foundation-backlog.md#deferred-gaps-and-the-owners-acceptance), each PENDING until the owner answers. Tenant isolation is an outstanding item, not a gap.
 
 | Gap | Check made instead | What would close it | Proposal |
 |---|---|---|---|
-| 38 of the 70 stories not compared by the script | 23 show a state seen in a running-screen capture; 15 checked against their source only. Each is named in the [image review list](2026-10-22-fb-19-batch-staff-access-part-2-image-review.md) | Running screens that show those states | As G-01 |
-| DA-OVL-03 with a real update check, and release notes fetched from GitHub | The check answered in the browser; the notes stored beforehand | An environment where the update check runs | Accept as checked by answering; the baseline does not enable the check |
-| DA-OVL-04 field errors from the server | The save answered with Rails' own length message | A server that refuses a value the dialog lets through | Accept as checked by answering |
-| The theme, the store switcher, the notifications, the palette's record search and the rail's settings search in a browser test | The captures, which show each state | Spree's browser tests, which this batch does not change | Defer to the platform batch, with G-11's negative tests |
-| The palette's searches as a teammate who may not read the resource | The refusal check's observation (§3.2) | Specs in Spree's suites | Joins G-11 |
+| G-19: 38 of the 70 stories not compared by the script | 23 show a state seen in a running-screen capture; 15 checked against their source only. Each is named in the [image review list](2026-10-22-fb-19-batch-staff-access-part-2-image-review.md) | Running screens that show those states | As G-01 |
+| G-20: DA-OVL-03 with a real update check, and release notes fetched from GitHub | The check answered in the browser; the notes stored beforehand | An environment where the update check runs | Accept as checked by answering; the baseline does not enable the check |
+| G-21: DA-OVL-04 field errors from the server | The save answered with Rails' own length message | A server that refuses a value the dialog lets through | Accept as checked by answering |
+| G-22: The theme, the store switcher, the notifications, the palette's record search and the rail's settings search in a browser test | The captures, which show each state | Spree's browser tests, which this batch does not change | Defer to the platform batch, with G-11's negative tests |
+| G-23: The palette's searches as a teammate who may not read the resource | The refusal check's observation (§3.2) | Specs in Spree's suites | Joins G-11 |
 | Tenant isolation | None | FB-03's validation and the fixes for ISO-1 to ISO-7 | Outstanding item, not a gap |
 
 **G-07 from part 1.** Part 1 deferred the teammate's own navigation after a role is given to this part. Part 2's script now shows it (§2.2). The proposal is to close G-07 on that observation; it stays PENDING until the owner decides.

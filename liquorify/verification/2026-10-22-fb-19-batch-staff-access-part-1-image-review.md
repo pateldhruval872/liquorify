@@ -4,12 +4,12 @@ record: review list
 work_item: FB-19
 date: 2026-10-22
 prepared_by: Claude (automated session)
-status: Awaiting the owner's review in draft pull request #11
+status: Accepted with part 1 as a whole on 2026-10-22, after #11's merge; no image was answered one by one
 ---
 
 # FB-19 staff access batch, part 1, reference images for the owner's review
 
-This list holds every reference image part 1 commits, by inventory ID ([LIQ-009](../LIQ-009-spree-component-and-token-inventory.md)), so the owner can accept or reject each one. Nothing here is accepted yet: the Owner column reads NOT_RUN until the owner decides.
+This list holds every reference image part 1 commits, by inventory ID ([LIQ-009](../LIQ-009-spree-component-and-token-inventory.md)), so the owner can accept or reject each one. On 2026-10-22, after merging #11, the owner accepted part 1 as a whole, these images included ([record](2026-10-22-fb-19-batch-staff-access-part-1-merge.md)). The Owner column still reads NOT_RUN for each image, because that answer covered part 1 as a whole, not each image.
 
 **What to look at.** Each link opens the image as committed on the pull request's branch; the pull request's file list shows the same images. Every image was looked at in light and dark before it was committed.
 

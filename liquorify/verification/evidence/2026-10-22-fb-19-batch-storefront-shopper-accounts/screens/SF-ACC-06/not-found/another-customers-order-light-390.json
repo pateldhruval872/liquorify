@@ -1,0 +1,11 @@
+{
+  "screen": "SF-ACC-06",
+  "state": "not-found",
+  "variant": "another-customers-order",
+  "theme": "light",
+  "width": 390,
+  "revision": "8153a6b1ffbcd8dfd0c435f6fc24f90ff32b9fff",
+  "path": "/us/en/account/orders/or_p6klVeMgbn",
+  "observed": "Signed in as the customer, opened another customer's order by its address.",
+  "note": null
+}

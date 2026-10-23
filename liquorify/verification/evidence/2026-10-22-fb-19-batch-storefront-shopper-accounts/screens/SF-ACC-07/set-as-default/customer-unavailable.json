@@ -1,0 +1,7 @@
+{
+  "screen": "SF-ACC-07",
+  "state": "set-as-default",
+  "variant": "customer",
+  "revision": "8153a6b1ffbcd8dfd0c435f6fc24f90ff32b9fff",
+  "unavailable": "The storefront has no way to set an address as the default: its messages hold the words, but no component uses them."
+}

@@ -1,0 +1,11 @@
+{
+  "screen": "SF-ACC-08",
+  "state": "cards-listed",
+  "variant": "customer",
+  "theme": "light",
+  "width": 390,
+  "revision": "8153a6b1ffbcd8dfd0c435f6fc24f90ff32b9fff",
+  "path": "/us/en/account/credit-cards",
+  "observed": null,
+  "note": "Found behaviour: the customer's only card was saved by the test payment gateway, which records no brand, and the page fails. A card with a brand needs a real gateway's test keys."
+}

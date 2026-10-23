@@ -1,0 +1,129 @@
+{
+  "revision": "a4a1708",
+  "engine": "spree/core",
+  "database": "SQLite, Spree's test app",
+  "command": "bundle exec rspec spec/workflows/spree/customers/create_spec.rb",
+  "summary": "20 examples, 0 failures",
+  "examples": [
+    {
+      "file": "./spec/workflows/spree/customers/create_spec.rb",
+      "line": 29,
+      "description": "Spree::Customers::Create self-registration refuses a blank password without creating a record",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/workflows/spree/customers/create_spec.rb",
+      "line": 52,
+      "description": "Spree::Customers::Create self-registration links a pre-existing newsletter subscriber to the new account",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/workflows/spree/customers/create_spec.rb",
+      "line": 45,
+      "description": "Spree::Customers::Create self-registration surfaces validation errors on the unsaved record",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/workflows/spree/customers/create_spec.rb",
+      "line": 65,
+      "description": "Spree::Customers::Create self-registration lets a validate handler reject the registration",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/workflows/spree/customers/create_spec.rb",
+      "line": 21,
+      "description": "Spree::Customers::Create self-registration creates the customer",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/workflows/spree/customers/create_spec.rb",
+      "line": 75,
+      "description": "Spree::Customers::Create self-registration dispatches after_create with the persisted customer",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/workflows/spree/customers/create_spec.rb",
+      "line": 59,
+      "description": "Spree::Customers::Create self-registration propagates verified newsletter opt-in onto the customer",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/workflows/spree/customers/create_spec.rb",
+      "line": 37,
+      "description": "Spree::Customers::Create self-registration creates a password-less account when the caller waives the requirement",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/workflows/spree/customers/create_spec.rb",
+      "line": 184,
+      "description": "Spree::Customers::Create the evidence kept with an agreement snapshots the terms document alone, not every policy the store keeps",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/workflows/spree/customers/create_spec.rb",
+      "line": 202,
+      "description": "Spree::Customers::Create the evidence kept with an agreement keeps the same evidence on the marketing opt-in",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/workflows/spree/customers/create_spec.rb",
+      "line": 193,
+      "description": "Spree::Customers::Create the evidence kept with an agreement records where and from what the person agreed",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/workflows/spree/customers/create_spec.rb",
+      "line": 131,
+      "description": "Spree::Customers::Create checkout account creation (order:) carries the marketing opt-in from the order",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/workflows/spree/customers/create_spec.rb",
+      "line": 102,
+      "description": "Spree::Customers::Create checkout account creation (order:) creates the account password-less, claimable via password reset",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/workflows/spree/customers/create_spec.rb",
+      "line": 93,
+      "description": "Spree::Customers::Create checkout account creation (order:) creates the customer from the order",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/workflows/spree/customers/create_spec.rb",
+      "line": 120,
+      "description": "Spree::Customers::Create checkout account creation (order:) does not adopt an address that belongs to another customer",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/workflows/spree/customers/create_spec.rb",
+      "line": 114,
+      "description": "Spree::Customers::Create checkout account creation (order:) links the order to the customer",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/workflows/spree/customers/create_spec.rb",
+      "line": 106,
+      "description": "Spree::Customers::Create checkout account creation (order:) adopts the order addresses",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/workflows/spree/customers/create_spec.rb",
+      "line": 156,
+      "description": "Spree::Customers::Create checkout account creation (order:) when a customer with the order email already exists does not backfill order addresses from the adopting account",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/workflows/spree/customers/create_spec.rb",
+      "line": 148,
+      "description": "Spree::Customers::Create checkout account creation (order:) when a customer with the order email already exists does not run registration policy hooks",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/workflows/spree/customers/create_spec.rb",
+      "line": 140,
+      "description": "Spree::Customers::Create checkout account creation (order:) when a customer with the order email already exists links the order to the existing account instead of registering",
+      "status": "passed"
+    }
+  ]
+}

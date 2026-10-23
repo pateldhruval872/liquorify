@@ -1,0 +1,71 @@
+{
+  "id": "CMP-SF-P-12",
+  "story": "storefront-ui-input--default",
+  "mode": "desktop",
+  "revision": "8153a6b1ffbcd8dfd0c435f6fc24f90ff32b9fff",
+  "screenWidth": 334,
+  "storyWidth": 384,
+  "compared": 1,
+  "onlyOnScreen": [],
+  "onlyInStory": [],
+  "differences": [
+    {
+      "element": "input|input|h-11 w-full min-w-0 rounded-sm border border-input bg-transparent px-2.5 py-1 text-base transition-colors outline-none file:inline-flex file:h-6 file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus:border-black focus:[outline:1px_solid_black] disabled:pointer-events-none disabled:cursor-not-allowed disabled:bg-input/50 disabled:opacity-50 aria-invalid:border-destructive md:text-sm dark:bg-input/30 dark:focus:border-white dark:focus:[outline:1px_solid_white] dark:disabled:bg-input/80",
+      "property": "font-family",
+      "screen": "Geist, \"Geist Fallback\", system-ui, sans-serif",
+      "story": "Geist, system-ui, sans-serif"
+    }
+  ],
+  "styles": {
+    "screen": {
+      "input|input|h-11 w-full min-w-0 rounded-sm border border-input bg-transparent px-2.5 py-1 text-base transition-colors outline-none file:inline-flex file:h-6 file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus:border-black focus:[outline:1px_solid_black] disabled:pointer-events-none disabled:cursor-not-allowed disabled:bg-input/50 disabled:opacity-50 aria-invalid:border-destructive md:text-sm dark:bg-input/30 dark:focus:border-white dark:focus:[outline:1px_solid_white] dark:disabled:bg-input/80": {
+        "color": "rgba(10, 10, 10, 255)",
+        "background-color": "rgba(0, 0, 0, 0)",
+        "font-family": "Geist, \"Geist Fallback\", system-ui, sans-serif",
+        "font-size": "14px",
+        "font-weight": "400",
+        "line-height": "20px",
+        "letter-spacing": "normal",
+        "border-top-width": "1px",
+        "border-top-color": "rgba(229, 229, 229, 255)",
+        "border-right-width": "1px",
+        "border-bottom-width": "1px",
+        "border-left-width": "1px",
+        "border-radius": "6px",
+        "padding-top": "4px",
+        "padding-right": "10px",
+        "padding-bottom": "4px",
+        "padding-left": "10px",
+        "height": "44px",
+        "box-shadow": "none",
+        "opacity": "1",
+        "gap": "normal"
+      }
+    },
+    "story": {
+      "input|input|h-11 w-full min-w-0 rounded-sm border border-input bg-transparent px-2.5 py-1 text-base transition-colors outline-none file:inline-flex file:h-6 file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus:border-black focus:[outline:1px_solid_black] disabled:pointer-events-none disabled:cursor-not-allowed disabled:bg-input/50 disabled:opacity-50 aria-invalid:border-destructive md:text-sm dark:bg-input/30 dark:focus:border-white dark:focus:[outline:1px_solid_white] dark:disabled:bg-input/80": {
+        "color": "rgba(10, 10, 10, 255)",
+        "background-color": "rgba(0, 0, 0, 0)",
+        "font-family": "Geist, system-ui, sans-serif",
+        "font-size": "14px",
+        "font-weight": "400",
+        "line-height": "20px",
+        "letter-spacing": "normal",
+        "border-top-width": "1px",
+        "border-top-color": "rgba(229, 229, 229, 255)",
+        "border-right-width": "1px",
+        "border-bottom-width": "1px",
+        "border-left-width": "1px",
+        "border-radius": "6px",
+        "padding-top": "4px",
+        "padding-right": "10px",
+        "padding-bottom": "4px",
+        "padding-left": "10px",
+        "height": "44px",
+        "box-shadow": "none",
+        "opacity": "1",
+        "gap": "normal"
+      }
+    }
+  }
+}
