@@ -78,15 +78,15 @@ Each run adds its own teammate, so the browser tests' admin keeps its password. 
 
 ## 3. What this means for the gaps
 
-The owner accepted P1 on 2026-10-23, after #13 and storefront #19 merged, and chose to answer each of these gaps separately ([merge record](2026-10-23-fb-19-platform-p1-merge.md)). Until then each stays PENDING, as the register has it, with this evidence named.
+The owner accepted P1 on 2026-10-23, after #13 and storefront #19 merged, and chose to answer each of these gaps separately. Later that day the owner closed G-03, G-04, G-05 and G-15 against this evidence, and kept G-16 pending ([merge record §4](2026-10-23-fb-19-platform-p1-merge.md#4-the-owners-answer-on-four-of-p1s-gaps)).
 
 | Gap | What the evidence shows | What remains |
 |---|---|---|
-| G-03 DA-AUTH-03 "saved" not captured | Captured after a real reset from a mailed link (§2.1) | Its own answer |
-| G-04 Saving a new staff password in the browser (FL-03) | Saved from the mailed link, and the new password signs in (§2.1). FL-03 would then have a browser test for every step | Its own answer |
-| G-05 EM-S-01, EM-S-03 and EM-S-04 not seen sent | Each read during its flow (§2.1) | Its own answer |
-| G-15 FL-09's three password reset steps | Requested, mailed and saved in the browser (§2.2) | Its own answer |
-| G-16 Whether EM-C-08 or EM-SF-04 is sent | EM-SF-04 is sent through Spree's webhook (§2.2). EM-C-08 is sent on the emails gem's own test app, and its link's token resets the password there; the browser-test server cannot send it (§2.3) | Its own answer, including whether the gem's test app is enough for EM-C-08. P2's webhook deliveries are still to come |
+| G-03 DA-AUTH-03 "saved" not captured | Captured after a real reset from a mailed link (§2.1) | Nothing: CLOSED on 2026-10-23 |
+| G-04 Saving a new staff password in the browser (FL-03) | Saved from the mailed link, and the new password signs in (§2.1). FL-03 would then have a browser test for every step | Nothing: CLOSED on 2026-10-23 |
+| G-05 EM-S-01, EM-S-03 and EM-S-04 not seen sent | Each read during its flow (§2.1) | Nothing: CLOSED on 2026-10-23 |
+| G-15 FL-09's three password reset steps | Requested, mailed and saved in the browser (§2.2) | Nothing: CLOSED on 2026-10-23 |
+| G-16 Whether EM-C-08 or EM-SF-04 is sent | EM-SF-04 is sent through Spree's webhook (§2.2). EM-C-08 is sent on the emails gem's own test app, and its link's token resets the password there; the browser-test server cannot send it (§2.3) | PENDING, at the owner's answer: the remaining email configuration, including whether the gem's test app is enough for EM-C-08, and P2's webhook deliveries |
 
 ## 4. Limitations
 
