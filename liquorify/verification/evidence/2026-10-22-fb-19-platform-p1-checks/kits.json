@@ -1,5 +1,25 @@
 {
   "revision": "local",
+  "requests": {
+    "statuses": {
+      "admin": {
+        "200": 398,
+        "404": 3,
+        "422": 2
+      },
+      "seller": {
+        "200": 53
+      }
+    },
+    "refused": [
+      "admin GET /api/v3/admin/auth/setup/countries: 404",
+      "admin GET /api/v3/admin/promotion_actions/calculators: 422",
+      "admin GET /api/v3/admin/tags: 422",
+      "admin GET /api/v3/admin/oauth/authorize: 404",
+      "admin GET /api/v3/admin/api_keys/current: 404"
+    ],
+    "serverErrors": []
+  },
   "outcomes": [
     {
       "kit": "admin",
@@ -2586,7 +2606,7 @@
       "error": null,
       "schema": "DataRequest",
       "schemaFrom": "route",
-      "checked": 5,
+      "checked": 2,
       "rejected": [],
       "defect": null,
       "note": null
@@ -3504,30 +3524,30 @@
     {
       "kit": "admin",
       "read": "invitations.get",
-      "called": true,
-      "route": "/api/v3/admin/invitations/inv_UkLWZg9DAJ",
-      "status": 200,
+      "called": false,
+      "route": null,
+      "status": null,
       "error": null,
       "schema": null,
       "schemaFrom": null,
       "checked": 0,
       "rejected": [],
       "defect": null,
-      "note": "the reference does not document this route"
+      "note": "no record to read"
     },
     {
       "kit": "admin",
       "read": "invitations.acceptanceLink",
-      "called": true,
-      "route": "/api/v3/admin/invitations/{invitation_id}/acceptance_link",
-      "status": 404,
-      "error": "record_not_found",
+      "called": false,
+      "route": null,
+      "status": null,
+      "error": null,
       "schema": null,
       "schemaFrom": null,
       "checked": 0,
       "rejected": [],
       "defect": null,
-      "note": null
+      "note": "no record to read"
     },
     {
       "kit": "admin",
@@ -3728,44 +3748,44 @@
     {
       "kit": "admin",
       "read": "webhookEndpoints.get",
-      "called": true,
-      "route": "/api/v3/admin/webhook_endpoints/{id}",
-      "status": 200,
+      "called": false,
+      "route": null,
+      "status": null,
       "error": null,
       "schema": null,
       "schemaFrom": null,
       "checked": 0,
       "rejected": [],
       "defect": null,
-      "note": null
+      "note": "no record to read"
     },
     {
       "kit": "admin",
       "read": "webhookEndpoints.deliveries.list",
-      "called": true,
-      "route": "/api/v3/admin/webhook_endpoints/{webhook_endpoint_id}/deliveries",
-      "status": 200,
+      "called": false,
+      "route": null,
+      "status": null,
       "error": null,
       "schema": null,
       "schemaFrom": null,
       "checked": 0,
       "rejected": [],
       "defect": null,
-      "note": null
+      "note": "no record to read"
     },
     {
       "kit": "admin",
       "read": "webhookEndpoints.deliveries.get",
-      "called": true,
-      "route": "/api/v3/admin/webhook_endpoints/{webhook_endpoint_id}/deliveries/{id}",
-      "status": 200,
+      "called": false,
+      "route": null,
+      "status": null,
       "error": null,
       "schema": null,
       "schemaFrom": null,
       "checked": 0,
       "rejected": [],
       "defect": null,
-      "note": null
+      "note": "no record to read"
     },
     {
       "kit": "admin",

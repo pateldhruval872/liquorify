@@ -8,7 +8,8 @@ import { defineConfig } from '@playwright/test'
  * compare.spec.ts). The comparison only opens them; the other two add their
  * own roles and teammates through the Admin API first. `mail.spec.ts` follows
  * the staff emails' links, and runs only against a server started to write its
- * mail to a folder (see that file). `kits.spec.ts` calls the Admin and Seller
+ * mail to a folder (see that file); `customer-mail.spec.ts` reads Spree's own
+ * customer reset email on the emails gem's test app, which it starts itself. `kits.spec.ts` calls the Admin and Seller
  * kits' read methods against the server alone, and `records.spec.ts` writes and
  * reads external references and price history through the Admin kit.
  * `hosted.spec.ts` signs in to the dashboard and seller panel Spree serves at
@@ -23,6 +24,7 @@ export default defineConfig({
     'screens.spec.ts',
     'refusals.spec.ts',
     'mail.spec.ts',
+    'customer-mail.spec.ts',
     'kits.spec.ts',
     'records.spec.ts',
     'hosted.spec.ts',
