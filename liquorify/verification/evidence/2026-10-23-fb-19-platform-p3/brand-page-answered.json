@@ -1,0 +1,7 @@
+{
+  "capture": "brand-page-answered",
+  "revision": "1f0f598",
+  "path": "/store_UkLWZg9DAJ/brands/brand_fidelity1",
+  "intercepted": "The browser answers /api/v3/admin/brands/<id> with an invented brand",
+  "outside": []
+}

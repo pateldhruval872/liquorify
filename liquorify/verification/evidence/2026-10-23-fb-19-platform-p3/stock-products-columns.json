@@ -1,0 +1,19 @@
+{
+  "capture": "stock-products-columns",
+  "revision": "1f0f598",
+  "path": "/store_UkLWZg9DAJ/products",
+  "columnOptions": [
+    "Name",
+    "Status",
+    "Inventory",
+    "SKU",
+    "Price",
+    "Tags",
+    "Seller",
+    "Sales channels",
+    "Product type",
+    "Created at",
+    "Updated at"
+  ],
+  "outside": []
+}
