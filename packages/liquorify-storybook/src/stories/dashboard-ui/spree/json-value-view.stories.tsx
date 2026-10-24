@@ -7,11 +7,12 @@ const meta = {
   component: JsonValueView,
   tags: ['CMP-DUI-C-28'],
   // A delivery's payload in its detail sheet on a webhook endpoint's page
-  // (DA-SET-29). The view keeps its dark surface in both themes.
+  // (DA-SET-29), at the width the sheet gives it. The view keeps its dark
+  // surface in both themes.
   args: { value: orderCompletedPayload },
   decorators: [
     (Story) => (
-      <div className="w-[36rem]">
+      <div className="w-[540px]">
         <Story />
       </div>
     ),

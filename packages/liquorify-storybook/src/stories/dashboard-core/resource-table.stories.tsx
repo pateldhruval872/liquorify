@@ -140,7 +140,8 @@ export const RowActionsOpen: Story = {
   },
 }
 
-// The webhooks page (DA-SET-28), whose columns state each endpoint's health.
+// The webhooks page (DA-SET-28), whose columns state each endpoint's health,
+// with the page's own New endpoint button.
 export const WebhookEndpoints: Story = {
   name: 'Webhook endpoints',
   render: () => (
@@ -150,6 +151,12 @@ export const WebhookEndpoints: Story = {
       queryFn={listing(webhookEndpoints, (endpoint) => endpoint.url) as never}
       searchParams={resourceSearchSchema.parse({})}
       rowActions={() => <RowActions actions={[{ key: 'edit', onSelect: nothing }]} />}
+      actions={
+        <Button size="sm" className="h-[2.125rem]">
+          <PlusIcon className="size-4" />
+          New endpoint
+        </Button>
+      }
     />
   ),
   play: async () => {

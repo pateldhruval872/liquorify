@@ -17,8 +17,9 @@ const meta = {
   title: 'Admin dashboard/API keys/Scope picker',
   component: Picker,
   tags: ['CMP-DA-G-01'],
-  // A secret key's scopes, at their width in the create sheet (DA-SET-26),
-  // from a shorter catalog than Spree's so each state fits on one screen.
+  // A secret key's scopes, at their width and text size in the create sheet
+  // (DA-SET-26), from a shorter catalog than Spree's so each state fits on
+  // one screen.
   args: { value: [] },
   parameters: {
     liquorify: { signedIn: true, storeId: adminUser.stores[0].id },
@@ -26,7 +27,7 @@ const meta = {
   },
   decorators: [
     (Story) => (
-      <div className="w-[566px]">
+      <div className="w-[566px] text-sm">
         <Story />
       </div>
     ),

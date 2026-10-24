@@ -7,7 +7,7 @@ import { screen, userEvent } from 'storybook/test'
 function Field({ value: initial, ...props }: ComponentProps<typeof SecretInput>) {
   const [value, setValue] = useState<unknown>(initial)
   return (
-    <div className="w-96">
+    <div className="w-[566px] text-sm">
       <SecretInput {...props} value={value} onChange={setValue} />
     </div>
   )
@@ -17,7 +17,8 @@ const meta = {
   title: 'Dashboard UI/Composed/Secret input',
   component: Field,
   tags: ['CMP-DUI-C-48'],
-  // An integration's secret setting in its configure sheet (DA-SET-10).
+  // An integration's secret setting in its configure sheet (DA-SET-10), at
+  // the width and text size the sheet gives it.
   args: { id: 'preference-api_secret', label: 'Api Secret', value: '', onChange: () => {} },
 } satisfies Meta<typeof Field>
 
@@ -40,12 +41,13 @@ export const Shown: Story = {
   },
 }
 
-// A stored secret comes back from the server masked, and shows as a badge
+// A stored secret comes back from the server masked, its last four characters
+// behind at most sixteen dots, and shows as a badge
 // with no way to reveal it.
-export const Stored: Story = { args: { value: '••••0000' } }
+export const Stored: Story = { args: { value: '••••••••••••••••0000' } }
 
 export const Replacing: Story = {
-  args: { value: '••••0000' },
+  args: { value: '••••••••••••••••0000' },
   play: async () => {
     await userEvent.click(screen.getByRole('button', { name: 'Replace' }))
   },

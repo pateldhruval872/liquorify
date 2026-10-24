@@ -1,0 +1,17 @@
+{
+  "screen": "DA-SET-32",
+  "state": "approving",
+  "variant": "admin",
+  "role": null,
+  "theme": "dark",
+  "revision": "95bc66f",
+  "path": "/<store>/oauth/authorize",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": "The approval request is held open in the browser, so nothing is approved",
+  "masked": null,
+  "settled": true,
+  "outside": []
+}

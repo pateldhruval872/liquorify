@@ -38,8 +38,8 @@ const resolver: Resolver<WebhookEndpointFormValues> = async (values) => {
 }
 
 // The fields of the webhooks page's create sheet and the endpoint page's edit
-// sheet (DA-SET-28, DA-SET-29), at the width the sheets give them, in a form
-// set up as theirs is.
+// sheet (DA-SET-28, DA-SET-29), at the width and text size the sheets give
+// them, in a form set up as theirs is.
 function EndpointForm({ values, validate = false }: Props) {
   const form = useForm<WebhookEndpointFormValues>({
     resolver,
@@ -49,7 +49,7 @@ function EndpointForm({ values, validate = false }: Props) {
     if (validate) form.trigger()
   }, [validate, form])
   return (
-    <form className="flex w-[566px] flex-col gap-4">
+    <form className="flex w-[566px] flex-col gap-4 text-sm">
       <WebhookEndpointFormFields form={form} />
     </form>
   )

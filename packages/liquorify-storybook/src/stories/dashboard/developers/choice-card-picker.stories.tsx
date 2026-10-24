@@ -5,12 +5,12 @@ import { userEvent } from 'storybook/test'
 import { ChoiceCardPicker } from '../../../../../dashboard/src/components/spree/choice-card-picker'
 
 // The AI agents connect sheet's first step (DA-SET-07), worded as it is, at
-// the width the sheet gives it.
+// the width and text size the sheet gives it.
 function ClientChoice({ initial = 'claude' }: { initial?: string }) {
   const { t } = useTranslation()
   const [value, setValue] = useState(initial)
   return (
-    <div className="w-[542px]">
+    <div className="w-[566px] text-sm">
       <ChoiceCardPicker
         options={[
           { value: 'claude', label: 'Claude', description: t('admin.mcp_connect.clients.claude') },

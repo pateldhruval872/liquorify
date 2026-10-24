@@ -34,11 +34,16 @@ export const webhookEvents: WebhookEvent[] = [
   event('product.updated'),
 ]
 
-function endpoint(
-  fields: Partial<WebhookEndpoint> & Pick<WebhookEndpoint, 'id' | 'url'>,
-): WebhookEndpoint {
+function endpoint({
+  id,
+  url,
+  ...fields
+}: Partial<WebhookEndpoint> & Pick<WebhookEndpoint, 'id' | 'url'>): WebhookEndpoint {
   return {
+    // In the order the Admin API answers with, which the JSON preview shows.
+    id,
     name: null,
+    url,
     active: true,
     subscriptions: [],
     disabled_reason: null,
@@ -116,10 +121,12 @@ function delivery(
 }
 
 /** One delivery's payload, as Spree sends it to an endpoint. */
+// Shaped as Spree sends an event: its own id, name and time, the record, and
+// the Spree version that sent it.
 export const orderCompletedPayload = {
-  id: 'evt_6Gh2Jk8L',
+  id: '5f0c2a9e-7d41-4b6a-9c3e-2e8f1a6b4d70',
   name: 'order.completed',
-  created_at: '2026-10-01T11:40:00.000Z',
+  created_at: '2026-10-01T11:40:00Z',
   data: {
     id: 'or_9Xc4Vb7N',
     number: 'R123456789',
@@ -133,6 +140,7 @@ export const orderCompletedPayload = {
       { id: 'li_7Yu1Io4P', name: 'Canvas tote', quantity: 2, total: '30.00' },
     ],
   },
+  metadata: { spree_version: '6.0.0.rc4' },
 }
 
 export const webhookDeliveries: WebhookDelivery[] = [

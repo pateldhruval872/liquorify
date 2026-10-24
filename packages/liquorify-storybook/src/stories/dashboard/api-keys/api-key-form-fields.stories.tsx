@@ -15,8 +15,8 @@ import { adminUser } from '../../../fixtures/admin/session'
 import { channelList } from '../../../mocks/handlers/admin/developers'
 import { adminSession } from '../../../mocks/handlers/admin/session'
 
-// The fields the create and edit sheets share (DA-SET-26), at the width the
-// sheets give them.
+// The fields the create and edit sheets share (DA-SET-26), at the width and
+// text size the sheets give them.
 function NameField({ error }: { error?: string }) {
   const form = useForm<{ name: string }>({ defaultValues: { name: '' } })
   return (
@@ -71,7 +71,7 @@ const meta = {
   },
   decorators: [
     (Story) => (
-      <div className="flex w-[566px] flex-col gap-4">
+      <div className="flex w-[566px] flex-col gap-4 text-sm">
         <Story />
       </div>
     ),

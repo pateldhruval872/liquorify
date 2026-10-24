@@ -7,7 +7,7 @@ import { relayIntegration, relayType } from '../../fixtures/admin/integrations'
 function Form({ values: initial, ...props }: ComponentProps<typeof PreferencesForm>) {
   const [values, setValues] = useState(initial)
   return (
-    <div className="w-[26rem]">
+    <div className="w-[566px] text-sm">
       <PreferencesForm {...props} values={values} onChange={setValues} />
     </div>
   )
@@ -18,7 +18,8 @@ const meta = {
   component: Form,
   tags: ['CMP-CORE-22'],
   // An integration's settings in its configure sheet (DA-SET-10): text, a
-  // secret, a number and a switch, each labelled from its key.
+  // secret, a number and a switch, each labelled from its key. At the width
+  // and text size the sheet gives it.
   args: {
     schema: relayType.schema,
     values: defaultPreferences(relayType.schema),

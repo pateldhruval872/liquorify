@@ -35,7 +35,7 @@ export const relayIntegration: Integration = {
   group: 'shipping',
   preferences: {
     account_id: 'acct-sample',
-    api_secret: '••••0000',
+    api_secret: '••••••••••••••••0000',
     sync_interval: 30,
     sandbox_mode: false,
   },

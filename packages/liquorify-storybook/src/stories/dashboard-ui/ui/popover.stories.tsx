@@ -21,7 +21,7 @@ function Example({ trigger, content, ...props }: Props) {
   )
 }
 
-const scopes = ['Read Products', 'Write Stock', 'Read Orders', 'Write Orders', 'Read Customers']
+const scopes = ['View Products', 'Manage Stock', 'View Orders', 'Manage Orders', 'View Customers']
 
 // The rest of a key's scopes, opened from its "+3" count on the API keys page
 // (DA-SET-26).
