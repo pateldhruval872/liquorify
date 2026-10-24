@@ -6,7 +6,7 @@ The captures, comparisons, email and backend results behind the [verification re
 
 | What | Revision |
 |---|---|
-| Stories and scripts | Draft pull request [#16](https://github.com/pateldhruval872/liquorify/pull/16); the scripts ran from `95bc66f`, with this commit's corrections to the stories |
+| Stories and scripts | Draft pull request [#16](https://github.com/pateldhruval872/liquorify/pull/16); the scripts ran from `95bc66f`, with the corrections to the stories that `7d41083`, the batch's revision, added |
 | Running screens, the email and Spree's specs | Spree's code at `3081c8b`, which the pull request does not change: the built admin dashboard against the dashboard browser tests' own Rails server and fixtures |
 | Browser | The pinned Playwright 1.64.1 image. Captures at 1280 by 960 pixels; comparisons at 1280 by 800, or 1280 by 2400 for the scope picker and the endpoint form; the email at 1280 pixels wide |
 
