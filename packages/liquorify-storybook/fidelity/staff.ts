@@ -34,6 +34,22 @@ export const roles = {
   },
   support: { name: 'Support', permissions: ['read_orders', 'read_customers', 'read_dashboard'] },
   unused: { name: 'Unused role', permissions: ['read_orders'] },
+  /** Read on the five scopes of batch 2's screens, and write on none. */
+  developerViewer: {
+    name: 'Developer settings viewer',
+    permissions: [
+      'read_api_keys',
+      'read_oauth_applications',
+      'read_settings',
+      'read_webhooks',
+      'read_integrations',
+    ],
+  },
+  /** May connect an agent, which takes write on OAuth applications, and holds little else. */
+  agentConnector: {
+    name: 'Agent connector',
+    permissions: ['write_oauth_applications', 'read_products'],
+  },
 } as const
 
 export type RoleKey = keyof typeof roles
@@ -78,6 +94,18 @@ export const teammates: Record<
     role: 'support',
     first: 'Sue',
     last: 'Support',
+  },
+  developerViewer: {
+    email: 'fidelity-developer-viewer@example.com',
+    role: 'developerViewer',
+    first: 'Dev',
+    last: 'Viewer',
+  },
+  agentConnector: {
+    email: 'fidelity-agent-connector@example.com',
+    role: 'agentConnector',
+    first: 'Ari',
+    last: 'Connector',
   },
 }
 

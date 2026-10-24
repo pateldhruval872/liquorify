@@ -1,4 +1,5 @@
 import type { AdminUser, MeResponse, PermissionRule } from '@spree/admin-sdk'
+import { everyPermissionKey } from './staff'
 
 export const adminUser: AdminUser = {
   id: 'admin_7xQ2pL9m',
@@ -24,11 +25,15 @@ export const readOnly: PermissionRule[] = [
 
 /**
  * `/me` for the story's admin. `keys` are the permission keys their roles
- * hold, which decide what a role or key they create may grant.
+ * hold, which decide what a role or key they create may grant. Spree lists
+ * an admin's one by one, every key in the catalog, rather than `write_all`.
+ * The read-only default is a role holding every read key.
  */
 export function meResponse(
   permissions: PermissionRule[],
-  keys: string[] = permissions === fullAccess ? ['write_all'] : ['read_all'],
+  keys: string[] = permissions === fullAccess
+    ? everyPermissionKey
+    : everyPermissionKey.filter((key) => key.startsWith('read_')),
   user: AdminUser = adminUser,
 ): MeResponse {
   return { user, permissions, permission_keys: keys }

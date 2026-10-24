@@ -1,0 +1,26 @@
+{
+  "screen": "DA-SET-29",
+  "state": "details-and-deliveries",
+  "variant": "developerViewer",
+  "role": {
+    "name": "Developer settings viewer",
+    "permissions": [
+      "read_api_keys",
+      "read_oauth_applications",
+      "read_settings",
+      "read_webhooks",
+      "read_integrations"
+    ]
+  },
+  "theme": "light",
+  "revision": "95bc66f",
+  "path": "/<store>/settings/webhooks/<endpoint>",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": null,
+  "masked": null,
+  "settled": true,
+  "outside": []
+}

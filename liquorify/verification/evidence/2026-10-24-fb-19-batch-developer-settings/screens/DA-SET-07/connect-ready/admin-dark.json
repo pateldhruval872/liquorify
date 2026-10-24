@@ -1,0 +1,17 @@
+{
+  "screen": "DA-SET-07",
+  "state": "connect-ready",
+  "variant": "admin",
+  "role": null,
+  "theme": "dark",
+  "revision": "95bc66f",
+  "path": "/<store>/settings/ai-agents",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": null,
+  "masked": null,
+  "settled": true,
+  "outside": []
+}

@@ -1,7 +1,22 @@
 import { mkdirSync, writeFileSync } from 'node:fs'
 import { expect, type Page, request, test } from '@playwright/test'
-import { getCredentials, login } from '../../dashboard/e2e/helpers'
+import { getCredentials, login, rowButton } from '../../dashboard/e2e/helpers'
 import { releaseNotes, updateAvailable } from '../src/fixtures/admin/shell'
+import {
+  agent,
+  type Developers,
+  disabledReason,
+  endpoints,
+  gateway,
+  origins,
+  paintOut,
+  pkce,
+  removeNamed,
+  secretKeys,
+  seedDevelopers,
+  setGateway,
+  setRelay,
+} from './developers'
 import {
   admin,
   currentAcceptancePath,
@@ -42,6 +57,7 @@ let seeded: Seeded
 let baseURL: string
 /** The browser-test data's first order, for the record page's top bar. */
 let orderId: string
+let developers: Developers
 
 /** Signs in through the API, as the dashboard's browser tests do, and opens the store. */
 async function signIn(page: Page, variant: Variant) {
@@ -101,6 +117,10 @@ interface Capture {
   phone?: true
   /** Opens the screen in the state; the browser is already signed in as the variant. */
   reach: (page: Page) => Promise<void>
+  /** What is masked in the screenshot, because it shows a key, token or secret. */
+  masked?: { what: string; selector: string }
+  /** Removes what the capture made through the screen, once it is saved. */
+  after?: () => Promise<void>
 }
 
 const phone = { width: 390, height: 844 }
@@ -1098,9 +1118,886 @@ const captures: Capture[] = [
   },
 ]
 
+/*
+ * Batch 2, developer and integration settings (DA-SET-26 to DA-SET-30,
+ * DA-SET-07, DA-SET-32, DA-SET-10). The records each state needs are seeded by
+ * `developers.ts`. A key, token or secret on screen is masked in the
+ * screenshot, and a capture that makes a record through the screen removes it.
+ */
+
+const keyValues: Capture['masked'] = {
+  what: 'Every key, token and secret value on the screen',
+  selector: 'code',
+}
+
+/** The real answer to a list request, with its records taken out. */
+const emptied = (page: Page, path: string) =>
+  page.route(
+    (url) => url.pathname === `/api/v3/admin/${path}`,
+    async (route) => {
+      if (route.request().method() !== 'GET') return route.fallback()
+      const response = await route.fetch()
+      const body = (await response.json()) as { meta?: Record<string, unknown> }
+      await route.fulfill({
+        response,
+        json: {
+          ...body,
+          data: [],
+          ...(body.meta && { meta: { ...body.meta, count: 0, pages: 1, from: 0, to: 0, in: 0 } }),
+        },
+      })
+    },
+  )
+
+/** Holds or drops one kind of request to a path, so its answer never arrives. */
+async function interrupt(page: Page, method: string, path: RegExp, how: 'hold' | 'abort') {
+  await page.route(
+    (url) => path.test(url.pathname),
+    (route) => {
+      if (route.request().method() !== method) return route.fallback()
+      return how === 'hold' ? new Promise(() => {}) : route.abort()
+    },
+  )
+}
+
+const directVisit = (screen: string, path: string): Capture => ({
+  screen,
+  state: 'direct-visit',
+  variant: 'orderManager',
+  reach: (page) => openStore(page, path),
+})
+
+const apiKeysPath = '/settings/api-keys'
+const openApiKeys = async (page: Page) => {
+  await openStore(page, apiKeysPath)
+  await expect(page.getByText(secretKeys.partner.name)).toBeVisible({ timeout: 15_000 })
+}
+const openKeySheet = async (page: Page) => {
+  await openApiKeys(page)
+  await page.getByRole('button', { name: /new key/i }).click()
+  await expect(page.getByRole('checkbox', { name: 'View Products' })).toBeVisible()
+}
+const captureKey = 'Fidelity capture key'
+
+const clientsPath = '/settings/oauth-clients'
+const openClients = async (page: Page) => {
+  await openStore(page, clientsPath)
+  await expect(page.getByRole('row', { name: /Inventory assistant/ })).toBeVisible({
+    timeout: 15_000,
+  })
+}
+
+const originsPath = '/settings/allowed-origins'
+const openOrigins = async (page: Page) => {
+  await openStore(page, originsPath)
+  await expect(rowButton(page, origins[0])).toBeVisible({ timeout: 15_000 })
+}
+
+const agentsPath = '/settings/ai-agents'
+const agentCard = (page: Page) => page.locator('[data-slot="card"]').filter({ hasText: /^Claude/ })
+const openAgents = async (page: Page) => {
+  await openStore(page, agentsPath)
+  await expect(agentCard(page).getByText('Ari Connector')).toBeVisible({ timeout: 15_000 })
+}
+const openConnectSheet = async (page: Page) => {
+  await openAgents(page)
+  await page.getByRole('button', { name: /connect an agent/i }).click()
+  await expect(page.getByRole('dialog').getByText(/choose the assistant/i)).toBeVisible()
+}
+
+/**
+ * What the batch's agent asks for: one permission the agent connector's role
+ * holds, and two it does not.
+ */
+const authorizePath = (clientId = developers.agentClientId) =>
+  `/oauth/authorize?${new URLSearchParams({
+    client_id: clientId,
+    redirect_uri: agent.callback,
+    response_type: 'code',
+    scope: 'read_webhooks read_products write_orders',
+    state: 'sample-state',
+    code_challenge: pkce.challenge,
+    code_challenge_method: 'S256',
+  })}`
+const openAuthorize = async (page: Page) => {
+  await openStore(page, authorizePath())
+  await expect(page.getByRole('button', { name: 'Allow access' })).toBeEnabled({
+    timeout: 15_000,
+  })
+}
+const authorizeRequest = /\/api\/v3\/admin\/oauth\/authorize$/
+
+const webhooksPath = '/settings/webhooks'
+const openWebhooks = async (page: Page) => {
+  await openStore(page, webhooksPath)
+  await expect(rowButton(page, endpoints.orderSync.name)).toBeVisible({ timeout: 15_000 })
+}
+const openEndpointSheet = async (page: Page) => {
+  await openWebhooks(page)
+  await page.getByRole('button', { name: /new endpoint/i }).click()
+  await expect(page.getByRole('heading', { name: /add webhook endpoint/i })).toBeVisible()
+}
+const captureEndpoint = {
+  name: 'Fidelity capture endpoint',
+  url: 'https://capture.example.test/hooks',
+}
+const endpointPath = (key: keyof typeof endpoints) =>
+  `${webhooksPath}/${developers.endpointIds[key]}`
+const openEndpoint = async (page: Page, key: keyof typeof endpoints) => {
+  await openStore(page, endpointPath(key))
+  await expect(page.getByRole('heading', { level: 1, name: endpoints[key].name })).toBeVisible({
+    timeout: 15_000,
+  })
+}
+
+const integrationsPath = '/settings/integrations'
+const relayCard = (page: Page) =>
+  page.locator('[data-slot="card"]').filter({ hasText: 'E2E Relay' })
+const gatewaySwitch = (page: Page) =>
+  page.getByRole('switch', { name: `Turn ${gateway.name} on or off` })
+const openIntegrations = async (page: Page) => {
+  await openStore(page, integrationsPath)
+  await expect(relayCard(page)).toBeVisible({ timeout: 15_000 })
+  await expect(gatewaySwitch(page)).toBeVisible()
+}
+const relaySheet = (page: Page) => page.getByRole('dialog')
+
+const developerCaptures: Capture[] = [
+  // DA-SET-26 API keys
+  ...(['admin', 'developerViewer'] as const).map(
+    (variant): Capture => ({
+      screen: 'DA-SET-26',
+      state: 'listed',
+      variant,
+      masked: keyValues,
+      reach: openApiKeys,
+    }),
+  ),
+  directVisit('DA-SET-26', apiKeysPath),
+  ...(['admin', 'developerViewer'] as const).map(
+    (variant): Capture => ({
+      screen: 'DA-SET-26',
+      state: 'create-sheet',
+      variant,
+      masked: keyValues,
+      reach: openKeySheet,
+    }),
+  ),
+  {
+    screen: 'DA-SET-26',
+    state: 'create-full-access',
+    variant: 'admin',
+    masked: keyValues,
+    reach: async (page) => {
+      await openKeySheet(page)
+      const fullAccess = page.getByRole('checkbox', { name: /Full access/ })
+      await fullAccess.click()
+      await expect(fullAccess).toBeChecked()
+    },
+  },
+  {
+    screen: 'DA-SET-26',
+    state: 'create-chosen-scopes',
+    variant: 'admin',
+    masked: keyValues,
+    reach: async (page) => {
+      await openKeySheet(page)
+      await page.locator('#api-key-name').fill('Warehouse sync')
+      await page.getByRole('checkbox', { name: 'View Orders' }).click()
+      await page.getByRole('checkbox', { name: 'Manage Orders' }).click()
+      await expect(page.getByRole('checkbox', { name: 'Manage Orders' })).toBeChecked()
+    },
+  },
+  {
+    screen: 'DA-SET-26',
+    state: 'token-shown-once',
+    variant: 'admin',
+    masked: keyValues,
+    reach: async (page) => {
+      await openKeySheet(page)
+      await page.locator('#api-key-name').fill(captureKey)
+      await page.getByText(/read all \(read_all\)/i).click()
+      await page.getByRole('button', { name: /create key/i }).click()
+      await expect(page.getByText('Save your secret key')).toBeVisible({ timeout: 15_000 })
+    },
+    after: () => removeNamed(baseURL, 'api_keys', captureKey),
+  },
+  {
+    screen: 'DA-SET-26',
+    state: 'edit-renaming',
+    variant: 'admin',
+    masked: keyValues,
+    reach: async (page) => {
+      await openApiKeys(page)
+      await openRowMenu(page, secretKeys.partner.name)
+      await page.getByRole('menuitem', { name: /^edit$/i }).click()
+      await expect(page.locator('#edit-api-key-name')).toHaveValue(secretKeys.partner.name)
+      await page.locator('#edit-api-key-name').fill('Fulfilment partner, Europe')
+    },
+  },
+  {
+    screen: 'DA-SET-26',
+    state: 'revoke-confirmation',
+    variant: 'admin',
+    masked: keyValues,
+    reach: async (page) => {
+      await openApiKeys(page)
+      await openRowMenu(page, secretKeys.partner.name)
+      await page.getByRole('menuitem', { name: 'Revoke key' }).click()
+      await expect(confirmation(page)).toBeVisible()
+    },
+  },
+  {
+    screen: 'DA-SET-26',
+    state: 'delete-confirmation',
+    variant: 'admin',
+    masked: keyValues,
+    reach: async (page) => {
+      await openApiKeys(page)
+      await openRowMenu(page, secretKeys.revoked.name)
+      await page.getByRole('menuitem', { name: /^delete$/i }).click()
+      await expect(confirmation(page)).toBeVisible()
+    },
+  },
+
+  // DA-SET-27 OAuth clients
+  ...(['admin', 'developerViewer'] as const).map(
+    (variant): Capture => ({ screen: 'DA-SET-27', state: 'listed', variant, reach: openClients }),
+  ),
+  directVisit('DA-SET-27', clientsPath),
+  {
+    screen: 'DA-SET-27',
+    state: 'none',
+    variant: 'admin',
+    intercepted: "The client list's answer has its records taken out in the browser",
+    reach: async (page) => {
+      await emptied(page, 'oauth/applications')
+      await openStore(page, clientsPath)
+      await expect(page.getByText(/no clients registered/i)).toBeVisible({ timeout: 15_000 })
+    },
+  },
+  {
+    screen: 'DA-SET-27',
+    state: 'register-sheet',
+    variant: 'admin',
+    reach: async (page) => {
+      await openClients(page)
+      await page.getByRole('button', { name: /register a client/i }).click()
+      await expect(page.locator('#oauth-application-name')).toBeVisible()
+    },
+  },
+  {
+    screen: 'DA-SET-27',
+    state: 'callback-refused',
+    variant: 'admin',
+    reach: async (page) => {
+      await openClients(page)
+      await page.getByRole('button', { name: /register a client/i }).click()
+      const sheet = page.getByRole('dialog')
+      await sheet.locator('#oauth-application-name').fill('Reporting tool')
+      await sheet
+        .locator('#oauth-application-redirect-uri')
+        .fill('http://reports.example.test/callback')
+      await sheet.getByRole('button', { name: /^save$/i }).click()
+      await expect(
+        sheet.getByRole('alert').filter({ hasText: /must start with https/i }),
+      ).toBeVisible({ timeout: 15_000 })
+    },
+  },
+  {
+    screen: 'DA-SET-27',
+    state: 'rename',
+    variant: 'admin',
+    reach: async (page) => {
+      await openClients(page)
+      await openRowMenu(page, 'Inventory assistant')
+      await page.getByRole('menuitem', { name: /^edit$/i }).click()
+      await expect(page.locator('#oauth-application-name')).toHaveValue('Inventory assistant')
+      await page.locator('#oauth-application-name').fill('Inventory assistant, staging')
+    },
+  },
+  {
+    screen: 'DA-SET-27',
+    state: 'remove-confirmation',
+    variant: 'admin',
+    reach: async (page) => {
+      await openClients(page)
+      await openRowMenu(page, 'Inventory assistant')
+      await page.getByRole('menuitem', { name: /^delete$/i }).click()
+      await expect(confirmation(page)).toBeVisible()
+    },
+  },
+
+  // DA-SET-30 Allowed origins
+  ...(['admin', 'developerViewer'] as const).map(
+    (variant): Capture => ({ screen: 'DA-SET-30', state: 'listed', variant, reach: openOrigins }),
+  ),
+  directVisit('DA-SET-30', originsPath),
+  {
+    screen: 'DA-SET-30',
+    state: 'none',
+    variant: 'admin',
+    intercepted: "The origin list's answer has its records taken out in the browser",
+    reach: async (page) => {
+      await emptied(page, 'allowed_origins')
+      await openStore(page, originsPath)
+      await expect(page.getByRole('button', { name: /add allowed origin/i })).toBeVisible({
+        timeout: 15_000,
+      })
+    },
+  },
+  {
+    screen: 'DA-SET-30',
+    state: 'create-sheet',
+    variant: 'admin',
+    reach: async (page) => {
+      await openOrigins(page)
+      await page.getByRole('button', { name: /add allowed origin/i }).click()
+      await expect(page.getByRole('heading', { name: /add allowed origin/i })).toBeVisible()
+    },
+  },
+  {
+    screen: 'DA-SET-30',
+    state: 'malformed-refused',
+    variant: 'admin',
+    reach: async (page) => {
+      await openOrigins(page)
+      await page.getByRole('button', { name: /add allowed origin/i }).click()
+      await page.locator('#origin').fill('not a url')
+      await page.getByRole('button', { name: /add origin/i }).click()
+      await expect(page.getByText(/must be a bare origin/i).first()).toBeVisible({
+        timeout: 15_000,
+      })
+    },
+  },
+  {
+    screen: 'DA-SET-30',
+    state: 'edit',
+    variant: 'admin',
+    reach: async (page) => {
+      await openOrigins(page)
+      await rowButton(page, origins[0]).click()
+      await expect(page.locator('#origin')).toHaveValue(origins[0], { timeout: 15_000 })
+      await page.locator('#origin').fill('https://shop.example.net')
+    },
+  },
+  {
+    screen: 'DA-SET-30',
+    state: 'delete-confirmation',
+    variant: 'admin',
+    reach: async (page) => {
+      await openOrigins(page)
+      await openRowMenu(page, origins[1])
+      await page.getByRole('menuitem', { name: /^delete$/i }).click()
+      await expect(confirmation(page)).toBeVisible()
+    },
+  },
+  {
+    screen: 'DA-SET-30',
+    state: 'nothing-found',
+    variant: 'admin',
+    reach: async (page) => {
+      await openOrigins(page)
+      await page.getByPlaceholder(/search by origin/i).fill('checkout')
+      await expect(rowButton(page, origins[0])).toHaveCount(0, { timeout: 15_000 })
+    },
+  },
+
+  // DA-SET-07 AI agents
+  ...(['admin', 'developerViewer'] as const).map(
+    (variant): Capture => ({ screen: 'DA-SET-07', state: 'connected', variant, reach: openAgents }),
+  ),
+  directVisit('DA-SET-07', agentsPath),
+  {
+    screen: 'DA-SET-07',
+    state: 'nothing-connected',
+    variant: 'admin',
+    intercepted: "The registration list's answer has its records taken out in the browser",
+    reach: async (page) => {
+      await emptied(page, 'oauth/applications')
+      await openStore(page, agentsPath)
+      await expect(page.getByText(/no agents have been connected/i)).toBeVisible({
+        timeout: 15_000,
+      })
+    },
+  },
+  {
+    screen: 'DA-SET-07',
+    state: 'unknown-person',
+    variant: 'admin',
+    intercepted:
+      "The connection list's answer has the second person taken out in the browser, as when their account no longer exists",
+    reach: async (page) => {
+      await page.route(
+        (url) => /\/oauth\/applications\/[^/]+\/tokens$/.test(url.pathname),
+        async (route) => {
+          const response = await route.fetch()
+          const body = (await response.json()) as {
+            data: { owner?: { email?: string } | null; owner_id: string | null }[]
+          }
+          const data = body.data.map((token) =>
+            token.owner?.email === teammates.agentConnector.email
+              ? { ...token, owner: null, owner_id: null }
+              : token,
+          )
+          await route.fulfill({ response, json: { ...body, data } })
+        },
+      )
+      await openStore(page, agentsPath)
+      await expect(agentCard(page).getByText('Unknown')).toBeVisible({ timeout: 15_000 })
+    },
+  },
+  {
+    screen: 'DA-SET-07',
+    state: 'connect-sheet',
+    variant: 'admin',
+    reach: openConnectSheet,
+  },
+  {
+    screen: 'DA-SET-07',
+    state: 'connect-something-else',
+    variant: 'admin',
+    reach: async (page) => {
+      await openConnectSheet(page)
+      await page
+        .getByRole('dialog')
+        .getByText(/any other client that speaks mcp/i)
+        .click()
+      await expect(page.getByRole('dialog').getByText(/callback url/i)).toBeVisible()
+    },
+  },
+  {
+    screen: 'DA-SET-07',
+    state: 'connect-ready',
+    variant: 'admin',
+    reach: async (page) => {
+      await openConnectSheet(page)
+      const sheet = page.getByRole('dialog')
+      await sheet.getByText(/claude\.ai, claude desktop/i).click()
+      await sheet.getByRole('button', { name: /^continue$/i }).click()
+      await expect(sheet.getByText(/ready to connect/i)).toBeVisible({ timeout: 15_000 })
+    },
+  },
+  {
+    screen: 'DA-SET-07',
+    state: 'connect-claude-code',
+    variant: 'admin',
+    reach: async (page) => {
+      await openConnectSheet(page)
+      const sheet = page.getByRole('dialog')
+      await sheet.getByText(/claude\.ai, claude desktop/i).click()
+      await sheet.getByRole('button', { name: /^continue$/i }).click()
+      await sheet.getByRole('tab', { name: /claude code/i }).click()
+      await expect(sheet.getByText(/claude mcp add/i)).toBeVisible()
+    },
+  },
+  {
+    screen: 'DA-SET-07',
+    state: 'revoke-confirmation',
+    variant: 'admin',
+    reach: async (page) => {
+      await openAgents(page)
+      await agentCard(page)
+        .getByRole('button', { name: /open actions/i })
+        .first()
+        .click()
+      await page.getByRole('menuitem', { name: /revoke/i }).click()
+      await expect(confirmation(page)).toBeVisible()
+    },
+  },
+
+  // DA-SET-32 Authorize an application. Approving and refusing on this page
+  // are platform step P2's; here their requests are held, so nothing is decided.
+  {
+    screen: 'DA-SET-32',
+    state: 'permissions-requested',
+    variant: 'admin',
+    reach: openAuthorize,
+  },
+  {
+    screen: 'DA-SET-32',
+    state: 'permissions-withheld',
+    variant: 'agentConnector',
+    reach: async (page) => {
+      await openAuthorize(page)
+      await expect(page.getByText(/not offered, because your own role/i)).toBeVisible()
+    },
+  },
+  // Connecting an agent takes write on OAuth applications, so Spree refuses
+  // the read-only role the request itself.
+  {
+    screen: 'DA-SET-32',
+    state: 'not-permitted',
+    variant: 'developerViewer',
+    reach: async (page) => {
+      await openStore(page, authorizePath())
+      await expect(page.locator('[data-slot="alert"]')).toBeVisible({ timeout: 15_000 })
+    },
+  },
+  {
+    screen: 'DA-SET-32',
+    state: 'approving',
+    variant: 'admin',
+    intercepted: 'The approval request is held open in the browser, so nothing is approved',
+    reach: async (page) => {
+      await openAuthorize(page)
+      await interrupt(page, 'POST', authorizeRequest, 'hold')
+      await page.getByRole('button', { name: 'Allow access' }).click()
+      await expect(page.getByRole('button', { name: 'Allow access' })).toBeDisabled()
+    },
+  },
+  {
+    screen: 'DA-SET-32',
+    state: 'refusing',
+    variant: 'admin',
+    intercepted: 'The refusal request is held open in the browser, so nothing is refused',
+    reach: async (page) => {
+      await openAuthorize(page)
+      await interrupt(page, 'DELETE', authorizeRequest, 'hold')
+      await page.getByRole('button', { name: 'Cancel' }).click()
+      await expect(page.getByRole('button', { name: 'Allow access' })).toBeDisabled()
+    },
+  },
+  {
+    screen: 'DA-SET-32',
+    state: 'decision-failed',
+    variant: 'admin',
+    intercepted:
+      'The approval request is dropped in the browser, as a lost connection would drop it, so nothing is approved',
+    reach: async (page) => {
+      await openAuthorize(page)
+      await interrupt(page, 'POST', authorizeRequest, 'abort')
+      await page.getByRole('button', { name: 'Allow access' }).click()
+      // The browser's own message for the dropped request.
+      await expect(page.getByText('Failed to fetch')).toBeVisible({ timeout: 15_000 })
+    },
+  },
+  {
+    screen: 'DA-SET-32',
+    state: 'invalid-request',
+    variant: 'admin',
+    reach: async (page) => {
+      await openStore(page, authorizePath('sample-unknown-client'))
+      await expect(page.locator('[data-slot="alert"]')).toBeVisible({ timeout: 15_000 })
+    },
+  },
+
+  // DA-SET-28 Webhooks
+  ...(['admin', 'developerViewer'] as const).map(
+    (variant): Capture => ({ screen: 'DA-SET-28', state: 'listed', variant, reach: openWebhooks }),
+  ),
+  directVisit('DA-SET-28', webhooksPath),
+  {
+    screen: 'DA-SET-28',
+    state: 'none',
+    variant: 'admin',
+    intercepted: "The endpoint list's answer has its records taken out in the browser",
+    reach: async (page) => {
+      await emptied(page, 'webhook_endpoints')
+      await openStore(page, webhooksPath)
+      await expect(page.getByText(/no webhook endpoints yet/i)).toBeVisible({ timeout: 15_000 })
+    },
+  },
+  {
+    screen: 'DA-SET-28',
+    state: 'create-all-events',
+    variant: 'admin',
+    reach: async (page) => {
+      await openEndpointSheet(page)
+      await expect(page.getByRole('checkbox', { name: 'order.placed', exact: true })).toBeVisible({
+        timeout: 15_000,
+      })
+    },
+  },
+  {
+    screen: 'DA-SET-28',
+    state: 'create-chosen-events',
+    variant: 'admin',
+    reach: async (page) => {
+      await openEndpointSheet(page)
+      await page.locator('#webhook-name').fill(captureEndpoint.name)
+      await page.locator('#webhook-url').fill(captureEndpoint.url)
+      for (const event of ['order.placed', 'order.canceled']) {
+        await page.getByRole('checkbox', { name: event, exact: true }).click()
+      }
+      await expect(
+        page.getByRole('checkbox', { name: 'order.canceled', exact: true }),
+      ).toBeChecked()
+    },
+  },
+  {
+    screen: 'DA-SET-28',
+    state: 'events-failed',
+    variant: 'admin',
+    intercepted: 'The event catalog requests are dropped in the browser',
+    reach: async (page) => {
+      await interrupt(page, 'GET', /\/api\/v3\/admin\/webhook_events$/, 'abort')
+      await openEndpointSheet(page)
+      await expect(page.getByRole('button', { name: 'Try again' })).toBeVisible({
+        timeout: 20_000,
+      })
+    },
+  },
+  {
+    screen: 'DA-SET-28',
+    state: 'secret-shown-once',
+    variant: 'admin',
+    masked: keyValues,
+    reach: async (page) => {
+      await openEndpointSheet(page)
+      await page.locator('#webhook-name').fill(captureEndpoint.name)
+      await page.locator('#webhook-url').fill(captureEndpoint.url)
+      await page.getByRole('checkbox', { name: 'order.placed', exact: true }).click()
+      await page
+        .getByRole('dialog')
+        .getByRole('button', { name: /^create$/i })
+        .click()
+      await expect(page.getByRole('heading', { name: /save your signing secret/i })).toBeVisible({
+        timeout: 15_000,
+      })
+    },
+    after: () => removeNamed(baseURL, 'webhook_endpoints', captureEndpoint.name),
+  },
+  {
+    screen: 'DA-SET-28',
+    state: 'delete-confirmation',
+    variant: 'admin',
+    reach: async (page) => {
+      await openWebhooks(page)
+      await openRowMenu(page, endpoints.priceFeed.name)
+      await page.getByRole('menuitem', { name: /^delete$/i }).click()
+      await expect(confirmation(page)).toBeVisible()
+    },
+  },
+
+  // DA-SET-29 Webhook endpoint
+  ...(['admin', 'developerViewer'] as const).map(
+    (variant): Capture => ({
+      screen: 'DA-SET-29',
+      state: 'details-and-deliveries',
+      variant,
+      reach: async (page) => {
+        await openEndpoint(page, 'orderSync')
+        await expect(page.getByText('webhook.test', { exact: true }).first()).toBeVisible({
+          timeout: 15_000,
+        })
+      },
+    }),
+  ),
+  {
+    screen: 'DA-SET-29',
+    state: 'delivery-details',
+    variant: 'admin',
+    reach: async (page) => {
+      await openEndpoint(page, 'orderSync')
+      await page.getByText('webhook.test', { exact: true }).first().click()
+      await expect(page.getByText('Delivery details')).toBeVisible({ timeout: 15_000 })
+    },
+  },
+  {
+    screen: 'DA-SET-29',
+    state: 'rename',
+    variant: 'admin',
+    reach: async (page) => {
+      await openEndpoint(page, 'orderSync')
+      await page.getByRole('button', { name: /^edit$/i }).click()
+      await expect(page.locator('#webhook-name')).toHaveValue(endpoints.orderSync.name, {
+        timeout: 15_000,
+      })
+      await page.locator('#webhook-name').fill('Order sync, Europe')
+    },
+  },
+  {
+    screen: 'DA-SET-29',
+    state: 'test-sent',
+    variant: 'admin',
+    reach: async (page) => {
+      await openEndpoint(page, 'stockFeed')
+      await page.getByRole('button', { name: /send test/i }).click()
+      await expect(page.getByText(/test webhook queued/i)).toBeVisible({ timeout: 15_000 })
+    },
+  },
+  {
+    screen: 'DA-SET-29',
+    state: 'test-failed',
+    variant: 'admin',
+    intercepted: 'The send test request is dropped in the browser, so no test is sent',
+    reach: async (page) => {
+      await openEndpoint(page, 'stockFeed')
+      await interrupt(page, 'POST', /\/send_test$/, 'abort')
+      await page.getByRole('button', { name: /send test/i }).click()
+      await expect(page.locator('[data-type="error"]').first()).toBeVisible({ timeout: 15_000 })
+    },
+  },
+  {
+    screen: 'DA-SET-29',
+    state: 'no-deliveries',
+    variant: 'admin',
+    reach: async (page) => {
+      await openEndpoint(page, 'priceFeed')
+      await expect(page.getByText(/no deliveries yet/i).first()).toBeVisible({ timeout: 15_000 })
+    },
+  },
+  {
+    screen: 'DA-SET-29',
+    state: 'disabled-with-reason',
+    variant: 'admin',
+    reach: async (page) => {
+      await openEndpoint(page, 'legacy')
+      await expect(page.getByText(disabledReason).first()).toBeVisible()
+    },
+  },
+  {
+    screen: 'DA-SET-29',
+    state: 'not-found',
+    variant: 'admin',
+    reach: async (page) => {
+      await openStore(page, `${webhooksPath}/whe_doesnotexist`)
+      await expect(page.getByText(/couldn't load this webhook endpoint/i)).toBeVisible({
+        timeout: 20_000,
+      })
+    },
+  },
+
+  // DA-SET-10 Integrations. Each capture first puts E2E Relay and the test
+  // gateway in the state it shows.
+  ...(
+    [
+      ['not-connected', 'none'],
+      ['connected', 'active'],
+      ['connected-inactive', 'inactive'],
+    ] as const
+  ).map(
+    ([state, relay]): Capture => ({
+      screen: 'DA-SET-10',
+      state,
+      variant: 'admin',
+      reach: async (page) => {
+        await setRelay(baseURL, relay)
+        await setGateway(baseURL, developers.gatewayId, true)
+        await openIntegrations(page)
+      },
+    }),
+  ),
+  // Recorded as it shows: the read-only role's page lists less than the admin's.
+  {
+    screen: 'DA-SET-10',
+    state: 'connected',
+    variant: 'developerViewer',
+    reach: async (page) => {
+      await setRelay(baseURL, 'active')
+      await setGateway(baseURL, developers.gatewayId, true)
+      await openStore(page, integrationsPath)
+      await expect(page.getByRole('heading', { name: /^integrations$/i })).toBeVisible({
+        timeout: 15_000,
+      })
+    },
+  },
+  {
+    screen: 'DA-SET-10',
+    state: 'direct-visit',
+    variant: 'orderManager',
+    reach: (page) => openStore(page, integrationsPath),
+  },
+  ...(['hidden', 'shown'] as const).map(
+    (secret): Capture => ({
+      screen: 'DA-SET-10',
+      state: `connect-sheet-secret-${secret}`,
+      variant: 'admin',
+      reach: async (page) => {
+        await setRelay(baseURL, 'none')
+        await openIntegrations(page)
+        await relayCard(page)
+          .getByRole('button', { name: /^connect$/i })
+          .click()
+        const sheet = relaySheet(page)
+        await expect(sheet.getByRole('heading', { name: 'E2E Relay' })).toBeVisible({
+          timeout: 15_000,
+        })
+        await sheet.locator('#preference-account_id').fill('sample-account')
+        await sheet.locator('#preference-api_secret').fill('sample-relay-secret-0000')
+        if (secret === 'shown') await sheet.getByRole('button', { name: /^show$/i }).click()
+      },
+    }),
+  ),
+  {
+    screen: 'DA-SET-10',
+    state: 'configure-sheet',
+    variant: 'admin',
+    reach: async (page) => {
+      await setRelay(baseURL, 'active')
+      await openIntegrations(page)
+      await relayCard(page)
+        .getByRole('button', { name: /^configure$/i })
+        .click()
+      await expect(relaySheet(page).getByRole('heading', { name: 'E2E Relay' })).toBeVisible({
+        timeout: 15_000,
+      })
+    },
+  },
+  {
+    screen: 'DA-SET-10',
+    state: 'disconnect-confirmation',
+    variant: 'admin',
+    reach: async (page) => {
+      await setRelay(baseURL, 'active')
+      await openIntegrations(page)
+      await relayCard(page)
+        .getByRole('button', { name: /^configure$/i })
+        .click()
+      await relaySheet(page)
+        .getByRole('button', { name: /^disconnect$/i })
+        .click()
+      // A dialog above the sheet, not an alert dialog.
+      await expect(page.getByRole('dialog', { name: /disconnect integration/i })).toBeVisible()
+    },
+  },
+  {
+    screen: 'DA-SET-10',
+    state: 'payment-provider-off',
+    variant: 'admin',
+    reach: async (page) => {
+      await setRelay(baseURL, 'active')
+      await setGateway(baseURL, developers.gatewayId, false)
+      await openIntegrations(page)
+      await expect(gatewaySwitch(page)).not.toBeChecked()
+    },
+  },
+  {
+    screen: 'DA-SET-10',
+    state: 'switch-moved-while-saving',
+    variant: 'admin',
+    intercepted: "The gateway's save is held open in the browser",
+    reach: async (page) => {
+      await setRelay(baseURL, 'active')
+      await setGateway(baseURL, developers.gatewayId, true)
+      await openIntegrations(page)
+      await interrupt(page, 'PATCH', /\/api\/v3\/admin\/payment_methods\/[^/]+$/, 'hold')
+      await gatewaySwitch(page).click()
+      await expect(gatewaySwitch(page)).not.toBeChecked()
+    },
+  },
+  {
+    screen: 'DA-SET-10',
+    state: 'switch-reverted',
+    variant: 'admin',
+    intercepted: "The gateway's save is dropped in the browser, so nothing is saved",
+    reach: async (page) => {
+      await setRelay(baseURL, 'active')
+      await setGateway(baseURL, developers.gatewayId, true)
+      await openIntegrations(page)
+      await interrupt(page, 'PATCH', /\/api\/v3\/admin\/payment_methods\/[^/]+$/, 'abort')
+      await gatewaySwitch(page).click()
+      await expect(page.locator('[data-type="error"]').first()).toBeVisible({ timeout: 15_000 })
+      await expect(gatewaySwitch(page)).toBeChecked()
+    },
+  },
+]
+
 test.beforeAll(async ({ baseURL: configured }) => {
   baseURL = configured ?? 'http://localhost:5174'
   seeded = await seed(baseURL)
+  developers = await seedDevelopers(baseURL)
   const api = await request.newContext({ baseURL })
   try {
     const { headers } = await admin(api)
@@ -1143,10 +2040,14 @@ async function save(
   role: unknown,
   /** Requests blocked because they would have left the local servers. */
   outside: string[],
+  masked?: Capture['masked'],
 ) {
   const folder = `${results}${item.screen}/${item.state}/`
   mkdirSync(folder, { recursive: true })
-  await page.screenshot({ path: `${folder}${item.variant}-${theme}.png` })
+  await page.screenshot({
+    path: `${folder}${item.variant}-${theme}.png`,
+    style: masked ? paintOut(masked.selector) : undefined,
+  })
   writeFileSync(
     `${folder}${item.variant}-${theme}.json`,
     JSON.stringify(
@@ -1159,9 +2060,11 @@ async function save(
         revision,
         path: new URL(page.url()).pathname
           .replace(seeded.storeId, '<store>')
-          .replace(orderId, '<order>'),
+          .replace(orderId, '<order>')
+          .replace(/\/whe_[A-Za-z0-9]+/, '/<endpoint>'),
         viewport: page.viewportSize(),
         intercepted: item.intercepted ?? null,
+        masked: masked?.what ?? null,
         settled,
         outside,
       },
@@ -1172,7 +2075,7 @@ async function save(
 }
 
 for (const theme of ['light', 'dark'] as const) {
-  for (const item of captures) {
+  for (const item of [...captures, ...developerCaptures]) {
     test(`${item.screen} ${item.state} ${item.variant} ${theme}`, async ({ page }) => {
       if (item.phone) await page.setViewportSize(phone)
       await page.emulateMedia({ colorScheme: theme, reducedMotion: 'reduce' })
@@ -1182,7 +2085,8 @@ for (const theme of ['light', 'dark'] as const) {
       const settled = item.loading ? null : await settle(page)
       await page.waitForTimeout(400)
       const role = item.variant in teammates ? roles[teammates[item.variant].role] : null
-      await save(page, item, theme, settled, role, outside)
+      await save(page, item, theme, settled, role, outside, item.masked)
+      await item.after?.()
     })
   }
 }

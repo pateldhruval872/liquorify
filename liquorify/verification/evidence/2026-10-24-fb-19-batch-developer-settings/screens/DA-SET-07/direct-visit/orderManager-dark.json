@@ -1,0 +1,28 @@
+{
+  "screen": "DA-SET-07",
+  "state": "direct-visit",
+  "variant": "orderManager",
+  "role": {
+    "name": "Order manager",
+    "permissions": [
+      "write_orders",
+      "write_payments",
+      "write_fulfillments",
+      "write_refunds",
+      "write_gift_cards",
+      "write_store_credits",
+      "read_customers"
+    ]
+  },
+  "theme": "dark",
+  "revision": "95bc66f",
+  "path": "/<store>/settings/ai-agents",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": null,
+  "masked": null,
+  "settled": true,
+  "outside": []
+}

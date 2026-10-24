@@ -1,0 +1,17 @@
+{
+  "screen": "DA-SET-32",
+  "state": "invalid-request",
+  "variant": "admin",
+  "role": null,
+  "theme": "light",
+  "revision": "95bc66f",
+  "path": "/<store>/oauth/authorize",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": null,
+  "masked": null,
+  "settled": true,
+  "outside": []
+}

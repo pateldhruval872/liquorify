@@ -1,0 +1,20 @@
+{
+ "spree_code_at": "3081c8b",
+ "rendered_in": "the dashboard browser tests' Rails app (spree/api/spec/dummy), test environment, against a copy of its database, inside a rolled-back transaction",
+ "emails": [
+  {
+   "id": "EM-S-07",
+   "capture": "EM-S-07.webp",
+   "data": "the preview's own sample endpoint, disabled for too many failed deliveries",
+   "preview": "Spree::WebhookPreview#endpoint_disabled",
+   "template": "spree/core/app/views/spree/webhook_mailer/endpoint_disabled.liquid",
+   "subject": "Webhook endpoint disabled: Example endpoint",
+   "parts": [
+    "text/plain",
+    "text/html"
+   ],
+   "recipient": "the store's own address",
+   "themes": "light only: the template has no dark styles"
+  }
+ ]
+}
