@@ -168,12 +168,17 @@ RSpec.describe Spree::GiftCards::Apply do
             thread_order = Spree::Order.find(order_id)
 
             ready.count_down
-            ready.wait(5)
+            # A thread that stopped waiting would apply on its own and prove
+            # nothing, so it skips the apply and the example fails below.
+            next false unless ready.wait(5)
+
             described_class.call(gift_card: thread_gift_card, order: thread_order)
+            true
           end
         end
       end
-      threads.each(&:join)
+      started_together = threads.map(&:value)
+      raise 'Not every thread was ready within 5 seconds, so the applies did not overlap' unless started_together.all?
 
       gift_card.reload
       total_credits = Spree::StoreCredit.where(originator: gift_card).sum(:amount)
