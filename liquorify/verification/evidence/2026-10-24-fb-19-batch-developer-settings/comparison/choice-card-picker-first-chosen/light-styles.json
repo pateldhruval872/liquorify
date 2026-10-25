@@ -2,20 +2,13 @@
   "id": "CMP-DA-G-24",
   "story": "admin-dashboard-ai-agents-choice-card-picker--first-chosen",
   "theme": "light",
-  "revision": "95bc66f",
+  "revision": "aaf5346",
   "screenWidth": 566,
   "storyWidth": 566,
   "compared": 12,
   "onlyOnScreen": [],
   "onlyInStory": [],
-  "differences": [
-    {
-      "element": "span|radio-group-item|peer relative inline-block size-4 shrink-0 cursor-pointer rounded-full border border-border bg-card align-[-3px] outline-none transition-[color,background-color,border-color,box-shadow] duration-100 ease-out focus:border-blue-500 focus:shadow-[0_0_0_3px_color-mix(in_srgb,var(--ring)_15%,transparent)] disabled:cursor-not-allowed disabled:bg-muted disabled:text-muted-foreground aria-invalid:border-destructive aria-invalid:ring-destructive/20 data-[checked]:border-blue-500 data-[checked]:bg-blue-500 data-[checked]:text-white dark:aria-invalid:ring-destructive/40 dark:data-[checked]:bg-blue-500",
-      "property": "box-shadow",
-      "screen": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, color(srgb -0.00289093 0.466849 1.00012 / 0.15) 0px 0px 0px 3px",
-      "story": "none"
-    }
-  ],
+  "differences": [],
   "styles": {
     "screen": {
       "div|field-group|group/field-group @container/field-group flex w-full flex-col gap-5 data-[slot=checkbox-group]:gap-3 *:data-[slot=field-group]:gap-4": {
@@ -221,7 +214,7 @@
         "padding-bottom": "0px",
         "padding-left": "0px",
         "height": "16px",
-        "box-shadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, color(srgb -0.00289093 0.466849 1.00012 / 0.15) 0px 0px 0px 3px",
+        "box-shadow": "none",
         "opacity": "1",
         "gap": "normal"
       },

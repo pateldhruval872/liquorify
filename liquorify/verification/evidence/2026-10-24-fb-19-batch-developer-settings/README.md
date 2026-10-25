@@ -6,9 +6,9 @@ The captures, comparisons, email and backend results behind the [verification re
 
 | What | Revision |
 |---|---|
-| Stories and scripts | Draft pull request [#16](https://github.com/pateldhruval872/liquorify/pull/16); the scripts ran from `95bc66f`, with the corrections to the stories that `7d41083`, the batch's revision, added |
+| Stories and scripts | Draft pull request [#16](https://github.com/pateldhruval872/liquorify/pull/16); the scripts ran from `95bc66f`, with the corrections to the stories that `7d41083`, the batch's revision, added. On 2026-10-25 the choice card picker's two cases and B16's reproduction ran from `aaf5346` |
 | Running screens, the email and Spree's specs | Spree's code at `3081c8b`, which the pull request does not change: the built admin dashboard against the dashboard browser tests' own Rails server and fixtures |
-| Browser | The pinned Playwright 1.64.1 image. Captures at 1280 by 960 pixels; comparisons at 1280 by 800, or 1280 by 2400 for the scope picker and the endpoint form; the email at 1280 pixels wide |
+| Browser | The pinned Playwright 1.64.1 image. Captures at 1280 by 960 pixels; comparisons at 1280 by 800, or 1280 by 2400 for the scope picker and the endpoint form; the email at 1280 pixels wide; B16's drawer in a 1280 by 800 window |
 
 **Image format.** Every image here is lossless WebP, converted from the PNG each script wrote. Every converted image was checked pixel for pixel against its PNG, and none differs. The reference images the visual check compares against stay PNG, in `packages/liquorify-storybook/visual/__screenshots__/`.
 
@@ -22,6 +22,7 @@ The captures, comparisons, email and backend results behind the [verification re
 | `comparison/<case>/` | `<theme>-side-by-side.webp`: the running screen on the left and the story on the right; `<theme>-styles.json`: the computed styles of every distinct element on both sides, the elements compared, those found on one side only, and every style that differs |
 | `emails/` | `EM-S-07.webp`, the endpoint disabled email rendered from Spree's preview, and `emails.json`: where and how it was rendered, its preview, template, subject and parts |
 | `backend/` | `api-specs.json`, `mcp-specs.json` and `origins-specs.json`: every example of Spree's specs for the batch's endpoints, with its file, line, description and result |
+| `b16-json-drawer/` | `<step>-<theme>.webp`, the JSON drawer after each step of B16's reproduction, and `b16-<theme>.json`: for each step, the control used, what its label leads one to expect, what the drawer showed and what the depth list read |
 
 ## Comparison with running screens, light and dark
 
@@ -36,7 +37,8 @@ The captures, comparisons, email and backend results behind the [verification re
 | CMP-DA-G-24 | `admin-dashboard-ai-agents-agent-connections-card--connected` | Claude's card on the AI agents page, two people connected | [dark](comparison/agent-connections-card-connected/dark-side-by-side.webp), [light](comparison/agent-connections-card-connected/light-side-by-side.webp) | [dark](comparison/agent-connections-card-connected/dark-styles.json), [light](comparison/agent-connections-card-connected/light-styles.json) | height |
 | CMP-DUI-P-30 | `dashboard-ui-primitives-popover--scope-list` | The rest of a connection's scopes, opened from its count | [dark](comparison/popover-scope-list/dark-side-by-side.webp), [light](comparison/popover-scope-list/light-side-by-side.webp) | [dark](comparison/popover-scope-list/dark-styles.json), [light](comparison/popover-scope-list/light-styles.json) | height |
 | CMP-DA-G-24 | `admin-dashboard-ai-agents-connect-sheet--choose-an-agent` | The connect sheet, choosing an agent | [dark](comparison/connect-sheet-choose-an-agent/dark-side-by-side.webp), [light](comparison/connect-sheet-choose-an-agent/light-side-by-side.webp) | [dark](comparison/connect-sheet-choose-an-agent/dark-styles.json), [light](comparison/connect-sheet-choose-an-agent/light-styles.json) | None |
-| CMP-DA-G-24 | `admin-dashboard-ai-agents-choice-card-picker--first-chosen` | The connect sheet's choice of agent, Claude chosen | [dark](comparison/choice-card-picker-first-chosen/dark-side-by-side.webp), [light](comparison/choice-card-picker-first-chosen/light-side-by-side.webp) | [dark](comparison/choice-card-picker-first-chosen/dark-styles.json), [light](comparison/choice-card-picker-first-chosen/light-styles.json) | box-shadow |
+| CMP-DA-G-24 | `admin-dashboard-ai-agents-choice-card-picker--first-chosen` | The connect sheet's choice of agent, Claude chosen, focus moved off it; run again on 2026-10-25 from `aaf5346` | [dark](comparison/choice-card-picker-first-chosen/dark-side-by-side.webp), [light](comparison/choice-card-picker-first-chosen/light-side-by-side.webp) | [dark](comparison/choice-card-picker-first-chosen/dark-styles.json), [light](comparison/choice-card-picker-first-chosen/light-styles.json) | None |
+| CMP-DA-G-24 | `admin-dashboard-ai-agents-choice-card-picker--focus-visible` | The connect sheet's choice of agent as it opens, focus on Claude's radio; added on 2026-10-25, run from `aaf5346` | [dark](comparison/choice-card-picker-focused/dark-side-by-side.webp), [light](comparison/choice-card-picker-focused/light-side-by-side.webp) | [dark](comparison/choice-card-picker-focused/dark-styles.json), [light](comparison/choice-card-picker-focused/light-styles.json) | None |
 | CMP-DA-G-24 | `admin-dashboard-ai-agents-connect-sheet--claude-ready` | The connect sheet, Claude ready to connect | [dark](comparison/connect-sheet-claude-ready/dark-side-by-side.webp), [light](comparison/connect-sheet-claude-ready/light-side-by-side.webp) | [dark](comparison/connect-sheet-claude-ready/dark-styles.json), [light](comparison/connect-sheet-claude-ready/light-styles.json) | None |
 | CMP-DUI-C-11 | `dashboard-ui-composed-copy-to-clipboard-button--icon` | The connect sheet's Copy address button | [dark](comparison/copy-to-clipboard-button-icon/dark-side-by-side.webp), [light](comparison/copy-to-clipboard-button-icon/light-side-by-side.webp) | [dark](comparison/copy-to-clipboard-button-icon/dark-styles.json), [light](comparison/copy-to-clipboard-button-icon/light-styles.json) | None |
 | CMP-DA-G-24 | `admin-dashboard-oauth-clients-client-sheet--register` | The register a client sheet | [dark](comparison/client-sheet-register/dark-side-by-side.webp), [light](comparison/client-sheet-register/light-side-by-side.webp) | [dark](comparison/client-sheet-register/dark-styles.json), [light](comparison/client-sheet-register/light-styles.json) | None |
@@ -134,6 +136,19 @@ Each state of the eight screens as it runs, light and dark. The variant names wh
 | DA-SET-32 | permissions-requested | [admin](screens/DA-SET-32/permissions-requested/admin-light.webp) ([dark](screens/DA-SET-32/permissions-requested/admin-dark.webp)) |
 | DA-SET-32 | permissions-withheld | [agentConnector](screens/DA-SET-32/permissions-withheld/agentConnector-light.webp) ([dark](screens/DA-SET-32/permissions-withheld/agentConnector-dark.webp)) |
 | DA-SET-32 | refusing | [admin](screens/DA-SET-32/refusing/admin-light.webp) ([dark](screens/DA-SET-32/refusing/admin-dark.webp)) |
+
+## B16 on the running dashboard
+
+Added on 2026-10-25. `fidelity/json-drawer.spec.ts`, run from `aaf5346`, opened the order sync endpoint's record in the JSON drawer and used each control in turn ([record §5.1](../../2026-10-24-fb-19-batch-developer-settings.md#51-b16-on-the-running-dashboard)). The drawer keeps its dark surface in both themes. Notes: [light](b16-json-drawer/b16-light.json), [dark](b16-json-drawer/b16-dark.json).
+
+| Step | Control used | Expected | Shown | Captures |
+|---|---|---|---|---|
+| 1 | None, as the drawer opens | Everything | Everything | [light](b16-json-drawer/opened-light.webp), [dark](b16-json-drawer/opened-dark.webp) |
+| 2 | The Expand all button | Everything | The record folded to one line | [light](b16-json-drawer/expand-all-button-light.webp), [dark](b16-json-drawer/expand-all-button-dark.webp) |
+| 3 | Depth 1, in the depth list | The fields, subscriptions folded | The same | [light](b16-json-drawer/depth-1-light.webp), [dark](b16-json-drawer/depth-1-dark.webp) |
+| 4 | The Collapse all button | The record folded to one line | Everything | [light](b16-json-drawer/collapse-all-button-light.webp), [dark](b16-json-drawer/collapse-all-button-dark.webp) |
+| 5 | Expand all, in the depth list | Everything | The record folded to one line | [light](b16-json-drawer/expand-all-option-light.webp), [dark](b16-json-drawer/expand-all-option-dark.webp) |
+| 6 | Collapse all, in the depth list | The record folded to one line | Everything | [light](b16-json-drawer/collapse-all-option-light.webp), [dark](b16-json-drawer/collapse-all-option-dark.webp) |
 
 ## Email
 

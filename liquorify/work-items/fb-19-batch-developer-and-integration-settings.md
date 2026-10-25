@@ -5,14 +5,14 @@ work_item: FB-19
 status: PROPOSED
 owner: the owner reviews and accepts; an automated Claude session implements
 created: 2026-10-23
-updated: 2026-10-24
+updated: 2026-10-25
 ---
 
 # FB-19 batch: developer and integration settings
 
 The second backend batch organised by product area: the rest of [LIQ-006 §4](../LIQ-006-product-capability-baseline.md#4-authentication-staff-and-access), the settings a developer or an integration uses to reach a store. It reproduces what Spree already has for API keys, OAuth clients, allowed origins, AI agent connections, webhooks and integrations. Nothing here changes Spree's code or the storefront's, or adds a Liquorify feature.
 
-**Status.** PROPOSED. It is batch 2 in [LIQ-004's proposed order](../LIQ-004-foundation-backlog.md#proposed-order-of-the-remaining-batches), which depends on part 2 of the [staff access batch](fb-19-batch-staff-access-and-shell.md). The owner accepted part 2 and merged it on 2026-10-23 ([merge record](../verification/2026-10-23-fb-19-batch-staff-access-part-2-merge.md)). It follows the batch rules of LIQ-010 0.4, as part 1 and part 2 did. On 2026-10-23 the owner answered the three questions in §7, and the sections below follow those answers. The batch was built and verified in draft pull request [#16](https://github.com/pateldhruval872/liquorify/pull/16) ([record](../verification/2026-10-24-fb-19-batch-developer-settings.md)), which waits for the owner's review. §10 records where Spree differs from this proposal.
+**Status.** PROPOSED. It is batch 2 in [LIQ-004's proposed order](../LIQ-004-foundation-backlog.md#proposed-order-of-the-remaining-batches), which depends on part 2 of the [staff access batch](fb-19-batch-staff-access-and-shell.md). The owner accepted part 2 and merged it on 2026-10-23 ([merge record](../verification/2026-10-23-fb-19-batch-staff-access-part-2-merge.md)). It follows the batch rules of LIQ-010 0.4, as part 1 and part 2 did. On 2026-10-23 the owner answered the three questions in §7, and the sections below follow those answers. The batch was built and verified in draft pull request [#16](https://github.com/pateldhruval872/liquorify/pull/16) ([record](../verification/2026-10-24-fb-19-batch-developer-settings.md)), which waits for the owner's review. On 2026-10-25 the owner asked for two corrections before accepting it, and both are made: the choice card picker's focus explanation, with its comparison aligned (record §4.4), and B16 reproduced on the running dashboard, now defect SD-5 (record §5.1). §10 records where Spree differs from this proposal.
 
 ## 1. Outcome and summary
 
@@ -184,4 +184,4 @@ The batch's running screens and tests showed where this proposal did not match S
 | §2.1, DA-SET-10 | A payment provider in test mode | The test gateway refuses the test mode setting with 422, so no running screen shows it (G-26) |
 | §2.1, DA-SET-10 | A switch that reverts when its save fails | Reached by dropping the save in the browser (G-27) |
 | §2.1, DA-SET-28 | An endpoint disabled, with its reason | Listed as "Auto-Disabled" even when disabled by hand (B7); its reason is shown on the endpoint's page |
-| §4 | The size estimate | 107 stories and 214 reference images, 5.2 MB; 150 captures, and evidence of 9.4 MB in all |
+| §4 | The size estimate | 107 stories and 214 reference images, 5.2 MB; 150 captures, and evidence of 9.7 MB in all, with B16's reproduction |
