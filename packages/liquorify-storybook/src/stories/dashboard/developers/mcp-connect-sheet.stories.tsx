@@ -1,5 +1,6 @@
+import { queryClient } from '@spree/dashboard-core'
 import type { Meta, StoryObj } from '@storybook/react-vite'
-import { screen, userEvent } from 'storybook/test'
+import { expect, screen, userEvent, waitFor } from 'storybook/test'
 import { McpConnectSheet } from '../../../../../dashboard/src/components/spree/mcp-connect-sheet'
 import { claudeApplication } from '../../../fixtures/admin/oauth'
 import { adminUser } from '../../../fixtures/admin/session'
@@ -37,13 +38,33 @@ type Story = StoryObj<typeof meta>
 const choose = async (name: string | RegExp) => {
   await userEvent.click(await screen.findByRole('radio', { name }))
 }
+// The sheet reuses a registration only once the store's registrations have
+// arrived; Continue pressed before then registers the client again, so it waits
+// for them, as a merchant's page has loaded before they choose.
 const proceed = async () => {
+  await waitFor(() =>
+    expect(
+      queryClient.getQueryCache().find({ queryKey: ['oauth-applications'], exact: false })?.state
+        .data,
+    ).toBeDefined(),
+  )
   await userEvent.click(await screen.findByRole('button', { name: 'Continue' }))
 }
+const nextFrames = () =>
+  new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)))
+
 // Continue is disabled while the request runs, so whether the sheet or the
 // button keeps a focus ring afterwards depends on timing; nothing is left
-// focused, as after a mouse click.
-const leaveFocus = () => (document.activeElement as HTMLElement | null)?.blur()
+// focused, as after a mouse click. When Continue still has focus as the ready
+// state replaces it, the sheet takes focus and takes it again a frame later,
+// so focus is cleared after that frame and until it stays cleared.
+const leaveFocus = () =>
+  waitFor(async () => {
+    await nextFrames()
+    ;(document.activeElement as HTMLElement | null)?.blur()
+    await nextFrames()
+    expect(document.activeElement).toBe(document.body)
+  })
 
 export const ChooseAnAgent: Story = { name: 'Choose an agent' }
 
@@ -61,7 +82,7 @@ export const ClaudeReady: Story = {
   play: async () => {
     await proceed()
     await screen.findByText('Claude is ready to connect')
-    leaveFocus()
+    await leaveFocus()
   },
 }
 
@@ -81,7 +102,7 @@ export const ChatGptReady: Story = {
     await choose(/ChatGPT/)
     await proceed()
     await screen.findByText('ChatGPT is ready to connect')
-    leaveFocus()
+    await leaveFocus()
   },
 }
 
@@ -97,7 +118,7 @@ export const SomethingElseReady: Story = {
     )
     await proceed()
     await screen.findByText('Inventory assistant is ready to connect')
-    leaveFocus()
+    await leaveFocus()
   },
 }
 
@@ -120,6 +141,6 @@ export const CallbackRefused: Story = {
     )
     await proceed()
     await screen.findByText(/must start with https/)
-    leaveFocus()
+    await leaveFocus()
   },
 }
