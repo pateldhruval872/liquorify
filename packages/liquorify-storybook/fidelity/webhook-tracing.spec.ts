@@ -27,19 +27,30 @@ import { Receiver } from './receiver'
  * endpoint for the receiver, sends the endpoint's test delivery and creates a
  * product, whose event the endpoint is subscribed to. For each delivery it
  * compares the trace context the receiver got with the spans the server
- * exported. Results go to `results/p2/webhook-tracing.json`: span names,
- * kinds and attribute names, and whether the identifiers match, never the
- * identifiers or attribute values.
+ * exported, and requires each delivery's trace to lead, by span links, to
+ * the trace of the request that caused it. Results go to
+ * `results/p2/webhook-tracing.json`: span names, kinds and attribute names,
+ * and whether the identifiers match, never the identifiers or attribute
+ * values.
+ *
+ * A control: with `WEBHOOK_TRACING_JOB_LINKS=none` the settings file also
+ * sets the tracing gem's job instrumentation to `propagation_style: :none`, so
+ * a job's trace keeps no link to the trace that queued it. The test must then
+ * fail. Its results go to `results/p2-controls/`.
  */
 
 const PORT = 3030
 const API = `http://127.0.0.1:${PORT}/api/v3/admin`
 const RECEIVER_PORT = 4415
 const SERVICE = 'liquorify-p2-webhook-tracing'
+const withoutJobLinks = process.env.WEBHOOK_TRACING_JOB_LINKS === 'none'
 const APP = new URL('../../../spree/opentelemetry/spec/dummy/', import.meta.url).pathname
 const SETTINGS = `${APP}config/initializers/liquorify_webhook_tracing.rb`
 const DATABASE = `${APP}db/spree_test_liquorify.sqlite3`
-const results = new URL('./results/p2/', import.meta.url).pathname
+const results = new URL(
+  withoutJobLinks ? './results/p2-controls/' : './results/p2/',
+  import.meta.url,
+).pathname
 const run = Date.now()
 const environment = {
   ...process.env,
@@ -86,6 +97,13 @@ test.beforeAll(async () => {
       '  Rails.application.config.after_initialize do',
       '    ActiveJob::Base.queue_adapter = :async',
       '  end',
+      ...(withoutJobLinks
+        ? [
+            '  SpreeOpenTelemetry.configure do |config|',
+            "    config.use 'OpenTelemetry::Instrumentation::ActiveJob', propagation_style: :none",
+            '  end',
+          ]
+        : []),
       'end',
       '',
     ].join('\n'),
@@ -171,7 +189,10 @@ test('A webhook delivery is a span, and its request carries the trace context', 
 
   const requestSpan = (method: string, path: string) =>
     spans.find(
-      (span) => span.kind === 'server' && span.name.startsWith(method) && span.name.includes(path),
+      (span) =>
+        span.kind === 'server' &&
+        span.name.startsWith(`${method} `) &&
+        span.name.endsWith(`/${path}`),
     )
 
   const deliveries = []
@@ -227,6 +248,7 @@ test('A webhook delivery is a span, and its request carries the trace context', 
       traceparentParent: parentSpan ? `${parentSpan.kind} ${parentSpan.name}` : null,
       traceparentParentIsTheDeliveryOrWithinIt: descends(parentSpan),
       requestThatCausedIt: {
+        span: `${request.kind} ${request.name}`,
         sameTrace: request.trace === trace,
         reachedByFollowingLinks: reachesTheRequest,
         tracesOnTheWay: linkedFrom(trace).size - 1,
@@ -237,6 +259,7 @@ test('A webhook delivery is a span, and its request carries the trace context', 
   const summary = {
     check: 'P2 criterion 6: tracing of webhook deliveries (CAP-11-10)',
     revision: process.env.FIDELITY_REVISION ?? null,
+    control: withoutJobLinks ? { jobInstrumentation: 'propagation_style: :none' } : null,
     service: SERVICE,
     testDelivery: { status: sendTest.status },
     receiver: 'A local receiver on this machine, over plain http',
@@ -251,5 +274,6 @@ test('A webhook delivery is a span, and its request carries the trace context', 
     expect(delivery.headers).not.toContain('baggage')
     expect(delivery.traceparentNamesTheDeliveryTrace).toBe(true)
     expect(delivery.traceparentParentIsTheDeliveryOrWithinIt).toBe(true)
+    expect(delivery.requestThatCausedIt.reachedByFollowingLinks).toBe(true)
   }
 })

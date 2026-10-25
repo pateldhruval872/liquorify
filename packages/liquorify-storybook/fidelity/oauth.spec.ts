@@ -12,7 +12,9 @@ import { Receiver } from './receiver'
  * from Spree's authorization endpoint to the dashboard's consent page
  * (DA-SET-32) and back to the callback. The script exchanges the code, uses
  * the token within and outside its scope, and revokes it. It also denies once,
- * and tries a code twice and without its verifier.
+ * tries a code twice, and presents two more codes, each from an approval of
+ * its own, one without its verifier and one with another verifier, so each
+ * refusal has a single cause.
  *
  * Start the screens with `SPREE_DASHBOARD_URL` pointing at them, so the
  * authorization endpoint sends the browser to the dashboard under test (see
@@ -82,6 +84,19 @@ async function exchange(clientId: string, code: string, verifier?: string) {
   return { status: res.status, body }
 }
 
+/** What the results keep of a refused exchange. */
+const refusal = ({ status, body }: Awaited<ReturnType<typeof exchange>>) => ({
+  status,
+  error: body.error,
+  error_description: body.error_description,
+})
+
+/** One approval on the consent page, returning its code. */
+async function approve(page: Page, clientId: string, challenge: string) {
+  await authorize(page, clientId, challenge)
+  return (await decide(page, 'Allow access')).get('code') ?? ''
+}
+
 async function use(token: string, path: string, init: RequestInit = {}) {
   const headers = new Headers(init.headers)
   headers.set('Authorization', `Bearer ${token}`)
@@ -137,13 +152,14 @@ test('an OAuth client registered on the screen completes the PKCE flow through c
   })
   const afterRevoking = await use(token, '/api/v3/admin/products')
 
-  // A second approval, whose code is presented without its verifier, then
-  // with another one.
-  const second = pkce()
-  await authorize(page, clientId, second.challenge)
-  const secondCode = (await decide(page, 'Allow access')).get('code') ?? ''
-  const withoutVerifier = await exchange(clientId, secondCode)
-  const wrongVerifier = await exchange(clientId, secondCode, pkce().verifier)
+  // Two more approvals: one code presented without its verifier, the other
+  // with a verifier made for no challenge.
+  const missing = pkce()
+  const missingCode = await approve(page, clientId, missing.challenge)
+  const withoutVerifier = await exchange(clientId, missingCode)
+  const wrong = pkce()
+  const wrongCode = await approve(page, clientId, wrong.challenge)
+  const wrongVerifier = await exchange(clientId, wrongCode, pkce().verifier)
 
   // Deny.
   const denied = pkce()
@@ -173,9 +189,10 @@ test('an OAuth client registered on the screen completes the PKCE flow through c
       revoke: revoked.status,
       readProductsAfterRevoking: afterRevoking,
     },
-    codeTwice: { status: again.status, error: again.body.error },
-    codeWithoutVerifier: { status: withoutVerifier.status, error: withoutVerifier.body.error },
-    codeWithAnotherVerifier: { status: wrongVerifier.status, error: wrongVerifier.body.error },
+    codesFromSeparateApprovals: new Set([code, missingCode, wrongCode].filter(Boolean)).size,
+    codeTwice: refusal(again),
+    codeWithoutVerifier: refusal(withoutVerifier),
+    codeWithAnotherVerifier: refusal(wrongVerifier),
     deny: {
       callbackParameters: [...denial.keys()].sort(),
       error: denial.get('error'),
@@ -191,9 +208,13 @@ test('an OAuth client registered on the screen completes the PKCE flow through c
   expect(withToken).toEqual({ readProducts: 200, readOrders: 403, createProduct: 403 })
   expect(revoked.status).toBe(200)
   expect(afterRevoking).toBe(401)
-  expect(again.status).toBe(400)
-  expect(withoutVerifier.status).toBe(400)
-  expect(wrongVerifier.status).toBe(400)
+  expect(summary.codesFromSeparateApprovals).toBe(3)
+  // RFC 6749 §5.2 and RFC 7636 §4.6: a used code and a verifier that does not
+  // match are invalid grants; a missing verifier is an invalid request.
+  expect(summary.codeTwice).toMatchObject({ status: 400, error: 'invalid_grant' })
+  expect(summary.codeWithoutVerifier).toMatchObject({ status: 400, error: 'invalid_request' })
+  expect(String(withoutVerifier.body.error_description)).toContain('code_verifier')
+  expect(summary.codeWithAnotherVerifier).toMatchObject({ status: 400, error: 'invalid_grant' })
   expect(denial.get('error')).toBe('access_denied')
   expect(denial.has('code')).toBe(false)
   expect(summary.deny.stateReturnedUnchanged).toBe(true)

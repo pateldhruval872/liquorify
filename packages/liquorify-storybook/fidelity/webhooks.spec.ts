@@ -11,7 +11,8 @@ import { type Received, Receiver } from './receiver'
  * on the webhooks screens (DA-SET-28, DA-SET-29) for a local receiver, its test
  * delivery and real events reaching that receiver signed with the secret the
  * screen showed once, and an endpoint whose receiver refuses everything being
- * retried, disabled automatically and reported by email (EM-S-07). The real
+ * retried, disabled automatically at its fifteenth failed delivery and not
+ * before, and reported by email (EM-S-07). The real
  * events include the customer password resets of P2's criterion 3, which show
  * that a reset carries its redirect address only when the address is on an
  * origin added on the allowed origins screen (DA-SET-30).
@@ -319,8 +320,29 @@ test('an endpoint whose receiver refuses everything is retried, then disabled an
     30_000,
   )
 
-  // Fourteen more, for fifteen failed deliveries in a row.
-  for (let count = 0; count < 14; count += 1) await sendTest()
+  // Spree disables an endpoint when its last 15 completed deliveries all
+  // failed (Spree::WebhookEndpoint::AUTO_DISABLE_THRESHOLD); retries of a
+  // delivery update the same record. Thirteen more make fourteen, each
+  // recorded as failed, and the endpoint must still be on: disabling is
+  // never undone by itself, so this also covers every count below fourteen.
+  const failedDeliveries = async () => {
+    const list = await adminCall(session, `webhook_endpoints/${id}/deliveries?limit=50`)
+    return (list.body.data as Json[]).filter(
+      (delivery) => delivery.success === false && delivery.delivered_at,
+    ).length
+  }
+  const endpointState = async () => {
+    const body = (await adminCall(session, `webhook_endpoints/${id}`)).body
+    return { active: body.active, disabled: Boolean(body.disabled_at) }
+  }
+  for (let count = 0; count < 13; count += 1) await sendTest()
+  await expect.poll(failedDeliveries, { timeout: 60_000 }).toBe(14)
+  // Long enough for retries of the fourteen to run the check again.
+  await page.waitForTimeout(5_000)
+  const atFourteen = { failedDeliveries: await failedDeliveries(), ...(await endpointState()) }
+
+  // The fifteenth.
+  await sendTest()
   let endpoint: Json = {}
   await expect
     .poll(
@@ -331,6 +353,7 @@ test('an endpoint whose receiver refuses everything is retried, then disabled an
       { timeout: 60_000 },
     )
     .not.toBeNull()
+  const atFifteen = { failedDeliveries: await failedDeliveries(), ...(await endpointState()) }
 
   await page.goto(`/${session.store_id}/settings/webhooks/${id}`)
   await expect(page.getByRole('heading', { level: 1, name })).toBeVisible({ timeout: 15_000 })
@@ -347,7 +370,7 @@ test('an endpoint whose receiver refuses everything is retried, then disabled an
   const mail = await nextMail(recipient, already)
   const requests = failing.received.filter((item) => ours(item) && eventOf(item) === 'webhook.test')
   const summary = {
-    check: 'P2 criterion 5.4: retries, auto-disable after 15 failures, EM-S-07',
+    check: 'P2 criterion 5.4: retries, auto-disable at the 15th failed delivery, EM-S-07',
     revision: process.env.FIDELITY_REVISION ?? null,
     endpoint: { name, url: 'A local receiver', receiverAnswers: failing.status },
     firstDeliverySentAgain: {
@@ -355,6 +378,8 @@ test('an endpoint whose receiver refuses everything is retried, then disabled an
       samePayloadId: payloadOf(retried).id === firstId,
     },
     testsSent: 15,
+    afterFourteenFailedDeliveries: atFourteen,
+    afterTheFifteenth: atFifteen,
     requestsReceived: requests.length,
     distinctDeliveries: new Set(requests.map((item) => payloadOf(item).id)).size,
     endpointAfter: {
@@ -372,6 +397,8 @@ test('an endpoint whose receiver refuses everything is retried, then disabled an
   writeFileSync(`${results}webhooks-disabled.json`, `${JSON.stringify(summary, null, 2)}\n`)
 
   expect(summary.firstDeliverySentAgain.samePayloadId).toBe(true)
+  expect(atFourteen).toEqual({ failedDeliveries: 14, active: true, disabled: false })
+  expect(atFifteen).toEqual({ failedDeliveries: 15, active: false, disabled: true })
   expect(summary.endpointAfter).toEqual({
     active: false,
     disabled: true,

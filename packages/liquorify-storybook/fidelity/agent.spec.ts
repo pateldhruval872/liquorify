@@ -28,6 +28,12 @@ import { openRowMenu } from './staff'
  *
  * Codes, verifiers, tokens and the password stay in memory. Results go to
  * `results/p2/`: statuses, tool names, error texts and field names.
+ *
+ * A control: `AGENT_INJECT_500` names calls (`orders`, `unknown-tool`,
+ * `import`, comma separated) that answer as a failing server would, with HTTP
+ * 500 and a JSON-RPC error mentioning a permission check, without reaching
+ * the server. The test must then fail. Its results go to
+ * `results/p2-controls/`.
  */
 
 const DASHBOARD = process.env.AGENT_DASHBOARD_URL ?? 'http://localhost:5175'
@@ -36,7 +42,9 @@ const PASSWORD = process.env.AGENT_ADMIN_PASSWORD ?? ''
 const PORT = 4414
 const callback = `http://127.0.0.1:${PORT}/callback`
 const requested = 'read_products write_products'
-const results = new URL('./results/p2/', import.meta.url).pathname
+const injected = new Set((process.env.AGENT_INJECT_500 ?? '').split(',').filter(Boolean))
+const results = new URL(injected.size ? './results/p2-controls/' : './results/p2/', import.meta.url)
+  .pathname
 const run = Date.now()
 
 const receiver = new Receiver(PORT)
@@ -47,12 +55,28 @@ test.afterAll(() => receiver.stop())
 type Json = Record<string, unknown>
 
 /** One JSON-RPC message to the agent server, as a client sends it. */
-async function rpc(endpoint: string, token: string | null, method: string, params?: Json) {
+async function rpc(
+  endpoint: string,
+  token: string | null,
+  method: string,
+  params?: Json,
+  control?: string,
+) {
   const message: Json = { jsonrpc: '2.0', id: randomBytes(4).toString('hex'), method }
   if (params) message.params = params
   const headers: Record<string, string> = { 'Content-Type': 'application/json' }
   if (token) headers.Authorization = `Bearer ${token}`
-  const res = await fetch(endpoint, { method: 'POST', headers, body: JSON.stringify(message) })
+  const res =
+    control && injected.has(control)
+      ? new Response(
+          JSON.stringify({
+            jsonrpc: '2.0',
+            id: message.id,
+            error: { code: -32603, message: 'Internal error', data: 'The permission check failed' },
+          }),
+          { status: 500, headers: { 'Content-Type': 'application/json' } },
+        )
+      : await fetch(endpoint, { method: 'POST', headers, body: JSON.stringify(message) })
   const text = await res.text()
   return {
     status: res.status,
@@ -61,17 +85,20 @@ async function rpc(endpoint: string, token: string | null, method: string, param
   }
 }
 
-/** A tool call's answer: the JSON the tool returned, or the protocol error. */
-function answerOf(response: { body: Json }) {
+/** A tool call's answer: its HTTP status, then the JSON the tool returned or the protocol error. */
+function answerOf(response: { status: number; body: Json }) {
   const result = response.body.result as { content?: { text?: string }[]; isError?: boolean }
-  if (!result) return { error: response.body.error as Json }
+  if (!result) return { status: response.status, error: response.body.error as Json }
   const text = result.content?.[0]?.text ?? ''
   let parsed: unknown = text
   try {
     parsed = JSON.parse(text)
   } catch {}
-  return { isError: result.isError ?? false, answer: parsed }
+  return { status: response.status, isError: result.isError ?? false, answer: parsed }
 }
+
+const challengeNamesMetadata = (challenge: string | null) =>
+  /resource_metadata="[^"]*\/api\/v3\/oauth\/protected-resource\/admin"/.test(challenge ?? '')
 
 async function signIn(page: Page) {
   const res = await page.request.post(`${DASHBOARD}/api/v3/admin/auth/login`, {
@@ -202,23 +229,35 @@ test('an agent connected on the AI agents screen uses the agent server within it
   const read = answerOf(await rpc(endpoint, token, 'tools/call', search))
   const readRecords = ((read.answer as { records?: Json[] })?.records ?? []) as Json[]
   const ordersOutsideGrant = answerOf(
-    await rpc(endpoint, token, 'tools/call', {
-      name: 'search_resources',
-      arguments: { resource: 'orders' },
-    }),
+    await rpc(
+      endpoint,
+      token,
+      'tools/call',
+      { name: 'search_resources', arguments: { resource: 'orders' } },
+      'orders',
+    ),
   )
   const toolOutsideGrant = answerOf(
-    await rpc(endpoint, token, 'tools/call', {
-      name: 'upload_file',
-      arguments: { filename: 'p2.txt', content_type: 'text/plain', content: 'cDI=' },
-    }),
+    await rpc(
+      endpoint,
+      token,
+      'tools/call',
+      {
+        name: 'upload_file',
+        arguments: { filename: 'p2.txt', content_type: 'text/plain', content: 'cDI=' },
+      },
+      'unknown-tool',
+    ),
   )
   // Offered to any grant that reads, and checked against the grant on each call.
   const importOutsideGrant = answerOf(
-    await rpc(endpoint, token, 'tools/call', {
-      name: 'create_import',
-      arguments: { resource: 'products', file_id: 'p2-none' },
-    }),
+    await rpc(
+      endpoint,
+      token,
+      'tools/call',
+      { name: 'create_import', arguments: { resource: 'products', file_id: 'p2-none' } },
+      'import',
+    ),
   )
   const readWithoutToken = await rpc(endpoint, null, 'tools/call', search)
 
@@ -242,6 +281,7 @@ test('an agent connected on the AI agents screen uses the agent server within it
   const summary = {
     check: 'P2 criterion 4: the agent server, connected on DA-SET-07',
     revision: process.env.FIDELITY_REVISION ?? null,
+    control: injected.size ? { injected500: [...injected].sort() } : null,
     connect: {
       client: 'Claude, chosen on the connect sheet',
       endpointPath: new URL(endpoint).pathname,
@@ -250,7 +290,7 @@ test('an agent connected on the AI agents screen uses the agent server within it
     discovery: {
       withoutToken: {
         status: anonymous.status,
-        challengeNamesMetadata: metadataUrl.endsWith('/api/v3/oauth/protected-resource/admin'),
+        challengeNamesMetadata: challengeNamesMetadata(anonymous.challenge),
         message: (anonymous.body.error as Json | undefined)?.message,
       },
       resourcePath: new URL(resourceMetadata.resource).pathname,
@@ -271,6 +311,7 @@ test('an agent connected on the AI agents screen uses the agent server within it
     },
     session: {
       status: initialized.status,
+      toolsListStatus: tools.status,
       protocolVersion: (initialized.body.result as Json | undefined)?.protocolVersion,
       serverName: ((initialized.body.result as Json | undefined)?.serverInfo as Json | undefined)
         ?.name,
@@ -281,6 +322,7 @@ test('an agent connected on the AI agents screen uses the agent server within it
     toolsOffered: toolNames,
     readTool: {
       call: search,
+      status: read.status,
       isError: read.isError,
       total: (read.answer as Json | undefined)?.total,
       foundTheProduct: readRecords.some((record) => record.id === product.id),
@@ -293,29 +335,52 @@ test('an agent connected on the AI agents screen uses the agent server within it
     },
     readToolWithoutToken: {
       status: readWithoutToken.status,
+      challengeNamesMetadata: challengeNamesMetadata(readWithoutToken.challenge),
       message: (readWithoutToken.body.error as Json | undefined)?.message,
     },
     agentsScreen: {
       connectionListedWithAccess: listedAccess,
-      toolsListAfterRevoking: afterRevoking.status,
+      toolsListAfterRevoking: {
+        status: afterRevoking.status,
+        challengeNamesMetadata: challengeNamesMetadata(afterRevoking.challenge),
+        message: (afterRevoking.body.error as Json | undefined)?.message,
+      },
     },
   }
   writeFileSync(`${results}agent.json`, `${JSON.stringify(summary, null, 2)}\n`)
 
+  const signInRequired = (anonymous.body.error as Json | undefined)?.message
   expect(anonymous.status).toBe(401)
   expect(summary.discovery.withoutToken.challengeNamesMetadata).toBe(true)
+  expect(signInRequired).toMatch(/^Sign in to this store to continue\./)
   expect(summary.consent.stateReturnedUnchanged).toBe(true)
   expect(exchanged.status).toBe(200)
   expect(grant.scope).toBe('read_products')
   expect(initialized.status).toBe(200)
   expect(summary.session.serverName).toBe('spree-admin')
+  expect(tools.status).toBe(200)
   expect(toolNames).toContain('search_resources')
   expect(toolNames).not.toContain('upload_file')
-  expect(read.isError).toBe(false)
+  expect(read).toMatchObject({ status: 200, isError: false })
   expect(summary.readTool.foundTheProduct).toBe(true)
-  expect(JSON.stringify(ordersOutsideGrant)).not.toContain('records')
-  expect(JSON.stringify(importOutsideGrant)).toContain('permission')
-  expect(toolOutsideGrant.isError === true || toolOutsideGrant.error !== undefined).toBe(true)
-  expect(readWithoutToken.status).toBe(401)
-  expect(afterRevoking.status).toBe(401)
+  // Each refusal exactly as the agent server words it, at the status it uses.
+  expect(ordersOutsideGrant).toEqual({
+    status: 200,
+    isError: true,
+    answer: 'You do not have permission to read orders.',
+  })
+  expect(toolOutsideGrant).toEqual({
+    status: 200,
+    error: { code: -32602, message: 'Invalid params', data: 'Tool not found: upload_file' },
+  })
+  expect(importOutsideGrant).toEqual({
+    status: 200,
+    isError: true,
+    answer: 'You do not have permission to import products.',
+  })
+  for (const refused of [readWithoutToken, afterRevoking]) {
+    expect(refused.status).toBe(401)
+    expect(challengeNamesMetadata(refused.challenge)).toBe(true)
+    expect((refused.body.error as Json | undefined)?.message).toBe(signInRequired)
+  }
 })
