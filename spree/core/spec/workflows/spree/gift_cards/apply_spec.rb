@@ -104,7 +104,25 @@ RSpec.describe Spree::GiftCards::Apply do
     end
   end
 
-  context 'when applied concurrently to multiple orders' do
+  # Transactional tests pin one connection that every thread shares, and a
+  # transaction never waits on its own FOR UPDATE, so threads sharing it
+  # interleave freely: the example proves nothing and fails at random. Real
+  # parallel connections need the transaction wrapper off, and a database with
+  # real row locking.
+  context 'when applied concurrently to multiple orders', if: ENV['DB'] == 'postgres' do
+    self.use_transactional_tests = false
+
+    # Everything here is committed, and the factories commit side rows nobody
+    # names (a tax category, a delivery profile) that change what later
+    # examples in the worker see. So every row the example adds is removed,
+    # from whichever table it landed in, even when the example fails.
+    around do |example|
+      preexisting_ids = committed_ids_by_table
+      example.run
+    ensure
+      delete_rows_added_since(preexisting_ids)
+    end
+
     let(:gift_card) { create(:gift_card, amount: 100, store: store) }
     let(:users) { Array.new(5) { create(:user) } }
     let(:orders) do
@@ -115,15 +133,52 @@ RSpec.describe Spree::GiftCards::Apply do
       end
     end
 
+    def committed_ids_by_table
+      ActiveRecord::Base.with_connection do |connection|
+        connection.tables.each_with_object({}) do |table_name, ids_by_table|
+          next unless connection.schema_cache.columns_hash(table_name).key?('id')
+
+          table = Arel::Table.new(table_name)
+          ids_by_table[table_name] = connection.select_values(table.project(table[:id]))
+        end
+      end
+    end
+
+    def delete_rows_added_since(ids_by_table)
+      ActiveRecord::Base.with_connection do |connection|
+        ids_by_table.each do |table_name, ids|
+          table = Arel::Table.new(table_name)
+          connection.delete(Arel::DeleteManager.new.from(table).where(table[:id].not_in(ids)))
+        end
+      end
+    end
+
     it 'does not generate store credits exceeding the gift card value' do
-      threads = orders.map do |order|
+      gift_card_id = gift_card.id
+      order_ids = orders.map(&:id)
+      # Frees this thread's connection so a pool of five serves all five threads.
+      ActiveRecord::Base.connection_pool.release_connection
+      ready = Concurrent::CountDownLatch.new(order_ids.size)
+
+      threads = order_ids.map do |order_id|
         Thread.new do
           ActiveRecord::Base.connection_pool.with_connection do
-            described_class.call(gift_card: gift_card, order: order)
+            # Its own records, as a separate request would load them.
+            thread_gift_card = Spree::GiftCard.find(gift_card_id)
+            thread_order = Spree::Order.find(order_id)
+
+            ready.count_down
+            # A thread that stopped waiting would apply on its own and prove
+            # nothing, so it skips the apply and the example fails below.
+            next false unless ready.wait(5)
+
+            described_class.call(gift_card: thread_gift_card, order: thread_order)
+            true
           end
         end
       end
-      threads.each(&:join)
+      started_together = threads.map(&:value)
+      raise 'Not every thread was ready within 5 seconds, so the applies did not overlap' unless started_together.all?
 
       gift_card.reload
       total_credits = Spree::StoreCredit.where(originator: gift_card).sum(:amount)
