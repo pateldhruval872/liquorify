@@ -22,8 +22,10 @@ import { defineConfig } from '@playwright/test'
  * screens. For step P2, `keys.spec.ts` creates API keys on the running
  * screens and uses them from outside the browser, `oauth.spec.ts` takes an
  * OAuth client registered there through consent, `webhooks.spec.ts`
- * delivers to a local receiver, and `storefront-webhooks.spec.ts` delivers to
- * the storefront's receiver (see each file).
+ * delivers to a local receiver, `storefront-webhooks.spec.ts` delivers to the
+ * storefront's receiver, `agent.spec.ts` connects an agent to the agent
+ * server gem's test app, and `webhook-tracing.spec.ts` traces deliveries on
+ * the tracing gem's test app (see each file).
  */
 export default defineConfig({
   testDir: '.',
@@ -44,6 +46,8 @@ export default defineConfig({
     'oauth.spec.ts',
     'webhooks.spec.ts',
     'storefront-webhooks.spec.ts',
+    'agent.spec.ts',
+    'webhook-tracing.spec.ts',
   ],
   outputDir: './results/test-output',
   workers: 1,
