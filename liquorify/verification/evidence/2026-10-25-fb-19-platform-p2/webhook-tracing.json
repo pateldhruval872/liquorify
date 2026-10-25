@@ -1,0 +1,83 @@
+{
+  "check": "P2 criterion 6: tracing of webhook deliveries (CAP-11-10)",
+  "revision": "871a551",
+  "service": "liquorify-p2-webhook-tracing",
+  "testDelivery": {
+    "status": 201
+  },
+  "receiver": "A local receiver on this machine, over plain http",
+  "deliveries": [
+    {
+      "event": "webhook.test",
+      "cause": "POST send_test",
+      "headers": [
+        "traceparent"
+      ],
+      "deliverySpan": {
+        "name": "spree.webhook.deliver webhook.test",
+        "kind": "client",
+        "scope": "spree",
+        "service": "liquorify-p2-webhook-tracing",
+        "attributeKeys": [
+          "http.response.status_code",
+          "server.address",
+          "spree.webhook.event"
+        ]
+      },
+      "spansInTheDeliveryTrace": [
+        "internal Spree::WebhookDelivery query",
+        "internal Spree::WebhookEndpoint query",
+        "internal Spree::WebhookDelivery#save!",
+        "internal Spree::WebhookDelivery#update!",
+        "consumer default process",
+        "internal connect",
+        "client POST",
+        "client spree.webhook.deliver webhook.test"
+      ],
+      "traceparentNamesTheDeliveryTrace": true,
+      "traceparentParent": "client POST",
+      "traceparentParentIsTheDeliveryOrWithinIt": true,
+      "requestThatCausedIt": {
+        "sameTrace": false,
+        "reachedByFollowingLinks": true,
+        "tracesOnTheWay": 1
+      }
+    },
+    {
+      "event": "product.created",
+      "cause": "POST products",
+      "headers": [
+        "traceparent"
+      ],
+      "deliverySpan": {
+        "name": "spree.webhook.deliver product.created",
+        "kind": "client",
+        "scope": "spree",
+        "service": "liquorify-p2-webhook-tracing",
+        "attributeKeys": [
+          "http.response.status_code",
+          "server.address",
+          "spree.webhook.event"
+        ]
+      },
+      "spansInTheDeliveryTrace": [
+        "internal Spree::WebhookDelivery query",
+        "internal Spree::WebhookEndpoint query",
+        "internal Spree::WebhookDelivery#save!",
+        "internal Spree::WebhookDelivery#update!",
+        "consumer default process",
+        "internal connect",
+        "client POST",
+        "client spree.webhook.deliver product.created"
+      ],
+      "traceparentNamesTheDeliveryTrace": true,
+      "traceparentParent": "client POST",
+      "traceparentParentIsTheDeliveryOrWithinIt": true,
+      "requestThatCausedIt": {
+        "sameTrace": false,
+        "reachedByFollowingLinks": true,
+        "tracesOnTheWay": 2
+      }
+    }
+  ]
+}

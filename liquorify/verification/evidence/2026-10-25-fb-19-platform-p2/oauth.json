@@ -1,0 +1,59 @@
+{
+  "check": "P2 criterion 2: an OAuth client on DA-SET-27, consent on DA-SET-32",
+  "revision": "871a551",
+  "client": {
+    "name": "P2 inventory assistant 1792944447954",
+    "callback": "A loopback address on this machine, over plain http",
+    "scopeRequested": "read_products"
+  },
+  "approve": {
+    "consentPage": "/{store}/oauth/authorize",
+    "callbackParameters": [
+      "code",
+      "state"
+    ],
+    "stateReturnedUnchanged": true,
+    "exchange": {
+      "status": 200,
+      "fields": [
+        "access_token",
+        "created_at",
+        "expires_in",
+        "refresh_token",
+        "scope",
+        "token_type"
+      ],
+      "token_type": "Bearer",
+      "scope": "read_products",
+      "expires_in": 7200
+    },
+    "withToken": {
+      "readProducts": 200,
+      "readOrders": 403,
+      "createProduct": 403
+    },
+    "revoke": 200,
+    "readProductsAfterRevoking": 401
+  },
+  "codeTwice": {
+    "status": 400,
+    "error": "invalid_grant"
+  },
+  "codeWithoutVerifier": {
+    "status": 400,
+    "error": "invalid_request"
+  },
+  "codeWithAnotherVerifier": {
+    "status": 400,
+    "error": "invalid_grant"
+  },
+  "deny": {
+    "callbackParameters": [
+      "error",
+      "error_description",
+      "state"
+    ],
+    "error": "access_denied",
+    "stateReturnedUnchanged": true
+  }
+}

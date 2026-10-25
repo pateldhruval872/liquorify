@@ -1,0 +1,156 @@
+{
+  "check": "P2 criteria 3 and 5.1 to 5.3: an endpoint on DA-SET-28/29, allowed origins on DA-SET-30",
+  "revision": "871a551",
+  "endpoint": {
+    "name": "P2 receiver 1792944457500",
+    "url": "A local receiver",
+    "subscriptions": [
+      "product.updated",
+      "customer.password_reset_requested"
+    ]
+  },
+  "secretShownOnce": {
+    "format": "64 hexadecimal characters"
+  },
+  "testDelivery": {
+    "event": "webhook.test",
+    "signatureVerifies": true,
+    "payloadName": "webhook.test",
+    "payloadFields": [
+      "created_at",
+      "data",
+      "id",
+      "metadata",
+      "name"
+    ],
+    "dataFields": [
+      "message"
+    ],
+    "dataId": null
+  },
+  "productUpdated": {
+    "event": "product.updated",
+    "signatureVerifies": true,
+    "payloadName": "product.updated",
+    "payloadFields": [
+      "created_at",
+      "data",
+      "id",
+      "metadata",
+      "name"
+    ],
+    "dataFields": [
+      "available",
+      "available_on",
+      "backorderable",
+      "buy_box_variant_id",
+      "default_variant_id",
+      "description",
+      "description_html",
+      "id",
+      "in_stock",
+      "meta_description",
+      "meta_keywords",
+      "meta_title",
+      "name",
+      "original_price",
+      "preorder",
+      "preorder_ships_at",
+      "price",
+      "purchasable",
+      "seller_id",
+      "slug",
+      "tags",
+      "thumbnail_url",
+      "variant_count"
+    ],
+    "dataId": "prod_…",
+    "sameProduct": true,
+    "storeApiAnswer": 200,
+    "fieldsNotInTheStoreApisAnswer": []
+  },
+  "customerCreated": {
+    "status": 201,
+    "delivered": false
+  },
+  "passwordResets": {
+    "origin": "https://p2-1792944457500.example.test",
+    "beforeTheOriginWasAdded": {
+      "status": 202,
+      "redirectAsked": "https://p2-1792944457500.example.test/account/reset-password",
+      "redirectCarried": null,
+      "delivery": {
+        "event": "customer.password_reset_requested",
+        "signatureVerifies": true,
+        "payloadName": "customer.password_reset_requested",
+        "payloadFields": [
+          "created_at",
+          "data",
+          "id",
+          "metadata",
+          "name"
+        ],
+        "dataFields": [
+          "email",
+          "id",
+          "reset_token",
+          "store_id"
+        ],
+        "dataId": "cust_…"
+      },
+      "storeIdMatches": true
+    },
+    "onTheAddedOrigin": {
+      "status": 202,
+      "redirectAsked": "https://p2-1792944457500.example.test/account/reset-password",
+      "redirectCarried": "https://p2-1792944457500.example.test/account/reset-password",
+      "delivery": {
+        "event": "customer.password_reset_requested",
+        "signatureVerifies": true,
+        "payloadName": "customer.password_reset_requested",
+        "payloadFields": [
+          "created_at",
+          "data",
+          "id",
+          "metadata",
+          "name"
+        ],
+        "dataFields": [
+          "email",
+          "id",
+          "redirect_url",
+          "reset_token",
+          "store_id"
+        ],
+        "dataId": "cust_…"
+      },
+      "storeIdMatches": true
+    },
+    "onAnotherOrigin": {
+      "status": 202,
+      "redirectAsked": "https://elsewhere.example.test/account/reset-password",
+      "redirectCarried": null,
+      "delivery": {
+        "event": "customer.password_reset_requested",
+        "signatureVerifies": true,
+        "payloadName": "customer.password_reset_requested",
+        "payloadFields": [
+          "created_at",
+          "data",
+          "id",
+          "metadata",
+          "name"
+        ],
+        "dataFields": [
+          "email",
+          "id",
+          "reset_token",
+          "store_id"
+        ],
+        "dataId": "cust_…"
+      },
+      "storeIdMatches": true
+    }
+  },
+  "eventsDeliveredOutsideTheSubscription": []
+}

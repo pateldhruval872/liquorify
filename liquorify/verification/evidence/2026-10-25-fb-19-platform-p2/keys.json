@@ -1,0 +1,28 @@
+{
+  "check": "P2 criterion 1: API keys created on DA-SET-26, used from outside",
+  "revision": "871a551",
+  "keys": {
+    "publishable": {
+      "name": "P2 storefront key 1792944439540",
+      "scopes": "none: publishable"
+    },
+    "secret": {
+      "name": "P2 catalog reader 1792944439540",
+      "scopes": [
+        "read_products"
+      ]
+    }
+  },
+  "before": {
+    "storeProductsWithPublishable": 200,
+    "storeProductsWithoutKey": 401,
+    "adminProductsWithSecret": 200,
+    "adminProductCreateWithSecret": 403,
+    "adminOrdersWithSecret": 403,
+    "adminProductsWithPublishable": 401
+  },
+  "afterRevoking": {
+    "storeProductsWithPublishable": 401,
+    "adminProductsWithSecret": 401
+  }
+}
