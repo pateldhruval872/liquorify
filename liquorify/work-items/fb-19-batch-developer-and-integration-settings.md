@@ -5,14 +5,14 @@ work_item: FB-19
 status: PROPOSED
 owner: the owner reviews and accepts; an automated Claude session implements
 created: 2026-10-23
-updated: 2026-10-23
+updated: 2026-10-25
 ---
 
 # FB-19 batch: developer and integration settings
 
 The second backend batch organised by product area: the rest of [LIQ-006 §4](../LIQ-006-product-capability-baseline.md#4-authentication-staff-and-access), the settings a developer or an integration uses to reach a store. It reproduces what Spree already has for API keys, OAuth clients, allowed origins, AI agent connections, webhooks and integrations. Nothing here changes Spree's code or the storefront's, or adds a Liquorify feature.
 
-**Status.** PROPOSED, for the owner's review before any of it is built. It is batch 2 in [LIQ-004's proposed order](../LIQ-004-foundation-backlog.md#proposed-order-of-the-remaining-batches), which depends on part 2 of the [staff access batch](fb-19-batch-staff-access-and-shell.md). The owner accepted part 2 and merged it on 2026-10-23 ([merge record](../verification/2026-10-23-fb-19-batch-staff-access-part-2-merge.md)). It follows the batch rules of LIQ-010 0.4, as part 1 and part 2 did. On 2026-10-23 the owner answered the three questions in §7, and the sections below follow those answers.
+**Status.** PROPOSED. It is batch 2 in [LIQ-004's proposed order](../LIQ-004-foundation-backlog.md#proposed-order-of-the-remaining-batches), which depends on part 2 of the [staff access batch](fb-19-batch-staff-access-and-shell.md). The owner accepted part 2 and merged it on 2026-10-23 ([merge record](../verification/2026-10-23-fb-19-batch-staff-access-part-2-merge.md)). It follows the batch rules of LIQ-010 0.4, as part 1 and part 2 did. On 2026-10-23 the owner answered the three questions in §7, and the sections below follow those answers. The batch was built and verified in draft pull request [#16](https://github.com/pateldhruval872/liquorify/pull/16) ([record](../verification/2026-10-24-fb-19-batch-developer-settings.md)), which waits for the owner's review. On 2026-10-25 the owner asked for two corrections before accepting it, and both are made: the choice card picker's focus explanation, with its comparison aligned (record §4.4), and B16 reproduced on the running dashboard, now defect SD-5 (record §5.1). §10 records where Spree differs from this proposal.
 
 ## 1. Outcome and summary
 
@@ -171,3 +171,17 @@ Recorded now so none is lost. The batch's record says which it closes.
 - **Risk.** Stories, fixtures, mocks, scripts, reference images and records only, with no dependency, CI step or application code. The screens create keys and secrets on the browser-test server, which is local and discarded after the run; criterion 14 keeps every one of them out of the repository.
 - **Release impact.** None. Nothing is deployed.
 - **Verification.** The batch's verification record in `liquorify/verification/`, with the published evidence.
+
+## 10. Corrections found during the batch
+
+The batch's running screens and tests showed where this proposal did not match Spree at `3081c8b`. The proposal's text above is unchanged; these corrections govern. Each is recorded in the [verification record](../verification/2026-10-24-fb-19-batch-developer-settings.md) §5 and §6.
+
+| Where | The proposal says | Spree does |
+|---|---|---|
+| §2.2, DA-SET-32 | Not gated by a scope | Approving needs write on OAuth applications (B10). The read-only role is refused the page, captured as its own state; the withheld permissions are captured for a fourth role, the agent connector, who may connect agents and read products |
+| §3 | 19 components | The screens use 24. The five more are `json-preview-drawer`, `json-value-view`, `resource-name-cell`, `secret-input` and `choice-card-picker`, all now covered |
+| §2.1, DA-SET-30 | A malformed origin refused | Refused by the dashboard's own check, before any request (B23) |
+| §2.1, DA-SET-10 | A payment provider in test mode | The test gateway refuses the test mode setting with 422, so no running screen shows it (G-26) |
+| §2.1, DA-SET-10 | A switch that reverts when its save fails | Reached by dropping the save in the browser (G-27) |
+| §2.1, DA-SET-28 | An endpoint disabled, with its reason | Listed as "Auto-Disabled" even when disabled by hand (B7); its reason is shown on the endpoint's page |
+| §4 | The size estimate | 107 stories and 214 reference images, 5.2 MB; 150 captures, and evidence of 9.7 MB in all, with B16's reproduction |

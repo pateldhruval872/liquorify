@@ -1,0 +1,17 @@
+{
+  "screen": "DA-SET-28",
+  "state": "events-failed",
+  "variant": "admin",
+  "role": null,
+  "theme": "dark",
+  "revision": "95bc66f",
+  "path": "/<store>/settings/webhooks",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": "The event catalog requests are dropped in the browser",
+  "masked": null,
+  "settled": true,
+  "outside": []
+}

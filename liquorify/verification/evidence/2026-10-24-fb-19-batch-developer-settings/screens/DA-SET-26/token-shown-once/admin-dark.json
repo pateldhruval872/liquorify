@@ -1,0 +1,17 @@
+{
+  "screen": "DA-SET-26",
+  "state": "token-shown-once",
+  "variant": "admin",
+  "role": null,
+  "theme": "dark",
+  "revision": "95bc66f",
+  "path": "/<store>/settings/api-keys",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": null,
+  "masked": "Every key, token and secret value on the screen",
+  "settled": true,
+  "outside": []
+}

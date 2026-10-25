@@ -1,0 +1,17 @@
+{
+  "screen": "DA-SET-07",
+  "state": "unknown-person",
+  "variant": "admin",
+  "role": null,
+  "theme": "dark",
+  "revision": "95bc66f",
+  "path": "/<store>/settings/ai-agents",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": "The connection list's answer has the second person taken out in the browser, as when their account no longer exists",
+  "masked": null,
+  "settled": true,
+  "outside": []
+}

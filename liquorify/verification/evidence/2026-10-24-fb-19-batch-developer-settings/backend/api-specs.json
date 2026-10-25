@@ -1,0 +1,584 @@
+{
+ "engine": "spree/api",
+ "spree_code_at": "3081c8b",
+ "rspec": "3.13.6",
+ "seed": 12602,
+ "summary": {
+  "example_count": 95,
+  "failure_count": 0,
+  "pending_count": 0,
+  "errors_outside_of_examples_count": 0
+ },
+ "examples": [
+  {
+   "file": "spec/controllers/spree/api/v3/admin/api_keys_controller_spec.rb",
+   "line": 113,
+   "description": "Spree::Api::V3::Admin::ApiKeysController PATCH #update renames the key",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/api_keys_controller_spec.rb",
+   "line": 128,
+   "description": "Spree::Api::V3::Admin::ApiKeysController PATCH #update ignores key_type",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/api_keys_controller_spec.rb",
+   "line": 135,
+   "description": "Spree::Api::V3::Admin::ApiKeysController PATCH #update ignores channel_id \u2014 the binding is fixed for the life of a key",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/api_keys_controller_spec.rb",
+   "line": 120,
+   "description": "Spree::Api::V3::Admin::ApiKeysController PATCH #update ignores scopes \u2014 they are fixed for the life of a key",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/api_keys_controller_spec.rb",
+   "line": 89,
+   "description": "Spree::Api::V3::Admin::ApiKeysController GET #current reflects a server-side scope change (no read_api_keys needed)",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/api_keys_controller_spec.rb",
+   "line": 81,
+   "description": "Spree::Api::V3::Admin::ApiKeysController GET #current returns the authenticating key with its live scopes",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/api_keys_controller_spec.rb",
+   "line": 101,
+   "description": "Spree::Api::V3::Admin::ApiKeysController GET #current when authenticated as a JWT admin (no single key) returns 404 \u2014 a JWT principal has no single key to describe",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/api_keys_controller_spec.rb",
+   "line": 17,
+   "description": "Spree::Api::V3::Admin::ApiKeysController POST #create \u2014 scope amplification guard rejects minting a key with scopes beyond the caller's own",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/api_keys_controller_spec.rb",
+   "line": 26,
+   "description": "Spree::Api::V3::Admin::ApiKeysController POST #create \u2014 scope amplification guard allows minting a key with scopes the caller already holds",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/api_keys_controller_spec.rb",
+   "line": 33,
+   "description": "Spree::Api::V3::Admin::ApiKeysController POST #create \u2014 scope amplification guard allows the implied read scope of a held write scope",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/api_keys_controller_spec.rb",
+   "line": 44,
+   "description": "Spree::Api::V3::Admin::ApiKeysController POST #create \u2014 scope amplification guard when the caller holds only write_settings is denied with the api_keys required_scope",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/api_keys_controller_spec.rb",
+   "line": 66,
+   "description": "Spree::Api::V3::Admin::ApiKeysController POST #create \u2014 scope amplification guard when authenticated as a JWT admin (super-user) may grant any valid scope (bounded by CanCanCan, not scopes)",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/api_keys_controller_spec.rb",
+   "line": 55,
+   "description": "Spree::Api::V3::Admin::ApiKeysController POST #create \u2014 scope amplification guard when the caller holds write_all may mint any scope",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/api_keys_controller_spec.rb",
+   "line": 148,
+   "description": "Spree::Api::V3::Admin::ApiKeysController POST #create \u2014 channel binding binds a publishable key to a channel via its prefixed ID",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/api_keys_controller_spec.rb",
+   "line": 165,
+   "description": "Spree::Api::V3::Admin::ApiKeysController POST #create \u2014 channel binding rejects a channel on a secret key",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/api_keys_controller_spec.rb",
+   "line": 156,
+   "description": "Spree::Api::V3::Admin::ApiKeysController POST #create \u2014 channel binding rejects a channel belonging to another store",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/integrations_controller_spec.rb",
+   "line": 96,
+   "description": "Spree::Api::V3::Admin::IntegrationsController POST #create blocks activation when the connection fails",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/integrations_controller_spec.rb",
+   "line": 89,
+   "description": "Spree::Api::V3::Admin::IntegrationsController POST #create rejects unregistered types",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/integrations_controller_spec.rb",
+   "line": 75,
+   "description": "Spree::Api::V3::Admin::IntegrationsController POST #create creates from the wire shorthand with typed preferences",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/integrations_controller_spec.rb",
+   "line": 125,
+   "description": "Spree::Api::V3::Admin::IntegrationsController PATCH #update returns 404 for another store integration",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/integrations_controller_spec.rb",
+   "line": 110,
+   "description": "Spree::Api::V3::Admin::IntegrationsController PATCH #update keeps the stored secret when the masked value round-trips",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/integrations_controller_spec.rb",
+   "line": 118,
+   "description": "Spree::Api::V3::Admin::IntegrationsController PATCH #update activates when the connection succeeds",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/integrations_controller_spec.rb",
+   "line": 37,
+   "description": "Spree::Api::V3::Admin::IntegrationsController GET #types lists registered types with their configuration schema",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/integrations_controller_spec.rb",
+   "line": 48,
+   "description": "Spree::Api::V3::Admin::IntegrationsController GET #types gallery metadata serves the class description and no logo or setup guide by default",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/integrations_controller_spec.rb",
+   "line": 59,
+   "description": "Spree::Api::V3::Admin::IntegrationsController GET #types gallery metadata serves the declared logo and setup guide urls untouched",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/integrations_controller_spec.rb",
+   "line": 147,
+   "description": "Spree::Api::V3::Admin::IntegrationsController DELETE #destroy disconnects the integration",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/integrations_controller_spec.rb",
+   "line": 135,
+   "description": "Spree::Api::V3::Admin::IntegrationsController POST #test reports a live connection check without persisting anything",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/webhook_events_controller_spec.rb",
+   "line": 27,
+   "description": "Spree::Api::V3::Admin::WebhookEventsController GET #index marks credential events with the permission they need, and deprecated aliases with their replacement",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/webhook_events_controller_spec.rb",
+   "line": 11,
+   "description": "Spree::Api::V3::Admin::WebhookEventsController GET #index lists every declared event",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/webhook_events_controller_spec.rb",
+   "line": 19,
+   "description": "Spree::Api::V3::Admin::WebhookEventsController GET #index leaves out events no webhook may receive",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/webhook_events_controller_spec.rb",
+   "line": 48,
+   "description": "Spree::Api::V3::Admin::WebhookEventsController GET #index with a staff JWT lacking the webhooks permission is refused",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/concerns/spree/api/v3/api_key_authentication_spec.rb",
+   "line": 29,
+   "description": "API Key Authentication Touch Throttling Spree::Api::V3::Store::CountriesController touch throttling for publishable keys when last_used_at is more than 1 hour ago enqueues the mark as used job",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/concerns/spree/api/v3/api_key_authentication_spec.rb",
+   "line": 39,
+   "description": "API Key Authentication Touch Throttling Spree::Api::V3::Store::CountriesController touch throttling for publishable keys when last_used_at is less than 1 hour ago does not enqueue the mark as used job",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/concerns/spree/api/v3/api_key_authentication_spec.rb",
+   "line": 19,
+   "description": "API Key Authentication Touch Throttling Spree::Api::V3::Store::CountriesController touch throttling for publishable keys when last_used_at is nil enqueues the mark as used job",
+   "status": "passed"
+  },
+  {
+   "file": "spec/requests/spree/api/v3/admin/oauth_access_spec.rb",
+   "line": 144,
+   "description": "Admin API OAuth access a token issued for the Admin API lists only the kinds of import the merchant granted",
+   "status": "passed"
+  },
+  {
+   "file": "spec/requests/spree/api/v3/admin/oauth_access_spec.rb",
+   "line": 99,
+   "description": "Admin API OAuth access a token issued for the Admin API cannot approve itself a grant wider than its own scopes",
+   "status": "passed"
+  },
+  {
+   "file": "spec/requests/spree/api/v3/admin/oauth_access_spec.rb",
+   "line": 29,
+   "description": "Admin API OAuth access a token issued for the Admin API is accepted",
+   "status": "passed"
+  },
+  {
+   "file": "spec/requests/spree/api/v3/admin/oauth_access_spec.rb",
+   "line": 45,
+   "description": "Admin API OAuth access a token issued for the Admin API cannot write where it was granted only read",
+   "status": "passed"
+  },
+  {
+   "file": "spec/requests/spree/api/v3/admin/oauth_access_spec.rb",
+   "line": 39,
+   "description": "Admin API OAuth access a token issued for the Admin API cannot reach a resource the merchant did not grant",
+   "status": "passed"
+  },
+  {
+   "file": "spec/requests/spree/api/v3/admin/oauth_access_spec.rb",
+   "line": 57,
+   "description": "Admin API OAuth access a token issued for the Admin API cannot write through an endpoint that guards itself",
+   "status": "passed"
+  },
+  {
+   "file": "spec/requests/spree/api/v3/admin/oauth_access_spec.rb",
+   "line": 133,
+   "description": "Admin API OAuth access a token issued for the Admin API lists only the kinds of export the merchant granted",
+   "status": "passed"
+  },
+  {
+   "file": "spec/requests/spree/api/v3/admin/oauth_access_spec.rb",
+   "line": 117,
+   "description": "Admin API OAuth access a token issued for the Admin API cannot write a resource whose permission is not named after it",
+   "status": "passed"
+  },
+  {
+   "file": "spec/requests/spree/api/v3/admin/oauth_access_spec.rb",
+   "line": 73,
+   "description": "Admin API OAuth access a token issued for the Admin API cannot report on a dimension outside its scopes",
+   "status": "passed"
+  },
+  {
+   "file": "spec/requests/spree/api/v3/admin/oauth_access_spec.rb",
+   "line": 85,
+   "description": "Admin API OAuth access a token issued for the Admin API is not offered a dimension it may not use",
+   "status": "passed"
+  },
+  {
+   "file": "spec/requests/spree/api/v3/admin/oauth_access_spec.rb",
+   "line": 166,
+   "description": "Admin API OAuth access a guard that was written before delegated credentials existed refuses to let an agent rewrite the profile of the person who connected it",
+   "status": "passed"
+  },
+  {
+   "file": "spec/requests/spree/api/v3/admin/oauth_access_spec.rb",
+   "line": 207,
+   "description": "Admin API OAuth access a guard that was written before delegated credentials existed reports what the credential holds rather than what its owner does",
+   "status": "passed"
+  },
+  {
+   "file": "spec/requests/spree/api/v3/admin/oauth_access_spec.rb",
+   "line": 177,
+   "description": "Admin API OAuth access a guard that was written before delegated credentials existed refuses order tags to a grant that holds no read_orders",
+   "status": "passed"
+  },
+  {
+   "file": "spec/requests/spree/api/v3/admin/oauth_access_spec.rb",
+   "line": 193,
+   "description": "Admin API OAuth access a guard that was written before delegated credentials existed refuses store settings to a grant that holds no read_settings",
+   "status": "passed"
+  },
+  {
+   "file": "spec/requests/spree/api/v3/admin/oauth_access_spec.rb",
+   "line": 199,
+   "description": "Admin API OAuth access a guard that was written before delegated credentials existed allows them to a grant that does",
+   "status": "passed"
+  },
+  {
+   "file": "spec/requests/spree/api/v3/admin/oauth_access_spec.rb",
+   "line": 183,
+   "description": "Admin API OAuth access a guard that was written before delegated credentials existed allows them to a grant that does",
+   "status": "passed"
+  },
+  {
+   "file": "spec/requests/spree/api/v3/admin/oauth_access_spec.rb",
+   "line": 215,
+   "description": "Admin API OAuth access a token issued for another resource is refused",
+   "status": "passed"
+  },
+  {
+   "file": "spec/requests/spree/api/v3/admin/oauth_access_spec.rb",
+   "line": 222,
+   "description": "Admin API OAuth access a token issued for another resource is refused when it names no resource at all",
+   "status": "passed"
+  },
+  {
+   "file": "spec/requests/spree/api/v3/admin/oauth_access_spec.rb",
+   "line": 238,
+   "description": "Admin API OAuth access the store a token acts on comes from the application, not the request header",
+   "status": "passed"
+  },
+  {
+   "file": "spec/requests/spree/api/v3/admin/oauth/authorizations_spec.rb",
+   "line": 114,
+   "description": "Admin OAuth consent honours a narrower selection than the client requested",
+   "status": "passed"
+  },
+  {
+   "file": "spec/requests/spree/api/v3/admin/oauth/authorizations_spec.rb",
+   "line": 90,
+   "description": "Admin OAuth consent refuses a staffer who may not connect agents",
+   "status": "passed"
+  },
+  {
+   "file": "spec/requests/spree/api/v3/admin/oauth/authorizations_spec.rb",
+   "line": 102,
+   "description": "Admin OAuth consent a scope this server does not offer is dropped rather than failing the request",
+   "status": "passed"
+  },
+  {
+   "file": "spec/requests/spree/api/v3/admin/oauth/authorizations_spec.rb",
+   "line": 70,
+   "description": "Admin OAuth consent a scope the approver does not hold leaves nothing to grant, and the request is refused",
+   "status": "passed"
+  },
+  {
+   "file": "spec/requests/spree/api/v3/admin/oauth/authorizations_spec.rb",
+   "line": 60,
+   "description": "Admin OAuth consent a scope the approver does not hold is cut from the grant rather than recorded",
+   "status": "passed"
+  },
+  {
+   "file": "spec/requests/spree/api/v3/admin/oauth/authorizations_spec.rb",
+   "line": 77,
+   "description": "Admin OAuth consent a scope the approver does not hold is not offered on the consent screen either",
+   "status": "passed"
+  },
+  {
+   "file": "spec/requests/spree/api/v3/admin/oauth/applications_spec.rb",
+   "line": 99,
+   "description": "Admin connected applications pages, so a store with many connections is not served in one response",
+   "status": "passed"
+  },
+  {
+   "file": "spec/requests/spree/api/v3/admin/oauth/applications_spec.rb",
+   "line": 71,
+   "description": "Admin connected applications reports no scopes for one whose access was revoked",
+   "status": "passed"
+  },
+  {
+   "file": "spec/requests/spree/api/v3/admin/oauth/applications_spec.rb",
+   "line": 81,
+   "description": "Admin connected applications says whether anything can still reach the store",
+   "status": "passed"
+  },
+  {
+   "file": "spec/requests/spree/api/v3/admin/oauth/applications_spec.rb",
+   "line": 52,
+   "description": "Admin connected applications still lists an application whose access expired but can refresh",
+   "status": "passed"
+  },
+  {
+   "file": "spec/requests/spree/api/v3/admin/oauth/applications_spec.rb",
+   "line": 40,
+   "description": "Admin connected applications keeps naming the original approver after a refresh",
+   "status": "passed"
+  },
+  {
+   "file": "spec/requests/spree/api/v3/admin/oauth/applications_spec.rb",
+   "line": 62,
+   "description": "Admin connected applications lists a registration nobody has connected",
+   "status": "passed"
+  },
+  {
+   "file": "spec/requests/spree/api/v3/admin/oauth/applications_spec.rb",
+   "line": 29,
+   "description": "Admin connected applications names who approved the application and when",
+   "status": "passed"
+  },
+  {
+   "file": "spec/requests/spree/api/v3/admin/oauth/applications_spec.rb",
+   "line": 93,
+   "description": "Admin connected applications reports what the live tokens grant, not the registration",
+   "status": "passed"
+  },
+  {
+   "file": "spec/requests/spree/api/v3/admin/oauth/applications_spec.rb",
+   "line": 138,
+   "description": "Admin connected applications registering a client creates one from a name and a callback",
+   "status": "passed"
+  },
+  {
+   "file": "spec/requests/spree/api/v3/admin/oauth/applications_spec.rb",
+   "line": 148,
+   "description": "Admin connected applications registering a client deletes the registration itself",
+   "status": "passed"
+  },
+  {
+   "file": "spec/requests/spree/api/v3/admin/oauth/applications_spec.rb",
+   "line": 111,
+   "description": "Admin connected applications revoking one person stops that person without disconnecting their colleagues",
+   "status": "passed"
+  },
+  {
+   "file": "spec/requests/spree/api/v3/admin/oauth/applications_spec.rb",
+   "line": 124,
+   "description": "Admin connected applications revoking one person lists who is connected, one entry per person",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/webhook_endpoints_controller_spec.rb",
+   "line": 163,
+   "description": "Spree::Api::V3::Admin::WebhookEndpointsController PATCH #disable / #enable flips the endpoint inactive and back",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/webhook_endpoints_controller_spec.rb",
+   "line": 155,
+   "description": "Spree::Api::V3::Admin::WebhookEndpointsController DELETE #destroy soft-deletes the endpoint",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/webhook_endpoints_controller_spec.rb",
+   "line": 68,
+   "description": "Spree::Api::V3::Admin::WebhookEndpointsController POST #create creates the endpoint and returns the plaintext secret_key exactly once",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/webhook_endpoints_controller_spec.rb",
+   "line": 105,
+   "description": "Spree::Api::V3::Admin::WebhookEndpointsController POST #create when the url is invalid returns a validation error",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/webhook_endpoints_controller_spec.rb",
+   "line": 96,
+   "description": "Spree::Api::V3::Admin::WebhookEndpointsController POST #create subscribing to customer password resets with permission to manage customers creates the endpoint",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/webhook_endpoints_controller_spec.rb",
+   "line": 86,
+   "description": "Spree::Api::V3::Admin::WebhookEndpointsController POST #create subscribing to customer password resets with only the webhooks permission is forbidden",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/webhook_endpoints_controller_spec.rb",
+   "line": 17,
+   "description": "Spree::Api::V3::Admin::WebhookEndpointsController GET #index returns the store webhook endpoints",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/webhook_endpoints_controller_spec.rb",
+   "line": 23,
+   "description": "Spree::Api::V3::Admin::WebhookEndpointsController GET #index never exposes the secret_key on list responses",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/webhook_endpoints_controller_spec.rb",
+   "line": 33,
+   "description": "Spree::Api::V3::Admin::WebhookEndpointsController GET #show returns the endpoint with subscriptions",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/webhook_endpoints_controller_spec.rb",
+   "line": 47,
+   "description": "Spree::Api::V3::Admin::WebhookEndpointsController GET #show with a mix of successful and failed deliveries returns the lifetime delivery counters used by the health summary",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/webhook_endpoints_controller_spec.rb",
+   "line": 126,
+   "description": "Spree::Api::V3::Admin::WebhookEndpointsController PATCH #update does not return the secret_key on subsequent reads",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/webhook_endpoints_controller_spec.rb",
+   "line": 118,
+   "description": "Spree::Api::V3::Admin::WebhookEndpointsController PATCH #update updates editable attributes",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/webhook_endpoints_controller_spec.rb",
+   "line": 144,
+   "description": "Spree::Api::V3::Admin::WebhookEndpointsController PATCH #update on an endpoint that receives customer password resets still allows renaming it",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/webhook_endpoints_controller_spec.rb",
+   "line": 137,
+   "description": "Spree::Api::V3::Admin::WebhookEndpointsController PATCH #update on an endpoint that receives customer password resets refuses to repoint it with only the webhooks permission",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/webhook_endpoints_controller_spec.rb",
+   "line": 179,
+   "description": "Spree::Api::V3::Admin::WebhookEndpointsController POST #send_test creates a webhook.test delivery and returns it",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/webhook_deliveries_controller_spec.rb",
+   "line": 27,
+   "description": "Spree::Api::V3::Admin::WebhookDeliveriesController GET #index does not leak deliveries from other endpoints",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/webhook_deliveries_controller_spec.rb",
+   "line": 17,
+   "description": "Spree::Api::V3::Admin::WebhookDeliveriesController GET #index returns the deliveries scoped to the endpoint, most-recent-first",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/webhook_deliveries_controller_spec.rb",
+   "line": 43,
+   "description": "Spree::Api::V3::Admin::WebhookDeliveriesController GET #show returns the delivery with payload, response code, and webhook_endpoint_id",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/webhook_deliveries_controller_spec.rb",
+   "line": 70,
+   "description": "Spree::Api::V3::Admin::WebhookDeliveriesController GET #show when a stored payload holds payment session credentials does not return them, at any depth",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/webhook_deliveries_controller_spec.rb",
+   "line": 156,
+   "description": "Spree::Api::V3::Admin::WebhookDeliveriesController POST #redeliver creates a new delivery row with the same payload + event_name",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/webhook_deliveries_controller_spec.rb",
+   "line": 116,
+   "description": "Spree::Api::V3::Admin::WebhookDeliveriesController payload visibility with permission to read orders too shows the payload",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/webhook_deliveries_controller_spec.rb",
+   "line": 96,
+   "description": "Spree::Api::V3::Admin::WebhookDeliveriesController payload visibility with only the webhooks permission withholds an order event payload but keeps the delivery details",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/webhook_deliveries_controller_spec.rb",
+   "line": 104,
+   "description": "Spree::Api::V3::Admin::WebhookDeliveriesController payload visibility with only the webhooks permission shows the payload of a test delivery",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/webhook_deliveries_controller_spec.rb",
+   "line": 137,
+   "description": "Spree::Api::V3::Admin::WebhookDeliveriesController payload visibility when a stored payload holds a cart token and a gift card code does not return them",
+   "status": "passed"
+  }
+ ]
+}

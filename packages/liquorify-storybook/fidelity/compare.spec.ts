@@ -1,7 +1,17 @@
 import { mkdirSync, writeFileSync } from 'node:fs'
 import { expect, type Locator, type Page, test } from '@playwright/test'
-import { getCredentials, login, sellerLogin } from '../../dashboard/e2e/helpers'
+import { getCredentials, login, rowButton, sellerLogin } from '../../dashboard/e2e/helpers'
 import { dashboardCounters, releaseNotes, updateAvailable } from '../src/fixtures/admin/shell'
+import {
+  type Developers,
+  endpoints,
+  origins,
+  paintOut,
+  removeNamed,
+  secretKeys,
+  seedDevelopers,
+  setRelay,
+} from './developers'
 import {
   openRoleMenu,
   openRowMenu,
@@ -35,7 +45,11 @@ import {
  * data differs on purpose: the screens show the browser tests' fixtures and the
  * stories show invented ones. API key values are masked on both sides, since
  * the screens show keys from the test database. The staff cases add the
- * teammates, roles and invitations they open first (`staff.ts`).
+ * teammates, roles and invitations they open first (`staff.ts`), and the
+ * developer settings cases add the keys, clients, agents, endpoints and
+ * integration they show (`developers.ts`). Where a sheet or dialog opens above
+ * a key, those cases paint every key, token and secret out of both images
+ * instead, so the sheet still covers what it covers on screen.
  */
 
 const STORYBOOK = 'http://localhost:6007'
@@ -44,6 +58,10 @@ const revision = process.env.FIDELITY_REVISION ?? null
 
 /** Hides API key values in screenshots. */
 const keyValues = (page: Page) => [page.locator('[data-slot="card"] code')]
+
+/** What a case's screenshots hide: the elements it paints out, or else the key values. */
+const hidden = (item: { paintedOut?: string }, page: Page) =>
+  item.paintedOut ? { style: paintOut(item.paintedOut) } : { mask: keyValues(page) }
 
 /** The styles compared on every element, chosen to catch a wrong token, size or variant. */
 const properties = [
@@ -161,8 +179,14 @@ interface Case {
   viewport?: boolean
   /** Opens both sides at a phone's width. */
   phone?: boolean
+  /** Opens both sides in a window this size, for a component taller than a sheet shows. */
+  window?: { width: number; height: number }
   /** The story holds a request open, to show what loads. */
   held?: boolean
+  /** Elements painted out of both images, in place of the key mask. */
+  paintedOut?: string
+  /** Removes what the case made through the running screen. */
+  after?: () => Promise<void>
 }
 
 async function adminPage(page: Page, path: string) {
@@ -1528,11 +1552,449 @@ const staffAccessPartTwo: Case[] = [
   },
 ]
 
+let baseURL = 'http://localhost:5174'
+let developers: Developers
+
+const sheet = (page: Page) => slot(page, 'sheet-content')
+const dialogPart = (page: Page, name: string, has: string) =>
+  page
+    .getByRole('dialog')
+    .locator(`[data-slot="${name}"]`)
+    .filter({ has: page.locator(has) })
+    .last()
+const innermost = (page: Page, selector: string, has: Locator) =>
+  page.locator(selector).filter({ has }).last()
+const resourceTable = (page: Page) =>
+  innermost(page, 'div.flex.flex-col.gap-3', page.getByRole('table'))
+const toolbarRow = (page: Page) =>
+  innermost(page, 'div.flex.items-start.gap-2', page.getByRole('button', { name: 'Add filter' }))
+const scopePicker = (page: Page) =>
+  innermost(page, 'div.flex.flex-col.gap-3', page.locator('#scope-write-all'))
+const resourceLayout = (page: Page) =>
+  innermost(page, 'div.flex.flex-col.gap-6', page.locator('div.grid.grid-cols-12.gap-6'))
+const jsonView = (page: Page) => page.locator('div.font-mono.text-sm.bg-zinc-950').first()
+const agentCard = (page: Page) => page.locator('[data-slot="card"]').filter({ hasText: /^Claude/ })
+const relayCard = (page: Page) =>
+  page.locator('[data-slot="card"]').filter({ hasText: 'E2E Relay' })
+const tall = { width: 1280, height: 2400 }
+
+/** Leaves nothing focused or hovered, as a story's scripted clicks leave it. */
+async function leaveAlone(page: Page) {
+  await page.evaluate(() => (document.activeElement as HTMLElement | null)?.blur())
+  await page.mouse.move(0, 0)
+}
+const comparisonKey = 'Fidelity comparison key'
+
+async function keySheet(page: Page) {
+  await adminPage(page, '/settings/api-keys')
+  await expect(page.getByText(secretKeys.partner.name)).toBeVisible({ timeout: 15_000 })
+  await page.getByRole('button', { name: /new key/i }).click()
+  await expect(page.getByRole('checkbox', { name: 'View Products' })).toBeVisible()
+  await expect(page.locator('#api-key-name')).toBeFocused()
+}
+
+async function agentsPage(page: Page) {
+  await adminPage(page, '/settings/ai-agents')
+  await expect(agentCard(page).getByText('Ari Connector')).toBeVisible({ timeout: 15_000 })
+}
+
+async function connectSheet(page: Page) {
+  await agentsPage(page)
+  await page.getByRole('button', { name: /connect an agent/i }).click()
+  await expect(page.getByRole('dialog').getByText(/choose the assistant/i)).toBeVisible()
+}
+
+async function claudeReady(page: Page) {
+  await connectSheet(page)
+  const opened = page.getByRole('dialog')
+  await opened.getByText(/claude\.ai, claude desktop/i).click()
+  await opened.getByRole('button', { name: /^continue$/i }).click()
+  await expect(opened.getByText(/ready to connect/i)).toBeVisible({ timeout: 15_000 })
+  await leaveAlone(page)
+}
+
+async function clientSheet(page: Page) {
+  await adminPage(page, '/settings/oauth-clients')
+  await expect(page.getByRole('row', { name: /Inventory assistant/ })).toBeVisible({
+    timeout: 15_000,
+  })
+  await page.getByRole('button', { name: /register a client/i }).click()
+  await expect(page.locator('#oauth-application-name')).toBeVisible()
+}
+
+async function originsPage(page: Page) {
+  await adminPage(page, '/settings/allowed-origins')
+  await expect(rowButton(page, origins[0])).toBeVisible({ timeout: 15_000 })
+}
+
+async function webhooksPage(page: Page) {
+  await adminPage(page, '/settings/webhooks')
+  await expect(rowButton(page, endpoints.orderSync.name)).toBeVisible({ timeout: 15_000 })
+}
+
+async function endpointPage(page: Page) {
+  await adminPage(page, `/settings/webhooks/${developers.endpointIds.orderSync}`)
+  await expect(page.getByRole('heading', { level: 1, name: endpoints.orderSync.name })).toBeVisible(
+    { timeout: 15_000 },
+  )
+  await expect(page.getByText('webhook.test', { exact: true }).first()).toBeVisible({
+    timeout: 15_000,
+  })
+}
+
+/** Opens E2E Relay's sheet: Connect when it is not connected, Configure when it is. */
+async function relaySheet(page: Page, relay: 'none' | 'active') {
+  await setRelay(baseURL, relay)
+  await adminPage(page, '/settings/integrations')
+  await expect(relayCard(page)).toBeVisible({ timeout: 15_000 })
+  await relayCard(page)
+    .getByRole('button', { name: relay === 'none' ? /^connect$/i : /^configure$/i })
+    .click()
+  await expect(page.getByRole('dialog').getByRole('heading', { name: 'E2E Relay' })).toBeVisible({
+    timeout: 15_000,
+  })
+}
+
+// Batch 2, developer and integration settings: each new story beside the same
+// component on the API keys, OAuth clients, AI agents, allowed origins,
+// webhooks and integrations screens, with the records `developers.ts` seeds.
+// Keys, tokens and client IDs sit in `code` on these screens, often beneath a
+// sheet, so every case paints them out.
+const developerSettings: Case[] = (
+  [
+    {
+      id: 'CMP-DA-G-01',
+      name: 'api-key-create-sheet-secret-key',
+      story: 'admin-dashboard-api-keys-create-sheet--secret-key',
+      viewport: true,
+      screen: async (page) => {
+        await keySheet(page)
+        return sheet(page)
+      },
+      inStory: sheet,
+    },
+    {
+      id: 'CMP-DA-G-01',
+      name: 'api-key-scope-picker-nothing-chosen',
+      story: 'admin-dashboard-api-keys-scope-picker--nothing-chosen',
+      window: tall,
+      screen: async (page) => {
+        await keySheet(page)
+        return scopePicker(page)
+      },
+      inStory: scopePicker,
+    },
+    {
+      id: 'CMP-DA-G-01',
+      name: 'api-key-edit-sheet-renaming',
+      story: 'admin-dashboard-api-keys-edit-sheet--renaming',
+      viewport: true,
+      screen: async (page) => {
+        await adminPage(page, '/settings/api-keys')
+        await expect(page.getByText(secretKeys.partner.name)).toBeVisible({ timeout: 15_000 })
+        await openRowMenu(page, secretKeys.partner.name)
+        await page.getByRole('menuitem', { name: /^edit$/i }).click()
+        await expect(page.locator('#edit-api-key-name')).toHaveValue(secretKeys.partner.name)
+        await page.locator('#edit-api-key-name').fill('Warehouse sync, Europe')
+        return sheet(page)
+      },
+      inStory: sheet,
+    },
+    {
+      id: 'CMP-DA-G-01',
+      name: 'api-key-token-reveal-dialog',
+      story: 'admin-dashboard-api-keys-token-reveal-dialog--new-secret-key',
+      viewport: true,
+      screen: async (page) => {
+        await keySheet(page)
+        await page.locator('#api-key-name').fill(comparisonKey)
+        await page.getByText(/read all \(read_all\)/i).click()
+        await page.getByRole('button', { name: /create key/i }).click()
+        await expect(page.getByText('Save your secret key')).toBeVisible({ timeout: 15_000 })
+        return slot(page, 'dialog-content')
+      },
+      inStory: (page) => slot(page, 'dialog-content'),
+      after: () => removeNamed(baseURL, 'api_keys', comparisonKey),
+    },
+    {
+      id: 'CMP-DA-G-24',
+      name: 'agent-connections-card-connected',
+      story: 'admin-dashboard-ai-agents-agent-connections-card--connected',
+      screen: async (page) => {
+        await agentsPage(page)
+        return agentCard(page)
+      },
+      inStory: (page) => slot(page, 'card').first(),
+    },
+    {
+      id: 'CMP-DUI-P-30',
+      name: 'popover-scope-list',
+      story: 'dashboard-ui-primitives-popover--scope-list',
+      screen: async (page) => {
+        await agentsPage(page)
+        await agentCard(page)
+          .getByRole('button', { name: /show 1 more scope/i })
+          .first()
+          .click()
+        return slot(page, 'popover-content')
+      },
+      inStory: (page) => slot(page, 'popover-content'),
+    },
+    {
+      id: 'CMP-DA-G-24',
+      name: 'connect-sheet-choose-an-agent',
+      story: 'admin-dashboard-ai-agents-connect-sheet--choose-an-agent',
+      viewport: true,
+      screen: async (page) => {
+        await connectSheet(page)
+        return sheet(page)
+      },
+      inStory: sheet,
+    },
+    // The sheet opens with focus on the chosen radio, which draws its ring for
+    // any focus, not only the keyboard's: the first case moves focus away, as
+    // the story has none, and the second keeps it, beside the story's Tab.
+    {
+      id: 'CMP-DA-G-24',
+      name: 'choice-card-picker-first-chosen',
+      story: 'admin-dashboard-ai-agents-choice-card-picker--first-chosen',
+      screen: async (page) => {
+        await connectSheet(page)
+        await leaveAlone(page)
+        return dialogPart(page, 'field-group', '[role="radiogroup"]')
+      },
+      inStory: (page) => slot(page, 'field-group').first(),
+    },
+    {
+      id: 'CMP-DA-G-24',
+      name: 'choice-card-picker-focused',
+      story: 'admin-dashboard-ai-agents-choice-card-picker--focus-visible',
+      screen: async (page) => {
+        await connectSheet(page)
+        return dialogPart(page, 'field-group', '[role="radiogroup"]')
+      },
+      inStory: (page) => slot(page, 'field-group').first(),
+    },
+    {
+      id: 'CMP-DA-G-24',
+      name: 'connect-sheet-claude-ready',
+      story: 'admin-dashboard-ai-agents-connect-sheet--claude-ready',
+      viewport: true,
+      screen: async (page) => {
+        await claudeReady(page)
+        return sheet(page)
+      },
+      inStory: sheet,
+    },
+    {
+      id: 'CMP-DUI-C-11',
+      name: 'copy-to-clipboard-button-icon',
+      story: 'dashboard-ui-composed-copy-to-clipboard-button--icon',
+      screen: async (page) => {
+        await claudeReady(page)
+        return page.getByRole('button', { name: 'Copy address' })
+      },
+      inStory: (page) => page.getByRole('button', { name: 'Copy address' }),
+    },
+    {
+      id: 'CMP-DA-G-24',
+      name: 'client-sheet-register',
+      story: 'admin-dashboard-oauth-clients-client-sheet--register',
+      viewport: true,
+      screen: async (page) => {
+        await clientSheet(page)
+        return sheet(page)
+      },
+      inStory: sheet,
+    },
+    {
+      id: 'CMP-DA-G-24',
+      name: 'client-sheet-callback-refused',
+      story: 'admin-dashboard-oauth-clients-client-sheet--callback-refused',
+      viewport: true,
+      screen: async (page) => {
+        await clientSheet(page)
+        const opened = page.getByRole('dialog')
+        await opened.locator('#oauth-application-name').fill('Inventory assistant')
+        await opened
+          .locator('#oauth-application-redirect-uri')
+          .fill('http://assistant.example.com/callback')
+        await opened.getByRole('button', { name: /^save$/i }).click()
+        await expect(
+          opened.getByRole('alert').filter({ hasText: /must start with https/i }),
+        ).toBeVisible({
+          timeout: 15_000,
+        })
+        await leaveAlone(page)
+        return sheet(page)
+      },
+      inStory: sheet,
+    },
+    {
+      id: 'CMP-CORE-26',
+      name: 'resource-table-allowed-origins',
+      story: 'dashboard-core-resource-table--listed',
+      screen: async (page) => {
+        await originsPage(page)
+        return resourceTable(page)
+      },
+      inStory: resourceTable,
+    },
+    {
+      id: 'CMP-CORE-37',
+      name: 'table-toolbar-allowed-origins',
+      story: 'dashboard-core-table-toolbar--default',
+      screen: async (page) => {
+        await originsPage(page)
+        return toolbarRow(page)
+      },
+      inStory: toolbarRow,
+    },
+    {
+      id: 'CMP-CORE-26',
+      name: 'resource-table-webhook-endpoints',
+      story: 'dashboard-core-resource-table--webhook-endpoints',
+      screen: async (page) => {
+        await webhooksPage(page)
+        return resourceTable(page)
+      },
+      inStory: resourceTable,
+    },
+    {
+      id: 'CMP-DUI-C-42',
+      name: 'resource-name-cell-openable',
+      story: 'dashboard-ui-composed-resource-name-cell--openable',
+      screen: async (page) => {
+        await webhooksPage(page)
+        return rowButton(page, endpoints.orderSync.name)
+      },
+      inStory: (page) => page.getByRole('button', { name: 'Order sync' }),
+    },
+    {
+      id: 'CMP-DA-G-24',
+      name: 'endpoint-form-all-events',
+      story: 'admin-dashboard-webhooks-endpoint-form--all-events',
+      window: tall,
+      screen: async (page) => {
+        await webhooksPage(page)
+        await page.getByRole('button', { name: /new endpoint/i }).click()
+        await expect(page.getByRole('checkbox', { name: 'order.placed', exact: true })).toBeVisible(
+          {
+            timeout: 15_000,
+          },
+        )
+        return page.getByRole('dialog').locator('form > div').first()
+      },
+      inStory: (page) => page.locator('form'),
+    },
+    {
+      id: 'CMP-DUI-C-40',
+      name: 'resource-layout-endpoint',
+      story: 'dashboard-ui-composed-resource-layout--two-columns',
+      screen: async (page) => {
+        await endpointPage(page)
+        return resourceLayout(page)
+      },
+      inStory: resourceLayout,
+    },
+    {
+      id: 'CMP-DUI-C-27',
+      name: 'json-preview-drawer-loaded',
+      story: 'dashboard-ui-composed-json-preview-drawer--loaded',
+      viewport: true,
+      screen: async (page) => {
+        await endpointPage(page)
+        await page.getByRole('button', { name: 'More actions' }).click()
+        await page.getByRole('menuitem', { name: /view as json/i }).click()
+        await expect(page.getByText(`"${endpoints.orderSync.url}"`).first()).toBeVisible({
+          timeout: 15_000,
+        })
+        return sheet(page)
+      },
+      inStory: sheet,
+    },
+    {
+      id: 'CMP-DUI-C-28',
+      name: 'json-value-view-payload',
+      story: 'dashboard-ui-composed-json-value-view--payload',
+      screen: async (page) => {
+        await endpointPage(page)
+        await page.getByText('webhook.test', { exact: true }).first().click()
+        await expect(page.getByText('Delivery details')).toBeVisible({ timeout: 15_000 })
+        return jsonView(page)
+      },
+      inStory: jsonView,
+    },
+    ...(
+      [
+        ['active', 'active'],
+        ['not-connected', 'none'],
+      ] as const
+    ).map(
+      ([state, relay]): Case => ({
+        id: 'CMP-DA-G-10',
+        name: `integration-card-${state}`,
+        story: `admin-dashboard-integrations-integration-card--${state}`,
+        screen: async (page) => {
+          await setRelay(baseURL, relay)
+          await adminPage(page, '/settings/integrations')
+          await expect(relayCard(page)).toBeVisible({ timeout: 15_000 })
+          return relayCard(page)
+        },
+        inStory: (page) => slot(page, 'card').first(),
+      }),
+    ),
+    {
+      id: 'CMP-DA-G-10',
+      name: 'configure-sheet-connect',
+      story: 'admin-dashboard-integrations-configure-sheet--connect',
+      viewport: true,
+      screen: async (page) => {
+        await relaySheet(page, 'none')
+        return sheet(page)
+      },
+      inStory: sheet,
+    },
+    {
+      id: 'CMP-CORE-22',
+      name: 'preferences-form-new-connection',
+      story: 'dashboard-core-preferences-form--new-connection',
+      screen: async (page) => {
+        await relaySheet(page, 'none')
+        return dialogPart(page, 'field-group', '#preference-api_secret')
+      },
+      inStory: (page) => slot(page, 'field-group').first(),
+    },
+    {
+      id: 'CMP-DA-G-10',
+      name: 'configure-sheet-configure',
+      story: 'admin-dashboard-integrations-configure-sheet--configure',
+      viewport: true,
+      screen: async (page) => {
+        await relaySheet(page, 'active')
+        return sheet(page)
+      },
+      inStory: sheet,
+    },
+    {
+      id: 'CMP-DUI-C-48',
+      name: 'secret-input-stored',
+      story: 'dashboard-ui-composed-secret-input--stored',
+      screen: async (page) => {
+        await relaySheet(page, 'active')
+        return dialogPart(page, 'field', '#preference-api_secret')
+      },
+      inStory: (page) => slot(page, 'field').first(),
+    },
+  ] as Case[]
+).map((item) => ({ paintedOut: 'code', ...item }))
+
 const cases: Case[] = [
   ...pilotCases,
   ...primitivesBatchOne,
   ...staffAccessPartOne,
   ...staffAccessPartTwo,
+  ...developerSettings,
 ]
 
 /** Every custom property the page's root element computes: the tokens, as the browser resolves them. */
@@ -1547,10 +2009,13 @@ async function rootTokens(page: Page): Promise<Record<string, string>> {
   })
 }
 
-// The staff cases need the teammates, roles and invitations `staff.ts` adds;
-// adding them again reuses them.
-test.beforeAll(async ({ baseURL }) => {
-  await seed(baseURL ?? 'http://localhost:5174')
+// The staff cases need the teammates, roles and invitations `staff.ts` adds,
+// and the developer settings cases the records `developers.ts` adds; adding
+// them again reuses them.
+test.beforeAll(async ({ baseURL: configured }) => {
+  baseURL = configured ?? baseURL
+  await seed(baseURL)
+  developers = await seedDevelopers(baseURL)
 })
 
 for (const theme of ['light', 'dark'] as const) {
@@ -1600,29 +2065,31 @@ for (const theme of ['light', 'dark'] as const) {
     test(`${item.id} ${item.name} ${theme}`, async ({ page, browser }) => {
       const folder = `${results}${item.name}/`
       mkdirSync(folder, { recursive: true })
-      if (item.phone) await page.setViewportSize(phone)
+      const size = item.phone ? phone : item.window
+      if (size) await page.setViewportSize(size)
       await page.emulateMedia({ colorScheme: theme, reducedMotion: 'reduce' })
 
       const onScreen = await item.screen(page)
       await expect(onScreen).toBeVisible({ timeout: 20_000 })
       await page.waitForTimeout(500)
-      const screenImage = item.viewport
-        ? await page.screenshot({ mask: keyValues(page) })
-        : await onScreen.screenshot({ mask: keyValues(page) })
+      // Styles first: a value painted out for the screenshot fades back
+      // afterwards, and its colours would be read halfway.
       const screenStyles = await collectStyles(onScreen)
+      const screenImage = await (item.viewport ? page : onScreen).screenshot(hidden(item, page))
       const screenWidth = (await onScreen.boundingBox())?.width
 
       const storyPage = await browser.newPage({
-        viewport: item.phone ? phone : { width: 1280, height: 800 },
+        viewport: size ?? { width: 1280, height: 800 },
       })
       await storyPage.emulateMedia({ colorScheme: theme, reducedMotion: 'reduce' })
       await openStory(storyPage, item.story, theme, item.held)
       const inStory = await item.inStory(storyPage)
       await expect(inStory).toBeVisible()
-      const storyImage = item.viewport
-        ? await storyPage.screenshot({ mask: keyValues(storyPage) })
-        : await inStory.screenshot({ mask: keyValues(storyPage) })
+      await storyPage.waitForTimeout(500)
       const storyStyles = await collectStyles(inStory)
+      const storyImage = await (item.viewport ? storyPage : inStory).screenshot(
+        hidden(item, storyPage),
+      )
       const storyWidth = (await inStory.boundingBox())?.width
 
       writeFileSync(`${folder}${theme}-screen.png`, screenImage)
@@ -1647,6 +2114,7 @@ for (const theme of ['light', 'dark'] as const) {
         ),
       )
       await storyPage.close()
+      await item.after?.()
     })
   }
 }

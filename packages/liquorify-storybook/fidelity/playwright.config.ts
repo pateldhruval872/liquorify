@@ -17,7 +17,9 @@ import { defineConfig } from '@playwright/test'
  * `tracing.spec.ts` collects the trace of a request from the tracing gem's own
  * test app (see each file). `shell.spec.ts` drives the five shell behaviours
  * step P6 tests, and `plugin.spec.ts` opens the dashboard built with the plugin
- * example, for step P3 (see each file).
+ * example, for step P3 (see each file). `json-drawer.spec.ts` reproduces B16,
+ * the JSON drawer's reversed Expand all and Collapse all, on the running
+ * screens.
  */
 export default defineConfig({
   testDir: '.',
@@ -33,6 +35,7 @@ export default defineConfig({
     'tracing.spec.ts',
     'shell.spec.ts',
     'plugin.spec.ts',
+    'json-drawer.spec.ts',
   ],
   outputDir: './results/test-output',
   workers: 1,

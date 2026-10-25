@@ -1,0 +1,51 @@
+{
+  "defect": "B16",
+  "theme": "dark",
+  "revision": "aaf5346",
+  "path": "/settings/webhooks/whe_UkLWZg9DAJ",
+  "record": "The order sync endpoint, viewed as JSON from More actions",
+  "steps": [
+    {
+      "step": "opened",
+      "control": "None: the drawer as it opens, at depth 2",
+      "expected": "everything",
+      "shown": "everything",
+      "depthList": "2"
+    },
+    {
+      "step": "expand-all-button",
+      "control": "The Expand all button",
+      "expected": "everything",
+      "shown": "the record folded to one line",
+      "depthList": "open"
+    },
+    {
+      "step": "depth-1",
+      "control": "Depth 1, in the depth list",
+      "expected": "the fields, subscriptions folded",
+      "shown": "the fields, subscriptions folded",
+      "depthList": "1"
+    },
+    {
+      "step": "collapse-all-button",
+      "control": "The Collapse all button",
+      "expected": "the record folded to one line",
+      "shown": "everything",
+      "depthList": "all"
+    },
+    {
+      "step": "expand-all-option",
+      "control": "Expand all, in the depth list",
+      "expected": "everything",
+      "shown": "the record folded to one line",
+      "depthList": "open"
+    },
+    {
+      "step": "collapse-all-option",
+      "control": "Collapse all, in the depth list",
+      "expected": "the record folded to one line",
+      "shown": "everything",
+      "depthList": "all"
+    }
+  ]
+}
