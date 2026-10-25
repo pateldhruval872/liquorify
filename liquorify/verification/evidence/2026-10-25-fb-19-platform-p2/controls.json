@@ -1,0 +1,119 @@
+{
+  "check": "P2 failure demonstrations for the owner's review of criteria 4 and 6: each run must fail, at the check named",
+  "revision": "1c2f041",
+  "controls": [
+    {
+      "spec": "agent.spec.ts",
+      "setting": "AGENT_INJECT_500=orders",
+      "change": "The search tool call for orders, outside the grant, answers HTTP 500 with a JSON-RPC error mentioning a permission check, without reaching the server",
+      "outcome": "failed",
+      "failedAt": "agent.spec.ts:367",
+      "assertion": [
+        "Error: expect(received).toEqual(expected) // deep equality",
+        "",
+        "- Expected  - 3",
+        "+ Received  + 6",
+        "",
+        "  Object {",
+        "-   \"answer\": \"You do not have permission to read orders.\",",
+        "-   \"isError\": true,",
+        "-   \"status\": 200,",
+        "+   \"error\": Object {",
+        "+     \"code\": -32603,",
+        "+     \"data\": \"The permission check failed\",",
+        "+     \"message\": \"Internal error\",",
+        "+   },",
+        "+   \"status\": 500,",
+        "  }"
+      ]
+    },
+    {
+      "spec": "agent.spec.ts",
+      "setting": "AGENT_INJECT_500=unknown-tool",
+      "change": "The call to upload_file, a tool the grant is not offered, answers HTTP 500 with the same JSON-RPC error, without reaching the server",
+      "outcome": "failed",
+      "failedAt": "agent.spec.ts:372",
+      "assertion": [
+        "Error: expect(received).toEqual(expected) // deep equality",
+        "",
+        "- Expected  - 4",
+        "+ Received  + 4",
+        "",
+        "  Object {",
+        "    \"error\": Object {",
+        "-     \"code\": -32602,",
+        "-     \"data\": \"Tool not found: upload_file\",",
+        "-     \"message\": \"Invalid params\",",
+        "+     \"code\": -32603,",
+        "+     \"data\": \"The permission check failed\",",
+        "+     \"message\": \"Internal error\",",
+        "    },",
+        "-   \"status\": 200,",
+        "+   \"status\": 500,",
+        "  }"
+      ]
+    },
+    {
+      "spec": "agent.spec.ts",
+      "setting": "AGENT_INJECT_500=import",
+      "change": "The products import call, outside the grant, answers HTTP 500 with the same JSON-RPC error, without reaching the server",
+      "outcome": "failed",
+      "failedAt": "agent.spec.ts:376",
+      "assertion": [
+        "Error: expect(received).toEqual(expected) // deep equality",
+        "",
+        "- Expected  - 3",
+        "+ Received  + 6",
+        "",
+        "  Object {",
+        "-   \"answer\": \"You do not have permission to import products.\",",
+        "-   \"isError\": true,",
+        "-   \"status\": 200,",
+        "+   \"error\": Object {",
+        "+     \"code\": -32603,",
+        "+     \"data\": \"The permission check failed\",",
+        "+     \"message\": \"Internal error\",",
+        "+   },",
+        "+   \"status\": 500,",
+        "  }"
+      ]
+    },
+    {
+      "spec": "webhook-tracing.spec.ts",
+      "setting": "WEBHOOK_TRACING_JOB_LINKS=none",
+      "change": "The test app's settings file sets the tracing gem's job instrumentation to propagation_style :none, so a job's trace keeps no link to the trace that queued it",
+      "outcome": "failed",
+      "failedAt": "webhook-tracing.spec.ts:277",
+      "assertion": [
+        "Error: expect(received).toBe(expected) // Object.is equality",
+        "",
+        "Expected: true",
+        "Received: false"
+      ],
+      "deliveries": [
+        {
+          "event": "webhook.test",
+          "deliverySpan": "spree.webhook.deliver webhook.test",
+          "traceparentNamesTheDeliveryTrace": true,
+          "requestThatCausedIt": {
+            "span": "server POST /api/v3/admin/webhook_endpoints/:id/send_test",
+            "sameTrace": false,
+            "reachedByFollowingLinks": false,
+            "tracesOnTheWay": 0
+          }
+        },
+        {
+          "event": "product.created",
+          "deliverySpan": "spree.webhook.deliver product.created",
+          "traceparentNamesTheDeliveryTrace": true,
+          "requestThatCausedIt": {
+            "span": "server POST /api/v3/admin/products",
+            "sameTrace": false,
+            "reachedByFollowingLinks": false,
+            "tracesOnTheWay": 0
+          }
+        }
+      ]
+    }
+  ]
+}

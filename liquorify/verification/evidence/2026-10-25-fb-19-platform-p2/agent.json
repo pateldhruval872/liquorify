@@ -1,6 +1,7 @@
 {
   "check": "P2 criterion 4: the agent server, connected on DA-SET-07",
-  "revision": "871a551",
+  "revision": "1c2f041",
+  "control": null,
   "connect": {
     "client": "Claude, chosen on the connect sheet",
     "endpointPath": "/api/v3/admin/mcp",
@@ -43,6 +44,7 @@
   },
   "session": {
     "status": 200,
+    "toolsListStatus": 200,
     "protocolVersion": "2025-06-18",
     "serverName": "spree-admin",
     "offersTools": true
@@ -63,10 +65,11 @@
       "arguments": {
         "resource": "products",
         "filters": {
-          "name_cont": "P2 agent product 1792944434679"
+          "name_cont": "P2 agent product 1792950776012"
         }
       }
     },
+    "status": 200,
     "isError": false,
     "total": 1,
     "foundTheProduct": true,
@@ -80,11 +83,13 @@
   },
   "outsideTheGrant": {
     "ordersThroughTheSearchTool": {
+      "status": 200,
       "isError": true,
       "answer": "You do not have permission to read orders."
     },
     "toolNotOffered": {
       "tool": "upload_file",
+      "status": 200,
       "error": {
         "code": -32602,
         "message": "Invalid params",
@@ -92,16 +97,22 @@
       }
     },
     "productsImportThroughAnOfferedTool": {
+      "status": 200,
       "isError": true,
       "answer": "You do not have permission to import products."
     }
   },
   "readToolWithoutToken": {
     "status": 401,
+    "challengeNamesMetadata": true,
     "message": "Sign in to this store to continue. Your client will offer that when it reads the challenge on this response. A Spree API key is not accepted here — an agent acts for a person, so it carries that person's own permissions. Use the `spree api` CLI for scripted access that cannot sign in."
   },
   "agentsScreen": {
     "connectionListedWithAccess": "View Products",
-    "toolsListAfterRevoking": 401
+    "toolsListAfterRevoking": {
+      "status": 401,
+      "challengeNamesMetadata": true,
+      "message": "Sign in to this store to continue. Your client will offer that when it reads the challenge on this response. A Spree API key is not accepted here — an agent acts for a person, so it carries that person's own permissions. Use the `spree api` CLI for scripted access that cannot sign in."
+    }
   }
 }

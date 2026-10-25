@@ -1,8 +1,8 @@
 {
   "check": "P2 criteria 3 and 5.1 to 5.3: an endpoint on DA-SET-28/29, allowed origins on DA-SET-30",
-  "revision": "871a551",
+  "revision": "1c2f041",
   "endpoint": {
-    "name": "P2 receiver 1792944457500",
+    "name": "P2 receiver 1792950786739",
     "url": "A local receiver",
     "subscriptions": [
       "product.updated",
@@ -74,10 +74,10 @@
     "delivered": false
   },
   "passwordResets": {
-    "origin": "https://p2-1792944457500.example.test",
+    "origin": "https://p2-1792950786739.example.test",
     "beforeTheOriginWasAdded": {
       "status": 202,
-      "redirectAsked": "https://p2-1792944457500.example.test/account/reset-password",
+      "redirectAsked": "https://p2-1792950786739.example.test/account/reset-password",
       "redirectCarried": null,
       "delivery": {
         "event": "customer.password_reset_requested",
@@ -102,8 +102,8 @@
     },
     "onTheAddedOrigin": {
       "status": 202,
-      "redirectAsked": "https://p2-1792944457500.example.test/account/reset-password",
-      "redirectCarried": "https://p2-1792944457500.example.test/account/reset-password",
+      "redirectAsked": "https://p2-1792950786739.example.test/account/reset-password",
+      "redirectCarried": "https://p2-1792950786739.example.test/account/reset-password",
       "delivery": {
         "event": "customer.password_reset_requested",
         "signatureVerifies": true,

@@ -1,6 +1,7 @@
 {
   "check": "P2 criterion 6: tracing of webhook deliveries (CAP-11-10)",
-  "revision": "871a551",
+  "revision": "1c2f041",
+  "control": null,
   "service": "liquorify-p2-webhook-tracing",
   "testDelivery": {
     "status": 201
@@ -38,6 +39,7 @@
       "traceparentParent": "client POST",
       "traceparentParentIsTheDeliveryOrWithinIt": true,
       "requestThatCausedIt": {
+        "span": "server POST /api/v3/admin/webhook_endpoints/:id/send_test",
         "sameTrace": false,
         "reachedByFollowingLinks": true,
         "tracesOnTheWay": 1
@@ -74,6 +76,7 @@
       "traceparentParent": "client POST",
       "traceparentParentIsTheDeliveryOrWithinIt": true,
       "requestThatCausedIt": {
+        "span": "server POST /api/v3/admin/products",
         "sameTrace": false,
         "reachedByFollowingLinks": true,
         "tracesOnTheWay": 2
