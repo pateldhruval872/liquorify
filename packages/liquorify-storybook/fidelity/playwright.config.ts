@@ -19,7 +19,13 @@ import { defineConfig } from '@playwright/test'
  * step P6 tests, and `plugin.spec.ts` opens the dashboard built with the plugin
  * example, for step P3 (see each file). `json-drawer.spec.ts` reproduces B16,
  * the JSON drawer's reversed Expand all and Collapse all, on the running
- * screens.
+ * screens. For step P2, `keys.spec.ts` creates API keys on the running
+ * screens and uses them from outside the browser, `oauth.spec.ts` takes an
+ * OAuth client registered there through consent, `webhooks.spec.ts`
+ * delivers to a local receiver, `storefront-webhooks.spec.ts` delivers to the
+ * storefront's receiver, `agent.spec.ts` connects an agent to the agent
+ * server gem's test app, and `webhook-tracing.spec.ts` traces deliveries on
+ * the tracing gem's test app (see each file).
  */
 export default defineConfig({
   testDir: '.',
@@ -36,6 +42,12 @@ export default defineConfig({
     'shell.spec.ts',
     'plugin.spec.ts',
     'json-drawer.spec.ts',
+    'keys.spec.ts',
+    'oauth.spec.ts',
+    'webhooks.spec.ts',
+    'storefront-webhooks.spec.ts',
+    'agent.spec.ts',
+    'webhook-tracing.spec.ts',
   ],
   outputDir: './results/test-output',
   workers: 1,
