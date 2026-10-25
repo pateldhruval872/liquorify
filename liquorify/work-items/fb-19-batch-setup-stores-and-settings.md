@@ -12,13 +12,13 @@ updated: 2026-10-25
 
 The third backend batch organised by product area: [LIQ-006 §3](../LIQ-006-product-capability-baseline.md#3-setup-stores-and-settings), installing the platform, starting a store, and the store-wide settings that every later area builds on. It reproduces what Spree already has for first-run setup, the getting started checklist, store settings, policies, channels, custom fields, markets and reasons. Nothing here changes Spree's code or the storefront's, or adds a Liquorify feature.
 
-**Status.** PROPOSED. It is batch 3 in [LIQ-004's proposed order](../LIQ-004-foundation-backlog.md#proposed-order-of-the-remaining-batches), which depends on part 2 of the [staff access batch](fb-19-batch-staff-access-and-shell.md), merged on 2026-10-23. It follows the batch rules of LIQ-010 0.4 and has the same shape as [batch 2](fb-19-batch-developer-and-integration-settings.md). §7 asks the owner two questions; the work starts once they are answered.
+**Status.** PROPOSED. It is batch 3 in [LIQ-004's proposed order](../LIQ-004-foundation-backlog.md#proposed-order-of-the-remaining-batches), which depends on part 2 of the [staff access batch](fb-19-batch-staff-access-and-shell.md), merged on 2026-10-23. It follows the batch rules of LIQ-010 0.4 and has the same shape as [batch 2](fb-19-batch-developer-and-integration-settings.md). On 2026-10-25 the owner answered the two questions in §7: one implementation pull request, and first-run setup without sample data, with the sample data option's test deferred to batch 4. The owner asked for the batch to proceed under the acceptance criteria in §5, with its acceptance pending until review. The sections below follow those answers, and the batch is built in draft pull request [#19](https://github.com/pateldhruval872/liquorify/pull/19), where it was proposed.
 
 ## 1. Outcome and summary
 
 Every setup and store settings screen has Storybook stories for the components it uses, captures of the running screen in each meaningful state and permission variant, and a step-by-step map of FL-01, installing the platform and its first store. The batch also records what first-run setup gives a new store, which is the check the [platform batch](fb-19-batch-platform.md#4-coverage-and-functional-verification-kept-apart) left to it for CAP-03-03. The map links each capability to its evidence or to a named gap.
 
-- **Bounded:** 10 screens, 1 flow, no email, 10 browser test files and 27 new components, in one bounded pull request unless the owner prefers two parts (§7).
+- **Bounded:** 10 screens, 1 flow, no email, 10 browser test files and 27 new components, in one bounded pull request, as the owner answered (§7).
 - **Same shape as batch 2:** screens, flows, permissions, meaningful states and running-screen evidence progress alongside component coverage, with what the interface shows kept apart from what the server enforces.
 - **No secret is published:** the setup link's token, the publishable key the storefront sheet shows, and the passwords typed during setup are kept out of every capture and record (§5, criterion 14).
 - **Spree stays unchanged:** only Storybook files, mocks, scripts, evidence and records change.
@@ -80,7 +80,7 @@ DA-SETUP-01 has no role: the person installing the platform opens it with the se
 - **The rest of FL-01:** signing in (DA-AUTH-01) is covered by the staff access batch, and the home page (DA-HOME-01) is batch 11's.
 - **Translations and the storefront's languages:** DA-PRD-06 goes to the catalog batch, and SF-OVL-04 to batch 4.
 - **Where a setting takes effect outside the dashboard:** markets, languages, storefront access, policies and custom fields on the storefront in batch 4, with the consent at registration (SF-ACC-02) recorded by the accounts batch as SD-2; payment capture in batches 7 and 9; order numbers, reasons and channels' order routing on orders and returns in batch 8; the inventory and data source settings in batch 6 and P4.
-- **Setup with sample data:** see §7, question 2.
+- **Setup with sample data:** batch 4, as the owner answered (§7). CAP-03-03 stays PARTIAL for that path until it is verified there.
 
 ## 3. Components
 
@@ -104,7 +104,7 @@ The screens use 27 components from [LIQ-009](../LIQ-009-spree-component-and-toke
 
 ## 4. Delivery
 
-- **One backend pull request,** unless the owner prefers two parts (§7): stories, fixtures and mocks, reference images, the capture scripts, the verification record, the image review list, the evidence index, and LIQ-009's Storybook column. It builds on `main`.
+- **One backend pull request,** as the owner answered (§7): stories, fixtures and mocks, reference images, the capture scripts, the verification record, the image review list, the evidence index, and LIQ-009's Storybook column. It builds on `main`.
 - **Running screens:** the dashboard built at the pull request's revision against Spree's browser-test server, as batch 2 ran. The roles in §2.2 and the policies, channels, custom fields, markets and reasons each state needs are added through the Admin API on that server's database only.
 - **First-run setup:** captured on the first-run browser test's own server, which starts with no admin, as CI runs it. Once setup completes there, the batch reads the new store through the Admin API and compares it with what Spree's two provisioning services give it: the store resources seeded before setup, and the defaults setup builds from the chosen country (its default market, currency and language, a stock location, delivery zones and methods, a package type, pickup, and delivery prices in the store's currency).
 - **Secrets:** the setup link's token never appears in a capture, a record or a log the batch keeps; the publishable key on the storefront sheet is masked in the screenshot and replaced in the records; the sheet's deploy link, which carries the key, is never followed; the passwords typed during setup are made up for the run and never recorded. Stories use invented values that do not look like a key.
@@ -153,10 +153,12 @@ Batch 2's criteria applied to this batch, with criterion 14 covering the setup t
 
 The rest of LIQ-006 §3 is in no flow. Its browser tests: `settings-index.spec.ts` ("each card opens its settings page", "searches settings on a narrow screen"); `store-settings.spec.ts` ("loads the store settings page", "renames the store and persists across reload", "setting the store admin language switches the dashboard UI", "saves standards, storefront access, order numbers and payments, and they survive a reload"); `policies.spec.ts` (3 tests); `channels-settings.spec.ts` (8); `custom-field-definitions.spec.ts` (6, two of which finish on a category and a customer); `markets.spec.ts` (5); `reasons.spec.ts` (4); and `taxes.spec.ts`, "adds a tax exemption reason with its code".
 
-## 7. Questions for the owner
+## 7. Questions for the owner, and the owner's answers
 
 1. **One pull request, or two parts?** The batch is about the size of batch 2, which the owner kept to one pull request. Recommended: one pull request. The alternative is two: FL-01 first (first-run setup, getting started, the settings index and the store), then the store's other settings (policies, channels, custom fields, markets and reasons).
+   *The owner's answer, 2026-10-25:* one implementation pull request.
 2. **Does first-run setup run with sample data here?** Setup can load Spree's sample catalog, which downloads product images over the network for several minutes. Recommended: no. This batch runs setup without it, and the sample data is loaded and checked by the first batch that needs a catalog (batch 4 depends on sample catalog data), so CAP-03-03 stays PARTIAL for that part until then. The alternative is a second setup run with sample data in this batch.
+   *The owner's answer, 2026-10-25:* first-run setup runs without sample data. Testing the "load sample data" option is deferred explicitly to batch 4, and CAP-03-03 stays PARTIAL for that path until it is verified.
 
 ## 8. Gaps known before the work starts
 
@@ -165,7 +167,7 @@ Recorded now so none is lost. The batch's record says which it closes.
 | Gap | What would close it |
 |---|---|
 | What first-run setup provisions, seen only through Spree's specs and the first-run browser test | Criterion 15, in this batch |
-| Setup's sample data option | Question 2 |
+| Setup's sample data option | Batch 4, as the owner answered (§7); CAP-03-03 stays PARTIAL for it until then |
 | No browser test drives the store address task's dialog, or completes a task from the getting started page; the test follows one task's link | This batch's captures show the states; the gap stays for the tests |
 | A setting's effect outside the dashboard: on the storefront, in checkout, on orders and returns | The batches named in §2.3 |
 | An exemption reason's code where a market's own tax engine decides exemptions: no external tax engine is connected | Batch 7 and P4, with the providers' test keys |
