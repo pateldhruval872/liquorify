@@ -156,6 +156,8 @@ RSpec.describe Spree::GiftCards::Apply do
     it 'does not generate store credits exceeding the gift card value' do
       gift_card_id = gift_card.id
       order_ids = orders.map(&:id)
+      # Frees this thread's connection so a pool of five serves all five threads.
+      ActiveRecord::Base.connection_pool.release_connection
       ready = Concurrent::CountDownLatch.new(order_ids.size)
 
       threads = order_ids.map do |order_id|
