@@ -1,4 +1,4 @@
-import { type APIRequestContext, expect, request } from '@playwright/test'
+import { type APIRequestContext, expect, type Page, request } from '@playwright/test'
 import { admin, PASSWORD, teammates } from './staff'
 
 /**
@@ -79,6 +79,25 @@ export interface Developers {
 export const paintOut = (selector: string) =>
   `${selector}, ${selector} * { color: transparent !important; -webkit-text-fill-color: transparent !important; text-shadow: none !important; transition: none !important; }
   ${selector} { background: #ff00ff !important; }`
+
+/**
+ * Marks every element whose own text names an address on this machine, so a
+ * screenshot can paint it out with `paintOut(LOCAL_ADDRESS)`: the records keep
+ * no local addresses, and P2's receivers and storefront run on this machine.
+ */
+export const LOCAL_ADDRESS = '[data-local-address]'
+
+export async function markLocalAddresses(page: Page) {
+  await page.evaluate(() => {
+    for (const element of document.querySelectorAll('body *')) {
+      const own = [...element.childNodes]
+        .filter((node) => node.nodeType === Node.TEXT_NODE)
+        .map((node) => node.textContent ?? '')
+        .join('')
+      if (/localhost|127\.0\.0\.1/.test(own)) element.setAttribute('data-local-address', '')
+    }
+  })
+}
 
 type Headers = Record<string, string>
 
