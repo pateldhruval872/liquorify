@@ -1751,10 +1751,24 @@ const developerSettings: Case[] = (
       },
       inStory: sheet,
     },
+    // The sheet opens with focus on the chosen radio, which draws its ring for
+    // any focus, not only the keyboard's: the first case moves focus away, as
+    // the story has none, and the second keeps it, beside the story's Tab.
     {
       id: 'CMP-DA-G-24',
       name: 'choice-card-picker-first-chosen',
       story: 'admin-dashboard-ai-agents-choice-card-picker--first-chosen',
+      screen: async (page) => {
+        await connectSheet(page)
+        await leaveAlone(page)
+        return dialogPart(page, 'field-group', '[role="radiogroup"]')
+      },
+      inStory: (page) => slot(page, 'field-group').first(),
+    },
+    {
+      id: 'CMP-DA-G-24',
+      name: 'choice-card-picker-focused',
+      story: 'admin-dashboard-ai-agents-choice-card-picker--focus-visible',
       screen: async (page) => {
         await connectSheet(page)
         return dialogPart(page, 'field-group', '[role="radiogroup"]')
