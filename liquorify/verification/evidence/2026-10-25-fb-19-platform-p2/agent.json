@@ -1,0 +1,118 @@
+{
+  "check": "P2 criterion 4: the agent server, connected on DA-SET-07",
+  "revision": "1c2f041",
+  "control": null,
+  "connect": {
+    "client": "Claude, chosen on the connect sheet",
+    "endpointPath": "/api/v3/admin/mcp",
+    "callback": "A loopback address on this machine, over plain http, as a terminal client uses"
+  },
+  "discovery": {
+    "withoutToken": {
+      "status": 401,
+      "challengeNamesMetadata": true,
+      "message": "Sign in to this store to continue. Your client will offer that when it reads the challenge on this response. A Spree API key is not accepted here — an agent acts for a person, so it carries that person's own permissions. Use the `spree api` CLI for scripted access that cannot sign in."
+    },
+    "resourcePath": "/api/v3/admin",
+    "scopesSupported": 49,
+    "authorizationEndpointPath": "/oauth/authorize"
+  },
+  "consent": {
+    "requested": [
+      "read_products",
+      "write_products"
+    ],
+    "withheldOnThePage": "write_products",
+    "callbackParameters": [
+      "code",
+      "state"
+    ],
+    "stateReturnedUnchanged": true
+  },
+  "exchange": {
+    "status": 200,
+    "fields": [
+      "access_token",
+      "created_at",
+      "expires_in",
+      "refresh_token",
+      "scope",
+      "token_type"
+    ],
+    "token_type": "Bearer",
+    "scope": "read_products"
+  },
+  "session": {
+    "status": 200,
+    "toolsListStatus": 200,
+    "protocolVersion": "2025-06-18",
+    "serverName": "spree-admin",
+    "offersTools": true
+  },
+  "toolsOffered": [
+    "create_export",
+    "create_import",
+    "describe_import_mapping",
+    "describe_resource",
+    "get_import_status",
+    "get_resource",
+    "propose_import_mapping",
+    "search_resources"
+  ],
+  "readTool": {
+    "call": {
+      "name": "search_resources",
+      "arguments": {
+        "resource": "products",
+        "filters": {
+          "name_cont": "P2 agent product 1792950776012"
+        }
+      }
+    },
+    "status": 200,
+    "isError": false,
+    "total": 1,
+    "foundTheProduct": true,
+    "recordFields": [
+      "id",
+      "path",
+      "resource",
+      "status",
+      "title"
+    ]
+  },
+  "outsideTheGrant": {
+    "ordersThroughTheSearchTool": {
+      "status": 200,
+      "isError": true,
+      "answer": "You do not have permission to read orders."
+    },
+    "toolNotOffered": {
+      "tool": "upload_file",
+      "status": 200,
+      "error": {
+        "code": -32602,
+        "message": "Invalid params",
+        "data": "Tool not found: upload_file"
+      }
+    },
+    "productsImportThroughAnOfferedTool": {
+      "status": 200,
+      "isError": true,
+      "answer": "You do not have permission to import products."
+    }
+  },
+  "readToolWithoutToken": {
+    "status": 401,
+    "challengeNamesMetadata": true,
+    "message": "Sign in to this store to continue. Your client will offer that when it reads the challenge on this response. A Spree API key is not accepted here — an agent acts for a person, so it carries that person's own permissions. Use the `spree api` CLI for scripted access that cannot sign in."
+  },
+  "agentsScreen": {
+    "connectionListedWithAccess": "View Products",
+    "toolsListAfterRevoking": {
+      "status": 401,
+      "challengeNamesMetadata": true,
+      "message": "Sign in to this store to continue. Your client will offer that when it reads the challenge on this response. A Spree API key is not accepted here — an agent acts for a person, so it carries that person's own permissions. Use the `spree api` CLI for scripted access that cannot sign in."
+    }
+  }
+}
