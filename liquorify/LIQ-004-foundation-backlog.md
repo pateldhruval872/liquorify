@@ -395,7 +395,7 @@ A proposal: the owner may reorder it. The dashboard and storefront tracks run si
 |---|---|---|
 | 1 | Dashboard shell part 2 (CAP-04-05; DA-OVL-01 to DA-OVL-04) | The owner's acceptance of part 1, given on 2026-10-22. Built in #14, accepted and merged on 2026-10-23 |
 | 2 | Developer and integration settings (CAP-04-06 to CAP-04-09). Proposed in #15 ([work item](work-items/fb-19-batch-developer-and-integration-settings.md)); the owner answered its questions on 2026-10-23: one pull request, P2 separately after its acceptance, and the listing framework's stories included. Built in draft #16 ([record](verification/2026-10-24-fb-19-batch-developer-settings.md)), waiting for the owner's review | Part 2, merged on 2026-10-23 |
-| 3 | Setup, stores and settings (§3; DA-SETUP-01, FL-01) | Part 2 |
+| 3 | Setup, stores and settings (§3; DA-SETUP-01, FL-01). Proposed on 2026-10-25 ([work item](work-items/fb-19-batch-setup-stores-and-settings.md)), with two questions for the owner | Part 2 |
 | 4 | Storefront shop (CAP-05-14, CAP-05-17; SF-SHOP, SF-OVL-01, SF-OVL-03, SF-OVL-04, SF-SYS) | The storefront accounts batch; sample catalog data |
 | 5 | Catalog and pricing (§5), in two or three parts | Setup |
 | 6 | Inventory (CAP-07-09, CAP-07-10) | Catalog |
