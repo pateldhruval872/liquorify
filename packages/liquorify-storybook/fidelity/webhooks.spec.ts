@@ -229,7 +229,11 @@ test('an endpoint created on the screen receives signed deliveries of what it su
   await page.getByRole('button', { name: /^add origin$/i }).click()
   await expect(page.getByText(origin).first()).toBeVisible({ timeout: 15_000 })
   await page.mouse.move(0, 0)
-  writeFileSync(`${results}allowed-origin-added.png`, await page.screenshot())
+  await markLocalAddresses(page)
+  writeFileSync(
+    `${results}allowed-origin-added.png`,
+    await page.screenshot({ style: paintOut(LOCAL_ADDRESS) }),
+  )
 
   const onOrigin = await reset(`${origin}/account/reset-password`)
   const elsewhere = await reset('https://elsewhere.example.test/account/reset-password')
