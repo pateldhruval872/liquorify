@@ -1,0 +1,11 @@
+{
+  "screen": "SF-SHOP-02",
+  "state": "sort-dropdown-open",
+  "variant": "guest",
+  "theme": "light",
+  "width": 1280,
+  "revision": "321fa1c",
+  "path": "/us/en/products",
+  "observed": "The sort dropdown offers: Manual; Best Selling; Price (low-high); Price (high-low); Newest; Oldest; Name (A-Z); Name (Z-A).",
+  "note": null
+}

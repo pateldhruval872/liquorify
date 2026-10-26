@@ -1,0 +1,11 @@
+{
+  "screen": "DA-PRD-03",
+  "state": "custom-field-values-saved",
+  "variant": "admin",
+  "theme": "light",
+  "width": 1280,
+  "revision": "321fa1c",
+  "path": "/store_UkLWZg9DAJ/products/prod_oqlrKdXjaP",
+  "observed": "The screen said: \"\".",
+  "note": "Both fields given a value on the browser tests' two-option product and saved from its page."
+}
