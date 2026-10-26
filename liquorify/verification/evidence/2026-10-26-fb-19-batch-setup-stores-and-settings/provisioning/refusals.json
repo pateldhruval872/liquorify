@@ -1,0 +1,72 @@
+{
+  "revision": "da3f79b",
+  "note": "Each case changes a copy of the records read from the newly set-up store; the store itself is not changed.",
+  "cases": [
+    {
+      "name": "missing default",
+      "change": "Removes the refund reason 'Return processing'",
+      "expectedToFail": "refund-reasons",
+      "summary": {
+        "checks": 28,
+        "correct": 27,
+        "failing": [
+          "refund-reasons (missing): missing: \"Return processing\""
+        ]
+      },
+      "failing": [
+        {
+          "id": "refund-reasons",
+          "status": "missing",
+          "problems": [
+            "missing: \"Return processing\""
+          ]
+        }
+      ],
+      "refusedWith": "1 of 28 provisioning checks failed:\nrefund-reasons (missing): missing: \"Return processing\""
+    },
+    {
+      "name": "wrong payment method type",
+      "change": "Gives the 'Store Credit' payment method the type 'check'",
+      "expectedToFail": "payment-methods",
+      "summary": {
+        "checks": 28,
+        "correct": 27,
+        "failing": [
+          "payment-methods (incorrect): \"Store Credit\": type should be \"store_credit\", is \"check\""
+        ]
+      },
+      "failing": [
+        {
+          "id": "payment-methods",
+          "status": "incorrect",
+          "problems": [
+            "\"Store Credit\": type should be \"store_credit\", is \"check\""
+          ]
+        }
+      ],
+      "refusedWith": "1 of 28 provisioning checks failed:\npayment-methods (incorrect): \"Store Credit\": type should be \"store_credit\", is \"check\""
+    },
+    {
+      "name": "pickup above zero",
+      "change": "Prices 'Store Pickup' at 1.00",
+      "expectedToFail": "pickup",
+      "summary": {
+        "checks": 28,
+        "correct": 27,
+        "failing": [
+          "pickup (incorrect): pickup: amount should be \"0.00\", is \"1.00\""
+        ]
+      },
+      "failing": [
+        {
+          "id": "pickup",
+          "status": "incorrect",
+          "problems": [
+            "pickup: amount should be \"0.00\", is \"1.00\""
+          ]
+        }
+      ],
+      "refusedWith": "1 of 28 provisioning checks failed:\npickup (incorrect): pickup: amount should be \"0.00\", is \"1.00\""
+    }
+  ]
+}
