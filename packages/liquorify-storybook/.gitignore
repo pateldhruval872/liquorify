@@ -5,3 +5,4 @@ visual/results/
 # The fidelity comparison writes its images and findings here.
 fidelity/results/
 fidelity/.stop
+fidelity/.stop-first-run

@@ -1,0 +1,16 @@
+{
+  "screen": "DA-AUTH-01",
+  "state": "installation-set-up",
+  "variant": "installer",
+  "role": null,
+  "theme": "dark",
+  "revision": "881a619",
+  "path": "/login",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": null,
+  "masked": null,
+  "outside": []
+}

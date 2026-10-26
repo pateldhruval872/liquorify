@@ -45,6 +45,8 @@ export const roles = {
       'read_integrations',
     ],
   },
+  /** Read on `settings`, the scope of batch 3's screens, and write on nothing. */
+  settingsViewer: { name: 'Settings viewer', permissions: ['read_settings'] },
   /** May connect an agent, which takes write on OAuth applications, and holds little else. */
   agentConnector: {
     name: 'Agent connector',
@@ -99,6 +101,12 @@ export const teammates: Record<
     email: 'fidelity-developer-viewer@example.com',
     role: 'developerViewer',
     first: 'Dev',
+    last: 'Viewer',
+  },
+  settingsViewer: {
+    email: 'fidelity-settings-viewer@example.com',
+    role: 'settingsViewer',
+    first: 'Set',
     last: 'Viewer',
   },
   agentConnector: {

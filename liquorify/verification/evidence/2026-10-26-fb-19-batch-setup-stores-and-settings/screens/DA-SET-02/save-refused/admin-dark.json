@@ -1,0 +1,17 @@
+{
+  "screen": "DA-SET-02",
+  "state": "save-refused",
+  "variant": "admin",
+  "role": null,
+  "theme": "dark",
+  "revision": "881a619",
+  "path": "/<store>/settings/store",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": "The store's save is answered with a field error and never reaches the server",
+  "masked": null,
+  "settled": true,
+  "outside": []
+}
