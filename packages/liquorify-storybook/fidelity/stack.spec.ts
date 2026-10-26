@@ -1,9 +1,12 @@
 import { existsSync, rmSync, writeFileSync } from 'node:fs'
 import { test } from '@playwright/test'
+import firstRunSetup from '../../dashboard/e2e/first-run/global-setup'
+import firstRunTeardown from '../../dashboard/e2e/first-run/global-teardown'
 import globalSetup from '../../dashboard/e2e/global-setup'
 import globalTeardown from '../../dashboard/e2e/global-teardown'
 
 const stopFile = new URL('./.stop', import.meta.url)
+const firstRunStopFile = new URL('./.stop-first-run', import.meta.url)
 const mailInitializer = new URL(
   '../../../spree/api/spec/dummy/config/initializers/zz_liquorify_mail.rb',
   import.meta.url,
@@ -45,5 +48,22 @@ test('Spree browser-test server', async () => {
     await globalTeardown()
     rmSync(stopFile, { force: true })
     rmSync(mailInitializer, { force: true })
+  }
+})
+
+/**
+ * First-run setup's own server, which starts with no admin and a setup link,
+ * exactly as `first-run/setup.spec.ts` starts it, and keeps it running until
+ * `fidelity/.stop-first-run` exists. setup.spec.ts completes setup on it, which
+ * closes setup for good, so each of its runs needs this server started afresh.
+ */
+test('Spree first-run server', async () => {
+  rmSync(firstRunStopFile, { force: true })
+  await firstRunSetup()
+  try {
+    while (!existsSync(firstRunStopFile)) await new Promise((resolve) => setTimeout(resolve, 1000))
+  } finally {
+    await firstRunTeardown()
+    rmSync(firstRunStopFile, { force: true })
   }
 })

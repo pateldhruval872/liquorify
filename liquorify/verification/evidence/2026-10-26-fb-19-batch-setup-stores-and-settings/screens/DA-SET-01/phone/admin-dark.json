@@ -1,0 +1,17 @@
+{
+  "screen": "DA-SET-01",
+  "state": "phone",
+  "variant": "admin",
+  "role": null,
+  "theme": "dark",
+  "revision": "881a619",
+  "path": "/<store>/settings",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "intercepted": null,
+  "masked": null,
+  "settled": true,
+  "outside": []
+}
