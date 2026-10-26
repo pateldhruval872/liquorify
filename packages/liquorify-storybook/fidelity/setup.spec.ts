@@ -3,6 +3,14 @@ import { mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { expect, type Page, request, test } from '@playwright/test'
 import { FIRST_RUN_VITE_PORT } from '../../dashboard/e2e/first-run/global-setup'
 import { FIRST_RUN_CREDENTIALS_FILE } from '../../dashboard/e2e/paths'
+import {
+  assertProvisioned,
+  failures,
+  type ProvisioningCheck,
+  provisioningChecks,
+  type Records,
+  type Row,
+} from './provisioning'
 
 /**
  * First-run setup (DA-SETUP-01) and the sign-in page's pointer to it, captured
@@ -16,7 +24,12 @@ import { FIRST_RUN_CREDENTIALS_FILE } from '../../dashboard/e2e/paths'
  * only ever opened, never written down; the merchant's password is made up for
  * the run and kept in memory. Once setup completes, the new store is read
  * through the Admin API and compared with what Spree's two provisioning
- * services give it, into `results/provisioning/first-run.json`.
+ * services give it (`provisioning.ts`): the comparison is written to
+ * `results/provisioning/first-run.json`, and the test then fails if any
+ * default is missing or wrong. A last test changes copies of the records it
+ * read, to show the comparison refusing a missing default, a payment method
+ * of the wrong type and a pickup that costs money
+ * (`results/provisioning/refusals.json`).
  */
 
 const results = new URL('./results/', import.meta.url).pathname
@@ -304,6 +317,59 @@ const capture = (item: Capture, theme: 'light' | 'dark') =>
   })
 
 let storeId = ''
+let provisioned: { store: Row; records: Records } | null = null
+
+const answers = {
+  storeName: merchant.storeName,
+  country: { name: country.name, code: country.code, currency: country.currency },
+  locale: 'en',
+}
+
+/** Each change a refusal makes to a copy of the records, and the check it should fail. */
+const refusals: {
+  name: string
+  change: string
+  check: string
+  status: ProvisioningCheck['status']
+  apply: (records: Records) => void
+}[] = [
+  {
+    name: 'missing default',
+    change: "Removes the refund reason 'Return processing'",
+    check: 'refund-reasons',
+    status: 'missing',
+    apply: (records) => {
+      records.refundReasons = records.refundReasons.filter(
+        (row) => row.name !== 'Return processing',
+      )
+    },
+  },
+  {
+    name: 'wrong payment method type',
+    change: "Gives the 'Store Credit' payment method the type 'check'",
+    check: 'payment-methods',
+    status: 'incorrect',
+    apply: (records) => {
+      for (const row of records.paymentMethods) {
+        if (row.name === 'Store Credit') row.type = 'check'
+      }
+    },
+  },
+  {
+    name: 'pickup above zero',
+    change: "Prices 'Store Pickup' at 1.00",
+    check: 'pickup',
+    status: 'incorrect',
+    apply: (records) => {
+      for (const row of records.deliveryMethods) {
+        if (row.fulfillment_provider === 'pickup') {
+          const calculator = row.calculator as { preferences: { amount: string } }
+          calculator.preferences.amount = '1.00'
+        }
+      }
+    },
+  },
+]
 
 test.describe
   .serial('first-run setup', () => {
@@ -349,12 +415,17 @@ test.describe
           expect(res.ok(), `reading ${path}: ${res.status()}`).toBeTruthy()
           return (await res.json()) as Record<string, unknown>
         }
-        const list = async (path: string) =>
-          ((await read(`${path}${path.includes('?') ? '&' : '?'}limit=100`)) as { data: Row[] })
-            .data
+        // The largest page the Admin API serves; a list longer than that would fail here.
+        const list = async (path: string) => {
+          const { data, meta } = (await read(
+            `${path}${path.includes('?') ? '&' : '?'}limit=100`,
+          )) as { data: Row[]; meta: { count: number } }
+          expect(data.length, `every row of ${path}`).toBe(meta.count)
+          return data
+        }
 
         const store = (await read('store')) as Row
-        const records = {
+        const records: Records = {
           markets: await list('markets'),
           stockLocations: await list('stock_locations'),
           deliveryProfiles: await list('delivery_profiles'),
@@ -377,241 +448,98 @@ test.describe
           apiKeys: await list('api_keys'),
           savedReports: await list('reporting/saved_reports'),
           allowedOrigins: await list('allowed_origins'),
+          countries: await list('countries'),
         }
-        const checks = provisioning(store, records)
+        provisioned = { store, records }
+        const checks = provisioningChecks(store, records, answers)
         mkdirSync(`${results}provisioning/`, { recursive: true })
         writeFileSync(
           `${results}provisioning/first-run.json`,
-          JSON.stringify({ revision, country, checks }, null, 2),
+          JSON.stringify(
+            {
+              revision,
+              answers,
+              summary: summary(checks),
+              checks,
+            },
+            byName(records),
+            2,
+          ),
         )
+        assertProvisioned(checks)
       } finally {
         await api.dispose()
       }
     })
+
+    test('the provisioning check refuses a missing or wrong default', () => {
+      expect(provisioned, 'the new store was read').not.toBeNull()
+      const { store, records } = provisioned as { store: Row; records: Records }
+      const cases = refusals.map((refusal) => {
+        const copy = structuredClone(records)
+        refusal.apply(copy)
+        const checks = provisioningChecks(store, copy, answers)
+        const failing = checks.filter((check) => check.status !== 'correct')
+        let refusedWith = ''
+        try {
+          assertProvisioned(checks)
+        } catch (error) {
+          refusedWith = (error as Error).message
+        }
+        return { ...refusal, failing, refusedWith, summary: summary(checks) }
+      })
+      mkdirSync(`${results}provisioning/`, { recursive: true })
+      writeFileSync(
+        `${results}provisioning/refusals.json`,
+        JSON.stringify(
+          {
+            revision,
+            note: 'Each case changes a copy of the records read from the newly set-up store; the store itself is not changed.',
+            cases: cases.map((item) => ({
+              name: item.name,
+              change: item.change,
+              expectedToFail: item.check,
+              summary: item.summary,
+              failing: item.failing.map(({ id, status, problems }) => ({ id, status, problems })),
+              refusedWith: item.refusedWith,
+            })),
+          },
+          byName(records),
+          2,
+        ),
+      )
+      for (const item of cases) {
+        expect(
+          item.failing.map(({ id, status }) => ({ id, status })),
+          item.name,
+        ).toEqual([{ id: item.check, status: item.status }])
+        expect(item.refusedWith, item.name).toContain(`${item.check} (${item.status})`)
+      }
+    })
   })
-
-type Row = Record<string, unknown>
-
-interface Check {
-  /** The service and step that should have given the store this. */
-  source: string
-  what: string
-  status: 'present' | 'gap'
-  /** What the store has, with no key, token or address. */
-  found: unknown
-}
-
-const names = (rows: Row[]) => rows.map((row) => row.name)
-const countriesOf = (zone: Row | undefined) =>
-  ((zone?.members ?? []) as Row[])
-    .filter((member) => member.member_type === 'country')
-    .map((member) => member.country_code as string)
-const amount = (method: Row | undefined) =>
-  (method?.calculator as { preferences?: { amount?: string; currency?: string } } | undefined)
-    ?.preferences
 
 /**
- * Each default the two services give a new store, as `Spree::Seeds::StoreResources`
- * (run before setup) and `Spree::Stores::ProvisionDefaults` (run by setup, from
- * the merchant's country, currency and language) build it.
+ * Writes the profiles, zones and channels records point to by name, as
+ * `<delivery profile "General">`, so a report says which record a link names.
+ * The checks compare the ids themselves.
  */
-function provisioning(store: Row, records: Record<string, Row[]>): Check[] {
-  const check = (source: string, what: string, present: boolean, found: unknown): Check => ({
-    source,
-    what,
-    status: present ? 'present' : 'gap',
-    found,
-  })
-  const market = records.markets.find((row) => row.default)
-  const location = records.stockLocations.find((row) => row.default)
-  const zone = (name: string) => records.deliveryZones.find((row) => row.name === name)
-  const method = (match: (row: Row) => boolean) => records.deliveryMethods.find(match)
-  const standard = method((row) => row.name === 'Standard')
-  const international = method((row) => row.name === 'International Shipping')
-  const pickup = method((row) => row.fulfillment_provider === 'pickup')
-  const digital = method((row) => row.digital === true)
-  const packageType = records.packageTypes.find((row) => row.default)
-  const metric = store.unit_system === 'metric'
-  const provision = 'ProvisionDefaults'
-  const seed = 'StoreResources'
-
-  return [
-    check(
-      provision,
-      "The store's country, currency and language",
-      store.default_country_code === country.code &&
-        store.default_currency === country.currency &&
-        store.default_locale === 'en',
-      {
-        name: store.name,
-        default_country_code: store.default_country_code,
-        default_currency: store.default_currency,
-        default_locale: store.default_locale,
-      },
-    ),
-    check(provision, "The dashboard's language for the store", store.admin_locale === 'en', {
-      admin_locale: store.admin_locale,
-    }),
-    check(
-      provision,
-      'The default market, named after the country, in its currency and the chosen language',
-      market?.name === country.name &&
-        market?.currency === country.currency &&
-        market?.default_locale === 'en' &&
-        JSON.stringify(market?.country_codes) === JSON.stringify([country.code]),
-      market && {
-        name: market.name,
-        currency: market.currency,
-        default_locale: market.default_locale,
-        country_codes: market.country_codes,
-      },
-    ),
-    check(
-      provision,
-      'The default stock location, in the country, active and open for pickup',
-      location?.country_code === country.code &&
-        location?.active === true &&
-        location?.pickup_enabled === true,
-      location && {
-        name: location.name,
-        country_code: location.country_code,
-        active: location.active,
-        pickup_enabled: location.pickup_enabled,
-      },
-    ),
-    check(
-      provision,
-      'The default shipping profile',
-      records.deliveryProfiles.some((row) => row.default && row.kind === 'shipping'),
-      records.deliveryProfiles.map((row) => ({
-        name: row.name,
-        kind: row.kind,
-        default: row.default,
-      })),
-    ),
-    check(
-      provision,
-      'A domestic delivery zone for the country and an international one for everywhere else',
-      JSON.stringify(countriesOf(zone('Domestic'))) === JSON.stringify([country.code]) &&
-        countriesOf(zone('International')).length > 1 &&
-        !countriesOf(zone('International')).includes(country.code),
-      records.deliveryZones.map((row) => ({
-        name: row.name,
-        description: row.description,
-        countries: row.name === 'Domestic' ? countriesOf(row) : countriesOf(row).length,
-      })),
-    ),
-    check(
-      provision,
-      `Standard delivery at 5 and international at 20, in ${country.currency}`,
-      amount(standard)?.amount === '5.00' &&
-        amount(standard)?.currency === country.currency &&
-        amount(international)?.amount === '20.00' &&
-        amount(international)?.currency === country.currency,
-      [standard, international].map((row) => row && { name: row.name, ...amount(row) }),
-    ),
-    check(
-      provision,
-      `Store pickup, free, in ${country.currency}, shown on the storefront`,
-      amount(pickup)?.currency === country.currency && pickup?.storefront_visible === true,
-      pickup && {
-        name: pickup.name,
-        storefront_visible: pickup.storefront_visible,
-        ...amount(pickup),
-      },
-    ),
-    check(
-      provision,
-      `The seeded digital delivery restated in ${country.currency}`,
-      amount(digital)?.currency === country.currency,
-      digital && { name: digital.name, ...amount(digital) },
-    ),
-    check(
-      provision,
-      `A default box, sized in the store's ${metric ? 'metric' : 'imperial'} units`,
-      packageType?.kind === 'box' && packageType?.dimensions_unit === (metric ? 'cm' : 'in'),
-      packageType && {
-        name: packageType.name,
-        kind: packageType.kind,
-        length: packageType.length,
-        width: packageType.width,
-        height: packageType.height,
-        dimensions_unit: packageType.dimensions_unit,
-        weight: packageType.weight,
-        weight_unit: packageType.weight_unit,
-        unit_system: store.unit_system,
-      },
-    ),
-    check(seed, 'Tax categories', records.taxCategories.length > 0, names(records.taxCategories)),
-    check(
-      seed,
-      'Tax exemption reasons',
-      records.taxExemptionReasons.length > 0,
-      names(records.taxExemptionReasons),
-    ),
-    check(
-      seed,
-      'The wholesale channel',
-      records.channels.some((row) => row.code === 'wholesale'),
-      names(records.channels),
-    ),
-    check(seed, 'The admin role', records.roles.length > 0, names(records.roles)),
-    check(seed, 'Digital delivery', digital !== undefined, digital?.name),
-    check(
-      seed,
-      'Store credit as a payment method',
-      records.paymentMethods.length > 0,
-      records.paymentMethods.map((row) => ({ name: row.name, type: row.type })),
-    ),
-    check(seed, 'Product types', records.productTypes.length > 0, names(records.productTypes)),
-    check(
-      seed,
-      'The wholesale customer group',
-      records.customerGroups.length > 0,
-      names(records.customerGroups),
-    ),
-    check(
-      seed,
-      'Return, claim and cancellation reasons',
-      [records.returnReasons, records.claimReasons, records.cancellationReasons].every(
-        (rows) => rows.length > 0,
-      ),
-      {
-        return: records.returnReasons.length,
-        claim: records.claimReasons.length,
-        refund: records.refundReasons.length,
-        cancellation: records.cancellationReasons.length,
-      },
-    ),
-    check(
-      seed,
-      "The marketplace's catch-all commission rate",
-      records.commissionRates.length > 0,
-      records.commissionRates.map((row) => ({
-        name: row.name,
-        code: row.code,
-        enabled: row.enabled,
-      })),
-    ),
-    check(
-      seed,
-      'Seller requirements',
-      records.sellerRequirements.length > 0,
-      records.sellerRequirements.length,
-    ),
-    check(
-      seed,
-      'Publishable keys for the storefront and the wholesale channel',
-      records.apiKeys.filter((row) => row.key_type === 'publishable').length >= 2,
-      records.apiKeys.map((row) => ({ name: row.name, key_type: row.key_type })),
-    ),
-    check(seed, 'Saved reports', records.savedReports.length > 0, records.savedReports.length),
-    // The seeded origin is a local address, so only the count is kept.
-    check(
-      seed,
-      'An allowed origin',
-      records.allowedOrigins.length > 0,
-      records.allowedOrigins.length,
-    ),
-  ]
+function byName(records: Records) {
+  const names = new Map<string, string>()
+  for (const [kind, rows] of [
+    ['delivery profile', records.deliveryProfiles],
+    ['delivery zone', records.deliveryZones],
+    ['channel', records.channels],
+  ] as const) {
+    for (const row of rows) names.set(row.id as string, `<${kind} "${row.name}">`)
+  }
+  return (_key: string, value: unknown) =>
+    typeof value === 'string'
+      ? [...names].reduce((text, [id, name]) => text.replaceAll(id, name), value)
+      : value
 }
+
+const summary = (checks: ProvisioningCheck[]) => ({
+  checks: checks.length,
+  correct: checks.filter((check) => check.status === 'correct').length,
+  failing: failures(checks),
+})
