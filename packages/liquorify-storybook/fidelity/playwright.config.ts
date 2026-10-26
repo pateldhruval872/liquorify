@@ -25,7 +25,11 @@ import { defineConfig } from '@playwright/test'
  * delivers to a local receiver, `storefront-webhooks.spec.ts` delivers to the
  * storefront's receiver, `agent.spec.ts` connects an agent to the agent
  * server gem's test app, and `webhook-tracing.spec.ts` traces deliveries on
- * the tracing gem's test app (see each file).
+ * the tracing gem's test app (see each file). For step P7, `one-store-admin.spec.ts`,
+ * `one-store-accounts.spec.ts` and `one-store-storefront.spec.ts` send requests
+ * within one store as callers who may not make them, each beside an allowed
+ * caller, and `one-store-checks.spec.ts` shows their judge (`one-store.ts`)
+ * failing against a stand-in server (see each file).
  */
 export default defineConfig({
   testDir: '.',
@@ -48,6 +52,10 @@ export default defineConfig({
     'storefront-webhooks.spec.ts',
     'agent.spec.ts',
     'webhook-tracing.spec.ts',
+    'one-store-admin.spec.ts',
+    'one-store-accounts.spec.ts',
+    'one-store-storefront.spec.ts',
+    'one-store-checks.spec.ts',
   ],
   outputDir: './results/test-output',
   workers: 1,
