@@ -17,6 +17,7 @@ import {
   setGateway,
   setRelay,
 } from './developers'
+import { inactiveChannel, retiredExemptionReason, seedSettings, setStoreName } from './settings'
 import {
   admin,
   currentAcceptancePath,
@@ -1994,10 +1995,881 @@ const developerCaptures: Capture[] = [
   },
 ]
 
+/**
+ * Batch 3's screens: the getting started page, the settings index, the store,
+ * policies, channels, custom fields, markets and reasons (LIQ-006 §3). The
+ * storefront sheet shows the store's publishable key and the server's own
+ * address, so both are painted out wherever it is open.
+ */
+
+const storefrontCredentials: Capture['masked'] = {
+  what: "The storefront sheet's Store API address and publishable key",
+  selector: '[role="dialog"] input[readonly]',
+}
+
+const sheet = (page: Page) => page.getByRole('dialog')
+
+const card = (page: Page, title: string) =>
+  page.locator('[data-slot="card"]').filter({ hasText: title })
+
+/**
+ * Scrolls the card with this title to the top of the page's scrolling area,
+ * below the page's title, which stays pinned.
+ */
+const toCard = (page: Page, title: string) =>
+  page
+    .locator('[data-slot="card-title"]')
+    .getByText(title, { exact: true })
+    .evaluate((element) => {
+      const section = element.closest('[data-slot="card"]') ?? element
+      section.scrollIntoView({ block: 'start' })
+      let pinned = document.querySelector('h1') as Element | null
+      while (pinned && getComputedStyle(pinned).position !== 'sticky') pinned = pinned.parentElement
+      let scroller = section.parentElement
+      while (scroller && scroller.scrollHeight <= scroller.clientHeight) {
+        scroller = scroller.parentElement
+      }
+      const covered =
+        (pinned?.getBoundingClientRect().bottom ?? 0) - section.getBoundingClientRect().top
+      scroller?.scrollBy(0, -(covered + 16))
+    })
+
+/** The real store, with every setup task marked done or not done. */
+const answerTasks = (page: Page, done: boolean) =>
+  page.route(
+    (url) => url.pathname === '/api/v3/admin/store',
+    async (route) => {
+      if (route.request().method() !== 'GET') return route.fallback()
+      const response = await route.fetch()
+      const body = (await response.json()) as { setup_tasks?: { name: string; done: boolean }[] }
+      await route.fulfill({
+        response,
+        json: { ...body, setup_tasks: body.setup_tasks?.map((task) => ({ ...task, done })) },
+      })
+    },
+  )
+
+const openGettingStarted = async (page: Page) => {
+  await openStore(page, '/getting-started')
+  await expect(page.getByRole('heading', { name: 'Getting Started' })).toBeVisible()
+}
+
+const openTask = async (page: Page, title: string) => {
+  await openGettingStarted(page)
+  // The first task not done opens on its own.
+  const task = page.getByRole('button', { name: title })
+  if ((await task.getAttribute('aria-expanded')) !== 'true') await task.click()
+  await expect(page.getByRole('region', { name: title })).toBeVisible()
+}
+
+const openStorefrontSheet = async (page: Page) => {
+  await openTask(page, 'Set up storefront')
+  await page.getByRole('button', { name: 'Connect storefront' }).click()
+  await expect(sheet(page).getByText('Publishable API key')).toBeVisible()
+}
+
+const openStoreSettings = async (page: Page) => {
+  await openStore(page, '/settings/store')
+  await expect(page.getByRole('textbox', { name: 'Store name' })).toBeVisible()
+}
+
+/** Opens a list page's create sheet by its button. */
+const openCreate = (path: string, button: string) => async (page: Page) => {
+  await openStore(page, `/settings/${path}`)
+  await page.getByRole('button', { name: button }).click()
+  await expect(sheet(page)).toBeVisible()
+}
+
+/** Opens a record's sheet from its name in the list. */
+const openRecord = async (page: Page, path: string, name: string) => {
+  await openStore(page, `/settings/${path}`)
+  await page
+    .getByRole('button', { name: new RegExp(`^${name}`) })
+    .first()
+    .click()
+  await expect(sheet(page)).toBeVisible()
+}
+
+const channelSheet = (page: Page) =>
+  page.getByRole('dialog').filter({ hasText: 'Order routing rules' })
+const routingRule = (page: Page, name: string) =>
+  channelSheet(page).locator('li').filter({ hasText: name })
+const showRoutingRules = (page: Page) =>
+  channelSheet(page)
+    .getByText('Order routing rules')
+    .evaluate((element) => element.scrollIntoView({ block: 'start' }))
+
+const askDelete = async (page: Page, path: string, rowText: string) => {
+  await openStore(page, `/settings/${path}`)
+  await openRowMenu(page, rowText)
+  await page.getByRole('menuitem', { name: 'Delete' }).click()
+  await expect(confirmation(page)).toBeVisible()
+}
+
+const chooseOption = async (page: Page, field: string, option: string) => {
+  await sheet(page).getByRole('combobox', { name: field }).click()
+  await page.getByRole('option', { name: option, exact: true }).click()
+}
+
+/** The three roles of the batch (§2.2): every control, read only, and none of these settings. */
+const settingsVariants = ['admin', 'settingsViewer'] as const
+
+const listed = (screen: string, path: string, shows: string): Capture[] => [
+  ...settingsVariants.map(
+    (variant): Capture => ({
+      screen,
+      state: 'listed',
+      variant,
+      reach: async (page) => {
+        await openStore(page, `/settings/${path}`)
+        await expect(page.getByText(shows, { exact: true }).first()).toBeVisible()
+      },
+    }),
+  ),
+  directVisit(screen, `/settings/${path}`),
+]
+
+/** A new market with its name, currency, a second language, a country and tax included. */
+const fillMarket = async (page: Page) => {
+  await openCreate('markets', 'Add market')(page)
+  await sheet(page).getByRole('textbox', { name: 'Name' }).fill('Canada')
+  await chooseOption(page, 'Currency', 'CAD — Canadian Dollar')
+  await sheet(page).getByRole('combobox', { name: 'Supported locales' }).fill('fr-')
+  await page.getByRole('option', { name: /^FR-CA/ }).click()
+  await sheet(page).getByRole('combobox', { name: 'Search countries…' }).fill('Canada')
+  await page
+    .getByRole('option', { name: /Canada/ })
+    .first()
+    .click()
+  await sheet(page).getByRole('switch', { name: 'Prices include tax' }).click()
+}
+
+/** The six setup tasks, by the name the store's answer gives each and the title it shows. */
+const setupTasks = [
+  ['address', 'Add your shipping address'],
+  ['payment-methods', 'Set up payment methods'],
+  ['products', 'Add products'],
+  ['support-email', 'Set customer support email'],
+  ['taxes', 'Set up taxes collection'],
+  ['storefront', 'Set up storefront'],
+] as const
+
+const fieldTypes = ['Long text', 'Rich text', 'Number', 'Boolean', 'JSON'] as const
+
+const settingsCaptures: Capture[] = [
+  // DA-HOME-02 Getting started, with its navigation entry
+  {
+    screen: 'DA-HOME-02',
+    state: 'some-done',
+    variant: 'admin',
+    reach: openGettingStarted,
+  },
+  {
+    screen: 'DA-HOME-02',
+    state: 'none-done',
+    variant: 'admin',
+    intercepted: "The store's answer has every setup task marked not done",
+    reach: async (page) => {
+      await answerTasks(page, false)
+      await openGettingStarted(page)
+      await expect(page.getByText('0 of 6 completed')).toBeVisible()
+    },
+  },
+  {
+    screen: 'DA-HOME-02',
+    state: 'all-done',
+    variant: 'admin',
+    intercepted: "The store's answer has every setup task marked done",
+    reach: async (page) => {
+      await answerTasks(page, true)
+      await openStore(page, '/getting-started')
+      await expect(page.getByRole('link', { name: /Getting Started/ })).toHaveCount(0)
+    },
+  },
+  ...setupTasks.flatMap(([task, title]) =>
+    [false, true].map(
+      (done): Capture => ({
+        screen: 'DA-HOME-02',
+        state: `task-${task}-${done ? 'done' : 'not-done'}`,
+        variant: 'admin',
+        intercepted: `The store's answer has every setup task marked ${done ? 'done' : 'not done'}`,
+        reach: async (page) => {
+          await answerTasks(page, done)
+          await openTask(page, title)
+        },
+      }),
+    ),
+  ),
+  {
+    screen: 'DA-HOME-02',
+    state: 'address-dialog',
+    variant: 'admin',
+    reach: async (page) => {
+      await openGettingStarted(page)
+      await page.getByRole('button', { name: 'Save address' }).click()
+      await expect(page.getByRole('dialog')).toBeVisible()
+    },
+  },
+  {
+    screen: 'DA-HOME-02',
+    state: 'storefront-sheet-key-hidden',
+    variant: 'admin',
+    masked: storefrontCredentials,
+    reach: openStorefrontSheet,
+  },
+  {
+    screen: 'DA-HOME-02',
+    state: 'storefront-sheet-key-shown',
+    variant: 'admin',
+    masked: storefrontCredentials,
+    reach: async (page) => {
+      await openStorefrontSheet(page)
+      await sheet(page).getByRole('button', { name: 'Show' }).click()
+      await expect(sheet(page).getByRole('button', { name: 'Hide' })).toBeVisible()
+    },
+  },
+  {
+    screen: 'DA-HOME-02',
+    state: 'storefront-sheet-not-an-address',
+    variant: 'admin',
+    masked: storefrontCredentials,
+    reach: async (page) => {
+      await openStorefrontSheet(page)
+      await sheet(page).getByLabel('Storefront URL').fill('https://')
+      await sheet(page).getByRole('button', { name: 'Save & finish setup' }).click()
+      await expect(page.getByText("This doesn't look like a valid storefront URL.")).toBeAttached()
+    },
+  },
+  {
+    screen: 'DA-HOME-02',
+    state: 'direct-visit',
+    variant: 'settingsViewer',
+    reach: (page) => openStore(page, '/getting-started'),
+  },
+  directVisit('DA-HOME-02', '/getting-started'),
+
+  // DA-SET-01 Settings index
+  ...(['admin', 'settingsViewer', 'orderManager'] as const).map(
+    (variant): Capture => ({
+      screen: 'DA-SET-01',
+      state: 'cards',
+      variant,
+      reach: async (page) => {
+        await openStore(page, '/settings')
+        await expect(page.getByRole('heading', { name: 'Settings', level: 1 })).toBeVisible()
+      },
+    }),
+  ),
+  {
+    screen: 'DA-SET-01',
+    state: 'phone',
+    variant: 'admin',
+    phone: true,
+    reach: async (page) => {
+      await openStore(page, '/settings')
+      await expect(page.getByRole('searchbox', { name: 'Search settings' })).toBeVisible()
+    },
+  },
+  {
+    screen: 'DA-SET-01',
+    state: 'phone-searched',
+    variant: 'admin',
+    phone: true,
+    reach: async (page) => {
+      await openStore(page, '/settings')
+      await page.getByRole('searchbox', { name: 'Search settings' }).fill('tax')
+      await expect(page.getByRole('link', { name: /^Taxes/ })).toBeVisible()
+    },
+  },
+  {
+    screen: 'DA-SET-01',
+    state: 'phone-nothing-found',
+    variant: 'admin',
+    phone: true,
+    reach: async (page) => {
+      await openStore(page, '/settings')
+      await page.getByRole('searchbox', { name: 'Search settings' }).fill('zzz')
+      await expect(page.getByText('No settings match “zzz”.')).toBeVisible()
+    },
+  },
+
+  // DA-SET-02 Store
+  ...(
+    [
+      ['storefront-access', 'Storefront access'],
+      ['addresses-and-order-numbers', 'Addresses'],
+      ['payments', 'Payments'],
+      ['inventory-and-data-sources', 'Inventory'],
+      ['catalog-and-downloads', 'Catalog'],
+    ] as const
+  ).map(
+    ([state, section]): Capture => ({
+      screen: 'DA-SET-02',
+      state,
+      variant: 'admin',
+      reach: async (page) => {
+        await openStoreSettings(page)
+        await toCard(page, section)
+      },
+    }),
+  ),
+  ...settingsVariants.map(
+    (variant): Capture => ({
+      screen: 'DA-SET-02',
+      state: 'general',
+      variant,
+      reach: openStoreSettings,
+    }),
+  ),
+  directVisit('DA-SET-02', '/settings/store'),
+  {
+    screen: 'DA-SET-02',
+    state: 'unsaved-changes',
+    variant: 'admin',
+    reach: async (page) => {
+      await openStoreSettings(page)
+      await page.getByRole('textbox', { name: 'Store name' }).fill(`${seeded.storeName} Outlet`)
+      await expect(page.getByRole('button', { name: 'Discard' })).toBeVisible()
+    },
+  },
+  {
+    screen: 'DA-SET-02',
+    state: 'saved',
+    variant: 'admin',
+    reach: async (page) => {
+      await openStoreSettings(page)
+      await page.getByRole('textbox', { name: 'Store name' }).fill(`${seeded.storeName} Outlet`)
+      await page.getByRole('button', { name: 'Save', exact: true }).click()
+      await expect(page.locator('[data-type="success"]').first()).toBeVisible({ timeout: 15_000 })
+    },
+    after: () => setStoreName(baseURL, seeded.storeName),
+  },
+  {
+    screen: 'DA-SET-02',
+    state: 'save-refused',
+    variant: 'admin',
+    intercepted: "The store's save is answered with a field error and never reaches the server",
+    reach: async (page) => {
+      await page.route(
+        (url) => url.pathname === '/api/v3/admin/store',
+        (route) =>
+          route.request().method() === 'PATCH'
+            ? route.fulfill({
+                status: 422,
+                json: {
+                  error: {
+                    code: 'validation_error',
+                    message: 'Name is too long (maximum is 100 characters)',
+                    details: {
+                      name: [
+                        {
+                          code: 'too_long',
+                          message: 'is too long (maximum is 100 characters)',
+                          specific: false,
+                          count: 100,
+                        },
+                      ],
+                    },
+                  },
+                },
+              })
+            : route.fallback(),
+      )
+      await openStoreSettings(page)
+      await page.getByRole('textbox', { name: 'Store name' }).fill(`${seeded.storeName} Outlet`)
+      await page.getByRole('button', { name: 'Save', exact: true }).click()
+      await expect(page.getByText(/is too long/).first()).toBeVisible({ timeout: 15_000 })
+    },
+  },
+  {
+    screen: 'DA-SET-02',
+    // The page keeps its loading placeholder: it checks for a missing store
+    // before it checks for an error, so its failure message never shows.
+    state: 'request-failed',
+    variant: 'admin',
+    intercepted: "The store's request is answered with a server error",
+    reach: async (page) => {
+      await page.route(
+        (url) => url.pathname === '/api/v3/admin/store',
+        (route) =>
+          route.request().method() === 'GET'
+            ? route.fulfill({
+                status: 500,
+                json: { error: { code: 'internal_error', message: 'Internal error' } },
+              })
+            : route.fallback(),
+      )
+      await page.goto(`/${seeded.storeId}/settings/store`)
+      await page.waitForTimeout(12_000)
+    },
+  },
+
+  // DA-SET-06 Policies
+  ...listed('DA-SET-06', 'policies', 'Returns Policy'),
+  {
+    screen: 'DA-SET-06',
+    state: 'none',
+    variant: 'admin',
+    intercepted: 'The policies list is answered with its records taken out',
+    reach: async (page) => {
+      await emptied(page, 'policies')
+      await openStore(page, '/settings/policies')
+    },
+  },
+  {
+    screen: 'DA-SET-06',
+    state: 'create-sheet',
+    variant: 'admin',
+    reach: openCreate('policies', 'Add policy'),
+  },
+  {
+    screen: 'DA-SET-06',
+    // The slug's placeholder is a fixed example; a blank slug is made from the name on save.
+    state: 'create-name-typed',
+    variant: 'admin',
+    reach: async (page) => {
+      await openCreate('policies', 'Add policy')(page)
+      await sheet(page).getByRole('textbox', { name: 'Name' }).fill('Gift card terms')
+      await expect(sheet(page).getByRole('textbox', { name: 'Slug' })).toHaveValue('')
+    },
+  },
+  {
+    screen: 'DA-SET-06',
+    state: 'media-picker',
+    variant: 'admin',
+    reach: async (page) => {
+      await openCreate('policies', 'Add policy')(page)
+      await sheet(page).getByRole('button', { name: 'Image' }).click()
+      await expect(page.getByText('Media library')).toBeVisible()
+    },
+  },
+  {
+    screen: 'DA-SET-06',
+    state: 'edit',
+    variant: 'admin',
+    reach: (page) => openRecord(page, 'policies', 'Returns Policy'),
+  },
+  {
+    screen: 'DA-SET-06',
+    state: 'edit',
+    variant: 'settingsViewer',
+    reach: (page) => openRecord(page, 'policies', 'Returns Policy'),
+  },
+  {
+    screen: 'DA-SET-06',
+    state: 'delete-confirmation',
+    variant: 'admin',
+    reach: (page) => askDelete(page, 'policies', 'Returns Policy'),
+  },
+
+  // DA-SET-08 Channels
+  ...listed('DA-SET-08', 'channels', inactiveChannel.name),
+  {
+    screen: 'DA-SET-08',
+    state: 'create-sheet',
+    variant: 'admin',
+    reach: openCreate('channels', 'New sales channel'),
+  },
+  {
+    screen: 'DA-SET-08',
+    state: 'create-code-derived',
+    variant: 'admin',
+    reach: async (page) => {
+      await openCreate('channels', 'New sales channel')(page)
+      await sheet(page).getByRole('textbox', { name: 'Name' }).fill('Pop-up market')
+    },
+  },
+  {
+    screen: 'DA-SET-08',
+    state: 'create-code-typed',
+    variant: 'admin',
+    reach: async (page) => {
+      await openCreate('channels', 'New sales channel')(page)
+      await sheet(page).getByRole('textbox', { name: 'Name' }).fill('Pop-up market')
+      await sheet(page).getByRole('textbox', { name: 'Code' }).fill('summer-popup')
+    },
+  },
+  {
+    screen: 'DA-SET-08',
+    state: 'store-settings-overridden',
+    variant: 'admin',
+    reach: (page) => openRecord(page, 'channels', 'Wholesale'),
+  },
+  {
+    screen: 'DA-SET-08',
+    state: 'store-settings-cleared',
+    variant: 'admin',
+    reach: async (page) => {
+      await openRecord(page, 'channels', 'Wholesale')
+      await chooseOption(page, 'Storefront access', 'Inherit from store')
+      await chooseOption(page, 'Guest checkout', 'Inherit from store')
+    },
+  },
+  {
+    screen: 'DA-SET-08',
+    state: 'catalog-picker-empty',
+    variant: 'admin',
+    reach: async (page) => {
+      await openRecord(page, 'channels', 'Wholesale')
+      await sheet(page).getByRole('combobox', { name: 'Default catalog' }).click()
+      await expect(page.getByText('No catalogs found')).toBeVisible()
+    },
+  },
+  {
+    screen: 'DA-SET-08',
+    state: 'fulfilment-locations-chosen',
+    variant: 'admin',
+    reach: async (page) => {
+      await openRecord(page, 'channels', 'Wholesale')
+      await sheet(page).getByRole('radio', { name: 'Selected locations' }).click()
+      await sheet(page).getByText('Shop location').scrollIntoViewIfNeeded()
+    },
+  },
+  ...settingsVariants.map(
+    (variant): Capture => ({
+      screen: 'DA-SET-08',
+      state: 'routing-rules',
+      variant,
+      reach: async (page) => {
+        await openRecord(page, 'channels', 'Wholesale')
+        await expect(routingRule(page, 'Default location')).toBeVisible()
+        await showRoutingRules(page)
+      },
+    }),
+  ),
+  {
+    screen: 'DA-SET-08',
+    state: 'routing-rule-delete-confirmation',
+    variant: 'admin',
+    reach: async (page) => {
+      await openRecord(page, 'channels', 'Wholesale')
+      await sheet(page)
+        .locator('li')
+        .filter({ hasText: 'Minimize splits' })
+        .getByRole('button', { name: 'Delete' })
+        .click()
+      await expect(page.getByText('Delete routing rule?')).toBeVisible()
+    },
+  },
+  // Every channel starts with one rule of each of Spree's three kinds, so Add
+  // rule shows only once one is removed. The pop-up channel, which the
+  // captures added, loses its default location rule and gets it back.
+  {
+    screen: 'DA-SET-08',
+    state: 'routing-rule-add-picker',
+    variant: 'admin',
+    reach: async (page) => {
+      await openRecord(page, 'channels', inactiveChannel.name)
+      await expect(routingRule(page, 'Minimize splits')).toBeVisible()
+      if ((await routingRule(page, 'Default location').count()) > 0) {
+        await routingRule(page, 'Default location').getByRole('button', { name: 'Delete' }).click()
+        await page
+          .getByRole('dialog')
+          .filter({ hasText: 'Delete routing rule?' })
+          .getByRole('button', { name: 'Delete' })
+          .click()
+        await expect(routingRule(page, 'Default location')).toHaveCount(0)
+      }
+      await channelSheet(page).getByRole('button', { name: 'Add rule' }).click()
+      await expect(channelSheet(page).getByText('Add a routing rule')).toBeVisible()
+      await showRoutingRules(page)
+    },
+  },
+  {
+    screen: 'DA-SET-08',
+    state: 'routing-rule-added',
+    variant: 'admin',
+    reach: async (page) => {
+      await openRecord(page, 'channels', inactiveChannel.name)
+      await expect(routingRule(page, 'Minimize splits')).toBeVisible()
+      if ((await routingRule(page, 'Default location').count()) === 0) {
+        await channelSheet(page).getByRole('button', { name: 'Add rule' }).click()
+        await channelSheet(page).getByText('Prefer the stock location marked as default').click()
+        await expect(routingRule(page, 'Default location')).toBeVisible()
+      }
+      await showRoutingRules(page)
+    },
+  },
+  {
+    screen: 'DA-SET-08',
+    state: 'delete-confirmation',
+    variant: 'admin',
+    reach: (page) => askDelete(page, 'channels', inactiveChannel.name),
+  },
+
+  // DA-SET-09 Custom fields
+  ...listed('DA-SET-09', 'custom-field-definitions', 'Material'),
+  {
+    screen: 'DA-SET-09',
+    state: 'none',
+    variant: 'admin',
+    intercepted: 'The custom field list is answered with its records taken out',
+    reach: async (page) => {
+      await emptied(page, 'custom_field_definitions')
+      await openStore(page, '/settings/custom-field-definitions')
+      await expect(page.getByText('No custom field definitions yet')).toBeVisible()
+    },
+  },
+  ...(
+    [
+      ['filtered-by-resource', 'Applies to', 'Orders'],
+      ['filtered-by-type', 'Type', 'Short text'],
+    ] as const
+  ).map(
+    ([state, filter, value]): Capture => ({
+      screen: 'DA-SET-09',
+      state,
+      variant: 'admin',
+      reach: async (page) => {
+        await openStore(page, '/settings/custom-field-definitions')
+        await page.getByRole('button', { name: 'Add filter' }).click()
+        await page.getByRole('button', { name: filter, exact: true }).click()
+        await page.getByText(value, { exact: true }).last().click()
+        await page.keyboard.press('Escape')
+        await page.waitForLoadState('networkidle')
+      },
+    }),
+  ),
+  {
+    screen: 'DA-SET-09',
+    state: 'create-sheet',
+    variant: 'admin',
+    reach: openCreate('custom-field-definitions', 'Add custom field'),
+  },
+  ...fieldTypes.map(
+    (type): Capture => ({
+      screen: 'DA-SET-09',
+      state: `create-${type.toLowerCase().replace(' ', '-')}`,
+      variant: 'admin',
+      reach: async (page) => {
+        await openCreate('custom-field-definitions', 'Add custom field')(page)
+        await chooseOption(page, 'Type', type)
+      },
+    }),
+  ),
+  {
+    screen: 'DA-SET-09',
+    state: 'create-shown-on-storefront',
+    variant: 'admin',
+    reach: async (page) => {
+      await openCreate('custom-field-definitions', 'Add custom field')(page)
+      await sheet(page).getByRole('switch', { name: 'Visible on storefront' }).click()
+      await expect(sheet(page).getByRole('switch', { name: 'Visible on storefront' })).toBeChecked()
+    },
+  },
+  {
+    screen: 'DA-SET-09',
+    state: 'edit',
+    variant: 'admin',
+    reach: (page) => openRecord(page, 'custom-field-definitions', 'Material'),
+  },
+  {
+    screen: 'DA-SET-09',
+    state: 'delete-confirmation',
+    variant: 'admin',
+    reach: (page) => askDelete(page, 'custom-field-definitions', 'Loyalty tier'),
+  },
+
+  // DA-SET-11 Markets
+  ...listed('DA-SET-11', 'markets', 'Europe'),
+  {
+    screen: 'DA-SET-11',
+    state: 'create-sheet',
+    variant: 'admin',
+    reach: openCreate('markets', 'Add market'),
+  },
+  {
+    screen: 'DA-SET-11',
+    state: 'create-filled',
+    variant: 'admin',
+    reach: async (page) => {
+      await fillMarket(page)
+      await sheet(page)
+        .getByRole('textbox', { name: 'Name' })
+        .evaluate((element) => element.scrollIntoView({ block: 'end' }))
+    },
+  },
+  {
+    screen: 'DA-SET-11',
+    state: 'create-filled-tax',
+    variant: 'admin',
+    reach: async (page) => {
+      await fillMarket(page)
+      await sheet(page)
+        .getByRole('button', { name: 'Create market' })
+        .evaluate((element) => element.scrollIntoView({ block: 'end' }))
+    },
+  },
+  {
+    screen: 'DA-SET-11',
+    state: 'regional-languages',
+    variant: 'admin',
+    reach: async (page) => {
+      await openCreate('markets', 'Add market')(page)
+      await sheet(page).getByRole('combobox', { name: 'Supported locales' }).fill('de-')
+      await expect(page.getByRole('option', { name: /Austrian German/ })).toBeVisible()
+    },
+  },
+  {
+    screen: 'DA-SET-11',
+    state: 'tax-engine-open',
+    variant: 'admin',
+    reach: async (page) => {
+      await openCreate('markets', 'Add market')(page)
+      await sheet(page).getByRole('combobox', { name: 'Tax engine' }).click()
+      await expect(page.getByRole('option', { name: 'Spree tax rates', exact: true })).toBeVisible()
+    },
+  },
+  {
+    screen: 'DA-SET-11',
+    state: 'edit',
+    variant: 'admin',
+    reach: (page) => openRecord(page, 'markets', 'Europe'),
+  },
+  {
+    screen: 'DA-SET-11',
+    state: 'edit',
+    variant: 'settingsViewer',
+    reach: (page) => openRecord(page, 'markets', 'Europe'),
+  },
+  {
+    screen: 'DA-SET-11',
+    state: 'dragging',
+    variant: 'admin',
+    reach: async (page) => {
+      await openStore(page, '/settings/markets')
+      const handle = page
+        .getByRole('row')
+        .filter({ hasText: 'Europe' })
+        .getByRole('button', { name: 'Drag to reorder' })
+      const box = await handle.boundingBox()
+      if (!box) throw new Error('The drag handle has no box')
+      await page.mouse.move(box.x + box.width / 2, box.y + box.height / 2)
+      await page.mouse.down()
+      await page.mouse.move(box.x + box.width / 2, box.y - 12, { steps: 8 })
+      await page.mouse.move(box.x + box.width / 2, box.y - 24, { steps: 8 })
+    },
+  },
+  {
+    screen: 'DA-SET-11',
+    state: 'delete-confirmation',
+    variant: 'admin',
+    reach: (page) => askDelete(page, 'markets', 'Europe'),
+  },
+
+  // DA-SET-21 Reasons
+  ...listed('DA-SET-21', 'reasons', 'Return reasons'),
+  ...(
+    [
+      ['claim-and-refund-reasons', 'Claim reasons'],
+      ['cancellation-reasons', 'Order cancellation reasons'],
+    ] as const
+  ).map(
+    ([state, title]): Capture => ({
+      screen: 'DA-SET-21',
+      state,
+      variant: 'admin',
+      reach: async (page) => {
+        await openStore(page, '/settings/reasons')
+        await toCard(page, title)
+      },
+    }),
+  ),
+  {
+    screen: 'DA-SET-21',
+    state: 'reason-in-use',
+    variant: 'admin',
+    intercepted:
+      "The return reasons' answer marks Damaged/Defective as in use, which no browser-test record is",
+    reach: async (page) => {
+      await page.route(
+        (url) => url.pathname === '/api/v3/admin/return_reasons',
+        async (route) => {
+          if (route.request().method() !== 'GET') return route.fallback()
+          const response = await route.fetch()
+          const body = (await response.json()) as {
+            data: { name: string; can_be_deleted: boolean }[]
+          }
+          await route.fulfill({
+            response,
+            json: {
+              ...body,
+              data: body.data.map((reason) =>
+                reason.name === 'Damaged/Defective' ? { ...reason, can_be_deleted: false } : reason,
+              ),
+            },
+          })
+        },
+      )
+      await openStore(page, '/settings/reasons')
+      await expect(page.getByText('In use').first()).toBeVisible()
+    },
+  },
+  {
+    screen: 'DA-SET-21',
+    state: 'kind-with-none',
+    variant: 'admin',
+    intercepted: 'The claim reasons list is answered with its records taken out',
+    reach: async (page) => {
+      await emptied(page, 'claim_reasons')
+      await openStore(page, '/settings/reasons')
+      await toCard(page, 'Claim reasons')
+    },
+  },
+  {
+    screen: 'DA-SET-21',
+    state: 'add',
+    variant: 'admin',
+    reach: async (page) => {
+      await openStore(page, '/settings/reasons')
+      await card(page, 'Return reasons').first().getByRole('button', { name: 'Add reason' }).click()
+      await expect(sheet(page)).toBeVisible()
+    },
+  },
+  {
+    screen: 'DA-SET-21',
+    state: 'delete-confirmation',
+    variant: 'admin',
+    reach: (page) => askDelete(page, 'reasons', 'Accidental order'),
+  },
+
+  // DA-SET-15 Tax exemption reasons, inside the taxes layout
+  ...listed('DA-SET-15', 'taxes/exemption-reasons', retiredExemptionReason.name),
+  {
+    screen: 'DA-SET-15',
+    state: 'none',
+    variant: 'admin',
+    intercepted: 'The tax exemption reasons list is answered with its records taken out',
+    reach: async (page) => {
+      await emptied(page, 'tax_exemption_reasons')
+      await openStore(page, '/settings/taxes/exemption-reasons')
+    },
+  },
+  {
+    screen: 'DA-SET-15',
+    state: 'add-with-code',
+    variant: 'admin',
+    reach: async (page) => {
+      await openStore(page, '/settings/taxes/exemption-reasons')
+      await page.getByRole('button', { name: 'Add reason' }).click()
+      await sheet(page).getByRole('textbox', { name: 'Name' }).fill('Nonprofit')
+      await sheet(page).getByLabel('Code').fill('nonprofit')
+      await expect(sheet(page).getByLabel('Code')).toHaveValue('NONPROFIT')
+    },
+  },
+  {
+    screen: 'DA-SET-15',
+    state: 'delete-confirmation',
+    variant: 'admin',
+    reach: (page) => askDelete(page, 'taxes/exemption-reasons', 'Manufacturing'),
+  },
+]
+
 test.beforeAll(async ({ baseURL: configured }) => {
   baseURL = configured ?? 'http://localhost:5174'
   seeded = await seed(baseURL)
   developers = await seedDevelopers(baseURL)
+  await seedSettings(baseURL)
   const api = await request.newContext({ baseURL })
   try {
     const { headers } = await admin(api)
@@ -2075,7 +2947,7 @@ async function save(
 }
 
 for (const theme of ['light', 'dark'] as const) {
-  for (const item of [...captures, ...developerCaptures]) {
+  for (const item of [...captures, ...developerCaptures, ...settingsCaptures]) {
     test(`${item.screen} ${item.state} ${item.variant} ${theme}`, async ({ page }) => {
       if (item.phone) await page.setViewportSize(phone)
       await page.emulateMedia({ colorScheme: theme, reducedMotion: 'reduce' })

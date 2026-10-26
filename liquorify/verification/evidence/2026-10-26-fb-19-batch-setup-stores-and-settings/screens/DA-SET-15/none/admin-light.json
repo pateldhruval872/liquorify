@@ -1,0 +1,17 @@
+{
+  "screen": "DA-SET-15",
+  "state": "none",
+  "variant": "admin",
+  "role": null,
+  "theme": "light",
+  "revision": "881a619",
+  "path": "/<store>/settings/taxes/exemption-reasons",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": "The tax exemption reasons list is answered with its records taken out",
+  "masked": null,
+  "settled": true,
+  "outside": []
+}

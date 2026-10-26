@@ -80,7 +80,7 @@ Every component and token supports Design System Engineering (PD-13), and each i
 | CMP-DUI-P-11 | `checkbox` | Input | Base UI | Dashboard UI/Primitives/Checkbox | |
 | CMP-DUI-P-12 | `code-editor` | Input | CodeMirror, with Liquid and HTML | | |
 | CMP-DUI-P-13 | `collapsible` | Disclosure | Base UI | Dashboard UI/Primitives/Collapsible | |
-| CMP-DUI-P-14 | `combobox` | Input | Base UI | | |
+| CMP-DUI-P-14 | `combobox` | Input | Base UI | Dashboard UI/Primitives/Combobox | |
 | CMP-DUI-P-15 | `command` | Overlay | cmdk | Dashboard UI/Primitives/Command | |
 | CMP-DUI-P-16 | `context-menu` | Overlay | Base UI | | |
 | CMP-DUI-P-17 | `data-table` | Data | — | Dashboard UI/Primitives/Data table | |
@@ -120,7 +120,7 @@ Every component and token supports Design System Engineering (PD-13), and each i
 
 | ID | Component | Kind | Storybook | Figma |
 |---|---|---|---|---|
-| CMP-DUI-C-01 | `address-block` | Display | | |
+| CMP-DUI-C-01 | `address-block` | Display | Dashboard UI/Composed/Address block | |
 | CMP-DUI-C-02 | `address-book-row` | Display | | |
 | CMP-DUI-C-03 | `back-button` | Navigation | Dashboard UI/Composed/Back button | |
 | CMP-DUI-C-04 | `bulk-dialog` | Overlay | | |
@@ -131,16 +131,16 @@ Every component and token supports Design System Engineering (PD-13), and each i
 | CMP-DUI-C-09 | `color-picker` | Input | | |
 | CMP-DUI-C-10 | `confirm-dialog` | Overlay | Dashboard UI/Composed/Confirm dialog | |
 | CMP-DUI-C-11 | `copy-to-clipboard-button` | Action | Dashboard UI/Composed/Copy to clipboard button | |
-| CMP-DUI-C-12 | `country-flag` | Display | | |
+| CMP-DUI-C-12 | `country-flag` | Display | Dashboard UI/Composed/Country flag | |
 | CMP-DUI-C-13 | `data-grid/cells` | Data | | |
 | CMP-DUI-C-14 | `data-grid/data-grid` | Data | | |
 | CMP-DUI-C-15 | `data-grid/fill-handle` | Data | | |
 | CMP-DUI-C-16 | `delivery-form-dialog` | Overlay | | |
-| CMP-DUI-C-17 | `drag-handle` | Action | | |
+| CMP-DUI-C-17 | `drag-handle` | Action | Dashboard UI/Composed/Drag handle | |
 | CMP-DUI-C-18 | `editable-note-card` | Input | | |
 | CMP-DUI-C-19 | `external-link` | Navigation | Dashboard UI/Composed/External link | |
 | CMP-DUI-C-20 | `file-type-icon` | Display | | |
-| CMP-DUI-C-21 | `form-actions` | Action | | |
+| CMP-DUI-C-21 | `form-actions` | Action | Dashboard UI/Composed/Form actions | |
 | CMP-DUI-C-22 | `form-section` | Layout | | |
 | CMP-DUI-C-23 | `fulfill-items-form` | Input | | |
 | CMP-DUI-C-24 | `fulfillment-edit-dialog` | Overlay | | |
@@ -165,13 +165,13 @@ Every component and token supports Design System Engineering (PD-13), and each i
 | CMP-DUI-C-43 | `return-dialogs` | Overlay | | |
 | CMP-DUI-C-44 | `route-error-boundary` | Feedback | Dashboard UI/Composed/Route error boundary | |
 | CMP-DUI-C-45 | `row-actions` | Action | Dashboard UI/Composed/Row actions | |
-| CMP-DUI-C-46 | `row-click-bridge` | Action | | |
+| CMP-DUI-C-46 | `row-click-bridge` | Action | Dashboard UI/Composed/Row click bridge | |
 | CMP-DUI-C-47 | `search-input` | Input | Dashboard UI/Composed/Search input | |
 | CMP-DUI-C-48 | `secret-input` | Input | Dashboard UI/Composed/Secret input | |
 | CMP-DUI-C-49 | `storefront-visible-switch` | Input | | |
 | CMP-DUI-C-50 | `tag-list` | Display | | |
 | CMP-DUI-C-51 | `tax-identifiers-card` | Input | | |
-| CMP-DUI-C-52 | `theme-provider` | Theme | | |
+| CMP-DUI-C-52 | `theme-provider` | Theme | Dashboard UI/Composed/Theme provider | |
 | CMP-DUI-C-53 | `theme-toggle` | Theme | Dashboard UI/Composed/Theme toggle | |
 | CMP-DUI-C-54 | `wizard` | Navigation | | |
 
@@ -183,29 +183,29 @@ The package also has 5 hooks (`use-copy-to-clipboard`, `use-debounced-value`, `u
 
 | ID | Component | Kind | Storybook | Figma |
 |---|---|---|---|---|
-| CMP-CORE-01 | `address-form-dialog` | Overlay | | |
+| CMP-CORE-01 | `address-form-dialog` | Overlay | Dashboard core/Address form dialog | |
 | CMP-CORE-02 | `app-shell` | Layout | Dashboard core/Shell/App shell | |
 | CMP-CORE-03 | `app-sidebar` | Navigation | Dashboard core/Shell/App sidebar | |
 | CMP-CORE-04 | `bulk-action-bar` | Action | | |
 | CMP-CORE-05 | `can` | Extension | Dashboard core/Can | |
 | CMP-CORE-06 | `country-combobox` | Input | Dashboard core/Country combobox | |
-| CMP-CORE-07 | `country-state-fields` | Input | | |
-| CMP-CORE-08 | `currency-select` | Input | | |
+| CMP-CORE-07 | `country-state-fields` | Input | Dashboard core/Country state fields | |
+| CMP-CORE-08 | `currency-select` | Input | Dashboard core/Currency select | |
 | CMP-CORE-09 | `export-button` | Action | | |
 | CMP-CORE-10 | `file-upload-field` | Input | | |
 | CMP-CORE-11 | `image-upload-field` | Input | Dashboard core/Image upload field | |
 | CMP-CORE-12 | `import-button` | Action | | |
 | CMP-CORE-13 | `import-wizard-dialog` | Overlay | | |
-| CMP-CORE-14 | `locale-select` | Input | | |
+| CMP-CORE-14 | `locale-select` | Input | Dashboard core/Locale select | |
 | CMP-CORE-15 | `market-combobox` | Input | | |
-| CMP-CORE-16 | `media-picker-sheet` | Overlay | | |
+| CMP-CORE-16 | `media-picker-sheet` | Overlay | Dashboard core/Media picker sheet | |
 | CMP-CORE-17 | `mobile-top-bar` | Navigation | Dashboard core/Shell/Mobile top bar | |
 | CMP-CORE-18 | `money` | Display | | |
 | CMP-CORE-19 | `nav-main` | Navigation | Dashboard core/Shell/Nav main | |
 | CMP-CORE-20 | `page-header` | Layout | Dashboard core/Page header | |
 | CMP-CORE-21 | `page-tabs` | Navigation | | |
 | CMP-CORE-22 | `preferences-form` | Input | Dashboard core/Preferences form | |
-| CMP-CORE-23 | `resource-combobox` | Input | | |
+| CMP-CORE-23 | `resource-combobox` | Input | Dashboard core/Resource combobox | |
 | CMP-CORE-24 | `resource-multi-autocomplete` | Input | | |
 | CMP-CORE-25 | `resource-picker-sheet` | Overlay | | |
 | CMP-CORE-26 | `resource-table` | Data | Dashboard core/Resource table | |
@@ -228,7 +228,7 @@ Also in `@spree/dashboard-core`, the shared pages in `src/pages/`, used by both 
 | ID | Page | Kind | Used on | Storybook | Figma |
 |---|---|---|---|---|---|
 | CMP-CORE-PG-01 | `package-types` | Data | DA-SET-19, SP-SET-03 | | |
-| CMP-CORE-PG-02 | `settings-index` | Navigation | DA-SET-01, SP-SET-01 | | |
+| CMP-CORE-PG-02 | `settings-index` | Navigation | DA-SET-01, SP-SET-01 | Dashboard core/Pages/Settings index | |
 | CMP-CORE-PG-03 | `stock-locations` | Data | DA-SET-18, SP-SET-05 | | |
 
 And the product form modules in `src/products/`, used by DA-PRD-02 and DA-PRD-03:
@@ -260,7 +260,7 @@ These are compositions bound to one application's data hooks and API. They are l
 | CMP-DA-G-03 | `categories/` | 4 | `category-form`, `category-list`, `category-products-card`, `category-tree` | DA-PRD-07 to DA-PRD-09 | | |
 | CMP-DA-G-04 | `collections/` | 3 | `collection-form`, `collection-products-card`, `collection-rules-card` | DA-PRD-10 to DA-PRD-12 | | |
 | CMP-DA-G-05 | `command-palette/` | 1 | `command-palette` | DA-OVL-02 | `command-palette`: Admin dashboard/Shell/Command palette | |
-| CMP-DA-G-06 | `custom-fields/` | 2 | `custom-fields-inline`, `definition-form` | DA-SET-09 and the detail pages with custom fields | | |
+| CMP-DA-G-06 | `custom-fields/` | 2 | `custom-fields-inline`, `definition-form` | DA-SET-09 and the detail pages with custom fields | `definition-form`: Admin dashboard/Custom fields/Definition form | |
 | CMP-DA-G-07 | `customers/` | 10 | `customer-addresses-card`, `customer-groups-card`, `customer-internal-note-card`, `customer-last-order-card`, `customer-lifetime-stats-card`, `customer-orders-card`, `customer-privacy-card`, `customer-profile-card`, `customer-store-credits-card`, `customer-tax-identifiers-card` | DA-CUS-02 | | |
 | CMP-DA-G-08 | `email-templates/` | 8 | `conflict-dialog`, `default-diff-dialog`, `email-preview-frame`, `emails-tabs`, `history-sheet`, `preview-card`, `problems-alert`, `variables-card` | DA-SET-03 to DA-SET-05 | | |
 | CMP-DA-G-09 | `imports/` | 1 | `import-wizard-dialog` | DA-OVL-05, DA-SET-31 | | |
@@ -270,15 +270,15 @@ These are compositions bound to one application's data hooks and API. They are l
 | CMP-DA-G-13 | `price-list-editors/` | 7 | `price-list-form`, `rule-channel`, `rule-customer`, `rule-customer-group`, `rule-market`, `rule-volume`, `status-badge` | DA-PRD-15 to DA-PRD-17 | | |
 | CMP-DA-G-14 | `products/` | 9 | `digital-asset-edit-sheet`, `digital-asset-provider-sheet`, `digital-assets-card`, `digital-files-form-card`, `product-custom-fields-provider`, `product-review-actions`, `product-seller-card`, `provider-settings-fields`, `publishing-card` | DA-PRD-03 | | |
 | CMP-DA-G-15 | `promotion-editors/` | 13 | `action-adjustment`, `action-create-line-items`, `editor-shell`, `match-policy-picker`, `promotion-form`, `rule-category`, `rule-channel`, `rule-country`, `rule-customer-group`, `rule-market`, `rule-option-value`, `rule-product`, `rule-user` | DA-PRM-02, DA-PRM-03 | | |
-| CMP-DA-G-16 | `reasons/` | 1 | `reason-section` | DA-SET-15, DA-SET-21 | | |
+| CMP-DA-G-16 | `reasons/` | 1 | `reason-section` | DA-SET-15, DA-SET-21 | `reason-section`: Admin dashboard/Reasons/Reason section | |
 | CMP-DA-G-17 | `reporting/` | 5 | `growth-badge`, `report-builder`, `report-view`, `report-workspace`, `save-report-dialog` | DA-HOME-01, DA-RPT-01 to DA-RPT-03 | | |
 | CMP-DA-G-18 | `sellers/` | 14 | `payout-complete-dialog`, `seller-address-card`, `seller-at-a-glance-card`, `seller-balance-card`, `seller-brand-card`, `seller-contact-card`, `seller-edit-profile-sheet`, `seller-edit-settlement-sheet`, `seller-invite-sheet`, `seller-onboarding-card`, `seller-read-row`, `seller-settlement-card`, `seller-status-card`, `seller-team-card` | DA-SEL-01 to DA-SEL-06 | | |
-| CMP-DA-G-19 | `setup-tasks/` | 3 | `add-products-task`, `store-address-task`, `storefront-connect-task` | DA-HOME-02 | | |
-| CMP-DA-G-20 | `shipping/` | 14 | `delivery-digital-methods-card`, `delivery-method-form`, `delivery-method-list`, `delivery-method-sheet`, `delivery-origin-group-dialog`, `delivery-origin-group-section`, `delivery-pickup-card`, `delivery-profile-general-card`, `delivery-profile-origins-card`, `delivery-zone-card`, `delivery-zone-region-picker`, `delivery-zone-sheet`, `delivery-zones-and-methods-section`, `stock-location-scope-field` | DA-SET-16, DA-SET-17 | | |
+| CMP-DA-G-19 | `setup-tasks/` | 3 | `add-products-task`, `store-address-task`, `storefront-connect-task` | DA-HOME-02 | `add-products-task`: Admin dashboard/Getting started/Add products task; `store-address-task`: Admin dashboard/Getting started/Store address task; `storefront-connect-task`: Admin dashboard/Getting started/Storefront connect task | |
+| CMP-DA-G-20 | `shipping/` | 14 | `delivery-digital-methods-card`, `delivery-method-form`, `delivery-method-list`, `delivery-method-sheet`, `delivery-origin-group-dialog`, `delivery-origin-group-section`, `delivery-pickup-card`, `delivery-profile-general-card`, `delivery-profile-origins-card`, `delivery-zone-card`, `delivery-zone-region-picker`, `delivery-zone-sheet`, `delivery-zones-and-methods-section`, `stock-location-scope-field` | DA-SET-16, DA-SET-17 | `stock-location-scope-field`: Admin dashboard/Shipping/Stock location scope field | |
 | CMP-DA-G-21 | `store-credits/` | 2 | `edit-store-credit-dialog`, `issue-store-credit-dialog` | DA-LOY-02, DA-CUS-02 | | |
 | CMP-DA-G-22 | `taxes/` | 2 | `market-tax-providers`, `taxes-tabs` | DA-SET-13 to DA-SET-15 | | |
 | CMP-DA-G-23 | `translations/` | 2 | `resource-translations-card`, `resource-translations-dialog` | DA-PRD-03, DA-PRD-05, DA-PRD-06 | | |
-| CMP-DA-G-24 | Top level | 60 | `actor-label`, `agent-connections-card`, `auth-shell`, `catalog-audience`, `catalog-price-columns`, `catalog-pricing-fields`, `catalog-terms-card`, `catalog-wizard-dialog`, `channel-select`, `choice-card-picker`, `close-short-dialog`, `company-address-sheet`, `company-combobox-option`, `company-kind-badge`, `deferred-product-membership-card`, `enterprise-upsell`, `getting-started-nav-badge`, `inventory-cells`, `inventory-status-badge`, `jurisdiction-label`, `mcp-connect-sheet`, `media-rich-text-editor`, `nav-counter-badge`, `no-store-access`, `notifications`, `oauth-application-sheet`, `order-digital-links-card`, `order-post-sale-cards`, `order-returns-card`, `order-routing-rules-section`, `permission-picker`, `post-sale-create-dialogs`, `price-list-csv-buttons`, `product-membership-staging`, `profile-dialog`, `purchase-order-form`, `quantity-cell`, `reason-field`, `receive-delivery-card`, `release-notes`, `resource-image-field`, `role-sheet`, `route-pending`, `settings-list-card`, `stock-history-card`, `stock-levels-panel`, `stock-receipts-card`, `stock-transfer-form`, `store-setup-fields`, `storefront-connect-sheet`, `supplier-sheet`, `tax-category-label`, `tax-exemption-certificates-card`, `tax-identifiers-card`, `tax-provider-field`, `transfer-cancel-dialog`, `type-picker-sheet`, `variant-line-editor`, `variant-link`, `webhook-endpoint-form` | Across the dashboard; for example `auth-shell` on DA-AUTH-01 to DA-AUTH-04, the `catalog-*` parts on DA-PRD-13 and DA-PRD-14, `role-sheet` and `permission-picker` on DA-SET-25, `webhook-endpoint-form` on DA-SET-28 and DA-SET-29, `enterprise-upsell` on DA-CUS-05 | `agent-connections-card`: Admin dashboard/AI agents/Agent connections card; `auth-shell`: Admin dashboard/Sign-in/Auth shell; `choice-card-picker`: Admin dashboard/AI agents/Choice card picker; `mcp-connect-sheet`: Admin dashboard/AI agents/Connect sheet; `no-store-access`: Admin dashboard/Sign-in/No store access; `notifications`: Admin dashboard/Shell/Notifications; `oauth-application-sheet`: Admin dashboard/OAuth clients/Client sheet; `permission-picker`: Admin dashboard/Roles/Permission picker; `profile-dialog`: Admin dashboard/Shell/Profile dialog; `release-notes`: Admin dashboard/Shell/Release notes; `role-sheet`: Admin dashboard/Roles/Role sheet; `webhook-endpoint-form`: Admin dashboard/Webhooks/Endpoint form | |
+| CMP-DA-G-24 | Top level | 60 | `actor-label`, `agent-connections-card`, `auth-shell`, `catalog-audience`, `catalog-price-columns`, `catalog-pricing-fields`, `catalog-terms-card`, `catalog-wizard-dialog`, `channel-select`, `choice-card-picker`, `close-short-dialog`, `company-address-sheet`, `company-combobox-option`, `company-kind-badge`, `deferred-product-membership-card`, `enterprise-upsell`, `getting-started-nav-badge`, `inventory-cells`, `inventory-status-badge`, `jurisdiction-label`, `mcp-connect-sheet`, `media-rich-text-editor`, `nav-counter-badge`, `no-store-access`, `notifications`, `oauth-application-sheet`, `order-digital-links-card`, `order-post-sale-cards`, `order-returns-card`, `order-routing-rules-section`, `permission-picker`, `post-sale-create-dialogs`, `price-list-csv-buttons`, `product-membership-staging`, `profile-dialog`, `purchase-order-form`, `quantity-cell`, `reason-field`, `receive-delivery-card`, `release-notes`, `resource-image-field`, `role-sheet`, `route-pending`, `settings-list-card`, `stock-history-card`, `stock-levels-panel`, `stock-receipts-card`, `stock-transfer-form`, `store-setup-fields`, `storefront-connect-sheet`, `supplier-sheet`, `tax-category-label`, `tax-exemption-certificates-card`, `tax-identifiers-card`, `tax-provider-field`, `transfer-cancel-dialog`, `type-picker-sheet`, `variant-line-editor`, `variant-link`, `webhook-endpoint-form` | Across the dashboard; for example `auth-shell` on DA-AUTH-01 to DA-AUTH-04, the `catalog-*` parts on DA-PRD-13 and DA-PRD-14, `role-sheet` and `permission-picker` on DA-SET-25, `webhook-endpoint-form` on DA-SET-28 and DA-SET-29, `enterprise-upsell` on DA-CUS-05 | `agent-connections-card`: Admin dashboard/AI agents/Agent connections card; `auth-shell`: Admin dashboard/Sign-in/Auth shell; `choice-card-picker`: Admin dashboard/AI agents/Choice card picker; `getting-started-nav-badge`: Admin dashboard/Getting started/Getting started nav badge; `mcp-connect-sheet`: Admin dashboard/AI agents/Connect sheet; `media-rich-text-editor`: Admin dashboard/Policies/Media rich text editor; `no-store-access`: Admin dashboard/Sign-in/No store access; `notifications`: Admin dashboard/Shell/Notifications; `oauth-application-sheet`: Admin dashboard/OAuth clients/Client sheet; `order-routing-rules-section`: Admin dashboard/Channels/Order routing rules section; `permission-picker`: Admin dashboard/Roles/Permission picker; `profile-dialog`: Admin dashboard/Shell/Profile dialog; `release-notes`: Admin dashboard/Shell/Release notes; `role-sheet`: Admin dashboard/Roles/Role sheet; `settings-list-card`: Admin dashboard/Reasons/Settings list card; `store-setup-fields`: Admin dashboard/Setup/Store setup fields; `storefront-connect-sheet`: Admin dashboard/Getting started/Storefront connect sheet; `tax-provider-field`: Admin dashboard/Markets/Tax provider field; `webhook-endpoint-form`: Admin dashboard/Webhooks/Endpoint form | |
 
 ### Seller panel
 

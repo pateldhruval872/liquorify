@@ -1,6 +1,7 @@
-import { mkdirSync, writeFileSync } from 'node:fs'
+import { mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { expect, type Locator, type Page, test } from '@playwright/test'
 import { getCredentials, login, rowButton, sellerLogin } from '../../dashboard/e2e/helpers'
+import { FIRST_RUN_CREDENTIALS_FILE } from '../../dashboard/e2e/paths'
 import { dashboardCounters, releaseNotes, updateAvailable } from '../src/fixtures/admin/shell'
 import {
   type Developers,
@@ -1989,12 +1990,396 @@ const developerSettings: Case[] = (
   ] as Case[]
 ).map((item) => ({ paintedOut: 'code', ...item }))
 
+/**
+ * Batch 3's comparisons (setup, stores and settings). The getting started
+ * tasks, settings cards and sheets are opened as a merchant opens them; the
+ * store setup fields are compared on first-run setup's own server, which must
+ * be running and not yet set up (`stack.spec.ts`, "Spree first-run server",
+ * with the dashboard on its port), and setup is never completed here. The
+ * storefront sheet's key and API address are painted out of both images.
+ * `row-click-bridge` and `theme-provider` draw nothing of their own and are not
+ * compared; the address block shows an address only on order and seller
+ * screens, which later batches compare.
+ */
+const settingsPage = (page: Page, path: string) => adminPage(page, `/settings/${path}`)
+
+async function settingsSheet(page: Page, path: string, button: string) {
+  await settingsPage(page, path)
+  await page.getByRole('button', { name: button }).click()
+  await expect(sheet(page)).toBeVisible()
+}
+
+async function recordSheet(page: Page, path: string, name: string) {
+  await settingsPage(page, path)
+  await page
+    .getByRole('button', { name: new RegExp(`^${name}`) })
+    .first()
+    .click()
+  await expect(sheet(page)).toBeVisible()
+}
+
+async function gettingStartedTask(page: Page, title: string) {
+  await adminPage(page, '/getting-started')
+  const task = page.getByRole('button', { name: title })
+  if ((await task.getAttribute('aria-expanded')) !== 'true') await task.click()
+  return page.getByRole('region', { name: title })
+}
+
+const taskRegion = (title: string) => (page: Page) => page.getByRole('region', { name: title })
+const cardGrid = (page: Page) =>
+  innermost(page, 'div.grid', page.getByRole('link', { name: /^Policies/ }))
+const routingRules = (page: Page) =>
+  innermost(page, 'div.flex.flex-col.gap-2', page.getByText('Order routing rules', { exact: true }))
+const locationScope = (page: Page) =>
+  page.getByRole('radiogroup').filter({ has: page.getByText('All locations') })
+const taxEngineField = (page: Page) =>
+  slot(page, 'field').filter({ has: page.locator('#market-tax-provider') })
+const definitionForm = (page: Page) =>
+  innermost(page, 'div.flex.flex-col.gap-4', page.getByText('Applies to', { exact: true }))
+const editor = (page: Page) =>
+  page
+    .locator('div')
+    .filter({ has: page.getByRole('button', { name: 'Bold' }) })
+    .filter({ has: page.locator('[contenteditable]') })
+    .last()
+const setupCountry = (page: Page) =>
+  innermost(page, 'div.grid.gap-2', page.getByText('Country', { exact: true }))
+
+/** Opens the setup form through the link first-run setup's server writes; the link is never kept. */
+async function openFirstRunSetup(page: Page) {
+  const { setup_url: link } = JSON.parse(readFileSync(FIRST_RUN_CREDENTIALS_FILE, 'utf-8')) as {
+    setup_url: string
+  }
+  const url = new URL(link)
+  await page.goto(`${url.origin}${url.pathname}${url.search}`)
+  await expect(page.getByRole('heading', { name: 'Set up Spree' })).toBeVisible()
+}
+
+const storeSettings: Case[] = [
+  {
+    id: 'CMP-CORE-PG-02',
+    name: 'settings-index-store-cards',
+    story: 'dashboard-core-pages-settings-index--every-card',
+    screen: async (page) => {
+      await settingsPage(page, '')
+      return cardGrid(page)
+    },
+    inStory: cardGrid,
+    window: tall,
+  },
+  {
+    id: 'CMP-CORE-PG-02',
+    name: 'settings-index-on-a-phone',
+    story: 'dashboard-core-pages-settings-index--on-a-phone',
+    phone: true,
+    screen: async (page) => {
+      await settingsPage(page, '')
+      return cardGrid(page)
+    },
+    inStory: cardGrid,
+  },
+  {
+    id: 'CMP-DA-G-16',
+    name: 'reason-section-return-reasons',
+    story: 'admin-dashboard-reasons-reason-section--return-reasons',
+    screen: async (page) => {
+      await settingsPage(page, 'reasons')
+      return card(page, 'Return reasons')
+    },
+    inStory: (page) => card(page, 'Return reasons'),
+    window: tall,
+  },
+  {
+    id: 'CMP-DA-G-16',
+    name: 'reason-section-exemption-reasons',
+    story: 'admin-dashboard-reasons-reason-section--exemption-reasons',
+    // The reasons' codes are shown as code, which the key mask would hide.
+    paintedOut: '[data-fidelity-nothing]',
+    screen: async (page) => {
+      await settingsPage(page, 'taxes/exemption-reasons')
+      return card(page, 'Tax exemption reasons')
+    },
+    inStory: (page) => card(page, 'Tax exemption reasons'),
+  },
+  {
+    id: 'CMP-DA-G-16',
+    name: 'reason-section-add',
+    story: 'admin-dashboard-reasons-reason-section--add',
+    screen: async (page) => {
+      await settingsPage(page, 'reasons')
+      await card(page, 'Return reasons').getByRole('button', { name: 'Add reason' }).click()
+      return sheet(page)
+    },
+    inStory: sheet,
+  },
+  {
+    id: 'CMP-DA-G-16',
+    name: 'reason-section-delete-confirmation',
+    story: 'admin-dashboard-reasons-reason-section--delete-confirmation',
+    screen: async (page) => {
+      await settingsPage(page, 'reasons')
+      await openRowMenu(page, 'Accidental order')
+      await page.getByRole('menuitem', { name: 'Delete' }).click()
+      return slot(page, 'dialog-content')
+    },
+    inStory: (page) => slot(page, 'dialog-content'),
+  },
+  {
+    id: 'CMP-DA-G-06',
+    name: 'definition-form-new',
+    story: 'admin-dashboard-custom-fields-definition-form--new',
+    screen: async (page) => {
+      await settingsSheet(page, 'custom-field-definitions', 'Add custom field')
+      return definitionForm(page)
+    },
+    inStory: definitionForm,
+  },
+  {
+    id: 'CMP-DA-G-24',
+    name: 'order-routing-rules-section-rules',
+    story: 'admin-dashboard-channels-order-routing-rules-section--rules',
+    screen: async (page) => {
+      await recordSheet(page, 'channels', 'Wholesale')
+      await expect(sheet(page).getByText('Default location')).toBeVisible()
+      return routingRules(page)
+    },
+    inStory: routingRules,
+  },
+  {
+    id: 'CMP-DA-G-24',
+    name: 'order-routing-rules-section-delete-confirmation',
+    story: 'admin-dashboard-channels-order-routing-rules-section--delete-confirmation',
+    screen: async (page) => {
+      await recordSheet(page, 'channels', 'Wholesale')
+      await sheet(page)
+        .locator('li')
+        .filter({ hasText: 'Minimize splits' })
+        .getByRole('button', { name: 'Delete' })
+        .click()
+      return slot(page, 'dialog-content')
+    },
+    inStory: (page) => slot(page, 'dialog-content'),
+  },
+  {
+    id: 'CMP-DA-G-20',
+    name: 'stock-location-scope-field-all-locations',
+    story: 'admin-dashboard-shipping-stock-location-scope-field--all-locations',
+    screen: async (page) => {
+      await recordSheet(page, 'channels', 'Wholesale')
+      return locationScope(page)
+    },
+    inStory: locationScope,
+  },
+  {
+    id: 'CMP-DA-G-24',
+    name: 'tax-provider-field-store-default',
+    story: 'admin-dashboard-markets-tax-provider-field--store-default',
+    screen: async (page) => {
+      await settingsSheet(page, 'markets', 'Add market')
+      return taxEngineField(page)
+    },
+    inStory: taxEngineField,
+  },
+  {
+    id: 'CMP-CORE-08',
+    name: 'currency-select-store-default',
+    story: 'dashboard-core-currency-select--store-default',
+    screen: async (page) => {
+      await settingsSheet(page, 'markets', 'Add market')
+      return sheet(page).locator('[data-slot="combobox-button-trigger"]').filter({ hasText: 'USD' })
+    },
+    inStory: (page) => slot(page, 'combobox-button-trigger').first(),
+  },
+  {
+    id: 'CMP-DUI-P-14',
+    name: 'combobox-open',
+    story: 'dashboard-ui-primitives-combobox--open',
+    screen: async (page) => {
+      await settingsSheet(page, 'markets', 'Add market')
+      await sheet(page)
+        .locator('[data-slot="combobox-button-trigger"]')
+        .filter({ hasText: 'USD' })
+        .click()
+      return slot(page, 'combobox-content')
+    },
+    inStory: (page) => slot(page, 'combobox-content'),
+  },
+  {
+    id: 'CMP-CORE-14',
+    name: 'locale-select-selected',
+    story: 'dashboard-core-locale-select--selected',
+    screen: async (page) => {
+      await settingsSheet(page, 'markets', 'Add market')
+      return sheet(page).locator('[data-slot="combobox-button-trigger"]').filter({ hasText: 'EN' })
+    },
+    inStory: (page) => slot(page, 'combobox-button-trigger').first(),
+  },
+  {
+    id: 'CMP-CORE-14',
+    name: 'locale-select-none-chosen',
+    story: 'dashboard-core-locale-select--none-chosen',
+    screen: async (page) => {
+      await settingsSheet(page, 'markets', 'Add market')
+      return sheet(page)
+        .locator('[data-slot="combobox-chips"]')
+        .filter({ has: page.getByPlaceholder('Add locales…') })
+    },
+    inStory: (page) => slot(page, 'combobox-chips').first(),
+  },
+  {
+    id: 'CMP-DUI-C-12',
+    name: 'country-flag-beside-a-name',
+    story: 'dashboard-ui-composed-country-flag--default',
+    // The setup form's country, where the story sets the flag. The country
+    // pickers draw it in a sheet's smaller text, so it is narrower there.
+    screen: async (page) => {
+      await openFirstRunSetup(page)
+      return setupCountry(page).locator('.fi')
+    },
+    inStory: (page) => page.locator('.fi').first(),
+  },
+  {
+    id: 'CMP-DUI-C-17',
+    name: 'drag-handle-default',
+    story: 'dashboard-ui-composed-drag-handle--default',
+    screen: async (page) => {
+      await settingsPage(page, 'markets')
+      return page.getByRole('button', { name: 'Drag to reorder' }).first()
+    },
+    inStory: (page) => page.getByRole('button', { name: 'Drag to reorder' }).first(),
+  },
+  {
+    id: 'CMP-DUI-C-21',
+    name: 'form-actions-unchanged',
+    story: 'dashboard-ui-composed-form-actions--unchanged',
+    screen: async (page) => {
+      await settingsPage(page, 'store')
+      return page.getByRole('button', { name: 'Save', exact: true })
+    },
+    inStory: (page) => page.getByRole('button', { name: 'Save', exact: true }),
+  },
+  {
+    id: 'CMP-CORE-23',
+    name: 'resource-combobox-nothing-found',
+    story: 'dashboard-core-resource-combobox--nothing-found',
+    screen: async (page) => {
+      await recordSheet(page, 'channels', 'Wholesale')
+      await page.locator('#channel-default-catalog').click()
+      await expect(page.getByText('No catalogs found')).toBeVisible()
+      return slot(page, 'combobox-content')
+    },
+    inStory: (page) => slot(page, 'combobox-content'),
+  },
+  {
+    id: 'CMP-DA-G-24',
+    name: 'media-rich-text-editor-empty',
+    story: 'admin-dashboard-policies-media-rich-text-editor--empty',
+    screen: async (page) => {
+      await settingsSheet(page, 'policies', 'Add policy')
+      return editor(page)
+    },
+    inStory: editor,
+  },
+  {
+    id: 'CMP-CORE-16',
+    name: 'media-picker-sheet-one-file-with-upload',
+    story: 'dashboard-core-media-picker-sheet--one-file',
+    screen: async (page) => {
+      await settingsSheet(page, 'policies', 'Add policy')
+      await sheet(page).getByRole('button', { name: 'Image' }).click()
+      await expect(page.getByText('Media library')).toBeVisible()
+      return sheet(page).last()
+    },
+    inStory: (page) => sheet(page).last(),
+  },
+  {
+    id: 'CMP-CORE-01',
+    name: 'address-form-dialog-no-address-yet',
+    story: 'dashboard-core-address-form-dialog--no-address-yet',
+    screen: async (page) => {
+      const task = await gettingStartedTask(page, 'Add your shipping address')
+      await task.getByRole('button', { name: 'Save address' }).click()
+      return sheet(page)
+    },
+    inStory: sheet,
+  },
+  {
+    id: 'CMP-CORE-07',
+    name: 'country-state-fields-placeholder',
+    story: 'dashboard-core-country-state-fields--placeholder',
+    screen: async (page) => {
+      const task = await gettingStartedTask(page, 'Add your shipping address')
+      await task.getByRole('button', { name: 'Save address' }).click()
+      return sheet(page)
+        .locator('[data-slot="combobox-button-trigger"]')
+        .filter({ hasText: 'Select a state' })
+    },
+    inStory: (page) => slot(page, 'combobox-button-trigger').first(),
+  },
+  {
+    id: 'CMP-DA-G-19',
+    name: 'store-address-task-no-address-yet',
+    story: 'admin-dashboard-getting-started-store-address-task--no-address-yet',
+    screen: (page) => gettingStartedTask(page, 'Add your shipping address'),
+    inStory: taskRegion('Add your shipping address'),
+  },
+  {
+    id: 'CMP-DA-G-19',
+    name: 'add-products-task-done',
+    story: 'admin-dashboard-getting-started-add-products-task--done',
+    screen: (page) => gettingStartedTask(page, 'Add products'),
+    inStory: taskRegion('Add products'),
+  },
+  {
+    id: 'CMP-DA-G-19',
+    name: 'storefront-connect-task-not-done',
+    story: 'admin-dashboard-getting-started-storefront-connect-task--not-done',
+    screen: (page) => gettingStartedTask(page, 'Set up storefront'),
+    inStory: taskRegion('Set up storefront'),
+  },
+  {
+    id: 'CMP-DA-G-24',
+    name: 'storefront-connect-sheet-key-hidden',
+    story: 'admin-dashboard-getting-started-storefront-connect-sheet--key-hidden',
+    paintedOut: '[role="dialog"] input[readonly]',
+    screen: async (page) => {
+      const task = await gettingStartedTask(page, 'Set up storefront')
+      await task.getByRole('button', { name: 'Connect storefront' }).click()
+      await expect(sheet(page).getByText('Publishable API key')).toBeVisible()
+      return sheet(page)
+    },
+    inStory: sheet,
+  },
+  {
+    id: 'CMP-DA-G-24',
+    name: 'getting-started-nav-badge-some-done',
+    story: 'admin-dashboard-getting-started-getting-started-nav-badge--some-done',
+    // From another page, since the entry is drawn differently while it is the current page.
+    screen: async (page) => {
+      await adminPage(page, '/orders')
+      return slot(page, 'sidebar-menu-badge').first()
+    },
+    inStory: (page) => slot(page, 'sidebar-menu-badge').first(),
+  },
+  {
+    id: 'CMP-DA-G-24',
+    name: 'store-setup-fields-suggested',
+    story: 'admin-dashboard-setup-store-setup-fields--suggested',
+    screen: async (page) => {
+      await openFirstRunSetup(page)
+      return setupCountry(page)
+    },
+    inStory: setupCountry,
+  },
+]
+
 const cases: Case[] = [
   ...pilotCases,
   ...primitivesBatchOne,
   ...staffAccessPartOne,
   ...staffAccessPartTwo,
   ...developerSettings,
+  ...storeSettings,
 ]
 
 /** Every custom property the page's root element computes: the tokens, as the browser resolves them. */
