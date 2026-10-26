@@ -16,7 +16,7 @@ result: PASS for the map, the stories and their images, the running-screen captu
 | What | Revision |
 |---|---|
 | Stories, scripts and reference images | Storefront draft pull request [#20](https://github.com/pateldhruval872/liquorify-storefront/pull/20) at `da06743`, one commit on storefront `main` `321fa1c` |
-| This record and its evidence | Draft pull request [#21](https://github.com/pateldhruval872/liquorify/pull/21), on backend `main` `afd97cd`. It merges after #19 and #20, as [LIQ-004's lanes](../LIQ-004-foundation-backlog.md#proposed-order-of-the-remaining-batches) set out, and is brought up to date after each |
+| This record and its evidence | Draft pull request [#21](https://github.com/pateldhruval872/liquorify/pull/21), on backend `main` `afd97cd`. It merges after #19 and #20, as [LIQ-004's lanes](../LIQ-004-foundation-backlog.md#proposed-order-of-the-remaining-batches) set out, and is brought up to date after each. #19 merged on 2026-10-26, and the branch was brought up to date with `main` `5a83c35`. #19 changed only `liquorify/` and the backend's Storybook package, not Spree's code, so the evidence below holds at the merged revision |
 | The storefront's code | `main` `321fa1c`. The branch changes none of it: `git diff 321fa1c da06743` over `src/`, `messages/`, `public/`, `e2e/`, `.github/`, `package.json` and `pnpm-lock.yaml` is empty |
 | Spree's code: the API and the browser-test server | Backend `d6a0fb8`, whose Spree code is `main` `afd97cd`'s. Neither pull request changes it |
 | Running screens | The storefront at `321fa1c`, built for production, against lane A's own browser-test Rails server at `d6a0fb8`, with Spree's sample catalog in its own database. Captured in the storefront's pinned Playwright 1.60.0 image, at 390 and 1280 pixels wide, with the fonts served offline |
@@ -265,7 +265,7 @@ B1 and B2 concern accessibility, which FB-15 owns. B4 to B7 concern how the stor
 
 ## 7. Gaps
 
-Each names what is missing, the check made instead and what would close it. They are proposed in [LIQ-004's register](../LIQ-004-foundation-backlog.md#deferred-gaps-and-the-owners-acceptance) as G-41 to G-45, after batch 3's G-33 to G-40 in #19, and wait for the owner's answers.
+Each names what is missing, the check made instead and what would close it. They are proposed in [LIQ-004's register](../LIQ-004-foundation-backlog.md#deferred-gaps-and-the-owners-acceptance) as G-41 to G-45, after batch 3's G-33 to G-40, and wait for the owner's answers.
 
 | Gap | Check made instead | What would close it |
 |---|---|---|
