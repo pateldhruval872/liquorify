@@ -12,7 +12,7 @@ updated: 2026-10-26
 
 The storefront's second FB-19 batch organised by product area. It reproduces what the storefront already has for shopping: the home page, the header, footer and menus, search, the region and language preferences, the policy page, the error and not-found pages, and then the product lists, categories and the product page. Nothing here changes the storefront's code or Spree's, or adds a Liquorify feature.
 
-**Status.** PROPOSED. On 2026-10-26 the owner approved this batch as lane A beside batch 3, in two reviewable parts, under the existing Spree-first baseline rules ([LIQ-004](../LIQ-004-foundation-backlog.md#proposed-order-of-the-remaining-batches), batch 4). It follows the batch rules of [LIQ-010 0.4](../LIQ-010-design-system-reproduction-architecture.md#121-each-batch), as the [shopper accounts batch](fb-19-batch-storefront-shopper-accounts.md) did. This work item is reviewed in part 1's records pull request. Part 1 is described in full below; part 2 is outlined in §10 and described in full in its own records pull request before its work starts. The owner's answers to the questions in §7 are recorded there when given.
+**Status.** PROPOSED. On 2026-10-26 the owner approved this batch as lane A beside batch 3, in two reviewable parts, under the existing Spree-first baseline rules ([LIQ-004](../LIQ-004-foundation-backlog.md#proposed-order-of-the-remaining-batches), batch 4). It follows the batch rules of [LIQ-010 0.4](../LIQ-010-design-system-reproduction-architecture.md#121-each-batch), as the [shopper accounts batch](fb-19-batch-storefront-shopper-accounts.md) did. This work item is reviewed in part 1's records pull request. Part 1 is described in full below; part 2 is outlined in §10 and described in full in its own records pull request before its work starts. The owner answered the questions in §7 on 2026-10-26, as recommended, and part 1 was built on those answers ([verification record](../verification/2026-10-26-fb-19-batch-storefront-shop-part-1.md)). What part 1 found that differs from this proposal is in §11.
 
 **Reading of the instruction.** The owner's message of 2026-10-26 named the storefront checks for G-38, first-run setup with sample data (G-36) and CAP-05-16 as part of this batch, and said that checks depending on batch 3 run only after batch 3 is accepted and #19 merges. All three are in part 2. Part 1 depends on nothing in batch 3: its data is added through Spree's own APIs and sample data task in this lane's own test database, not through batch 3's screens.
 
@@ -130,6 +130,11 @@ The accounts batch's criteria, applied to part 1.
 2. **Is the storefront captured with wholesale on as well as off?** The home page's wholesale section and the wholesale links in the header, menu and footer appear only when the storefront runs with a wholesale channel, and LIQ-008 lists them as meaningful states. Recommended: yes, by running the storefront a second time with a wholesale channel made through the Admin API; the portal's own pages stay with batch 12.
 3. **Does part 1 take the part of G-02 its screens show?** G-02, from the pilot, keeps 35 stories checked against their source only and the cart drawer opened only with a pointer, deferred to batches 4 and 9. Recommended: yes for what part 1's screens show: the hero section and the pilot's button compared where they appear, and the cart drawer opened from the header's cart button with the keyboard. The drawer's own states stay with batch 9. G-02 closes only on the owner's acceptance.
 
+**The owner's answers, 2026-10-26.** The owner approved this work item with all three recommended answers:
+1. The product card's stories belong in part 1, with the states the card has.
+2. The storefront is captured with wholesale on as well as off.
+3. Part 1 takes the part of G-02 its screens show: the hero section and the pilot's button compared where they appear, and the cart drawer opened from the header's cart button with the keyboard.
+
 ## 8. Gaps known before the work starts
 
 | Gap | What would close it |
@@ -155,3 +160,16 @@ Described in full in its own records pull request before its work starts, and bu
 - **Capabilities:** CAP-05-14, the rest of it; CAP-05-16, search-friendly addresses for products, categories and stores; the rest of FL-05's browsing steps, with `catalog.spec.ts` and `product.spec.ts`.
 - **After batch 3 is accepted and #19 merges:** G-38's storefront checks, where a setting saved in the dashboard (markets, languages, storefront access, policies and custom fields) is seen to take effect on the storefront; and first-run setup with sample data (G-36), run on its own server, with the catalog it loads checked on the storefront. Until then CAP-03-03 stays PARTIAL for that path.
 - **Delivery:** a storefront pull request and a backend records pull request, merged after part 1's.
+
+## 11. Corrections found during part 1
+
+Recorded on 2026-10-26 from part 1's [verification record](../verification/2026-10-26-fb-19-batch-storefront-shop-part-1.md#6-the-owners-answers-and-corrections-to-the-work-item), without changing the proposal's text above:
+- **The data (§4).** The wholesale channel, a publishable key for it and the four policies, all without content, came with Spree's sample catalog. Part 1 added through the Admin API only a market in euros, the returns policy's content, two subcategories and, for the proxied runs, a market in pounds. The customer was registered by the capture run.
+- **§8's gaps for the loading state and the error page close.** Both were reached without changing code, through a proxy in the capture script that held or failed the product list.
+- **SF-SYS-01** has a second state, a malformed address, which is answered with a plain-text error rather than the application error page.
+- **SF-SYS-02** "a language the storefront does not have in the address" is not a not-found page: the storefront sends it to `/us/en`, as it does an unknown country.
+- **SF-SHOP-06** "not found" and **SF-SYS-02** "an unknown policy" are the same page, answered with status 200.
+- **Widths.** The header's region control and wholesale link show only from 1024 pixels wide, and the menu's region control only below it, so those states are captured at one width each.
+- **The menu's subcategory panel** needs categories two levels deep, which the sample catalog lacks.
+- **`DocumentShell`** is recorded in LIQ-009 as U5.
+- **Browser tests (§6).** The two cart tests ran beside the two catalog tests, because the header's cart button opens the drawer (question 3). One fails against Spree's sample catalog on a duplicate link name; it passed in CI.

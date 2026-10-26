@@ -1,0 +1,11 @@
+{
+  "screen": "SF-OVL-01",
+  "state": "menu-subcategory-panel",
+  "variant": "guest",
+  "theme": "light",
+  "width": 390,
+  "revision": "321fa1c",
+  "path": "/us/en",
+  "observed": null,
+  "note": "The sample catalog's categories have one level below the top; the subcategories of Coffee Machines were added to this lane's test database through the Admin API to show this panel."
+}
