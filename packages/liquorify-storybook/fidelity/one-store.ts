@@ -66,7 +66,7 @@ export interface Sent extends Answer {
 }
 
 export interface Case {
-  gap: 'G-11' | 'G-23' | 'G-32' | 'stand-in'
+  gap: 'G-11' | 'G-23' | 'G-32' | 'G-40' | 'stand-in'
   area: string
   /** What the case asks, in words, for the record. */
   title: string

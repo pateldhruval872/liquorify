@@ -19,8 +19,9 @@ import {
  * each case one wrong answer: a success where a refusal was due, the wrong
  * code, the wrong permission, a server error, a refused answer that carries
  * the protected record's data, a refused write that changes the record, an
- * allowed request that is refused, and an allowed write the read-back cannot
- * see. Its storefront part answers as a storefront page or server action
+ * allowed request that is refused, an allowed write the read-back cannot see,
+ * a permission refusal where not found was written, and one of two refused
+ * callers allowed. Its storefront part answers as a storefront page or server action
  * would. One case of each judge gets right answers, to show the stand-in's
  * cases fail for their wrong answer and not for the stand-in itself.
  *
@@ -62,6 +63,7 @@ const rsc = (value: unknown): Reply => ({
 
 const refused: Caller = { name: 'refused', headers: { 'X-Caller': 'refused' } }
 const allowed: Caller = { name: 'allowed', headers: { 'X-Caller': 'allowed' } }
+const also: Caller = { name: 'also', headers: { 'X-Caller': 'also' } }
 
 /** A read, `GET /api/<n>`, whose refused caller gets `wrong` and whose allowed caller gets the record. */
 function read(n: number, wrong: Reply, extra: Partial<Case> = {}): Case {
@@ -287,6 +289,32 @@ const apiCases: { title: string; failure: RegExp | null; item: () => Case }[] = 
       ...read(20, { status: 404, body: { error: { code: 'record_not_found' } } }),
       attempts: [{ caller: refused, expected: notFound('order_not_found') }],
     }),
+  },
+  {
+    title: 'A refusal by permission where not found was written',
+    failure: /refused: answered 403 access_denied write_things, expected 404 record_not_found/,
+    item: () => ({
+      ...write(21, {}),
+      attempts: [{ caller: refused, expected: notFound() }],
+    }),
+  },
+  {
+    title: 'The second of two refused callers allowed',
+    failure: /also: answered 200, expected 403 access_denied write_things/,
+    item: () => {
+      const item = write(22, {})
+      const handler = routes.get('PATCH /api/22')
+      route(
+        'PATCH',
+        '/api/22',
+        (caller, body) =>
+          handler?.(caller === 'also' ? 'allowed' : caller, body) ?? { status: 500 },
+      )
+      return {
+        ...item,
+        attempts: [...item.attempts, { caller: also, expected: denied('write_things') }],
+      }
+    },
   },
 ]
 

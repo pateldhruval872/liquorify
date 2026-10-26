@@ -26,8 +26,8 @@ import { PASSWORD, seed, teammates } from './staff'
 
 /**
  * Step P7's Admin API refusals within one store: G-11's staff, invitation and
- * role requests, G-23's command palette searches and G-32's requests of batch
- * 2's narrower roles. Each request is sent as the teammates whose roles do not
+ * role requests, G-23's command palette searches, G-32's requests of batch 2's
+ * narrower roles and G-40's of batch 3's. Each request is sent as the teammates whose roles do not
  * allow it, and as one teammate whose role does, and judged by `one-store.ts`.
  *
  * Start Spree's browser-test server first, freshly, as `stack.spec.ts` says;
@@ -41,7 +41,8 @@ import { PASSWORD, seed, teammates } from './staff'
  * searches follow each role's permission keys, as part 2's did; the developer
  * settings refusals follow Spree's permission gate: 403 `access_denied` naming
  * the missing `read_*` or `write_*` key, and, for consent, the connect check's
- * 403 without one.
+ * 403 without one. Batch 3's saves follow the same gate, and a change to one
+ * record its lookup (below).
  */
 
 const API = process.env.P7_API_URL ?? 'http://localhost:3010'
@@ -589,6 +590,195 @@ async function developerCases(
   return cases
 }
 
+/** What the store page's Save sends (`settings/store.tsx`), every field of it. */
+const storePageFields = [
+  'name',
+  'admin_locale',
+  'timezone',
+  'unit_system',
+  'weight_unit',
+  'storefront_access',
+  'guest_checkout',
+  'always_include_confirm_step',
+  'company_field_enabled',
+  'address_requires_phone',
+  'capture_method',
+  'pricing_provider',
+  'inventory_provider',
+  'pricing_provider_failure_policy',
+  'inventory_provider_failure_policy',
+  'tax_using_ship_address',
+  'track_inventory_levels',
+  'stock_reservations_enabled',
+  'low_stock_threshold',
+  'track_price_history',
+  'show_products_without_price',
+  'disable_sku_validation',
+  'document_number_format',
+  'order_number_prefix',
+  'order_number_suffix',
+  'order_number_sequence_start',
+  'limit_digital_download_count',
+  'digital_asset_authorized_clicks',
+  'limit_digital_download_days',
+  'digital_asset_authorized_days',
+]
+
+const fields =
+  (...keys: string[]) =>
+  (sent: { status: number; body: unknown }) => [
+    sent.status,
+    ...keys.map((key) => (sent.body as Json)[key]),
+  ]
+
+/**
+ * G-40: the saves batch 3's narrower roles are shown (its record's §3.1). The
+ * policy, channel and market are this run's own, so the allowed saves change
+ * nothing another run or capture reads; the store is the one store, and its
+ * name is put back after.
+ */
+async function settingsCases(people: Record<string, Caller>, call: Admin) {
+  const { admin, settingsViewer, orderManager, storeSettings } = people
+  const store = await call('GET', 'store')
+  const storeName = String(store.name)
+  const newStoreName = `P7 store ${run}`
+  // As the page sends it: the store's own values, with a blank language left out.
+  const storePage: Json = Object.fromEntries(
+    storePageFields
+      .filter((key) => store[key] !== undefined && store[key] !== null && store[key] !== '')
+      .map((key) => [key, store[key]]),
+  )
+  storePage.name = newStoreName
+
+  const policyName = `P7 policy ${run}`
+  const policyText = `P7 terms ${run}`
+  const policy = await call('POST', 'policies', { name: policyName, body: `<p>${policyText}</p>` })
+
+  const channelName = `P7 channel ${run}`
+  const channelCode = `p7-channel-${run}`
+  const channel = await call('POST', 'channels', {
+    name: channelName,
+    code: channelCode,
+    active: false,
+  })
+
+  // A country no market holds yet, since a country belongs to one market.
+  const held = new Set(
+    rows(await call('GET', 'markets?limit=100')).flatMap((item) => item.country_codes as string[]),
+  )
+  const country = rows(await call('GET', 'countries?limit=300'))
+    .map((item) => String(item.iso))
+    .find((iso) => !held.has(iso))
+  const marketName = `P7 market ${run}`
+  const market = await call('POST', 'markets', {
+    name: marketName,
+    currency: 'USD',
+    default_locale: 'en',
+    country_codes: [country],
+  })
+
+  // A change to one record is looked up among those the caller may change
+  // before the permission gate runs, as for the payment provider above. The
+  // store is not looked up: its save goes straight to the gate.
+  const cases: Case[] = [
+    {
+      gap: 'G-40',
+      area: 'settings',
+      title: 'Save the store page',
+      request: { method: 'PATCH', path: '/api/v3/admin/store', data: storePage },
+      attempts: [
+        { caller: settingsViewer, expected: denied('write_settings') },
+        { caller: orderManager, expected: denied('write_settings') },
+      ],
+      control: { caller: storeSettings, status: 200 },
+      protectedValues: [storeName, newStoreName],
+      state: {
+        caller: admin,
+        request: { method: 'GET', path: '/api/v3/admin/store' },
+        pick: fields(...storePageFields),
+      },
+    },
+    {
+      gap: 'G-40',
+      area: 'settings',
+      title: 'Save a policy from its sheet',
+      request: {
+        method: 'PATCH',
+        path: `/api/v3/admin/policies/${policy.id}`,
+        data: {
+          name: `${policyName} edited`,
+          slug: policy.slug,
+          body: `<p>${policyText} edited</p>`,
+        },
+      },
+      attempts: [{ caller: settingsViewer, expected: notFound() }],
+      control: { caller: storeSettings, status: 200 },
+      protectedValues: [policyName, policyText, String(policy.slug)],
+      state: {
+        caller: admin,
+        request: { method: 'GET', path: `/api/v3/admin/policies/${policy.id}` },
+        pick: fields('name', 'slug', 'body_html'),
+      },
+    },
+    {
+      gap: 'G-40',
+      area: 'settings',
+      title: 'Save a sales channel from its sheet',
+      request: {
+        method: 'PATCH',
+        path: `/api/v3/admin/channels/${channel.id}`,
+        data: {
+          name: `${channelName} edited`,
+          code: channelCode,
+          active: false,
+          default: false,
+          order_routing_strategy: null,
+          storefront_access: null,
+          guest_checkout: null,
+          default_catalog_id: null,
+          stock_location_ids: [],
+        },
+      },
+      attempts: [{ caller: settingsViewer, expected: notFound() }],
+      control: { caller: storeSettings, status: 200 },
+      protectedValues: [channelName, channelCode],
+      state: {
+        caller: admin,
+        request: { method: 'GET', path: `/api/v3/admin/channels/${channel.id}` },
+        pick: fields('name', 'code', 'active', 'default'),
+      },
+    },
+    {
+      gap: 'G-40',
+      area: 'settings',
+      title: 'Save a market from its sheet',
+      request: {
+        method: 'PATCH',
+        path: `/api/v3/admin/markets/${market.id}`,
+        data: {
+          name: `${marketName} edited`,
+          currency: market.currency,
+          default_locale: market.default_locale,
+          supported_locales: [],
+          tax_inclusive: market.tax_inclusive,
+          default: false,
+          country_codes: market.country_codes,
+          tax_provider: null,
+        },
+      },
+      attempts: [{ caller: settingsViewer, expected: notFound() }],
+      control: { caller: storeSettings, status: 200 },
+      protectedValues: [marketName],
+      state: {
+        caller: admin,
+        request: { method: 'GET', path: `/api/v3/admin/markets/${market.id}` },
+        pick: fields('name', 'currency', 'default_locale', 'country_codes', 'default'),
+      },
+    },
+  ]
+  return { cases, restore: () => call('PATCH', 'store', { name: storeName }) }
+}
+
 test('the Admin API refuses each request a role does not allow, within one store', async ({
   request,
   baseURL,
@@ -619,6 +809,7 @@ test('the Admin API refuses each request a role does not allow, within one store
     'merchandiser',
     'developerViewer',
     'agentConnector',
+    'settingsViewer',
   ]) {
     people[key] = await adminCaller(request, key, teammates[key].email, PASSWORD, creds.store_id)
   }
@@ -639,9 +830,15 @@ test('the Admin API refuses each request a role does not allow, within one store
   )
   // Puts the test gateway back as the seeding left it.
   await call('PATCH', `payment_methods/${developers.gatewayId}`, { active: true })
+  const settings = await settingsCases(people, call)
+  all.push(...(await runCases(request, settings.cases)))
+  await settings.restore()
 
   const gaps = Object.fromEntries(
-    ['G-11', 'G-23', 'G-32'].map((gap) => [gap, gapResult(all.filter((item) => item.gap === gap))]),
+    ['G-11', 'G-23', 'G-32', 'G-40'].map((gap) => [
+      gap,
+      gapResult(all.filter((item) => item.gap === gap)),
+    ]),
   )
   mkdirSync(results, { recursive: true })
   writeFileSync(
