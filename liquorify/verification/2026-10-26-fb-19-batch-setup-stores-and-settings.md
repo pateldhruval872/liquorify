@@ -4,7 +4,7 @@ record: verification
 work_item: FB-19
 date: 2026-10-26
 verifier: Claude (automated session); not independent review
-result: PASS for the map, the stories and their images, the running-screen captures, the comparison with running screens after five corrections to the stories, what first-run setup gives a new store, and Spree's own specs for the batch's endpoints and services, 379 examples with no failures. Every state the work item lists is captured on the running dashboard but one, a routing rule with settings of its own, which none of Spree's three rule kinds has (G-35); one listed state, a policy's address following its name as it is typed, is not how Spree works and is recorded as a correction (§6). 25 states were reached by answering a request in the browser, and say so; one of them, the store's refused save, shows an error the batch wrote. First-run setup ran without sample data, as the owner answered, and the new store had all 24 defaults Spree's two provisioning services give it (§3.4). Coverage and functional verification are recorded apart (§2): CAP-03-03 stays PARTIAL for setup with sample data, deferred to batch 4, and the capabilities whose settings take effect outside the dashboard are PARTIAL until the batches that own those areas check them. The interface shows 14 behaviours the work item did not expect, recorded as Spree's and not changed (§5). No setup token, key or password is in any committed file. Tenant isolation is NOT_RUN. At the batch's revision, `c4168ca`, the visual check passed twice in CI, all 1,108 comparisons each time, and Tests and Packages passed, the first-run browser tests among them (§8). The owner's acceptance is PENDING.
+result: PASS for the map, the stories and their images, the running-screen captures, the comparison with running screens after five corrections to the stories, what first-run setup gives a new store, and Spree's own specs for the batch's endpoints and services, 379 examples with no failures. Every state the work item lists is captured on the running dashboard but one, a routing rule with settings of its own, which none of Spree's three rule kinds has (G-35); one listed state, a policy's address following its name as it is typed, is not how Spree works and is recorded as a correction (§6). 25 states were reached by answering a request in the browser, and say so; one of them, the store's refused save, shows an error the batch wrote. First-run setup ran without sample data, as the owner answered, and the new store passed all 28 provisioning checks, each comparing a default's identity, type and values with what Spree's two provisioning services write; the check writes its report and then fails on any missing or wrong default, and it refused each of three changed copies of the records: a missing refund reason, a payment method of the wrong type and a pickup that costs money (§3.4). Coverage and functional verification are recorded apart (§2): CAP-03-03 stays PARTIAL for setup with sample data, deferred to batch 4, and the capabilities whose settings take effect outside the dashboard are PARTIAL until the batches that own those areas check them. The interface shows 14 behaviours the work item did not expect, recorded as Spree's and not changed (§5); at the owner's request two of them, B1 and B7, are tracked as existing defects, SD-6 and SD-7, with their fixes kept out of this pull request. No setup token, key or password is in any committed file. Tenant isolation is NOT_RUN. At the batch's revision, `c4168ca`, the visual check passed twice in CI, all 1,108 comparisons each time, and Tests and Packages passed, the first-run browser tests among them (§8). The owner's acceptance is PENDING.
 ---
 
 # FB-19 batch, setup, stores and settings
@@ -15,7 +15,7 @@ result: PASS for the map, the stories and their images, the running-screen captu
 
 | What | Revision |
 |---|---|
-| Stories, scripts and records | Draft pull request [#19](https://github.com/pateldhruval872/liquorify/pull/19), branch `claude/fb-19-batch-3-setup-proposal`, where the batch was proposed. `881a619` brought `main` at `afd97cd` into the branch. `9283292` added the stories, reference images, fixtures, mocks, scripts, evidence and records, and `c4168ca` corrected one story's timing without changing a reference image (§8). `c4168ca` is the batch's revision; the commit after it changes only records |
+| Stories, scripts and records | Draft pull request [#19](https://github.com/pateldhruval872/liquorify/pull/19), branch `claude/fb-19-batch-3-setup-proposal`, where the batch was proposed. `881a619` brought `main` at `afd97cd` into the branch. `9283292` added the stories, reference images, fixtures, mocks, scripts, evidence and records, and `c4168ca` corrected one story's timing without changing a reference image (§8). `c4168ca` is the batch's revision for the stories and reference images. `da3f79b` changed only the provisioning check, at the owner's request of 2026-10-26 (§3.4), and the commits after it change only records and evidence |
 | Spree's code: the dashboard, its packages, the SDKs and the gems | Identical to `main` at `afd97cd`. The branch changes none of it: `git diff afd97cd HEAD` over `packages/dashboard`, `packages/dashboard-core`, `packages/dashboard-ui`, `packages/sdk`, `packages/admin-sdk` and `spree/` is empty |
 | Running screens | The built admin dashboard against the dashboard browser tests' own Rails server and fixtures, at that code, in the pinned Playwright 1.64.1 image. First-run setup ran on the first-run browser test's own server, which starts with no admin, with the dashboard served on its port. Captures are 1280 by 960 pixels, and 390 by 844 for the settings page's three phone states; comparisons are 1280 by 800, 1280 by 2400 for the two cases taller than the window, and 390 by 844 for the phone case. The capture and comparison notes name `881a619`, the commit the scripts ran from, which has the same Spree code |
 
@@ -32,12 +32,12 @@ result: PASS for the map, the stories and their images, the running-screen captu
 | 7 | A state no running screen shows is a coverage gap, with the check made instead; a state reached by answering a request says so | PASS: 121 of the 150 stories were not compared by the script; 51 of them show a state seen in a running-screen capture, and 70 were checked against their source only (G-33, image review list). Every capture whose state was reached in the browser says how in its note, and claims nothing about the server (§2.1) |
 | 8 | The visual check passes twice in CI on the same revision under the agreed tolerance; Tests and Packages pass; the check stays advisory | PASS at `c4168ca` (§8): the visual check passed twice, all 1,108 comparisons each time, once from the pull request and once started by hand; Tests and Packages passed. The first run at `9283292` failed on one story's timing, which `c4168ca` corrected. The check stays advisory |
 | 9 | Spree's code, the storefront and every workflow outside Storybook are unchanged; nothing carries Liquorify branding or features | PASS: the pull request changes only `packages/liquorify-storybook/` and `liquorify/` |
-| 10 | The records are updated, with every link checked | PASS: this record, the image review list, the evidence index, LIQ-009's Storybook column, LIQ-004's FB-19 entry, its progress tables and gap register, the work item and the README index, with the link check run |
+| 10 | The records are updated, with every link checked | PASS: this record, the image review list, the evidence index, LIQ-009's Storybook column, LIQ-004's FB-19 entry, its defect list, progress tables and gap register, the work item and the README index, with the link check run |
 | 11 | The owner accepts the reference images, the screen evidence and fidelity | PENDING the owner's review. Recorded as for batch 2 while D5 is open |
 | 12 | Backend authorization is recorded apart from criterion 4, from Spree's own specs at the batch's revision | PASS for what Spree's specs exercise: 379 examples in 18 files, no failures (§3.2). What no spec exercises, such as each role's requests in §3.1, is NOT_RUN and joins G-11 (G-40) |
 | 13 | Tenant isolation is NOT_RUN, with links to the open isolation findings, including ISO-6 | NOT_RUN (§3.3). No new isolation defect was found; none was looked for beyond Spree's own specs |
 | 14 | No setup token, key or password appears in any committed file | PASS: the search of every text file the pull request adds or changes found no token, key or password: its one match is an invitation link whose token is made of invented words, which `main` already has (§8). The storefront sheet's address and key are painted out in every capture and comparison that shows them (§10) |
-| 15 | What first-run setup gives a new store is read through the Admin API and compared with Spree's two provisioning services | PASS: all 24 defaults present for a store set up for Poland in English, without sample data (§3.4). Setup with sample data is batch 4's, and CAP-03-03 stays PARTIAL for it |
+| 15 | What first-run setup gives a new store is read through the Admin API and compared with Spree's two provisioning services | PASS: all 28 checks correct for a store set up for Poland in English, without sample data, at `da3f79b`, each comparing the records by identity, type and value with what the services write. The check writes its report, then fails on any difference, and it refused a missing refund reason, a wrong payment method type and a pickup priced above zero, each by its own check alone (§3.4). Setup with sample data is batch 4's, and CAP-03-03 stays PARTIAL for it |
 
 ## 1. What was built
 
@@ -97,7 +97,7 @@ Coverage and functional verification are kept apart, at the owner's instruction 
 |---|---|---|---|---|---|---|---|
 | CAP-03-01 Stores | DA-SHELL-01, DA-SHELL-02, DA-OVL-01 | None | Any staff role | Covered by the staff access batch | The staff access batch's captures, mapped and not captured again | PASS, in the staff access batch | PARTIAL: the shell and the store switcher pass in the staff access batch's and P6's browser tests; whether a store's data stays in that store is tenant isolation, NOT_RUN (§3.3) |
 | CAP-03-02 First-run setup | DA-SETUP-01, and DA-AUTH-01's pointer to it | FL-01 | None: the setup link's token | `store-setup-fields`, `combobox`, `country-flag`, with `auth-shell` and `theme-provider` | 15 captures; 2 cases compared; 5 browser test titles; Spree's setup specs (§3.2) | PASS: every listed state captured, four of them reached in the browser | PASS in Spree's browser tests and specs (§8): the pointer, a wrong token refused, setup completing and signing in, and setup closing behind the new admin. Setup with sample data is batch 4's |
-| CAP-03-03 Store provisioning | None | FL-01 | None | None | The provisioning result, 24 defaults (§3.4); Spree's provisioning specs | PASS for setup without sample data | PARTIAL: all 24 defaults present after setup without sample data (§3.4). Setup with sample data is deferred to batch 4 at the owner's answer (G-36) |
+| CAP-03-03 Store provisioning | None | FL-01 | None | None | The provisioning result, 28 checks (§3.4); Spree's provisioning specs | PASS for setup without sample data | PARTIAL: all 28 provisioning checks correct after setup without sample data (§3.4). Setup with sample data is deferred to batch 4 at the owner's answer (G-36) |
 | CAP-03-04 Getting started checklist | DA-HOME-02, with its navigation entry | FL-01 | Write on the store | The `setup-tasks/` group, `storefront-connect-sheet`, `getting-started-nav-badge`, `address-form-dialog`, `country-state-fields`, `address-block` | 21 captures; 7 cases compared; 2 browser test titles; Spree's setup tasks spec | PASS: every listed state captured, fourteen of them reached in the browser | PARTIAL: progress and the taxes task's link pass in Spree's browser test, and the storefront sheet's empty address in another. No test drives the address dialog or completes a task from the page (G-37); each task's own work is its batch's |
 | CAP-03-05 Store settings | DA-SET-01, DA-SET-02 | None | `settings` | `settings-index`, `form-actions`, `combobox` | 18 captures; 3 cases compared; 7 browser test titles; Spree's store specs | PASS: every listed state captured, two of them reached in the browser | PARTIAL: every card opening its page, the narrow screen's search, renaming the store, switching the admin language and saving standards, storefront access, order numbers and payments pass in Spree's browser tests. Where each setting takes effect, on the storefront, in checkout or on orders, is other batches' (G-38) |
 | CAP-03-06 Channels | DA-SET-08 | None | `settings` | `order-routing-rules-section`, `stock-location-scope-field`, `resource-combobox`, `drag-handle`, `row-click-bridge` | 16 captures; 4 cases compared; 8 browser test titles; Spree's channel and routing rule specs | PASS for every listed state but a rule configured (G-35) | PARTIAL: listing, creating with a derived and a typed code, editing, overriding store settings and clearing them, the catalog picker's name, managing routing rules and deleting pass in Spree's browser tests. How a channel routes orders is batch 8's (G-38) |
@@ -146,7 +146,7 @@ The browser tests are Spree's own, in `packages/dashboard/e2e/`, unchanged. All 
 | Open the setup link | DA-SETUP-01 | "refuses a setup link with the wrong token" | PASS at `c4168ca` (§8) |
 | Create the admin and the store, and sign in | DA-SETUP-01 | "creates the admin account, sets up the store and signs the merchant in" | PASS at `c4168ca` (§8). The form ticks Load sample data until it is unticked; Spree's test and this batch's script untick it |
 | Setup closes behind the new admin | DA-SETUP-01 | "closes setup once an admin exists", "the new admin signs in with the account created during setup" | PASS at `c4168ca` (§8) |
-| What the new store was given | None | None | PASS by the batch's own check: all 24 defaults present (§3.4). With sample data: batch 4 (G-36) |
+| What the new store was given | None | None | PASS by the batch's own check: all 28 provisioning checks correct (§3.4). With sample data: batch 4 (G-36) |
 | The home page | DA-HOME-01 | Batch 11's | Not this batch |
 | The six tasks, each linked to where it is done | DA-HOME-02 | `getting-started.spec.ts`: "shows setup progress and links each step to where it is done", which follows the taxes task's link only | PASS at `c4168ca`, for the progress and that one link (§8) |
 | The store address task | DA-HOME-02 | None drives its dialog | **Gap** G-37. The batch's captures show the dialog and the task done and not done |
@@ -206,34 +206,50 @@ Some of Spree's specs above touch store boundaries: another store's policies, ch
 
 ### 3.4 What first-run setup gives a new store
 
-Criterion 15. `setup.spec.ts` completed setup once on the first-run server, without sample data, as a merchant in Poland who keeps the dashboard in English: store name "Fidelity First Run", country Poland, language English, the currency setup suggests for Poland, PLN. It then signed in as the new admin and read the new store through the Admin API. Each default Spree's two provisioning services give a store, `Spree::Seeds::StoreResources` before setup and `Spree::Stores::ProvisionDefaults` from the merchant's answers, is one check, with what was found. All 24 are present. The result is [first-run.json](evidence/2026-10-26-fb-19-batch-setup-stores-and-settings/provisioning/first-run.json).
+Criterion 15. `setup.spec.ts` completed setup once on a fresh first-run server, without sample data, as a merchant in Poland who keeps the dashboard in English: store name "Fidelity First Run", country Poland, language English, the currency setup suggests for Poland, PLN. It then signed in as the new admin and read the new store through the Admin API, each list in full: the rows of every list are counted against the total the API reports.
 
-| Service | Default | Found |
+**What is checked.** At the owner's request of 2026-10-26, `da3f79b` replaced the first version of the check, which only required each default to be there, with one that compares every record with what the code that writes it writes at the pinned revision ([`provisioning.ts`](../../packages/liquorify-storybook/fidelity/provisioning.ts)). Each check finds its records by the identity that code uses, a name, a code or a kind, and for pickup and digital delivery their provider, and compares the values it sets: types and kinds, amounts and currencies, positions, and the profile, zone or channel each record belongs to. A missing default, a value that differs, two records where one is written, and a record nothing writes each fail the check. The test writes its report, [first-run.json](evidence/2026-10-26-fb-19-batch-setup-stores-and-settings/provisioning/first-run.json), with what each check expected, what it found and every difference, and then fails if any check is not correct. Fields the services leave to the database, such as ids and dates, are not compared. The report names the profiles, zones and channels records belong to by name, and holds no key, token or address.
+
+**Result.** All 28 checks correct.
+
+| Check | Written by | What it writes, and the store had |
 |---|---|---|
-| ProvisionDefaults | The store's country, currency and language | Poland, PLN, English |
-| | The dashboard's language for the store | English, as chosen |
-| | The default market | "Poland", in PLN and English, for Poland |
-| | The default stock location | "Shop location", in Poland, active and open for pickup |
-| | The default shipping profile | "General", with "Digital" beside it |
-| | A domestic zone and an international one | "Domestic" for Poland, "International" for the other 239 countries |
-| | Standard and international delivery in the store's currency | 5.00 and 20.00 PLN |
-| | Store pickup | Free, in PLN, shown on the storefront |
-| | Digital delivery restated in the store's currency | 0.00 PLN |
-| | A default box | 12 by 9 by 4 inches, 0.5 pounds: the store is imperial (B12) |
-| StoreResources | Tax categories | Default, Non-taxable |
-| | Tax exemption reasons | Six, from Agricultural to Resale |
-| | Channels | Online Store and Wholesale |
-| | The admin role | Present |
-| | Digital delivery | Present |
-| | Store credit as a payment method | Present |
-| | Product types | Default, Digital |
-| | The wholesale customer group | Present |
-| | Reasons | 9 return, 5 claim, 1 refund and 7 cancellation reasons |
-| | The marketplace's catch-all commission rate | Present, disabled |
-| | Seller requirements | Seven |
-| | Publishable keys for the storefront and the wholesale channel | Two, by name and type only |
-| | Saved reports | Twenty |
-| | An allowed origin | One |
+| The store's name | Setup, renaming the seeded store | "Fidelity First Run" |
+| The store's country, currency and language | ProvisionDefaults | Poland, PLN and English, with the dashboard in English |
+| The default market | ProvisionDefaults | One market, "Poland", the default, in PLN and English, for Poland alone |
+| The default stock location | ProvisionDefaults | One, "Shop location", the default, in Poland, active and open for pickup, not stocking every variant, and not a seller's |
+| Delivery profiles | The store's own default, which ProvisionDefaults creates if it is missing, and StoreResources | "General", the default shipping profile, and "Digital", a digital one, and no other |
+| Delivery zones | ProvisionDefaults | "Domestic", described as Poland, for Poland alone, and "International", "Everywhere else", for each of the other 239 countries, both on "General", and no other |
+| Standard delivery | ProvisionDefaults | Manual, in the domestic zone on "General", a flat 5.00 PLN, shown on the storefront |
+| International shipping | ProvisionDefaults | Manual, in the international zone on "General", a flat 20.00 PLN, shown on the storefront |
+| Store pickup | ProvisionDefaults | The pickup provider, on "General" with no zone, a flat 0.00 PLN, shown on the storefront |
+| Digital delivery | StoreResources, restated by ProvisionDefaults | The digital provider, on "Digital" with no zone, 0.00 restated in PLN, shown on the storefront |
+| Delivery methods | Both | Those four, and no other |
+| The default box | ProvisionDefaults | "Shipping box", a box, the default, 12 by 9 by 4 inches and 0.5 pounds, as the store is imperial (B12) |
+| Tax categories | StoreResources | "Default", the default, and "Non-taxable" |
+| Tax exemption reasons | StoreResources | The six codes, from AGRICULTURAL to RESALE, each with its name and active |
+| Channels | StoreResources | "Online Store", code `online`, the default, and "Wholesale", code `wholesale`, behind a login with no guest checkout, both active |
+| The admin role | StoreResources | "admin", which cannot be changed |
+| Payment methods | StoreResources | One, "Store Credit", of the store credit type, active |
+| Product types | StoreResources | "Default", and "Digital" on the "Digital" profile |
+| Customer groups | StoreResources | "Wholesale" |
+| Refund reasons | StoreResources | "Return processing", the reason returns are processed with, active |
+| Return, claim and cancellation reasons, three checks | StoreResources | The 9, 5 and 7 names Spree seeds, each active |
+| The commission rate | StoreResources | "Marketplace default", code `marketplace-default`, a percentage of 0, disabled, last |
+| Seller requirements | StoreResources | The seven default kinds in Spree's order, at positions 1 to 7, each active and required |
+| Publishable keys | StoreResources | "Default", with no channel, and "Storefront (Wholesale)", bound to the wholesale channel, both publishable and not revoked; read by name, type and channel only |
+| Saved reports | StoreResources | The 20 Spree seeds, by name, each marked as seeded |
+| The allowed origin | StoreResources | One, the seeded local origin, which the report does not spell out |
+
+**The check refusing a wrong default.** A last test changes copies of the records it read, one change per copy, and runs the same check on each; the store itself is not changed. Each copy failed by the one check it should, with the other 27 correct, and the function the test above calls to fail threw, naming that check ([refusals.json](evidence/2026-10-26-fb-19-batch-setup-stores-and-settings/provisioning/refusals.json)):
+
+| Change to the copy | Check that failed | Difference reported |
+|---|---|---|
+| The refund reason "Return processing" removed | Refund reasons, missing | `missing: "Return processing"` |
+| "Store Credit" given the payment method type `check` | Payment methods, incorrect | `type should be "store_credit", is "check"` |
+| Store pickup priced at 1.00 | Store pickup, incorrect | `amount should be "0.00", is "1.00"` |
+
+The same run repeated the setup captures, and all 30 matched the committed ones pixel for pixel, so those are kept.
 
 After setup, Getting Started showed one of its six tasks done, the support email: the store seeded before setup carries Spree's placeholder support address, which setup does not change (B13). Setup with sample data, which loads Spree's catalog over the network, was not run, as the owner answered: it is batch 4's, and CAP-03-03 stays PARTIAL for that path until it is verified there (G-36).
 
@@ -302,13 +318,13 @@ Each is how Spree works at `afd97cd`. The batch reproduces it and changes nothin
 
 | # | Behaviour | Where seen |
 |---|---|---|
-| B1 | When the store's request fails, the store page keeps its loading placeholder for good: it checks for a missing store before it checks for an error, so the error message is never reached. The emails and marketplace settings pages read their store the same way | DA-SET-02 request-failed; read in `settings/store.tsx` line 149, `settings/emails/index.tsx` line 111 and `settings/marketplace.tsx` line 71 |
+| B1 | When the store's request fails, the store page keeps its loading placeholder for good: it checks for a missing store before it checks for an error, so the error message is never reached. The emails and marketplace settings pages read their store the same way | DA-SET-02 request-failed; read in `settings/store.tsx` line 149, `settings/emails/index.tsx` line 111 and `settings/marketplace.tsx` line 71. Tracked as SD-6 |
 | B2 | The settings viewer, who may read settings, sees no Store or Emails card or menu entry, yet the store page opens on a direct visit, every section filled, with Save | DA-SET-01 cards and DA-SET-02 general, settings viewer |
 | B3 | For the same role, policies, channels and markets keep each row's menu with Edit, and open sheets that can be edited, with Save; only their Add buttons are hidden | DA-SET-06, DA-SET-08 and DA-SET-11 listed and edit, settings viewer |
 | B4 | For the same role, reasons and tax exemption reasons hide Add and every row menu | DA-SET-21 and DA-SET-15 listed, settings viewer; Reason section: Settings viewer |
 | B5 | For the same role, custom fields hide every row menu, and a field's name does not open it: unlike B3, nothing can be edited | DA-SET-09 listed, settings viewer; read in `custom-field-definitions.tsx` |
 | B6 | Getting Started is gone from the navigation of the settings viewer and the order manager, but a direct visit shows the store's progress, three of six, and "Failed to load" on the address task | DA-HOME-02 direct-visit, both roles |
-| B7 | The storefront sheet refuses an address that is not one with a message drawn beneath the sheet's layer, so nothing shows; the sheet stays as it was | DA-HOME-02 storefront-sheet-not-an-address; Storefront connect sheet: Not an address |
+| B7 | The storefront sheet refuses an address that is not one with a message drawn beneath the sheet's layer, so nothing shows; the sheet stays as it was | DA-HOME-02 storefront-sheet-not-an-address; Storefront connect sheet: Not an address. Tracked as SD-7 |
 | B8 | The order manager, who holds no settings permission, sees `No settings match ""` on the settings page and menu though nothing was searched. On a direct visit, policies, channels, markets and custom fields show their empty states, as if the store had none; the reasons cards read "Failed to load"; the store page shows every section with Save; the tax exemption reasons are listed, as Spree's spec allows a role that reads customers | DA-SET-01 cards and DA-SET-* direct-visit, order manager |
 | B9 | Disabled switches are drawn exactly like enabled ones, as the settings viewer's routing rules show | DA-SET-08 routing-rules, settings viewer; Order routing rules section: Settings viewer |
 | B10 | A country flag's size classes change its height only: the flag picture's own width outranks them, so Larger is taller but no wider | Country flag: Square and Larger; read in `country-flag.tsx` |
@@ -317,7 +333,7 @@ Each is how Spree works at `afd97cd`. The batch reproduces it and changes nothin
 | B13 | Straight after setup, one of the six setup tasks is already done, the support email: the store seeded before setup carries Spree's placeholder support address, at `example.com`, and setup changes only the store's name. A merchant who does not open the task keeps that address | DA-SETUP-01 welcome; read in `seeds/stores.rb` and `setup_controller.rb` |
 | B14 | Every channel holds one routing rule of each of Spree's three kinds, none with settings, so Add rule appears only once a rule is removed | DA-SET-08 routing-rules and routing-rule-add-picker |
 
-B2 to B6 and B8 matter for Liquorify's later staff access work; whether to change any of them is a Liquorify product decision, deferred with the rest of Liquorify's own staff access changes (F1). B12 matters for a store that trades in metric units, and B13 for every new store. None is proposed as a defect. B1 is the nearest: a merchant who loses the connection on the store page sees it load for good, with no message and nothing to retry. Whether to track it as one is the owner's call.
+B2 to B6 and B8 matter for Liquorify's later staff access work; whether to change any of them is a Liquorify product decision, deferred with the rest of Liquorify's own staff access changes (F1). B12 matters for a store that trades in metric units, and B13 for every new store. On 2026-10-26 the owner asked for B1 and B7 to be tracked as existing defects, with their fixes kept separate: they are [SD-6 and SD-7](../LIQ-004-foundation-backlog.md#existing-defects-found-by-the-baseline) in LIQ-004. A merchant who loses the connection on the store page sees it load for good, with no message and nothing to retry (B1); a merchant who types something that is not an address into the storefront sheet is not told why it was not saved (B7). This pull request changes neither. The other behaviours are not proposed as defects.
 
 ## 6. Corrections to the work item
 
@@ -366,13 +382,16 @@ The visual check stays advisory: it runs on every pull request, and nothing appr
 
 **Local checks for the timing correction.** Lint and the package's type check passed. The Storybook was rebuilt, and the currency select's eight stories, in light and dark, passed ten times each in the pinned image, 160 comparisons.
 
+**Local checks for the provisioning check, `da3f79b`.** Before setup was run, the new check was tried on the records an earlier, discarded setup run had read, and on copies changed to lose a default, add one, double one, change a currency and drop a country from the international zone; each failed as it should. Setup then ran on a fresh first-run server in the pinned image, from `da3f79b`: all 31 tests passed, the 28 provisioning checks and the three refusals among them (§3.4), and the 30 setup captures matched the committed ones pixel for pixel. Lint passed, and the fidelity scripts type-checked with only the three known errors above. Criterion 14's search, run again before the push, covered the 356 text files that differ from `main` and matched once, on the same invitation link. The link check found no broken link.
+
 ## 9. Limitations
 
 - **Diagnostic, not acceptance.** A passing comparison only shows that both sides could be captured; fidelity is the owner's judgement from the evidence.
 - **Invented data in stories, the browser tests' data on screens.** Names, counts and records differ on purpose.
 - **Seeded data.** The role, teammate, inactive channel, custom field definitions and retired reasons were added to the browser-test database through the Admin API. They exist only in that database, which is local and discarded, and Spree's tests and fixtures are unchanged. First-run setup ran on its own server's database, also discarded.
 - **States reached by answering a request** show how the screen renders that answer, not that the server would send it; the store's refused save shows words the batch wrote (§2.1).
-- **One country.** Setup ran once, for Poland in English. ProvisionDefaults works from the chosen country, so another country gives other zones, a currency and a language; Spree's provisioning spec covers more than one.
+- **The refusals change copies.** They show the check refusing a missing or wrong default, not Spree producing one.
+- **One country.** Setup ran for Poland in English only. ProvisionDefaults works from the chosen country, so another country gives other zones, a currency and a language; Spree's provisioning spec covers more than one.
 - **Spree's specs ran on SQLite, locally.** CI runs Spree's suites on PostgreSQL and MySQL.
 - **Size.** The batch's 300 reference images are 10.2 MB, more than the work item estimated, because many sheets and the settings pages are tall; its evidence is 13.5 MB. The evidence images are lossless WebP.
 - **Not independent.** The session that built the stories also compared them; the owner's review is the independent check.

@@ -6,7 +6,7 @@ The captures, comparisons, provisioning result and backend results behind the [v
 
 | What | Revision |
 |---|---|
-| Stories and scripts | Draft pull request [#19](https://github.com/pateldhruval872/liquorify/pull/19); the scripts ran from `881a619`, with the batch's stories as the commit that adds the records has them |
+| Stories and scripts | Draft pull request [#19](https://github.com/pateldhruval872/liquorify/pull/19); the scripts ran from `881a619`, with the batch's stories as the commit that adds the records has them. The provisioning results are from `da3f79b`, which strengthened the provisioning check; that run's setup captures matched the ones listed here pixel for pixel, so these are kept |
 | Running screens, first-run setup and Spree's specs | Spree's code at `afd97cd`, which the pull request does not change: the built admin dashboard against the dashboard browser tests' own Rails server and fixtures, and first-run setup on the first-run browser test's own server, which starts with no admin |
 | Browser | The pinned Playwright 1.64.1 image. Captures at 1280 by 960 pixels, and 390 by 844 for the settings page's phone states; comparisons at 1280 by 800, 1280 by 2400 for the settings cards and the return reasons card, and 390 by 844 for the phone case. Captures follow the system's light or dark setting; none stores a choice of theme |
 
@@ -20,7 +20,7 @@ The captures, comparisons, provisioning result and backend results behind the [v
 |---|---|
 | `screens/<screen ID>/<state>/` | `<variant>-light.webp` and `<variant>-dark.webp` for each variant, and `<variant>-<theme>.json`: the screen, the state, the variant's role and its permissions, the theme, the revision, the path, the window's size, how a request was answered or held to reach the state (`intercepted`), what was painted out (`masked`), whether the page settled, and every request blocked because it would have left the local servers (`outside`, empty in all 244) |
 | `comparison/<case>/` | `<theme>-side-by-side.webp`: the running screen on the left and the story on the right; `<theme>-styles.json`: the computed styles of every distinct element on both sides, the elements compared, those found on one side only, and every style that differs |
-| `provisioning/` | `first-run.json`: the country, currency and language setup was given, and each default Spree's two provisioning services give a store, with its source, whether it was present and what was found (§3.4 of the record) |
+| `provisioning/` | `first-run.json`: the answers setup was given, and each check of a default Spree's two provisioning services give a store, with its source, what the service writes, what was found and every difference; `refusals.json`: the same check refusing three changed copies of those records (§3.4 of the record) |
 | `backend/` | `api-specs.json` and `core-specs.json`: every example of Spree's specs for the batch's endpoints and services, with its file, line, description and result |
 
 ## Comparison with running screens, light and dark
@@ -184,7 +184,8 @@ Each state of the eleven screens as it runs, light and dark. The variant names w
 
 | File | What it holds | Result |
 |---|---|---|
-| [first-run.json](provisioning/first-run.json) | What first-run setup gave a store set up for Poland in English, without sample data, read through the Admin API: 10 defaults from `Spree::Stores::ProvisionDefaults` and 14 from `Spree::Seeds::StoreResources` | All 24 present |
+| [first-run.json](provisioning/first-run.json) | What first-run setup gave a store set up for Poland in English, without sample data, read through the Admin API and compared, record by record, with what the services write: one check from setup's own renaming, 8 from `Spree::Stores::ProvisionDefaults`, 16 from `Spree::Seeds::StoreResources` and 3 from both | All 28 correct |
+| [refusals.json](provisioning/refusals.json) | The same check on three copies of those records, each changed once: the refund reason "Return processing" removed, store credit given the payment method type `check`, and store pickup priced at 1.00 | Each refused, by its own check alone |
 
 ## Backend
 
