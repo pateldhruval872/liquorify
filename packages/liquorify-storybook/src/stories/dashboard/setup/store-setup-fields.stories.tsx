@@ -105,7 +105,7 @@ export const Languages: Story = {
 export const Currencies: Story = {
   play: async () => {
     await userEvent.click(await screen.findByRole('combobox', { name: 'Currency' }))
-    await userEvent.type(screen.getByPlaceholderText('Search currencies'), 'yen')
+    await userEvent.type(await screen.findByPlaceholderText('Search currencies'), 'yen')
     await screen.findByRole('option', { name: /^JPY/ })
   },
 }
