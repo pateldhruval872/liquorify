@@ -6,7 +6,9 @@ import { defineConfig } from '@playwright/test'
  * (`screens.spec.ts`), and records how the server answers requests a role does
  * not allow (`refusals.spec.ts`). Start the screens first (see
  * compare.spec.ts). The comparison only opens them; the other two add their
- * own roles and teammates through the Admin API first. `mail.spec.ts` follows
+ * own roles and teammates through the Admin API first. `setup.spec.ts`
+ * captures first-run setup on its own server, started apart from the others
+ * (see that file). `mail.spec.ts` follows
  * the staff emails' links, and runs only against a server started to write its
  * mail to a folder (see that file); `customer-mail.spec.ts` reads Spree's own
  * customer reset email on the emails gem's test app, which it starts itself. `kits.spec.ts` calls the Admin and Seller
@@ -32,6 +34,7 @@ export default defineConfig({
   testMatch: [
     'compare.spec.ts',
     'screens.spec.ts',
+    'setup.spec.ts',
     'refusals.spec.ts',
     'mail.spec.ts',
     'customer-mail.spec.ts',

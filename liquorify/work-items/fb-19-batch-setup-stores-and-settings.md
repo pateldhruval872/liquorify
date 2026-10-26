@@ -5,14 +5,14 @@ work_item: FB-19
 status: PROPOSED
 owner: the owner reviews and accepts; an automated Claude session implements
 created: 2026-10-25
-updated: 2026-10-25
+updated: 2026-10-26
 ---
 
 # FB-19 batch: setup, stores and settings
 
 The third backend batch organised by product area: [LIQ-006 §3](../LIQ-006-product-capability-baseline.md#3-setup-stores-and-settings), installing the platform, starting a store, and the store-wide settings that every later area builds on. It reproduces what Spree already has for first-run setup, the getting started checklist, store settings, policies, channels, custom fields, markets and reasons. Nothing here changes Spree's code or the storefront's, or adds a Liquorify feature.
 
-**Status.** PROPOSED. It is batch 3 in [LIQ-004's proposed order](../LIQ-004-foundation-backlog.md#proposed-order-of-the-remaining-batches), which depends on part 2 of the [staff access batch](fb-19-batch-staff-access-and-shell.md), merged on 2026-10-23. It follows the batch rules of LIQ-010 0.4 and has the same shape as [batch 2](fb-19-batch-developer-and-integration-settings.md). On 2026-10-25 the owner answered the two questions in §7: one implementation pull request, and first-run setup without sample data, with the sample data option's test deferred to batch 4. The owner asked for the batch to proceed under the acceptance criteria in §5, with its acceptance pending until review. The sections below follow those answers, and the batch is built in draft pull request [#19](https://github.com/pateldhruval872/liquorify/pull/19), where it was proposed.
+**Status.** PROPOSED. It is batch 3 in [LIQ-004's proposed order](../LIQ-004-foundation-backlog.md#proposed-order-of-the-remaining-batches), which depends on part 2 of the [staff access batch](fb-19-batch-staff-access-and-shell.md), merged on 2026-10-23. It follows the batch rules of LIQ-010 0.4 and has the same shape as [batch 2](fb-19-batch-developer-and-integration-settings.md). On 2026-10-25 the owner answered the two questions in §7: one implementation pull request, and first-run setup without sample data, with the sample data option's test deferred to batch 4. The owner asked for the batch to proceed under the acceptance criteria in §5, with its acceptance pending until review. The sections below follow those answers, and the batch is built in draft pull request [#19](https://github.com/pateldhruval872/liquorify/pull/19), where it was proposed. It was built and verified there on 2026-10-26 ([verification record](../verification/2026-10-26-fb-19-batch-setup-stores-and-settings.md)), and awaits the owner's review; the corrections it found are in §10.
 
 ## 1. Outcome and summary
 
@@ -180,3 +180,16 @@ Recorded now so none is lost. The batch's record says which it closes.
 - **Risk.** Stories, fixtures, mocks, scripts, reference images and records only, with no dependency, CI step or application code. Setup runs on the first-run browser test's own server and the screens change settings on the browser-test server; both are local and discarded after the run, and criterion 14 keeps the setup token and keys out of the repository.
 - **Release impact.** None. Nothing is deployed.
 - **Verification.** The batch's verification record in `liquorify/verification/`, with the published evidence.
+
+## 10. Corrections found during the batch
+
+The batch's running screens and tests showed where this proposal did not match Spree at `afd97cd`. The proposal's text above is unchanged; these corrections govern. Each is recorded in the [verification record](../verification/2026-10-26-fb-19-batch-setup-stores-and-settings.md) §5 and §6.
+
+| Where | The proposal says | Spree does |
+|---|---|---|
+| §2.1, DA-SET-06 | The create sheet, with an address that follows the name | The address keeps a fixed placeholder while the name is typed; left blank, Spree derives it from the name on save, as the field's help says and Spree's test checks |
+| §2.1, DA-SET-08 | Order routing rules added, configured and removed | None of Spree's three rule kinds has a setting, so no rule can be configured (G-35); every channel holds one of each kind, so a rule can be added only once one is removed (B14) |
+| §2.1, DA-SET-02 | A save refused with its errors | Every value the store page sends is checked by the page first or chosen from a list the server accepts, so the batch found no way to make the server refuse a save; the state was reached by answering the save in the browser with an error the batch wrote (G-34) |
+| §2.1, DA-SET-02 | No storefront address until one is set | The store page has no storefront address; it is set from the storefront sheet on Getting Started (DA-HOME-02), where it is captured |
+| §2.2 | The read-only role keeps some controls the server then refuses | As expected for policies, channels and markets, whose sheets stay editable (B3). The same role also loses the store's settings card while the store page stays open to it (B2); reasons hide their controls (B4); custom fields hide theirs and do not open (B5) |
+| §4 | The size estimate | 150 stories and 300 reference images, 10.2 MB; 122 captures, and evidence of 13.5 MB in all |

@@ -1,0 +1,277 @@
+{
+  "revision": "881a619",
+  "country": {
+    "name": "Poland",
+    "code": "PL",
+    "currency": "PLN",
+    "language": "Polish"
+  },
+  "checks": [
+    {
+      "source": "ProvisionDefaults",
+      "what": "The store's country, currency and language",
+      "status": "present",
+      "found": {
+        "name": "Fidelity First Run",
+        "default_country_code": "PL",
+        "default_currency": "PLN",
+        "default_locale": "en"
+      }
+    },
+    {
+      "source": "ProvisionDefaults",
+      "what": "The dashboard's language for the store",
+      "status": "present",
+      "found": {
+        "admin_locale": "en"
+      }
+    },
+    {
+      "source": "ProvisionDefaults",
+      "what": "The default market, named after the country, in its currency and the chosen language",
+      "status": "present",
+      "found": {
+        "name": "Poland",
+        "currency": "PLN",
+        "default_locale": "en",
+        "country_codes": [
+          "PL"
+        ]
+      }
+    },
+    {
+      "source": "ProvisionDefaults",
+      "what": "The default stock location, in the country, active and open for pickup",
+      "status": "present",
+      "found": {
+        "name": "Shop location",
+        "country_code": "PL",
+        "active": true,
+        "pickup_enabled": true
+      }
+    },
+    {
+      "source": "ProvisionDefaults",
+      "what": "The default shipping profile",
+      "status": "present",
+      "found": [
+        {
+          "name": "General",
+          "kind": "shipping",
+          "default": true
+        },
+        {
+          "name": "Digital",
+          "kind": "digital",
+          "default": false
+        }
+      ]
+    },
+    {
+      "source": "ProvisionDefaults",
+      "what": "A domestic delivery zone for the country and an international one for everywhere else",
+      "status": "present",
+      "found": [
+        {
+          "name": "Domestic",
+          "description": "Poland",
+          "countries": [
+            "PL"
+          ]
+        },
+        {
+          "name": "International",
+          "description": "Everywhere else",
+          "countries": 239
+        }
+      ]
+    },
+    {
+      "source": "ProvisionDefaults",
+      "what": "Standard delivery at 5 and international at 20, in PLN",
+      "status": "present",
+      "found": [
+        {
+          "name": "Standard",
+          "amounts": {},
+          "amount": "5.00",
+          "currency": "PLN"
+        },
+        {
+          "name": "International Shipping",
+          "amounts": {},
+          "amount": "20.00",
+          "currency": "PLN"
+        }
+      ]
+    },
+    {
+      "source": "ProvisionDefaults",
+      "what": "Store pickup, free, in PLN, shown on the storefront",
+      "status": "present",
+      "found": {
+        "name": "Store Pickup",
+        "storefront_visible": true,
+        "amounts": {},
+        "amount": "0.00",
+        "currency": "PLN"
+      }
+    },
+    {
+      "source": "ProvisionDefaults",
+      "what": "The seeded digital delivery restated in PLN",
+      "status": "present",
+      "found": {
+        "name": "Digital Delivery",
+        "amounts": {},
+        "amount": "0.00",
+        "currency": "PLN"
+      }
+    },
+    {
+      "source": "ProvisionDefaults",
+      "what": "A default box, sized in the store's imperial units",
+      "status": "present",
+      "found": {
+        "name": "Shipping box",
+        "kind": "box",
+        "length": "12.0",
+        "width": "9.0",
+        "height": "4.0",
+        "dimensions_unit": "in",
+        "weight": "0.5",
+        "weight_unit": "lb",
+        "unit_system": "imperial"
+      }
+    },
+    {
+      "source": "StoreResources",
+      "what": "Tax categories",
+      "status": "present",
+      "found": [
+        "Default",
+        "Non-taxable"
+      ]
+    },
+    {
+      "source": "StoreResources",
+      "what": "Tax exemption reasons",
+      "status": "present",
+      "found": [
+        "Agricultural",
+        "Charitable organization",
+        "Educational institution",
+        "Government",
+        "Manufacturing",
+        "Resale"
+      ]
+    },
+    {
+      "source": "StoreResources",
+      "what": "The wholesale channel",
+      "status": "present",
+      "found": [
+        "Online Store",
+        "Wholesale"
+      ]
+    },
+    {
+      "source": "StoreResources",
+      "what": "The admin role",
+      "status": "present",
+      "found": [
+        "admin"
+      ]
+    },
+    {
+      "source": "StoreResources",
+      "what": "Digital delivery",
+      "status": "present",
+      "found": "Digital Delivery"
+    },
+    {
+      "source": "StoreResources",
+      "what": "Store credit as a payment method",
+      "status": "present",
+      "found": [
+        {
+          "name": "Store Credit",
+          "type": "store_credit"
+        }
+      ]
+    },
+    {
+      "source": "StoreResources",
+      "what": "Product types",
+      "status": "present",
+      "found": [
+        "Default",
+        "Digital"
+      ]
+    },
+    {
+      "source": "StoreResources",
+      "what": "The wholesale customer group",
+      "status": "present",
+      "found": [
+        "Wholesale"
+      ]
+    },
+    {
+      "source": "StoreResources",
+      "what": "Return, claim and cancellation reasons",
+      "status": "present",
+      "found": {
+        "return": 9,
+        "claim": 5,
+        "refund": 1,
+        "cancellation": 7
+      }
+    },
+    {
+      "source": "StoreResources",
+      "what": "The marketplace's catch-all commission rate",
+      "status": "present",
+      "found": [
+        {
+          "name": "Marketplace default",
+          "code": "marketplace-default",
+          "enabled": false
+        }
+      ]
+    },
+    {
+      "source": "StoreResources",
+      "what": "Seller requirements",
+      "status": "present",
+      "found": 7
+    },
+    {
+      "source": "StoreResources",
+      "what": "Publishable keys for the storefront and the wholesale channel",
+      "status": "present",
+      "found": [
+        {
+          "name": "Default",
+          "key_type": "publishable"
+        },
+        {
+          "name": "Storefront (Wholesale)",
+          "key_type": "publishable"
+        }
+      ]
+    },
+    {
+      "source": "StoreResources",
+      "what": "Saved reports",
+      "status": "present",
+      "found": 20
+    },
+    {
+      "source": "StoreResources",
+      "what": "An allowed origin",
+      "status": "present",
+      "found": 1
+    }
+  ]
+}
