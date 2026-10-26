@@ -45,7 +45,7 @@ export const AnyCurrency: Story = {
   parameters: opened.parameters,
   play: async () => {
     await userEvent.click(await screen.findByRole('combobox'))
-    await userEvent.type(screen.getByPlaceholderText('Search currencies…'), 'franc')
+    await userEvent.type(await screen.findByPlaceholderText('Search currencies…'), 'franc')
     await screen.findByRole('option', { name: /^CHF/ })
   },
 }
