@@ -1,0 +1,120 @@
+{
+  "id": "CMP-SF-P-04",
+  "story": "storefront-ui-button--sizes",
+  "mode": "mobile",
+  "revision": "321fa1c",
+  "screenWidth": 161,
+  "storyWidth": 64,
+  "compared": 1,
+  "onlyOnScreen": [
+    "svg||lucide lucide-shopping-bag w-5 h-5",
+    "path||"
+  ],
+  "onlyInStory": [],
+  "differences": [
+    {
+      "element": "button|button|group/button inline-flex shrink-0 items-center justify-center border border-transparent bg-clip-padding font-medium whitespace-nowrap cursor-pointer transition-all outline-none select-none focus-visible:border-black focus-visible:[outline:1px_solid_black] disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive dark:focus-visible:border-white dark:focus-visible:[outline:1px_solid_white] [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 bg-primary text-primary-foreground hover:bg-primary/80 h-13 gap-1.5 px-6 has-data-[icon=inline-end]:pr-6 has-data-[icon=inline-start]:pl-6 text-base rounded-lg",
+      "property": "font-family",
+      "screen": "Geist, \"Geist Fallback\", system-ui, sans-serif",
+      "story": "Geist, system-ui, sans-serif"
+    }
+  ],
+  "styles": {
+    "screen": {
+      "button|button|group/button inline-flex shrink-0 items-center justify-center border border-transparent bg-clip-padding font-medium whitespace-nowrap cursor-pointer transition-all outline-none select-none focus-visible:border-black focus-visible:[outline:1px_solid_black] disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive dark:focus-visible:border-white dark:focus-visible:[outline:1px_solid_white] [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 bg-primary text-primary-foreground hover:bg-primary/80 h-13 gap-1.5 px-6 has-data-[icon=inline-end]:pr-6 has-data-[icon=inline-start]:pl-6 text-base rounded-lg": {
+        "color": "rgba(250, 250, 250, 255)",
+        "background-color": "rgba(23, 23, 23, 255)",
+        "font-family": "Geist, \"Geist Fallback\", system-ui, sans-serif",
+        "font-size": "16px",
+        "font-weight": "500",
+        "line-height": "24px",
+        "letter-spacing": "normal",
+        "border-top-width": "1px",
+        "border-top-color": "rgba(0, 0, 0, 0)",
+        "border-right-width": "1px",
+        "border-bottom-width": "1px",
+        "border-left-width": "1px",
+        "border-radius": "10px",
+        "padding-top": "0px",
+        "padding-right": "24px",
+        "padding-bottom": "0px",
+        "padding-left": "24px",
+        "height": "52px",
+        "box-shadow": "none",
+        "opacity": "1",
+        "gap": "6px"
+      },
+      "svg||lucide lucide-shopping-bag w-5 h-5": {
+        "color": "rgba(250, 250, 250, 255)",
+        "background-color": "rgba(0, 0, 0, 0)",
+        "font-family": "Geist, \"Geist Fallback\", system-ui, sans-serif",
+        "font-size": "16px",
+        "font-weight": "500",
+        "line-height": "24px",
+        "letter-spacing": "normal",
+        "border-top-width": "0px",
+        "border-top-color": "rgba(229, 229, 229, 255)",
+        "border-right-width": "0px",
+        "border-bottom-width": "0px",
+        "border-left-width": "0px",
+        "border-radius": "0px",
+        "padding-top": "0px",
+        "padding-right": "0px",
+        "padding-bottom": "0px",
+        "padding-left": "0px",
+        "height": "16px",
+        "box-shadow": "none",
+        "opacity": "1",
+        "gap": "normal"
+      },
+      "path||": {
+        "color": "rgba(250, 250, 250, 255)",
+        "background-color": "rgba(0, 0, 0, 0)",
+        "font-family": "Geist, \"Geist Fallback\", system-ui, sans-serif",
+        "font-size": "16px",
+        "font-weight": "500",
+        "line-height": "24px",
+        "letter-spacing": "normal",
+        "border-top-width": "0px",
+        "border-top-color": "rgba(229, 229, 229, 255)",
+        "border-right-width": "0px",
+        "border-bottom-width": "0px",
+        "border-left-width": "0px",
+        "border-radius": "0px",
+        "padding-top": "0px",
+        "padding-right": "0px",
+        "padding-bottom": "0px",
+        "padding-left": "0px",
+        "height": "auto",
+        "box-shadow": "none",
+        "opacity": "1",
+        "gap": "normal"
+      }
+    },
+    "story": {
+      "button|button|group/button inline-flex shrink-0 items-center justify-center border border-transparent bg-clip-padding font-medium whitespace-nowrap cursor-pointer transition-all outline-none select-none focus-visible:border-black focus-visible:[outline:1px_solid_black] disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive dark:focus-visible:border-white dark:focus-visible:[outline:1px_solid_white] [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 bg-primary text-primary-foreground hover:bg-primary/80 h-13 gap-1.5 px-6 has-data-[icon=inline-end]:pr-6 has-data-[icon=inline-start]:pl-6 text-base rounded-lg": {
+        "color": "rgba(250, 250, 250, 255)",
+        "background-color": "rgba(23, 23, 23, 255)",
+        "font-family": "Geist, system-ui, sans-serif",
+        "font-size": "16px",
+        "font-weight": "500",
+        "line-height": "24px",
+        "letter-spacing": "normal",
+        "border-top-width": "1px",
+        "border-top-color": "rgba(0, 0, 0, 0)",
+        "border-right-width": "1px",
+        "border-bottom-width": "1px",
+        "border-left-width": "1px",
+        "border-radius": "10px",
+        "padding-top": "0px",
+        "padding-right": "24px",
+        "padding-bottom": "0px",
+        "padding-left": "24px",
+        "height": "52px",
+        "box-shadow": "none",
+        "opacity": "1",
+        "gap": "6px"
+      }
+    }
+  }
+}

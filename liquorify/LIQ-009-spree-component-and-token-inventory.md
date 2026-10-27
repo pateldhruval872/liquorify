@@ -21,7 +21,7 @@ Every component and design token in Spree's existing design systems, at the pinn
 - **Method.** Reading only, on 2026-10-21. Components are the `.tsx` files in the folders named below, without tests. Tokens are the CSS custom properties declared in the two stylesheets below, read with their light and dark values; the email values come from `Spree::Emails::Branding`. Nothing was rendered or measured.
 - **IDs are permanent.** A component or token keeps its ID if it is renamed. One removed upstream keeps its row, marked as removed. A new one takes the next number in its table.
 - **Some IDs name a group.** The application components (CMP-DA-G, CMP-SP-G), the storefront feature components (CMP-SF-G), the colour utility aliases (TK-DUI-A, TK-SF-A) and the Tailwind palette colours (TK-TW-D, TK-TW-S) have one ID per group, and each member is named in its row. The group ID with the member's name is that member's reference.
-- **Storybook and Figma columns.** The component tables in §2 to §4 name the Storybook story that covers each component ([LIQ-010 §10](LIQ-010-design-system-reproduction-architecture.md#10-traceability-to-the-inventory-ids)), and a group row names each covered file with its story. A row stays empty until its batch is done, or takes a reason code when a component cannot be shown in Storybook (LIQ-010 §7.5). The Figma column is filled by FB-20. The storefront's tables in §5 gained the columns with the storefront shopper accounts batch, which also names the pilot's storefront stories. Tokens are shown a family at a time, so §6 and §8 name their Storybook page once rather than on every row.
+- **Storybook and Figma columns.** The component tables in §2 to §4 name the Storybook story that covers each component ([LIQ-010 §10](LIQ-010-design-system-reproduction-architecture.md#10-traceability-to-the-inventory-ids)), and a group row names each covered file with its story. A row stays empty until its batch is done, or takes a reason code when a component cannot be shown in Storybook (LIQ-010 §7.5). The Figma column is filled by FB-20. The storefront's tables in §5 gained the columns with the storefront shopper accounts batch, which also names the pilot's storefront stories; part 1 of the storefront shop batch fills more of them, with its verification record still awaiting the owner's review. Tokens are shown a family at a time, so §6 and §8 name their Storybook page once rather than on every row.
 
 | System | Used by | Components | Tokens |
 |---|---|---|---|
@@ -308,7 +308,7 @@ These are compositions bound to one application's data hooks and API. They are l
 | CMP-SF-P-08 | `dialog` | Overlay | Radix | Storefront/UI/Dialog | |
 | CMP-SF-P-09 | `dropdown-menu` | Overlay | Radix | | |
 | CMP-SF-P-10 | `field` | Input | — | Storefront/UI/Field | |
-| CMP-SF-P-11 | `input-group` | Input | — | | |
+| CMP-SF-P-11 | `input-group` | Input | — | Storefront/UI/Input group | |
 | CMP-SF-P-12 | `input` | Input | — | Storefront/UI/Input | |
 | CMP-SF-P-13 | `label` | Input | Radix | Storefront/UI/Label | |
 | CMP-SF-P-14 | `native-select` | Input | — | Storefront/UI/Native select | |
@@ -317,7 +317,7 @@ These are compositions bound to one application's data hooks and API. They are l
 | CMP-SF-P-17 | `quantity-picker` | Input | — | | |
 | CMP-SF-P-18 | `radio-group` | Input | Radix | | |
 | CMP-SF-P-19 | `separator` | Layout | Radix | | |
-| CMP-SF-P-20 | `sheet` | Overlay | Radix | | |
+| CMP-SF-P-20 | `sheet` | Overlay | Radix | Storefront/UI/Sheet | |
 | CMP-SF-P-21 | `sonner` | Feedback | Sonner, next-themes | Storefront/UI/Toaster | |
 | CMP-SF-P-22 | `textarea` | Input | — | | |
 
@@ -331,13 +331,13 @@ These are compositions bound to one application's data hooks and API. They are l
 | CMP-SF-G-02 | `addresses/` | 1 | AddressManagement | SF-ACC-07, SF-CHK-01 | `AddressManagement`: Storefront/Addresses/Address management | |
 | CMP-SF-G-03 | `cart/` | 2 | CartDrawer, QuantityPickerField | SF-OVL-02, SF-SHOP-05 | `CartDrawer`: Storefront/Cart/Cart drawer | |
 | CMP-SF-G-04 | `checkout/` | 12 | AddressEditModal, AddressFormFields, AddressSection, AddressSelector, AdyenPaymentForm, CouponCode, DeliveryMethodSection, ExpressCheckoutButton, PayPalPaymentForm, PaymentSection, StripePaymentForm, Summary | SF-CHK-01, SF-OVL-05 | `AddressEditModal`: Storefront/Checkout/Address edit modal; `AddressFormFields`: Storefront/Checkout/Address form fields | |
-| CMP-SF-G-05 | `home/` | 3 | FeaturedProductsSection, HeroSection, WholesaleSection | SF-SHOP-01 | `HeroSection`: Storefront/Home/Hero section | |
-| CMP-SF-G-06 | `layout/` | 8 | CartButton, CurrentYear, DocumentShell, Footer, Header, MobileMenu, RegionPreferences, SearchToggle | SF-OVL-01, SF-OVL-03, SF-OVL-04 | | |
+| CMP-SF-G-05 | `home/` | 3 | FeaturedProductsSection, HeroSection, WholesaleSection | SF-SHOP-01 | `FeaturedProductsSection`: Storefront/Home/Featured products section; `HeroSection`: Storefront/Home/Hero section; `WholesaleSection`: Storefront/Home/Wholesale section | |
+| CMP-SF-G-06 | `layout/` | 8 | CartButton, CurrentYear, DocumentShell, Footer, Header, MobileMenu, RegionPreferences, SearchToggle | SF-OVL-01, SF-OVL-03, SF-OVL-04 | `CartButton`: Storefront/Layout/Cart button; `CurrentYear`: Storefront/Layout/Current year; `DocumentShell`: U5, it draws the page's `html` element, which a story cannot hold; Storybook's preview applies its font and body classes, and every running-screen capture shows it; `Footer`: Storefront/Layout/Footer; `Header`: Storefront/Layout/Header; `MobileMenu`: Storefront/Layout/Mobile menu; `RegionPreferences`: Storefront/Layout/Region preferences; `SearchToggle`: Storefront/Layout/Search toggle | |
 | CMP-SF-G-07 | `navigation/` | 1 | Breadcrumbs | SF-SHOP-03, SF-SHOP-04 | | |
 | CMP-SF-G-08 | `order/` | 5 | AddressBlock, FulfillmentBlock, LineItemCard, OrderTotals, PaymentInfo | SF-ACC-06, SF-CHK-03 | `AddressBlock`: Storefront/Order/Address block; `FulfillmentBlock`: Storefront/Order/Fulfillment block; `LineItemCard`: Storefront/Order/Line item card; `OrderTotals`: Storefront/Order/Order totals; `PaymentInfo`: Storefront/Order/Payment info | |
 | CMP-SF-G-09 | `policy/` | 1 | PolicyConsent | SF-ACC-02 | `PolicyConsent`: Storefront/Policy/Policy consent | |
-| CMP-SF-G-10 | `products/` | 25 | FeaturedProducts, HiddenPricePrompt, InfiniteProductList, ListingAnalytics, ListingFilterBar, MediaGallery, MediaLightbox, ProductCard, ProductCardSkeleton, ProductCarousel, ProductCustomFields, ProductGrid, ProductGridSkeleton, ProductListing, ProductListingSkeleton, VariantPicker; filters: AvailabilityDropdownContent, FilterBarSkeleton, FilterChips, FilterDropdown, MobileFilterDrawer, OptionDropdownContent, PriceDropdownContent, ProductFilters, SortDropdownContent | SF-SHOP-02 to SF-SHOP-04, SF-WHL | | |
-| CMP-SF-G-11 | `search/` | 1 | SearchBar | SF-OVL-03 | | |
+| CMP-SF-G-10 | `products/` | 25 | FeaturedProducts, HiddenPricePrompt, InfiniteProductList, ListingAnalytics, ListingFilterBar, MediaGallery, MediaLightbox, ProductCard, ProductCardSkeleton, ProductCarousel, ProductCustomFields, ProductGrid, ProductGridSkeleton, ProductListing, ProductListingSkeleton, VariantPicker; filters: AvailabilityDropdownContent, FilterBarSkeleton, FilterChips, FilterDropdown, MobileFilterDrawer, OptionDropdownContent, PriceDropdownContent, ProductFilters, SortDropdownContent | SF-SHOP-02 to SF-SHOP-04, SF-WHL | `FeaturedProducts`: Storefront/Products/Featured products; `HiddenPricePrompt`: Storefront/Products/Hidden price prompt; `ProductCard`: Storefront/Products/Product card; `ProductCardSkeleton`: Storefront/Products/Product card skeleton; `ProductCarousel`: Storefront/Products/Product carousel | |
+| CMP-SF-G-11 | `search/` | 1 | SearchBar | SF-OVL-03 | `SearchBar`: Storefront/Search/Search bar | |
 | CMP-SF-G-12 | `seo/` | 1 | JsonLd | Every shop page (structured data, not visible) | | |
 
 **Page-level components** (13), kept beside their pages under `src/app/[country]/[locale]/`, except `global-error`, which is `src/app/global-error.tsx`:
@@ -356,7 +356,7 @@ These are compositions bound to one application's data hooks and API. They are l
 | CMP-SF-PG-10 | WholesaleCartView | `(wholesale)/wholesale/cart/` | Data | SF-WHL-05 | | |
 | CMP-SF-PG-11 | QuickOrderView | `(wholesale)/wholesale/quick-order/` | Input | SF-WHL-06 | | |
 | CMP-SF-PG-12 | SkuCombobox | `(wholesale)/wholesale/quick-order/` | Input | SF-WHL-06 | | |
-| CMP-SF-PG-13 | global-error | `src/app/` | Feedback | SF-SYS-01 | | |
+| CMP-SF-PG-13 | global-error | `src/app/` | Feedback | SF-SYS-01 | Storefront/Pages/Global error | |
 
 ## 6. Dashboard design tokens
 

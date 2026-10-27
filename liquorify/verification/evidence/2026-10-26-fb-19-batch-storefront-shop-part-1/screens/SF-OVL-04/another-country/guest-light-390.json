@@ -1,0 +1,11 @@
+{
+  "screen": "SF-OVL-04",
+  "state": "another-country",
+  "variant": "guest",
+  "theme": "light",
+  "width": 390,
+  "revision": "321fa1c",
+  "path": "/us/en",
+  "observed": "Chose Germany. The language stays en; the choices are German (DE), English (EN), French (FR).",
+  "note": null
+}

@@ -1,0 +1,11 @@
+{
+  "screen": "SF-SHOP-06",
+  "state": "formatted-content",
+  "variant": "guest",
+  "theme": "light",
+  "width": 390,
+  "revision": "321fa1c",
+  "path": "/us/en/policies/returns-policy",
+  "observed": "Opened /us/en/policies/returns-policy; arrived at /us/en/policies/returns-policy, answered with status 200.",
+  "note": null
+}

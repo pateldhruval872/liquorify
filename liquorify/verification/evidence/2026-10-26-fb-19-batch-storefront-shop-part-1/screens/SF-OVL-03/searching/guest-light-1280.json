@@ -1,0 +1,11 @@
+{
+  "screen": "SF-OVL-03",
+  "state": "searching",
+  "variant": "guest",
+  "theme": "light",
+  "width": 1280,
+  "revision": "321fa1c",
+  "path": "/us/en",
+  "observed": null,
+  "note": "The search was left unanswered in the browser to show it in progress; this claims nothing about the server."
+}
