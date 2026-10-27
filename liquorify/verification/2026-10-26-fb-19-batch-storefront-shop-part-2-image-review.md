@@ -11,7 +11,7 @@ status: Awaiting the owner's review
 
 This list holds every reference image part 2 commits, by inventory ID ([LIQ-009](../LIQ-009-spree-component-and-token-inventory.md)), so the owner can accept or reject each one.
 
-**What to look at.** Each link opens the image as committed in storefront draft pull request [#21](https://github.com/pateldhruval872/liquorify-storefront/pull/21), at `c198b60`, which holds all of them; the pull request's file list shows the same images. Each story has two: `mobile` at 390 pixels and `desktop` at 1280. The storefront shows no dark mode, so there is one theme. Every image was looked at before it was committed.
+**What to look at.** Each link opens the image as committed in storefront draft pull request [#21](https://github.com/pateldhruval872/liquorify-storefront/pull/21), at `c198b60`, which holds all of them; the pull request's file list shows the same images. The comparisons linked for the product details, the product grid and its skeleton, and the product listing's first page were captured again on 2026-10-27 without the storefront's header over the page ([record §4.4](2026-10-26-fb-19-batch-storefront-shop-part-2.md#44-the-header-over-the-part-corrected-on-2026-10-27)); the reference images are unchanged. Each story has two: `mobile` at 390 pixels and `desktop` at 1280. The storefront shows no dark mode, so there is one theme. Every image was looked at before it was committed.
 
 **What the Running screen column means.**
 - **Compared:** the story was put beside the same component on the running storefront, and the result is in the [verification record](2026-10-26-fb-19-batch-storefront-shop-part-2.md) §4. "Compared within" means the component was compared as part of a larger one that holds it. Images and computed styles are in the [evidence index](evidence/2026-10-26-fb-19-batch-storefront-shop-part-2/README.md).
@@ -20,7 +20,7 @@ This list holds every reference image part 2 commits, by inventory ID ([LIQ-009]
 
 **How a decision is recorded.** The owner accepts or rejects in the pull request, row by row or as a whole. An image rejected is fixed in its story, its fixtures or its mocks, never by changing the component ([LIQ-010 §12.1](../LIQ-010-design-system-reproduction-architecture.md#121-each-batch)).
 
-**Counts.** 74 stories, 148 images. 41 compared on a running screen, 9 of them within another component; 17 seen in a capture; and 16 checked against their source only. Two stories were corrected after the comparison and the coverage report, and their images are the corrected ones (record §4.2).
+**Counts.** 74 stories, 148 images. 41 compared on a running screen, 9 of them within another component; 17 seen in a capture; and 16 checked against their source only. Two stories were corrected after the comparison and the coverage report, and their images are the corrected ones (record §4.2). On 2026-10-27 the owner accepted the deferral of the 33 not compared (G-47), each keeping the status this list gives it ([record §11](2026-10-26-fb-19-batch-storefront-shop-part-2.md#11-gaps)).
 
 | # | Inventory ID | Story | Reference images | Running screen | Owner |
 |---|---|---|---|---|---|

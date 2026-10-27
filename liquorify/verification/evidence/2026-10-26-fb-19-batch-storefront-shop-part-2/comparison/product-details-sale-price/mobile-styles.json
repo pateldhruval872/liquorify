@@ -5,6 +5,15 @@
   "revision": "321fa1c",
   "screenWidth": 390,
   "storyWidth": 390,
+  "hiddenWhileCaptured": {
+    "screen": [
+      {
+        "element": "header",
+        "overPart": true
+      }
+    ],
+    "story": []
+  },
   "compared": 39,
   "onlyOnScreen": [
     "div||relative aspect-square bg-gray-100 rounded-xl overflow-hidden",

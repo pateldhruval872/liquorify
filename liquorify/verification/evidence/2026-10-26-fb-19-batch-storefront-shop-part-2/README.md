@@ -6,7 +6,7 @@ The captures, comparisons and results behind the [verification record](../../202
 
 | What | Revision |
 |---|---|
-| Stories and scripts | Storefront draft pull request [#21](https://github.com/pateldhruval872/liquorify-storefront/pull/21) at `c198b60`, on part 1's storefront branch at `da06743` |
+| Stories and scripts | Storefront draft pull request [#21](https://github.com/pateldhruval872/liquorify-storefront/pull/21) at `c198b60`, on part 1's storefront branch at `da06743`. The comparison script's header correction is `4ee76ba`, on the same branch: the 14 comparisons captured again on 2026-10-27 and the header check come from it |
 | Running screens and the browser tests | The storefront at `main` `321fa1c`, which part 2 does not change, built for production, against lane A's own browser-test Rails server, with Spree's code at backend `main` `1cab30d` |
 | Dashboard captures | The dashboard built from Spree's code at `1cab30d`, against the same server. The `revision` in their notes is the storefront's, whose script drove them |
 | First-run setup | A second browser-test server with its own empty database, with Spree's code at `1cab30d`, whose Spree and dashboard code is the same as `main` `5a83c35`'s; the setup check at backend `389da412` |
@@ -15,25 +15,27 @@ The captures, comparisons and results behind the [verification record](../../202
 
 **Two storefront set-ups for the comparison, and two more for the captures.** `standard`, the storefront as built for production; `proxied`, the standard storefront reaching the backend through the capture script's proxy, which held or failed the product list, the next page or the list's filters for the loading and error states. The captures also used `wholesale`, the same storefront built with a wholesale channel, and a storefront built against the first-run store, served at `/pl/en`.
 
-**Image format.** Every image here is lossless WebP, converted from the PNG each script wrote. Every converted image, 209 in all, was checked pixel for pixel against its PNG, and none differs. The reference images the visual check compares against stay PNG, in the storefront's `visual/__screenshots__/`.
+**Image format.** Every image here is lossless WebP, converted from the PNG each script wrote. Every converted image, 210 in all, was checked pixel for pixel against its PNG, and none differs. The reference images the visual check compares against stay PNG, in the storefront's `visual/__screenshots__/`.
 
 **Data.** The screens show Spree's sample catalog in lane A's own browser-test database, with part 1's additions and what the record §2.1 lists: a picture and a description for Coffee Machines, added through the Admin API, the browser tests' two-option product, and the settings saved through the dashboard, each put back afterwards. The customer was registered by a capture run with an `example.com` address. No password, token or key is recorded.
 
-**Size.** 29 MB in 424 files: 148 screen captures and 61 comparison images, with 215 JSON notes and results.
+**Size.** 29 MB in 427 files: 148 screen captures and 62 comparison images, with 216 JSON notes and results and the header check.
 
 ## Folders
 
 | Folder | Holds |
 |---|---|
 | `screens/<screen ID>/<state>/` | `<variant>-light-390.webp` and `<variant>-light-1280.webp`, and a JSON note for each: the screen, the state, the variant, the width, the storefront's revision, the path, what the browser observed that a picture cannot show (`observed`) and any note. A state the storefront shows at only one width has only that width. Dashboard captures (`DA-`) are 1280 pixels wide and their variant is `admin`. `DA-SETUP-01` is the welcome screen of first-run setup, `installer-light.webp` and `installer-dark.webp`, with the note batch 3's script writes |
-| `comparison/<case>/` | `<width>-side-by-side.webp`: the running screen on the left and the story on the right; `<width>-styles.json`: the computed styles of every distinct element on both sides, the elements compared, those found on one side only, and every style that differs. `mobile` is 390 pixels and `desktop` 1280. A case shown at only one width on the storefront has only that width |
+| `comparison/<case>/` | `<width>-side-by-side.webp`: the running screen on the left and the story on the right; `<width>-styles.json`: the computed styles of every distinct element on both sides, the elements compared, those found on one side only, and every style that differs. `mobile` is 390 pixels and `desktop` 1280. A case shown at only one width on the storefront has only that width. The 14 comparisons captured again on 2026-10-27 also have `hiddenWhileCaptured`: each sticky element hidden while the part was captured, and whether it lay over the part (record §4.4) |
 | `backend/` | `api-specs.json`: every example of Spree's Store API specs run for the endpoints part 2's screens read, with its file, line, description and result. `core-specs.json`: the same for Spree's store, category and product address (slug) specs |
 | `flows/` | `storefront-browser-tests.json`: each of part 2's browser tests with its result, run locally. `storefront-unit-tests.json`: the storefront's whole unit suite, file by file. `structured-data.json`: the structured data for search engines in four pages' source, from a build given its site address |
 | `provisioning/` | `first-run-sample-data.json`: what first-run setup with sample data gave the new store: the answers given, what the sample data loaded and its imports' failed rows, and batch 3's 28 provisioning checks with what the sample data added beside them |
+| `header-check.md` | Every comparison of part 2 and part 1 run again on 2026-10-27 with the corrected script: whether the storefront's header lay over the part, and how each new image compares, pixel for pixel, with the earlier one; and what the shopper accounts batch's committed images show |
+| `header-check/` | Part 1's hero section at 390 pixels, captured again without the header over it: `hero-section-mobile-side-by-side.webp` and its notes. Part 1's committed comparison is unchanged |
 
 ## Comparison with running screens, at 390 and 1280 pixels
 
-"ID" is the LIQ-009 inventory ID. Every element differs in its font list, which the record §4 explains (the pilot's D6); the last column lists the other computed properties that differ on an element found on both sides, or elements found on one side only, and the record §4.1 explains each one. The stories show invented data, so text, counts and colours differ on purpose.
+"ID" is the LIQ-009 inventory ID. Every element differs in its font list, which the record §4 explains (the pilot's D6); the last column lists the other computed properties that differ on an element found on both sides, or elements found on one side only, and the record §4.1 explains each one. The stories show invented data, so text, counts and colours differ on purpose. The product details, the product grid and its skeleton, and Kitchen's first page were captured again on 2026-10-27 without the storefront's header over them, and their images and notes here are from that run (record §4.4, [header check](header-check.md)).
 
 | ID | Story | Running screen | Set-up | Images | Styles | Styles that differ, besides the font list |
 |---|---|---|---|---|---|---|

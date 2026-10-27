@@ -5,6 +5,15 @@
   "revision": "321fa1c",
   "screenWidth": 1216,
   "storyWidth": 1248,
+  "hiddenWhileCaptured": {
+    "screen": [
+      {
+        "element": "header",
+        "overPart": true
+      }
+    ],
+    "story": []
+  },
   "compared": 6,
   "onlyOnScreen": [],
   "onlyInStory": [],
@@ -36,8 +45,8 @@
     {
       "element": "div||animate-pulse",
       "property": "opacity",
-      "screen": "0.681688",
-      "story": "0.630914"
+      "screen": "0.597081",
+      "story": "0.619231"
     },
     {
       "element": "div||aspect-square bg-gray-200 rounded-md",
@@ -115,7 +124,7 @@
         "padding-left": "0px",
         "height": "465.344px",
         "box-shadow": "none",
-        "opacity": "0.681688",
+        "opacity": "0.597081",
         "gap": "normal"
       },
       "div||aspect-square bg-gray-200 rounded-md": {
@@ -255,7 +264,7 @@
         "padding-left": "0px",
         "height": "476px",
         "box-shadow": "none",
-        "opacity": "0.630914",
+        "opacity": "0.619231",
         "gap": "normal"
       },
       "div||aspect-square bg-gray-200 rounded-md": {
