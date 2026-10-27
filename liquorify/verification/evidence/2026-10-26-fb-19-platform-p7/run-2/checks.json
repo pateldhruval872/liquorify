@@ -1,0 +1,327 @@
+{
+  "revision": "ba8fd69754aef89c8c7ebd0eef1bc0eac42de794",
+  "cases": 32,
+  "asIntended": 32,
+  "checks": [
+    {
+      "judge": "api",
+      "case": "Right answers throughout",
+      "wrongAnswer": null,
+      "result": "PASS",
+      "failures": [],
+      "asIntended": true
+    },
+    {
+      "judge": "api",
+      "case": "A success where a refusal was due",
+      "wrongAnswer": "refused: answered 200",
+      "result": "FAIL",
+      "failures": [
+        "refused: answered 200, expected 403 access_denied read_things"
+      ],
+      "asIntended": true
+    },
+    {
+      "judge": "api",
+      "case": "The wrong error code",
+      "wrongAnswer": "refused: answered 403 forbidden",
+      "result": "FAIL",
+      "failures": [
+        "refused: answered 403 forbidden read_things, expected 403 access_denied read_things"
+      ],
+      "asIntended": true
+    },
+    {
+      "judge": "api",
+      "case": "The wrong permission named",
+      "wrongAnswer": "refused: answered 403 access_denied read_other",
+      "result": "FAIL",
+      "failures": [
+        "refused: answered 403 access_denied read_other, expected 403 access_denied read_things"
+      ],
+      "asIntended": true
+    },
+    {
+      "judge": "api",
+      "case": "Another refusal than the one written",
+      "wrongAnswer": "refused: answered 404 record_not_found",
+      "result": "FAIL",
+      "failures": [
+        "refused: answered 404 record_not_found, expected 403 access_denied read_things"
+      ],
+      "asIntended": true
+    },
+    {
+      "judge": "api",
+      "case": "A server error, as JSON",
+      "wrongAnswer": "refused: answered 500 internal_server_error",
+      "result": "FAIL",
+      "failures": [
+        "refused: answered 500 internal_server_error, expected 403 access_denied read_things"
+      ],
+      "asIntended": true
+    },
+    {
+      "judge": "api",
+      "case": "A server error, as a page",
+      "wrongAnswer": "refused: answered 500, expected 403",
+      "result": "FAIL",
+      "failures": [
+        "refused: answered 500, expected 403 access_denied read_things"
+      ],
+      "asIntended": true
+    },
+    {
+      "judge": "api",
+      "case": "A redirect where a refusal was due",
+      "wrongAnswer": "refused: answered 302",
+      "result": "FAIL",
+      "failures": [
+        "refused: answered 302, expected 403 access_denied read_things"
+      ],
+      "asIntended": true
+    },
+    {
+      "judge": "api",
+      "case": "A refusal that carries the record's data",
+      "wrongAnswer": "refused: the answer carried a known value",
+      "result": "FAIL",
+      "failures": [
+        "refused: the answer carried a known value"
+      ],
+      "asIntended": true
+    },
+    {
+      "judge": "api",
+      "case": "A refusal that matches a protected pattern, such as a token's",
+      "wrongAnswer": "refused: the answer carried a match for",
+      "result": "FAIL",
+      "failures": [
+        "refused: the answer carried a match for /token=/i"
+      ],
+      "asIntended": true
+    },
+    {
+      "judge": "api",
+      "case": "A refusal that carries a record the allowed answer found",
+      "wrongAnswer": "refused: the answer carried a known value",
+      "result": "FAIL",
+      "failures": [
+        "refused: the answer carried a known value"
+      ],
+      "asIntended": true
+    },
+    {
+      "judge": "api",
+      "case": "An allowed read that finds nothing to look for",
+      "wrongAnswer": "the allowed answer named no record to look for",
+      "result": "FAIL",
+      "failures": [
+        "the allowed answer named no record to look for"
+      ],
+      "asIntended": true
+    },
+    {
+      "judge": "api",
+      "case": "An allowed read that does not carry the record's values",
+      "wrongAnswer": "the allowed answer did not carry the values",
+      "result": "FAIL",
+      "failures": [
+        "the allowed answer did not carry the values the check looks for"
+      ],
+      "asIntended": true
+    },
+    {
+      "judge": "api",
+      "case": "A refused write that changes the record",
+      "wrongAnswer": "refused: the record changed",
+      "result": "FAIL",
+      "failures": [
+        "refused: the record changed"
+      ],
+      "asIntended": true
+    },
+    {
+      "judge": "api",
+      "case": "A refused create that creates the record",
+      "wrongAnswer": "refused: the record changed",
+      "result": "FAIL",
+      "failures": [
+        "refused: the record changed"
+      ],
+      "asIntended": true
+    },
+    {
+      "judge": "api",
+      "case": "An allowed caller refused too, as a server refusing everything",
+      "wrongAnswer": "the allowed caller allowed got 403, expected 200",
+      "result": "FAIL",
+      "failures": [
+        "the allowed write left the record as it was, so the read-back saw no change",
+        "the allowed caller allowed got 403, expected 200"
+      ],
+      "asIntended": true
+    },
+    {
+      "judge": "api",
+      "case": "An allowed write the read-back cannot see",
+      "wrongAnswer": "the allowed write left the record as it was",
+      "result": "FAIL",
+      "failures": [
+        "the allowed write left the record as it was, so the read-back saw no change"
+      ],
+      "asIntended": true
+    },
+    {
+      "judge": "api",
+      "case": "A list answered with the first customer's records",
+      "wrongAnswer": "refused: the answer carried a known value",
+      "result": "FAIL",
+      "failures": [
+        "refused: the answer carried a known value"
+      ],
+      "asIntended": true
+    },
+    {
+      "judge": "api",
+      "case": "A guest answered 404 where 401 was due",
+      "wrongAnswer": "refused: answered 404 record_not_found, expected 401",
+      "result": "FAIL",
+      "failures": [
+        "refused: answered 404 record_not_found, expected 401 authentication_required"
+      ],
+      "asIntended": true
+    },
+    {
+      "judge": "api",
+      "case": "Another customer's order answered with the generic not-found code",
+      "wrongAnswer": "refused: answered 404 record_not_found, expected 404 order_not_found",
+      "result": "FAIL",
+      "failures": [
+        "refused: answered 404 record_not_found, expected 404 order_not_found"
+      ],
+      "asIntended": true
+    },
+    {
+      "judge": "storefront",
+      "case": "Right answers throughout",
+      "wrongAnswer": null,
+      "result": "PASS",
+      "failures": [],
+      "asIntended": true
+    },
+    {
+      "judge": "storefront",
+      "case": "An action that succeeds where a refusal was due",
+      "wrongAnswer": "refused: answered 200 with \\{\"success\":true\\}",
+      "result": "FAIL",
+      "failures": [
+        "refused: answered 200 with {\"success\":true}"
+      ],
+      "asIntended": true
+    },
+    {
+      "judge": "storefront",
+      "case": "An action that refuses with another message",
+      "wrongAnswer": "refused: answered 200 with \\{\"success\":false,\"error\":\"Something went wrong\"\\}",
+      "result": "FAIL",
+      "failures": [
+        "refused: answered 200 with {\"success\":false,\"error\":\"Something went wrong\"}"
+      ],
+      "asIntended": true
+    },
+    {
+      "judge": "storefront",
+      "case": "An action that answers with the other customer's record",
+      "wrongAnswer": "refused: the answer carried a known value",
+      "result": "FAIL",
+      "failures": [
+        "refused: answered 200 with {\"id\":\"addr_Ab12Cd34\",\"address1\":\"Protected Line 9\"}",
+        "refused: the answer carried a known value"
+      ],
+      "asIntended": true
+    },
+    {
+      "judge": "storefront",
+      "case": "A page that shows the other customer's order",
+      "wrongAnswer": "refused: the answer carried a known value",
+      "result": "FAIL",
+      "failures": [
+        "refused: answered 200 with no action result",
+        "refused: the answer carried a known value"
+      ],
+      "asIntended": true
+    },
+    {
+      "judge": "storefront",
+      "case": "A redirect to another page than the sign-in for this one",
+      "wrongAnswer": "refused: answered a redirect to \\/us\\/en\\/account$",
+      "result": "FAIL",
+      "failures": [
+        "refused: answered a redirect to /us/en/account"
+      ],
+      "asIntended": true
+    },
+    {
+      "judge": "storefront",
+      "case": "A page where a redirect to sign in was due",
+      "wrongAnswer": "refused: answered 200 with no action result",
+      "result": "FAIL",
+      "failures": [
+        "refused: answered 200 with no action result"
+      ],
+      "asIntended": true
+    },
+    {
+      "judge": "storefront",
+      "case": "A server error from an action",
+      "wrongAnswer": "refused: answered 500 with no action result",
+      "result": "FAIL",
+      "failures": [
+        "refused: answered 500 with no action result"
+      ],
+      "asIntended": true
+    },
+    {
+      "judge": "storefront",
+      "case": "A refused action that changes the record",
+      "wrongAnswer": "refused: the record changed",
+      "result": "FAIL",
+      "failures": [
+        "refused: the record changed"
+      ],
+      "asIntended": true
+    },
+    {
+      "judge": "storefront",
+      "case": "An allowed customer refused their own record",
+      "wrongAnswer": "the allowed caller allowed got 200 with null",
+      "result": "FAIL",
+      "failures": [
+        "the allowed caller allowed got 200 with null",
+        "the allowed answer did not carry the values the check looks for"
+      ],
+      "asIntended": true
+    },
+    {
+      "judge": "storefront",
+      "case": "A list answered with the first customer's records",
+      "wrongAnswer": "refused: the answer carried a known value",
+      "result": "FAIL",
+      "failures": [
+        "refused: the answer carried a known value"
+      ],
+      "asIntended": true
+    },
+    {
+      "judge": "storefront",
+      "case": "An allowed write the read-back cannot see",
+      "wrongAnswer": "the allowed write left the record as it was",
+      "result": "FAIL",
+      "failures": [
+        "the allowed write left the record as it was, so the read-back saw no change"
+      ],
+      "asIntended": true
+    }
+  ]
+}
