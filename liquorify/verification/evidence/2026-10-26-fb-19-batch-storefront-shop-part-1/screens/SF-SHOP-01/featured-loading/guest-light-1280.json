@@ -1,0 +1,11 @@
+{
+  "screen": "SF-SHOP-01",
+  "state": "featured-loading",
+  "variant": "guest",
+  "theme": "light",
+  "width": 1280,
+  "revision": "321fa1c",
+  "path": "/us/en",
+  "observed": null,
+  "note": "The proxy in front of the backend held the product list for 20 seconds, so the page showed what the storefront streams while it waits. The storefront had fetched nothing before, so nothing was cached. One visit shows this once, so the page was captured at 390 pixels and then widened to 1280 without reloading."
+}

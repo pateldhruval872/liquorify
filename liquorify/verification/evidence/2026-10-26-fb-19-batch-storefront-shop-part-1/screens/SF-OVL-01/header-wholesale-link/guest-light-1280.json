@@ -1,0 +1,11 @@
+{
+  "screen": "SF-OVL-01",
+  "state": "header-wholesale-link",
+  "variant": "guest",
+  "theme": "light",
+  "width": 1280,
+  "revision": "321fa1c",
+  "path": "/us/en",
+  "observed": null,
+  "note": "The header shows the wholesale link from 1024 pixels wide; on a phone the menu holds it."
+}

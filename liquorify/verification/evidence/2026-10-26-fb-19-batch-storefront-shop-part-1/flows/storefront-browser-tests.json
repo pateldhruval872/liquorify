@@ -1,0 +1,45 @@
+{
+  "revision": "321fa1cfb1ccbd7acde4945512e27e73fad90562",
+  "browser": "Playwright 1.60.0 image, Chromium",
+  "server": "the built storefront, reused; lane A's Spree browser-test server at d6a0fb8 with Spree's sample catalog",
+  "started": "2026-10-26T05:07:00.185Z",
+  "expected": 3,
+  "unexpected": 1,
+  "flaky": 0,
+  "skipped": 0,
+  "tests": [
+    {
+      "file": "e2e/cart.spec.ts",
+      "line": 10,
+      "title": "cart page \u203a an empty cart points back to the catalog",
+      "status": "passed",
+      "retries": 0,
+      "duration_ms": 914
+    },
+    {
+      "file": "e2e/cart.spec.ts",
+      "line": 24,
+      "title": "cart page \u203a a customer changes the quantity and removes the item",
+      "status": "failed",
+      "retries": 0,
+      "duration_ms": 2975,
+      "failure": "Strict mode violation in the addToCart helper (e2e/support.ts): the cart drawer holds two links named 'Automatic Espresso Machine', the item's picture, whose description is the product's name, and the item's name. The first featured product in lane A's sample catalog has a picture. The same test, unchanged, passed in CI on main at 321fa1c against Spree's published image"
+    },
+    {
+      "file": "e2e/catalog.spec.ts",
+      "line": 18,
+      "title": "home page \u203a shows featured products that open their product page",
+      "status": "passed",
+      "retries": 0,
+      "duration_ms": 1528
+    },
+    {
+      "file": "e2e/catalog.spec.ts",
+      "line": 30,
+      "title": "home page \u203a the header menu opens a category",
+      "status": "passed",
+      "retries": 0,
+      "duration_ms": 1741
+    }
+  ]
+}
