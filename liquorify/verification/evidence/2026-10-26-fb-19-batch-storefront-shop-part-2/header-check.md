@@ -143,3 +143,5 @@ The shopper accounts batch's comparisons need a signed-in test customer with ord
 | `order-detail-shipped` | 390 and 1280 | The "Back to orders" link |
 
 `address-edit-modal-editing` and `alert-dialog-delete-address` are whole-window captures, in which the page behind the dialog, header included, is meant to show. The rest show nothing over the part.
+
+The five are tracked for follow-up as G-52 in [LIQ-004's register](../../../LIQ-004-foundation-backlog.md#deferred-gaps-and-the-owners-acceptance), at the owner's instruction of 2026-10-29.
