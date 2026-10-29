@@ -1,0 +1,13 @@
+
+Randomized with seed 10946
+
+Spree::Exports::Products temporary file
+  gives each export its own rows when the two runs do not overlap
+  is one path for both exports
+  gives the first export the second one's rows, and fails the second, when the runs overlap
+
+Finished in 2.01 seconds (files took 4.95 seconds to load)
+3 examples, 0 failures
+
+Randomized with seed 10946
+
