@@ -333,7 +333,7 @@ Recorded in the [work item](../work-items/fb-19-batch-storefront-shop.md) §12 w
 
 ## 11. Gaps
 
-Each names what is missing, the check made instead and what would close it. They are proposed in [LIQ-004's register](../LIQ-004-foundation-backlog.md#deferred-gaps-and-the-owners-acceptance) as G-46 to G-51, after part 1's G-41 to G-45. The owner answered them on 2026-10-27, before part 2's merge and before fidelity is accepted, and the register records each answer. SD-8 to SD-10, and SD-11 in draft #27, stay open, tenant isolation stays NOT_RUN, and part 1's acceptance is separate and pending.
+Each names what is missing, the check made instead and what would close it. They are proposed in [LIQ-004's register](../LIQ-004-foundation-backlog.md#deferred-gaps-and-the-owners-acceptance) as G-46 to G-51, after part 1's G-41 to G-45. The owner answered them on 2026-10-27, before part 2's merge and before fidelity is accepted, and the register records each answer. SD-8 to SD-10, and SD-11, recorded in #27 and merged on 2026-10-29, stay open, tenant isolation stays NOT_RUN, and part 1's acceptance is separate and pending.
 
 | Gap | Check made instead | What would close it | The owner's answer, 2026-10-27 |
 |---|---|---|---|
