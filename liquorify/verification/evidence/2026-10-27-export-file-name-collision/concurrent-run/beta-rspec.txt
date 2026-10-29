@@ -1,0 +1,10 @@
+
+Randomized with seed 39860
+{"own rows"=>20, "failed: ActiveStorage::IntegrityError"=>11, "the other worker's rows"=>6, "failed: Errno::ENOENT"=>3}
+.
+
+Finished in 1 minute 36.33 seconds (files took 5.82 seconds to load)
+1 example, 0 failures
+
+Randomized with seed 39860
+
