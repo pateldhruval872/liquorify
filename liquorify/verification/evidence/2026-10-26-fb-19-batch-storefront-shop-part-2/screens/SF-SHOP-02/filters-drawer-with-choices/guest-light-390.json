@@ -1,0 +1,11 @@
+{
+  "screen": "SF-SHOP-02",
+  "state": "filters-drawer-with-choices",
+  "variant": "guest",
+  "theme": "light",
+  "width": 390,
+  "revision": "321fa1c",
+  "path": "/us/en/products",
+  "observed": "The drawer's clear button reads \"Clear all filters (2)\".",
+  "note": "The choices are staged in the drawer and not yet applied."
+}

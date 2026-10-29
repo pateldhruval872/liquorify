@@ -1,0 +1,11 @@
+{
+  "screen": "SF-SHOP-03",
+  "state": "filtered-and-sorted",
+  "variant": "guest",
+  "theme": "light",
+  "width": 1280,
+  "revision": "321fa1c",
+  "path": "/us/en/c/kitchen",
+  "observed": "The page lists 10 products and says \"10 products\". Its address is /us/en/c/kitchen?sort=price&option=optval_OIJLhNcSbf.",
+  "note": "Sorted from the sort dropdown and filtered as a shopper does at each width, as on the products page."
+}

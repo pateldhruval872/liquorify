@@ -1,0 +1,11 @@
+{
+  "screen": "SF-SHOP-02",
+  "state": "filters-applied",
+  "variant": "guest",
+  "theme": "light",
+  "width": 1280,
+  "revision": "321fa1c",
+  "path": "/us/en/products",
+  "observed": "The page lists 6 products and says \"6 products\". Its address is /us/en/products?price_min=100&price_max=200&option=optval_OIJLhNcSbf.",
+  "note": "Chosen as a shopper does: from the filter bar's dropdowns on a wider screen, and from the filters drawer on a phone."
+}

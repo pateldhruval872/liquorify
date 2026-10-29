@@ -1,0 +1,11 @@
+{
+  "screen": "SF-SHOP-02",
+  "state": "color-dropdown-open",
+  "variant": "guest",
+  "theme": "light",
+  "width": 1280,
+  "revision": "321fa1c",
+  "path": "/us/en/products",
+  "observed": "The dropdown offers 23 choices: Matte Black(9); Silver(3); White(24); Stainless Steel(8); Black(21); Steel Grey(1); Mint(1); Grey(5); Blue and White(2); Purple and White(1); White and Grey(1); Grey and White(1); Graphite(1); Blue(1); Black and Blue(1); Black and Red(1); Rose Gold(2); Pink(1); Dark Grey(1); Gunmetal(1); Dark Blue(1); Chrome(1); Red(1).",
+  "note": "The filter bar's dropdowns show from 768 pixels wide; on a phone the filters drawer holds the same choices."
+}

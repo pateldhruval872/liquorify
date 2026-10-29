@@ -60,6 +60,8 @@ export interface ProvisioningCheck {
   expected: unknown
   /** What the store has, with no key, token or address. */
   found: unknown
+  /** Records no provisioning service writes, in a store that also loaded the sample data. */
+  addedBySampleData?: string[]
 }
 
 const seeds = 'spree/core/app/services/spree/seeds/'
@@ -180,6 +182,28 @@ const packageType = (row: Row): Row => ({
     ]),
   ),
 })
+
+const notWritten = /^not written by the service: /
+
+/**
+ * For a store that also loaded Spree's sample data, whose own files add
+ * delivery methods, package types, channels, payment methods and product types:
+ * the records no provisioning service writes are listed apart rather than
+ * counted as problems. A missing or wrong default still fails.
+ */
+export function withSampleData(checks: ProvisioningCheck[]): ProvisioningCheck[] {
+  return checks.map((check) => {
+    const added = check.problems.filter((problem) => notWritten.test(problem))
+    if (added.length === 0) return check
+    const problems = check.problems.filter((problem) => !notWritten.test(problem))
+    return {
+      ...check,
+      status: problems.length === 0 ? 'correct' : check.status,
+      problems,
+      addedBySampleData: added.map((problem) => problem.replace(notWritten, '')),
+    }
+  })
+}
 
 /** Every default, checked; nothing is skipped when an earlier one fails. */
 export function provisioningChecks(

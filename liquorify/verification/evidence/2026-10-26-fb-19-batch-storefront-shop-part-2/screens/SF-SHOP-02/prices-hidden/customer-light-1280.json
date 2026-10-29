@@ -1,0 +1,11 @@
+{
+  "screen": "SF-SHOP-02",
+  "state": "prices-hidden",
+  "variant": "customer",
+  "theme": "light",
+  "width": 1280,
+  "revision": "321fa1c",
+  "path": "/us/en/products",
+  "observed": "Opened /us/en/products; arrived at /us/en/products, answered with status 200. The page shows 0 price(s), 12 product name(s) as level 3 headings and no Add to Cart button.",
+  "note": "The store's storefront access was saved as \"prices hidden\" in the dashboard's store settings (DA-SET-02) before the storefront started."
+}

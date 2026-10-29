@@ -1,0 +1,11 @@
+{
+  "screen": "SF-SHOP-04",
+  "state": "second-market-default-address",
+  "variant": "guest",
+  "theme": "light",
+  "width": 1280,
+  "revision": "321fa1c",
+  "path": "/de/de/products/automatic-espresso-machine",
+  "observed": "Opened /de/de/products/automatic-espresso-machine; arrived at /de/de/products/automatic-espresso-machine, answered with status 200. The heading reads \"Kaffeevollautomat\".",
+  "note": "The product's address in the default language, opened in the second market's language."
+}

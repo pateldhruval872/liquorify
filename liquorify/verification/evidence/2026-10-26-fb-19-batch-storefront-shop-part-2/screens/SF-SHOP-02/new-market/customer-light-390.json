@@ -1,0 +1,11 @@
+{
+  "screen": "SF-SHOP-02",
+  "state": "new-market",
+  "variant": "customer",
+  "theme": "light",
+  "width": 390,
+  "revision": "321fa1c",
+  "path": "/es/en/products",
+  "observed": "The page lists 12 products and shows no count of them. Its address is /es/en/products.",
+  "note": "The market created in the dashboard (DA-SET-11), in euros."
+}
