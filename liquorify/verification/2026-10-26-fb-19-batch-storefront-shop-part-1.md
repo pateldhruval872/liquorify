@@ -4,7 +4,7 @@ record: verification
 work_item: FB-19
 date: 2026-10-26
 verifier: Claude (automated session); not independent review
-result: PASS for the map, the stories and their images, the running-screen captures, the comparison with running screens, Spree's own specs for the endpoints part 1's screens read, and the storefront's own browser tests in CI. All 33 states the work item lists were captured, at each width the storefront shows them, and two more were found on the way; five were reached by holding or failing a request, and their notes say so. 28 cases were compared with their stories, the pilot's six among them, with no unexplained difference and no story needing a correction. Coverage and functional verification are recorded apart (§2): CAP-05-17 is PARTIAL, its home page and menu steps passing the storefront's browser tests; the search overlay, the region switch and the policy page have no browser test (G-41). The storefront shows nine behaviours the work item did not expect, recorded as its behaviour (§5). Tenant isolation and the owner's acceptance are NOT_RUN. CI at `da06743`: the visual check passed twice, 342 of 342 each time, and Lint, Type Check, Unit Tests and the end-to-end job passed, all 21 browser tests. Locally, one cart browser test failed on a duplicate link name with Spree's sample catalog (B9); it passed in CI
+result: PASS for the map, the stories and their images, the running-screen captures, the comparison with running screens, Spree's own specs for the endpoints part 1's screens read, and the storefront's own browser tests in CI. All 33 states the work item lists were captured, at each width the storefront shows them, and two more were found on the way; five were reached by holding or failing a request, and their notes say so. 28 cases were compared with their stories, the pilot's six among them, with no unexplained difference and no story needing a correction. Coverage and functional verification are recorded apart (§2): CAP-05-17 is PARTIAL, its home page and menu steps passing the storefront's browser tests; the search overlay, the region switch and the policy page have no browser test (G-41). The storefront shows nine behaviours the work item did not expect, recorded as its behaviour (§5). Tenant isolation is NOT_RUN. On 2026-10-30 the owner accepted the reference images, the screen evidence and fidelity within the documented limits, with part 2's corrected comparison of the hero at 390 pixels; the acceptance closes no gap (§11). CI at `da06743`: the visual check passed twice, 342 of 342 each time, and Lint, Type Check, Unit Tests and the end-to-end job passed, all 21 browser tests. Locally, one cart browser test failed on a duplicate link name with Spree's sample catalog (B9); it passed in CI
 ---
 
 # FB-19 storefront shop batch, part 1
@@ -15,8 +15,8 @@ result: PASS for the map, the stories and their images, the running-screen captu
 
 | What | Revision |
 |---|---|
-| Stories, scripts and reference images | Storefront draft pull request [#20](https://github.com/pateldhruval872/liquorify-storefront/pull/20) at `da06743`, one commit on storefront `main` `321fa1c` |
-| This record and its evidence | Draft pull request [#21](https://github.com/pateldhruval872/liquorify/pull/21), on backend `main` `afd97cd`. It merges after #19 and #20, as [LIQ-004's lanes](../LIQ-004-foundation-backlog.md#proposed-order-of-the-remaining-batches) set out, and is brought up to date after each. #19 merged on 2026-10-26, and the branch was brought up to date with `main` `5a83c35`. #19 changed only `liquorify/` and the backend's Storybook package, not Spree's code, so the evidence below holds at the merged revision |
+| Stories, scripts and reference images | Storefront pull request [#20](https://github.com/pateldhruval872/liquorify-storefront/pull/20) at `da06743`, one commit on storefront `main` `321fa1c`, merged on 2026-10-27 as `1760ddd` |
+| This record and its evidence | Pull request [#21](https://github.com/pateldhruval872/liquorify/pull/21), on backend `main` `afd97cd`. It merges after #19 and #20, as [LIQ-004's lanes](../LIQ-004-foundation-backlog.md#proposed-order-of-the-remaining-batches) set out, and is brought up to date after each. #19 merged on 2026-10-26, and the branch was brought up to date with `main` `5a83c35`. #19 changed only `liquorify/` and the backend's Storybook package, not Spree's code, so the evidence below holds at the merged revision. #21 merged on 2026-10-27 as `c8567a0`, at `8864f60` ([merge record](2026-10-27-fb-19-batch-storefront-shop-part-1-merge.md)). §11 records the owner's acceptance of 2026-10-30 |
 | The storefront's code | `main` `321fa1c`. The branch changes none of it: `git diff 321fa1c da06743` over `src/`, `messages/`, `public/`, `e2e/`, `.github/`, `package.json` and `pnpm-lock.yaml` is empty |
 | Spree's code: the API and the browser-test server | Backend `d6a0fb8`, whose Spree code is `main` `afd97cd`'s. Neither pull request changes it |
 | Running screens | The storefront at `321fa1c`, built for production, against lane A's own browser-test Rails server at `d6a0fb8`, with Spree's sample catalog in its own database. Captured in the storefront's pinned Playwright 1.60.0 image, at 390 and 1280 pixels wide, with the fonts served offline |
@@ -35,7 +35,7 @@ result: PASS for the map, the stories and their images, the running-screen captu
 | 8 | The visual check passes twice in CI on the same revision; the storefront's own checks pass; the check stays advisory | PASS: at `da06743` the visual check passed twice in CI, 342 of 342 comparisons each time, once on the pull request and once started by hand. It stays advisory. Lint, Type Check, Unit Tests and the end-to-end job passed (§8) |
 | 9 | The storefront's code, Spree's code and every workflow outside Storybook are unchanged; nothing carries Liquorify branding or features | PASS: #20 changes only `stories/`, `visual/` and Storybook's configuration, which now serves three local image folders and replaces four more server modules with mocks inside Storybook only. #21 changes only `liquorify/` |
 | 10 | The records are updated, with every link checked | PASS: this record, the image review list, the evidence index, LIQ-009's storefront Storybook column, LIQ-004's progress, gaps and G-02's row, the work item and the README index, with the link check run |
-| 11 | The owner accepts the reference images, the screen evidence and fidelity | NOT_RUN: #20 and #21 are drafts |
+| 11 | The owner accepts the reference images, the screen evidence and fidelity | ACCEPTED on 2026-10-30, at storefront `da06743` and backend `8864f60`, both merged on 2026-10-27: the reference images, the screen evidence and fidelity, within the documented limits, with part 2's corrected comparison of the hero at 390 pixels. It closes no gap (§11) |
 | 12 | What the server refuses is recorded apart from criterion 4, from Spree's own Store API specs for the endpoints part 1's screens read, run at the part's revision. What no spec exercises is NOT_RUN | PASS for what Spree's specs exercise: 304 examples in 18 files, no failures (§3.2). What no spec exercises is NOT_RUN (G-45) |
 | 13 | Tenant isolation is NOT_RUN; a new isolation defect is reported to the owner privately | NOT_RUN (§3.3). None of the open findings ISO-1 to ISO-7 is about these screens. No new isolation defect was found; none was looked for beyond Spree's own specs |
 
@@ -181,7 +181,7 @@ Every case shows one difference on every element, the font list: the built store
 | CMP-SF-G-06 | header-wholesale-link | Header: Wholesale link | The header with wholesale on, at 1280 | None | Shown at 1280 only, where the link is |
 | CMP-SF-G-06 | footer | Footer: Default | The footer | height | The sample catalog has five top-level categories and the story's catalog three, so the screen's shop column is longer |
 | CMP-SF-G-06 | footer-wholesale-link | Footer: Wholesale link | The footer with wholesale on | height | As for the footer |
-| CMP-SF-G-06 | mobile-menu-main-panel | Mobile menu: Main panel | The menu's main panel | border-radius at 1280, on the back button | The back button is invisible on the main panel; on the screen it was caught at a different point of its transition. It draws nothing on either side |
+| CMP-SF-G-06 | mobile-menu-main-panel | Mobile menu: Main panel | The menu's main panel | border-radius at 1280, on the back button | The story opens the menu as a keyboard user would and the screen was opened with a pointer, so only the story draws the focus outline: around Kitchen at 390, and at 1280 on the back button, which takes focus there (B2) and is invisible on the main panel, leaving only the focus style's 2-pixel corners as a difference. The script compares no outlines, so at 390 only the images show it (§11). Explained again on 2026-10-30: the first explanation, a transition caught at another moment, was wrong |
 | CMP-SF-G-06 | mobile-menu-category-panel | Mobile menu: Category panel | Kitchen's panel | None | |
 | CMP-SF-G-06 | mobile-menu-subcategory-panel | Mobile menu: Subcategory panel | Coffee Machines' panel | None | |
 | CMP-SF-G-06 | mobile-menu-wholesale-link | Mobile menu: Wholesale link | The menu with wholesale on | border-radius at 1280, on the back button | As for the main panel |
@@ -211,7 +211,7 @@ At the owner's answer of 2026-10-26 to the work item's third question, part 1 ta
 
 | ID | Case | Story | Running screen | Other styles that differ | Explained |
 |---|---|---|---|---|---|
-| CMP-SF-G-05 | hero-section | Hero section: Default | The home page's hero | None | |
+| CMP-SF-G-05 | hero-section | Hero section: Default | The home page's hero | None | At 390 the storefront's header, which stays at the top of the window, covered the top 64 pixels of the screen's side. Part 2 captured it again without the header, and the owner accepted part 1 with that [corrected comparison](evidence/2026-10-26-fb-19-batch-storefront-shop-part-2/header-check/hero-section-mobile-side-by-side.webp) (§11) |
 | CMP-SF-P-04 | button-large | Button: Sizes, the large one | A product page's Add to Cart button | An icon on the screen only | The screen's button holds an icon and its label (the pilot's D4) |
 | CMP-SF-G-03 | cart-drawer-empty | Cart drawer: Empty | The drawer opened from the header with a pointer | border colour of the close button | The story opens as from the keyboard, so its close button shows its focus ring; opened with a pointer, the screen's does not (the pilot's D7) |
 | CMP-SF-G-03 | cart-drawer-with-items | Cart drawer: With items | The drawer with one item, opened with a pointer | border colour; heights; elements on one side only | D7, and the data (the pilot's D3): the story holds two items, with options and a sale price, and the screen one |
@@ -265,7 +265,7 @@ B1 and B2 concern accessibility, which FB-15 owns. B4 to B7 concern how the stor
 
 ## 7. Gaps
 
-Each names what is missing, the check made instead and what would close it. They are proposed in [LIQ-004's register](../LIQ-004-foundation-backlog.md#deferred-gaps-and-the-owners-acceptance) as G-41 to G-45, after batch 3's G-33 to G-40, and wait for the owner's answers.
+Each names what is missing, the check made instead and what would close it. They are proposed in [LIQ-004's register](../LIQ-004-foundation-backlog.md#deferred-gaps-and-the-owners-acceptance) as G-41 to G-45, after batch 3's G-33 to G-40, and wait for the owner's answers. They stay PENDING after the owner's acceptance of 2026-10-30 (§11).
 
 | Gap | Check made instead | What would close it |
 |---|---|---|
@@ -292,6 +292,7 @@ The coverage report at `da06743` counts 14 of the storefront's 22 primitives, 32
 ## 9. Limitations
 
 - **Diagnostic, not acceptance.** A passing comparison only shows that both sides could be captured; fidelity is the owner's judgement from the evidence.
+- **Outlines are not compared.** The comparison checks colours, sizes, spacing, borders, shadows and opacity, not outlines, so a focus outline that differs shows only in the images, as the mobile menu's does (§11).
 - **Invented data in stories, the sample catalog on screens.** Names, counts and pictures differ on purpose.
 - **Data added by hand through the APIs.** The Europe and pounds markets, the returns policy's content and the two subcategories were added during the session through Spree's Admin API, not by a committed script, so this record lists them (§2.1). They exist only in lane A's test database. Spree's tests, fixtures and code are unchanged.
 - **The sample catalog's pictures** were fetched from the network by Spree's loader when the database was made. The captures show them as the storefront serves them.
@@ -305,3 +306,28 @@ The coverage report at `da06743` counts 14 of the storefront's 22 primitives, 32
 ## 10. Evidence
 
 The [evidence index](evidence/2026-10-26-fb-19-batch-storefront-shop-part-1/README.md) lists every capture, comparison and result file, by inventory ID. The [image review list](2026-10-26-fb-19-batch-storefront-shop-part-1-image-review.md) lists every reference image for the owner's review.
+
+## 11. The owner's review, 2026-10-30
+
+On 2026-10-30 at 03:24 UTC the owner accepted part 1's reference images, its screen evidence and its fidelity, within the documented limits (§9), using part 2's corrected comparison of the hero at 390 pixels. The owner had merged storefront #20 at `da06743` and this record in #21 at `8864f60` on 2026-10-27, recorded apart from acceptance ([merge record](2026-10-27-fb-19-batch-storefront-shop-part-1-merge.md)), so the acceptance is of what both `main` branches hold. The [image review list](2026-10-26-fb-19-batch-storefront-shop-part-1-image-review.md) records it for every image.
+
+**The hero at 390 pixels.** The storefront's header stays at the top of the window. When part 1's comparison scrolled to the hero, the header was drawn across the top 64 pixels of the running screen's side at 390 pixels, so the committed comparison shows the header over the hero (§4.3). Part 2 corrected the comparison script in storefront `4ee76ba` and ran part 1's 53 comparisons again: the hero at 390 pixels was the only one the header covered. Its [corrected comparison](evidence/2026-10-26-fb-19-batch-storefront-shop-part-2/header-check/hero-section-mobile-side-by-side.webp) shows the whole hero beside its story, with the same computed styles as before ([part 2's record §4.4](2026-10-26-fb-19-batch-storefront-shop-part-2.md#44-the-header-over-the-part-corrected-on-2026-10-27), [header check](evidence/2026-10-26-fb-19-batch-storefront-shop-part-2/header-check.md)). The owner accepted the hero's fidelity on that corrected comparison. Part 1's committed comparison is left as recorded.
+
+**The mobile menu's focus outline, keyboard against pointer.** At 390 pixels the menu's Main panel and Wholesale link stories, their reference images among them, show a black outline around Kitchen, and the running screen does not. Both are how the storefront works, and the menu's stories say so in their own comments:
+
+> Focus moves to the first button in the menu, skipping links: on a phone that is the first category with subcategories, whose focus ring shows as when the menu is opened from the keyboard. Opened with a tap, the ring is not drawn.
+
+- **Why one side has it.** The storefront's stylesheet gives whatever holds keyboard focus a 1-pixel black outline with 2-pixel corners (`:focus-visible`, in `src/app/globals.css`). Browsers apply it when the visitor uses the keyboard, and not after a click or a tap. When the menu opens, it moves focus to its first button: Kitchen below 768 pixels, and the back button in the menu's header from 768 pixels (B2). Each story opens the menu in its play function with Storybook's simulated events, not a real pointer, so the browser draws the outline as for a keyboard user. The comparison script opened the running menu with a real click, so the screen draws none, as for a shopper who taps.
+- **At 1280 pixels.** Focus lands on the back button, which is invisible on the main panel, so neither side shows an outline. The focus style's 2-pixel corners remain on the story's button, and they are the border-radius difference §4.1 lists for the main panel and wholesale link cases. §4.1 first put that difference down to a transition caught at another moment; that was wrong, and §4.1 now gives this explanation.
+- **Why the script did not report it at 390.** The comparison checks colours, sizes, spacing, borders, shadows and opacity, not outlines (§9), so at 390 pixels the outline shows only in the images.
+- **What it means.** No defect is recorded for it. The stories show the menu as a keyboard user opens it, as the cart drawer's stories do (the pilot's D7), and the running-screen captures show it as opened with a pointer (SF-OVL-01 "menu main panel"). The category and subcategory panel cases show no outline on either side. Focus landing on an invisible back button with no name, from 768 pixels, stays recorded as B2, for FB-15.
+
+The acceptance closes no gap and changes no functional result in §2:
+
+- G-02 and G-41 to G-45 stay PENDING in [LIQ-004's register](../LIQ-004-foundation-backlog.md#deferred-gaps-and-the-owners-acceptance), each waiting for its own answer.
+- G-52, the five comparisons of the shopper accounts batch that the header covers, stays open.
+- The existing defects, SD-1 to SD-11, stay open in [LIQ-004](../LIQ-004-foundation-backlog.md#existing-defects-found-by-the-baseline), and the behaviours B1 to B9 stay recorded as found (§5).
+- FB-06, checking the storefront against Liquorify's own backend, stays open: CI's browser tests booted Spree's published image (§9).
+- Tenant isolation stays NOT_RUN (§3.3).
+
+Decision D5 in [LIQ-001 §7](../LIQ-001-project-profile.md#7-decisions-needed-to-adopt-the-foundation), how acceptance is recorded in a document's status fields, is still open, so this section, the image review list and LIQ-004 carry the acceptance, and no document's `status`, `approved_by` or `approved_at` changes.
