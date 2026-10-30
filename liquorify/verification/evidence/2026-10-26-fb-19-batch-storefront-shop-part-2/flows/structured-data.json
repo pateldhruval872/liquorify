@@ -1,0 +1,59 @@
+{
+  "revision": "321fa1cfb1ccbd7acde4945512e27e73fad90562",
+  "server": "the storefront built for production with its site address (NEXT_PUBLIC_SITE_URL) set to the address it was served at, against lane A's Spree browser-test server with Spree's sample catalog",
+  "read": "each page's HTML as first served, and every script of type application/ld+json in it",
+  "note": "The captures' storefront was built without a site address, as lane A's other builds; without one a production build writes the Organization block only (record \u00a75).",
+  "pages": [
+    {
+      "path": "/us/en",
+      "blocks": [
+        {
+          "type": "Organization",
+          "name": "Spree Store"
+        }
+      ]
+    },
+    {
+      "path": "/us/en/c/kitchen/coffee-machines",
+      "blocks": [
+        {
+          "type": "Organization",
+          "name": "Spree Store"
+        },
+        {
+          "type": "BreadcrumbList",
+          "items": [
+            "Home",
+            "Coffee Machines"
+          ]
+        }
+      ],
+      "visible_breadcrumb": [
+        "Home",
+        "Kitchen",
+        "Coffee Machines"
+      ]
+    },
+    {
+      "path": "/us/en/products/automatic-espresso-machine",
+      "blocks": [
+        {
+          "type": "Organization",
+          "name": "Spree Store"
+        },
+        {
+          "type": "Product",
+          "offers": "Offer"
+        },
+        {
+          "type": "BreadcrumbList",
+          "items": [
+            "Home",
+            "Coffee Machines",
+            "Automatic Espresso Machine"
+          ]
+        }
+      ]
+    }
+  ]
+}

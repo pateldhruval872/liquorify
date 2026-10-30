@@ -1,0 +1,11 @@
+{
+  "screen": "SF-SHOP-02",
+  "state": "no-products-for-filters",
+  "variant": "guest",
+  "theme": "light",
+  "width": 390,
+  "revision": "321fa1c",
+  "path": "/us/en/products",
+  "observed": "The page lists 0 products and shows no count of them. Its address is /us/en/products?availability=out_of_stock&option=optval_D6Psx31WaT.",
+  "note": "Size S, which only the browser tests' two-option product has, and has in stock, chosen together with \"Out of Stock\", as a shopper does at each width. Once a filter is chosen the others offer only what the narrowed list holds, so a price range cannot empty it."
+}

@@ -1,0 +1,10 @@
+
+Randomized with seed 61952
+{"own rows"=>40}
+.
+
+Finished in 1 minute 36.15 seconds (files took 5.99 seconds to load)
+1 example, 0 failures
+
+Randomized with seed 61952
+

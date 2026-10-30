@@ -1,0 +1,11 @@
+{
+  "screen": "SF-SHOP-03",
+  "state": "category-with-picture",
+  "variant": "guest",
+  "theme": "light",
+  "width": 390,
+  "revision": "321fa1c",
+  "path": "/us/en/c/kitchen/coffee-machines",
+  "observed": "The page lists 3 products and shows no count of them. Its address is /us/en/c/kitchen/coffee-machines.",
+  "note": "The category's picture and description were added to this lane's test database through the Admin API, from the sample catalog's own product pictures; the sample catalog's categories have neither."
+}

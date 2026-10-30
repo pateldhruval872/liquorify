@@ -1,0 +1,11 @@
+{
+  "screen": "SF-SHOP-02",
+  "state": "all-products-wholesale-on",
+  "variant": "guest",
+  "theme": "light",
+  "width": 390,
+  "revision": "321fa1c",
+  "path": "/us/en/products",
+  "observed": "The page lists 12 products and shows no count of them. Its address is /us/en/products.",
+  "note": "The storefront was built with the wholesale channel set (SPREE_WHOLESALE_CHANNEL), which adds the wholesale links around the page."
+}

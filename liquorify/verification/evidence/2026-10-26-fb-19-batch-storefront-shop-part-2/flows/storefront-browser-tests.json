@@ -1,0 +1,101 @@
+{
+  "revision": "321fa1cfb1ccbd7acde4945512e27e73fad90562",
+  "browser": "Playwright 1.60.0 image, Chromium",
+  "server": "the built storefront, reused; lane A's Spree browser-test server, Spree's code at main 1cab30d, with Spree's sample catalog",
+  "started": "2026-10-26T17:56:49.025Z",
+  "expected": 10,
+  "unexpected": 1,
+  "flaky": 0,
+  "skipped": 0,
+  "tests": [
+    {
+      "file": "e2e/catalog.spec.ts",
+      "line": 18,
+      "title": "home page \u203a shows featured products that open their product page",
+      "status": "passed",
+      "retries": 0,
+      "duration_ms": 1652
+    },
+    {
+      "file": "e2e/catalog.spec.ts",
+      "line": 30,
+      "title": "home page \u203a the header menu opens a category",
+      "status": "passed",
+      "retries": 0,
+      "duration_ms": 1709
+    },
+    {
+      "file": "e2e/catalog.spec.ts",
+      "line": 36,
+      "title": "category page \u203a lists the category's products with a count and breadcrumb",
+      "status": "passed",
+      "retries": 0,
+      "duration_ms": 1054
+    },
+    {
+      "file": "e2e/catalog.spec.ts",
+      "line": 50,
+      "title": "category page \u203a a subcategory narrows the listing",
+      "status": "passed",
+      "retries": 0,
+      "duration_ms": 1244
+    },
+    {
+      "file": "e2e/catalog.spec.ts",
+      "line": 72,
+      "title": "category page \u203a sorts products by name",
+      "status": "passed",
+      "retries": 0,
+      "duration_ms": 1434
+    },
+    {
+      "file": "e2e/catalog.spec.ts",
+      "line": 91,
+      "title": "category page \u203a a product card opens its product page",
+      "status": "passed",
+      "retries": 0,
+      "duration_ms": 1739
+    },
+    {
+      "file": "e2e/product.spec.ts",
+      "line": 10,
+      "title": "product page \u203a shows the product's price, availability and details",
+      "status": "passed",
+      "retries": 0,
+      "duration_ms": 841
+    },
+    {
+      "file": "e2e/product.spec.ts",
+      "line": 23,
+      "title": "product page \u203a adds the chosen quantity to the cart",
+      "status": "failed",
+      "retries": 0,
+      "duration_ms": 1828,
+      "failure": "Strict mode violation: the cart drawer, reading \"Cart (2 items)\", holds two links named 'Automatic Espresso Machine', the item's picture, whose description is the product's name, and the item's name. The same failure as part 1's cart test (part 1's record B9)."
+    },
+    {
+      "file": "e2e/product.spec.ts",
+      "line": 69,
+      "title": "product page with color and size options \u203a picking a color and a size adds that combination to the cart",
+      "status": "passed",
+      "retries": 0,
+      "duration_ms": 1337
+    },
+    {
+      "file": "e2e/product.spec.ts",
+      "line": 90,
+      "title": "product page with color and size options \u203a a discounted variant shows its sale price, and the cart charges it",
+      "status": "passed",
+      "retries": 0,
+      "duration_ms": 1265
+    },
+    {
+      "file": "e2e/product.spec.ts",
+      "line": 116,
+      "title": "product page with color and size options \u203a a sold-out variant can be picked but not added to the cart",
+      "status": "passed",
+      "retries": 0,
+      "duration_ms": 622
+    }
+  ]
+}

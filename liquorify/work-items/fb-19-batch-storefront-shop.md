@@ -12,7 +12,7 @@ updated: 2026-10-26
 
 The storefront's second FB-19 batch organised by product area. It reproduces what the storefront already has for shopping: the home page, the header, footer and menus, search, the region and language preferences, the policy page, the error and not-found pages, and then the product lists, categories and the product page. Nothing here changes the storefront's code or Spree's, or adds a Liquorify feature.
 
-**Status.** PROPOSED. On 2026-10-26 the owner approved this batch as lane A beside batch 3, in two reviewable parts, under the existing Spree-first baseline rules ([LIQ-004](../LIQ-004-foundation-backlog.md#proposed-order-of-the-remaining-batches), batch 4). It follows the batch rules of [LIQ-010 0.4](../LIQ-010-design-system-reproduction-architecture.md#121-each-batch), as the [shopper accounts batch](fb-19-batch-storefront-shopper-accounts.md) did. This work item is reviewed in part 1's records pull request. Part 1 is described in full below; part 2 is outlined in §10 and described in full in its own records pull request before its work starts. The owner answered the questions in §7 on 2026-10-26, as recommended, and part 1 was built on those answers ([verification record](../verification/2026-10-26-fb-19-batch-storefront-shop-part-1.md)). What part 1 found that differs from this proposal is in §11. The owner accepted batch 3 on 2026-10-26 and #19 merged the same day, so part 2's checks that wait for batch 3 can now run.
+**Status.** PROPOSED. On 2026-10-26 the owner approved this batch as lane A beside batch 3, in two reviewable parts, under the existing Spree-first baseline rules ([LIQ-004](../LIQ-004-foundation-backlog.md#proposed-order-of-the-remaining-batches), batch 4). It follows the batch rules of [LIQ-010 0.4](../LIQ-010-design-system-reproduction-architecture.md#121-each-batch), as the [shopper accounts batch](fb-19-batch-storefront-shopper-accounts.md) did. This work item is reviewed in part 1's records pull request. Part 1 is described in full in §2 to §9; part 2 is described in full in §10, in its own records pull request, before its work starts. The owner answered the questions in §7 on 2026-10-26, as recommended, and part 1 was built on those answers ([verification record](../verification/2026-10-26-fb-19-batch-storefront-shop-part-1.md)). What part 1 found that differs from this proposal is in §11. Part 2 was built on 2026-10-26 on branches of its own, at the owner's choice, so part 1's pull requests stay as reviewed ([verification record](../verification/2026-10-26-fb-19-batch-storefront-shop-part-2.md)); what it found that differs from §10 is in §12. The owner accepted batch 3 on 2026-10-26 and #19 merged the same day, so part 2's checks that wait for batch 3 can now run. Part 1's records (#21) and stories (storefront #20) merged on 2026-10-27, recorded apart from acceptance at the owner's instruction; part 1's acceptance is pending ([merge record](../verification/2026-10-27-fb-19-batch-storefront-shop-part-1-merge.md)). The owner accepted part 2's reference images, screen evidence and fidelity on 2026-10-29, before its merge ([verification record §15](../verification/2026-10-26-fb-19-batch-storefront-shop-part-2.md#15-the-owners-review-2026-10-29)), and merged #26 and storefront #21 the same day ([merge record](../verification/2026-10-29-fb-19-batch-storefront-shop-part-2-merge.md)).
 
 **Reading of the instruction.** The owner's message of 2026-10-26 named the storefront checks for G-38, first-run setup with sample data (G-36) and CAP-05-16 as part of this batch, and said that checks depending on batch 3 run only after batch 3 is accepted and #19 merges. All three are in part 2. Part 1 depends on nothing in batch 3: its data is added through Spree's own APIs and sample data task in this lane's own test database, not through batch 3's screens.
 
@@ -152,14 +152,107 @@ The accounts batch's criteria, applied to part 1.
 - **Release impact.** None. Nothing is deployed.
 - **Verification.** Part 1's verification record in `liquorify/verification/`, with the published evidence.
 
-## 10. Part 2, outlined
+## 10. Part 2
 
-Described in full in its own records pull request before its work starts, and built on part 1's stories.
+Described in full here, in part 2's own records pull request, before its work starts, as §1 said. It is built on part 1's stories and follows the same rules as part 1 (§2 to §9) where this section says nothing else. Batch 3's prerequisite is met: the owner accepted batch 3 on 2026-10-26 and #19 merged the same day.
 
-- **Screens:** product lists and search results with their filters and sorting (SF-SHOP-02), categories (SF-SHOP-03) and the product page (SF-SHOP-04), with their meaningful states from LIQ-008.
-- **Capabilities:** CAP-05-14, the rest of it; CAP-05-16, search-friendly addresses for products, categories and stores; the rest of FL-05's browsing steps, with `catalog.spec.ts` and `product.spec.ts`.
-- **After batch 3 is accepted and #19 merges:** G-38's storefront checks, where a setting saved in the dashboard (markets, languages, storefront access, policies and custom fields) is seen to take effect on the storefront; and first-run setup with sample data (G-36), run on its own server, with the catalog it loads checked on the storefront. Until then CAP-03-03 stays PARTIAL for that path.
-- **Delivery:** a storefront pull request and a backend records pull request, merged after part 1's.
+### 10.1 Capabilities, screens, flows and tests
+
+| Capability ([LIQ-006](../LIQ-006-product-capability-baseline.md)) | Screens ([LIQ-008](../LIQ-008-spree-screen-inventory.md)) | Flow | Browser tests |
+|---|---|---|---|
+| CAP-05-14 Product search and filters, the rest of it: the results page, its filters and sorting | SF-SHOP-02 | FL-05, the browsing step | `e2e/catalog.spec.ts`: "sorts products by name"; no test searches or filters |
+| CAP-05-04 Categories and collections, the shopper's category page only | SF-SHOP-03 | FL-05, the browsing step | `catalog.spec.ts`: "lists the category's products with a count and breadcrumb", "a subcategory narrows the listing", "a product card opens its product page" |
+| CAP-05-01 Products, variants and options, the shopper's product page only | SF-SHOP-04 | FL-05, choosing a product; FL-04's last step | `e2e/product.spec.ts`: its five tests |
+| CAP-05-16 Search-friendly addresses for products, categories and stores | SF-SHOP-03, SF-SHOP-04 | None | None; Spree's slug specs |
+| CAP-03-03 Store provisioning, setup with sample data (G-36) | DA-SETUP-01, then SF-SHOP-01 to SF-SHOP-04 | FL-01 | Batch 3's first-run setup script, run with sample data |
+| CAP-03-07, CAP-03-08, CAP-03-09, CAP-03-10, and CAP-09-04 for the store's storefront access, where a setting saved in the dashboard takes effect on the storefront (G-38's storefront part) | DA-SET-02, DA-SET-06, DA-SET-09, DA-SET-11, then the storefront screens they change | None | Spree's dashboard tests for saving each setting; none crosses to the storefront |
+
+The storefront's own unit tests for these components run with the part and are recorded, among them `ProductDetails.test.tsx` and the tests in `components/products/__tests__/`.
+
+The staff side of CAP-05-01 and CAP-05-04, and FL-04's steps in the dashboard, are batch 5's, catalog and pricing; FL-04's last step, the product page, is mapped to SF-SHOP-04 here. CAP-09-04's channels and the wholesale portal are batch 12's; part 2 covers only the store-wide setting on the storefront.
+
+### 10.2 Meaningful states to capture
+
+From LIQ-008 and from what the components render at storefront `321fa1c`, at 390 and 1280 pixels.
+
+| Screen | States |
+|---|---|
+| SF-SHOP-02 Products and search | All products, the first page with the filter bar; loading; each filter's dropdown open (an option, price, availability) and the sort dropdown; filters applied, with their chips and "Clear all"; the filters drawer on a narrow screen, empty and with choices; no products found for the filters; search results for a word; no products matching a word; loading more; the end of the list; the filter bar missing when its request fails |
+| SF-SHOP-03 Category | A category with its picture, description, subcategories and breadcrumb; a category without a picture; a subcategory, with its parent in the breadcrumb; the category's products filtered and sorted, as SF-SHOP-02; not found |
+| SF-SHOP-04 Product | Several pictures with thumbnails; the picture enlarged, with previous and next; no picture; colour and size chosen; a sold-out choice, which can be picked but not added; a sale price; custom fields; a quantity chosen; adding to the cart; the price withheld by the store's storefront access; in a second market's currency and language; not found |
+
+As in part 1, a state reached by holding, failing or answering a request in the browser or through the capture script's proxy says so in its note and claims nothing about the server. A state no running screen shows is a gap, with its story checked against its source.
+
+### 10.3 Who sees what, and the settings that change it
+
+- **A guest and a signed-in customer, wholesale off and on, and two markets:** as part 1 (§2.3). The listing and the product page are the same for a guest and a customer unless the store withholds prices; the captures show it.
+- **The store's storefront access:** public, prices hidden and sign-in required. Each is set in the dashboard's store settings (DA-SET-02) and the storefront captured under it, as a guest and a customer, then set back to public.
+
+### 10.4 Settings saved in the dashboard, seen on the storefront (G-38's storefront part)
+
+Each setting is saved through the dashboard's own screen in a browser, the same screen batch 3 captured, against this lane's server. The storefront is then captured where the setting should show. Every setting is put back afterwards.
+
+| Setting | Saved on | Seen on the storefront |
+|---|---|---|
+| A new market with its currency, countries and languages | DA-SET-11 | The region dialog offers it; lists and the product page show its currency |
+| A language added to a market | DA-SET-11 | The region dialog offers it, and the storefront switches to it |
+| The store's storefront access: prices hidden, then sign-in required | DA-SET-02 | What a guest and a customer see on the home page, the lists and the product page |
+| A policy's content, and a new policy | DA-SET-06 | The policy page shows the content; the footer lists the new policy |
+| A product custom field shown on the storefront, given a value on a product, and one that is not | DA-SET-09, then the product's page in the dashboard | The product page shows the first under its properties and not the second |
+
+The rest of G-38, payment capture, order numbers, reasons, channels' routing and inventory, stays with batches 6, 7 and 8 and P4. G-38 closes only on the owner's acceptance.
+
+### 10.5 First-run setup with sample data (G-36)
+
+On a second browser-test server with its own empty database and no admin, as batch 3's first-run script needs, setup is run through the dashboard with the sample data option chosen. Batch 3's provisioning check then runs against the new store. A storefront built against that server, with the new store's publishable key, is captured on the home page, the menu, a product list and a product page, to show the sample catalog arrived. Spree's sample data fetches its pictures over the network. If it cannot load, the step is recorded as FAIL or BLOCKED with the reason. CAP-03-03 stays PARTIAL until the owner accepts the evidence.
+
+### 10.6 Search-friendly addresses (CAP-05-16)
+
+On the running storefront: a product opens at its address and at its address in the second language; a subcategory's address holds its parent's; after a product is renamed in the dashboard, its new address opens and its old one answers not found, which Spree's documentation describes. Spree's slug specs are run and listed. The store's own address name (`code`) has no storefront screen and is recorded from the specs alone.
+
+### 10.7 Components
+
+New stories, about 25 components ([LIQ-009](../LIQ-009-spree-component-and-token-inventory.md) §5):
+
+| Layer | Components |
+|---|---|
+| Primitives | `dropdown-menu` (CMP-SF-P-09), used by the filter and sort dropdowns; `quantity-picker` (CMP-SF-P-17), used by the product page's quantity |
+| `cart/` (CMP-SF-G-03) | QuantityPickerField, as the product page uses it; the cart's own states stay with batch 9 |
+| `products/` (CMP-SF-G-10) | ProductListing, ProductListingSkeleton, InfiniteProductList, ListingFilterBar, ProductGrid, ProductGridSkeleton, MediaGallery, MediaLightbox, VariantPicker, ProductCustomFields |
+| `products/filters/` (CMP-SF-G-10) | FilterBar, FilterBarSkeleton, FilterDropdown, OptionDropdownContent, PriceDropdownContent, AvailabilityDropdownContent, SortDropdownContent, FilterChips, MobileFilterDrawer |
+| `navigation/` (CMP-SF-G-07) | Breadcrumbs |
+| Page level | CategoryBanner (CMP-SF-PG-03), ProductDetails (CMP-SF-PG-04) |
+
+`ProductGrid` is used by no screen at `321fa1c`; its story says so rather than inventing a layout. `ListingAnalytics` (CMP-SF-G-10) and `JsonLd` (CMP-SF-G-12) draw nothing: the first sends analytics events and the second writes structured data for search engines. Both are named with that reason rather than given a story, and the structured data on the category and product pages is recorded from their source. Already covered and reused: part 1's product card, its skeleton and the hidden price prompt, the pilot's button and part 1's sheet.
+
+### 10.8 Delivery
+
+- **Storefront pull request:** built on part 1's storefront branch, and merged after it.
+- **Backend records pull request:** this description, then part 2's verification record, evidence, image review list and LIQ-009's column. Built on part 1's records branch, and merged after it.
+- **Running screens:** as part 1, on this lane's server and database, with Spree's sample catalog. Data the states need that the catalog lacks, such as a sold-out variant, a sale price or a custom field value, is added through the Admin API, or through the dashboard where §10.4 says so. The second server for §10.5 has its own database.
+- **Size, estimated from part 1:** about 65 stories and 130 reference images, and about 80 running-screen captures.
+
+### 10.9 Acceptance criteria
+
+Part 1's criteria 1 to 13 (§5), applied to part 2's screens, components and flow steps, with criterion 12's specs being Spree's Store API specs for products, filters, categories, custom fields and the store. And:
+
+| # | Criterion | Evidence |
+|---|---|---|
+| 14 | Each setting in §10.4 is saved through its dashboard screen and seen, or not, on the storefront, with the result recorded per setting; a difference from what the dashboard says is recorded as Spree's behaviour, not changed | Captures of both sides, and the record |
+| 15 | First-run setup with sample data runs on its own server; the provisioning check and the storefront captures show what the new store was given | The setup run, the check's report and the captures |
+| 16 | Each address in §10.6 is checked on the running storefront, and Spree's slug specs pass | Captures and the spec run |
+
+### 10.10 Gaps known before the work starts
+
+| Gap | What would close it |
+|---|---|
+| No browser test searches or filters, and none checks a setting from the dashboard on the storefront | Browser tests the part does not add; the captures and the storefront's unit tests are recorded instead |
+| Loading more and the listing's loading skeleton may show too briefly to capture | Holding the request, as part 1 did, said so in the note |
+| The cart drawer that opens after adding to the cart | Batch 9; part 2 records only that it opens |
+| Sample data fetched over the network may change or fail | The run records what it fetched and when |
+| Tenant isolation | FB-03's validation and the fixes for ISO-1 to ISO-7 |
+
+There are no questions for the owner: the scope, the variants and the checks that wait for batch 3 follow the answers already given.
 
 ## 11. Corrections found during part 1
 
@@ -173,3 +266,17 @@ Recorded on 2026-10-26 from part 1's [verification record](../verification/2026-
 - **The menu's subcategory panel** needs categories two levels deep, which the sample catalog lacks.
 - **`DocumentShell`** is recorded in LIQ-009 as U5.
 - **Browser tests (§6).** The two cart tests ran beside the two catalog tests, because the header's cart button opens the drawer (question 3). One fails against Spree's sample catalog on a duplicate link name; it passed in CI.
+
+## 12. Corrections found during part 2
+
+Recorded on 2026-10-26 from part 2's [verification record](../verification/2026-10-26-fb-19-batch-storefront-shop-part-2.md#10-corrections-to-the-work-item), without changing the proposal's text above:
+- **The filter bar's stories (§10.7)** are titled "Product filters", after `ProductFilters.tsx`, the file that holds `FilterBar`, so the coverage report counts the file.
+- **`ListingFilterBar` and `ListingAnalytics`** are rendered only inside `ProductListing`, whose stories render both, so LIQ-009 records them as U1. `ListingAnalytics` draws nothing.
+- **`JsonLd`'s structured data** is written for products and categories only when the storefront is built with its site address. Lane A's builds have none, so it was recorded from a second build.
+- **`ProductGrid`** is used by no screen, and is compared with the grid the infinite list draws with the same classes.
+- **"No picture" (§10.2)** is shown by the browser tests' two-option product, which has no pictures, so its captures serve both states.
+- **The data (§10.8).** Coffee Machines' picture and description were added through the Admin API, and the two-option product, with its sale price and sold-out size, through the storefront's own browser-test bootstrap script. The Spain market, two custom fields, a policy and a renamed product were saved through the dashboard, as §10.4 says.
+- **Widths.** The filter dropdowns show only from 768 pixels wide and the filters drawer only below, so those states are captured at one width each.
+- **The second market's address (§10.6).** The product opens at its German address, and its English address opens the same page in that market.
+- **Setup with sample data (§10.5)** ran for a store in Polish złoty, as batch 3's first-run check sets up, and stopped at the sample data's wholesale step (SD-8).
+- **More states** than §10.2 lists: the next page failing, a subcategory with no products, the cart drawer after adding, and the storefront access settings on the home page.

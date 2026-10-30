@@ -1,0 +1,11 @@
+{
+  "screen": "SF-SHOP-02",
+  "state": "all-products",
+  "variant": "guest",
+  "theme": "light",
+  "width": 1280,
+  "revision": "321fa1c",
+  "path": "/us/en/products",
+  "observed": "The page lists 12 products and says \"39 products\". Its address is /us/en/products.",
+  "note": null
+}

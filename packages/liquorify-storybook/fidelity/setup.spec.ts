@@ -10,6 +10,7 @@ import {
   provisioningChecks,
   type Records,
   type Row,
+  withSampleData,
 } from './provisioning'
 
 /**
@@ -18,7 +19,15 @@ import {
  * (`stack.spec.ts`, "Spree first-run server"), with the dashboard served on
  * its port. Completing setup closes it for good, so the states before it run
  * first, setup completes once, and the server is started afresh for the next
- * run. Setup runs without sample data (batch 3, §7).
+ * run. Setup runs without sample data (batch 3, §7), unless
+ * `FIDELITY_SAMPLE_DATA` is `1`: then it leaves Spree's sample data chosen, as
+ * the storefront shop batch checks (G-36), and its welcome and comparison are
+ * saved under names of their own. Run only the completion and the comparison
+ * that way (`--grep "completed|what setup gave"`); the other states are the
+ * same either way. The comparison then waits for the sample data's orders,
+ * which load last, or for the counts to stop changing for two minutes without
+ * them; it records what loaded and the imports' failed rows either way, and
+ * fails if no orders loaded.
  *
  * The setup link's token is read from the file the server's setup writes and
  * only ever opened, never written down; the merchant's password is made up for
@@ -34,6 +43,7 @@ import {
 
 const results = new URL('./results/', import.meta.url).pathname
 const revision = process.env.FIDELITY_REVISION ?? null
+const sampleData = process.env.FIDELITY_SAMPLE_DATA === '1'
 
 /** The setup link's path and query, read when a test needs it, so listing the tests needs no server. */
 function setupPath() {
@@ -118,8 +128,8 @@ async function chooseCountry(page: Page) {
 
 /**
  * Fills the form as a merchant in Poland who keeps the dashboard in English,
- * without sample data. `confirmation` differs from the password only to show
- * the form refusing it.
+ * without sample data unless the run asks for it. `confirmation` differs from
+ * the password only to show the form refusing it.
  */
 async function fillForm(page: Page, confirmation = merchant.password) {
   await expect(page.getByRole('heading', { name: 'Set up Spree' })).toBeVisible()
@@ -132,7 +142,9 @@ async function fillForm(page: Page, confirmation = merchant.password) {
   await page.getByLabel('Email').fill(merchant.email)
   await page.getByLabel('Password', { exact: true }).fill(merchant.password)
   await page.getByLabel('Confirm password').fill(confirmation)
-  await page.getByRole('checkbox', { name: 'Load sample data' }).uncheck()
+  const loadSampleData = page.getByRole('checkbox', { name: 'Load sample data' })
+  if (sampleData) await expect(loadSampleData).toBeChecked()
+  else await loadSampleData.uncheck()
 }
 
 const failWith = (status: number) => (page: Page, pathname: string) =>
@@ -389,7 +401,10 @@ test.describe
       })
       await expect(page.getByRole('heading', { name: 'Getting Started' })).toBeVisible()
       storeId = new URL(page.url()).pathname.split('/')[1]
-      const welcome = { screen: 'DA-SETUP-01', state: 'welcome' }
+      const welcome = {
+        screen: 'DA-SETUP-01',
+        state: sampleData ? 'welcome-sample-data' : 'welcome',
+      }
       await save(page, welcome, 'light', outside)
       await page.emulateMedia({ colorScheme: 'dark', reducedMotion: 'reduce' })
       await expect(page.getByText('Welcome, your store is now ready!')).toBeVisible()
@@ -401,17 +416,28 @@ test.describe
     }
 
     test('what setup gave the new store', async ({ baseURL }) => {
+      // The sample data loads in a job after the welcome shows, and takes minutes.
+      if (sampleData) test.setTimeout(900_000)
       expect(storeId, 'setup completed').not.toBe('')
       const api = await request.newContext({ baseURL })
       try {
-        const login = await api.post('/api/v3/admin/auth/login', {
-          data: { email: merchant.email, password: merchant.password },
-        })
-        expect(login.ok(), `signing in: ${login.status()}`).toBeTruthy()
-        const { token } = (await login.json()) as { token: string }
-        const headers = { Authorization: `Bearer ${token}`, 'X-Spree-Store-Id': storeId }
+        let headers: Record<string, string> = {}
+        const signIn = async () => {
+          const login = await api.post('/api/v3/admin/auth/login', {
+            data: { email: merchant.email, password: merchant.password },
+          })
+          expect(login.ok(), `signing in: ${login.status()}`).toBeTruthy()
+          const { token } = (await login.json()) as { token: string }
+          headers = { Authorization: `Bearer ${token}`, 'X-Spree-Store-Id': storeId }
+        }
+        await signIn()
+        // The sign-in lasts minutes, less than the sample data takes, so a refused read signs in again.
         const read = async (path: string) => {
-          const res = await api.get(`/api/v3/admin/${path}`, { headers })
+          let res = await api.get(`/api/v3/admin/${path}`, { headers })
+          if (res.status() === 401) {
+            await signIn()
+            res = await api.get(`/api/v3/admin/${path}`, { headers })
+          }
           expect(res.ok(), `reading ${path}: ${res.status()}`).toBeTruthy()
           return (await res.json()) as Record<string, unknown>
         }
@@ -422,6 +448,35 @@ test.describe
           )) as { data: Row[]; meta: { count: number } }
           expect(data.length, `every row of ${path}`).toBe(meta.count)
           return data
+        }
+
+        const count = async (path: string) =>
+          ((await read(`${path}?limit=1`)) as { meta: { count: number } }).meta.count
+        let loaded: { products: number; orders: number; imports: Row[] } | null = null
+        if (sampleData) {
+          // Its orders load last, so the job is done once they exist and the counts hold
+          // still. A job that stopped early leaves the counts still without them.
+          let previous = ''
+          let unchanged = 0
+          await expect
+            .poll(
+              async () => {
+                const counts = { products: await count('products'), orders: await count('orders') }
+                unchanged = JSON.stringify(counts) === previous ? unchanged + 1 : 0
+                previous = JSON.stringify(counts)
+                return (counts.orders > 0 && unchanged > 0) || unchanged >= 8
+              },
+              { timeout: 840_000, intervals: [15_000] },
+            )
+            .toBe(true)
+          const imports = (await list('imports')).map((row) => ({
+            number: row.number,
+            type: row.type,
+            status: row.status,
+            rows: row.rows_count,
+            failedRows: row.failed_rows_count,
+          }))
+          loaded = { ...(JSON.parse(previous) as { products: number; orders: number }), imports }
         }
 
         const store = (await read('store')) as Row
@@ -451,14 +506,16 @@ test.describe
           countries: await list('countries'),
         }
         provisioned = { store, records }
-        const checks = provisioningChecks(store, records, answers)
+        const compared = provisioningChecks(store, records, answers)
+        const checks = sampleData ? withSampleData(compared) : compared
         mkdirSync(`${results}provisioning/`, { recursive: true })
         writeFileSync(
-          `${results}provisioning/first-run.json`,
+          `${results}provisioning/first-run${sampleData ? '-sample-data' : ''}.json`,
           JSON.stringify(
             {
               revision,
               answers,
+              sampleData: loaded,
               summary: summary(checks),
               checks,
             },
@@ -467,6 +524,7 @@ test.describe
           ),
         )
         assertProvisioned(checks)
+        if (loaded) expect(loaded.orders, 'sample orders loaded').toBeGreaterThan(0)
       } finally {
         await api.dispose()
       }
