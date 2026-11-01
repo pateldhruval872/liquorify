@@ -74,7 +74,7 @@ Every comparison below was run again with the corrected script, on the same serv
 
 ## Part 1: 53 comparisons
 
-Part 1's comparisons were run again the same way, on the standard, proxied and wholesale set-ups. Only the hero section at 390 pixels had the header over the part, across its top 64 pixels. Part 1 is merged and its acceptance is pending, so its committed comparison is left as recorded; the corrected capture is in this folder at [`header-check/hero-section-mobile-side-by-side.webp`](header-check/hero-section-mobile-side-by-side.webp), with its notes beside it. The pilot's hero-section comparison at 390 pixels, the same case, shows the same interference.
+Part 1's comparisons were run again the same way, on the standard, proxied and wholesale set-ups. Only the hero section at 390 pixels had the header over the part, across its top 64 pixels. Part 1 is merged and its acceptance is pending, so its committed comparison is left as recorded; the corrected capture is in this folder at [`header-check/hero-section-mobile-side-by-side.webp`](header-check/hero-section-mobile-side-by-side.webp), with its notes beside it. The pilot's hero-section comparison at 390 pixels, the same case, shows the same interference. On 2026-10-30 the owner accepted part 1 with this corrected capture ([part 1's record §11](../../2026-10-26-fb-19-batch-storefront-shop-part-1.md#11-the-owners-review-2026-10-30)).
 
 | Comparison | Width | Set-up | Capture | Header over the part | Running screen, against the earlier run | Story, against the earlier run | Why it differs | Committed comparison |
 |---|---|---|---|---|---|---|---|---|
