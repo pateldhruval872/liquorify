@@ -466,7 +466,13 @@ export const exemptionReasons: TaxExemptionReason[] = [
   exemptionReason('txr_6Qa3Zs4W', 'Resale', 'RESALE'),
 ]
 
-function media(id: string, file: string, alt: string | null, fields: Partial<Media> = {}): Media {
+/** A file in the store's media library, served from Storybook's fixtures. */
+export function media(
+  id: string,
+  file: string,
+  alt: string | null,
+  fields: Partial<Media> = {},
+): Media {
   const url = `/fixtures/${file}`
   return {
     id,
