@@ -132,4 +132,4 @@ The captured images are not committed: they differ from the references only by t
 
 - **Sampled runners only.** Ten CI runs and this session's machine are a small sample. A later run that counts more than 60 on either image without a change is a reason to revisit the allowance, recorded in a new record, as is any other image that fails without a change: batch 1's sidebar user without a name counted 29 pixels once, at `0be0dc68`, and has passed in every other run.
 - **Cause not established.** The difference comes and goes on one machine as well as between machines, so it is not a fixed property of one kind of machine. It was not traced further than these measurements.
-- **Automated, not independent.** The same session chose the changes and scored them. The owner's review of part 1's images and fidelity stays pending, and this record does not change it.
+- **Automated, not independent.** The same session chose the changes and scored them. This record did not decide the owner's review of part 1's images and fidelity; the owner accepted them on 2026-11-02 ([part 1 record §11](2026-11-02-fb-19-batch-catalog-and-pricing-part-1.md#11-the-owners-review-2026-11-02)).

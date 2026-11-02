@@ -6,7 +6,7 @@ The captures, comparisons, FL-04's storefront check and backend results behind t
 
 | What | Revision |
 |---|---|
-| Stories and scripts | Draft pull request [#34](https://github.com/pateldhruval872/liquorify/pull/34). The captures and FL-04 ran from `db550f1d`, with the scripts as `9c4d8cbb` commits them unchanged; the comparison ran from `9c4d8cbb`, which has the corrected stories of `073d355f`, and its fill handle's chosen price case again at `ea6a8335`, with the story as `fa78b4d8` corrected it |
+| Stories and scripts | Pull request [#34](https://github.com/pateldhruval872/liquorify/pull/34). The captures and FL-04 ran from `db550f1d`, with the scripts as `9c4d8cbb` commits them unchanged; the comparison ran from `9c4d8cbb`, which has the corrected stories of `073d355f`, and its fill handle's chosen price case again at `ea6a8335`, with the story as `fa78b4d8` corrected it |
 | Running screens, the storefront and Spree's specs | Spree's code at `01a0365`, which the pull request does not change: the built admin dashboard against the dashboard browser tests' own Rails server and fixtures, with Spree's sample catalog loaded into its database, and the storefront at `8865498`, built for production against the same server |
 | Browser | The pinned Playwright 1.64.1 image. Captures at 1280 by 960 pixels, and 390 by 844 for the four phone states; comparisons at 1280 by 800, and 1280 by 2400 for the cases taller than the window. Captures follow the system's light or dark setting; none stores a choice of theme |
 
