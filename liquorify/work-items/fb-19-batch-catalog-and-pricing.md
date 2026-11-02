@@ -5,14 +5,14 @@ work_item: FB-19
 status: PROPOSED
 owner: the owner reviews and accepts; an automated Claude session implements
 created: 2026-10-30
-updated: 2026-10-30
+updated: 2026-11-02
 ---
 
 # FB-19 batch 5: catalog and pricing
 
 The fourth backend batch organised by product area: the dashboard's side of [LIQ-006 §5](../LIQ-006-product-capability-baseline.md#5-catalog-and-pricing), where staff build and price what the store sells. It reproduces what Spree already has for products, variants and options, publishing, product types, the media library, categories and collections, catalogs, price lists, translations, imports and exports, promotions, gift cards and store credit. Nothing here changes Spree's code or the storefront's, or adds a Liquorify feature.
 
-**Status.** PROPOSED. It is batch 5 in [LIQ-004's proposed order](../LIQ-004-foundation-backlog.md#proposed-order-of-the-remaining-batches), which depends on batch 3, setup, accepted and merged on 2026-10-26. On 2026-10-30 the owner asked for this proposal under the existing batch rules and the Spree-first scope. It follows the batch rules of [LIQ-010 0.4](../LIQ-010-design-system-reproduction-architecture.md#121-each-batch) and has the same shape as [batch 3](fb-19-batch-setup-stores-and-settings.md). The batch is too large for one review, so it comes in three parts, as LIQ-004 proposed. Part 1 is described in full in §2 to §9. Parts 2 and 3 are outlined in §10, and each is described in full in its own pull request before its work starts. This work item is reviewed in draft pull request [#33](https://github.com/pateldhruval872/liquorify/pull/33), and part 1's work starts once the owner answers the questions in §7.
+**Status.** PROPOSED. It is batch 5 in [LIQ-004's proposed order](../LIQ-004-foundation-backlog.md#proposed-order-of-the-remaining-batches), which depends on batch 3, setup, accepted and merged on 2026-10-26. On 2026-10-30 the owner asked for this proposal under the existing batch rules and the Spree-first scope. It follows the batch rules of [LIQ-010 0.4](../LIQ-010-design-system-reproduction-architecture.md#121-each-batch) and has the same shape as [batch 3](fb-19-batch-setup-stores-and-settings.md). The batch is too large for one review, so it comes in three parts, as LIQ-004 proposed. Part 1 is described in full in §2 to §9. Parts 2 and 3 are outlined in §10, and each is described in full in its own pull request before its work starts. This work item was proposed in draft pull request [#33](https://github.com/pateldhruval872/liquorify/pull/33). On 2026-11-02 the owner approved the three recommended answers in §7: three parts, with part 1 in one implementation pull request; sellers' submitted products, their review controls and the seller filter deferred to batch 13; and FL-04 checked on the running storefront against the same pinned backend (criterion 15). The owner kept the existing gap and defect decisions, and tenant isolation NOT_RUN. Part 1 is built in its own draft pull request, [#34](https://github.com/pateldhruval872/liquorify/pull/34). Parts 2 and 3 still need their detailed proposals before their work starts.
 
 **Reading of the instruction.** The owner's message of 2026-10-30 asked for the next batch's proposal: batch 5, catalog and pricing, following the existing batch rules and continuing the Spree-first scope. So this batch reproduces Spree's dashboard as it is at `main` `01a0365` and adds nothing of Liquorify's own. The storefront's side of §5, CAP-05-14, CAP-05-16 and CAP-05-17 and the shopper's side of CAP-05-01 and CAP-05-04, is batch 4's, accepted on 2026-10-29 and 2026-10-30; this batch maps those rows to batch 4's evidence and does not capture them again.
 
@@ -68,11 +68,11 @@ The catalog has several permission scopes ([LIQ-008 §2](../LIQ-008-spree-screen
 
 - **Part 2 (§10):** categories and collections (CAP-05-04), catalogs (CAP-05-05), translations (CAP-05-08's page, DA-PRD-06), price lists and price rules (CAP-05-10), and imports and exports (CAP-05-15) with the import wizard (DA-OVL-05), FL-21 and the two staff emails EM-S-05 and EM-S-06. `import-button`, `export-button`, `import-wizard-dialog` and `wizard` go there; part 1 captures the product list's import and export buttons as they render.
 - **Part 3 (§10):** promotions (CAP-05-12) and gift cards and store credit (CAP-05-13).
-- **A seller's product under review:** the review actions and the seller card on the product page (`product-review-actions`, `product-seller-card`) go to batch 13, the marketplace, where sellers and their submissions are set up, as §7's second question recommends. Part 1 captures the product page for the store's own products. The seller filter on the product list goes there too.
+- **A seller's product under review:** the review actions and the seller card on the product page (`product-review-actions`, `product-seller-card`) go to batch 13, the marketplace, where sellers and their submissions are set up, as the owner answered on 2026-11-02 (§7). The seller filter on the product list goes there too. Part 1 captures the product page and the product list for the store's own products.
 - **Stock:** the product page's stock per location and stock history are captured as they render; stock locations, transfers and receipts are batch 6's.
 - **The tax category:** captured as it renders, with `products-tax-category.spec.ts`; tax categories and rates are batch 7's.
 - **Digital downloads for a shopper:** the order's download links (DA-ORD-04) and the "digital files ready" email (EM-C-07) go to batch 8, with the orders that send them.
-- **The storefront's side of §5:** batch 4's, accepted. FL-04's last step, the product on the storefront, is the subject of §7's third question.
+- **The storefront's side of §5:** batch 4's, accepted. FL-04's last step, the product on the storefront, is checked on the running storefront, as the owner answered (§7, criterion 15); the storefront's own screens are not captured again.
 
 ## 3. Components
 
@@ -98,7 +98,7 @@ Part 1's screens use 40 components from [LIQ-009](../LIQ-009-spree-component-and
 - **One backend pull request for part 1:** stories, fixtures and mocks, reference images, the capture scripts, the verification record, the image review list, the evidence index, and LIQ-009's Storybook column. It builds on `main`.
 - **Running screens:** the dashboard built at the pull request's revision against Spree's browser-test server, as batches 2 and 3 ran. Spree's sample catalog is loaded into that server's own database with Spree's sample data task, as lane A's shop batch did, so the lists show products with options, media and prices in US dollars. What a state needs beyond it, such as a second currency, an archived product, a scheduled publication, a product type, digital files and the roles in §2.2, is added through the Admin API on that database only. Spree's code, tests and fixtures are not changed.
 - **Its own checkout and data:** the batch runs in its own checkout, with its own browser-test database and ports, so no other lane's data reaches it ([LIQ-004's lane rules](../LIQ-004-foundation-backlog.md#lanes-beside-batch-3-agreed-on-2026-10-26)).
-- **The storefront, for FL-04's last step:** if the owner answers §7's third question as recommended, the storefront at `main` `8865498` is built against the same browser-test server, as lane A ran it, and opens the product part 1 created.
+- **The storefront, for FL-04's last step:** as the owner answered (§7), the storefront at `main` `8865498` is built against the same pinned browser-test server, as lane A ran it. The product is created and published through the dashboard, opened on the storefront for its channel, then unlisted from that channel and requested again (criterion 15).
 - **Emails:** none. Part 1's screens send no email.
 
 **Size, estimated from batch 3:** about 220 stories and 440 reference images, and about 200 running-screen captures with their computed styles. Batch 3 came to 150 stories for 27 components and 122 captures; part 1 has 40 components, and the product page alone has nine cards.
@@ -123,7 +123,7 @@ Batch 3's criteria applied to part 1, with one more for FL-04's storefront step.
 | 12 | Backend authorization is recorded separately from criterion 4: the record names Spree's own specs for the part's endpoints, runs them at the part's revision, and lists what they exercise for each role or key. What no spec exercises is NOT_RUN, never inferred from the interface | The spec run. For part 1: the Admin API controller specs for products and their variants, media and digital assets, variants, option types, product types, prices, the media library, tags, translations and stock levels; the integration specs for the same; Spree core's product, variant, option type, option value, product type, price, product publication, media and digital asset specs |
 | 13 | Tenant isolation is NOT_RUN for the part, with links to the open isolation findings. None of ISO-1 to ISO-7 is about the catalog. A new isolation defect is reported to the owner privately and is not published while it is open | The record's isolation section |
 | 14 | No token, key or password appears in any committed file, checked by a search of the pull request's files before each push | The search's result in the record |
-| 15 | If the owner answers §7's third question as recommended: a product created and published in the dashboard opens on the running storefront for its channel, and does not once it is unlisted from that channel | Storefront captures, with the product's state in the dashboard beside each |
+| 15 | FL-04 on the running storefront, against the same pinned backend, as the owner answered (§7): a product created and published through the dashboard opens on the storefront for its channel; once it is unlisted from that channel, the storefront gives the expected unavailable response. A server error fails the check. Any caching or propagation limit, such as how long the storefront keeps showing the product after it is unlisted, is recorded | Storefront captures and each response's status, with the product's state in the dashboard beside each |
 
 ## 6. Flow steps
 
@@ -139,15 +139,20 @@ Batch 3's criteria applied to part 1, with one more for FL-04's storefront step.
 | DA-PRD-03: set prices in several currencies and stock per location | The other tests of `products-prices-inventory.spec.ts`, among them "sets prices in two currencies (USD period + EUR comma) in one save" |
 | DA-PRD-03: add media and video | `products-edit-media-variants.spec.ts` (2 tests), `products-media-video.spec.ts` (3), and `media-library.spec.ts`: "a file added to a product from the library keeps its preview after saving" |
 | DA-PRD-03: activate it, list it on channels and schedule it | `products-publishing.spec.ts`: "merchant can schedule a publication window via the inline editor", which sets the status to active; `products-edit.spec.ts`: "lists a product on an additional channel via the publishing card", "unlists a product from a channel via the publishing card" |
-| SF-SHOP-04: the product on the storefront | None crosses from the dashboard to the storefront: criterion 15, or a gap (§7) |
+| SF-SHOP-04: the product on the storefront for its channel, and unavailable once unlisted | None crosses from the dashboard to the storefront: checked on the running storefront instead, as the owner answered (criterion 15) |
 
 The rest of part 1 is in no flow. Its browser tests: `products-list.spec.ts` (5 tests), `products-bulk.spec.ts` (6), `channels.spec.ts` (2), the other tests of `products-edit.spec.ts`, `products-custom-fields.spec.ts` (2), `products-tax-category.spec.ts` (1), `digital-assets.spec.ts` (1), `media-library.spec.ts` (the other 4), `option-types.spec.ts` (4), `option-type-translations.spec.ts` (1), `product-types.spec.ts` (4), `products-type-categories.spec.ts` (1), the product test of `validation-messages.spec.ts` and the option type filter of `list-filters.spec.ts`.
 
-## 7. Questions for the owner
+## 7. Questions for the owner, and the owner's answers
 
 1. **Three parts, or four?** Part 1 has 40 new components, half again as many as batch 3, because the product page alone has nine cards and their sheets. Recommended: three parts, as §2 and §10 set out, with part 1 as one pull request. The alternative is four: part 1 split into the product list, options, product types and the media library first, then a new product and the product page with FL-04.
+   *The owner's answer, 2026-11-02:* three parts, with part 1 in one implementation pull request.
 2. **A seller's product on the product page: now or with the marketplace?** The product page shows review actions and a seller card for a product a seller submitted. Showing them needs a seller with a submission, which Spree's seller sample data can give. Recommended: defer both components and their states to batch 13, the marketplace, where sellers are set up, so part 1 stays with the store's own products. The alternative is to load the seller sample data in part 1 and capture them now.
+   *The owner's answer, 2026-11-02:* sellers' submitted products, their review controls and the seller filter are deferred to batch 13, the marketplace.
 3. **FL-04's last step on the storefront?** No browser test follows a product from the dashboard to the storefront. Recommended: part 1 checks it, as batch 4 checked batch 3's settings: a product created and published in the dashboard opens on the running storefront for its channel, and does not once it is unlisted (criterion 15). The alternative is to record that step as a gap.
+   *The owner's answer, 2026-11-02:* FL-04 is verified on the running storefront against the same pinned backend: the product is created and published through the dashboard, verified on its channel, then unlisted, and the expected unavailable response verified. A server error must fail the check. Any caching or propagation limitation is recorded.
+
+The owner also asked for parts 2 and 3 to have their detailed proposals before their implementation, for the existing gap and defect decisions to be kept, and for tenant isolation to stay NOT_RUN.
 
 ## 8. Gaps known before the work starts
 
@@ -155,11 +160,11 @@ Recorded now so none is lost. Part 1's record says which it closes.
 
 | Gap | What would close it |
 |---|---|
-| FL-04's storefront step: no browser test crosses from the dashboard to the storefront | Criterion 15, if the owner answers §7's third question as recommended |
+| FL-04's storefront step: no browser test crosses from the dashboard to the storefront | Criterion 15, as the owner answered (§7); the check is made on the running storefront, so it is recorded apart from the browser tests |
 | A provider-backed digital file: the provider sheet opens only for a provider that declares settings, and the browser-test server may register none | Captured if one is registered; otherwise its story is checked against its source |
 | States reached only by answering a request in the browser, such as the list failing to load and a save refused | Recorded as simulated interface-state coverage, as G-20, G-21, G-27 and G-43 were |
 | What the server refuses to a role that may not read or write these resources | Criterion 12 records what Spree's specs exercise; the rest joins G-11 |
-| A seller's product under review | Batch 13, if the owner answers §7's second question as recommended |
+| A seller's product under review, its review controls and the seller filter | Batch 13, as the owner answered (§7) |
 | First-run setup's sample data stops for a store that does not sell in US dollars (SD-8) | Not a gap of this batch: the browser-test store sells in US dollars, and SD-8 stays open in LIQ-004 |
 | Tenant isolation (criterion 13) | FB-03's validation and the fixes for ISO-1 to ISO-7 |
 
