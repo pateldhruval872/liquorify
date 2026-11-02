@@ -81,12 +81,22 @@ for (const story of stories) {
   for (const mode of story.tags?.includes('phone') ? phoneModes : modes) {
     test(`${story.title} / ${story.name} / ${mode.name}`, async ({ page, baseURL }, testInfo) => {
       const outside: string[] = []
+      const open = new Set<unknown>()
+      let lastRequestChange = Date.now()
       page.on('request', (request) => {
+        open.add(request)
+        lastRequestChange = Date.now()
         const url = new URL(request.url())
         if (!['data:', 'blob:'].includes(url.protocol) && url.origin !== baseURL) {
           outside.push(request.url())
         }
       })
+      const settled = (request: unknown) => {
+        open.delete(request)
+        lastRequestChange = Date.now()
+      }
+      page.on('requestfinished', settled)
+      page.on('requestfailed', settled)
       await page.context().route(
         (url) => url.origin !== baseURL && !['data:', 'blob:'].includes(url.protocol),
         (route) => route.abort(),
@@ -109,7 +119,19 @@ for (const story of stories) {
       const failures = await page.evaluate(() => window.__storyFailures ?? [])
       expect(failures, 'the story and its play function ran without an error').toEqual([])
       await page.evaluate(() => document.fonts.ready)
-      await page.waitForLoadState('networkidle')
+      // In the pinned image Playwright now and then never counts a page that
+      // holds a frame as idle, with no request open (the media preview's
+      // external video, about one run in five). After ten seconds the check
+      // settles for what idle means: no request open for half a second.
+      await page
+        .waitForLoadState('networkidle', { timeout: 10_000 })
+        .catch(() =>
+          expect
+            .poll(() => open.size === 0 && Date.now() - lastRequestChange >= 500, {
+              timeout: 10_000,
+            })
+            .toBe(true),
+        )
 
       // A popup renders outside the story's root, so its story captures the viewport.
       const { capture, layout } = await page.evaluate(() => {

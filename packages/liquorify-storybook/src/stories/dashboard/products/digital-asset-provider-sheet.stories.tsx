@@ -89,6 +89,8 @@ export const Adding: Story = {
 
 // Spree refuses a source its extension no longer registers, as when the
 // extension was removed after the menu loaded. The sheet keeps what was typed.
+// The refusal can show before the button stops reading "Saving…", so the story
+// waits for both.
 export const Refused: Story = {
   name: 'Refused by Spree',
   parameters: sheet([http.post(create, notRegistered)]),
@@ -96,5 +98,6 @@ export const Refused: Story = {
     await userEvent.type(await screen.findByLabelText('pool_name'), 'winter-course-keys')
     await userEvent.click(screen.getByRole('button', { name: 'Add' }))
     await screen.findByText('Provider type is not a registered provider')
+    await screen.findByRole('button', { name: 'Add' })
   },
 }
