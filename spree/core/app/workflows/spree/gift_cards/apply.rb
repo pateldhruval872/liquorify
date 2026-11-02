@@ -125,9 +125,14 @@ module Spree
       # time, not the one we meant. A hold that has moved on is skipped, which
       # includes one that claimed completion in the window: its totals are
       # fixed and money may already be at the gateway.
+      #
+      # The lock's own read is the re-read, and it sees the latest committed
+      # row. Another reload here would not on MySQL: under repeatable read it
+      # returns the snapshot this transaction took before waiting for the lock,
+      # so a hold another apply had just released would still look held, and
+      # its balance would be handed back a second time.
       def release_hold(hold)
         hold.with_lock do
-          hold.reload
           next unless hold.gift_card_id == gift_card.id
           next if hold.completed?
           next if claimed_since_snapshot?(hold)
