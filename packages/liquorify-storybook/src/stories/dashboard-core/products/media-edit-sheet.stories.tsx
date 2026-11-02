@@ -33,12 +33,29 @@ function EditMedia({
 
 const sheet = (product: Product) => productParameters({ product, viewport: true })
 
+const player = /^https:\/\/(www\.youtube\.com\/embed|player\.vimeo\.com\/video)\//
+
+// The sheet embeds YouTube's or Vimeo's own player for a video link, which
+// stories may not reach, so the player is the local stand-in the media
+// preview's stories use. React sets an iframe's address with setAttribute.
+function localVideoPlayers() {
+  const setAttribute = Element.prototype.setAttribute
+  Element.prototype.setAttribute = function (this: Element, name: string, value: string) {
+    const standIn = this instanceof HTMLIFrameElement && name === 'src' && player.test(value)
+    setAttribute.call(this, name, standIn ? '/fixtures/video-embed.html' : value)
+  }
+  return () => {
+    Element.prototype.setAttribute = setAttribute
+  }
+}
+
 const meta = {
   title: 'Dashboard core/Product form/Media edit sheet',
   component: EditMedia,
   tags: ['CMP-CORE-PF-04'],
   args: { product: linenApron, index: 0 },
   decorators: [withStore],
+  beforeEach: localVideoPlayers,
   parameters: sheet(linenApron),
 } satisfies Meta<typeof EditMedia>
 
