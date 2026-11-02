@@ -2,7 +2,7 @@ import type { ResourceTranslations } from '@spree/admin-sdk'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import type { HttpHandler } from 'msw'
 import { useState } from 'react'
-import { expect, screen, userEvent, within } from 'storybook/test'
+import { expect, screen, userEvent, waitFor, within } from 'storybook/test'
 import { ResourceTranslationsDialog } from '../../../../../dashboard/src/components/spree/translations/resource-translations-dialog'
 import type { TranslatableResourceType } from '../../../../../dashboard/src/hooks/use-translations'
 import { storeParameters, withStore } from '../../../decorators/store'
@@ -100,12 +100,15 @@ export const Edited: Story = {
 // that leaves them out of sight: the page reads the same before and after a
 // save, and after a refusal. This looks like a Spree defect; the browser
 // tests find the toast in the page, which does not show it can be seen.
+//
+// A save clears the dialog's edits before it reads the translations again, so
+// the typed value is gone until the saved one comes back.
 export const Saved: Story = {
   play: async () => {
     await userEvent.type(await metaTitle(), 'Tonbecher, handgedreht')
     await userEvent.click(screen.getByRole('button', { name: 'Save translations' }))
     await screen.findByText('Translations saved')
-    await expect(await metaTitle()).toHaveValue('Tonbecher, handgedreht')
+    await waitFor(async () => expect(await metaTitle()).toHaveValue('Tonbecher, handgedreht'))
   },
 }
 
