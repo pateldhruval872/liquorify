@@ -1,4 +1,4 @@
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
+import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs'
 import path from 'node:path'
 import { expect, type Locator, type Page, test } from '@playwright/test'
 import { FIXTURE_NOW } from '../src/fixtures/clock'
@@ -75,6 +75,119 @@ async function stableScreenshot(target: Page | Locator): Promise<Buffer> {
     previous = current
   }
   throw new Error('The story kept changing between screenshots')
+}
+
+function findFile(directory: string, suffix: string): string | undefined {
+  if (!existsSync(directory)) return undefined
+  for (const entry of readdirSync(directory, { withFileTypes: true })) {
+    const entryPath = path.join(directory, entry.name)
+    if (entry.isFile() && entry.name.endsWith(suffix)) return entryPath
+    if (entry.isDirectory()) {
+      const found = findFile(entryPath, suffix)
+      if (found) return found
+    }
+  }
+  return undefined
+}
+
+/**
+ * Writes to the log where a failed comparison differs, for anyone who cannot
+ * download CI's failure images: the processor, the box holding the changed
+ * pixels, how many changed and by how much, the 40-pixel squares where most
+ * changed, and both images cropped around the busiest square as PNG data,
+ * 320 by 200 pixels.
+ */
+async function describeDifference(page: Page, outputDir: string) {
+  const actual = findFile(outputDir, '-actual.png')
+  const expected = findFile(outputDir, '-expected.png')
+  if (!actual || !expected) return
+  const processor =
+    readFileSync('/proc/cpuinfo', 'utf8').match(/^model name\s*:\s*(.+)$/m)?.[1] ?? 'unknown'
+  const probe = await page.context().newPage()
+  const summary = await probe.evaluate(
+    async ([actualData, expectedData]) => {
+      const load = (data: string) =>
+        new Promise<HTMLImageElement>((resolve, reject) => {
+          const image = new Image()
+          image.onload = () => resolve(image)
+          image.onerror = reject
+          image.src = `data:image/png;base64,${data}`
+        })
+      const canvasOf = (image: HTMLImageElement) => {
+        const canvas = document.createElement('canvas')
+        canvas.width = image.width
+        canvas.height = image.height
+        canvas.getContext('2d')?.drawImage(image, 0, 0)
+        return canvas
+      }
+      const [actualImage, expectedImage] = await Promise.all([load(actualData), load(expectedData)])
+      const width = Math.min(actualImage.width, expectedImage.width)
+      const height = Math.min(actualImage.height, expectedImage.height)
+      const actualCanvas = canvasOf(actualImage)
+      const expectedCanvas = canvasOf(expectedImage)
+      const a = actualCanvas.getContext('2d')?.getImageData(0, 0, width, height).data
+      const e = expectedCanvas.getContext('2d')?.getImageData(0, 0, width, height).data
+      if (!a || !e) return 'the images could not be read'
+      let changed = 0
+      let largest = 0
+      let left = width
+      let top = height
+      let right = -1
+      let bottom = -1
+      const columns = Math.ceil(width / 40)
+      const squares = new Map<number, number>()
+      for (let y = 0; y < height; y += 1) {
+        for (let x = 0; x < width; x += 1) {
+          const offset = (y * width + x) * 4
+          const delta = Math.max(
+            Math.abs(a[offset] - e[offset]),
+            Math.abs(a[offset + 1] - e[offset + 1]),
+            Math.abs(a[offset + 2] - e[offset + 2]),
+            Math.abs(a[offset + 3] - e[offset + 3]),
+          )
+          if (delta === 0) continue
+          changed += 1
+          largest = Math.max(largest, delta)
+          left = Math.min(left, x)
+          top = Math.min(top, y)
+          right = Math.max(right, x)
+          bottom = Math.max(bottom, y)
+          const square = Math.floor(y / 40) * columns + Math.floor(x / 40)
+          squares.set(square, (squares.get(square) ?? 0) + 1)
+        }
+      }
+      if (changed === 0) return `${width} by ${height}, no pixel changed`
+      const busiest = [...squares.entries()].sort((first, second) => second[1] - first[1])
+      const square = (entry: [number, number]) =>
+        `x ${(entry[0] % columns) * 40}, y ${Math.floor(entry[0] / columns) * 40}: ${entry[1]}`
+      const [first] = busiest[0]
+      const cropWidth = Math.min(320, width)
+      const cropHeight = Math.min(200, height)
+      const centreX = (first % columns) * 40 + 20
+      const centreY = Math.floor(first / columns) * 40 + 20
+      const cropLeft = Math.min(Math.max(0, centreX - 160), width - cropWidth)
+      const cropTop = Math.min(Math.max(0, centreY - 100), height - cropHeight)
+      const crop = (source: HTMLCanvasElement) => {
+        const canvas = document.createElement('canvas')
+        canvas.width = cropWidth
+        canvas.height = cropHeight
+        canvas
+          .getContext('2d')
+          ?.drawImage(source, cropLeft, cropTop, cropWidth, cropHeight, 0, 0, cropWidth, cropHeight)
+        return canvas.toDataURL('image/png')
+      }
+      return [
+        `${width} by ${height}; ${changed} pixels changed, by up to ${largest} of 255, between x ${left} to ${right} and y ${top} to ${bottom}`,
+        `busiest squares, ${busiest.slice(0, 6).map(square).join('; ')}`,
+        `crop from x ${cropLeft}, y ${cropTop}`,
+        `actual ${crop(actualCanvas)}`,
+        `expected ${crop(expectedCanvas)}`,
+      ].join('\n')
+    },
+    [readFileSync(actual).toString('base64'), readFileSync(expected).toString('base64')],
+  )
+  await probe.close()
+  console.log(`The images differ, on ${processor}: ${summary}`)
 }
 
 for (const story of stories) {
@@ -156,7 +269,12 @@ for (const story of stories) {
         await testInfo.attach('proposed reference', { path: proposed, contentType: 'image/png' })
         throw new Error(`No reference image yet for ${name.join('/')}; a proposed one is attached`)
       }
-      await expect(target).toHaveScreenshot(name)
+      try {
+        await expect(target).toHaveScreenshot(name)
+      } catch (error) {
+        await describeDifference(page, testInfo.outputDir).catch(() => undefined)
+        throw error
+      }
 
       expect(outside, 'no request left the local Storybook server').toEqual([])
     })
