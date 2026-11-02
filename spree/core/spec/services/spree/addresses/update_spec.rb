@@ -107,6 +107,26 @@ RSpec.describe Spree::Addresses::Update do
           end
         end
 
+        context 'when a New York address is sent the name California' do
+          let(:country) { Spree::Country.by_iso('US') }
+          let(:state) { Spree::State.resolve('US', 'CA') }
+
+          it 'moves the address to California when the name comes alone' do
+            expect(result).to be_success
+            expect(address.reload.state_code).to eq('CA')
+          end
+
+          context 'with state_code NY as well' do
+            let(:result) { subject.call(address: address, address_params: new_address_params.merge(state_code: 'NY'), order: order) }
+
+            it 'keeps the address in New York' do
+              expect(result).to be_success
+              expect(address.reload.state_code).to eq('NY')
+              expect(address.state_name).to be_nil
+            end
+          end
+        end
+
         context 'when user sets address as default shipping' do
           let(:result) { subject.call(address: address, address_params: new_address_params, order: order, default_shipping: true) }
           let!(:previous_address) { create(:address, customer: user) }

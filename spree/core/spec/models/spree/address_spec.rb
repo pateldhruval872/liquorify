@@ -897,10 +897,25 @@ describe Spree::Address, type: :model do
         expect(address.state_name).to be_nil
       end
 
-      it 'replaces the code within the same country' do
-        address.assign_attributes(state_name: 'California', postal_code: '90001')
-        address.valid?
-        expect(address.state_code).to eq('CA')
+      context 'when a New York address is sent the name California' do
+        it 'takes the name alone as the new state' do
+          address.assign_attributes(state_name: 'California', postal_code: '90001')
+          address.valid?
+          expect(address.state_code).to eq('CA')
+        end
+
+        it 'keeps NY when state_code NY is sent with it' do
+          address.assign_attributes(state_code: 'NY', state_name: 'California')
+          expect(address.valid?).to be(true)
+          expect(address.state_code).to eq('NY')
+          expect(address.state_name).to be_nil
+        end
+
+        it 'keeps NY when the legacy state_abbr NY is sent with it' do
+          address.assign_attributes(state_abbr: 'NY', state_name: 'California')
+          address.valid?
+          expect(address.state_code).to eq('NY')
+        end
       end
 
       it 'drops the old code when the name matches nothing in the new country' do
