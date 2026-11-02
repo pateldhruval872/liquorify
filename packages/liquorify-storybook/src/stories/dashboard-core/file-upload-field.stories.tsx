@@ -3,55 +3,11 @@ import {
   FileUploadField,
   type FileUploadValue,
 } from '@spree/dashboard-core'
-import { Toaster } from '@spree/dashboard-ui/ui/toast'
-import type { Decorator, Meta, StoryObj } from '@storybook/react-vite'
-import { HttpResponse, http } from 'msw'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 import { useState } from 'react'
 import { expect, screen, userEvent } from 'storybook/test'
-
-/**
- * Spree's answer to a file the dashboard asks to upload: a signed id, and
- * where the browser sends the bytes, here the local disk service.
- */
-const uploadAccepted = [
-  http.post('/api/v3/admin/files', async ({ request }) => {
-    const body = (await request.json()) as {
-      filename: string
-      content_type: string
-      byte_size: number
-    }
-    return HttpResponse.json(
-      {
-        signed_id: 'story-signed-id',
-        filename: body.filename,
-        content_type: body.content_type,
-        byte_size: body.byte_size,
-        visibility: 'public',
-        expires_at: '2026-10-01T13:00:00.000Z',
-        upload: {
-          url: '/rails/active_storage/disk/story-key',
-          method: 'PUT',
-          headers: { 'Content-Type': body.content_type },
-        },
-      },
-      { status: 201 },
-    )
-  }),
-  http.put('/rails/active_storage/disk/:key', () => new HttpResponse(null, { status: 204 })),
-]
-
-/** The disk service refusing the bytes, as it does when their checksum does not match. */
-const storageRefused = [
-  uploadAccepted[0],
-  http.put('/rails/active_storage/disk/:key', () => new HttpResponse('', { status: 422 })),
-]
-
-const withToaster: Decorator = (Story) => (
-  <>
-    <Story />
-    <Toaster />
-  </>
-)
+import { withToaster } from '../../decorators/toaster'
+import { storageRefused, uploadAccepted } from '../../mocks/handlers/admin/files'
 
 /**
  * The poster field on a video in the media library (DA-PRD-04), built the

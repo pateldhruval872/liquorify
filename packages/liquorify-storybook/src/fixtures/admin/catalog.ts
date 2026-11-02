@@ -1,6 +1,7 @@
 import type {
   Category,
   Collection,
+  CustomFieldDefinition,
   DeliveryProfile,
   DigitalAsset,
   Media,
@@ -17,7 +18,7 @@ import type {
   TaxCategory,
   Variant,
 } from '@spree/admin-sdk'
-import { channels, customFieldDefinitions, media, stockLocations } from './settings'
+import { channels, customFieldDefinitions, definition, media, stockLocations } from './settings'
 
 const created = '2026-01-15T09:00:00.000Z'
 const updated = '2026-09-20T09:00:00.000Z'
@@ -299,6 +300,19 @@ export const productTypes: ProductType[] = [
 ]
 
 const [mugType, apronType, guideType] = productTypes
+
+/**
+ * More product fields, one of each remaining kind, for the product page's
+ * custom fields card. They are kept apart from the settings page's list so
+ * its images do not change.
+ */
+export const productFieldDefinitions: CustomFieldDefinition[] = [
+  ...customFieldDefinitions.filter((field) => field.resource_type === 'product'),
+  definition('cfd_3Mt5Rl8K', 'Material', 'material', 'product', 'short_text'),
+  definition('cfd_4Dw6Sf9P', 'Dishwasher safe', 'dishwasher_safe', 'product', 'boolean'),
+  definition('cfd_6Mk2St4Y', "Maker's story", 'maker_story', 'product', 'rich_text'),
+  definition('cfd_8Sp3Ec7J', 'Specifications', 'specifications', 'product', 'json'),
+]
 
 // ---------------------------------------------------------------------------
 // Products and their variants
@@ -759,7 +773,7 @@ function digitalAsset(
     provider_name: 'File',
     download_url: `/fixtures/${filename}`,
     effective_authorized_clicks: 5,
-    effective_authorized_days: 30,
+    effective_authorized_days: 7,
     ...fields,
   }
 }
@@ -768,9 +782,37 @@ export const digitalAssets: DigitalAsset[] = [
   digitalAsset('dasset_1Gg4Pd7H', 'glazing-guide.pdf', 'application/pdf', 2_480_000),
   digitalAsset('dasset_2Wk5Zp8J', 'glaze-recipes.zip', 'application/zip', 14_200_000, {
     authorized_clicks: 3,
-    authorized_days: 7,
+    authorized_days: 14,
     effective_authorized_clicks: 3,
-    effective_authorized_days: 7,
+    effective_authorized_days: 14,
+  }),
+]
+
+/**
+ * A download key handed out from a pool rather than a file, from the source
+ * Spree's own specs register. Spree serves no file name, size or link for it.
+ */
+export const pooledAsset = digitalAsset('dasset_3Pk6Lq9M', '', '', 0, {
+  filename: null,
+  content_type: null,
+  byte_size: null,
+  download_url: null,
+  provider_type: 'stub',
+  provider_name: 'Stub',
+  provider_settings: { pool_name: 'glazing-course-keys' },
+})
+
+/**
+ * A physical product's files: a care guide for every apron, on the product's
+ * master variant, which Spree leaves out of its variants, and a dye-lot note
+ * for the olive medium only.
+ */
+export const apronFiles: DigitalAsset[] = [
+  digitalAsset('dasset_4Ap7Cg1N', 'apron-care-guide.pdf', 'application/pdf', 860_000, {
+    variant_id: 'variant_7Rt2Wn5m',
+  }),
+  digitalAsset('dasset_5Ap8Dl2Q', 'olive-dye-lot.pdf', 'application/pdf', 120_000, {
+    variant_id: 'variant_7Rt2Wn5a',
   }),
 ]
 
@@ -814,19 +856,108 @@ function stockMovement(
 
 /** The clay mug's stock history at the shop, newest first. Spree stores a shipment as a positive quantity. */
 export const stockMovements: StockMovement[] = [
-  stockMovement('smov_5Sh9Ip3K', 2, 'shipped', '2026-09-19T14:20:00.000Z', {
+  stockMovement('sm_5Sh9Ip3K', 2, 'shipped', '2026-09-19T14:20:00.000Z', {
     order_id: 'or_7Fp2Kd9s',
     order_number: 'R1042',
   }),
-  stockMovement('smov_4Ad8Uo2L', -1, 'adjusted', '2026-09-12T10:05:00.000Z', {
+  stockMovement('sm_4Ad8Uo2L', -1, 'adjusted', '2026-09-12T10:05:00.000Z', {
     reason: 'Chipped in storage',
   }),
-  stockMovement('smov_3Rc7Yi1Z', 24, 'received', '2026-09-01T08:30:00.000Z', {
+  stockMovement('sm_3Rc7Yi1Z', 24, 'received', '2026-09-01T08:30:00.000Z', {
     unit_cost: '6.40',
     purchase_order_id: 'po_2Kl6Mn9P',
     purchase_order_number: 'PO-0007',
   }),
-  stockMovement('smov_2Ad6Tu9X', 3, 'adjusted', '2026-08-20T16:45:00.000Z', {
+  stockMovement('sm_2Ad6Tu9X', 3, 'adjusted', '2026-08-20T16:45:00.000Z', {
+    reason: 'Count correction',
+  }),
+]
+
+/** A movement on one of the linen apron's shelves: a variant at one of the store's locations. */
+function apronMovement(
+  id: string,
+  sku: string,
+  location: number,
+  quantity: number,
+  kind: StockMovement['kind'],
+  at: string,
+  fields: Partial<StockMovement> = {},
+): StockMovement {
+  const variant = (linenApron.variants as Variant[]).find((each) => each.sku === sku) as Variant
+  const level = variant.stock_levels?.[location] as StockLevel
+  return stockMovement(id, quantity, kind, at, {
+    stock_level_id: level.id,
+    stock_location_id: level.stock_location_id,
+    stock_location_name: level.stock_location_name,
+    variant_id: variant.id,
+    variant_name: linenApron.name,
+    variant_sku: sku,
+    ...fields,
+  })
+}
+
+/**
+ * The linen apron's stock history across its variants and locations, newest
+ * first, with one row for each kind of change and cause the history names:
+ * more than the ten a page shows.
+ */
+export const apronStockMovements: StockMovement[] = [
+  apronMovement('sm_1Ap4Sh7K', 'APRON-OLV-M', 0, 1, 'shipped', '2026-09-30T15:10:00.000Z', {
+    order_id: 'or_8Gq3Le0t',
+    order_number: 'R1051',
+    fulfillment_id: 'ful_3Kd8Wq1N',
+  }),
+  apronMovement('sm_2Ap5Al8L', 'APRON-OLV-M', 0, 1, 'allocated', '2026-09-29T10:40:00.000Z', {
+    order_id: 'or_8Gq3Le0t',
+    order_number: 'R1051',
+  }),
+  apronMovement('sm_3Ap6Rl9M', 'APRON-SLT-L', 1, 1, 'released', '2026-09-27T09:00:00.000Z', {
+    order_id: 'or_6Dn1Jc8r',
+    order_number: 'R1048',
+  }),
+  apronMovement('sm_4Ap7Al1N', 'APRON-SLT-L', 1, 1, 'allocated', '2026-09-26T18:20:00.000Z', {
+    order_id: 'or_6Dn1Jc8r',
+    order_number: 'R1048',
+  }),
+  apronMovement('sm_5Ap8Ad2P', 'APRON-OLV-L', 0, -1, 'adjusted', '2026-09-24T11:00:00.000Z', {
+    reason: 'Stained in the dye bath',
+  }),
+  apronMovement('sm_6Ap9Rc3Q', 'APRON-OLV-M', 1, 2, 'received', '2026-09-22T08:15:00.000Z', {
+    stock_transfer_id: 'st_5Tr2Fe7W',
+    stock_transfer_number: 'T1003',
+  }),
+  apronMovement('sm_7Ap1Sh4R', 'APRON-OLV-M', 0, 2, 'shipped', '2026-09-21T16:30:00.000Z', {
+    stock_transfer_id: 'st_5Tr2Fe7W',
+    stock_transfer_number: 'T1003',
+  }),
+  apronMovement('sm_8Ap2Rc5S', 'APRON-SLT-L', 0, 1, 'received', '2026-09-18T13:00:00.000Z', {
+    order_id: 'or_2Bv7Hx4k',
+    order_number: 'R1039',
+    return_id: 'ret_7Rt3Nb6V',
+    return_number: 'RA1002',
+  }),
+  apronMovement('sm_9Ap3Sh6T', 'APRON-OLV-L', 0, 1, 'shipped', '2026-09-15T10:20:00.000Z', {
+    order_id: 'or_9Cx5Mz2p',
+    order_number: 'R1036',
+    exchange_id: 'exch_4Ex9Ch2Z',
+    exchange_number: 'EX1001',
+  }),
+  ...(['APRON-OLV-M', 'APRON-OLV-L', 'APRON-SLT-L'] as const).map((sku, index) =>
+    apronMovement(
+      `sm_${index + 1}Po${index + 4}Rc7U`,
+      sku,
+      0,
+      [12, 6, 4][index],
+      'received',
+      `2026-09-10T09:0${index}:00.000Z`,
+      {
+        unit_cost: '11.20',
+        purchase_order_id: 'po_9Ap4Mn2Q',
+        purchase_order_number: 'PO-0009',
+      },
+    ),
+  ),
+  apronMovement('sm_5Ap6Ad8V', 'APRON-OLV-M', 0, 2, 'adjusted', '2026-09-02T17:45:00.000Z', {
     reason: 'Count correction',
   }),
 ]
@@ -885,6 +1016,35 @@ export function productTranslations(
       { key: 'meta_title', type: 'string', source: product.meta_title },
     ],
     translations: { de: { translated_field_count: translated, ...german } },
+  }
+}
+
+/**
+ * An option type's translation matrix, as the options page's editor reads it:
+ * the type's label, with each of its values nested under it.
+ */
+export function optionTypeTranslations(
+  optionType: OptionType,
+  german: Record<string, string> = {},
+): ResourceTranslations {
+  const labelIn = (id: string, source: string) => {
+    const label = german[id] ?? null
+    return {
+      fields: [{ key: 'label', type: 'string' as const, source }],
+      translations: { de: { translated_field_count: label ? 1 : 0, label } },
+    }
+  }
+  return {
+    resource_type: 'option_type',
+    resource_id: optionType.id,
+    default_locale: 'en',
+    supported_locales: ['en', 'de'],
+    ...labelIn(optionType.id, optionType.label),
+    children: (optionType.option_values ?? []).map((value) => ({
+      resource_type: 'option_value',
+      resource_id: value.id,
+      ...labelIn(value.id, value.label),
+    })),
   }
 }
 

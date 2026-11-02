@@ -8,12 +8,12 @@ import {
   TagsIcon,
   Trash2Icon,
 } from '@spree/dashboard-ui/icons'
-import { Toaster } from '@spree/dashboard-ui/ui/toast'
-import type { Decorator, Meta, StoryObj } from '@storybook/react-vite'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { expect, screen, userEvent, within } from 'storybook/test'
 import { storeParameters, withStore } from '../../decorators/store'
+import { withToaster } from '../../decorators/toaster'
 import { clayMug, linenApron } from '../../fixtures/admin/catalog'
 import { readOnly } from '../../fixtures/admin/session'
 
@@ -106,13 +106,6 @@ function ProductListBar({ selectedIds }: { selectedIds: string[] }) {
     </div>
   )
 }
-
-const withToaster: Decorator = (Story) => (
-  <>
-    <Story />
-    <Toaster />
-  </>
-)
 
 /** The actions appear once the admin's permissions have loaded. */
 const actionsShown = () => screen.findByRole('button', { name: 'Set status…' })

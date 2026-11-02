@@ -266,7 +266,8 @@ export const extensionRoutingRule = routingRule('orr_2Qa7Sd5G', 'nearest_locatio
   preferences: { max_distance_km: 80 },
 })
 
-function definition(
+/** A custom field definition as Spree serves it, in the `custom` namespace. */
+export function definition(
   id: string,
   label: string,
   key: string,

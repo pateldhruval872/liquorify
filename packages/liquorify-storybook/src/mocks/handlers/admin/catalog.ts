@@ -11,7 +11,9 @@ import type {
   Product,
   ProductType,
   ResourceTranslations,
+  ResourceTranslationsNode,
   StockMovement,
+  TranslationBatchEntry,
 } from '@spree/admin-sdk'
 import { delay, HttpResponse, http } from 'msw'
 import {
@@ -23,6 +25,7 @@ import {
   deliveryProfiles,
   digitalAssets,
   optionTypes,
+  pooledAsset,
   productTags,
   productTypes,
   stockMovements,
@@ -31,6 +34,7 @@ import {
 import { channels, customFieldDefinitions } from '../../../fixtures/admin/settings'
 import { onePage } from '../../page'
 import { countries } from './countries'
+import { uploadedFile } from './files'
 import { searchable, stockLocationList } from './settings'
 
 /** The one digital asset source Spree registers, which takes an uploaded file. */
@@ -155,11 +159,15 @@ export function productMediaList(records: Media[] = clayMug.media ?? []) {
   ]
 }
 
-/** A product's downloadable files and the sources they can come from. */
+/**
+ * A product's downloadable files and the sources they can come from. A file
+ * added or deleted changes what the list answers next, as the card refetches.
+ */
 export function digitalAssetRequests(
-  records: DigitalAsset[] = digitalAssets,
+  initial: DigitalAsset[] = digitalAssets,
   providers: DigitalAssetProvider[] = [fileProvider],
 ) {
+  let records = [...initial]
   return [
     http.get('/api/v3/admin/products/:productId/digital_assets/providers', () =>
       HttpResponse.json({ data: providers }),
@@ -167,6 +175,36 @@ export function digitalAssetRequests(
     http.get('/api/v3/admin/products/:productId/digital_assets', ({ request }) =>
       HttpResponse.json(paged(records, request)),
     ),
+    http.post('/api/v3/admin/products/:productId/digital_assets', async ({ request }) => {
+      const body = (await request.json()) as {
+        signed_id?: string
+        provider_type?: string
+        provider_settings?: Record<string, unknown>
+      }
+      const provider = providers.find((candidate) => candidate.type === body.provider_type)
+      const file = body.signed_id ? uploadedFile(body.signed_id) : undefined
+      const created: DigitalAsset = {
+        ...(provider ? pooledAsset : digitalAssets[0]),
+        id: `dasset_9Nw${records.length}Up`,
+        ...(file && {
+          filename: file.filename,
+          content_type: file.content_type,
+          byte_size: file.byte_size,
+          download_url: `/fixtures/${file.filename}`,
+        }),
+        ...(provider && {
+          provider_type: provider.type,
+          provider_name: provider.name,
+          provider_settings: body.provider_settings ?? {},
+        }),
+      }
+      records = [created, ...records]
+      return HttpResponse.json(created, { status: 201 })
+    }),
+    http.delete('/api/v3/admin/products/:productId/digital_assets/:id', ({ params }) => {
+      records = records.filter((record) => record.id !== params.id)
+      return new HttpResponse(null, { status: 204 })
+    }),
     http.patch(
       '/api/v3/admin/products/:productId/digital_assets/:id',
       async ({ params, request }) => {
@@ -177,6 +215,22 @@ export function digitalAssetRequests(
   ]
 }
 
+/**
+ * Spree refusing a key from a source no extension registers any more, as when
+ * the extension was removed after the page loaded.
+ */
+export const notRegistered = () =>
+  HttpResponse.json(
+    {
+      error: {
+        code: 'validation_error',
+        message: 'Provider type is not a registered provider',
+        details: { provider_type: ['is not a registered provider'] },
+      },
+    },
+    { status: 422 },
+  )
+
 export const digitalAssetsHeld = [
   http.get('/api/v3/admin/products/:productId/digital_assets/providers', () =>
     HttpResponse.json({ data: [fileProvider] }),
@@ -186,23 +240,74 @@ export const digitalAssetsHeld = [
   }),
 ]
 
-/** A product's translation matrix, which the card counts and the editor fills in. */
-export function translationRequests(matrix: ResourceTranslations = clayMugTranslations) {
+/**
+ * A record's translation matrix, which the card counts and the editor fills
+ * in. A save is applied to the matrix, so the editor reads it back as Spree's
+ * would, and counts each locale's translated fields again.
+ */
+export function translationRequests(initial: ResourceTranslations = clayMugTranslations) {
+  let matrix = initial
   return [
-    http.get('/api/v3/admin/products/:productId/translations', () =>
+    http.get('/api/v3/admin/:resources/:resourceId/translations', () =>
       HttpResponse.json({ data: matrix }),
     ),
+    http.post('/api/v3/admin/translations/batch', async ({ request }) => {
+      const { translations } = (await request.json()) as { translations: TranslationBatchEntry[] }
+      matrix = translations.reduce(applyTranslations, matrix)
+      return HttpResponse.json({ data: [] })
+    }),
   ]
 }
 
+function applyTranslations<T extends ResourceTranslations | ResourceTranslationsNode>(
+  node: T,
+  entry: TranslationBatchEntry,
+): T {
+  if (node.resource_id !== entry.resource_id) {
+    return {
+      ...node,
+      children: node.children?.map((child) => applyTranslations(child, entry)),
+    }
+  }
+  const translations = { ...node.translations }
+  for (const [locale, values] of Object.entries(entry.values)) {
+    const merged = { ...translations[locale], ...values }
+    const translated = node.fields.filter((field) => {
+      const value = merged[field.key]
+      return value != null && value !== ''
+    }).length
+    translations[locale] = { ...merged, translated_field_count: translated }
+  }
+  return { ...node, translations }
+}
+
+/**
+ * Spree refusing a translation save for a product deleted since the editor
+ * opened, with the message it gives for the first entry it cannot find.
+ */
+export const translationSaveRefused = [
+  http.post('/api/v3/admin/translations/batch', () =>
+    HttpResponse.json(
+      {
+        error: {
+          code: 'validation_error',
+          message: `Resource not found: ${clayMug.id}`,
+          details: { translations: { '0': [`Resource not found: ${clayMug.id}`] } },
+        },
+      },
+      { status: 422 },
+    ),
+  ),
+]
+
 export const translationsHeld = [
-  http.get('/api/v3/admin/products/:productId/translations', async () => {
+  http.get('/api/v3/admin/:resources/:resourceId/translations', async () => {
     await delay('infinite')
   }),
 ]
 
 export const translationsFailed = [
-  http.get('/api/v3/admin/products/:productId/translations', () =>
+  http.get('/api/v3/admin/:resources/:resourceId/translations', () =>
     HttpResponse.json(
       { error: { code: 'internal_error', message: 'Something went wrong' } },
       { status: 500 },
