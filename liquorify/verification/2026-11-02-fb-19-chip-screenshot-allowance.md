@@ -4,7 +4,7 @@ record: verification
 work_item: FB-19
 date: 2026-11-02
 verifier: Claude (automated session); not independent review
-result: PASS for an allowance of 60 counted pixels on exactly two dark images, the two stories that show the variants options builder's chips. Unchanged runs counted at most 43 pixels on either image, 38 in CI, and every one of nine deliberate changes to the chips' colours, borders and layout counted 78 pixels or more on both images, so each still fails. Four of the changes were also run through the visual check itself, with the allowance in place, and failed both images. Every other image keeps the threshold of 0.005 and the 25-pixel allowance. The two CI runs of the whole visual check on one revision are awaited (§6)
+result: PASS for an allowance of 60 counted pixels on exactly two dark images, the two stories that show the variants options builder's chips. Unchanged runs counted at most 43 pixels on either image, 38 in CI, and every one of nine deliberate changes to the chips' colours, borders and layout counted 78 pixels or more on both images, so each still fails. Four of the changes were also run through the visual check itself, with the allowance in place, and failed both images. Every other image keeps the threshold of 0.005 and the 25-pixel allowance. Both CI runs of the whole visual check at `dfb5ae23` passed all 1,616 comparisons, with Tests and Packages (§6)
 ---
 
 # Screenshot allowance for two option chip images
@@ -19,7 +19,7 @@ result: PASS for an allowance of 60 counted pixels on exactly two dark images, t
 | 2 | Unchanged runs stay within 60 | PASS: the largest count measured was 43 pixels, on this session's machine; in CI it was 38 (§2) |
 | 3 | Deliberate changes to the chips fail under 60 | PASS: all nine changes fail both dark images. The smallest, the add-value chip's dashed border drawn solid, counted 78 pixels (§3) |
 | 4 | The visual check itself fails the changes with the allowance in place, and passes unchanged runs | PASS: four changes failed both dark images, and the unchanged run passed all four images (§4) |
-| 5 | The whole visual check passes twice in CI on one revision | Awaited (§6) |
+| 5 | The whole visual check passes twice in CI on one revision | PASS: both runs at `dfb5ae23` passed all 1,616 comparisons, and Tests and Packages passed (§6) |
 
 ## 1. The two images
 
@@ -107,7 +107,15 @@ The stylesheet was restored after each change, and the Storybook rebuilt unchang
 
 ## 6. CI
 
-`2e61ae11` commits the allowance, just before this record, and the whole visual check is to run twice on GitHub's runners on the revision that adds this record, with Tests and Packages. Their results are recorded in the [part 1 record](2026-11-02-fb-19-batch-catalog-and-pricing-part-1.md) §8 when the runs finish. The allowance changes no reference image.
+`2e61ae11` commits the allowance, just before this record, and `dfb5ae23` adds this record. The whole visual check then ran twice on GitHub's runners at `dfb5ae23`:
+
+| Run | Result |
+|---|---|
+| [Storybook 41461820876](https://github.com/pateldhruval872/liquorify/actions/runs/41461820876), from the pull request | All 1,616 passed, in 29.3 minutes |
+| [Storybook 41461817488](https://github.com/pateldhruval872/liquorify/actions/runs/41461817488), started by hand | All 1,616 passed, in 25 minutes |
+| [Tests 41461820702](https://github.com/pateldhruval872/liquorify/actions/runs/41461820702) and [Packages 41461820891](https://github.com/pateldhruval872/liquorify/actions/runs/41461820891) | Every job passed |
+
+A passing comparison logs no count, so these runs do not show whether the variation occurred in them. The allowance changes no reference image, and the check stays advisory.
 
 ## 7. Evidence
 
