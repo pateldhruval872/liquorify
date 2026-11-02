@@ -1,0 +1,2 @@
+/* k8: the gap between chips, 8 pixels to 9 */
+.dark .flex.flex-wrap.gap-2:has(> button.rounded-full.text-xs) { gap: 9px !important; }

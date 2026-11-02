@@ -1,0 +1,2 @@
+/* k4: the chips' border removed */
+.dark button.rounded-full.text-xs { border-width: 0 !important; }

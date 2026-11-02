@@ -1,0 +1,2 @@
+/* k5: the chips' corners, fully rounded changed to a 6-pixel radius */
+.dark button.rounded-full.text-xs { border-radius: 6px !important; }
