@@ -534,6 +534,18 @@ module Spree
     def normalize_state
       return if country_code.blank?
 
+      # A state given by name and not by code replaces the code the address
+      # already holds when the name matches a subdivision, or when the country
+      # changed and the old code belongs to the old country. Kept, that code
+      # would win even where it names another subdivision: New York's NY is
+      # also Hungary's Nyíregyháza. A code the caller assigned always wins, even
+      # the one the address already holds, which Rails does not count as a
+      # change.
+      if state_name.present? && state_name_changed? && !state_code_came_from_user? &&
+         (country_code_changed? || Spree::IsoData.subdivision_code(country_code, state_name))
+        self[:state_code] = nil
+      end
+
       submitted_abbr = self[:state_code].presence
 
       if submitted_abbr.present?
