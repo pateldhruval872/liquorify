@@ -885,6 +885,58 @@ describe Spree::Address, type: :model do
         expect(address.state).to eq(state)
       end
     end
+
+    describe 'changing the state by name' do
+      let(:address) { create(:address, country: country, state: state) }
+
+      it 'replaces a code that the new country also uses' do
+        # New York's NY is also Hungary's Nyíregyháza.
+        address.assign_attributes(country_code: 'HU', state_name: 'Bács-Kiskun', postal_code: '6000')
+        address.valid?
+        expect(address.state_code).to eq('BK')
+        expect(address.state_name).to be_nil
+      end
+
+      context 'when a New York address is sent the name California' do
+        it 'takes the name alone as the new state' do
+          address.assign_attributes(state_name: 'California', postal_code: '90001')
+          address.valid?
+          expect(address.state_code).to eq('CA')
+        end
+
+        it 'keeps NY when state_code NY is sent with it' do
+          address.assign_attributes(state_code: 'NY', state_name: 'California')
+          expect(address.valid?).to be(true)
+          expect(address.state_code).to eq('NY')
+          expect(address.state_name).to be_nil
+        end
+
+        it 'keeps NY when the legacy state_abbr NY is sent with it' do
+          address.assign_attributes(state_abbr: 'NY', state_name: 'California')
+          address.valid?
+          expect(address.state_code).to eq('NY')
+        end
+      end
+
+      it 'drops the old code when the name matches nothing in the new country' do
+        address.assign_attributes(country_code: 'HU', state_name: 'Nowhere', postal_code: '6000')
+        address.valid?
+        expect(address.state_code).to be_nil
+        expect(address.state_name).to eq('Nowhere')
+      end
+
+      it 'keeps the code when the name matches nothing in the same country' do
+        address.assign_attributes(state_name: 'Nowhere')
+        address.valid?
+        expect(address.state_code).to eq('NY')
+      end
+
+      it 'keeps the code when a code and a name are both given' do
+        address.assign_attributes(country_code: 'HU', state_code: 'BK', state_name: 'Pest', postal_code: '6000')
+        address.valid?
+        expect(address.state_code).to eq('BK')
+      end
+    end
   end
 
   # The pre-6.0 names stay callable for one release. Nothing in core calls
