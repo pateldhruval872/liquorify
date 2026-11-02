@@ -3,7 +3,7 @@ import { Field, FieldLabel } from '@spree/dashboard-ui/ui/field'
 import { Input } from '@spree/dashboard-ui/ui/input'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-/** Two of a variant sheet's fields (DA-PRD-03), which the sheet groups in sections. */
+/** Two of a variant sheet's fields (DA-PRD-03), which the sheet groups in sections, at its width and text. */
 function IdentityFields() {
   return (
     <>
@@ -26,7 +26,7 @@ const meta = {
   args: { children: <IdentityFields /> },
   decorators: [
     (Story) => (
-      <div style={{ width: 448 }}>
+      <div className="w-[566px] text-sm">
         <Story />
       </div>
     ),

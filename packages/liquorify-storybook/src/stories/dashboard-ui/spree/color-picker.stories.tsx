@@ -4,8 +4,9 @@ import { useState } from 'react'
 import { screen, userEvent } from 'storybook/test'
 
 /**
- * A colour value's swatch in the option type sheet (DA-PRD-05), where it sits
- * in the values table's last column, compact, with its panel opening leftwards.
+ * A colour value's swatch in the option type sheet (DA-PRD-05), at the sheet's
+ * text, where it sits in the values table's last column, compact, with its
+ * panel opening leftwards.
  * The value is held as the sheet's form holds it.
  */
 function ValueColor({
@@ -19,7 +20,7 @@ function ValueColor({
 }) {
   const [value, setValue] = useState<string | null>(initial)
   return (
-    <div className="flex items-start justify-end" style={{ width: 320, minHeight: 360 }}>
+    <div className="flex items-start justify-end text-sm" style={{ width: 320, minHeight: 360 }}>
       <ColorPicker
         value={value}
         onChange={setValue}

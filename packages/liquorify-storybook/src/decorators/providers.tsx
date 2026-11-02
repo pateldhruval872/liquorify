@@ -44,10 +44,18 @@ export interface StoryNeeds {
 /**
  * The width of each page column in the running panels, measured at the
  * 1280-pixel capture width: a page's main column, a settings page beside
- * its settings menu, and the two columns of a record's page (`ResourceLayout`),
- * its main column and its sidebar.
+ * its settings menu, the two columns of a record's page (`ResourceLayout`),
+ * its main column and its sidebar, and what a card in either of those two
+ * leaves inside its border and padding, for a part drawn without its card.
  */
-export const columnWidths = { page: 965, settings: 890, main: 635, sidebar: 306 } as const
+export const columnWidths = {
+  page: 965,
+  settings: 890,
+  main: 635,
+  sidebar: 306,
+  inMainCard: 609,
+  inSidebarCard: 280,
+} as const
 
 export type Column = keyof typeof columnWidths
 

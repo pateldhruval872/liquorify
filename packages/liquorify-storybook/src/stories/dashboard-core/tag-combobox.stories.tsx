@@ -23,7 +23,7 @@ const meta = {
   decorators: [withStore],
   parameters: {
     ...storeParameters(),
-    liquorify: { ...storeParameters().liquorify, column: 'sidebar', capture: 'viewport' },
+    liquorify: { ...storeParameters().liquorify, column: 'inSidebarCard', capture: 'viewport' },
     msw: { handlers: { ...storeParameters().msw.handlers, tags: tagList() } },
   },
 } satisfies Meta<typeof TagsField>

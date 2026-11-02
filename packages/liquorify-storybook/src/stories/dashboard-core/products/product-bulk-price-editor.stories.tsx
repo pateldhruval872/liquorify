@@ -25,7 +25,7 @@ const meta = {
   tags: ['CMP-CORE-PF-05'],
   args: { product: linenApron, currency: 'USD' },
   decorators: [withStore],
-  parameters: productParameters({ product: linenApron }),
+  parameters: productParameters({ product: linenApron, column: 'inMainCard' }),
 } satisfies Meta<typeof PriceGrid>
 
 export default meta
@@ -47,7 +47,7 @@ export const Euros: Story = {
 export const OneVariant: Story = {
   name: 'One variant',
   args: { product: clayMug },
-  parameters: productParameters(),
+  parameters: productParameters({ column: 'inMainCard' }),
   play: async () => {
     await screen.findByDisplayValue('18.00')
   },

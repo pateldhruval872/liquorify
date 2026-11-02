@@ -10,26 +10,29 @@ import { withToaster } from '../../decorators/toaster'
 import { storageRefused, uploadAccepted } from '../../mocks/handlers/admin/files'
 
 /**
- * The poster field on a video in the media library (DA-PRD-04), built the
- * way the image field builds it: a wide preview, and PNG, JPEG or WebP only.
+ * The poster field on a video in the media library (DA-PRD-04), at the width
+ * and text of the library's sheet, built the way the image field builds it: a
+ * wide preview, and PNG, JPEG or WebP only.
  * Picking or dropping a file uploads it at once. The field's busy, disabled
  * and keyboard-focus states are the image field's stories (CMP-CORE-11).
  */
 function PosterField({ serverUrl }: { serverUrl?: string | null }) {
   const [value, setValue] = useState<FileUploadValue>(EMPTY_FILE_UPLOAD_VALUE)
   return (
-    <FileUploadField
-      variant="image"
-      value={value}
-      onChange={setValue}
-      accept="image/png,image/jpeg,image/webp"
-      serverUrl={serverUrl}
-      label="Poster image"
-      help="The still shown before the video plays. Leave blank to use the provider’s own image where there is one."
-      dropLabel="Drop an image here, or click to browse"
-      browseLabel="Upload image"
-      mediaClassName="h-16 w-28"
-    />
+    <div className="w-[566px] text-sm">
+      <FileUploadField
+        variant="image"
+        value={value}
+        onChange={setValue}
+        accept="image/png,image/jpeg,image/webp"
+        serverUrl={serverUrl}
+        label="Poster image"
+        help="The still shown before the video plays. Leave blank to use the provider’s own image where there is one."
+        dropLabel="Drop an image here, or click to browse"
+        browseLabel="Upload image"
+        mediaClassName="h-16 w-28"
+      />
+    </div>
   )
 }
 
@@ -40,7 +43,7 @@ const meta = {
   title: 'Dashboard core/File upload field',
   component: PosterField,
   tags: ['CMP-CORE-10'],
-  parameters: { liquorify: { column: 'sidebar' }, msw: { handlers: { upload: uploadAccepted } } },
+  parameters: { msw: { handlers: { upload: uploadAccepted } } },
 } satisfies Meta<typeof PosterField>
 
 export default meta
@@ -79,7 +82,7 @@ export const Removed: Story = {
 export const WrongFileType: Story = {
   name: 'Wrong file type',
   decorators: [withToaster],
-  parameters: { liquorify: { column: 'sidebar', capture: 'viewport' } },
+  parameters: { liquorify: { capture: 'viewport' } },
   play: async ({ canvasElement }) => {
     const transfer = new DataTransfer()
     transfer.items.add(new File(['GIF89a'], 'clay-mug.gif', { type: 'image/gif' }))
@@ -95,7 +98,7 @@ export const UploadFailed: Story = {
   name: 'Upload refused by storage',
   decorators: [withToaster],
   parameters: {
-    liquorify: { column: 'sidebar', capture: 'viewport' },
+    liquorify: { capture: 'viewport' },
     msw: { handlers: { upload: storageRefused } },
   },
   play: async ({ canvasElement }) => {

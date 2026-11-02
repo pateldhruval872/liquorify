@@ -47,7 +47,7 @@ const meta = {
   decorators: [withStore],
   parameters: {
     ...storeParameters(),
-    liquorify: { ...storeParameters().liquorify, column: 'sidebar', capture: 'viewport' },
+    liquorify: { ...storeParameters().liquorify, column: 'inSidebarCard', capture: 'viewport' },
     msw: { handlers: { ...storeParameters().msw.handlers, categories: categoryList() } },
   },
 } satisfies Meta<typeof CategoriesField>

@@ -33,7 +33,7 @@ const meta = {
   tags: ['CMP-CORE-PF-08'],
   args: { selected: [color, size], onChange: fn() },
   decorators: [withStore],
-  parameters: productParameters(),
+  parameters: productParameters({ column: 'inMainCard' }),
 } satisfies Meta<typeof VariantsOptionsBuilder>
 
 export default meta
@@ -78,7 +78,7 @@ export const AddingOption: Story = {
 export const PickingOptionType: Story = {
   name: 'Picking an option type',
   args: { selected: [color] },
-  parameters: productParameters({ viewport: true }),
+  parameters: productParameters({ viewport: true, column: 'inMainCard' }),
   play: async () => {
     await userEvent.click(await screen.findByRole('button', { name: 'Add option' }))
     await userEvent.click(await screen.findByRole('combobox'))

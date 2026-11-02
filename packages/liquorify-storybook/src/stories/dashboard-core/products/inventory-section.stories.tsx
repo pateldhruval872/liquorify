@@ -31,7 +31,7 @@ const meta = {
   tags: ['CMP-CORE-PF-03'],
   args: { product: clayMug },
   decorators: [withStore],
-  parameters: productParameters(),
+  parameters: productParameters({ column: 'inMainCard' }),
 } satisfies Meta<typeof Stock>
 
 export default meta
@@ -47,7 +47,7 @@ export const OneVariant: Story = {
 
 export const Variants: Story = {
   args: { product: linenApron },
-  parameters: productParameters({ product: linenApron }),
+  parameters: productParameters({ product: linenApron, column: 'inMainCard' }),
   play: async () => {
     await screen.findByText('SKU APRON-OLV-M')
   },

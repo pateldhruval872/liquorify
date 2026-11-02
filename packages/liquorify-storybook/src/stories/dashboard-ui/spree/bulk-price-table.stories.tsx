@@ -89,7 +89,7 @@ const meta = {
   component: PriceTable,
   tags: ['CMP-DUI-C-05'],
   args: { product: linenApron, currency: 'USD', symbol: '$', decimal: '.' },
-  parameters: { liquorify: { column: 'main' } },
+  parameters: { liquorify: { column: 'inMainCard' } },
 } satisfies Meta<typeof PriceTable>
 
 export default meta

@@ -4,7 +4,8 @@ import { expect, fn, waitFor } from 'storybook/test'
 
 /**
  * A file's preview in the media library's sheet (DA-PRD-04) and the product
- * page's media sheet (DA-PRD-02, DA-PRD-03). The video files and the provider's
+ * page's media sheet (DA-PRD-02, DA-PRD-03), at those sheets' width and text.
+ * The video files and the provider's
  * player are invented stand-ins served by Storybook, so no story reaches the
  * network.
  */
@@ -15,7 +16,7 @@ const meta = {
   args: { alt: 'Clay mug, side view' },
   decorators: [
     (Story) => (
-      <div style={{ width: 416 }}>
+      <div className="w-[566px] text-sm">
         <Story />
       </div>
     ),

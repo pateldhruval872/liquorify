@@ -39,7 +39,7 @@ const meta = {
   component: CategoryPicker,
   tags: ['CMP-DUI-C-41'],
   args: { chosen: [] },
-  parameters: { liquorify: { column: 'sidebar' } },
+  parameters: { liquorify: { column: 'inSidebarCard' } },
 } satisfies Meta<typeof CategoryPicker>
 
 export default meta
@@ -57,7 +57,7 @@ export const ManyChosen: Story = {
 }
 
 export const Open: Story = {
-  parameters: { liquorify: { column: 'sidebar', capture: 'viewport' } },
+  parameters: { liquorify: { column: 'inSidebarCard', capture: 'viewport' } },
   args: { chosen: [mugs.id] },
   play: async () => {
     await userEvent.click(screen.getByRole('combobox'))

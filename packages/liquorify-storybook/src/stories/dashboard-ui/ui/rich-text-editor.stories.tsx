@@ -4,10 +4,11 @@ import { useState } from 'react'
 import { screen, userEvent } from 'storybook/test'
 
 /**
- * The plain description editor, as the translations dialog shows it for a
- * product's or an option type's text (DA-PRD-03, DA-PRD-05). The product's own
- * description uses the media editor, which adds the image button
- * (`Admin dashboard/Policies/Media rich text editor`).
+ * The description editor as Spree draws it by default, at the width and text
+ * of the product page's general card (DA-PRD-02, DA-PRD-03). There the media
+ * editor adds the image button (`Admin dashboard/Policies/Media rich text
+ * editor`). The translations dialog draws the same editor without its border,
+ * inside the dialog's table, which the dialog's own stories show.
  */
 function Description({
   initial = '',
@@ -20,7 +21,7 @@ function Description({
 }) {
   const [value, setValue] = useState(initial)
   return (
-    <div style={{ width: 600 }}>
+    <div style={{ width: 609 }}>
       <RichTextEditor
         ariaLabel="Description"
         value={value}

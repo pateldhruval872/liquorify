@@ -7,7 +7,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
  */
 function FileName({ filename, contentType }: { filename: string; contentType?: string }) {
   return (
-    <span className="flex items-center gap-2 font-medium text-sm">
+    <span className="flex items-center gap-2 font-medium">
       <FileTypeIcon
         filename={filename}
         contentType={contentType}

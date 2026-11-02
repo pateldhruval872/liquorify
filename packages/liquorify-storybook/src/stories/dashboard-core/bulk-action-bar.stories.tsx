@@ -23,7 +23,8 @@ import { readOnly } from '../../fixtures/admin/session'
  * in the bar and the rest go under "More actions". Each action that asks for
  * categories, collections, channels, tags or a status opens a dialog (the
  * bulk dialog's stories, CMP-DUI-C-04); Delete asks first. A role that may
- * not change products sees the count alone.
+ * not change products sees the count alone. The bar starts where it does on the
+ * list, after the room the heading row's select-all box takes.
  */
 function ProductListBar({ selectedIds }: { selectedIds: string[] }) {
   const { t } = useTranslation()
@@ -101,7 +102,7 @@ function ProductListBar({ selectedIds }: { selectedIds: string[] }) {
     ]
   }, [t])
   return (
-    <div className="flex h-12 items-center rounded-md border bg-muted/50 px-2">
+    <div className="flex h-12 items-center rounded-md border bg-muted/50 pr-2 pl-12">
       <BulkActionBar selectedIds={selectedIds} actions={actions} onDone={() => {}} />
     </div>
   )

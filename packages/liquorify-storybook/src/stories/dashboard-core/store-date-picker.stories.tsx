@@ -10,7 +10,8 @@ import { shellStore } from '../../fixtures/admin/shell'
  * zone whatever the admin's own is. The product list's date filter picks a
  * day from a calendar that opens beside it. The publishing card's dates
  * (DA-PRD-02, DA-PRD-03) and the variant sheet's pre-order date pick a day
- * and a time, and open beneath the field, since they sit inside a sheet.
+ * and a time, and open beneath the field, since they sit inside a sheet; they
+ * are drawn at the width a channel's row in the publishing card gives them.
  */
 function DateField({
   initial = null,
@@ -25,7 +26,7 @@ function DateField({
 }) {
   const [value, setValue] = useState<string | null>(initial)
   return (
-    <div className="h-96">
+    <div className="h-96" style={includeTime ? { width: 254 } : undefined}>
       <StoreDatePicker
         value={value}
         onChange={setValue}
