@@ -123,15 +123,13 @@ for (const story of stories) {
       // holds a frame as idle, with no request open (the media preview's
       // external video, about one run in five). After ten seconds the check
       // settles for what idle means: no request open for half a second.
-      await page
-        .waitForLoadState('networkidle', { timeout: 10_000 })
-        .catch(() =>
-          expect
-            .poll(() => open.size === 0 && Date.now() - lastRequestChange >= 500, {
-              timeout: 10_000,
-            })
-            .toBe(true),
-        )
+      await page.waitForLoadState('networkidle', { timeout: 10_000 }).catch(() =>
+        expect
+          .poll(() => open.size === 0 && Date.now() - lastRequestChange >= 500, {
+            timeout: 10_000,
+          })
+          .toBe(true),
+      )
 
       // A popup renders outside the story's root, so its story captures the viewport.
       const { capture, layout } = await page.evaluate(() => {
