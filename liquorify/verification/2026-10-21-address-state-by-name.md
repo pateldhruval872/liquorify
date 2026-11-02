@@ -4,7 +4,7 @@ record: verification
 work_item: none; a defect in Spree's code found by FB-19's CI runs
 date: 2026-10-21
 verifier: Claude (automated session); not independent review
-result: PASS locally for ten regression cases at the corrected revision. The owner's review on 2026-11-02 found that the fix as first proposed let a state name override a state code sent with it when that code was the one the address already held; four new cases show it, and the fix was corrected (§7). The change in behaviour awaits the owner's acceptance
+result: PASS locally for ten regression cases at the corrected revision. The owner's review on 2026-11-02 found that the fix as first proposed let a state name override a state code sent with it when that code was the one the address already held; four new cases show it, and the fix was corrected (§7). The owner accepted the corrected behaviour the same day, and #10 merged as `739e0ea` ([merge record](2026-11-02-address-state-by-name-merge.md))
 ---
 
 # Changing an address's state by name keeps the old state code
@@ -19,8 +19,8 @@ result: PASS locally for ten regression cases at the corrected revision. The own
 | 2 | The fix makes every case pass | PASS at the corrected revision. The fix as first proposed failed three of the four cases added on 2026-11-02, every one that sends a code with the name (§7) |
 | 3 | A code sent with a name keeps precedence, including the code the address already holds, apart from a name sent alone | PASS at the corrected revision, through the model and the address update service (§7) |
 | 4 | The fix breaks no other spec that touches an address's state | PASS at the corrected revision (§5) |
-| 5 | CI passes on the pull request | PASS at `10774ed`, as first proposed: [Tests](https://github.com/pateldhruval872/liquorify/actions/runs/39668752402), which runs every engine's specs on PostgreSQL and MySQL, and [Packages](https://github.com/pateldhruval872/liquorify/actions/runs/39668752680). The corrected revision's runs are reported on the pull request |
-| 6 | The owner accepts the change in behaviour | NOT_RUN: pending review |
+| 5 | CI passes on the pull request | PASS, with Tests running every engine's specs on PostgreSQL and MySQL: at `10774ed`, as first proposed ([Tests](https://github.com/pateldhruval872/liquorify/actions/runs/39668752402), [Packages](https://github.com/pateldhruval872/liquorify/actions/runs/39668752680)); at `587a476`, corrected ([Tests](https://github.com/pateldhruval872/liquorify/actions/runs/41461656766), [Packages](https://github.com/pateldhruval872/liquorify/actions/runs/41461656795)); and at `d45bd04`, the final revision ([Tests](https://github.com/pateldhruval872/liquorify/actions/runs/41478349594), [Packages](https://github.com/pateldhruval872/liquorify/actions/runs/41478349661)) |
+| 6 | The owner accepts the change in behaviour | ACCEPTED on 2026-11-02, the corrected behaviour, before the merge ([merge record §3](2026-11-02-address-state-by-name-merge.md#3-the-owners-answer-2026-11-02)) |
 
 ## 1. How it was found
 
@@ -77,3 +77,5 @@ The model cases are in `spree/core/spec/models/spree/address_spec.rb` ("changing
 The owner asked for a regression case for an existing New York address sent with `state_code` `NY` and `state_name` California, to check that the code keeps precedence, as this record and the pull request said, apart from sending the name alone.
 
 The fix as first proposed did not keep it. It cleared the held code whenever the code had not changed, and assigning `NY` to an address that already holds `NY` is no change, so the name moved the address to California. `main` without the fix keeps `NY` in that case, so the fix had introduced it. The correction asks instead whether the caller assigned the code, which Rails records even when the value is the same. Four cases were added: the model with `state_code` and with the legacy `state_abbr`, and the address update service with the code and with the name alone (§4).
+
+Later that day the owner found the corrected behaviour acceptable. `main` was merged in at `d45bd04` without changing the fix or its cases, the owner merged #10 as `739e0ea`, and the acceptance is recorded in the [merge record](2026-11-02-address-state-by-name-merge.md).
