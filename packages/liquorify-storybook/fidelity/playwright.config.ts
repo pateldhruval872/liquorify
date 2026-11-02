@@ -31,7 +31,9 @@ import { defineConfig } from '@playwright/test'
  * `one-store-accounts.spec.ts` and `one-store-storefront.spec.ts` send requests
  * within one store as callers who may not make them, each beside an allowed
  * caller, and `one-store-checks.spec.ts` shows their judge (`one-store.ts`)
- * failing against a stand-in server (see each file).
+ * failing against a stand-in server (see each file). For batch 5 part 1,
+ * `fl-04-storefront.spec.ts` follows a product published in the dashboard to
+ * the storefront, built against the same server (see that file).
  */
 export default defineConfig({
   testDir: '.',
@@ -53,6 +55,7 @@ export default defineConfig({
     'oauth.spec.ts',
     'webhooks.spec.ts',
     'storefront-webhooks.spec.ts',
+    'fl-04-storefront.spec.ts',
     'agent.spec.ts',
     'webhook-tracing.spec.ts',
     'one-store-admin.spec.ts',

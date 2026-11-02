@@ -1,7 +1,32 @@
 import { mkdirSync, writeFileSync } from 'node:fs'
 import { expect, type Page, request, test } from '@playwright/test'
-import { getCredentials, login, rowButton } from '../../dashboard/e2e/helpers'
+import {
+  addRecordFilter,
+  addTextFilter,
+  clickBulkAction,
+  getCredentials,
+  login,
+  narrowQuickFilter,
+  rowButton,
+  searchList,
+  sortList,
+  switchAdminLocale,
+} from '../../dashboard/e2e/helpers'
 import { releaseNotes, updateAvailable } from '../src/fixtures/admin/shell'
+import {
+  type Catalog,
+  products as catalogProducts,
+  deleteProductsNamed,
+  fixture,
+  handbook,
+  kettle,
+  libraryFile,
+  pdf,
+  seedCatalog,
+  translateProduct,
+  updateProduct,
+  videoLink,
+} from './catalog'
 import {
   agent,
   type Developers,
@@ -59,6 +84,7 @@ let baseURL: string
 /** The browser-test data's first order, for the record page's top bar. */
 let orderId: string
 let developers: Developers
+let catalog: Catalog
 
 /** Signs in through the API, as the dashboard's browser tests do, and opens the store. */
 async function signIn(page: Page, variant: Variant) {
@@ -2865,11 +2891,1689 @@ const settingsCaptures: Capture[] = [
   },
 ]
 
+/** The four roles of batch 5 part 1 (§2.2): every control, the merchandiser template, read only, and none. */
+const catalogVariants = ['admin', 'merchandiser', 'catalogViewer'] as const
+
+const productsPath = '/products'
+const productRow = (page: Page, name: string) =>
+  page.getByRole('row').filter({ has: page.getByRole('link', { name, exact: true }) })
+
+const openProducts = async (page: Page) => {
+  await openStore(page, productsPath)
+  await expect(productRow(page, catalogProducts.scheduled)).toBeVisible({ timeout: 15_000 })
+}
+
+const chooseRows = async (page: Page, ...names: string[]) => {
+  await openProducts(page)
+  for (const name of names) {
+    await productRow(page, name)
+      .getByRole('checkbox', { name: /select row/i })
+      .check()
+  }
+  await expect(page.getByText(`${names.length} selected`, { exact: true })).toBeVisible()
+}
+
+/** Two rows chosen and one bulk action opened, as far as its dialog. */
+const bulkDialog = (action: RegExp, title: string) => async (page: Page) => {
+  await chooseRows(page, catalogProducts.draft, catalogProducts.soldOut)
+  await clickBulkAction(page, action)
+  await expect(page.getByRole('heading', { name: title })).toBeVisible()
+}
+
+/** A list whose request is answered with a server error, after the dashboard asks again. */
+const listFails = (path: RegExp) => async (page: Page) => {
+  await page.route(
+    (url) => path.test(url.pathname),
+    (route) =>
+      route.request().method() === 'GET'
+        ? route.fulfill({
+            status: 500,
+            json: { error: { code: 'internal_error', message: 'Internal error' } },
+          })
+        : route.fallback(),
+  )
+}
+
+const searchProducts = async (page: Page, text: string, shows: string | null) => {
+  await openProducts(page)
+  await searchList(page, /^search…$/i, text)
+  if (shows) await expect(productRow(page, shows)).toBeVisible({ timeout: 15_000 })
+  else await expect(page.getByText('No results', { exact: true })).toBeVisible({ timeout: 15_000 })
+}
+
+const productCaptures: Capture[] = [
+  // DA-PRD-01 Products
+  ...catalogVariants.map(
+    (variant): Capture => ({ screen: 'DA-PRD-01', state: 'listed', variant, reach: openProducts }),
+  ),
+  directVisit('DA-PRD-01', productsPath),
+  {
+    screen: 'DA-PRD-01',
+    state: 'listed-narrow',
+    variant: 'admin',
+    phone: true,
+    reach: openProducts,
+  },
+  {
+    screen: 'DA-PRD-01',
+    state: 'loading',
+    variant: 'admin',
+    intercepted: 'The product list request is held open',
+    loading: true,
+    reach: async (page) => {
+      await interrupt(page, 'GET', /^\/api\/v3\/admin\/products$/, 'hold')
+      await page.goto(`/${seeded.storeId}${productsPath}`)
+      await expect(page.locator('[data-slot="skeleton"]').first()).toBeVisible()
+    },
+  },
+  {
+    screen: 'DA-PRD-01',
+    state: 'no-products',
+    variant: 'admin',
+    intercepted: 'The product list is answered with no products',
+    reach: async (page) => {
+      await emptied(page, 'products')
+      await openStore(page, productsPath)
+      await expect(page.getByText('No results', { exact: true })).toBeVisible()
+    },
+  },
+  {
+    screen: 'DA-PRD-01',
+    state: 'failed',
+    variant: 'admin',
+    intercepted: 'The product list request is answered with a server error',
+    reach: async (page) => {
+      await listFails(/^\/api\/v3\/admin\/products$/)(page)
+      await page.goto(`/${seeded.storeId}${productsPath}`)
+      await page.waitForTimeout(12_000)
+    },
+  },
+  {
+    screen: 'DA-PRD-01',
+    state: 'searched-by-name',
+    variant: 'admin',
+    reach: (page) => searchProducts(page, 'Fidelity', catalogProducts.draft),
+  },
+  {
+    screen: 'DA-PRD-01',
+    state: 'searched-by-sku',
+    variant: 'admin',
+    reach: (page) => searchProducts(page, 'ELECTRIC-KETTLE-1-7L-WHITE', 'Electric Kettle 1.7L'),
+  },
+  {
+    screen: 'DA-PRD-01',
+    state: 'search-found-nothing',
+    variant: 'admin',
+    reach: (page) => searchProducts(page, 'no product has this name', null),
+  },
+  {
+    screen: 'DA-PRD-01',
+    state: 'filtered-by-status',
+    variant: 'admin',
+    reach: async (page) => {
+      await openProducts(page)
+      await narrowQuickFilter(page, /^status/i, /^draft$/i)
+      await expect(productRow(page, catalogProducts.draft)).toBeVisible({ timeout: 15_000 })
+      await expect(productRow(page, catalogProducts.scheduled)).toBeHidden()
+    },
+  },
+  {
+    screen: 'DA-PRD-01',
+    state: 'filtered-by-price',
+    variant: 'admin',
+    reach: async (page) => {
+      await openProducts(page)
+      await addTextFilter(page, /^price$/i, /^greater than$/i, '300')
+      await expect(productRow(page, 'Air Purifier Pro')).toBeVisible({ timeout: 15_000 })
+      await expect(productRow(page, catalogProducts.scheduled)).toBeHidden()
+    },
+  },
+  {
+    screen: 'DA-PRD-01',
+    state: 'filtered-by-category',
+    variant: 'admin',
+    reach: async (page) => {
+      await openProducts(page)
+      await addRecordFilter(page, /^categories$/i, 'Kettles')
+      await expect(productRow(page, 'Electric Kettle 1.7L')).toBeVisible({ timeout: 15_000 })
+      await expect(productRow(page, catalogProducts.scheduled)).toBeHidden()
+    },
+  },
+  {
+    screen: 'DA-PRD-01',
+    state: 'filtered-by-channel',
+    variant: 'admin',
+    reach: async (page) => {
+      await openProducts(page)
+      await addRecordFilter(page, /^sales channels$/i, 'Point of Sale')
+      await expect(productRow(page, 'Electric Kettle 1.7L')).toBeVisible({ timeout: 15_000 })
+      await expect(productRow(page, catalogProducts.scheduled)).toBeHidden()
+    },
+  },
+  {
+    screen: 'DA-PRD-01',
+    state: 'filtered-by-product-type',
+    variant: 'admin',
+    reach: async (page) => {
+      await openProducts(page)
+      await addRecordFilter(page, /^product type$/i, 'Digital')
+      await expect(productRow(page, handbook)).toBeVisible({ timeout: 15_000 })
+      await expect(productRow(page, catalogProducts.scheduled)).toBeHidden()
+    },
+  },
+  {
+    screen: 'DA-PRD-01',
+    state: 'filtered-by-tags',
+    variant: 'admin',
+    reach: async (page) => {
+      await openProducts(page)
+      await addRecordFilter(page, /^tags$/i, 'espresso')
+      await expect(productRow(page, 'Automatic Espresso Machine')).toBeVisible({ timeout: 15_000 })
+      await expect(productRow(page, catalogProducts.scheduled)).toBeHidden()
+    },
+  },
+  {
+    screen: 'DA-PRD-01',
+    // The panel offers only the first 50 product tags by name, which the
+    // server sends when it is not searching, and filters those in the browser.
+    state: 'tag-filter-missing-a-tag',
+    variant: 'admin',
+    reach: async (page) => {
+      await openProducts(page)
+      await page.getByRole('button', { name: /add filter/i }).click()
+      await page
+        .locator('[data-slot="filter-panel-item"]')
+        .getByText(/^tags$/i)
+        .click()
+      await page.getByPlaceholder(/filter to…/i).fill('handmade')
+      await expect(page.getByRole('dialog').getByText('No results', { exact: true })).toBeVisible()
+    },
+  },
+  {
+    screen: 'DA-PRD-01',
+    state: 'sorted-by-price',
+    variant: 'admin',
+    reach: async (page) => {
+      await openProducts(page)
+      await sortList(page, /^price$/i, 'descending')
+      await expect(page.getByRole('row').nth(1)).toContainText('Automatic Espresso Machine', {
+        timeout: 15_000,
+      })
+    },
+  },
+  ...catalogVariants.map(
+    (variant): Capture => ({
+      screen: 'DA-PRD-01',
+      state: 'rows-chosen',
+      variant,
+      reach: (page) => chooseRows(page, catalogProducts.draft, catalogProducts.soldOut),
+    }),
+  ),
+  {
+    screen: 'DA-PRD-01',
+    state: 'more-bulk-actions',
+    variant: 'admin',
+    reach: async (page) => {
+      await chooseRows(page, catalogProducts.draft, catalogProducts.soldOut)
+      await page.getByRole('button', { name: /more actions/i }).click()
+      await expect(page.getByRole('menuitem').first()).toBeVisible()
+    },
+  },
+  {
+    screen: 'DA-PRD-01',
+    state: 'bulk-set-status',
+    variant: 'admin',
+    reach: bulkDialog(/set status/i, 'Set product status'),
+  },
+  {
+    screen: 'DA-PRD-01',
+    state: 'bulk-add-to-categories',
+    variant: 'admin',
+    reach: bulkDialog(/^add to categories/i, 'Add to categories'),
+  },
+  {
+    screen: 'DA-PRD-01',
+    state: 'bulk-add-to-collections',
+    variant: 'admin',
+    reach: bulkDialog(/^add to collections/i, 'Add to collections'),
+  },
+  {
+    screen: 'DA-PRD-01',
+    state: 'bulk-add-to-channels',
+    variant: 'admin',
+    reach: bulkDialog(/^add to sales channels/i, 'Add to sales channels'),
+  },
+  {
+    screen: 'DA-PRD-01',
+    state: 'bulk-remove-from-channels',
+    variant: 'admin',
+    reach: bulkDialog(/^remove from sales channels/i, 'Remove from sales channels'),
+  },
+  {
+    screen: 'DA-PRD-01',
+    state: 'bulk-add-tags',
+    variant: 'admin',
+    reach: bulkDialog(/^add tags/i, 'Add tags'),
+  },
+  {
+    screen: 'DA-PRD-01',
+    state: 'bulk-delete-confirmation',
+    variant: 'admin',
+    reach: bulkDialog(/^delete$/i, 'Delete 2 products?'),
+  },
+  {
+    screen: 'DA-PRD-01',
+    state: 'row-actions',
+    variant: 'admin',
+    reach: async (page) => {
+      await openProducts(page)
+      await openRowMenu(page, catalogProducts.draft)
+      await expect(page.getByRole('menuitem', { name: 'Duplicate' })).toBeVisible()
+    },
+  },
+  {
+    screen: 'DA-PRD-01',
+    state: 'row-delete-confirmation',
+    variant: 'admin',
+    reach: async (page) => {
+      await openProducts(page)
+      await openRowMenu(page, catalogProducts.draft)
+      await page.getByRole('menuitem', { name: 'Delete' }).click()
+      await expect(confirmation(page)).toBeVisible()
+    },
+  },
+  {
+    screen: 'DA-PRD-01',
+    state: 'duplicated',
+    variant: 'admin',
+    reach: async (page) => {
+      await openProducts(page)
+      await openRowMenu(page, catalogProducts.draft)
+      await page.getByRole('menuitem', { name: 'Duplicate' }).click()
+      await expect(
+        page.getByRole('heading', { name: `COPY OF ${catalogProducts.draft}` }),
+      ).toBeVisible({ timeout: 15_000 })
+    },
+    after: () => removeProducts(`COPY OF ${catalogProducts.draft}`),
+  },
+]
+
+const newProductPath = `${productsPath}/new`
+const newProduct = 'Fidelity glazed bowl'
+
+/** A card on a product's page, by its exact title. */
+const productCard = (page: Page, title: string) =>
+  page.locator('[data-slot="card"]').filter({
+    has: page.locator('[data-slot="card-title"]', { hasText: new RegExp(`^${title}$`) }),
+  })
+
+/**
+ * A YouTube link shows YouTube's own still, which captures may not reach, so
+ * the still is a local picture, unlike the poster the mug's uploaded video has.
+ */
+const localYouTubeStill = (page: Page) =>
+  page.route(
+    (url) => url.hostname === 'img.youtube.com',
+    (route) => route.fulfill({ contentType: 'image/png', body: fixture('product-olive.png') }),
+  )
+const youTubeStill = "YouTube's still for the video link is answered with a local picture"
+
+/** Moves the pointer off the controls a step clicked, so no hover shows. */
+const rest = (page: Page) => page.mouse.move(700, 95)
+
+/** A text cell of the prices or stock grid, typed into as a merchant does. */
+const fillCell = async (page: Page, name: RegExp, value: string) => {
+  const cell = page.getByRole('textbox', { name })
+  await cell.dblclick()
+  await cell.fill(value)
+  await cell.blur()
+}
+
+const openNewProduct = async (page: Page) => {
+  await openStore(page, newProductPath)
+  await expect(page.getByRole('heading', { name: 'New product' })).toBeVisible()
+}
+
+const startProduct = async (page: Page) => {
+  await openNewProduct(page)
+  await page.getByRole('textbox', { name: 'Name' }).fill(newProduct)
+}
+
+const chooseColours = async (page: Page) => {
+  const variants = productCard(page, 'Variants')
+  await variants.getByRole('button', { name: /add option/i }).click()
+  await variants.getByRole('combobox').first().click()
+  await page.getByRole('option', { name: 'Color', exact: true }).click()
+  for (const value of ['White', 'Black', 'Mint']) {
+    await variants.getByRole('button', { name: value, exact: true }).click()
+  }
+}
+
+const buildVariants = async (page: Page) => {
+  await startProduct(page)
+  await chooseColours(page)
+  const variants = productCard(page, 'Variants')
+  await variants.getByRole('button', { name: /^done$/i }).click()
+  const skus = variants.getByRole('textbox', { name: /^sku$/i })
+  await expect(skus).toHaveCount(3)
+  for (const [index, sku] of ['FID-BOWL-WHITE', 'FID-BOWL-BLACK', 'FID-BOWL-MINT'].entries()) {
+    await skus.nth(index).fill(sku)
+  }
+}
+
+const addPicture = async (page: Page) => {
+  await productCard(page, 'Media')
+    .locator('input[type="file"]')
+    .setInputFiles({
+      name: 'glazed-bowl.png',
+      mimeType: 'image/png',
+      buffer: fixture('product-clay.png'),
+    })
+}
+
+const addVideoLink = async (page: Page, link: string) => {
+  await productCard(page, 'Media')
+    .getByRole('button', { name: /add video link/i })
+    .click()
+  await sheet(page)
+    .getByLabel(/video link/i)
+    .fill(link)
+  await sheet(page)
+    .getByRole('button', { name: /^add video$/i })
+    .click()
+}
+
+const manageChannels = async (page: Page) => {
+  await productCard(page, 'Publishing')
+    .getByRole('button', { name: /^manage$/i })
+    .click()
+  await expect(sheet(page).getByRole('heading', { name: 'Manage sales channels' })).toBeVisible()
+}
+
+/** Asks to create a product whose address another product already has. */
+const refusedProduct = async (page: Page) => {
+  await startProduct(page)
+  await productCard(page, 'SEO').getByRole('textbox', { name: 'Slug' }).fill('electric-kettle-1-7l')
+  await page.getByRole('button', { name: /^create product$/i }).click()
+  await expect(
+    page.getByRole('alert').filter({ hasText: 'Slug has already been taken' }),
+  ).toBeVisible({
+    timeout: 15_000,
+  })
+}
+
+const newProductCaptures: Capture[] = [
+  // DA-PRD-02 New product
+  ...(['admin', 'merchandiser'] as const).map(
+    (variant): Capture => ({ screen: 'DA-PRD-02', state: 'empty', variant, reach: openNewProduct }),
+  ),
+  { ...directVisit('DA-PRD-02', newProductPath), variant: 'catalogViewer' },
+  directVisit('DA-PRD-02', newProductPath),
+  {
+    screen: 'DA-PRD-02',
+    state: 'empty-narrow',
+    variant: 'admin',
+    phone: true,
+    reach: openNewProduct,
+  },
+  {
+    screen: 'DA-PRD-02',
+    state: 'type-chosen',
+    variant: 'admin',
+    reach: async (page) => {
+      await startProduct(page)
+      await productCard(page, 'Categorization').getByRole('combobox').first().click()
+      await page.getByRole('option', { name: 'Kitchen Appliance' }).click()
+      await expect(page.getByText('This type adds Color to new products.')).toBeVisible()
+      await rest(page)
+    },
+  },
+  {
+    screen: 'DA-PRD-02',
+    state: 'one-price',
+    variant: 'admin',
+    reach: async (page) => {
+      await startProduct(page)
+      await fillCell(page, /^price for default$/i, '24.00')
+      await fillCell(page, /^compare-at price for default$/i, '30.00')
+      await toCard(page, 'Prices')
+      await rest(page)
+    },
+  },
+  {
+    screen: 'DA-PRD-02',
+    state: 'option-values',
+    variant: 'admin',
+    reach: async (page) => {
+      await startProduct(page)
+      await chooseColours(page)
+      await toCard(page, 'Variants')
+      await rest(page)
+    },
+  },
+  {
+    screen: 'DA-PRD-02',
+    state: 'variants-built',
+    variant: 'admin',
+    reach: async (page) => {
+      await buildVariants(page)
+      await toCard(page, 'Variants')
+      await rest(page)
+    },
+  },
+  {
+    screen: 'DA-PRD-02',
+    state: 'bulk-variants',
+    variant: 'admin',
+    reach: async (page) => {
+      await buildVariants(page)
+      await productCard(page, 'Variants')
+        .getByRole('button', { name: /bulk edit/i })
+        .click()
+      await expect(page.getByRole('heading', { name: 'Bulk edit variants' })).toBeVisible()
+    },
+  },
+  {
+    screen: 'DA-PRD-02',
+    state: 'variant-sheet',
+    variant: 'admin',
+    reach: async (page) => {
+      await buildVariants(page)
+      await productCard(page, 'Variants')
+        .getByRole('button', { name: /^edit color: black$/i })
+        .click()
+      await expect(page.getByRole('heading', { name: 'Edit variant — Color: Black' })).toBeVisible()
+    },
+  },
+  {
+    screen: 'DA-PRD-02',
+    state: 'second-currency',
+    variant: 'admin',
+    reach: async (page) => {
+      await startProduct(page)
+      await fillCell(page, /^price for default$/i, '24.00')
+      await productCard(page, 'Prices').getByRole('combobox').first().click()
+      await page.getByRole('option', { name: 'EUR' }).click()
+      await fillCell(page, /^price for default$/i, '22.00')
+      await toCard(page, 'Prices')
+      await rest(page)
+    },
+  },
+  {
+    screen: 'DA-PRD-02',
+    state: 'stock',
+    variant: 'admin',
+    reach: async (page) => {
+      await startProduct(page)
+      await fillCell(page, /^on hand at shop location$/i, '6')
+      await fillCell(page, /^on hand at e2e destination warehouse$/i, '2')
+      await page.getByRole('switch', { name: 'Allow backorder at Shop location' }).click()
+      await toCard(page, 'Inventory')
+      await rest(page)
+    },
+  },
+  {
+    screen: 'DA-PRD-02',
+    state: 'media-added',
+    variant: 'admin',
+    reach: async (page) => {
+      await startProduct(page)
+      await addPicture(page)
+      const media = productCard(page, 'Media')
+      await expect(media.locator('img[src]').first()).toBeVisible({ timeout: 15_000 })
+      await expect(media.locator('.animate-spin')).toHaveCount(0, { timeout: 15_000 })
+      await toCard(page, 'Media')
+      await rest(page)
+    },
+  },
+  {
+    screen: 'DA-PRD-02',
+    state: 'media-uploading',
+    variant: 'admin',
+    intercepted: 'The file upload request is held open',
+    loading: true,
+    reach: async (page) => {
+      await interrupt(page, 'POST', /^\/api\/v3\/admin\/files$/, 'hold')
+      await startProduct(page)
+      await addPicture(page)
+      await expect(productCard(page, 'Media').locator('.animate-spin').first()).toBeVisible()
+      await toCard(page, 'Media')
+      await rest(page)
+    },
+  },
+  {
+    screen: 'DA-PRD-02',
+    state: 'media-remove-confirmation',
+    variant: 'admin',
+    reach: async (page) => {
+      await startProduct(page)
+      await addPicture(page)
+      const media = productCard(page, 'Media')
+      await expect(media.locator('.animate-spin')).toHaveCount(0, { timeout: 15_000 })
+      await toCard(page, 'Media')
+      await media.locator('[data-slot="media-thumbnail"]').first().click({ button: 'right' })
+      await page.getByRole('menuitem', { name: /^delete$/i }).click()
+      await expect(confirmation(page)).toBeVisible()
+    },
+  },
+  {
+    screen: 'DA-PRD-02',
+    state: 'media-removed',
+    variant: 'admin',
+    reach: async (page) => {
+      await startProduct(page)
+      await addPicture(page)
+      const media = productCard(page, 'Media')
+      await expect(media.locator('.animate-spin')).toHaveCount(0, { timeout: 15_000 })
+      await toCard(page, 'Media')
+      await media.locator('[data-slot="media-thumbnail"]').first().click({ button: 'right' })
+      await page.getByRole('menuitem', { name: /^delete$/i }).click()
+      await confirmation(page)
+        .getByRole('button', { name: /^delete$/i })
+        .click()
+      await expect(media.locator('[data-slot="media-thumbnail"]')).toHaveCount(0)
+      await rest(page)
+    },
+  },
+  {
+    screen: 'DA-PRD-02',
+    state: 'video-added',
+    variant: 'admin',
+    intercepted: youTubeStill,
+    reach: async (page) => {
+      await localYouTubeStill(page)
+      await startProduct(page)
+      await addVideoLink(page, videoLink)
+      const media = productCard(page, 'Media')
+      await expect(media.locator('[data-slot="media-thumbnail"]')).toHaveCount(1)
+      await expect(media.locator('img[src]').first()).toBeVisible({ timeout: 15_000 })
+      await toCard(page, 'Media')
+      await rest(page)
+    },
+  },
+  {
+    screen: 'DA-PRD-02',
+    state: 'video-link-refused',
+    variant: 'admin',
+    reach: async (page) => {
+      await startProduct(page)
+      await addVideoLink(page, 'https://example.com/clip.mp4')
+      await expect(sheet(page).getByText(/youtube or vimeo/i)).toBeVisible()
+    },
+  },
+  {
+    screen: 'DA-PRD-02',
+    state: 'channels-default',
+    variant: 'admin',
+    reach: async (page) => {
+      await startProduct(page)
+      await manageChannels(page)
+      await expect(sheet(page).getByRole('button', { name: /online store/i })).toBeVisible()
+    },
+  },
+  {
+    screen: 'DA-PRD-02',
+    state: 'channel-added',
+    variant: 'admin',
+    reach: async (page) => {
+      await startProduct(page)
+      await manageChannels(page)
+      await sheet(page)
+        .getByRole('button', { name: /^wholesale/i })
+        .click()
+      await sheet(page)
+        .getByRole('button', { name: /^done$/i })
+        .click()
+      await expect(productCard(page, 'Publishing').getByText('Wholesale')).toBeVisible()
+      await rest(page)
+    },
+  },
+  {
+    screen: 'DA-PRD-02',
+    state: 'default-unticked',
+    variant: 'admin',
+    reach: async (page) => {
+      await startProduct(page)
+      await manageChannels(page)
+      await sheet(page)
+        .getByRole('button', { name: /^online store/i })
+        .click()
+      await sheet(page)
+        .getByRole('button', { name: /^done$/i })
+        .click()
+      await expect(
+        productCard(page, 'Publishing').getByText(/not listed on any sales channel/i),
+      ).toBeVisible()
+      await rest(page)
+    },
+  },
+  {
+    screen: 'DA-PRD-02',
+    // The window opens on the 15th of the month after the run, so its dates
+    // follow the day the capture is made.
+    state: 'publication-window',
+    variant: 'admin',
+    reach: async (page) => {
+      await startProduct(page)
+      const publishing = productCard(page, 'Publishing')
+      await publishing.getByRole('button', { name: /online store/i }).click()
+      await publishing
+        .getByRole('group')
+        .filter({ hasText: /^publish from/i })
+        .getByRole('button')
+        .first()
+        .click()
+      const calendar = page.getByRole('dialog')
+      await calendar.getByRole('button', { name: /next month/i }).click()
+      await calendar.getByRole('gridcell', { name: '15' }).click()
+      await expect(publishing.getByText('Live immediately', { exact: true })).toBeHidden()
+      await rest(page)
+    },
+  },
+  {
+    screen: 'DA-PRD-02',
+    state: 'categorized',
+    variant: 'admin',
+    reach: async (page) => {
+      await startProduct(page)
+      const categorization = productCard(page, 'Categorization')
+      await categorization
+        .getByRole('group')
+        .filter({ has: page.getByText('Categories', { exact: true }) })
+        .getByRole('combobox')
+        .fill('Kitchen')
+      await page
+        .getByRole('option', { name: /^kitchen$/i })
+        .first()
+        .click()
+      const tags = categorization.getByRole('combobox', { name: /type to add tags/i })
+      for (const tag of ['handmade', 'stoneware']) {
+        await tags.fill(tag)
+        await tags.press('Enter')
+      }
+      await productCard(page, 'Tax').getByRole('combobox').click()
+      await page.getByRole('option', { name: 'Non-taxable' }).click()
+      await toCard(page, 'Categorization')
+      await rest(page)
+    },
+  },
+  {
+    screen: 'DA-PRD-02',
+    state: 'custom-fields',
+    variant: 'admin',
+    reach: async (page) => {
+      await startProduct(page)
+      const fields = productCard(page, 'Custom fields')
+      await fields.getByRole('textbox', { name: 'Material' }).fill('Stoneware')
+      await fields.getByRole('textbox', { name: 'Capacity' }).fill('450 ml')
+      await fields.getByRole('textbox', { name: 'Care instructions' }).fill('Dishwasher safe')
+      await fields.getByRole('spinbutton', { name: 'Release year' }).fill('2026')
+      await toCard(page, 'Custom fields')
+      await rest(page)
+    },
+  },
+  {
+    screen: 'DA-PRD-02',
+    state: 'digital-file',
+    variant: 'admin',
+    reach: async (page) => {
+      await startProduct(page)
+      const files = productCard(page, 'Digital files')
+      await files
+        .locator('input[type="file"]')
+        .setInputFiles({ name: 'glazing-guide.pdf', mimeType: 'application/pdf', buffer: pdf })
+      await expect(files.getByText('glazing-guide.pdf')).toBeVisible({ timeout: 15_000 })
+      await toCard(page, 'Digital files')
+      await rest(page)
+    },
+  },
+  {
+    screen: 'DA-PRD-02',
+    state: 'refused',
+    variant: 'admin',
+    reach: async (page) => {
+      await refusedProduct(page)
+      await page.getByRole('heading', { name: 'New product' }).scrollIntoViewIfNeeded()
+      await page
+        .getByRole('alert')
+        .filter({ hasText: 'Slug has already been taken' })
+        .evaluate((element) => element.scrollIntoView({ block: 'center' }))
+      await rest(page)
+    },
+  },
+  {
+    screen: 'DA-PRD-02',
+    state: 'refused-field',
+    variant: 'admin',
+    reach: async (page) => {
+      await refusedProduct(page)
+      await toCard(page, 'SEO')
+      await rest(page)
+    },
+  },
+  {
+    screen: 'DA-PRD-02',
+    state: 'saving',
+    variant: 'admin',
+    intercepted: 'The create request is held open',
+    loading: true,
+    reach: async (page) => {
+      await interrupt(page, 'POST', /^\/api\/v3\/admin\/products$/, 'hold')
+      await startProduct(page)
+      await page.getByRole('button', { name: /^create product$/i }).click()
+      await expect(page.getByRole('button', { name: 'Saving…' })).toBeDisabled()
+      await rest(page)
+    },
+  },
+]
+
+const productPath = (id: string) => `${productsPath}/${id}`
+
+/** Opens a product's page, by its id from the seeded catalog, once its name shows. */
+const openProduct = async (page: Page, id: keyof Catalog['ids'], name: string) => {
+  await openStore(page, productPath(catalog.ids[id]))
+  await expect(page.getByRole('heading', { name, level: 1 })).toBeVisible({ timeout: 15_000 })
+}
+
+const openKettle = (page: Page) => openProduct(page, 'kettle', kettle)
+/**
+ * The kettle's page scrolled to one card while that card's request is held, so
+ * the network never goes quiet. Instead the scroll waits until every other card
+ * has stopped loading and the page's pictures have arrived, since the cards
+ * above the held one grow as they do.
+ */
+const kettleHoldingAtCard = (title: string) => async (page: Page) => {
+  await page.goto(`/${seeded.storeId}${productPath(catalog.ids.kettle)}`)
+  await expect(page.getByRole('heading', { name: kettle, level: 1 })).toBeVisible({
+    timeout: 15_000,
+  })
+  await page.waitForFunction(
+    (heldTitle) => {
+      const held = [...document.querySelectorAll('[data-slot="card"]')].find(
+        (card) => card.querySelector('[data-slot="card-title"]')?.textContent?.trim() === heldTitle,
+      )
+      const elsewhere = (element: Element) =>
+        !held?.contains(element) && (element as HTMLElement).offsetParent !== null
+      const skeletons = [...document.querySelectorAll('[data-slot="skeleton"]')].filter(elsewhere)
+      const loading = [...document.querySelectorAll('main *')].filter(
+        (element) =>
+          element.childElementCount === 0 &&
+          /^Loading/.test(element.textContent?.trim() ?? '') &&
+          elsewhere(element),
+      )
+      return (
+        skeletons.length === 0 &&
+        loading.length === 0 &&
+        [...document.images].every((image) => image.complete)
+      )
+    },
+    title,
+    { timeout: 20_000 },
+  )
+  await page.waitForTimeout(1500)
+  await toCard(page, title)
+  await rest(page)
+}
+const openMug = (page: Page) => openProduct(page, 'scheduled', catalogProducts.scheduled)
+const openHandbook = (page: Page) => openProduct(page, 'handbook', handbook)
+const openLamp = (page: Page) => openProduct(page, 'draft', catalogProducts.draft)
+
+/** A product page scrolled to one card, with the pointer off the controls. */
+const productAtCard =
+  (open: (page: Page) => Promise<void>, title: string) => async (page: Page) => {
+    await open(page)
+    await toCard(page, title)
+    await rest(page)
+  }
+
+/** The admin's language for one capture, put back after it whatever happens. */
+let restoreLocale: (() => Promise<void>) | null = null
+
+/** Asks to save the draft lamp under an address another product already has. */
+const refusedSave = async (page: Page) => {
+  await openLamp(page)
+  await productCard(page, 'SEO').getByRole('textbox', { name: 'Slug' }).fill('electric-kettle-1-7l')
+  await page.getByRole('button', { name: /^save product$/i }).click()
+  await expect(productCard(page, 'SEO').getByText('has already been taken')).toBeVisible({
+    timeout: 15_000,
+  })
+}
+
+const productPageCaptures: Capture[] = [
+  // DA-PRD-03 Product
+  ...catalogVariants.map(
+    (variant): Capture => ({ screen: 'DA-PRD-03', state: 'active', variant, reach: openKettle }),
+  ),
+  {
+    screen: 'DA-PRD-03',
+    state: 'direct-visit',
+    variant: 'orderManager',
+    reach: (page) => openStore(page, productPath(catalog.ids.kettle)),
+  },
+  { screen: 'DA-PRD-03', state: 'active-narrow', variant: 'admin', phone: true, reach: openKettle },
+  { screen: 'DA-PRD-03', state: 'draft', variant: 'admin', reach: openLamp },
+  {
+    screen: 'DA-PRD-03',
+    state: 'archived',
+    variant: 'admin',
+    reach: (page) => openProduct(page, 'archived', catalogProducts.archived),
+  },
+  {
+    screen: 'DA-PRD-03',
+    state: 'scheduled',
+    variant: 'admin',
+    intercepted: youTubeStill,
+    reach: async (page) => {
+      await localYouTubeStill(page)
+      await openMug(page)
+      await expect(productCard(page, 'Publishing').getByText('Scheduled')).toBeVisible()
+    },
+  },
+  {
+    screen: 'DA-PRD-03',
+    state: 'more-actions',
+    variant: 'admin',
+    reach: async (page) => {
+      await openLamp(page)
+      await page.getByRole('button', { name: 'More actions' }).click()
+      await expect(page.getByRole('menuitem', { name: 'Delete product' })).toBeVisible()
+    },
+  },
+  {
+    screen: 'DA-PRD-03',
+    state: 'description-edited',
+    variant: 'admin',
+    reach: async (page) => {
+      await openKettle(page)
+      const description = page.locator('#product-description')
+      await description.click()
+      await description.press('Control+End')
+      await description.press('Enter')
+      await page.getByRole('button', { name: 'Bold' }).click()
+      await description.pressSequentially('Now also in matte black.')
+      await rest(page)
+    },
+  },
+  {
+    screen: 'DA-PRD-03',
+    state: 'variants',
+    variant: 'admin',
+    reach: productAtCard(openKettle, 'Variants'),
+  },
+  {
+    screen: 'DA-PRD-03',
+    state: 'variant-sheet',
+    variant: 'admin',
+    reach: async (page) => {
+      await openKettle(page)
+      await productCard(page, 'Variants')
+        .getByRole('button', { name: /^edit color: white$/i })
+        .click()
+      await expect(page.getByRole('heading', { name: 'Edit variant — Color: White' })).toBeVisible()
+    },
+  },
+  {
+    screen: 'DA-PRD-03',
+    state: 'prices',
+    variant: 'admin',
+    reach: productAtCard(openKettle, 'Prices'),
+  },
+  {
+    screen: 'DA-PRD-03',
+    state: 'prices-second-currency',
+    variant: 'admin',
+    reach: async (page) => {
+      await openKettle(page)
+      await productCard(page, 'Prices').getByRole('combobox').first().click()
+      await page.getByRole('option', { name: 'EUR' }).click()
+      await toCard(page, 'Prices')
+      await rest(page)
+    },
+  },
+  {
+    screen: 'DA-PRD-03',
+    state: 'price-cells-chosen',
+    variant: 'admin',
+    reach: async (page) => {
+      await openKettle(page)
+      await toCard(page, 'Prices')
+      await page.getByRole('textbox', { name: 'Price for Color: White', exact: true }).click()
+      await page
+        .getByRole('textbox', { name: 'Price for Color: Stainless Steel', exact: true })
+        .click({ modifiers: ['Shift'] })
+      await rest(page)
+    },
+  },
+  {
+    screen: 'DA-PRD-03',
+    state: 'price-shift-arrow',
+    variant: 'admin',
+    reach: async (page) => {
+      await openKettle(page)
+      await toCard(page, 'Prices')
+      await page.getByRole('textbox', { name: 'Price for Color: White', exact: true }).click()
+      await page.keyboard.press('Shift+ArrowDown')
+      await page.keyboard.press('Shift+ArrowDown')
+      await expect(
+        page.getByRole('textbox', { name: 'Price for Color: Stainless Steel', exact: true }),
+      ).toBeFocused()
+      await rest(page)
+    },
+  },
+  {
+    screen: 'DA-PRD-03',
+    state: 'price-typed-english',
+    variant: 'admin',
+    reach: async (page) => {
+      await openKettle(page)
+      await productCard(page, 'Prices').getByRole('combobox').first().click()
+      await page.getByRole('option', { name: 'EUR' }).click()
+      await fillCell(page, /^price for color: white$/i, '1234.50')
+      await toCard(page, 'Prices')
+      await rest(page)
+    },
+  },
+  {
+    screen: 'DA-PRD-03',
+    // A German admin's whole dashboard is in German, and the cell takes a comma.
+    state: 'price-typed-german',
+    variant: 'admin',
+    reach: async (page) => {
+      restoreLocale = await switchAdminLocale(page, 'de')
+      await openKettle(page)
+      const prices = page
+        .locator('[data-slot="card"]')
+        .filter({ has: page.locator('[data-slot="card-title"]', { hasText: /^Preise$/ }) })
+      await prices.getByRole('combobox').first().click()
+      await page.getByRole('option', { name: 'EUR' }).click()
+      const cell = prices.getByRole('textbox').first()
+      await cell.dblclick()
+      await cell.fill('1.234,50')
+      await cell.blur()
+      await toCard(page, 'Preise')
+      await rest(page)
+    },
+  },
+  {
+    screen: 'DA-PRD-03',
+    state: 'stock',
+    variant: 'admin',
+    reach: productAtCard(openKettle, 'Inventory'),
+  },
+  {
+    screen: 'DA-PRD-03',
+    state: 'stock-cell-chosen',
+    variant: 'admin',
+    reach: async (page) => {
+      await productAtCard(openKettle, 'Inventory')(page)
+      await page.getByRole('textbox', { name: 'On hand at Shop location' }).first().click()
+      await rest(page)
+    },
+  },
+  {
+    screen: 'DA-PRD-03',
+    state: 'stock-history',
+    variant: 'admin',
+    reach: async (page) => {
+      await openKettle(page)
+      await productCard(page, 'Inventory').getByRole('button', { name: 'Stock history' }).click()
+      await expect(page.getByRole('heading', { name: 'Stock history' })).toBeVisible()
+    },
+  },
+  {
+    screen: 'DA-PRD-03',
+    state: 'media',
+    variant: 'admin',
+    reach: productAtCard(openKettle, 'Media'),
+  },
+  {
+    screen: 'DA-PRD-03',
+    state: 'media-sheet',
+    variant: 'admin',
+    reach: async (page) => {
+      await openKettle(page)
+      await toCard(page, 'Media')
+      await productCard(page, 'Media').locator('[data-slot="media-thumbnail"]').first().click()
+      await expect(page.getByRole('heading', { name: 'Edit media' })).toBeVisible()
+    },
+  },
+  {
+    screen: 'DA-PRD-03',
+    state: 'videos',
+    variant: 'admin',
+    intercepted: youTubeStill,
+    reach: async (page) => {
+      await localYouTubeStill(page)
+      await productAtCard(openMug, 'Media')(page)
+    },
+  },
+  {
+    screen: 'DA-PRD-03',
+    state: 'video-with-poster',
+    variant: 'admin',
+    intercepted: youTubeStill,
+    reach: async (page) => {
+      await localYouTubeStill(page)
+      await openMug(page)
+      await toCard(page, 'Media')
+      await productCard(page, 'Media').locator('[data-slot="media-thumbnail"]').nth(1).click()
+      await expect(page.getByRole('heading', { name: 'Edit media' })).toBeVisible()
+    },
+  },
+  {
+    screen: 'DA-PRD-03',
+    state: 'digital-files',
+    variant: 'admin',
+    reach: productAtCard(openHandbook, 'Digital files'),
+  },
+  {
+    screen: 'DA-PRD-03',
+    state: 'publishing',
+    variant: 'admin',
+    reach: async (page) => {
+      await openKettle(page)
+      await productCard(page, 'Publishing')
+        .getByRole('button', { name: /^manage$/i })
+        .click()
+      await expect(
+        sheet(page).getByRole('heading', { name: 'Manage sales channels' }),
+      ).toBeVisible()
+    },
+  },
+  {
+    screen: 'DA-PRD-03',
+    state: 'channel-unlisted',
+    variant: 'admin',
+    reach: async (page) => {
+      await openKettle(page)
+      const publishing = productCard(page, 'Publishing')
+      await publishing.getByRole('button', { name: /^manage$/i }).click()
+      await sheet(page)
+        .getByRole('button', { name: /^wholesale/i })
+        .click()
+      await sheet(page)
+        .getByRole('button', { name: /^done$/i })
+        .click()
+      await expect(publishing.getByText('Wholesale')).toBeHidden()
+      await rest(page)
+    },
+  },
+  {
+    screen: 'DA-PRD-03',
+    state: 'channel-listed',
+    variant: 'admin',
+    reach: async (page) => {
+      await openLamp(page)
+      const publishing = productCard(page, 'Publishing')
+      await publishing.getByRole('button', { name: /^manage$/i }).click()
+      await sheet(page)
+        .getByRole('button', { name: /^online store/i })
+        .click()
+      await sheet(page)
+        .getByRole('button', { name: /^done$/i })
+        .click()
+      await expect(publishing.getByText('Online Store')).toBeVisible()
+      await rest(page)
+    },
+  },
+  {
+    screen: 'DA-PRD-03',
+    state: 'categorization',
+    variant: 'admin',
+    reach: productAtCard(openKettle, 'Categorization'),
+  },
+  {
+    screen: 'DA-PRD-03',
+    state: 'variant-tax-category',
+    variant: 'admin',
+    reach: productAtCard(openHandbook, 'Tax'),
+  },
+  {
+    screen: 'DA-PRD-03',
+    state: 'search-engine',
+    variant: 'admin',
+    reach: productAtCard(openKettle, 'SEO'),
+  },
+  {
+    screen: 'DA-PRD-03',
+    state: 'translations',
+    variant: 'admin',
+    reach: productAtCard(openKettle, 'Translations'),
+  },
+  {
+    screen: 'DA-PRD-03',
+    state: 'translations-loading',
+    variant: 'admin',
+    intercepted: "The product's translations request is held open",
+    loading: true,
+    reach: async (page) => {
+      await interrupt(
+        page,
+        'GET',
+        /^\/api\/v3\/admin\/products\/prod_[A-Za-z0-9]+\/translations$/,
+        'hold',
+      )
+      await kettleHoldingAtCard('Translations')(page)
+    },
+  },
+  {
+    screen: 'DA-PRD-03',
+    state: 'translations-failed',
+    variant: 'admin',
+    intercepted: "The product's translations request is answered with a server error",
+    reach: async (page) => {
+      await listFails(/^\/api\/v3\/admin\/products\/prod_[A-Za-z0-9]+\/translations$/)(page)
+      await productAtCard(openKettle, 'Translations')(page)
+      await page.waitForTimeout(12_000)
+    },
+  },
+  {
+    screen: 'DA-PRD-03',
+    state: 'translations-dialog',
+    variant: 'admin',
+    reach: async (page) => {
+      await openKettle(page)
+      await productCard(page, 'Translations')
+        .getByRole('button', { name: 'Manage translations' })
+        .click()
+      await expect(page.getByRole('heading', { name: 'Translations' })).toBeVisible()
+      await expect(page.getByRole('textbox', { name: 'name de' })).toHaveValue(
+        'Elektrischer Wasserkocher 1.7L',
+      )
+    },
+  },
+  {
+    screen: 'DA-PRD-03',
+    state: 'translations-saved',
+    variant: 'admin',
+    reach: async (page) => {
+      await openKettle(page)
+      await productCard(page, 'Translations')
+        .getByRole('button', { name: 'Manage translations' })
+        .click()
+      await page
+        .getByRole('textbox', { name: 'name de' })
+        .fill('Elektrischer Wasserkocher 1,7 Liter')
+      await page.getByRole('dialog').getByRole('button', { name: /^save/i }).click()
+      await expect(page.getByText('Translations saved', { exact: true })).toBeAttached()
+      await expect(page.getByRole('textbox', { name: 'name de' })).toHaveValue(
+        'Elektrischer Wasserkocher 1,7 Liter',
+      )
+      await rest(page)
+    },
+    after: () =>
+      translateProduct(baseURL, catalog.ids.kettle, 'de', {
+        name: 'Elektrischer Wasserkocher 1.7L',
+      }),
+  },
+  {
+    screen: 'DA-PRD-03',
+    state: 'custom-fields',
+    variant: 'admin',
+    reach: productAtCard(openKettle, 'Custom fields'),
+  },
+  {
+    screen: 'DA-PRD-03',
+    state: 'custom-fields-type-loading',
+    variant: 'admin',
+    intercepted: "The product type's request is held open",
+    loading: true,
+    reach: async (page) => {
+      await interrupt(page, 'GET', /^\/api\/v3\/admin\/product_types\/pt_[A-Za-z0-9]+$/, 'hold')
+      await kettleHoldingAtCard('Custom fields')(page)
+    },
+  },
+  {
+    screen: 'DA-PRD-03',
+    state: 'metadata',
+    variant: 'admin',
+    intercepted: youTubeStill,
+    reach: async (page) => {
+      await localYouTubeStill(page)
+      await productAtCard(openMug, 'Metadata')(page)
+    },
+  },
+  {
+    screen: 'DA-PRD-03',
+    state: 'unsaved',
+    variant: 'admin',
+    reach: async (page) => {
+      await openKettle(page)
+      await page.getByRole('textbox', { name: 'Name' }).fill('Electric Kettle 1.7L, rapid boil')
+      await expect(page.getByRole('button', { name: /^discard$/i })).toBeVisible()
+      await rest(page)
+    },
+  },
+  {
+    screen: 'DA-PRD-03',
+    state: 'saved',
+    variant: 'admin',
+    reach: async (page) => {
+      await openLamp(page)
+      await productCard(page, 'SEO')
+        .getByRole('textbox', { name: 'Meta title' })
+        .fill('Fidelity desk lamp | Brass and linen')
+      await page.getByRole('button', { name: /^save product$/i }).click()
+      await expect(page.getByRole('button', { name: /^save product$/i })).toBeDisabled({
+        timeout: 15_000,
+      })
+      await rest(page)
+    },
+    after: () => updateProduct(baseURL, catalog.ids.draft, { meta_title: null }),
+  },
+  {
+    screen: 'DA-PRD-03',
+    state: 'refused',
+    variant: 'admin',
+    reach: async (page) => {
+      await refusedSave(page)
+      await toCard(page, 'SEO')
+      await rest(page)
+    },
+  },
+  {
+    screen: 'DA-PRD-03',
+    state: 'failed',
+    variant: 'admin',
+    intercepted: "The product's request is answered with a server error",
+    reach: async (page) => {
+      await listFails(/^\/api\/v3\/admin\/products\/prod_[A-Za-z0-9]+$/)(page)
+      await page.goto(`/${seeded.storeId}${productPath(catalog.ids.kettle)}`)
+      await page.waitForTimeout(12_000)
+    },
+  },
+]
+
+const mediaPath = `${productsPath}/media`
+const mediaTile = (page: Page, name: string) =>
+  page.getByRole('listitem').filter({ hasText: name }).getByRole('button').first()
+
+const openMedia = async (page: Page) => {
+  await localYouTubeStill(page)
+  await openStore(page, mediaPath)
+  await expect(page.getByRole('heading', { name: 'Media', level: 1 })).toBeVisible()
+  await expect(mediaTile(page, libraryFile)).toBeVisible({ timeout: 15_000 })
+}
+
+const askDeleteFile = async (page: Page, name: string) => {
+  await openMedia(page)
+  await mediaTile(page, name).click({ button: 'right' })
+  await page.getByRole('menuitem', { name: /^delete$/i }).click()
+  await expect(page.getByRole('heading', { name: 'Delete this file?' })).toBeVisible()
+}
+
+const optionsPath = `${productsPath}/options`
+const openOptions = async (page: Page) => {
+  await openStore(page, optionsPath)
+  await expect(page.getByRole('button', { name: 'color Color' })).toBeVisible({ timeout: 15_000 })
+}
+const openColour = async (page: Page) => {
+  await openOptions(page)
+  await page.getByRole('button', { name: 'color Color' }).click()
+  await expect(sheet(page).getByRole('heading', { name: 'color' })).toBeVisible()
+}
+
+const productTypesPath = '/settings/product-types'
+const openProductTypes = async (page: Page) => {
+  await openStore(page, productTypesPath)
+  await expect(page.getByText('Kitchen Appliance', { exact: true })).toBeVisible({
+    timeout: 15_000,
+  })
+}
+const openNewProductType = async (page: Page) => {
+  await openProductTypes(page)
+  await page
+    .getByRole('button', { name: /add product type|new product type/i })
+    .first()
+    .click()
+  await expect(sheet(page).getByRole('heading', { name: 'New product type' })).toBeVisible()
+}
+
+const libraryCaptures: Capture[] = [
+  // DA-PRD-04 Media library
+  ...(['admin', 'catalogViewer'] as const).map(
+    (variant): Capture => ({
+      screen: 'DA-PRD-04',
+      state: 'listed',
+      variant,
+      intercepted: youTubeStill,
+      reach: openMedia,
+    }),
+  ),
+  // The merchandiser template holds nothing on media, so its menu has no Media entry.
+  {
+    ...directVisit('DA-PRD-04', mediaPath),
+    variant: 'merchandiser',
+    reach: async (page) => {
+      await openStore(page, mediaPath)
+      await expect(page.getByText('No files yet. Upload one to get started.')).toBeVisible()
+    },
+  },
+  directVisit('DA-PRD-04', mediaPath),
+  {
+    screen: 'DA-PRD-04',
+    state: 'listed-narrow',
+    variant: 'admin',
+    phone: true,
+    intercepted: youTubeStill,
+    reach: openMedia,
+  },
+  {
+    screen: 'DA-PRD-04',
+    state: 'no-files',
+    variant: 'admin',
+    intercepted: 'The library request is answered with no files',
+    reach: async (page) => {
+      await emptied(page, 'media')
+      await openStore(page, mediaPath)
+      await expect(page.getByRole('heading', { name: 'Media', level: 1 })).toBeVisible()
+    },
+  },
+  {
+    screen: 'DA-PRD-04',
+    state: 'unused-only',
+    variant: 'admin',
+    intercepted: youTubeStill,
+    reach: async (page) => {
+      await openMedia(page)
+      await page.getByRole('combobox').first().click()
+      await page.getByRole('option', { name: 'Not used yet' }).click()
+      await expect(mediaTile(page, 'Stoneware mug, side view')).toBeHidden({ timeout: 15_000 })
+      await rest(page)
+    },
+  },
+  {
+    screen: 'DA-PRD-04',
+    state: 'videos-only',
+    variant: 'admin',
+    intercepted: youTubeStill,
+    reach: async (page) => {
+      await openMedia(page)
+      await page.getByRole('combobox').nth(1).click()
+      await page.getByRole('option', { name: 'Videos', exact: true }).click()
+      await expect(mediaTile(page, libraryFile)).toBeHidden({ timeout: 15_000 })
+      await rest(page)
+    },
+  },
+  {
+    screen: 'DA-PRD-04',
+    state: 'uploading',
+    variant: 'admin',
+    intercepted: 'The file upload request is held open',
+    loading: true,
+    reach: async (page) => {
+      await interrupt(page, 'POST', /^\/api\/v3\/admin\/files$/, 'hold')
+      await openMedia(page)
+      await page
+        .locator('input[type="file"]')
+        .first()
+        .setInputFiles({
+          name: 'spring-banner.png',
+          mimeType: 'image/png',
+          buffer: fixture('banner-lilac.png'),
+        })
+      await page.waitForTimeout(1_000)
+      await rest(page)
+    },
+  },
+  {
+    screen: 'DA-PRD-04',
+    state: 'describing',
+    variant: 'admin',
+    intercepted: youTubeStill,
+    reach: async (page) => {
+      await openMedia(page)
+      await mediaTile(page, libraryFile).click()
+      await expect(sheet(page).getByText('Not used anywhere')).toBeVisible()
+      await sheet(page).locator('#media-alt').fill('Lilac banner for the spring sale')
+    },
+  },
+  {
+    screen: 'DA-PRD-04',
+    state: 'where-used',
+    variant: 'admin',
+    intercepted: youTubeStill,
+    reach: async (page) => {
+      await openMedia(page)
+      await mediaTile(page, 'Stoneware mug, side view').click()
+      await expect(sheet(page).getByRole('link', { name: catalogProducts.scheduled })).toBeVisible()
+    },
+  },
+  {
+    screen: 'DA-PRD-04',
+    state: 'delete-in-use',
+    variant: 'admin',
+    intercepted: youTubeStill,
+    reach: (page) => askDeleteFile(page, 'Stoneware mug, side view'),
+  },
+  {
+    screen: 'DA-PRD-04',
+    state: 'delete-unused',
+    variant: 'admin',
+    intercepted: youTubeStill,
+    reach: (page) => askDeleteFile(page, libraryFile),
+  },
+
+  // DA-PRD-05 Options
+  ...catalogVariants.map(
+    (variant): Capture => ({ screen: 'DA-PRD-05', state: 'listed', variant, reach: openOptions }),
+  ),
+  directVisit('DA-PRD-05', optionsPath),
+  {
+    screen: 'DA-PRD-05',
+    state: 'filtered-by-kind',
+    variant: 'admin',
+    reach: async (page) => {
+      await openOptions(page)
+      await narrowQuickFilter(page, /^kind/i, /^color swatch$/i)
+      await expect(page.getByRole('button', { name: 'condition Condition' })).toBeHidden({
+        timeout: 15_000,
+      })
+    },
+  },
+  {
+    screen: 'DA-PRD-05',
+    state: 'none',
+    variant: 'admin',
+    intercepted: 'The option type list is answered with no option types',
+    reach: async (page) => {
+      await emptied(page, 'option_types')
+      await openStore(page, optionsPath)
+      await expect(page.getByText('No option types yet', { exact: true })).toBeVisible()
+    },
+  },
+  {
+    screen: 'DA-PRD-05',
+    state: 'create-sheet',
+    variant: 'admin',
+    reach: async (page) => {
+      await openOptions(page)
+      await page.getByRole('button', { name: /add option type/i }).click()
+      const create = sheet(page)
+      await create.getByRole('textbox', { name: 'Label' }).first().fill('Glaze')
+      await create.getByRole('textbox', { name: 'Internal name' }).first().fill('glaze')
+      await create.getByRole('combobox').first().click()
+      await page.getByRole('option', { name: 'Color swatch' }).click()
+      for (const [index, [name, label, colour]] of [
+        ['celadon', 'Celadon', '#9CBFA7'],
+        ['tenmoku', 'Tenmoku', '#5A3A22'],
+        ['shino', 'Shino', '#E8D8C3'],
+      ].entries()) {
+        await create.getByRole('button', { name: /add option value/i }).click()
+        const row = create
+          .locator('tbody tr')
+          .filter({ has: page.getByLabel('Internal name') })
+          .nth(index)
+        await row.getByLabel('Internal name').fill(name)
+        await row.getByLabel('Label').fill(label)
+        await row.getByRole('button', { name: 'Pick a color' }).click()
+        const picker = row.getByRole('dialog', { name: 'Pick a color' })
+        await picker.getByRole('textbox').fill(colour)
+        await picker.getByRole('textbox').press('Enter')
+        await row.getByRole('button', { name: new RegExp(`change color|${colour}`, 'i') }).click()
+      }
+      await create
+        .locator('tbody tr')
+        .filter({ has: page.getByLabel('Internal name') })
+        .first()
+        .locator('input[type="file"]')
+        .setInputFiles({
+          name: 'celadon.png',
+          mimeType: 'image/png',
+          buffer: fixture('product-olive.png'),
+        })
+      await page.waitForTimeout(1_000)
+      await rest(page)
+    },
+  },
+  { screen: 'DA-PRD-05', state: 'edit', variant: 'admin', reach: openColour },
+  {
+    screen: 'DA-PRD-05',
+    state: 'values-reordered',
+    variant: 'admin',
+    reach: async (page) => {
+      await openColour(page)
+      const grips = sheet(page).getByRole('button', { name: 'Drag to reorder' })
+      const from = await grips.nth(0).boundingBox()
+      const to = await grips.nth(2).boundingBox()
+      if (!from || !to) throw new Error('The value rows have no grips to drag')
+      await page.mouse.move(from.x + from.width / 2, from.y + from.height / 2)
+      await page.mouse.down()
+      await page.mouse.move(from.x + from.width / 2, to.y + to.height / 2 + 4, { steps: 12 })
+      await page.mouse.up()
+      // The first "Internal name" is the option type's own.
+      await expect(sheet(page).getByLabel('Internal name').nth(3)).toHaveValue('matte-black')
+      await rest(page)
+    },
+  },
+  {
+    screen: 'DA-PRD-05',
+    state: 'translated',
+    variant: 'admin',
+    reach: async (page) => {
+      await openColour(page)
+      await sheet(page)
+        .getByRole('button', { name: /manage translations/i })
+        .click()
+      await expect(page.getByRole('heading', { name: 'Translations' })).toBeVisible()
+    },
+  },
+  {
+    screen: 'DA-PRD-05',
+    state: 'delete-confirmation',
+    variant: 'admin',
+    reach: async (page) => {
+      await openOptions(page)
+      await openRowMenu(page, 'condition')
+      await page.getByRole('menuitem', { name: 'Delete' }).click()
+      await expect(page.getByRole('heading', { name: /delete option type\?/i })).toBeVisible()
+    },
+  },
+
+  // DA-SET-20 Product types
+  ...catalogVariants.map(
+    (variant): Capture => ({
+      screen: 'DA-SET-20',
+      state: 'listed',
+      variant,
+      reach: (page) => openStore(page, productTypesPath),
+    }),
+  ),
+  directVisit('DA-SET-20', productTypesPath),
+  {
+    screen: 'DA-SET-20',
+    state: 'none',
+    variant: 'admin',
+    intercepted: 'The product type list is answered with no product types',
+    reach: async (page) => {
+      await emptied(page, 'product_types')
+      await openStore(page, productTypesPath)
+      await expect(page.getByText('No product types yet', { exact: true })).toBeVisible()
+    },
+  },
+  {
+    screen: 'DA-SET-20',
+    state: 'create-sheet',
+    variant: 'admin',
+    reach: async (page) => {
+      await openNewProductType(page)
+      const create = sheet(page)
+      await create.locator('#name').fill('Ceramics')
+      const categories = create
+        .locator('[data-slot="field"]')
+        .filter({ has: page.getByText('Categories', { exact: true }) })
+        .getByRole('combobox')
+      await categories.fill('Kitchen')
+      await page
+        .getByRole('option', { name: /^kitchen$/i })
+        .first()
+        .click()
+      for (const field of ['Material', 'Capacity', 'Care instructions']) {
+        await create.getByRole('button', { name: field, exact: true }).click()
+      }
+      await create.locator('#name').click()
+      await rest(page)
+    },
+  },
+  {
+    screen: 'DA-SET-20',
+    state: 'no-name',
+    variant: 'admin',
+    reach: async (page) => {
+      await openNewProductType(page)
+      await sheet(page)
+        .getByRole('button', { name: /create product type/i })
+        .click()
+      await expect(sheet(page).locator('[data-slot="field-error"]').first()).toBeVisible()
+    },
+  },
+  {
+    screen: 'DA-SET-20',
+    state: 'edit',
+    variant: 'admin',
+    reach: async (page) => {
+      await openProductTypes(page)
+      await page.getByText('Kitchen Appliance', { exact: true }).click()
+      await expect(sheet(page)).toBeVisible()
+    },
+  },
+  {
+    screen: 'DA-SET-20',
+    state: 'delete-confirmation',
+    variant: 'admin',
+    reach: async (page) => {
+      await openProductTypes(page)
+      await openRowMenu(page, 'Kitchen Appliance')
+      await page.getByRole('menuitem', { name: 'Delete' }).click()
+      await expect(confirmation(page)).toBeVisible()
+    },
+  },
+  {
+    screen: 'DA-SET-20',
+    state: 'delete-refused',
+    variant: 'admin',
+    reach: async (page) => {
+      await openProductTypes(page)
+      await openRowMenu(page, 'Kitchen Appliance')
+      await page.getByRole('menuitem', { name: 'Delete' }).click()
+      await confirmation(page)
+        .getByRole('button', { name: /^delete$/i })
+        .click()
+      await expect(page.getByText('Kitchen Appliance', { exact: true })).toBeVisible()
+      await page.waitForTimeout(1_000)
+      await rest(page)
+    },
+  },
+]
+
+const removeProducts = (name: string) => deleteProductsNamed(baseURL, name)
+
 test.beforeAll(async ({ baseURL: configured }) => {
   baseURL = configured ?? 'http://localhost:5174'
   seeded = await seed(baseURL)
   developers = await seedDevelopers(baseURL)
   await seedSettings(baseURL)
+  catalog = await seedCatalog(baseURL)
   const api = await request.newContext({ baseURL })
   try {
     const { headers } = await admin(api)
@@ -2882,6 +4586,11 @@ test.beforeAll(async ({ baseURL: configured }) => {
 })
 
 test.use({ viewport: { width: 1280, height: 960 } })
+
+test.afterEach(async () => {
+  await restoreLocale?.()
+  restoreLocale = null
+})
 
 /**
  * Blocks every request that would leave the local servers, and records it, as
@@ -2947,7 +4656,15 @@ async function save(
 }
 
 for (const theme of ['light', 'dark'] as const) {
-  for (const item of [...captures, ...developerCaptures, ...settingsCaptures]) {
+  for (const item of [
+    ...captures,
+    ...developerCaptures,
+    ...settingsCaptures,
+    ...productCaptures,
+    ...newProductCaptures,
+    ...productPageCaptures,
+    ...libraryCaptures,
+  ]) {
     test(`${item.screen} ${item.state} ${item.variant} ${theme}`, async ({ page }) => {
       if (item.phone) await page.setViewportSize(phone)
       await page.emulateMedia({ colorScheme: theme, reducedMotion: 'reduce' })

@@ -3,6 +3,7 @@ import { expect, type Locator, type Page, test } from '@playwright/test'
 import { getCredentials, login, rowButton, sellerLogin } from '../../dashboard/e2e/helpers'
 import { FIRST_RUN_CREDENTIALS_FILE } from '../../dashboard/e2e/paths'
 import { dashboardCounters, releaseNotes, updateAvailable } from '../src/fixtures/admin/shell'
+import { type Catalog, fixture, seedCatalog } from './catalog'
 import {
   type Developers,
   endpoints,
@@ -2373,6 +2374,580 @@ const storeSettings: Case[] = [
   },
 ]
 
+let catalog: Catalog
+
+const titledCard = (page: Page, title: string) =>
+  page.locator('[data-slot="card"]').filter({
+    has: page.locator('[data-slot="card-title"]', { hasText: new RegExp(`^${title}$`) }),
+  })
+const generalCard = (page: Page) =>
+  page
+    .locator('[data-slot="card"]')
+    .filter({ has: page.getByRole('textbox', { name: 'Name', exact: true }) })
+    .first()
+const cardOf = (title: string) => (page: Page) => titledCard(page, title)
+
+/** YouTube's still for the stoneware mug's video link, answered with a local picture. */
+const localYouTubeStill = (page: Page) =>
+  page.route(
+    (url) => url.hostname === 'img.youtube.com',
+    (route) => route.fulfill({ contentType: 'image/png', body: fixture('product-olive.png') }),
+  )
+
+/**
+ * Scrolls a part of a record's page to the top of the page's scrolling area,
+ * below the page's title, which stays pinned.
+ */
+const belowTitle = (target: Locator) =>
+  target.evaluate((section) => {
+    section.scrollIntoView({ block: 'start' })
+    let pinned = document.querySelector('h1') as Element | null
+    while (pinned && getComputedStyle(pinned).position !== 'sticky') pinned = pinned.parentElement
+    let scroller = section.parentElement
+    while (scroller && scroller.scrollHeight <= scroller.clientHeight) {
+      scroller = scroller.parentElement
+    }
+    const covered =
+      (pinned?.getBoundingClientRect().bottom ?? 0) - section.getBoundingClientRect().top
+    scroller?.scrollBy(0, -(covered + 16))
+  })
+
+async function productPage(page: Page, product: keyof Catalog['ids']) {
+  await localYouTubeStill(page)
+  await adminPage(page, `/products/${catalog.ids[product]}`)
+  await expect(generalCard(page)).toBeVisible({ timeout: 20_000 })
+}
+
+/** A part of a product's page, scrolled below the page's title. */
+const onProduct =
+  (product: keyof Catalog['ids'], part: (page: Page) => Locator) => async (page: Page) => {
+    await productPage(page, product)
+    const found = part(page)
+    await belowTitle(found)
+    await page.mouse.move(1270, 5)
+    return found
+  }
+
+/** A product's page with one of its sheets or dialogs open. */
+const openedOnProduct =
+  (
+    product: keyof Catalog['ids'],
+    open: (page: Page) => Promise<void>,
+    part: (page: Page) => Locator,
+  ) =>
+  async (page: Page) => {
+    await productPage(page, product)
+    await open(page)
+    await page.mouse.move(1270, 5)
+    return part(page)
+  }
+
+const kettlePart = (part: (page: Page) => Locator) => onProduct('kettle', part)
+const pricesGrid = (page: Page) =>
+  titledCard(page, 'Prices').locator('[role="grid"], table').first()
+const stockGrid = (page: Page) =>
+  titledCard(page, 'Inventory').locator('[role="grid"], table').first()
+const priceCell = (page: Page, variant: string) =>
+  page.getByRole('textbox', { name: `Price for Color: ${variant}`, exact: true })
+const dialogContent = (page: Page) => slot(page, 'dialog-content')
+
+/** The kettle's translations dialog, open in German. */
+const openKettleTranslations = async (page: Page) => {
+  await belowTitle(titledCard(page, 'Translations'))
+  await titledCard(page, 'Translations')
+    .getByRole('button', { name: 'Manage translations' })
+    .click()
+  await expect(page.getByRole('textbox', { name: 'name de' })).toBeVisible()
+}
+/** The story's own table, not Storybook's hidden table of arguments. */
+const storyTable = (page: Page) => page.locator('#storybook-root table').first()
+const bulkBar = (page: Page) => page.locator('[class*="slide-in-from-left-2"]').first()
+const mediaPreview = (scope: Page | Locator) =>
+  scope
+    .locator('[class*="group relative block w-full shrink-0 overflow-hidden rounded-lg"]')
+    .first()
+
+const openKettleMedia = (page: Page) =>
+  titledCard(page, 'Media').locator('[data-slot="media-thumbnail"]').first().click({ force: true })
+const openWhiteVariant = (page: Page) =>
+  titledCard(page, 'Variants')
+    .getByRole('button', { name: /^edit color: white$/i })
+    .click()
+const openBulkVariants = (page: Page) =>
+  titledCard(page, 'Variants')
+    .getByRole('button', { name: /bulk edit/i })
+    .click()
+const openPublishFrom = async (page: Page) => {
+  const publishing = titledCard(page, 'Publishing')
+  await belowTitle(publishing)
+  await publishing.getByRole('button', { name: /online store/i }).click()
+}
+const publishFrom = (page: Page) =>
+  titledCard(page, 'Publishing')
+    .getByRole('button', { name: /live immediately/i })
+    .first()
+const handbookFile = (page: Page) =>
+  titledCard(page, 'Digital files').getByRole('row').filter({ hasText: 'fidelity-care-guide.pdf' })
+
+async function mediaLibrary(page: Page) {
+  await localYouTubeStill(page)
+  await adminPage(page, '/products/media')
+  await expect(page.getByRole('listitem').first()).toBeVisible({ timeout: 20_000 })
+}
+const libraryTile = (page: Page, name: string) =>
+  page.getByRole('listitem').filter({ hasText: name }).getByRole('button').first()
+
+/** Part 1 of the catalog batch (#34), compared with the product screens, the media library and options. */
+const catalogPartOne: Case[] = [
+  {
+    id: 'CMP-CORE-PF-06',
+    name: 'product-general-card',
+    story: 'dashboard-core-product-form-general-card--filled',
+    screen: kettlePart(generalCard),
+    inStory: generalCard,
+    window: tall,
+  },
+  {
+    id: 'CMP-CORE-PF-06',
+    name: 'product-variants-card',
+    story: 'dashboard-core-product-form-variants-card--with-options',
+    screen: kettlePart(cardOf('Variants')),
+    inStory: cardOf('Variants'),
+    window: tall,
+  },
+  {
+    id: 'CMP-CORE-PF-06',
+    name: 'product-media-card',
+    story: 'dashboard-core-product-form-media-card--images',
+    screen: kettlePart(cardOf('Media')),
+    inStory: cardOf('Media'),
+    window: tall,
+  },
+  {
+    id: 'CMP-CORE-PF-06',
+    name: 'product-prices-card',
+    story: 'dashboard-core-product-form-prices-card--variants',
+    screen: kettlePart(cardOf('Prices')),
+    inStory: cardOf('Prices'),
+    window: tall,
+  },
+  {
+    id: 'CMP-CORE-PF-06',
+    name: 'product-inventory-card',
+    story: 'dashboard-core-product-form-inventory-card--variants',
+    screen: kettlePart(cardOf('Inventory')),
+    inStory: cardOf('Inventory'),
+    window: tall,
+  },
+  {
+    id: 'CMP-CORE-PF-06',
+    name: 'product-status-card',
+    story: 'dashboard-core-product-form-status-card--active',
+    screen: kettlePart(cardOf('Status')),
+    inStory: cardOf('Status'),
+    window: tall,
+  },
+  {
+    id: 'CMP-CORE-PF-06',
+    name: 'product-categorization-card',
+    story: 'dashboard-core-product-form-categorization-card--filled',
+    screen: kettlePart(cardOf('Categorization')),
+    inStory: cardOf('Categorization'),
+    window: tall,
+  },
+  {
+    id: 'CMP-CORE-PF-06',
+    name: 'product-tax-card',
+    story: 'dashboard-core-product-form-tax-card--chosen',
+    screen: kettlePart(cardOf('Tax')),
+    inStory: cardOf('Tax'),
+    window: tall,
+  },
+  {
+    id: 'CMP-CORE-PF-06',
+    name: 'product-seo-card',
+    story: 'dashboard-core-product-form-seo-card--filled',
+    screen: kettlePart(cardOf('SEO')),
+    inStory: cardOf('SEO'),
+    window: tall,
+  },
+  {
+    id: 'CMP-CORE-PF-09',
+    name: 'product-variants-section',
+    story: 'dashboard-core-product-form-variants-section--with-options',
+    screen: kettlePart(cardOf('Variants')),
+    inStory: cardOf('Variants'),
+    window: tall,
+  },
+  {
+    id: 'CMP-CORE-PF-08',
+    name: 'product-variants-options-builder',
+    story: 'dashboard-core-product-form-variants-options-builder--two-options',
+    screen: kettlePart((page) =>
+      titledCard(page, 'Variants').locator('[data-slot="card-content"] > *').first(),
+    ),
+    inStory: (page) => page.locator('[data-story-column] > *').first(),
+    window: tall,
+  },
+  {
+    id: 'CMP-CORE-PF-03',
+    name: 'product-inventory-section',
+    story: 'dashboard-core-product-form-inventory-section--variants',
+    screen: kettlePart(stockGrid),
+    inStory: storyTable,
+    window: tall,
+  },
+  {
+    id: 'CMP-CORE-PF-05',
+    name: 'product-bulk-price-editor',
+    story: 'dashboard-core-product-form-product-bulk-price-editor--dollars',
+    screen: kettlePart(pricesGrid),
+    inStory: storyTable,
+    window: tall,
+  },
+  {
+    id: 'CMP-CORE-PF-02',
+    name: 'product-bulk-variants-dialog',
+    story: 'dashboard-core-product-form-bulk-variants-dialog--variants',
+    screen: openedOnProduct('kettle', openBulkVariants, dialogContent),
+    inStory: dialogContent,
+  },
+  {
+    id: 'CMP-CORE-PF-04',
+    name: 'product-media-edit-sheet',
+    story: 'dashboard-core-product-form-media-edit-sheet--image',
+    screen: openedOnProduct('kettle', openKettleMedia, sheet),
+    inStory: sheet,
+  },
+  {
+    id: 'CMP-CORE-PF-07',
+    name: 'product-variant-edit-sheet',
+    story: 'dashboard-core-product-form-variant-edit-sheet--identity',
+    screen: openedOnProduct('kettle', openWhiteVariant, sheet),
+    inStory: sheet,
+  },
+  {
+    id: 'CMP-CORE-PF-01',
+    name: 'product-add-video-dialog',
+    story: 'dashboard-core-product-form-add-video-dialog--empty',
+    screen: openedOnProduct(
+      'kettle',
+      (page) => titledCard(page, 'Media').getByRole('button', { name: 'Add video link' }).click(),
+      dialogContent,
+    ),
+    inStory: dialogContent,
+  },
+  {
+    id: 'CMP-CORE-24',
+    name: 'resource-multi-autocomplete-categories',
+    story: 'dashboard-core-resource-multi-autocomplete--chosen-names-loaded',
+    screen: kettlePart((page) =>
+      titledCard(page, 'Categorization').locator('[data-slot="combobox-chips"]').first(),
+    ),
+    inStory: (page) => slot(page, 'combobox-chips').first(),
+  },
+  {
+    id: 'CMP-DUI-C-41',
+    name: 'resource-multi-autocomplete-chosen',
+    story: 'dashboard-ui-composed-resource-multi-autocomplete--chosen',
+    screen: kettlePart((page) =>
+      titledCard(page, 'Categorization').locator('[data-slot="combobox-chips"]').first(),
+    ),
+    inStory: (page) => slot(page, 'combobox-chips').first(),
+  },
+  {
+    id: 'CMP-CORE-38',
+    name: 'tag-combobox-chosen',
+    story: 'dashboard-core-tag-combobox--chosen',
+    screen: kettlePart((page) =>
+      titledCard(page, 'Categorization').locator('[data-slot="combobox-chips"]').last(),
+    ),
+    inStory: (page) => slot(page, 'combobox-chips').first(),
+  },
+  {
+    id: 'CMP-CORE-35',
+    name: 'store-date-picker-publish-from',
+    story: 'dashboard-core-store-date-picker--date-and-time-empty',
+    screen: openedOnProduct('kettle', openPublishFrom, publishFrom),
+    inStory: (page) => page.getByRole('button', { name: /live immediately/i }).first(),
+  },
+  {
+    id: 'CMP-DA-G-14',
+    name: 'product-publishing-card',
+    story: 'admin-dashboard-products-publishing-card--live',
+    screen: kettlePart(cardOf('Publishing')),
+    inStory: cardOf('Publishing'),
+    window: tall,
+  },
+  {
+    id: 'CMP-DUI-C-36',
+    name: 'status-card-active',
+    story: 'dashboard-ui-composed-products-status-card--active',
+    screen: kettlePart(cardOf('Status')),
+    inStory: cardOf('Status'),
+    window: tall,
+  },
+  {
+    id: 'CMP-DUI-P-33',
+    name: 'rich-text-editor-description',
+    story: 'dashboard-ui-primitives-rich-text-editor--formatted',
+    screen: kettlePart((page) =>
+      generalCard(page).locator('[data-slot="rich-text-editor"]').first(),
+    ),
+    inStory: (page) => page.locator('[data-slot="rich-text-editor"]').first(),
+  },
+  {
+    id: 'CMP-DUI-P-33',
+    name: 'rich-text-editor-with-image-button',
+    story: 'dashboard-ui-primitives-rich-text-editor--with-image-button',
+    screen: kettlePart((page) =>
+      generalCard(page).locator('[data-slot="rich-text-editor"]').first(),
+    ),
+    inStory: (page) => page.locator('[data-slot="rich-text-editor"]').first(),
+  },
+  {
+    id: 'CMP-DUI-C-14',
+    name: 'data-grid-prices',
+    story: 'dashboard-ui-composed-data-grid-data-grid--with-a-section-header',
+    screen: kettlePart(pricesGrid),
+    inStory: storyTable,
+    window: tall,
+  },
+  {
+    id: 'CMP-DUI-C-05',
+    name: 'bulk-price-table-variants',
+    story: 'dashboard-ui-composed-bulk-price-table--variants',
+    screen: kettlePart(pricesGrid),
+    inStory: storyTable,
+    window: tall,
+  },
+  {
+    id: 'CMP-DUI-C-13',
+    name: 'data-grid-money-cell',
+    story: 'dashboard-ui-composed-data-grid-cells--every-kind',
+    screen: kettlePart((page) => priceCell(page, 'White').locator('xpath=ancestor::td[1]')),
+    inStory: (page) =>
+      page.getByRole('textbox', { name: /price/i }).first().locator('xpath=ancestor::td[1]'),
+    window: tall,
+  },
+  {
+    id: 'CMP-DUI-C-15',
+    name: 'fill-handle-chosen-price',
+    story: 'dashboard-ui-composed-data-grid-fill-handle--on-a-selected-cell',
+    screen: async (page) => {
+      const grid = await kettlePart(pricesGrid)(page)
+      await priceCell(page, 'White').click()
+      await page.mouse.move(1270, 5)
+      return grid
+    },
+    inStory: storyTable,
+    window: tall,
+  },
+  {
+    id: 'CMP-DUI-C-06',
+    name: 'bulk-variants-table-every-column',
+    story: 'dashboard-ui-composed-bulk-variants-table--every-column',
+    screen: openedOnProduct('kettle', openBulkVariants, (page) =>
+      dialogContent(page).locator('[role="grid"], table').first(),
+    ),
+    inStory: storyTable,
+  },
+  {
+    id: 'CMP-DUI-C-22',
+    name: 'form-section-variant-identity',
+    story: 'dashboard-ui-composed-form-section--titled',
+    screen: openedOnProduct('kettle', openWhiteVariant, (page) =>
+      sheet(page).locator('fieldset').first(),
+    ),
+    inStory: (page) => page.locator('fieldset').first(),
+  },
+  {
+    id: 'CMP-DUI-C-31',
+    name: 'metadata-card-populated',
+    story: 'dashboard-ui-composed-metadata-metadata-card--populated',
+    screen: onProduct('scheduled', cardOf('Metadata')),
+    inStory: cardOf('Metadata'),
+    window: tall,
+  },
+  {
+    id: 'CMP-DA-G-06',
+    name: 'custom-fields-inline-card-filled',
+    story: 'admin-dashboard-custom-fields-custom-fields-inline-card--filled',
+    screen: kettlePart(cardOf('Custom fields')),
+    inStory: cardOf('Custom fields'),
+    window: tall,
+  },
+  {
+    id: 'CMP-DA-G-14',
+    name: 'product-custom-fields-from-its-type',
+    story: 'admin-dashboard-products-product-custom-fields-provider--from-its-type',
+    screen: kettlePart(cardOf('Custom fields')),
+    inStory: cardOf('Custom fields'),
+    window: tall,
+  },
+  {
+    id: 'CMP-DA-G-14',
+    name: 'digital-assets-card-files',
+    story: 'admin-dashboard-products-digital-assets-card--files',
+    screen: onProduct('handbook', cardOf('Digital files')),
+    inStory: cardOf('Digital files'),
+    window: tall,
+  },
+  {
+    id: 'CMP-DUI-C-20',
+    name: 'file-type-icon-document',
+    story: 'dashboard-ui-composed-file-type-icon--document',
+    screen: onProduct('handbook', (page) => handbookFile(page).locator('svg').first()),
+    inStory: (page) => page.locator('#storybook-root svg').first(),
+  },
+  {
+    id: 'CMP-DA-G-14',
+    name: 'digital-asset-edit-sheet-own-limits',
+    story: 'admin-dashboard-products-digital-asset-edit-sheet--own-limits',
+    screen: openedOnProduct(
+      'handbook',
+      async (page) => {
+        await belowTitle(titledCard(page, 'Digital files'))
+        await handbookFile(page).getByRole('button').last().click()
+        await page.getByRole('menuitem', { name: /^edit/i }).click()
+      },
+      sheet,
+    ),
+    inStory: sheet,
+  },
+  {
+    id: 'CMP-DA-G-14',
+    name: 'digital-files-form-card-no-files',
+    story: 'admin-dashboard-products-digital-files-form-card--no-files',
+    screen: async (page) => {
+      await adminPage(page, '/products/new')
+      const found = titledCard(page, 'Digital files')
+      await belowTitle(found)
+      return found
+    },
+    inStory: cardOf('Digital files'),
+    window: tall,
+  },
+  {
+    id: 'CMP-DA-G-24',
+    name: 'stock-history-one-product',
+    story: 'admin-dashboard-stock-stock-history--one-product',
+    screen: openedOnProduct(
+      'kettle',
+      async (page) => {
+        await belowTitle(titledCard(page, 'Inventory'))
+        await titledCard(page, 'Inventory').getByRole('button', { name: 'Stock history' }).click()
+      },
+      dialogContent,
+    ),
+    inStory: dialogContent,
+  },
+  {
+    id: 'CMP-DA-G-23',
+    name: 'resource-translations-card-translated',
+    story: 'admin-dashboard-translations-resource-translations-card--translated',
+    screen: kettlePart(cardOf('Translations')),
+    inStory: cardOf('Translations'),
+    window: tall,
+  },
+  {
+    id: 'CMP-DA-G-23',
+    name: 'resource-translations-dialog-german',
+    story: 'admin-dashboard-translations-resource-translations-dialog--german',
+    screen: openedOnProduct('kettle', openKettleTranslations, dialogContent),
+    inStory: dialogContent,
+  },
+  {
+    id: 'CMP-CORE-04',
+    name: 'bulk-action-bar-two-chosen',
+    story: 'dashboard-core-bulk-action-bar--two-chosen',
+    screen: async (page) => {
+      await productsList(page)
+      for (const row of await page.getByRole('checkbox', { name: /select row/i }).all()) {
+        if ((await page.getByText(/^2 selected$/).count()) > 0) break
+        await row.check()
+      }
+      await page.mouse.move(1270, 5)
+      return bulkBar(page)
+    },
+    inStory: bulkBar,
+  },
+  {
+    id: 'CMP-DUI-C-04',
+    name: 'bulk-dialog-set-status',
+    story: 'dashboard-ui-composed-bulk-dialog--default',
+    screen: async (page) => {
+      await productsList(page)
+      for (const row of (await page.getByRole('checkbox', { name: /select row/i }).all()).slice(
+        0,
+        2,
+      )) {
+        await row.check()
+      }
+      await page.getByRole('button', { name: /set status/i }).click()
+      return dialogContent(page)
+    },
+    inStory: dialogContent,
+  },
+  {
+    id: 'CMP-DUI-C-50',
+    name: 'tag-list-product-row',
+    story: 'dashboard-ui-composed-tag-list--default',
+    screen: async (page) => {
+      await productsList(page)
+      await page.getByRole('button', { name: /columns/i }).click()
+      await page.getByRole('menuitemcheckbox', { name: /^tags$/i }).click()
+      await page.keyboard.press('Escape')
+      return page
+        .getByRole('row')
+        .filter({ hasText: 'Electric Kettle 1.7L' })
+        .locator('td div.flex.flex-wrap.gap-1')
+        .first()
+    },
+    inStory: (page) => page.locator('#storybook-root div.flex.flex-wrap.gap-1').first(),
+  },
+  {
+    id: 'CMP-DUI-C-09',
+    name: 'color-picker-no-color',
+    story: 'dashboard-ui-composed-color-picker--no-color',
+    screen: async (page) => {
+      await adminPage(page, '/products/options')
+      await page.getByRole('button', { name: 'color Color' }).click()
+      return sheet(page).locator('div.relative.flex.items-center.gap-2').first()
+    },
+    inStory: (page) => page.locator('#storybook-root div.relative.flex.items-center.gap-2').first(),
+  },
+  {
+    id: 'CMP-DUI-P-28',
+    name: 'media-preview-image',
+    story: 'dashboard-ui-primitives-media-preview--image',
+    screen: async (page) => {
+      await mediaLibrary(page)
+      await libraryTile(page, 'Stoneware mug, side view').click()
+      return mediaPreview(sheet(page))
+    },
+    inStory: mediaPreview,
+  },
+  {
+    id: 'CMP-CORE-10',
+    name: 'file-upload-field-poster',
+    story: 'dashboard-core-file-upload-field--saved',
+    screen: async (page) => {
+      await mediaLibrary(page)
+      await libraryTile(page, 'Glazing the mug').click()
+      return sheet(page)
+        .locator('label')
+        .filter({ has: page.locator('input[type="file"]') })
+        .first()
+    },
+    inStory: (page) =>
+      page
+        .locator('label')
+        .filter({ has: page.locator('input[type="file"]') })
+        .first(),
+  },
+]
+
 const cases: Case[] = [
   ...pilotCases,
   ...primitivesBatchOne,
@@ -2380,6 +2955,7 @@ const cases: Case[] = [
   ...staffAccessPartTwo,
   ...developerSettings,
   ...storeSettings,
+  ...catalogPartOne,
 ]
 
 /** Every custom property the page's root element computes: the tokens, as the browser resolves them. */
@@ -2395,12 +2971,14 @@ async function rootTokens(page: Page): Promise<Record<string, string>> {
 }
 
 // The staff cases need the teammates, roles and invitations `staff.ts` adds,
-// and the developer settings cases the records `developers.ts` adds; adding
-// them again reuses them.
+// the developer settings cases the records `developers.ts` adds, and the
+// catalog cases the products and files `catalog.ts` adds; adding them again
+// reuses them.
 test.beforeAll(async ({ baseURL: configured }) => {
   baseURL = configured ?? baseURL
   await seed(baseURL)
   developers = await seedDevelopers(baseURL)
+  catalog = await seedCatalog(baseURL)
 })
 
 for (const theme of ['light', 'dark'] as const) {
