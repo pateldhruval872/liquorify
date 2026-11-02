@@ -1,0 +1,381 @@
+{
+  "revision": "db550f1d",
+  "storefront": "<a local address>",
+  "product": {
+    "id": "prod_UkpLWZg9DA",
+    "name": "Fidelity FL-04 teapot",
+    "slug": "fidelity-fl-04-teapot"
+  },
+  "firstOpened": 200,
+  "answers": [
+    {
+      "afterUnlisting": null,
+      "storefront": {
+        "status": 200,
+        "showsProduct": true,
+        "showsNotFound": false
+      },
+      "storeApi": 200
+    },
+    {
+      "afterUnlisting": 0,
+      "storefront": {
+        "status": 200,
+        "showsProduct": true,
+        "showsNotFound": false
+      },
+      "storeApi": 404
+    },
+    {
+      "afterUnlisting": 15,
+      "storefront": {
+        "status": 200,
+        "showsProduct": true,
+        "showsNotFound": false
+      },
+      "storeApi": 404
+    },
+    {
+      "afterUnlisting": 31,
+      "storefront": {
+        "status": 200,
+        "showsProduct": true,
+        "showsNotFound": false
+      },
+      "storeApi": 404
+    },
+    {
+      "afterUnlisting": 46,
+      "storefront": {
+        "status": 200,
+        "showsProduct": true,
+        "showsNotFound": false
+      },
+      "storeApi": 404
+    },
+    {
+      "afterUnlisting": 61,
+      "storefront": {
+        "status": 200,
+        "showsProduct": true,
+        "showsNotFound": false
+      },
+      "storeApi": 404
+    },
+    {
+      "afterUnlisting": 77,
+      "storefront": {
+        "status": 200,
+        "showsProduct": true,
+        "showsNotFound": false
+      },
+      "storeApi": 404
+    },
+    {
+      "afterUnlisting": 92,
+      "storefront": {
+        "status": 200,
+        "showsProduct": true,
+        "showsNotFound": false
+      },
+      "storeApi": 404
+    },
+    {
+      "afterUnlisting": 107,
+      "storefront": {
+        "status": 200,
+        "showsProduct": true,
+        "showsNotFound": false
+      },
+      "storeApi": 404
+    },
+    {
+      "afterUnlisting": 124,
+      "storefront": {
+        "status": 200,
+        "showsProduct": true,
+        "showsNotFound": false
+      },
+      "storeApi": 404
+    },
+    {
+      "afterUnlisting": 139,
+      "storefront": {
+        "status": 200,
+        "showsProduct": true,
+        "showsNotFound": false
+      },
+      "storeApi": 404
+    },
+    {
+      "afterUnlisting": 154,
+      "storefront": {
+        "status": 200,
+        "showsProduct": true,
+        "showsNotFound": false
+      },
+      "storeApi": 404
+    },
+    {
+      "afterUnlisting": 170,
+      "storefront": {
+        "status": 200,
+        "showsProduct": true,
+        "showsNotFound": false
+      },
+      "storeApi": 404
+    },
+    {
+      "afterUnlisting": 185,
+      "storefront": {
+        "status": 200,
+        "showsProduct": true,
+        "showsNotFound": false
+      },
+      "storeApi": 404
+    },
+    {
+      "afterUnlisting": 200,
+      "storefront": {
+        "status": 200,
+        "showsProduct": true,
+        "showsNotFound": false
+      },
+      "storeApi": 404
+    },
+    {
+      "afterUnlisting": 216,
+      "storefront": {
+        "status": 200,
+        "showsProduct": true,
+        "showsNotFound": false
+      },
+      "storeApi": 404
+    },
+    {
+      "afterUnlisting": 231,
+      "storefront": {
+        "status": 200,
+        "showsProduct": true,
+        "showsNotFound": false
+      },
+      "storeApi": 404
+    },
+    {
+      "afterUnlisting": 247,
+      "storefront": {
+        "status": 200,
+        "showsProduct": true,
+        "showsNotFound": false
+      },
+      "storeApi": 404
+    },
+    {
+      "afterUnlisting": 262,
+      "storefront": {
+        "status": 200,
+        "showsProduct": true,
+        "showsNotFound": false
+      },
+      "storeApi": 404
+    },
+    {
+      "afterUnlisting": 277,
+      "storefront": {
+        "status": 200,
+        "showsProduct": true,
+        "showsNotFound": false
+      },
+      "storeApi": 404
+    },
+    {
+      "afterUnlisting": 292,
+      "storefront": {
+        "status": 200,
+        "showsProduct": true,
+        "showsNotFound": false
+      },
+      "storeApi": 404
+    },
+    {
+      "afterUnlisting": 307,
+      "storefront": {
+        "status": 200,
+        "showsProduct": true,
+        "showsNotFound": false
+      },
+      "storeApi": 404
+    },
+    {
+      "afterUnlisting": 322,
+      "storefront": {
+        "status": 200,
+        "showsProduct": true,
+        "showsNotFound": false
+      },
+      "storeApi": 404
+    },
+    {
+      "afterUnlisting": 338,
+      "storefront": {
+        "status": 200,
+        "showsProduct": true,
+        "showsNotFound": false
+      },
+      "storeApi": 404
+    },
+    {
+      "afterUnlisting": 353,
+      "storefront": {
+        "status": 200,
+        "showsProduct": true,
+        "showsNotFound": false
+      },
+      "storeApi": 404
+    },
+    {
+      "afterUnlisting": 368,
+      "storefront": {
+        "status": 200,
+        "showsProduct": true,
+        "showsNotFound": false
+      },
+      "storeApi": 404
+    },
+    {
+      "afterUnlisting": 383,
+      "storefront": {
+        "status": 200,
+        "showsProduct": true,
+        "showsNotFound": false
+      },
+      "storeApi": 404
+    },
+    {
+      "afterUnlisting": 399,
+      "storefront": {
+        "status": 200,
+        "showsProduct": true,
+        "showsNotFound": false
+      },
+      "storeApi": 404
+    },
+    {
+      "afterUnlisting": 414,
+      "storefront": {
+        "status": 200,
+        "showsProduct": true,
+        "showsNotFound": false
+      },
+      "storeApi": 404
+    },
+    {
+      "afterUnlisting": 429,
+      "storefront": {
+        "status": 200,
+        "showsProduct": true,
+        "showsNotFound": false
+      },
+      "storeApi": 404
+    },
+    {
+      "afterUnlisting": 444,
+      "storefront": {
+        "status": 200,
+        "showsProduct": true,
+        "showsNotFound": false
+      },
+      "storeApi": 404
+    },
+    {
+      "afterUnlisting": 459,
+      "storefront": {
+        "status": 200,
+        "showsProduct": true,
+        "showsNotFound": false
+      },
+      "storeApi": 404
+    },
+    {
+      "afterUnlisting": 475,
+      "storefront": {
+        "status": 200,
+        "showsProduct": true,
+        "showsNotFound": false
+      },
+      "storeApi": 404
+    },
+    {
+      "afterUnlisting": 490,
+      "storefront": {
+        "status": 200,
+        "showsProduct": true,
+        "showsNotFound": false
+      },
+      "storeApi": 404
+    },
+    {
+      "afterUnlisting": 505,
+      "storefront": {
+        "status": 200,
+        "showsProduct": true,
+        "showsNotFound": false
+      },
+      "storeApi": 404
+    },
+    {
+      "afterUnlisting": 520,
+      "storefront": {
+        "status": 200,
+        "showsProduct": true,
+        "showsNotFound": false
+      },
+      "storeApi": 404
+    },
+    {
+      "afterUnlisting": 536,
+      "storefront": {
+        "status": 200,
+        "showsProduct": true,
+        "showsNotFound": false
+      },
+      "storeApi": 404
+    },
+    {
+      "afterUnlisting": 551,
+      "storefront": {
+        "status": 200,
+        "showsProduct": true,
+        "showsNotFound": false
+      },
+      "storeApi": 404
+    },
+    {
+      "afterUnlisting": 566,
+      "storefront": {
+        "status": 200,
+        "showsProduct": true,
+        "showsNotFound": false
+      },
+      "storeApi": 404
+    },
+    {
+      "afterUnlisting": 581,
+      "storefront": {
+        "status": 200,
+        "showsProduct": true,
+        "showsNotFound": false
+      },
+      "storeApi": 404
+    },
+    {
+      "afterUnlisting": 597,
+      "storefront": {
+        "status": 200,
+        "showsProduct": false,
+        "showsNotFound": true
+      },
+      "storeApi": 404
+    }
+  ]
+}

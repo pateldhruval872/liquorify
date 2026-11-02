@@ -1,0 +1,17 @@
+{
+  "screen": "DA-PRD-03",
+  "state": "translations-failed",
+  "variant": "admin",
+  "role": null,
+  "theme": "dark",
+  "revision": "db550f1d",
+  "path": "/<store>/products/prod_3uWpPTcf5W",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": "The product's translations request is answered with a server error",
+  "masked": null,
+  "settled": true,
+  "outside": []
+}

@@ -1,0 +1,17 @@
+{
+  "screen": "DA-PRD-01",
+  "state": "bulk-add-to-categories",
+  "variant": "admin",
+  "role": null,
+  "theme": "dark",
+  "revision": "db550f1d",
+  "path": "/<store>/products",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": null,
+  "masked": null,
+  "settled": true,
+  "outside": []
+}

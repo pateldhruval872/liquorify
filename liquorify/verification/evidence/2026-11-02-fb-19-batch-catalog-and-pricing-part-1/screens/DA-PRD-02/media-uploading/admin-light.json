@@ -1,0 +1,17 @@
+{
+  "screen": "DA-PRD-02",
+  "state": "media-uploading",
+  "variant": "admin",
+  "role": null,
+  "theme": "light",
+  "revision": "db550f1d",
+  "path": "/<store>/products/new",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": "The file upload request is held open",
+  "masked": null,
+  "settled": null,
+  "outside": []
+}

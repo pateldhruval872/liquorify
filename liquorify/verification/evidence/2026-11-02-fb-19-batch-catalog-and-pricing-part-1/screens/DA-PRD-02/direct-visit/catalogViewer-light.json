@@ -1,0 +1,26 @@
+{
+  "screen": "DA-PRD-02",
+  "state": "direct-visit",
+  "variant": "catalogViewer",
+  "role": {
+    "name": "Catalog viewer",
+    "permissions": [
+      "read_products",
+      "read_publishing",
+      "read_media",
+      "read_product_types",
+      "read_stock"
+    ]
+  },
+  "theme": "light",
+  "revision": "db550f1d",
+  "path": "/<store>/products/new",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": null,
+  "masked": null,
+  "settled": true,
+  "outside": []
+}

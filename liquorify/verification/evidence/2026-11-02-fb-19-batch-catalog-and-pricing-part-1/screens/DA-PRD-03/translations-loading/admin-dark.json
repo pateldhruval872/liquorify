@@ -1,0 +1,17 @@
+{
+  "screen": "DA-PRD-03",
+  "state": "translations-loading",
+  "variant": "admin",
+  "role": null,
+  "theme": "dark",
+  "revision": "db550f1d",
+  "path": "/<store>/products/prod_3uWpPTcf5W",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": "The product's translations request is held open",
+  "masked": null,
+  "settled": null,
+  "outside": []
+}

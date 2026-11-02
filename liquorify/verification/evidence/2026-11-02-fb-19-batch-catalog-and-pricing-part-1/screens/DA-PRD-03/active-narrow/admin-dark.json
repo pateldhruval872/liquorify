@@ -1,0 +1,17 @@
+{
+  "screen": "DA-PRD-03",
+  "state": "active-narrow",
+  "variant": "admin",
+  "role": null,
+  "theme": "dark",
+  "revision": "db550f1d",
+  "path": "/<store>/products/prod_3uWpPTcf5W",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "intercepted": null,
+  "masked": null,
+  "settled": true,
+  "outside": []
+}
