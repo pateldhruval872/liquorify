@@ -97,6 +97,7 @@ export const Refused: Story = {
   play: async () => {
     await userEvent.type(await screen.findByLabelText('pool_name'), 'winter-course-keys')
     await userEvent.click(screen.getByRole('button', { name: 'Add' }))
+    await screen.findByRole('button', { name: 'Saving…' })
     await screen.findByText('Provider type is not a registered provider')
     await screen.findByRole('button', { name: 'Add' })
   },

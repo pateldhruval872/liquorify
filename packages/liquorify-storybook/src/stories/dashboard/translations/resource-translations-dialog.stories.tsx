@@ -118,7 +118,9 @@ export const SaveRefused: Story = {
   play: async () => {
     await userEvent.type(await metaTitle(), 'Tonbecher, handgedreht')
     await userEvent.click(screen.getByRole('button', { name: 'Save translations' }))
+    await screen.findByRole('button', { name: 'Saving…' })
     await screen.findByText(/^Resource not found/)
+    await screen.findByRole('button', { name: 'Save translations' })
   },
 }
 

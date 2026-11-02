@@ -217,10 +217,14 @@ export function digitalAssetRequests(
 
 /**
  * Spree refusing a key from a source no extension registers any more, as when
- * the extension was removed after the page loaded.
+ * the extension was removed after the page loaded. It answers after a pause,
+ * as a server does, so the sheet always draws its saving state first.
+ * Answered at once, the saving state was sometimes never drawn on CI's
+ * runners, and the button kept a focus ring it loses everywhere else.
  */
-export const notRegistered = () =>
-  HttpResponse.json(
+export const notRegistered = async () => {
+  await delay(400)
+  return HttpResponse.json(
     {
       error: {
         code: 'validation_error',
@@ -230,6 +234,7 @@ export const notRegistered = () =>
     },
     { status: 422 },
   )
+}
 
 export const digitalAssetsHeld = [
   http.get('/api/v3/admin/products/:productId/digital_assets/providers', () =>
@@ -285,9 +290,11 @@ function applyTranslations<T extends ResourceTranslations | ResourceTranslations
  * Spree refusing a translation save for a product deleted since the editor
  * opened, with the message it gives for the first entry it cannot find.
  */
+/** Answered after a pause, for the reason `notRegistered` gives. */
 export const translationSaveRefused = [
-  http.post('/api/v3/admin/translations/batch', () =>
-    HttpResponse.json(
+  http.post('/api/v3/admin/translations/batch', async () => {
+    await delay(400)
+    return HttpResponse.json(
       {
         error: {
           code: 'validation_error',
@@ -296,8 +303,8 @@ export const translationSaveRefused = [
         },
       },
       { status: 422 },
-    ),
-  ),
+    )
+  }),
 ]
 
 export const translationsHeld = [

@@ -24,11 +24,22 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
+// Spree places the handle when it draws it and again on a resize or scroll.
+// The story's grid can still be settling when the cell is clicked, which left
+// the handle beside the cell rather than on its corner, so the story resizes
+// once and waits for the handle to reach the corner, where the running grid
+// draws it.
 export const OnASelectedCell: Story = {
   name: 'On a selected cell',
   play: async ({ canvasElement }) => {
     await userEvent.click(price('Color: Olive, Size: M'))
-    await expect(fillHandle(canvasElement)).not.toBeNull()
+    window.dispatchEvent(new Event('resize'))
+    await waitFor(() => {
+      const handle = fillHandle(canvasElement)?.getBoundingClientRect()
+      const cell = price('Color: Olive, Size: M').closest('td')?.getBoundingClientRect()
+      expect(handle && cell && Math.abs(handle.left + 4 - cell.right)).toBeLessThan(1)
+      expect(handle && cell && Math.abs(handle.top + 4 - cell.bottom)).toBeLessThan(1)
+    })
   },
 }
 
