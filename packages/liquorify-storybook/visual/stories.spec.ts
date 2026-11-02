@@ -17,6 +17,25 @@ const index: { entries: Record<string, IndexEntry> } = JSON.parse(
 )
 const stories = Object.values(index.entries).filter((entry) => entry.type === 'story')
 
+/**
+ * Images allowed more counted pixels than the configuration's 25, by story ID
+ * and mode. Sampled CI runners shaded the ends of these stories' rounded option
+ * chip borders slightly differently from the references, by up to 38 counted
+ * pixels. Recorded, with the owner's approval, in
+ * liquorify/verification/2026-11-02-fb-19-chip-screenshot-allowance.md. The
+ * threshold is unchanged, and every other image keeps 25.
+ */
+const pixelAllowances: Readonly<Record<string, number>> = {
+  'dashboard-core-product-form-variants-section--seeded-from-type/dark': 60,
+  'dashboard-core-product-form-variants-options-builder--awaiting-values/dark': 60,
+}
+for (const key of Object.keys(pixelAllowances)) {
+  const [id, modeName] = key.split('/')
+  if (!stories.some((story) => story.id === id) || !modes.some((mode) => mode.name === modeName)) {
+    throw new Error(`The pixel allowance for ${key} names no captured story and mode`)
+  }
+}
+
 declare global {
   interface Window {
     __STORYBOOK_PREVIEW__?: {
@@ -269,8 +288,9 @@ for (const story of stories) {
         await testInfo.attach('proposed reference', { path: proposed, contentType: 'image/png' })
         throw new Error(`No reference image yet for ${name.join('/')}; a proposed one is attached`)
       }
+      const allowance = pixelAllowances[`${story.id}/${mode.name}`]
       try {
-        await expect(target).toHaveScreenshot(name)
+        await expect(target).toHaveScreenshot(name, allowance ? { maxDiffPixels: allowance } : {})
       } catch (error) {
         await describeDifference(page, testInfo.outputDir).catch(() => undefined)
         throw error
