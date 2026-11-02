@@ -47,19 +47,25 @@ export function validationError(details: Record<string, { code: string; message:
 export function ProductFormFor({
   product = clayMug,
   media = product?.media,
+  values,
   validate = false,
   serverError,
   children,
 }: {
   product?: Product | null
   media?: Media[]
+  /** Values the merchant has already chosen on the page, over the product's own. */
+  values?: Partial<ProductFormValues>
   validate?: boolean
   serverError?: SpreeError
   children: (form: ProductForm) => ReactNode
 }) {
   const form = useForm<ProductFormValues>({
     resolver: zodResolver(productFormSchema) as any,
-    defaultValues: product ? productToFormValues(product, media) : newProductFormDefaults(),
+    defaultValues: {
+      ...(product ? productToFormValues(product, media) : newProductFormDefaults()),
+      ...values,
+    },
   })
   useEffect(() => {
     if (validate) void form.trigger()

@@ -30,6 +30,7 @@ import {
 } from '../../../fixtures/admin/catalog'
 import { channels, customFieldDefinitions } from '../../../fixtures/admin/settings'
 import { onePage } from '../../page'
+import { countries } from './countries'
 import { searchable, stockLocationList } from './settings'
 
 /** The one digital asset source Spree registers, which takes an uploaded file. */
@@ -228,7 +229,7 @@ export const stockMovementsHeld = [
  * Everything the product page's cards read for one product: its media, files,
  * translations and stock history, and the store's options, categories,
  * collections, types, tax categories, delivery profiles, cartons, tags,
- * channels, stock locations and custom fields.
+ * channels, stock locations, countries and custom fields.
  */
 export function productPageHandlers(product: Product = clayMug) {
   return {
@@ -242,6 +243,7 @@ export function productPageHandlers(product: Product = clayMug) {
     tags: tagList(),
     channels: channelList(),
     stockLocations: stockLocationList(),
+    countries,
     customFieldDefinitions: customFieldDefinitionList(),
     media: productMediaList(product.media ?? []),
     digitalAssets: digitalAssetRequests(product.id === clayMug.id ? [] : digitalAssets),
