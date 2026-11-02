@@ -1,0 +1,17 @@
+{
+  "screen": "DA-SET-28",
+  "state": "create-all-events",
+  "variant": "admin",
+  "role": null,
+  "theme": "light",
+  "revision": "95bc66f",
+  "path": "/<store>/settings/webhooks",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": null,
+  "masked": null,
+  "settled": true,
+  "outside": []
+}

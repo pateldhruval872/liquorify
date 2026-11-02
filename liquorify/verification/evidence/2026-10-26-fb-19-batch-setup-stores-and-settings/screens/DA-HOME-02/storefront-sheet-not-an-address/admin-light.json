@@ -1,0 +1,17 @@
+{
+  "screen": "DA-HOME-02",
+  "state": "storefront-sheet-not-an-address",
+  "variant": "admin",
+  "role": null,
+  "theme": "light",
+  "revision": "881a619",
+  "path": "/<store>/getting-started",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": null,
+  "masked": "The storefront sheet's Store API address and publishable key",
+  "settled": true,
+  "outside": []
+}

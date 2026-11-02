@@ -1,0 +1,17 @@
+{
+  "screen": "DA-SET-02",
+  "state": "request-failed",
+  "variant": "admin",
+  "role": null,
+  "theme": "dark",
+  "revision": "881a619",
+  "path": "/<store>/settings/store",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": "The store's request is answered with a server error",
+  "masked": null,
+  "settled": false,
+  "outside": []
+}

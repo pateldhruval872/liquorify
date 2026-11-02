@@ -1,0 +1,578 @@
+{
+  "revision": "ba8fd69754aef89c8c7ebd0eef1bc0eac42de794",
+  "storefrontRevision": "321fa1cfb1ccbd7acde4945512e27e73fad90562",
+  "run": 1792986924168,
+  "store": "default",
+  "gaps": {
+    "G-11": {
+      "cases": 12,
+      "attempts": 24,
+      "passed": 12,
+      "failed": []
+    }
+  },
+  "cases": [
+    {
+      "gap": "G-11",
+      "area": "storefront",
+      "title": "Open another customer's order page",
+      "attempts": [
+        {
+          "caller": "other",
+          "page": "/us/en/account/orders/<id>",
+          "action": null,
+          "expected": {
+            "page": 200,
+            "shows": [
+              "Order not found",
+              "looking for"
+            ]
+          },
+          "status": 200,
+          "redirectedTo": null,
+          "asExpected": true,
+          "exposureChecked": 2,
+          "exposed": [],
+          "unchanged": null
+        },
+        {
+          "caller": "guest",
+          "page": "/us/en/account/orders/<id>",
+          "action": null,
+          "expected": {
+            "redirectTo": "/us/en/account?redirect=%2Fus%2Fen%2Faccount%2Forders%2For_uw2YK1rnl0"
+          },
+          "status": 307,
+          "redirectedTo": "/us/en/account?redirect=%2Fus%2Fen%2Faccount%2Forders%2F<id>",
+          "asExpected": true,
+          "exposureChecked": 2,
+          "exposed": [],
+          "unchanged": null
+        }
+      ],
+      "control": {
+        "caller": "owner",
+        "page": "/us/en/account/orders/<id>",
+        "status": 200,
+        "succeeded": true,
+        "carried": true,
+        "changed": null
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-11",
+      "area": "storefront",
+      "title": "Read an order through its server action",
+      "attempts": [
+        {
+          "caller": "other",
+          "page": "/us/en/account/orders/p7",
+          "action": "server action",
+          "expected": "an exact action result",
+          "expectedResult": null,
+          "status": 200,
+          "redirectedTo": null,
+          "asExpected": true,
+          "exposureChecked": 2,
+          "exposed": [],
+          "unchanged": null
+        },
+        {
+          "caller": "guest",
+          "page": "/us/en/checkout/p7",
+          "action": "server action",
+          "expected": "an exact action result",
+          "expectedResult": null,
+          "status": 200,
+          "redirectedTo": null,
+          "asExpected": true,
+          "exposureChecked": 2,
+          "exposed": [],
+          "unchanged": null
+        }
+      ],
+      "control": {
+        "caller": "owner",
+        "page": "/us/en/account/orders/p7",
+        "status": 200,
+        "succeeded": true,
+        "carried": true,
+        "changed": null
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-11",
+      "area": "storefront",
+      "title": "Read an address through its server action",
+      "attempts": [
+        {
+          "caller": "other",
+          "page": "/us/en/account/addresses",
+          "action": "server action",
+          "expected": "an exact action result",
+          "expectedResult": null,
+          "status": 200,
+          "redirectedTo": null,
+          "asExpected": true,
+          "exposureChecked": 2,
+          "exposed": [],
+          "unchanged": null
+        },
+        {
+          "caller": "guest",
+          "page": "/us/en/checkout/p7",
+          "action": "server action",
+          "expected": "an exact action result",
+          "expectedResult": null,
+          "status": 200,
+          "redirectedTo": null,
+          "asExpected": true,
+          "exposureChecked": 2,
+          "exposed": [],
+          "unchanged": null
+        }
+      ],
+      "control": {
+        "caller": "owner",
+        "page": "/us/en/account/addresses",
+        "status": 200,
+        "succeeded": true,
+        "carried": true,
+        "changed": null
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-11",
+      "area": "storefront",
+      "title": "Change an address through its server action",
+      "attempts": [
+        {
+          "caller": "other",
+          "page": "/us/en/account/addresses",
+          "action": "server action",
+          "expected": "an exact action result",
+          "expectedResult": {
+            "success": false,
+            "error": "Address not found"
+          },
+          "status": 200,
+          "redirectedTo": null,
+          "asExpected": true,
+          "exposureChecked": 2,
+          "exposed": [],
+          "unchanged": true
+        },
+        {
+          "caller": "guest",
+          "page": "/us/en/checkout/p7",
+          "action": "server action",
+          "expected": "an exact action result",
+          "expectedResult": {
+            "success": false,
+            "error": "Not authenticated"
+          },
+          "status": 200,
+          "redirectedTo": null,
+          "asExpected": true,
+          "exposureChecked": 2,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "owner",
+        "page": "/us/en/account/addresses",
+        "status": 200,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-11",
+      "area": "storefront",
+      "title": "Delete an address through its server action",
+      "attempts": [
+        {
+          "caller": "other",
+          "page": "/us/en/account/addresses",
+          "action": "server action",
+          "expected": "an exact action result",
+          "expectedResult": {
+            "success": false,
+            "error": "Address not found"
+          },
+          "status": 200,
+          "redirectedTo": null,
+          "asExpected": true,
+          "exposureChecked": 2,
+          "exposed": [],
+          "unchanged": true
+        },
+        {
+          "caller": "guest",
+          "page": "/us/en/checkout/p7",
+          "action": "server action",
+          "expected": "an exact action result",
+          "expectedResult": {
+            "success": false,
+            "error": "Not authenticated"
+          },
+          "status": 200,
+          "redirectedTo": null,
+          "asExpected": true,
+          "exposureChecked": 2,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "owner",
+        "page": "/us/en/account/addresses",
+        "status": 200,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-11",
+      "area": "storefront",
+      "title": "Delete a saved card through its server action",
+      "attempts": [
+        {
+          "caller": "other",
+          "page": "/us/en/account/credit-cards",
+          "action": "server action",
+          "expected": "an exact action result",
+          "expectedResult": {
+            "success": false,
+            "error": "Credit card not found"
+          },
+          "status": 200,
+          "redirectedTo": null,
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": true
+        },
+        {
+          "caller": "guest",
+          "page": "/us/en/account/credit-cards",
+          "action": "server action",
+          "expected": {
+            "redirectTo": "/us/en/account?redirect=%2Fus%2Fen%2Faccount%2Fcredit-cards"
+          },
+          "status": 307,
+          "redirectedTo": "/us/en/account?redirect=%2Fus%2Fen%2Faccount%2Fcredit-cards",
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "owner",
+        "page": "/us/en/account/credit-cards",
+        "status": 200,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-11",
+      "area": "storefront",
+      "title": "Read a gift card through its server action",
+      "attempts": [
+        {
+          "caller": "other",
+          "page": "/us/en/account/gift-cards",
+          "action": "server action",
+          "expected": "an exact action result",
+          "expectedResult": null,
+          "status": 200,
+          "redirectedTo": null,
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": null
+        },
+        {
+          "caller": "guest",
+          "page": "/us/en/account/gift-cards",
+          "action": "server action",
+          "expected": {
+            "redirectTo": "/us/en/account?redirect=%2Fus%2Fen%2Faccount%2Fgift-cards"
+          },
+          "status": 307,
+          "redirectedTo": "/us/en/account?redirect=%2Fus%2Fen%2Faccount%2Fgift-cards",
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": null
+        }
+      ],
+      "control": {
+        "caller": "owner",
+        "page": "/us/en/account/gift-cards",
+        "status": 200,
+        "succeeded": true,
+        "carried": true,
+        "changed": null
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-11",
+      "area": "storefront",
+      "title": "List the addresses through their server action",
+      "attempts": [
+        {
+          "caller": "other",
+          "page": "/us/en/account/addresses",
+          "action": "server action",
+          "expected": {
+            "ownResult": true
+          },
+          "status": 200,
+          "redirectedTo": null,
+          "asExpected": true,
+          "exposureChecked": 2,
+          "exposed": [],
+          "unchanged": null
+        },
+        {
+          "caller": "guest",
+          "page": "/us/en/checkout/p7",
+          "action": "server action",
+          "expected": "an exact action result",
+          "expectedResult": {
+            "data": []
+          },
+          "status": 200,
+          "redirectedTo": null,
+          "asExpected": true,
+          "exposureChecked": 2,
+          "exposed": [],
+          "unchanged": null
+        }
+      ],
+      "control": {
+        "caller": "owner",
+        "page": "/us/en/account/addresses",
+        "status": 200,
+        "succeeded": true,
+        "carried": true,
+        "changed": null
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-11",
+      "area": "storefront",
+      "title": "List the saved cards through their server action",
+      "attempts": [
+        {
+          "caller": "other",
+          "page": "/us/en/account/credit-cards",
+          "action": "server action",
+          "expected": {
+            "ownResult": true
+          },
+          "status": 200,
+          "redirectedTo": null,
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": null
+        },
+        {
+          "caller": "guest",
+          "page": "/us/en/checkout/p7",
+          "action": "server action",
+          "expected": "an exact action result",
+          "expectedResult": {
+            "data": []
+          },
+          "status": 200,
+          "redirectedTo": null,
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": null
+        }
+      ],
+      "control": {
+        "caller": "owner",
+        "page": "/us/en/account/credit-cards",
+        "status": 200,
+        "succeeded": true,
+        "carried": true,
+        "changed": null
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-11",
+      "area": "storefront",
+      "title": "List the gift cards through their server action",
+      "attempts": [
+        {
+          "caller": "other",
+          "page": "/us/en/account/gift-cards",
+          "action": "server action",
+          "expected": {
+            "ownResult": true
+          },
+          "status": 200,
+          "redirectedTo": null,
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": null
+        },
+        {
+          "caller": "guest",
+          "page": "/us/en/account/gift-cards",
+          "action": "server action",
+          "expected": {
+            "redirectTo": "/us/en/account?redirect=%2Fus%2Fen%2Faccount%2Fgift-cards"
+          },
+          "status": 307,
+          "redirectedTo": "/us/en/account?redirect=%2Fus%2Fen%2Faccount%2Fgift-cards",
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": null
+        }
+      ],
+      "control": {
+        "caller": "owner",
+        "page": "/us/en/account/gift-cards",
+        "status": 200,
+        "succeeded": true,
+        "carried": true,
+        "changed": null
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-11",
+      "area": "storefront",
+      "title": "List the orders through their server action",
+      "attempts": [
+        {
+          "caller": "other",
+          "page": "/us/en/account/orders/p7",
+          "action": "server action",
+          "expected": {
+            "ownResult": true
+          },
+          "status": 200,
+          "redirectedTo": null,
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": null
+        },
+        {
+          "caller": "guest",
+          "page": "/us/en/checkout/p7",
+          "action": "server action",
+          "expected": "an exact action result",
+          "expectedResult": {
+            "data": [],
+            "meta": {
+              "page": 1,
+              "limit": 25,
+              "count": 0,
+              "pages": 0,
+              "from": 0,
+              "to": 0,
+              "in": 0,
+              "previous": null,
+              "next": null
+            }
+          },
+          "status": 200,
+          "redirectedTo": null,
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": null
+        }
+      ],
+      "control": {
+        "caller": "owner",
+        "page": "/us/en/account/orders/p7",
+        "status": 200,
+        "succeeded": true,
+        "carried": true,
+        "changed": null
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-11",
+      "area": "storefront",
+      "title": "Read the profile through its server action",
+      "attempts": [
+        {
+          "caller": "other",
+          "page": "/us/en/account/addresses",
+          "action": "server action",
+          "expected": {
+            "ownResult": true
+          },
+          "status": 200,
+          "redirectedTo": null,
+          "asExpected": true,
+          "exposureChecked": 2,
+          "exposed": [],
+          "unchanged": null
+        },
+        {
+          "caller": "guest",
+          "page": "/us/en/wholesale/cart",
+          "action": "server action",
+          "expected": "an exact action result",
+          "expectedResult": null,
+          "status": 200,
+          "redirectedTo": null,
+          "asExpected": true,
+          "exposureChecked": 2,
+          "exposed": [],
+          "unchanged": null
+        }
+      ],
+      "control": {
+        "caller": "owner",
+        "page": "/us/en/account/addresses",
+        "status": 200,
+        "succeeded": true,
+        "carried": true,
+        "changed": null
+      },
+      "failures": [],
+      "result": "PASS"
+    }
+  ]
+}

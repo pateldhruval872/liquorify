@@ -1,0 +1,11 @@
+{
+  "screen": "SF-SHOP-02",
+  "state": "price-dropdown-open",
+  "variant": "guest",
+  "theme": "light",
+  "width": 1280,
+  "revision": "321fa1c",
+  "path": "/us/en/products",
+  "observed": "The dropdown offers 4 choices: Under $50; $50 – $100; $100 – $200; $200+.",
+  "note": "The filter bar's dropdowns show from 768 pixels wide; on a phone the filters drawer holds the same choices."
+}

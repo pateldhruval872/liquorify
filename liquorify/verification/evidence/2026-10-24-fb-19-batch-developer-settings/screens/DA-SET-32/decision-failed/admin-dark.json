@@ -1,0 +1,17 @@
+{
+  "screen": "DA-SET-32",
+  "state": "decision-failed",
+  "variant": "admin",
+  "role": null,
+  "theme": "dark",
+  "revision": "95bc66f",
+  "path": "/<store>/oauth/authorize",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": "The approval request is dropped in the browser, as a lost connection would drop it, so nothing is approved",
+  "masked": null,
+  "settled": true,
+  "outside": []
+}

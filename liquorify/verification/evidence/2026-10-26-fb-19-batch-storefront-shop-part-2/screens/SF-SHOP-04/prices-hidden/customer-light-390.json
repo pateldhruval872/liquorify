@@ -1,0 +1,11 @@
+{
+  "screen": "SF-SHOP-04",
+  "state": "prices-hidden",
+  "variant": "customer",
+  "theme": "light",
+  "width": 390,
+  "revision": "321fa1c",
+  "path": "/us/en/products/automatic-espresso-machine",
+  "observed": "Opened /us/en/products/automatic-espresso-machine; arrived at /us/en/products/automatic-espresso-machine, answered with status 200. The page shows 0 price(s), 0 product name(s) as level 3 headings and an Add to Cart button.",
+  "note": "The store's storefront access was saved as \"prices hidden\" in the dashboard's store settings (DA-SET-02) before the storefront started."
+}

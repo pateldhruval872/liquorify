@@ -1,0 +1,15 @@
+{
+  "app": "spree/emails test app, test environment, mail written to files",
+  "signUp": 201,
+  "resetRequested": 202,
+  "mail": {
+    "subject": "Shop Password Reset Instructions",
+    "messagesToTheCustomer": 1,
+    "linkPath": "/us/en/account/reset-password?token=…",
+    "linkGoesToTheRedirect": true
+  },
+  "resetWithTheMailedToken": 200,
+  "theSameTokenAgain": 422,
+  "signInWithTheOldPassword": 401,
+  "signInWithTheNewPassword": 200
+}

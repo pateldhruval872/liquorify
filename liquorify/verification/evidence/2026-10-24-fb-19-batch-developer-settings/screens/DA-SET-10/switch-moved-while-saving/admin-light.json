@@ -1,0 +1,17 @@
+{
+  "screen": "DA-SET-10",
+  "state": "switch-moved-while-saving",
+  "variant": "admin",
+  "role": null,
+  "theme": "light",
+  "revision": "95bc66f",
+  "path": "/<store>/settings/integrations",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": "The gateway's save is held open in the browser",
+  "masked": null,
+  "settled": true,
+  "outside": []
+}

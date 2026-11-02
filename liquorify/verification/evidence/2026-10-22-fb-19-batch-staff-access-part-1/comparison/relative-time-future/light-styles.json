@@ -1,0 +1,71 @@
+{
+  "id": "CMP-DUI-C-38",
+  "story": "dashboard-ui-composed-relative-time--future",
+  "theme": "light",
+  "revision": "a4a1708",
+  "screenWidth": 59,
+  "storyWidth": 64,
+  "compared": 1,
+  "onlyOnScreen": [],
+  "onlyInStory": [],
+  "differences": [
+    {
+      "element": "time|tooltip-trigger|cursor-default",
+      "property": "height",
+      "screen": "18.5625px",
+      "story": "auto"
+    }
+  ],
+  "styles": {
+    "screen": {
+      "time|tooltip-trigger|cursor-default": {
+        "color": "oklch(0.535 0.0127 58.071)",
+        "background-color": "rgba(0, 0, 0, 0)",
+        "font-family": "\"Geist Variable\", ui-sans-serif, system-ui, sans-serif",
+        "font-size": "13px",
+        "font-weight": "400",
+        "line-height": "18.5714px",
+        "letter-spacing": "normal",
+        "border-top-width": "0px",
+        "border-top-style": "solid",
+        "border-top-color": "oklch(0.923 0.003 48.717)",
+        "border-bottom-width": "0px",
+        "border-bottom-color": "oklch(0.923 0.003 48.717)",
+        "border-top-left-radius": "0px",
+        "padding-top": "0px",
+        "padding-right": "0px",
+        "padding-bottom": "0px",
+        "padding-left": "0px",
+        "height": "18.5625px",
+        "box-shadow": "none",
+        "opacity": "1",
+        "gap": "normal"
+      }
+    },
+    "story": {
+      "time|tooltip-trigger|cursor-default": {
+        "color": "oklch(0.535 0.0127 58.071)",
+        "background-color": "rgba(0, 0, 0, 0)",
+        "font-family": "\"Geist Variable\", ui-sans-serif, system-ui, sans-serif",
+        "font-size": "13px",
+        "font-weight": "400",
+        "line-height": "18.5714px",
+        "letter-spacing": "normal",
+        "border-top-width": "0px",
+        "border-top-style": "solid",
+        "border-top-color": "oklch(0.923 0.003 48.717)",
+        "border-bottom-width": "0px",
+        "border-bottom-color": "oklch(0.923 0.003 48.717)",
+        "border-top-left-radius": "0px",
+        "padding-top": "0px",
+        "padding-right": "0px",
+        "padding-bottom": "0px",
+        "padding-left": "0px",
+        "height": "auto",
+        "box-shadow": "none",
+        "opacity": "1",
+        "gap": "normal"
+      }
+    }
+  }
+}

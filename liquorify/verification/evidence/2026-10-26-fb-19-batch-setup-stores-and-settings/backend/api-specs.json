@@ -1,0 +1,1311 @@
+{
+ "engine": "spree/api",
+ "spree_code_at": "afd97cd",
+ "database": "SQLite",
+ "rspec": "3.13.6",
+ "seed": 42597,
+ "summary": {
+  "example_count": 216,
+  "failure_count": 0,
+  "pending_count": 0,
+  "errors_outside_of_examples_count": 0
+ },
+ "examples": [
+  {
+   "file": "spec/controllers/spree/api/v3/admin/setup_controller_spec.rb",
+   "line": 51,
+   "description": "Spree::Api::V3::Admin::SetupController GET #countries offers every official language, whether or not Spree translates it",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/setup_controller_spec.rb",
+   "line": 40,
+   "description": "Spree::Api::V3::Admin::SetupController GET #countries offers a regional locale for a language Spree ships only by region",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/setup_controller_spec.rb",
+   "line": 61,
+   "description": "Spree::Api::V3::Admin::SetupController GET #countries is gone once an admin exists",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/setup_controller_spec.rb",
+   "line": 28,
+   "description": "Spree::Api::V3::Admin::SetupController GET #countries lists countries with their derived currency and official locales",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/setup_controller_spec.rb",
+   "line": 309,
+   "description": "Spree::Api::V3::Admin::SetupController POST #create when the token is spent between the guard and the write returns 404 and creates no second admin",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/setup_controller_spec.rb",
+   "line": 279,
+   "description": "Spree::Api::V3::Admin::SetupController POST #create with an invalid token returns 404 without creating anything",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/setup_controller_spec.rb",
+   "line": 299,
+   "description": "Spree::Api::V3::Admin::SetupController POST #create without a token param returns 404",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/setup_controller_spec.rb",
+   "line": 290,
+   "description": "Spree::Api::V3::Admin::SetupController POST #create when an admin already exists returns 404 even with a valid token",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/setup_controller_spec.rb",
+   "line": 204,
+   "description": "Spree::Api::V3::Admin::SetupController POST #create with a valid token refuses an unknown country and leaves the token usable",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/setup_controller_spec.rb",
+   "line": 145,
+   "description": "Spree::Api::V3::Admin::SetupController POST #create with a valid token puts the back office in the chosen language",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/setup_controller_spec.rb",
+   "line": 129,
+   "description": "Spree::Api::V3::Admin::SetupController POST #create with a valid token provisions the store for the chosen country, deriving the currency",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/setup_controller_spec.rb",
+   "line": 111,
+   "description": "Spree::Api::V3::Admin::SetupController POST #create with a valid token creates the first admin, adopts the store, spends the token, and signs in",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/setup_controller_spec.rb",
+   "line": 162,
+   "description": "Spree::Api::V3::Admin::SetupController POST #create with a valid token queues the sample data load into the adopted store only when asked to",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/setup_controller_spec.rb",
+   "line": 212,
+   "description": "Spree::Api::V3::Admin::SetupController POST #create with a valid token refuses a missing country and leaves the token usable",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/setup_controller_spec.rb",
+   "line": 188,
+   "description": "Spree::Api::V3::Admin::SetupController POST #create with a valid token defaults the currency to the country's own when none is given",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/setup_controller_spec.rb",
+   "line": 172,
+   "description": "Spree::Api::V3::Admin::SetupController POST #create with a valid token refuses an unknown currency and leaves the token usable",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/setup_controller_spec.rb",
+   "line": 220,
+   "description": "Spree::Api::V3::Admin::SetupController POST #create with a valid token returns 422 with field errors on invalid input",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/setup_controller_spec.rb",
+   "line": 152,
+   "description": "Spree::Api::V3::Admin::SetupController POST #create with a valid token accepts a currency that differs from the country default",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/setup_controller_spec.rb",
+   "line": 167,
+   "description": "Spree::Api::V3::Admin::SetupController POST #create with a valid token does not queue sample data by default",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/setup_controller_spec.rb",
+   "line": 180,
+   "description": "Spree::Api::V3::Admin::SetupController POST #create with a valid token refuses a locale Spree cannot place and leaves the token usable",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/setup_controller_spec.rb",
+   "line": 195,
+   "description": "Spree::Api::V3::Admin::SetupController POST #create with a valid token defaults the locale to the country's own language",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/setup_controller_spec.rb",
+   "line": 266,
+   "description": "Spree::Api::V3::Admin::SetupController POST #create when changing the country and currency keeps the warehouse address when the chosen country matches it",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/setup_controller_spec.rb",
+   "line": 240,
+   "description": "Spree::Api::V3::Admin::SetupController POST #create when changing the country and currency moves the whole store to the newly chosen country and currency",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/setup_controller_spec.rb",
+   "line": 326,
+   "description": "Spree::Api::V3::Admin::SetupController POST #create when the store has no token returns 404",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/setup_controller_spec.rb",
+   "line": 8,
+   "description": "Spree::Api::V3::Admin::SetupController GET #show when no admin user exists reports setup as required",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/setup_controller_spec.rb",
+   "line": 19,
+   "description": "Spree::Api::V3::Admin::SetupController GET #show when an admin user exists reports setup as not required",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/setup_controller_spec.rb",
+   "line": 83,
+   "description": "Spree::Api::V3::Admin::SetupController rate limiting holds token submissions to the login budget",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/setup_controller_spec.rb",
+   "line": 75,
+   "description": "Spree::Api::V3::Admin::SetupController rate limiting keeps the status and countries reads off the login budget",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/claim_reasons_controller_spec.rb",
+   "line": 19,
+   "description": "Spree::Api::V3::Admin::ClaimReasonsController creates a claim reason",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/claim_reasons_controller_spec.rb",
+   "line": 33,
+   "description": "Spree::Api::V3::Admin::ClaimReasonsController refuses to delete a reason in use",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/claim_reasons_controller_spec.rb",
+   "line": 12,
+   "description": "Spree::Api::V3::Admin::ClaimReasonsController lists claim reasons",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/claim_reasons_controller_spec.rb",
+   "line": 26,
+   "description": "Spree::Api::V3::Admin::ClaimReasonsController updates a claim reason",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/refund_reasons_controller_spec.rb",
+   "line": 12,
+   "description": "Spree::Api::V3::Admin::RefundReasonsController lists refund reasons",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/refund_reasons_controller_spec.rb",
+   "line": 19,
+   "description": "Spree::Api::V3::Admin::RefundReasonsController creates a refund reason",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/refund_reasons_controller_spec.rb",
+   "line": 30,
+   "description": "Spree::Api::V3::Admin::RefundReasonsController store scoping excludes another store's reason from the listing",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/refund_reasons_controller_spec.rb",
+   "line": 36,
+   "description": "Spree::Api::V3::Admin::RefundReasonsController store scoping gives each store its own seeded reason",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/refund_reasons_controller_spec.rb",
+   "line": 53,
+   "description": "Spree::Api::V3::Admin::RefundReasonsController with a reason that is already used by a refund refuses to delete it",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/refund_reasons_controller_spec.rb",
+   "line": 47,
+   "description": "Spree::Api::V3::Admin::RefundReasonsController with a reason that is already used by a refund reports that it cannot be deleted",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/refund_reasons_controller_spec.rb",
+   "line": 58,
+   "description": "Spree::Api::V3::Admin::RefundReasonsController with a reason that is already used by a refund still allows renaming it",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/tax_exemption_reasons_controller_spec.rb",
+   "line": 115,
+   "description": "Spree::Api::V3::Admin::TaxExemptionReasonsController DELETE #destroy refuses to delete a reason a certificate records",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/tax_exemption_reasons_controller_spec.rb",
+   "line": 110,
+   "description": "Spree::Api::V3::Admin::TaxExemptionReasonsController DELETE #destroy deletes an unused reason",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/tax_exemption_reasons_controller_spec.rb",
+   "line": 92,
+   "description": "Spree::Api::V3::Admin::TaxExemptionReasonsController PATCH #update renames the reason",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/tax_exemption_reasons_controller_spec.rb",
+   "line": 99,
+   "description": "Spree::Api::V3::Admin::TaxExemptionReasonsController PATCH #update changes the code of a reason a certificate records",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/tax_exemption_reasons_controller_spec.rb",
+   "line": 84,
+   "description": "Spree::Api::V3::Admin::TaxExemptionReasonsController POST #create rejects a code the store already uses",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/tax_exemption_reasons_controller_spec.rb",
+   "line": 76,
+   "description": "Spree::Api::V3::Admin::TaxExemptionReasonsController POST #create creates a reason",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/tax_exemption_reasons_controller_spec.rb",
+   "line": 20,
+   "description": "Spree::Api::V3::Admin::TaxExemptionReasonsController GET #index excludes another store's reasons",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/tax_exemption_reasons_controller_spec.rb",
+   "line": 13,
+   "description": "Spree::Api::V3::Admin::TaxExemptionReasonsController GET #index returns the store reasons with their codes",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/tax_exemption_reasons_controller_spec.rb",
+   "line": 33,
+   "description": "Spree::Api::V3::Admin::TaxExemptionReasonsController GET #index with a key that manages customers but not settings reads the reasons",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/tax_exemption_reasons_controller_spec.rb",
+   "line": 40,
+   "description": "Spree::Api::V3::Admin::TaxExemptionReasonsController GET #index with a key that manages customers but not settings cannot change them",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/tax_exemption_reasons_controller_spec.rb",
+   "line": 59,
+   "description": "Spree::Api::V3::Admin::TaxExemptionReasonsController GET #index as a staffer whose role manages customers but not settings reads the reasons and each one",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/tax_exemption_reasons_controller_spec.rb",
+   "line": 67,
+   "description": "Spree::Api::V3::Admin::TaxExemptionReasonsController GET #index as a staffer whose role manages customers but not settings cannot create one",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/return_reasons_controller_spec.rb",
+   "line": 68,
+   "description": "Spree::Api::V3::Admin::ReturnReasonsController POST #create rejects a blank name",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/return_reasons_controller_spec.rb",
+   "line": 60,
+   "description": "Spree::Api::V3::Admin::ReturnReasonsController POST #create creates a reason",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/return_reasons_controller_spec.rb",
+   "line": 74,
+   "description": "Spree::Api::V3::Admin::ReturnReasonsController POST #create rejects a duplicate name",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/return_reasons_controller_spec.rb",
+   "line": 42,
+   "description": "Spree::Api::V3::Admin::ReturnReasonsController store scoping cannot fetch another store's reason by id",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/return_reasons_controller_spec.rb",
+   "line": 36,
+   "description": "Spree::Api::V3::Admin::ReturnReasonsController store scoping excludes another store's reasons from the listing",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/return_reasons_controller_spec.rb",
+   "line": 91,
+   "description": "Spree::Api::V3::Admin::ReturnReasonsController DELETE #destroy deletes the reason",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/return_reasons_controller_spec.rb",
+   "line": 96,
+   "description": "Spree::Api::V3::Admin::ReturnReasonsController DELETE #destroy refuses to delete a reason in use",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/return_reasons_controller_spec.rb",
+   "line": 50,
+   "description": "Spree::Api::V3::Admin::ReturnReasonsController GET #show returns the reason",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/return_reasons_controller_spec.rb",
+   "line": 13,
+   "description": "Spree::Api::V3::Admin::ReturnReasonsController GET #index returns return reasons",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/return_reasons_controller_spec.rb",
+   "line": 20,
+   "description": "Spree::Api::V3::Admin::ReturnReasonsController GET #index filters by active",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/return_reasons_controller_spec.rb",
+   "line": 82,
+   "description": "Spree::Api::V3::Admin::ReturnReasonsController PATCH #update updates the reason",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/custom_field_definitions_controller_spec.rb",
+   "line": 32,
+   "description": "Spree::Api::V3::Admin::CustomFieldDefinitionsController GET #index filters by field_type shorthand via Ransack",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/custom_field_definitions_controller_spec.rb",
+   "line": 24,
+   "description": "Spree::Api::V3::Admin::CustomFieldDefinitionsController GET #index filters by resource_type shorthand via Ransack",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/custom_field_definitions_controller_spec.rb",
+   "line": 16,
+   "description": "Spree::Api::V3::Admin::CustomFieldDefinitionsController GET #index returns all definitions across resource types",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/custom_field_definitions_controller_spec.rb",
+   "line": 40,
+   "description": "Spree::Api::V3::Admin::CustomFieldDefinitionsController GET #index exposes computed fields with their API names",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/custom_field_definitions_controller_spec.rb",
+   "line": 68,
+   "description": "Spree::Api::V3::Admin::CustomFieldDefinitionsController POST #create creates a definition",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/custom_field_definitions_controller_spec.rb",
+   "line": 149,
+   "description": "Spree::Api::V3::Admin::CustomFieldDefinitionsController POST #create accepts the legacy class-name form on `field_type` writes",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/custom_field_definitions_controller_spec.rb",
+   "line": 81,
+   "description": "Spree::Api::V3::Admin::CustomFieldDefinitionsController POST #create persists searchable and sortable flags",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/custom_field_definitions_controller_spec.rb",
+   "line": 138,
+   "description": "Spree::Api::V3::Admin::CustomFieldDefinitionsController POST #create silently drops the legacy `metafield_type` param",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/custom_field_definitions_controller_spec.rb",
+   "line": 106,
+   "description": "Spree::Api::V3::Admin::CustomFieldDefinitionsController POST #create when key collides with an existing definition for the same resource type returns 422",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/custom_field_definitions_controller_spec.rb",
+   "line": 114,
+   "description": "Spree::Api::V3::Admin::CustomFieldDefinitionsController POST #create when field_type is not a registered type returns 422",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/custom_field_definitions_controller_spec.rb",
+   "line": 130,
+   "description": "Spree::Api::V3::Admin::CustomFieldDefinitionsController POST #create when label is omitted derives the name from the titleized key",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/custom_field_definitions_controller_spec.rb",
+   "line": 94,
+   "description": "Spree::Api::V3::Admin::CustomFieldDefinitionsController POST #create with storefront_visible: false persists storefront_visible as false",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/custom_field_definitions_controller_spec.rb",
+   "line": 122,
+   "description": "Spree::Api::V3::Admin::CustomFieldDefinitionsController POST #create when resource_type is not registered returns 422",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/custom_field_definitions_controller_spec.rb",
+   "line": 260,
+   "description": "Spree::Api::V3::Admin::CustomFieldDefinitionsController API key scope enforcement with no relevant scope rejects index with 403",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/custom_field_definitions_controller_spec.rb",
+   "line": 246,
+   "description": "Spree::Api::V3::Admin::CustomFieldDefinitionsController API key scope enforcement with read_settings allows index",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/custom_field_definitions_controller_spec.rb",
+   "line": 251,
+   "description": "Spree::Api::V3::Admin::CustomFieldDefinitionsController API key scope enforcement with read_settings rejects writes",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/custom_field_definitions_controller_spec.rb",
+   "line": 200,
+   "description": "Spree::Api::V3::Admin::CustomFieldDefinitionsController store isolation omits another store's definitions from the listing",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/custom_field_definitions_controller_spec.rb",
+   "line": 208,
+   "description": "Spree::Api::V3::Admin::CustomFieldDefinitionsController store isolation does not find another store's definition",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/custom_field_definitions_controller_spec.rb",
+   "line": 228,
+   "description": "Spree::Api::V3::Admin::CustomFieldDefinitionsController store isolation builds a created definition on the requesting store",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/custom_field_definitions_controller_spec.rb",
+   "line": 214,
+   "description": "Spree::Api::V3::Admin::CustomFieldDefinitionsController store isolation refuses to update another store's definition",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/custom_field_definitions_controller_spec.rb",
+   "line": 221,
+   "description": "Spree::Api::V3::Admin::CustomFieldDefinitionsController store isolation refuses to destroy another store's definition",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/custom_field_definitions_controller_spec.rb",
+   "line": 269,
+   "description": "Spree::Api::V3::Admin::CustomFieldDefinitionsController GET #resource_types offers everything the registry allows, not a list the dashboard carries",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/custom_field_definitions_controller_spec.rb",
+   "line": 283,
+   "description": "Spree::Api::V3::Admin::CustomFieldDefinitionsController GET #resource_types accepts the category type it offers, storing the class name",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/custom_field_definitions_controller_spec.rb",
+   "line": 294,
+   "description": "Spree::Api::V3::Admin::CustomFieldDefinitionsController GET #resource_types accepts a type it offered",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/custom_field_definitions_controller_spec.rb",
+   "line": 163,
+   "description": "Spree::Api::V3::Admin::CustomFieldDefinitionsController PATCH #update updates the definition's label and visibility",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/custom_field_definitions_controller_spec.rb",
+   "line": 180,
+   "description": "Spree::Api::V3::Admin::CustomFieldDefinitionsController DELETE #destroy destroys the definition and cascades to its custom fields",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/order_routing_rules_controller_spec.rb",
+   "line": 34,
+   "description": "Spree::Api::V3::Admin::OrderRoutingRulesController POST #create appends a rule at the end of the list when no position is given",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/order_routing_rules_controller_spec.rb",
+   "line": 45,
+   "description": "Spree::Api::V3::Admin::OrderRoutingRulesController POST #create 422s on an unregistered type",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/order_routing_rules_controller_spec.rb",
+   "line": 60,
+   "description": "Spree::Api::V3::Admin::OrderRoutingRulesController POST #create 404s for a channel that belongs to another store",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/order_routing_rules_controller_spec.rb",
+   "line": 52,
+   "description": "Spree::Api::V3::Admin::OrderRoutingRulesController POST #create 422s when the channel already has a rule of that kind",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/order_routing_rules_controller_spec.rb",
+   "line": 112,
+   "description": "Spree::Api::V3::Admin::OrderRoutingRulesController GET #types enumerates registered rule kinds with labels and their preferences schema",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/order_routing_rules_controller_spec.rb",
+   "line": 127,
+   "description": "Spree::Api::V3::Admin::OrderRoutingRulesController GET #types with a read-only secret API key and no JWT maps type discovery to the read scope",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/order_routing_rules_controller_spec.rb",
+   "line": 133,
+   "description": "Spree::Api::V3::Admin::OrderRoutingRulesController GET #types with a read-only secret API key and no JWT still requires the write scope for mutations",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/order_routing_rules_controller_spec.rb",
+   "line": 92,
+   "description": "Spree::Api::V3::Admin::OrderRoutingRulesController PATCH #update cannot switch the STI type",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/order_routing_rules_controller_spec.rb",
+   "line": 73,
+   "description": "Spree::Api::V3::Admin::OrderRoutingRulesController PATCH #update toggles active",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/order_routing_rules_controller_spec.rb",
+   "line": 81,
+   "description": "Spree::Api::V3::Admin::OrderRoutingRulesController PATCH #update reorders the list when position changes",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/order_routing_rules_controller_spec.rb",
+   "line": 24,
+   "description": "Spree::Api::V3::Admin::OrderRoutingRulesController GET #index 404s when listing rules of another store's channel",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/order_routing_rules_controller_spec.rb",
+   "line": 15,
+   "description": "Spree::Api::V3::Admin::OrderRoutingRulesController GET #index lists the channel rules ordered by position",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/order_routing_rules_controller_spec.rb",
+   "line": 101,
+   "description": "Spree::Api::V3::Admin::OrderRoutingRulesController DELETE #destroy removes the rule from the channel",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+   "line": 249,
+   "description": "Spree::Api::V3::Admin::StoreController PATCH #update with invalid params returns a validation error",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+   "line": 376,
+   "description": "Spree::Api::V3::Admin::StoreController PATCH #update with storefront-access gating params updates the store-wide gating defaults",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+   "line": 235,
+   "description": "Spree::Api::V3::Admin::StoreController PATCH #update with the digital download limits saves them",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+   "line": 316,
+   "description": "Spree::Api::V3::Admin::StoreController PATCH #update with a prefix containing unsupported characters returns a validation error",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+   "line": 276,
+   "description": "Spree::Api::V3::Admin::StoreController PATCH #update with order-numbering params exposes them in the response",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+   "line": 266,
+   "description": "Spree::Api::V3::Admin::StoreController PATCH #update with order-numbering params updates the numbering preferences",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+   "line": 281,
+   "description": "Spree::Api::V3::Admin::StoreController PATCH #update with order-numbering params reports that numbering has not started yet",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+   "line": 296,
+   "description": "Spree::Api::V3::Admin::StoreController PATCH #update with order-numbering params once the counter has issued a number rejects a changed starting value",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+   "line": 289,
+   "description": "Spree::Api::V3::Admin::StoreController PATCH #update with order-numbering params once the counter has issued a number reports the started flag",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+   "line": 346,
+   "description": "Spree::Api::V3::Admin::StoreController PATCH #update with email branding params saves the colors and font customer emails use",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+   "line": 355,
+   "description": "Spree::Api::V3::Admin::StoreController PATCH #update with email branding params with a value that is not a color refuses it",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+   "line": 332,
+   "description": "Spree::Api::V3::Admin::StoreController PATCH #update with email-section params updates the email preferences and addresses",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+   "line": 415,
+   "description": "Spree::Api::V3::Admin::StoreController PATCH #update with commerce behavior params updates the store-scoped commerce settings",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+   "line": 366,
+   "description": "Spree::Api::V3::Admin::StoreController PATCH #update with an invalid mail_from_address returns a validation error",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+   "line": 503,
+   "description": "Spree::Api::V3::Admin::StoreController PATCH #update authenticated with a secret API key carrying the write_settings scope allows the write",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+   "line": 492,
+   "description": "Spree::Api::V3::Admin::StoreController PATCH #update authenticated with a secret API key lacking the write_settings scope denies the write with the required scope",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+   "line": 307,
+   "description": "Spree::Api::V3::Admin::StoreController PATCH #update with an unsupported numbering format returns a validation error",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+   "line": 461,
+   "description": "Spree::Api::V3::Admin::StoreController PATCH #update with an invalid storefront_access value returns a validation error",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+   "line": 451,
+   "description": "Spree::Api::V3::Admin::StoreController PATCH #update with a commission tax rate above 1 returns a validation error",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+   "line": 435,
+   "description": "Spree::Api::V3::Admin::StoreController PATCH #update with marketplace params updates the marketplace settings",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+   "line": 204,
+   "description": "Spree::Api::V3::Admin::StoreController PATCH #update with the low stock threshold saves it and returns it",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+   "line": 211,
+   "description": "Spree::Api::V3::Admin::StoreController PATCH #update with the low stock threshold refuses a negative threshold",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+   "line": 388,
+   "description": "Spree::Api::V3::Admin::StoreController PATCH #update with a pre-6.0 preferred_ key ignores it: the Admin API takes the setting under its own name",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+   "line": 189,
+   "description": "Spree::Api::V3::Admin::StoreController PATCH #update with valid params returns the prefixed id in the response (not the raw DB id)",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+   "line": 183,
+   "description": "Spree::Api::V3::Admin::StoreController PATCH #update with valid params updates the store and returns ok",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+   "line": 195,
+   "description": "Spree::Api::V3::Admin::StoreController PATCH #update with valid params returns the storefront_url in the url field",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+   "line": 222,
+   "description": "Spree::Api::V3::Admin::StoreController PATCH #update with an attribute an extension opened saves it",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+   "line": 397,
+   "description": "Spree::Api::V3::Admin::StoreController PATCH #update with address params updates the address settings",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+   "line": 472,
+   "description": "Spree::Api::V3::Admin::StoreController PATCH #update without authentication returns unauthorized",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+   "line": 563,
+   "description": "Spree::Api::V3::Admin::StoreController PATCH #update reads and writes the routing strategy and payout provider by their shorthand",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+   "line": 572,
+   "description": "Spree::Api::V3::Admin::StoreController PATCH #update refuses a policy that is neither falling back nor strict",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+   "line": 550,
+   "description": "Spree::Api::V3::Admin::StoreController PATCH #update saves the chosen providers and policies",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+   "line": 148,
+   "description": "Spree::Api::V3::Admin::StoreController GET #show exposes the email-section attributes",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+   "line": 24,
+   "description": "Spree::Api::V3::Admin::StoreController GET #show returns the storefront url setting as stored, not its fallback",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+   "line": 159,
+   "description": "Spree::Api::V3::Admin::StoreController GET #show exposes the storefront-access gating defaults",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+   "line": 17,
+   "description": "Spree::Api::V3::Admin::StoreController GET #show returns ok",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+   "line": 141,
+   "description": "Spree::Api::V3::Admin::StoreController GET #show exposes the full canonical set of translatable locales",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+   "line": 130,
+   "description": "Spree::Api::V3::Admin::StoreController GET #show includes computed default_currency, default_locale, default_country_code and supported lists",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+   "line": 93,
+   "description": "Spree::Api::V3::Admin::StoreController GET #show serializes the prefixed id, not the raw integer DB id",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+   "line": 104,
+   "description": "Spree::Api::V3::Admin::StoreController GET #show returns the store name",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+   "line": 124,
+   "description": "Spree::Api::V3::Admin::StoreController GET #show when the store has an allowed origin serializes url from the first allowed origin",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+   "line": 86,
+   "description": "Spree::Api::V3::Admin::StoreController GET #show via a secret API key with the settings scope reads the store",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+   "line": 110,
+   "description": "Spree::Api::V3::Admin::StoreController GET #show when the store has no allowed origins serializes url from storefront_url (falling back to formatted_url)",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+   "line": 170,
+   "description": "Spree::Api::V3::Admin::StoreController GET #show without authentication returns unauthorized",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+   "line": 75,
+   "description": "Spree::Api::V3::Admin::StoreController GET #show via a secret API key without a settings scope cannot update it",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+   "line": 69,
+   "description": "Spree::Api::V3::Admin::StoreController GET #show via a secret API key without a settings scope is denied",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+   "line": 47,
+   "description": "Spree::Api::V3::Admin::StoreController GET #show as a staffer without any settings permission still reads the store",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+   "line": 53,
+   "description": "Spree::Api::V3::Admin::StoreController GET #show as a staffer without any settings permission cannot update it",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+   "line": 531,
+   "description": "Spree::Api::V3::Admin::StoreController GET #data_sources marks a provider whose integration is not connected as unavailable",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+   "line": 522,
+   "description": "Spree::Api::V3::Admin::StoreController GET #data_sources offers the failure policies a merchant can choose between",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+   "line": 513,
+   "description": "Spree::Api::V3::Admin::StoreController GET #data_sources lists Spree own engines as available",
+   "status": "passed"
+  },
+  {
+   "file": "spec/integration/spree/api/v3/admin/store_spec.rb",
+   "line": null,
+   "description": "Admin Store API /api/v3/admin/store patch store updated returns a 200 response",
+   "status": "passed"
+  },
+  {
+   "file": "spec/integration/spree/api/v3/admin/store_spec.rb",
+   "line": null,
+   "description": "Admin Store API /api/v3/admin/store patch validation error returns a 422 response",
+   "status": "passed"
+  },
+  {
+   "file": "spec/integration/spree/api/v3/admin/store_spec.rb",
+   "line": null,
+   "description": "Admin Store API /api/v3/admin/store get current store returns a 200 response",
+   "status": "passed"
+  },
+  {
+   "file": "spec/integration/spree/api/v3/admin/store_spec.rb",
+   "line": null,
+   "description": "Admin Store API /api/v3/admin/store get unauthorized returns a 401 response",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/order_cancellation_reasons_controller_spec.rb",
+   "line": 12,
+   "description": "Spree::Api::V3::Admin::OrderCancellationReasonsController lists order cancellation reasons",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/order_cancellation_reasons_controller_spec.rb",
+   "line": 26,
+   "description": "Spree::Api::V3::Admin::OrderCancellationReasonsController updates an order cancellation reason",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/order_cancellation_reasons_controller_spec.rb",
+   "line": 40,
+   "description": "Spree::Api::V3::Admin::OrderCancellationReasonsController does not expose another store's reasons",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/order_cancellation_reasons_controller_spec.rb",
+   "line": 33,
+   "description": "Spree::Api::V3::Admin::OrderCancellationReasonsController refuses to delete a reason in use",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/order_cancellation_reasons_controller_spec.rb",
+   "line": 19,
+   "description": "Spree::Api::V3::Admin::OrderCancellationReasonsController creates an order cancellation reason",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/order_cancellation_reasons_controller_spec.rb",
+   "line": 57,
+   "description": "Spree::Api::V3::Admin::OrderCancellationReasonsController as staff authorized by permission keys alone lists the reasons",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/order_cancellation_reasons_controller_spec.rb",
+   "line": 64,
+   "description": "Spree::Api::V3::Admin::OrderCancellationReasonsController as staff authorized by permission keys alone creates a reason",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/policies_controller_spec.rb",
+   "line": 121,
+   "description": "Spree::Api::V3::Admin::PoliciesController DELETE #destroy deletes the policy",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/policies_controller_spec.rb",
+   "line": 49,
+   "description": "Spree::Api::V3::Admin::PoliciesController GET #show returns the policy by prefixed id",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/policies_controller_spec.rb",
+   "line": 59,
+   "description": "Spree::Api::V3::Admin::PoliciesController GET #show returns the policy by slug",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/policies_controller_spec.rb",
+   "line": 66,
+   "description": "Spree::Api::V3::Admin::PoliciesController GET #show returns 404 for a policy owned by another store",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/policies_controller_spec.rb",
+   "line": 95,
+   "description": "Spree::Api::V3::Admin::PoliciesController POST #create rejects a policy with no name",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/policies_controller_spec.rb",
+   "line": 87,
+   "description": "Spree::Api::V3::Admin::PoliciesController POST #create sanitizes the body it stores",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/policies_controller_spec.rb",
+   "line": 76,
+   "description": "Spree::Api::V3::Admin::PoliciesController POST #create creates a policy owned by the current store",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/policies_controller_spec.rb",
+   "line": 110,
+   "description": "Spree::Api::V3::Admin::PoliciesController PATCH #update does not update a policy owned by another store",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/policies_controller_spec.rb",
+   "line": 103,
+   "description": "Spree::Api::V3::Admin::PoliciesController PATCH #update updates the policy",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/policies_controller_spec.rb",
+   "line": 39,
+   "description": "Spree::Api::V3::Admin::PoliciesController GET #index filters a polymorphic type by shorthand",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/policies_controller_spec.rb",
+   "line": 15,
+   "description": "Spree::Api::V3::Admin::PoliciesController GET #index returns the store\u2019s policies",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/policies_controller_spec.rb",
+   "line": 22,
+   "description": "Spree::Api::V3::Admin::PoliciesController GET #index does not return policies belonging to another store",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/policies_controller_spec.rb",
+   "line": 31,
+   "description": "Spree::Api::V3::Admin::PoliciesController GET #index does not return a seller\u2019s policies",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/channels_controller_spec.rb",
+   "line": 110,
+   "description": "Spree::Api::V3::Admin::ChannelsController POST #remove_products unpublishes the listed products from the channel",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/channels_controller_spec.rb",
+   "line": 158,
+   "description": "Spree::Api::V3::Admin::ChannelsController POST #remove_products 404s when the channel belongs to a different store",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/channels_controller_spec.rb",
+   "line": 143,
+   "description": "Spree::Api::V3::Admin::ChannelsController POST #remove_products is a no-op for products that have no publication on this channel",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/channels_controller_spec.rb",
+   "line": 130,
+   "description": "Spree::Api::V3::Admin::ChannelsController POST #remove_products is a no-op for products not currently on the channel",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/channels_controller_spec.rb",
+   "line": 121,
+   "description": "Spree::Api::V3::Admin::ChannelsController POST #remove_products leaves untouched products published",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/channels_controller_spec.rb",
+   "line": 315,
+   "description": "Spree::Api::V3::Admin::ChannelsController fulfillment-origin allowlist replaces the allowlist and serializes prefixed ids",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/channels_controller_spec.rb",
+   "line": 325,
+   "description": "Spree::Api::V3::Admin::ChannelsController fulfillment-origin allowlist rejects a cross-store location with 404",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/channels_controller_spec.rb",
+   "line": 197,
+   "description": "Spree::Api::V3::Admin::ChannelsController POST #create persists the storefront gating preferences",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/channels_controller_spec.rb",
+   "line": 185,
+   "description": "Spree::Api::V3::Admin::ChannelsController POST #create leaves the existing default in place when default=false",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/channels_controller_spec.rb",
+   "line": 170,
+   "description": "Spree::Api::V3::Admin::ChannelsController POST #create creates a new channel and demotes the previous default when default=true",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/channels_controller_spec.rb",
+   "line": 345,
+   "description": "Spree::Api::V3::Admin::ChannelsController default catalog clears the default catalog when set to null, restoring every published product",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/channels_controller_spec.rb",
+   "line": 355,
+   "description": "Spree::Api::V3::Admin::ChannelsController default catalog rejects a cross-store catalog with 404",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/channels_controller_spec.rb",
+   "line": 337,
+   "description": "Spree::Api::V3::Admin::ChannelsController default catalog sets the default catalog and serializes its prefixed id",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/channels_controller_spec.rb",
+   "line": 54,
+   "description": "Spree::Api::V3::Admin::ChannelsController POST #add_products does not publish a product owned by another store",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/channels_controller_spec.rb",
+   "line": 18,
+   "description": "Spree::Api::V3::Admin::ChannelsController POST #add_products publishes the listed products on the channel",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/channels_controller_spec.rb",
+   "line": 41,
+   "description": "Spree::Api::V3::Admin::ChannelsController POST #add_products publishes a product that has no publications yet (first-time onboarding)",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/channels_controller_spec.rb",
+   "line": 81,
+   "description": "Spree::Api::V3::Admin::ChannelsController POST #add_products is a no-op when product_ids is empty",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/channels_controller_spec.rb",
+   "line": 92,
+   "description": "Spree::Api::V3::Admin::ChannelsController POST #add_products 404s when the channel belongs to a different store",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/channels_controller_spec.rb",
+   "line": 67,
+   "description": "Spree::Api::V3::Admin::ChannelsController POST #add_products accepts an ISO8601 published_at window",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/channels_controller_spec.rb",
+   "line": 29,
+   "description": "Spree::Api::V3::Admin::ChannelsController POST #add_products is idempotent \u2014 re-publishing existing products does not duplicate",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/channels_controller_spec.rb",
+   "line": 213,
+   "description": "Spree::Api::V3::Admin::ChannelsController PATCH #update promotes a non-default channel and demotes the previous default",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/channels_controller_spec.rb",
+   "line": 263,
+   "description": "Spree::Api::V3::Admin::ChannelsController PATCH #update clears the gating overrides back to store inheritance when set to null",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/channels_controller_spec.rb",
+   "line": 247,
+   "description": "Spree::Api::V3::Admin::ChannelsController PATCH #update persists the storefront gating preferences",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/channels_controller_spec.rb",
+   "line": 235,
+   "description": "Spree::Api::V3::Admin::ChannelsController PATCH #update clears the channel-level override when set to null",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/channels_controller_spec.rb",
+   "line": 224,
+   "description": "Spree::Api::V3::Admin::ChannelsController PATCH #update persists order_routing_strategy",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/channels_controller_spec.rb",
+   "line": 279,
+   "description": "Spree::Api::V3::Admin::ChannelsController PATCH #update rejects an invalid storefront access value with 422 and keeps the existing override",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/channels_controller_spec.rb",
+   "line": 301,
+   "description": "Spree::Api::V3::Admin::ChannelsController DELETE #destroy refuses to delete the default channel with 422",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/channels_controller_spec.rb",
+   "line": 294,
+   "description": "Spree::Api::V3::Admin::ChannelsController DELETE #destroy destroys a non-default channel",
+   "status": "passed"
+  },
+  {
+   "file": "spec/integration/spree/api/v3/admin/setup_spec.rb",
+   "line": null,
+   "description": "Admin Setup API /api/v3/admin/auth/setup/countries get countries returns a 200 response",
+   "status": "passed"
+  },
+  {
+   "file": "spec/integration/spree/api/v3/admin/setup_spec.rb",
+   "line": null,
+   "description": "Admin Setup API /api/v3/admin/auth/setup get setup status returns a 200 response",
+   "status": "passed"
+  },
+  {
+   "file": "spec/integration/spree/api/v3/admin/setup_spec.rb",
+   "line": null,
+   "description": "Admin Setup API /api/v3/admin/auth/setup post setup completed returns a 200 response",
+   "status": "passed"
+  },
+  {
+   "file": "spec/integration/spree/api/v3/admin/setup_spec.rb",
+   "line": null,
+   "description": "Admin Setup API /api/v3/admin/auth/setup post setup not available returns a 404 response",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/markets_controller_spec.rb",
+   "line": 48,
+   "description": "Spree::Api::V3::Admin::MarketsController GET #show 404s on a market from another store",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/markets_controller_spec.rb",
+   "line": 54,
+   "description": "Spree::Api::V3::Admin::MarketsController GET #show reports which tax engine computes for the market",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/markets_controller_spec.rb",
+   "line": 40,
+   "description": "Spree::Api::V3::Admin::MarketsController GET #show returns the market",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/markets_controller_spec.rb",
+   "line": 23,
+   "description": "Spree::Api::V3::Admin::MarketsController GET #index returns markets in list order",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/markets_controller_spec.rb",
+   "line": 14,
+   "description": "Spree::Api::V3::Admin::MarketsController GET #index returns markets in the current store only",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/markets_controller_spec.rb",
+   "line": 80,
+   "description": "Spree::Api::V3::Admin::MarketsController PATCH #update clears the selection back to the store default",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/markets_controller_spec.rb",
+   "line": 73,
+   "description": "Spree::Api::V3::Admin::MarketsController PATCH #update refuses an engine this installation does not have",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/markets_controller_spec.rb",
+   "line": 64,
+   "description": "Spree::Api::V3::Admin::MarketsController PATCH #update points the market at an installed tax engine",
+   "status": "passed"
+  }
+ ]
+}

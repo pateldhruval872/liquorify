@@ -1,0 +1,218 @@
+{
+  "revision": "321fa1cfb1ccbd7acde4945512e27e73fad90562",
+  "runner": "Vitest, the storefront's own configuration",
+  "command": "pnpm test",
+  "summary": "35 files, 260 tests, 260 passed, 0 failed",
+  "files": [
+    {
+      "file": "src/app/[country]/[locale]/(checkout)/confirm-payment/__tests__/page.test.tsx",
+      "status": "passed",
+      "tests": 7,
+      "passed": 7
+    },
+    {
+      "file": "src/app/[country]/[locale]/(storefront)/account/(authenticated)/layout.test.tsx",
+      "status": "passed",
+      "tests": 3,
+      "passed": 3
+    },
+    {
+      "file": "src/app/[country]/[locale]/(storefront)/layout.test.tsx",
+      "status": "passed",
+      "tests": 1,
+      "passed": 1
+    },
+    {
+      "file": "src/app/[country]/[locale]/(storefront)/policies/[slug]/page.test.tsx",
+      "status": "passed",
+      "tests": 1,
+      "passed": 1
+    },
+    {
+      "file": "src/app/[country]/[locale]/(storefront)/products/[slug]/ProductDetails.test.tsx",
+      "status": "passed",
+      "tests": 2,
+      "passed": 2
+    },
+    {
+      "file": "src/app/[country]/[locale]/layout.test.tsx",
+      "status": "passed",
+      "tests": 6,
+      "passed": 6
+    },
+    {
+      "file": "src/app/sitemap.test.ts",
+      "status": "passed",
+      "tests": 7,
+      "passed": 7
+    },
+    {
+      "file": "src/components/account/__tests__/AuthenticatedAccountShell.test.tsx",
+      "status": "passed",
+      "tests": 3,
+      "passed": 3
+    },
+    {
+      "file": "src/components/layout/DocumentShell.test.tsx",
+      "status": "passed",
+      "tests": 2,
+      "passed": 2
+    },
+    {
+      "file": "src/components/layout/__tests__/MobileMenu.test.tsx",
+      "status": "passed",
+      "tests": 2,
+      "passed": 2
+    },
+    {
+      "file": "src/components/layout/__tests__/RegionPreferences.test.tsx",
+      "status": "passed",
+      "tests": 3,
+      "passed": 3
+    },
+    {
+      "file": "src/components/products/__tests__/ProductCard.test.tsx",
+      "status": "passed",
+      "tests": 9,
+      "passed": 9
+    },
+    {
+      "file": "src/components/ui/__tests__/quantity-picker.test.tsx",
+      "status": "passed",
+      "tests": 9,
+      "passed": 9
+    },
+    {
+      "file": "src/contexts/__tests__/AuthContext.test.tsx",
+      "status": "passed",
+      "tests": 4,
+      "passed": 4
+    },
+    {
+      "file": "src/contexts/__tests__/CartContext.test.tsx",
+      "status": "passed",
+      "tests": 10,
+      "passed": 10
+    },
+    {
+      "file": "src/hooks/__tests__/useCountrySwitch.test.ts",
+      "status": "passed",
+      "tests": 3,
+      "passed": 3
+    },
+    {
+      "file": "src/i18n/__tests__/locales.test.ts",
+      "status": "passed",
+      "tests": 4,
+      "passed": 4
+    },
+    {
+      "file": "src/i18n/__tests__/markets.test.ts",
+      "status": "passed",
+      "tests": 2,
+      "passed": 2
+    },
+    {
+      "file": "src/i18n/__tests__/routing.test.ts",
+      "status": "passed",
+      "tests": 2,
+      "passed": 2
+    },
+    {
+      "file": "src/lib/__tests__/wholesale.test.ts",
+      "status": "passed",
+      "tests": 7,
+      "passed": 7
+    },
+    {
+      "file": "src/lib/data/__tests__/cart.test.ts",
+      "status": "passed",
+      "tests": 16,
+      "passed": 16
+    },
+    {
+      "file": "src/lib/data/__tests__/checkout.test.ts",
+      "status": "passed",
+      "tests": 21,
+      "passed": 21
+    },
+    {
+      "file": "src/lib/data/__tests__/customer.test.ts",
+      "status": "passed",
+      "tests": 20,
+      "passed": 20
+    },
+    {
+      "file": "src/lib/data/__tests__/payment.test.ts",
+      "status": "passed",
+      "tests": 19,
+      "passed": 19
+    },
+    {
+      "file": "src/lib/data/__tests__/policies.test.ts",
+      "status": "passed",
+      "tests": 3,
+      "passed": 3
+    },
+    {
+      "file": "src/lib/data/__tests__/resolve-surface.test.ts",
+      "status": "passed",
+      "tests": 8,
+      "passed": 8
+    },
+    {
+      "file": "src/lib/data/__tests__/sitemap.test.ts",
+      "status": "passed",
+      "tests": 2,
+      "passed": 2
+    },
+    {
+      "file": "src/lib/metadata/__tests__/alternates.test.ts",
+      "status": "passed",
+      "tests": 12,
+      "passed": 12
+    },
+    {
+      "file": "src/lib/spree/__tests__/auth-helpers.test.ts",
+      "status": "passed",
+      "tests": 4,
+      "passed": 4
+    },
+    {
+      "file": "src/lib/spree/__tests__/jwt.test.ts",
+      "status": "passed",
+      "tests": 7,
+      "passed": 7
+    },
+    {
+      "file": "src/lib/spree/middleware.test.ts",
+      "status": "passed",
+      "tests": 14,
+      "passed": 14
+    },
+    {
+      "file": "src/lib/utils/__tests__/account-redirect.test.ts",
+      "status": "passed",
+      "tests": 13,
+      "passed": 13
+    },
+    {
+      "file": "src/lib/utils/__tests__/express-checkout.test.ts",
+      "status": "passed",
+      "tests": 6,
+      "passed": 6
+    },
+    {
+      "file": "src/lib/utils/__tests__/path.test.ts",
+      "status": "passed",
+      "tests": 16,
+      "passed": 16
+    },
+    {
+      "file": "stories/fixtures/fixtures.test.ts",
+      "status": "passed",
+      "tests": 12,
+      "passed": 12
+    }
+  ]
+}

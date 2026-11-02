@@ -1,0 +1,788 @@
+{
+  "theme": "dark",
+  "revision": "817e177",
+  "counts": {
+    "dashboard": 202,
+    "sellerPanel": 198,
+    "storybook": 277
+  },
+  "dashboardAgainstStorybook": [
+    {
+      "name": "--spacing-header-height",
+      "screen": "93px",
+      "story": "0px"
+    },
+    {
+      "name": "--shadow-xs",
+      "screen": null,
+      "story": "0 0px 1px 0 #0000000d"
+    },
+    {
+      "name": "--color-info-border",
+      "screen": null,
+      "story": "oklch(39.1% .09 240.876)"
+    },
+    {
+      "name": "--shadow-control",
+      "screen": null,
+      "story": "0 .5px 1px 0 #0000000d"
+    },
+    {
+      "name": "--color-border-card",
+      "screen": null,
+      "story": "color-mix(in srgb, oklch(100% 0 0/.16) 70%, transparent)"
+    },
+    {
+      "name": "--color-card-foreground",
+      "screen": null,
+      "story": "oklch(95% 0 0)"
+    },
+    {
+      "name": "--color-primary-foreground",
+      "screen": null,
+      "story": "oklch(14.7% 0 0)"
+    },
+    {
+      "name": "--color-sidebar",
+      "screen": null,
+      "story": "oklch(14% 0 0)"
+    },
+    {
+      "name": "--color-track-recessed",
+      "screen": null,
+      "story": "oklch(17% 0 0)"
+    },
+    {
+      "name": "--color-sidebar-border",
+      "screen": null,
+      "story": "color-mix(in srgb, oklch(100% 0 0/.16) 75%, transparent)"
+    },
+    {
+      "name": "--color-accent",
+      "screen": null,
+      "story": "oklch(29.5% 0 0)"
+    },
+    {
+      "name": "--color-popover",
+      "screen": null,
+      "story": "oklch(21.6% 0 0)"
+    },
+    {
+      "name": "--color-warning-border",
+      "screen": null,
+      "story": "oklch(41.4% .112 45.904)"
+    },
+    {
+      "name": "--color-input",
+      "screen": null,
+      "story": "color-mix(in srgb, oklch(100% 0 0/.16) 80%, transparent)"
+    },
+    {
+      "name": "--color-accent-strong",
+      "screen": null,
+      "story": "oklch(38% 0 0)"
+    },
+    {
+      "name": "--color-info",
+      "screen": null,
+      "story": "oklch(82.8% .111 230.318)"
+    },
+    {
+      "name": "--radius-lg",
+      "screen": null,
+      "story": ".625rem"
+    },
+    {
+      "name": "--color-border-subtle",
+      "screen": null,
+      "story": "color-mix(in srgb, oklch(100% 0 0/.16) 50%, transparent)"
+    },
+    {
+      "name": "--text-xl",
+      "screen": null,
+      "story": "1.25rem"
+    },
+    {
+      "name": "--color-chart-1",
+      "screen": null,
+      "story": "oklch(80.9% .105 251.813)"
+    },
+    {
+      "name": "--color-nested-raised",
+      "screen": null,
+      "story": "oklch(25% 0 0)"
+    },
+    {
+      "name": "--color-warning-bg",
+      "screen": null,
+      "story": "oklch(41.4% .112 45.904)"
+    },
+    {
+      "name": "--color-sidebar-primary-foreground",
+      "screen": null,
+      "story": "oklch(14.7% 0 0)"
+    },
+    {
+      "name": "--color-secondary",
+      "screen": null,
+      "story": "oklch(25% 0 0)"
+    },
+    {
+      "name": "--text-sm",
+      "screen": null,
+      "story": ".8125rem"
+    },
+    {
+      "name": "--ease-out",
+      "screen": null,
+      "story": "cubic-bezier(.23, 1, .32, 1)"
+    },
+    {
+      "name": "--color-accent-foreground",
+      "screen": null,
+      "story": "oklch(95% 0 0)"
+    },
+    {
+      "name": "--color-popover-foreground",
+      "screen": null,
+      "story": "oklch(95% 0 0)"
+    },
+    {
+      "name": "--color-accent-strong-hover",
+      "screen": null,
+      "story": "oklch(44.4% 0 0)"
+    },
+    {
+      "name": "--color-danger-bg",
+      "screen": null,
+      "story": "oklch(39.6% .141 25.723)"
+    },
+    {
+      "name": "--color-accent-hover",
+      "screen": null,
+      "story": "oklch(33% 0 0)"
+    },
+    {
+      "name": "--color-blue-600",
+      "screen": null,
+      "story": "oklch(51.06% .1868 257.7)"
+    },
+    {
+      "name": "--color-ring",
+      "screen": null,
+      "story": "oklch(68% .19 258)"
+    },
+    {
+      "name": "--color-border",
+      "screen": null,
+      "story": "oklch(100% 0 0/.16)"
+    },
+    {
+      "name": "--color-chart-3",
+      "screen": null,
+      "story": "oklch(54.6% .245 262.881)"
+    },
+    {
+      "name": "--color-foreground",
+      "screen": null,
+      "story": "oklch(95% 0 0)"
+    },
+    {
+      "name": "--spacing-rail-header-height",
+      "screen": null,
+      "story": "42px"
+    },
+    {
+      "name": "--color-sidebar-ring",
+      "screen": null,
+      "story": "oklch(68% .19 258)"
+    },
+    {
+      "name": "--color-success-bg",
+      "screen": null,
+      "story": "oklch(39.3% .095 152.535)"
+    },
+    {
+      "name": "--color-chart-4",
+      "screen": null,
+      "story": "oklch(48.8% .243 264.376)"
+    },
+    {
+      "name": "--color-sidebar-primary",
+      "screen": null,
+      "story": "oklch(95% 0 0)"
+    },
+    {
+      "name": "--color-link-hover",
+      "screen": null,
+      "story": "oklch(78% .14 258)"
+    },
+    {
+      "name": "--color-link",
+      "screen": null,
+      "story": "oklch(70% .16 258)"
+    },
+    {
+      "name": "--color-muted-foreground",
+      "screen": null,
+      "story": "oklch(70.9% 0 0)"
+    },
+    {
+      "name": "--text-2xl",
+      "screen": null,
+      "story": "1.5rem"
+    },
+    {
+      "name": "--shadow-md",
+      "screen": null,
+      "story": "0 4px 16px -4px #00000014, 0 1px 4px -2px #0000000d"
+    },
+    {
+      "name": "--text-lg",
+      "screen": null,
+      "story": "1rem"
+    },
+    {
+      "name": "--font-sans",
+      "screen": null,
+      "story": "\"Geist Variable\", ui-sans-serif, system-ui, sans-serif"
+    },
+    {
+      "name": "--shadow-lg",
+      "screen": null,
+      "story": "0 8px 32px -8px #0000001a, 0 2px 8px -4px #0000000f"
+    },
+    {
+      "name": "--shadow-sm",
+      "screen": null,
+      "story": "0 1px 2px 0 #0000000d"
+    },
+    {
+      "name": "--color-background",
+      "screen": null,
+      "story": "oklch(17% 0 0)"
+    },
+    {
+      "name": "--color-danger",
+      "screen": null,
+      "story": "oklch(80.8% .114 19.571)"
+    },
+    {
+      "name": "--color-secondary-foreground",
+      "screen": null,
+      "story": "oklch(95% 0 0)"
+    },
+    {
+      "name": "--ease-in-out",
+      "screen": null,
+      "story": "cubic-bezier(.77, 0, .175, 1)"
+    },
+    {
+      "name": "--color-chart-2",
+      "screen": null,
+      "story": "oklch(62.3% .214 259.815)"
+    },
+    {
+      "name": "--color-destructive-foreground",
+      "screen": null,
+      "story": "oklch(21.6% 0 0)"
+    },
+    {
+      "name": "--color-destructive",
+      "screen": null,
+      "story": "oklch(70.4% .191 22.216)"
+    },
+    {
+      "name": "--color-success-border",
+      "screen": null,
+      "story": "oklch(39.3% .095 152.535)"
+    },
+    {
+      "name": "--color-sidebar-foreground",
+      "screen": null,
+      "story": "oklch(95% 0 0)"
+    },
+    {
+      "name": "--color-sidebar-accent-foreground",
+      "screen": null,
+      "story": "oklch(95% 0 0)"
+    },
+    {
+      "name": "--color-info-bg",
+      "screen": null,
+      "story": "oklch(39.1% .09 240.876)"
+    },
+    {
+      "name": "--color-success",
+      "screen": null,
+      "story": "oklch(87.1% .15 154.449)"
+    },
+    {
+      "name": "--color-danger-border",
+      "screen": null,
+      "story": "oklch(39.6% .141 25.723)"
+    },
+    {
+      "name": "--color-sidebar-accent",
+      "screen": null,
+      "story": "oklch(29.5% 0 0)"
+    },
+    {
+      "name": "--color-blue-500",
+      "screen": null,
+      "story": "oklch(59.67% .2212 258)"
+    },
+    {
+      "name": "--color-muted",
+      "screen": null,
+      "story": "oklch(17% 0 0)"
+    },
+    {
+      "name": "--text-4xl",
+      "screen": null,
+      "story": "2rem"
+    },
+    {
+      "name": "--color-card-container",
+      "screen": null,
+      "story": "oklch(17% 0 0)"
+    },
+    {
+      "name": "--shadow-nav",
+      "screen": null,
+      "story": "#0000 0px 0px 0px 0px, #0000 0px 0px 0px 0px, #0000000a 0px 0px 0px 1px, #0000000a 0px 1px 2px -1px, #00000005 0px 2px 4px 0px"
+    },
+    {
+      "name": "--color-primary",
+      "screen": null,
+      "story": "oklch(95% 0 0)"
+    },
+    {
+      "name": "--text-3xl",
+      "screen": null,
+      "story": "1.75rem"
+    },
+    {
+      "name": "--text-xs",
+      "screen": null,
+      "story": ".75rem"
+    },
+    {
+      "name": "--color-border-control",
+      "screen": null,
+      "story": "oklch(52% 0 0)"
+    },
+    {
+      "name": "--color-card",
+      "screen": null,
+      "story": "oklch(21.6% 0 0)"
+    },
+    {
+      "name": "--color-sidebar-accent-hover",
+      "screen": null,
+      "story": "oklch(33% 0 0)"
+    },
+    {
+      "name": "--color-chart-5",
+      "screen": null,
+      "story": "oklch(42.4% .199 265.638)"
+    }
+  ],
+  "sellerPanelAgainstStorybook": [
+    {
+      "name": "--shadow-xs",
+      "screen": null,
+      "story": "0 0px 1px 0 #0000000d"
+    },
+    {
+      "name": "--color-info-border",
+      "screen": null,
+      "story": "oklch(39.1% .09 240.876)"
+    },
+    {
+      "name": "--shadow-control",
+      "screen": null,
+      "story": "0 .5px 1px 0 #0000000d"
+    },
+    {
+      "name": "--color-border-card",
+      "screen": null,
+      "story": "color-mix(in srgb, oklch(100% 0 0/.16) 70%, transparent)"
+    },
+    {
+      "name": "--color-card-foreground",
+      "screen": null,
+      "story": "oklch(95% 0 0)"
+    },
+    {
+      "name": "--color-primary-foreground",
+      "screen": null,
+      "story": "oklch(14.7% 0 0)"
+    },
+    {
+      "name": "--color-sidebar",
+      "screen": null,
+      "story": "oklch(14% 0 0)"
+    },
+    {
+      "name": "--color-track-recessed",
+      "screen": null,
+      "story": "oklch(17% 0 0)"
+    },
+    {
+      "name": "--color-sidebar-border",
+      "screen": null,
+      "story": "color-mix(in srgb, oklch(100% 0 0/.16) 75%, transparent)"
+    },
+    {
+      "name": "--color-blue-400",
+      "screen": null,
+      "story": "oklch(70.7% .165 254.624)"
+    },
+    {
+      "name": "--color-accent",
+      "screen": null,
+      "story": "oklch(29.5% 0 0)"
+    },
+    {
+      "name": "--color-popover",
+      "screen": null,
+      "story": "oklch(21.6% 0 0)"
+    },
+    {
+      "name": "--color-warning-border",
+      "screen": null,
+      "story": "oklch(41.4% .112 45.904)"
+    },
+    {
+      "name": "--color-input",
+      "screen": null,
+      "story": "color-mix(in srgb, oklch(100% 0 0/.16) 80%, transparent)"
+    },
+    {
+      "name": "--color-accent-strong",
+      "screen": null,
+      "story": "oklch(38% 0 0)"
+    },
+    {
+      "name": "--color-info",
+      "screen": null,
+      "story": "oklch(82.8% .111 230.318)"
+    },
+    {
+      "name": "--radius-lg",
+      "screen": null,
+      "story": ".625rem"
+    },
+    {
+      "name": "--color-border-subtle",
+      "screen": null,
+      "story": "color-mix(in srgb, oklch(100% 0 0/.16) 50%, transparent)"
+    },
+    {
+      "name": "--text-xl",
+      "screen": null,
+      "story": "1.25rem"
+    },
+    {
+      "name": "--color-chart-1",
+      "screen": null,
+      "story": "oklch(80.9% .105 251.813)"
+    },
+    {
+      "name": "--color-nested-raised",
+      "screen": null,
+      "story": "oklch(25% 0 0)"
+    },
+    {
+      "name": "--color-warning-bg",
+      "screen": null,
+      "story": "oklch(41.4% .112 45.904)"
+    },
+    {
+      "name": "--color-green-600",
+      "screen": null,
+      "story": "oklch(62.7% .194 149.214)"
+    },
+    {
+      "name": "--color-sidebar-primary-foreground",
+      "screen": null,
+      "story": "oklch(14.7% 0 0)"
+    },
+    {
+      "name": "--color-secondary",
+      "screen": null,
+      "story": "oklch(25% 0 0)"
+    },
+    {
+      "name": "--text-sm",
+      "screen": null,
+      "story": ".8125rem"
+    },
+    {
+      "name": "--ease-out",
+      "screen": null,
+      "story": "cubic-bezier(.23, 1, .32, 1)"
+    },
+    {
+      "name": "--color-emerald-500",
+      "screen": null,
+      "story": "oklch(69.6% .17 162.48)"
+    },
+    {
+      "name": "--color-accent-foreground",
+      "screen": null,
+      "story": "oklch(95% 0 0)"
+    },
+    {
+      "name": "--color-popover-foreground",
+      "screen": null,
+      "story": "oklch(95% 0 0)"
+    },
+    {
+      "name": "--color-accent-strong-hover",
+      "screen": null,
+      "story": "oklch(44.4% 0 0)"
+    },
+    {
+      "name": "--color-danger-bg",
+      "screen": null,
+      "story": "oklch(39.6% .141 25.723)"
+    },
+    {
+      "name": "--color-accent-hover",
+      "screen": null,
+      "story": "oklch(33% 0 0)"
+    },
+    {
+      "name": "--color-blue-600",
+      "screen": null,
+      "story": "oklch(51.06% .1868 257.7)"
+    },
+    {
+      "name": "--color-ring",
+      "screen": null,
+      "story": "oklch(68% .19 258)"
+    },
+    {
+      "name": "--color-border",
+      "screen": null,
+      "story": "oklch(100% 0 0/.16)"
+    },
+    {
+      "name": "--color-chart-3",
+      "screen": null,
+      "story": "oklch(54.6% .245 262.881)"
+    },
+    {
+      "name": "--color-foreground",
+      "screen": null,
+      "story": "oklch(95% 0 0)"
+    },
+    {
+      "name": "--spacing-rail-header-height",
+      "screen": null,
+      "story": "42px"
+    },
+    {
+      "name": "--color-sidebar-ring",
+      "screen": null,
+      "story": "oklch(68% .19 258)"
+    },
+    {
+      "name": "--color-success-bg",
+      "screen": null,
+      "story": "oklch(39.3% .095 152.535)"
+    },
+    {
+      "name": "--color-chart-4",
+      "screen": null,
+      "story": "oklch(48.8% .243 264.376)"
+    },
+    {
+      "name": "--color-sidebar-primary",
+      "screen": null,
+      "story": "oklch(95% 0 0)"
+    },
+    {
+      "name": "--color-link-hover",
+      "screen": null,
+      "story": "oklch(78% .14 258)"
+    },
+    {
+      "name": "--color-link",
+      "screen": null,
+      "story": "oklch(70% .16 258)"
+    },
+    {
+      "name": "--color-muted-foreground",
+      "screen": null,
+      "story": "oklch(70.9% 0 0)"
+    },
+    {
+      "name": "--text-2xl",
+      "screen": null,
+      "story": "1.5rem"
+    },
+    {
+      "name": "--shadow-md",
+      "screen": null,
+      "story": "0 4px 16px -4px #00000014, 0 1px 4px -2px #0000000d"
+    },
+    {
+      "name": "--text-lg",
+      "screen": null,
+      "story": "1rem"
+    },
+    {
+      "name": "--font-sans",
+      "screen": null,
+      "story": "\"Geist Variable\", ui-sans-serif, system-ui, sans-serif"
+    },
+    {
+      "name": "--shadow-lg",
+      "screen": null,
+      "story": "0 8px 32px -8px #0000001a, 0 2px 8px -4px #0000000f"
+    },
+    {
+      "name": "--shadow-sm",
+      "screen": null,
+      "story": "0 1px 2px 0 #0000000d"
+    },
+    {
+      "name": "--color-background",
+      "screen": null,
+      "story": "oklch(17% 0 0)"
+    },
+    {
+      "name": "--color-danger",
+      "screen": null,
+      "story": "oklch(80.8% .114 19.571)"
+    },
+    {
+      "name": "--color-secondary-foreground",
+      "screen": null,
+      "story": "oklch(95% 0 0)"
+    },
+    {
+      "name": "--ease-in-out",
+      "screen": null,
+      "story": "cubic-bezier(.77, 0, .175, 1)"
+    },
+    {
+      "name": "--color-chart-2",
+      "screen": null,
+      "story": "oklch(62.3% .214 259.815)"
+    },
+    {
+      "name": "--color-destructive-foreground",
+      "screen": null,
+      "story": "oklch(21.6% 0 0)"
+    },
+    {
+      "name": "--color-destructive",
+      "screen": null,
+      "story": "oklch(70.4% .191 22.216)"
+    },
+    {
+      "name": "--color-success-border",
+      "screen": null,
+      "story": "oklch(39.3% .095 152.535)"
+    },
+    {
+      "name": "--color-sidebar-foreground",
+      "screen": null,
+      "story": "oklch(95% 0 0)"
+    },
+    {
+      "name": "--color-sidebar-accent-foreground",
+      "screen": null,
+      "story": "oklch(95% 0 0)"
+    },
+    {
+      "name": "--color-info-bg",
+      "screen": null,
+      "story": "oklch(39.1% .09 240.876)"
+    },
+    {
+      "name": "--color-success",
+      "screen": null,
+      "story": "oklch(87.1% .15 154.449)"
+    },
+    {
+      "name": "--color-danger-border",
+      "screen": null,
+      "story": "oklch(39.6% .141 25.723)"
+    },
+    {
+      "name": "--color-sidebar-accent",
+      "screen": null,
+      "story": "oklch(29.5% 0 0)"
+    },
+    {
+      "name": "--color-blue-500",
+      "screen": null,
+      "story": "oklch(59.67% .2212 258)"
+    },
+    {
+      "name": "--color-muted",
+      "screen": null,
+      "story": "oklch(17% 0 0)"
+    },
+    {
+      "name": "--text-4xl",
+      "screen": null,
+      "story": "2rem"
+    },
+    {
+      "name": "--color-card-container",
+      "screen": null,
+      "story": "oklch(17% 0 0)"
+    },
+    {
+      "name": "--shadow-nav",
+      "screen": null,
+      "story": "#0000 0px 0px 0px 0px, #0000 0px 0px 0px 0px, #0000000a 0px 0px 0px 1px, #0000000a 0px 1px 2px -1px, #00000005 0px 2px 4px 0px"
+    },
+    {
+      "name": "--color-primary",
+      "screen": null,
+      "story": "oklch(95% 0 0)"
+    },
+    {
+      "name": "--text-3xl",
+      "screen": null,
+      "story": "1.75rem"
+    },
+    {
+      "name": "--text-xs",
+      "screen": null,
+      "story": ".75rem"
+    },
+    {
+      "name": "--color-border-control",
+      "screen": null,
+      "story": "oklch(52% 0 0)"
+    },
+    {
+      "name": "--color-card",
+      "screen": null,
+      "story": "oklch(21.6% 0 0)"
+    },
+    {
+      "name": "--color-sidebar-accent-hover",
+      "screen": null,
+      "story": "oklch(33% 0 0)"
+    },
+    {
+      "name": "--blur-sm",
+      "screen": null,
+      "story": "8px"
+    },
+    {
+      "name": "--color-chart-5",
+      "screen": null,
+      "story": "oklch(42.4% .199 265.638)"
+    }
+  ]
+}

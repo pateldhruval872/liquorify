@@ -1,0 +1,11 @@
+{
+  "screen": "DA-AUTH-01",
+  "state": "providers-loading",
+  "variant": "public",
+  "role": null,
+  "theme": "dark",
+  "revision": "a4a1708",
+  "path": "/login",
+  "intercepted": "The sign-in providers request is held open",
+  "settled": null
+}

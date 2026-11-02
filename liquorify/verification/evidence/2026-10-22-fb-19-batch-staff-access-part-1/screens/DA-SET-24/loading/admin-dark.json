@@ -1,0 +1,11 @@
+{
+  "screen": "DA-SET-24",
+  "state": "loading",
+  "variant": "admin",
+  "role": null,
+  "theme": "dark",
+  "revision": "a4a1708",
+  "path": "/<store>/settings/staff",
+  "intercepted": "The staff and invitations requests are held open",
+  "settled": null
+}

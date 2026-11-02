@@ -1,0 +1,559 @@
+{
+  "engine": "spree/core",
+  "spree_code_at": "a4a1708",
+  "rspec": "3.13.6",
+  "summary": {
+    "example_count": 91,
+    "failure_count": 0,
+    "pending_count": 0,
+    "errors_outside_of_examples_count": 0
+  },
+  "examples": [
+    {
+      "file": "lib/spree/testing_support/ability_helpers.rb",
+      "line": 2,
+      "description": "Spree::Ability for general resource with admin user behaves like access granted should allow show",
+      "status": "passed"
+    },
+    {
+      "file": "lib/spree/testing_support/ability_helpers.rb",
+      "line": 7,
+      "description": "Spree::Ability for general resource with admin user behaves like access granted should allow create",
+      "status": "passed"
+    },
+    {
+      "file": "lib/spree/testing_support/ability_helpers.rb",
+      "line": 12,
+      "description": "Spree::Ability for general resource with admin user behaves like access granted should allow update",
+      "status": "passed"
+    },
+    {
+      "file": "lib/spree/testing_support/ability_helpers.rb",
+      "line": 46,
+      "description": "Spree::Ability for general resource with admin user behaves like index allowed should allow index",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/ability_spec.rb",
+      "line": 32,
+      "description": "Spree::Ability for admin protected resources with admin user admin user role is able to admin",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/ability_spec.rb",
+      "line": 51,
+      "description": "Spree::Ability for admin protected resources with admin user admin user class with no role rows (spree_admin? fallback) is able to admin",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/ability_spec.rb",
+      "line": 61,
+      "description": "Spree::Ability for admin protected resources with customer is not able to admin even with an admin role assignment",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/ability_spec.rb",
+      "line": 79,
+      "description": "Spree::Ability staff permissions from catalog keys with a role granting a read key grants read and admin on the resource subjects",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/ability_spec.rb",
+      "line": 85,
+      "description": "Spree::Ability staff permissions from catalog keys with a role granting a read key does not grant other resources",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/ability_spec.rb",
+      "line": 89,
+      "description": "Spree::Ability staff permissions from catalog keys with a role granting a read key reports the expanded permission keys",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/ability_spec.rb",
+      "line": 99,
+      "description": "Spree::Ability staff permissions from catalog keys with a role granting a write key grants manage on the resource subjects",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/ability_spec.rb",
+      "line": 104,
+      "description": "Spree::Ability staff permissions from catalog keys with a role granting a write key reports write and implied read keys",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/ability_spec.rb",
+      "line": 115,
+      "description": "Spree::Ability staff permissions from catalog keys with multiple roles combines keys from all roles",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/ability_spec.rb",
+      "line": 127,
+      "description": "Spree::Ability staff permissions from catalog keys with a role granting no keys grants only the staff baseline",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/ability_spec.rb",
+      "line": 141,
+      "description": "Spree::Ability staff permissions from catalog keys with the admin role grants everything and reports every key staff may hold",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/ability_spec.rb",
+      "line": 149,
+      "description": "Spree::Ability staff permissions from catalog keys with the admin role leaves out the keys only another audience may hold",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/ability_spec.rb",
+      "line": 160,
+      "description": "Spree::Ability staff permissions from catalog keys with overlapping keys across roles deduplicates into one expanded key set",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/ability_spec.rb",
+      "line": 174,
+      "description": "Spree::Ability staff permissions from catalog keys with roles held on different stores activates only the current store assignments",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/ability_spec.rb",
+      "line": 180,
+      "description": "Spree::Ability staff permissions from catalog keys with roles held on different stores flips with the store context",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/ability_spec.rb",
+      "line": 208,
+      "description": "Spree::Ability staff permissions from catalog keys with a role held on a non-store resource is invisible to the store ability",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/ability_spec.rb",
+      "line": 216,
+      "description": "Spree::Ability staff permissions from catalog keys with a role held on a non-store resource activates when the ability is built for that resource",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/ability_spec.rb",
+      "line": 223,
+      "description": "Spree::Ability staff permissions from catalog keys with a role held on a non-store resource grants only keys the role's audience may hold",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/ability_spec.rb",
+      "line": 233,
+      "description": "Spree::Ability staff permissions from catalog keys with a role held on a non-store resource reads only the store it operates under",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/ability_spec.rb",
+      "line": 241,
+      "description": "Spree::Ability staff permissions from catalog keys with a role held on a non-store resource does not carry the store admin role onto the resource",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/ability_spec.rb",
+      "line": 258,
+      "description": "Spree::Ability staff permissions from catalog keys as admin on one store and limited staff on another does not leak admin authority into the limited store",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/ability_spec.rb",
+      "line": 283,
+      "description": "Spree::Ability staff permissions from catalog keys with an assignment scoped to a non-store resource grants nothing in the store admin",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/ability_spec.rb",
+      "line": 293,
+      "description": "Spree::Ability staff permissions from catalog keys with an assignment scoped to a non-store resource does not confer full access through an admin-named role",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/ability_spec.rb",
+      "line": 308,
+      "description": "Spree::Ability staff permissions from catalog keys with stale keys the catalog no longer knows activates the known keys and drops the rest",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/ability_spec.rb",
+      "line": 327,
+      "description": "Spree::Ability shared customer/admin user class grants nothing to customers holding no roles",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/ability_spec.rb",
+      "line": 335,
+      "description": "Spree::Ability shared customer/admin user class resolves staff roles for persisted customers",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/ability_spec.rb",
+      "line": 347,
+      "description": "Spree::Ability as a customer or guest principal has no rules at all \u2014 the Store API authorizes by ownership scoping",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/admin_user_spec.rb",
+      "line": 11,
+      "description": "Spree::AdminUser password reset tokens round-trips through find_by_password_reset_token",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/admin_user_spec.rb",
+      "line": 16,
+      "description": "Spree::AdminUser password reset tokens invalidates the token when the password changes",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/admin_user_spec.rb",
+      "line": 31,
+      "description": "Spree::AdminUser#can_be_deleted? when store has other admin users is expected to equal true",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/admin_user_spec.rb",
+      "line": 35,
+      "description": "Spree::AdminUser#can_be_deleted? when store has no other admin users is expected to equal false",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/admin_user_spec.rb",
+      "line": 51,
+      "description": "Spree::AdminUser Callbacks cleans up admin user resources nullifies admin user resources",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/admin_user_spec.rb",
+      "line": 64,
+      "description": "Spree::AdminUser Callbacks cleans up admin user resources clears both halves of a polymorphic actor",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/admin_user_spec.rb",
+      "line": 76,
+      "description": "Spree::AdminUser Callbacks cleans up admin user resources clears a row the backfill has not reached yet",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/admin_user_spec.rb",
+      "line": 87,
+      "description": "Spree::AdminUser Callbacks cleans up admin user resources leaves another kind of actor alone",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/admin_user_spec.rb",
+      "line": 110,
+      "description": "Spree::AdminUser#destroy (regression tests) admin user invited other other users accept invitation does not remove other user's role",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/invitation_spec.rb",
+      "line": 15,
+      "description": "Spree::Invitation Validations when invitee is the same as inviter is invalid",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/invitation_spec.rb",
+      "line": 23,
+      "description": "Spree::Invitation Validations when invitee already exists in the store is invalid",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/invitation_spec.rb",
+      "line": 34,
+      "description": "Spree::Invitation Callbacks sets defaults on initialization",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/invitation_spec.rb",
+      "line": 41,
+      "description": "Spree::Invitation Callbacks defaults the resource before validation",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/invitation_spec.rb",
+      "line": 50,
+      "description": "Spree::Invitation Callbacks never defaults the role",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/invitation_spec.rb",
+      "line": 58,
+      "description": "Spree::Invitation Callbacks follows an explicitly assigned resource",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/invitation_spec.rb",
+      "line": 66,
+      "description": "Spree::Invitation Callbacks sets invitee from email before validation",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/invitation_spec.rb",
+      "line": 78,
+      "description": "Spree::Invitation State Machine when accepting an invitation creates a resource user",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/invitation_spec.rb",
+      "line": 90,
+      "description": "Spree::Invitation#expired? returns true when expires_at is in the past",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/invitation_spec.rb",
+      "line": 95,
+      "description": "Spree::Invitation#expired? returns false when expires_at is in the future",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/invitation_spec.rb",
+      "line": 102,
+      "description": "Spree::Invitation#resend! publishes invitation.resent event if invitation is pending and not expired",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/invitation_spec.rb",
+      "line": 107,
+      "description": "Spree::Invitation#resend! does not publish event if invitation is expired",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/invitation_spec.rb",
+      "line": 113,
+      "description": "Spree::Invitation#resend! does not publish event if invitation is accepted",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/invitation_spec.rb",
+      "line": 123,
+      "description": "Spree::Invitation#resend! rotates the token",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/invitation_spec.rb",
+      "line": 127,
+      "description": "Spree::Invitation#resend! keeps the token of an expired invitation",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/invitation_spec.rb",
+      "line": 135,
+      "description": "Spree::Invitation#acceptance_url carries the invitation and its token",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/role_spec.rb",
+      "line": 11,
+      "description": "Spree::Role.default_admin_role returns the admin role, seeded immutable",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/role_spec.rb",
+      "line": 20,
+      "description": "Spree::Role.default_admin_role ignores a same-named role owned by something else",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/role_spec.rb",
+      "line": 35,
+      "description": "Spree::Role.default_admin_role gives each store its own",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/role_spec.rb",
+      "line": 47,
+      "description": "Spree::Role#permissions normalizes to a unique array of present strings",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/role_spec.rb",
+      "line": 53,
+      "description": "Spree::Role#permissions reads NULL column values as an empty array",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/role_spec.rb",
+      "line": 60,
+      "description": "Spree::Role#permissions rejects unknown catalog keys",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/role_spec.rb",
+      "line": 67,
+      "description": "Spree::Role#permissions rejects stored aliases",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/role_spec.rb",
+      "line": 73,
+      "description": "Spree::Role#resource reads its audience from the owning resource",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/role_spec.rb",
+      "line": 80,
+      "description": "Spree::Role#resource cannot be changed once the role exists",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/role_spec.rb",
+      "line": 88,
+      "description": "Spree::Role#resource allows the same name under a different owner",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/role_spec.rb",
+      "line": 95,
+      "description": "Spree::Role#resource scopes roles to their owner",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/role_spec.rb",
+      "line": 114,
+      "description": "Spree::Role resource-bounded permissions allows a non-store role to hold keys its audience is granted",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/role_spec.rb",
+      "line": 118,
+      "description": "Spree::Role resource-bounded permissions refuses keys its audience is not granted",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/role_spec.rb",
+      "line": 126,
+      "description": "Spree::Role resource-bounded permissions allows a store role every key its own audience is granted",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/role_spec.rb",
+      "line": 133,
+      "description": "Spree::Role resource-bounded permissions refuses a store role the keys only another audience may hold",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/role_spec.rb",
+      "line": 148,
+      "description": "Spree::Role admin role protection cannot be renamed",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/role_spec.rb",
+      "line": 155,
+      "description": "Spree::Role admin role protection cannot change permissions",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/role_spec.rb",
+      "line": 161,
+      "description": "Spree::Role admin role protection cannot be destroyed",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/role_spec.rb",
+      "line": 166,
+      "description": "Spree::Role admin role protection stays protected by name even if the mutable flag is stale",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/role_spec.rb",
+      "line": 177,
+      "description": "Spree::Role host-locked roles cannot be renamed",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/role_spec.rb",
+      "line": 183,
+      "description": "Spree::Role host-locked roles cannot change its description",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/role_spec.rb",
+      "line": 189,
+      "description": "Spree::Role host-locked roles cannot change permissions",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/role_spec.rb",
+      "line": 195,
+      "description": "Spree::Role host-locked roles cannot be destroyed",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/role_spec.rb",
+      "line": 201,
+      "description": "Spree::Role mutable roles can be renamed and re-permissioned",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/role_spec.rb",
+      "line": 209,
+      "description": "Spree::Role#can_be_deleted? is true for an unreferenced mutable role",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/role_spec.rb",
+      "line": 213,
+      "description": "Spree::Role#can_be_deleted? is false while staff hold the role",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/role_spec.rb",
+      "line": 220,
+      "description": "Spree::Role#can_be_deleted? is false while a pending invitation references the role",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/role_user_spec.rb",
+      "line": 15,
+      "description": "Spree::RoleUser with different user types can associate with different user types",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/role_user_spec.rb",
+      "line": 29,
+      "description": "Spree::RoleUser#resource comes from the role",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/role_user_spec.rb",
+      "line": 38,
+      "description": "Spree::RoleUser uniqueness allows a user to hold a role once, but the same-named role of another resource too",
+      "status": "passed"
+    },
+    {
+      "file": "spec/support/shared_examples/account_lockout.rb",
+      "line": 7,
+      "description": "Spree::AdminUser behaves like account lockout account lockout is not locked by default",
+      "status": "passed"
+    },
+    {
+      "file": "spec/support/shared_examples/account_lockout.rb",
+      "line": 11,
+      "description": "Spree::AdminUser behaves like account lockout account lockout locks after the configured number of failed attempts",
+      "status": "passed"
+    },
+    {
+      "file": "spec/support/shared_examples/account_lockout.rb",
+      "line": 21,
+      "description": "Spree::AdminUser behaves like account lockout account lockout still locks when a stale instance records the threshold attempt",
+      "status": "passed"
+    },
+    {
+      "file": "spec/support/shared_examples/account_lockout.rb",
+      "line": 34,
+      "description": "Spree::AdminUser behaves like account lockout account lockout clears the lock and counter on reset",
+      "status": "passed"
+    },
+    {
+      "file": "spec/support/shared_examples/account_lockout.rb",
+      "line": 44,
+      "description": "Spree::AdminUser behaves like account lockout account lockout unlocks once the lockout_duration window has passed",
+      "status": "passed"
+    }
+  ]
+}

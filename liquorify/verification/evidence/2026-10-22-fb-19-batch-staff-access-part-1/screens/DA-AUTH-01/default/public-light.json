@@ -1,0 +1,11 @@
+{
+  "screen": "DA-AUTH-01",
+  "state": "default",
+  "variant": "public",
+  "role": null,
+  "theme": "light",
+  "revision": "a4a1708",
+  "path": "/login",
+  "intercepted": null,
+  "settled": true
+}

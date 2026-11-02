@@ -1,0 +1,11 @@
+{
+  "screen": "DA-OVL-01",
+  "state": "main-navigation",
+  "variant": "admin",
+  "role": null,
+  "theme": "light",
+  "revision": "a4a1708",
+  "path": "/<store>",
+  "intercepted": null,
+  "settled": true
+}

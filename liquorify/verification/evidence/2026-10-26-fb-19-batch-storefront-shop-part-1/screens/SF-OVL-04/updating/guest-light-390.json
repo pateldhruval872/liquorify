@@ -1,0 +1,11 @@
+{
+  "screen": "SF-OVL-04",
+  "state": "updating",
+  "variant": "guest",
+  "theme": "light",
+  "width": 390,
+  "revision": "321fa1c",
+  "path": "/us/en",
+  "observed": null,
+  "note": "With a product in the cart, which moves to the new currency first. That request was left unanswered in the browser to show the dialog waiting; this claims nothing about the server."
+}

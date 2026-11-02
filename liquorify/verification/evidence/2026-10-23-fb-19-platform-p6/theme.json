@@ -1,0 +1,43 @@
+{
+  "test": "theme",
+  "revision": "1f0f598",
+  "steps": [
+    {
+      "step": "opened",
+      "dark": true,
+      "colorScheme": "dark",
+      "background": "oklch(0.17 0 0)"
+    },
+    {
+      "step": "chose light",
+      "dark": false,
+      "colorScheme": "light",
+      "background": "oklch(0.985 0.001 106.423)"
+    },
+    {
+      "step": "chose dark",
+      "dark": true,
+      "colorScheme": "dark",
+      "background": "oklch(0.17 0 0)"
+    },
+    {
+      "step": "chose system, the browser preferring dark",
+      "dark": true,
+      "colorScheme": "dark",
+      "background": "oklch(0.17 0 0)"
+    },
+    {
+      "step": "the browser then preferred light",
+      "dark": false,
+      "colorScheme": "light",
+      "background": "oklch(0.985 0.001 106.423)"
+    },
+    {
+      "step": "reloaded, then the browser preferred dark again",
+      "dark": true,
+      "colorScheme": "dark",
+      "background": "oklch(0.17 0 0)"
+    }
+  ],
+  "outside": []
+}

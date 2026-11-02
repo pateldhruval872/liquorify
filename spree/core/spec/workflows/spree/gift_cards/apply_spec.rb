@@ -104,32 +104,136 @@ RSpec.describe Spree::GiftCards::Apply do
     end
   end
 
-  context 'when applied concurrently to multiple orders' do
+  # Real parallel connections need the transaction wrapper off, and a database
+  # with real row locking.
+  context 'when applied concurrently to multiple orders', if: %w[postgres mysql].include?(ENV['DB']) do
+    include_context 'with committed records'
+
     let(:gift_card) { create(:gift_card, amount: 100, store: store) }
-    let(:users) { Array.new(5) { create(:user) } }
-    let(:orders) do
-      users.map do |user|
-        order = create(:order_with_totals, store: store, customer: user, line_items_price: 80)
-        order.update_columns(total: 80, item_total: 80)
-        order
+    let(:orders) { Array.new(5) { order_totalling_80 } }
+
+    def order_totalling_80
+      order = create(:order_with_totals, store: store, customer: create(:user), line_items_price: 80)
+      order.update_columns(total: 80, item_total: 80)
+      order
+    end
+
+    def apply_action(gift_card_id, order_id)
+      lambda do
+        thread_gift_card = Spree::GiftCard.find(gift_card_id)
+        thread_order = Spree::Order.find(order_id)
+        -> { described_class.call(gift_card: thread_gift_card, order: thread_order) }
       end
     end
 
+    def apply_concurrently(gift_card_id, order_ids)
+      run_together(order_ids.map { |order_id| apply_action(gift_card_id, order_id) })
+    end
+
+    # Some apply must win, and every other one must be refused for the
+    # balance. The right refusal here is that another order holds the card,
+    # but on MySQL the check that chooses it reads the other orders from the
+    # transaction's older snapshot and can answer that nothing is left, so
+    # both are accepted until that check is changed.
+    def expect_some_applied_and_the_rest_refused_for_the_balance(results)
+      expect(results.count(&:success?)).to be >= 1
+      expect(results.reject(&:success?).map { |result| result.error.value }).to all(
+        eq(:gift_card_held_by_another_order).or(eq(:gift_card_no_amount_remaining))
+      )
+    end
+
     it 'does not generate store credits exceeding the gift card value' do
-      threads = orders.map do |order|
-        Thread.new do
-          ActiveRecord::Base.connection_pool.with_connection do
-            described_class.call(gift_card: gift_card, order: order)
-          end
-        end
-      end
-      threads.each(&:join)
+      results = apply_concurrently(gift_card.id, orders.map(&:id))
 
       gift_card.reload
       total_credits = Spree::StoreCredit.where(originator: gift_card).sum(:amount)
 
       expect(total_credits).to be <= gift_card.amount
       expect(gift_card.amount_used).to be <= gift_card.amount
+      expect_some_applied_and_the_rest_refused_for_the_balance(results)
+    end
+
+    # Each apply first releases the other order's hold, and each one waits on
+    # that hold's lock. One that read before the wait must not release it again
+    # once it has the lock, or it hands back a balance already handed back.
+    it 'does not credit more than the card is worth when another open order already holds it' do
+      holder = order_totalling_80
+      expect(described_class.call(gift_card: gift_card, order: holder)).to be_success
+
+      results = apply_concurrently(gift_card.id, orders.map(&:id))
+
+      gift_card.reload
+      live_credits = Spree::StoreCredit.where(originator: gift_card).sum(:amount)
+
+      expect(live_credits).to be <= gift_card.amount
+      expect(live_credits).to eq(gift_card.amount_used)
+      expect_some_applied_and_the_rest_refused_for_the_balance(results)
+    end
+
+    it 'keeps the balance whole when the holder takes the card off while others apply it' do
+      holder = order_totalling_80
+      expect(described_class.call(gift_card: gift_card, order: holder)).to be_success
+
+      remove_action = lambda do
+        thread_holder = Spree::Order.find(holder.id)
+        -> { Spree.gift_card_remove_workflow.call(order: thread_holder) }
+      end
+      removal, *applies = run_together([remove_action] + orders.first(4).map { |order| apply_action(gift_card.id, order.id) })
+
+      gift_card.reload
+      live_credits = Spree::StoreCredit.where(originator: gift_card).sum(:amount)
+
+      expect(removal).to be_success
+      expect(holder.reload.gift_card).to be_nil
+      expect(live_credits).to be <= gift_card.amount
+      expect(live_credits).to eq(gift_card.amount_used)
+      expect_some_applied_and_the_rest_refused_for_the_balance(applies)
+    end
+
+    # An apply that released the hold and was then rolled back must leave the
+    # hold for the apply waiting on its lock, which has to find it still held
+    # and release it once, not see the rolled-back release.
+    it 'leaves the hold to a waiting apply when the apply that released it rolls back' do
+      holder = order_totalling_80
+      expect(described_class.call(gift_card: gift_card, order: holder)).to be_success
+      rolled_back_order, waiting_order = orders.first(2)
+      released = Concurrent::CountDownLatch.new(1)
+      waiting_session = nil
+
+      hold_open = Spree.hooks.register('gift_cards.apply.release_holds') do |flow|
+        next unless flow.order.id == rolled_back_order.id
+
+        released.count_down
+        wait_until_waiting_for_a_lock(waiting_session)
+      end
+      reject = Spree.hooks.register('gift_cards.apply.after_apply') do |flow|
+        flow.reject!('rolled back by the test') if flow.order.id == rolled_back_order.id
+      end
+
+      waiting_action = lambda do
+        waiting_session = database_session_id
+        prepare = apply_action(gift_card.id, waiting_order.id).call
+        lambda do
+          raise 'The first apply never released the hold' unless released.wait(5)
+
+          prepare.call
+        end
+      end
+      rolled_back, waited = run_together([apply_action(gift_card.id, rolled_back_order.id), waiting_action])
+
+      gift_card.reload
+      live_credits = Spree::StoreCredit.where(originator: gift_card).sum(:amount)
+
+      expect(rolled_back).to be_failure
+      expect(waited).to be_success
+      expect(holder.reload.gift_card).to be_nil
+      expect(rolled_back_order.reload.gift_card).to be_nil
+      expect(waiting_order.reload.gift_card).to eq(gift_card)
+      expect(live_credits).to eq(80)
+      expect(gift_card.amount_used).to eq(80)
+    ensure
+      Spree.hooks.unregister('gift_cards.apply.release_holds', hold_open) if hold_open
+      Spree.hooks.unregister('gift_cards.apply.after_apply', reject) if reject
     end
   end
 

@@ -1,0 +1,11 @@
+{
+  "screen": "SF-ACC-10",
+  "state": "current-password-needed",
+  "variant": "customer",
+  "theme": "light",
+  "width": 1280,
+  "revision": "8153a6b1ffbcd8dfd0c435f6fc24f90ff32b9fff",
+  "path": "/us/en/account/profile",
+  "observed": "Changed the email in the form, without saving.",
+  "note": null
+}

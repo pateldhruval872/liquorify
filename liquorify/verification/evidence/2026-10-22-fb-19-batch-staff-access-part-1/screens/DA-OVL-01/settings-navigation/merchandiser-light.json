@@ -1,0 +1,19 @@
+{
+  "screen": "DA-OVL-01",
+  "state": "settings-navigation",
+  "variant": "merchandiser",
+  "role": {
+    "name": "Merchandiser",
+    "permissions": [
+      "write_products",
+      "write_categories",
+      "write_collections",
+      "write_stock"
+    ]
+  },
+  "theme": "light",
+  "revision": "a4a1708",
+  "path": "/<store>/settings",
+  "intercepted": null,
+  "settled": true
+}

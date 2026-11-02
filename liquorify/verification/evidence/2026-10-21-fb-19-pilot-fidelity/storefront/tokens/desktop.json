@@ -1,0 +1,59 @@
+{
+  "revision": "0a901eb",
+  "counts": {
+    "storefront": 240,
+    "storybook": 229
+  },
+  "differing": [
+    {
+      "name": "--toast-close-button-start",
+      "screen": "0",
+      "story": null
+    },
+    {
+      "name": "--toast-close-button-transform",
+      "screen": "translate(-35%, -35%)",
+      "story": null
+    },
+    {
+      "name": "--swiper-theme-color",
+      "screen": "#007aff",
+      "story": null
+    },
+    {
+      "name": "--toast-svg-margin-end",
+      "screen": "0px",
+      "story": null
+    },
+    {
+      "name": "--toast-icon-margin-end",
+      "screen": "4px",
+      "story": null
+    },
+    {
+      "name": "--toast-icon-margin-start",
+      "screen": "-3px",
+      "story": null
+    },
+    {
+      "name": "--toast-button-margin-start",
+      "screen": "auto",
+      "story": null
+    },
+    {
+      "name": "--toast-button-margin-end",
+      "screen": "0",
+      "story": null
+    },
+    {
+      "name": "--swiper-navigation-size",
+      "screen": "44px",
+      "story": null
+    },
+    {
+      "name": "--toast-svg-margin-start",
+      "screen": "-1px",
+      "story": null
+    }
+  ]
+}

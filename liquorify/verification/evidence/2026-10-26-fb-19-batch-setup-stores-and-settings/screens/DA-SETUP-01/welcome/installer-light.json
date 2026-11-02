@@ -1,0 +1,16 @@
+{
+  "screen": "DA-SETUP-01",
+  "state": "welcome",
+  "variant": "installer",
+  "role": null,
+  "theme": "light",
+  "revision": "881a619",
+  "path": "/<store>/getting-started",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": null,
+  "masked": null,
+  "outside": []
+}

@@ -1,12 +1,12 @@
 ---
 document_id: LIQ-009
 title: Spree Component and Token Inventory
-version: 0.2-draft
+version: 0.4-draft
 status: DRAFT
 owner: unassigned
 approved_by: null
 approved_at: null
-updated: 2026-10-21
+updated: 2026-10-26
 ---
 
 # Spree Component and Token Inventory
@@ -20,15 +20,16 @@ Every component and design token in Spree's existing design systems, at the pinn
 - **Revisions.** Backend `liquorify` at `1d1f2d4` and storefront `liquorify-storefront` at `ac53c5b`.
 - **Method.** Reading only, on 2026-10-21. Components are the `.tsx` files in the folders named below, without tests. Tokens are the CSS custom properties declared in the two stylesheets below, read with their light and dark values; the email values come from `Spree::Emails::Branding`. Nothing was rendered or measured.
 - **IDs are permanent.** A component or token keeps its ID if it is renamed. One removed upstream keeps its row, marked as removed. A new one takes the next number in its table.
-- **Some IDs name a group.** The application components (CMP-DA-G, CMP-SP-G), the storefront feature components (CMP-SF-G) and the colour utility aliases (TK-DUI-A, TK-SF-A) have one ID per group, and each member is named in its row. The group ID with the member's name is that member's reference.
+- **Some IDs name a group.** The application components (CMP-DA-G, CMP-SP-G), the storefront feature components (CMP-SF-G), the colour utility aliases (TK-DUI-A, TK-SF-A) and the Tailwind palette colours (TK-TW-D, TK-TW-S) have one ID per group, and each member is named in its row. The group ID with the member's name is that member's reference.
+- **Storybook and Figma columns.** The component tables in §2 to §4 name the Storybook story that covers each component ([LIQ-010 §10](LIQ-010-design-system-reproduction-architecture.md#10-traceability-to-the-inventory-ids)), and a group row names each covered file with its story. A row stays empty until its batch is done, or takes a reason code when a component cannot be shown in Storybook (LIQ-010 §7.5). The Figma column is filled by FB-20. The storefront's tables in §5 gained the columns with the storefront shopper accounts batch, which also names the pilot's storefront stories; part 1 of the storefront shop batch fills more of them, with its verification record still awaiting the owner's review. Tokens are shown a family at a time, so §6 and §8 name their Storybook page once rather than on every row.
 
 | System | Used by | Components | Tokens |
 |---|---|---|---|
-| Dashboard design system, `@spree/dashboard-ui` 1.0.0-rc.4 | Admin dashboard and seller panel | 46 primitives, 54 composed components | 62 light and 58 dark values in `:root` and `.dark`; 84 theme entries |
+| Dashboard design system, `@spree/dashboard-ui` 1.0.0-rc.4 | Admin dashboard and seller panel | 46 primitives, 54 composed components | 62 light and 58 dark values in `:root` and `.dark`; 84 theme entries; 48 Tailwind palette colours |
 | Dashboard framework, `@spree/dashboard-core` | Admin dashboard and seller panel | 39 components, 3 shared pages, 9 product form modules | Uses the design system's |
 | Admin dashboard application, `@spree/dashboard` | Admin dashboard | 200 components in 24 groups | Uses the design system's |
 | Seller panel application, `@spree/seller-dashboard` | Seller panel | 28 components | Uses the design system's |
-| Storefront | Shoppers | 22 primitives, 66 feature components, 13 page-level components | 32 light and 31 dark values; 58 theme entries |
+| Storefront | Shoppers | 22 primitives, 66 feature components, 13 page-level components | 32 light and 31 dark values; 58 theme entries; 44 Tailwind palette colours |
 | Emails | Customers, staff and sellers | 1 layout and 5 shared partials (LIQ-008 §6) | 5 colours and a font per store |
 
 ### How the systems relate
@@ -64,115 +65,115 @@ Every component and token supports Design System Engineering (PD-13), and each i
 
 `packages/dashboard-ui/src/ui/<component>.tsx`. Shadcn components adapted to Base UI where a behaviour library is needed. "—" means styled HTML with no behaviour library.
 
-| ID | Component | Kind | Built on |
-|---|---|---|---|
-| CMP-DUI-P-01 | `accordion` | Disclosure | Base UI |
-| CMP-DUI-P-02 | `alert` | Feedback | — |
-| CMP-DUI-P-03 | `attachment` | Display | Base UI |
-| CMP-DUI-P-04 | `avatar` | Display | Base UI |
-| CMP-DUI-P-05 | `badge` | Display | — |
-| CMP-DUI-P-06 | `breadcrumb` | Navigation | — |
-| CMP-DUI-P-07 | `button` | Action | — |
-| CMP-DUI-P-08 | `calendar` | Input | react-day-picker |
-| CMP-DUI-P-09 | `card` | Layout | — |
-| CMP-DUI-P-10 | `chart` | Data | Recharts |
-| CMP-DUI-P-11 | `checkbox` | Input | Base UI |
-| CMP-DUI-P-12 | `code-editor` | Input | CodeMirror, with Liquid and HTML |
-| CMP-DUI-P-13 | `collapsible` | Disclosure | Base UI |
-| CMP-DUI-P-14 | `combobox` | Input | Base UI |
-| CMP-DUI-P-15 | `command` | Overlay | cmdk |
-| CMP-DUI-P-16 | `context-menu` | Overlay | Base UI |
-| CMP-DUI-P-17 | `data-table` | Data | — |
-| CMP-DUI-P-18 | `date-picker` | Input | date-fns, date-fns-tz |
-| CMP-DUI-P-19 | `date-range-picker` | Input | react-day-picker, date-fns |
-| CMP-DUI-P-20 | `dialog` | Overlay | Base UI |
-| CMP-DUI-P-21 | `dropdown-menu` | Overlay | Base UI |
-| CMP-DUI-P-22 | `empty` | Feedback | — |
-| CMP-DUI-P-23 | `field` | Input | — |
-| CMP-DUI-P-24 | `input-group` | Input | — |
-| CMP-DUI-P-25 | `input` | Input | — |
-| CMP-DUI-P-26 | `item` | Layout | Base UI |
-| CMP-DUI-P-27 | `label` | Input | Base UI |
-| CMP-DUI-P-28 | `media-preview` | Display | — |
-| CMP-DUI-P-29 | `pagination` | Navigation | — |
-| CMP-DUI-P-30 | `popover` | Overlay | Base UI |
-| CMP-DUI-P-31 | `progress` | Feedback | Base UI |
-| CMP-DUI-P-32 | `radio-group` | Input | Base UI |
-| CMP-DUI-P-33 | `rich-text-editor` | Input | Tiptap |
-| CMP-DUI-P-34 | `scroll-area` | Layout | Base UI |
-| CMP-DUI-P-35 | `select` | Input | Base UI |
-| CMP-DUI-P-36 | `separator` | Layout | Base UI |
-| CMP-DUI-P-37 | `sheet` | Overlay | Base UI |
-| CMP-DUI-P-38 | `sidebar` | Navigation | — |
-| CMP-DUI-P-39 | `skeleton` | Feedback | — |
-| CMP-DUI-P-40 | `slot` | Extension | Plugin slot outlet |
-| CMP-DUI-P-41 | `switch` | Input | Base UI |
-| CMP-DUI-P-42 | `tabs` | Navigation | Base UI |
-| CMP-DUI-P-43 | `textarea` | Input | — |
-| CMP-DUI-P-44 | `thumbnail` | Display | — |
-| CMP-DUI-P-45 | `toast` | Feedback | Base UI |
-| CMP-DUI-P-46 | `tooltip` | Overlay | Base UI |
+| ID | Component | Kind | Built on | Storybook | Figma |
+|---|---|---|---|---|---|
+| CMP-DUI-P-01 | `accordion` | Disclosure | Base UI | Dashboard UI/Primitives/Accordion | |
+| CMP-DUI-P-02 | `alert` | Feedback | — | Dashboard UI/Primitives/Alert | |
+| CMP-DUI-P-03 | `attachment` | Display | Base UI | | |
+| CMP-DUI-P-04 | `avatar` | Display | Base UI | Dashboard UI/Primitives/Avatar | |
+| CMP-DUI-P-05 | `badge` | Display | — | Dashboard UI/Primitives/Badge | |
+| CMP-DUI-P-06 | `breadcrumb` | Navigation | — | Dashboard UI/Primitives/Breadcrumb | |
+| CMP-DUI-P-07 | `button` | Action | — | Dashboard UI/Primitives/Button | |
+| CMP-DUI-P-08 | `calendar` | Input | react-day-picker | | |
+| CMP-DUI-P-09 | `card` | Layout | — | Dashboard UI/Primitives/Card | |
+| CMP-DUI-P-10 | `chart` | Data | Recharts | | |
+| CMP-DUI-P-11 | `checkbox` | Input | Base UI | Dashboard UI/Primitives/Checkbox | |
+| CMP-DUI-P-12 | `code-editor` | Input | CodeMirror, with Liquid and HTML | | |
+| CMP-DUI-P-13 | `collapsible` | Disclosure | Base UI | Dashboard UI/Primitives/Collapsible | |
+| CMP-DUI-P-14 | `combobox` | Input | Base UI | Dashboard UI/Primitives/Combobox | |
+| CMP-DUI-P-15 | `command` | Overlay | cmdk | Dashboard UI/Primitives/Command | |
+| CMP-DUI-P-16 | `context-menu` | Overlay | Base UI | | |
+| CMP-DUI-P-17 | `data-table` | Data | — | Dashboard UI/Primitives/Data table | |
+| CMP-DUI-P-18 | `date-picker` | Input | date-fns, date-fns-tz | | |
+| CMP-DUI-P-19 | `date-range-picker` | Input | react-day-picker, date-fns | | |
+| CMP-DUI-P-20 | `dialog` | Overlay | Base UI | Dashboard UI/Primitives/Dialog | |
+| CMP-DUI-P-21 | `dropdown-menu` | Overlay | Base UI | Dashboard UI/Primitives/Dropdown menu | |
+| CMP-DUI-P-22 | `empty` | Feedback | — | Dashboard UI/Primitives/Empty | |
+| CMP-DUI-P-23 | `field` | Input | — | Dashboard UI/Primitives/Field | |
+| CMP-DUI-P-24 | `input-group` | Input | — | Dashboard UI/Primitives/Input group | |
+| CMP-DUI-P-25 | `input` | Input | — | Dashboard UI/Primitives/Input | |
+| CMP-DUI-P-26 | `item` | Layout | Base UI | Dashboard UI/Primitives/Item | |
+| CMP-DUI-P-27 | `label` | Input | Base UI | Dashboard UI/Primitives/Label | |
+| CMP-DUI-P-28 | `media-preview` | Display | — | | |
+| CMP-DUI-P-29 | `pagination` | Navigation | — | Dashboard UI/Primitives/Pagination | |
+| CMP-DUI-P-30 | `popover` | Overlay | Base UI | Dashboard UI/Primitives/Popover | |
+| CMP-DUI-P-31 | `progress` | Feedback | Base UI | Dashboard UI/Primitives/Progress | |
+| CMP-DUI-P-32 | `radio-group` | Input | Base UI | Dashboard UI/Primitives/Radio group | |
+| CMP-DUI-P-33 | `rich-text-editor` | Input | Tiptap | | |
+| CMP-DUI-P-34 | `scroll-area` | Layout | Base UI | Dashboard UI/Primitives/Scroll area | |
+| CMP-DUI-P-35 | `select` | Input | Base UI | Dashboard UI/Primitives/Select | |
+| CMP-DUI-P-36 | `separator` | Layout | Base UI | Dashboard UI/Primitives/Separator | |
+| CMP-DUI-P-37 | `sheet` | Overlay | Base UI | Dashboard UI/Primitives/Sheet | |
+| CMP-DUI-P-38 | `sidebar` | Navigation | — | Dashboard UI/Primitives/Sidebar | |
+| CMP-DUI-P-39 | `skeleton` | Feedback | — | Dashboard UI/Primitives/Skeleton | |
+| CMP-DUI-P-40 | `slot` | Extension | Plugin slot outlet | Dashboard UI/Primitives/Slot | |
+| CMP-DUI-P-41 | `switch` | Input | Base UI | Dashboard UI/Primitives/Switch | |
+| CMP-DUI-P-42 | `tabs` | Navigation | Base UI | Dashboard UI/Primitives/Tabs | |
+| CMP-DUI-P-43 | `textarea` | Input | — | Dashboard UI/Primitives/Textarea | |
+| CMP-DUI-P-44 | `thumbnail` | Display | — | Dashboard UI/Primitives/Thumbnail | |
+| CMP-DUI-P-45 | `toast` | Feedback | Base UI | Dashboard UI/Primitives/Toast | |
+| CMP-DUI-P-46 | `tooltip` | Overlay | Base UI | Dashboard UI/Primitives/Tooltip | |
 
 ### Composed components
 
 `packages/dashboard-ui/src/spree/<component>.tsx`. Commerce-specific compositions of the primitives, still headless. The folder also holds `icons.ts` and the data grid's helper modules, which are not components.
 
-| ID | Component | Kind |
-|---|---|---|
-| CMP-DUI-C-01 | `address-block` | Display |
-| CMP-DUI-C-02 | `address-book-row` | Display |
-| CMP-DUI-C-03 | `back-button` | Navigation |
-| CMP-DUI-C-04 | `bulk-dialog` | Overlay |
-| CMP-DUI-C-05 | `bulk-price-table` | Data |
-| CMP-DUI-C-06 | `bulk-variants-table` | Data |
-| CMP-DUI-C-07 | `calculator-summary` | Display |
-| CMP-DUI-C-08 | `claim-resolve-dialog` | Overlay |
-| CMP-DUI-C-09 | `color-picker` | Input |
-| CMP-DUI-C-10 | `confirm-dialog` | Overlay |
-| CMP-DUI-C-11 | `copy-to-clipboard-button` | Action |
-| CMP-DUI-C-12 | `country-flag` | Display |
-| CMP-DUI-C-13 | `data-grid/cells` | Data |
-| CMP-DUI-C-14 | `data-grid/data-grid` | Data |
-| CMP-DUI-C-15 | `data-grid/fill-handle` | Data |
-| CMP-DUI-C-16 | `delivery-form-dialog` | Overlay |
-| CMP-DUI-C-17 | `drag-handle` | Action |
-| CMP-DUI-C-18 | `editable-note-card` | Input |
-| CMP-DUI-C-19 | `external-link` | Navigation |
-| CMP-DUI-C-20 | `file-type-icon` | Display |
-| CMP-DUI-C-21 | `form-actions` | Action |
-| CMP-DUI-C-22 | `form-section` | Layout |
-| CMP-DUI-C-23 | `fulfill-items-form` | Input |
-| CMP-DUI-C-24 | `fulfillment-edit-dialog` | Overlay |
-| CMP-DUI-C-25 | `fulfillment-item-list` | Display |
-| CMP-DUI-C-26 | `fulfillment-panel` | Layout |
-| CMP-DUI-C-27 | `json-preview-drawer` | Overlay |
-| CMP-DUI-C-28 | `json-value-view` | Display |
-| CMP-DUI-C-29 | `label-upload-dialog` | Overlay |
-| CMP-DUI-C-30 | `language-menu-items` | Navigation |
-| CMP-DUI-C-31 | `metadata/metadata-card` | Input |
-| CMP-DUI-C-32 | `order-cancel-dialog` | Overlay |
-| CMP-DUI-C-33 | `post-sale-create-dialogs` | Overlay |
-| CMP-DUI-C-34 | `post-sale-fields` | Input |
-| CMP-DUI-C-35 | `product-membership-list` | Data |
-| CMP-DUI-C-36 | `products/status-card` | Input |
-| CMP-DUI-C-37 | `quantity-tier-editor` | Input |
-| CMP-DUI-C-38 | `relative-time` | Display |
-| CMP-DUI-C-39 | `resource-combobox` | Input |
-| CMP-DUI-C-40 | `resource-layout` | Layout |
-| CMP-DUI-C-41 | `resource-multi-autocomplete` | Input |
-| CMP-DUI-C-42 | `resource-name-cell` | Data |
-| CMP-DUI-C-43 | `return-dialogs` | Overlay |
-| CMP-DUI-C-44 | `route-error-boundary` | Feedback |
-| CMP-DUI-C-45 | `row-actions` | Action |
-| CMP-DUI-C-46 | `row-click-bridge` | Action |
-| CMP-DUI-C-47 | `search-input` | Input |
-| CMP-DUI-C-48 | `secret-input` | Input |
-| CMP-DUI-C-49 | `storefront-visible-switch` | Input |
-| CMP-DUI-C-50 | `tag-list` | Display |
-| CMP-DUI-C-51 | `tax-identifiers-card` | Input |
-| CMP-DUI-C-52 | `theme-provider` | Theme |
-| CMP-DUI-C-53 | `theme-toggle` | Theme |
-| CMP-DUI-C-54 | `wizard` | Navigation |
+| ID | Component | Kind | Storybook | Figma |
+|---|---|---|---|---|
+| CMP-DUI-C-01 | `address-block` | Display | Dashboard UI/Composed/Address block | |
+| CMP-DUI-C-02 | `address-book-row` | Display | | |
+| CMP-DUI-C-03 | `back-button` | Navigation | Dashboard UI/Composed/Back button | |
+| CMP-DUI-C-04 | `bulk-dialog` | Overlay | | |
+| CMP-DUI-C-05 | `bulk-price-table` | Data | | |
+| CMP-DUI-C-06 | `bulk-variants-table` | Data | | |
+| CMP-DUI-C-07 | `calculator-summary` | Display | | |
+| CMP-DUI-C-08 | `claim-resolve-dialog` | Overlay | | |
+| CMP-DUI-C-09 | `color-picker` | Input | | |
+| CMP-DUI-C-10 | `confirm-dialog` | Overlay | Dashboard UI/Composed/Confirm dialog | |
+| CMP-DUI-C-11 | `copy-to-clipboard-button` | Action | Dashboard UI/Composed/Copy to clipboard button | |
+| CMP-DUI-C-12 | `country-flag` | Display | Dashboard UI/Composed/Country flag | |
+| CMP-DUI-C-13 | `data-grid/cells` | Data | | |
+| CMP-DUI-C-14 | `data-grid/data-grid` | Data | | |
+| CMP-DUI-C-15 | `data-grid/fill-handle` | Data | | |
+| CMP-DUI-C-16 | `delivery-form-dialog` | Overlay | | |
+| CMP-DUI-C-17 | `drag-handle` | Action | Dashboard UI/Composed/Drag handle | |
+| CMP-DUI-C-18 | `editable-note-card` | Input | | |
+| CMP-DUI-C-19 | `external-link` | Navigation | Dashboard UI/Composed/External link | |
+| CMP-DUI-C-20 | `file-type-icon` | Display | | |
+| CMP-DUI-C-21 | `form-actions` | Action | Dashboard UI/Composed/Form actions | |
+| CMP-DUI-C-22 | `form-section` | Layout | | |
+| CMP-DUI-C-23 | `fulfill-items-form` | Input | | |
+| CMP-DUI-C-24 | `fulfillment-edit-dialog` | Overlay | | |
+| CMP-DUI-C-25 | `fulfillment-item-list` | Display | | |
+| CMP-DUI-C-26 | `fulfillment-panel` | Layout | | |
+| CMP-DUI-C-27 | `json-preview-drawer` | Overlay | Dashboard UI/Composed/JSON preview drawer | |
+| CMP-DUI-C-28 | `json-value-view` | Display | Dashboard UI/Composed/JSON value view | |
+| CMP-DUI-C-29 | `label-upload-dialog` | Overlay | | |
+| CMP-DUI-C-30 | `language-menu-items` | Navigation | Dashboard UI/Composed/Language menu items | |
+| CMP-DUI-C-31 | `metadata/metadata-card` | Input | | |
+| CMP-DUI-C-32 | `order-cancel-dialog` | Overlay | | |
+| CMP-DUI-C-33 | `post-sale-create-dialogs` | Overlay | | |
+| CMP-DUI-C-34 | `post-sale-fields` | Input | | |
+| CMP-DUI-C-35 | `product-membership-list` | Data | | |
+| CMP-DUI-C-36 | `products/status-card` | Input | | |
+| CMP-DUI-C-37 | `quantity-tier-editor` | Input | | |
+| CMP-DUI-C-38 | `relative-time` | Display | Dashboard UI/Composed/Relative time | |
+| CMP-DUI-C-39 | `resource-combobox` | Input | | |
+| CMP-DUI-C-40 | `resource-layout` | Layout | Dashboard UI/Composed/Resource layout | |
+| CMP-DUI-C-41 | `resource-multi-autocomplete` | Input | | |
+| CMP-DUI-C-42 | `resource-name-cell` | Data | Dashboard UI/Composed/Resource name cell | |
+| CMP-DUI-C-43 | `return-dialogs` | Overlay | | |
+| CMP-DUI-C-44 | `route-error-boundary` | Feedback | Dashboard UI/Composed/Route error boundary | |
+| CMP-DUI-C-45 | `row-actions` | Action | Dashboard UI/Composed/Row actions | |
+| CMP-DUI-C-46 | `row-click-bridge` | Action | Dashboard UI/Composed/Row click bridge | |
+| CMP-DUI-C-47 | `search-input` | Input | Dashboard UI/Composed/Search input | |
+| CMP-DUI-C-48 | `secret-input` | Input | Dashboard UI/Composed/Secret input | |
+| CMP-DUI-C-49 | `storefront-visible-switch` | Input | | |
+| CMP-DUI-C-50 | `tag-list` | Display | | |
+| CMP-DUI-C-51 | `tax-identifiers-card` | Input | | |
+| CMP-DUI-C-52 | `theme-provider` | Theme | Dashboard UI/Composed/Theme provider | |
+| CMP-DUI-C-53 | `theme-toggle` | Theme | Dashboard UI/Composed/Theme toggle | |
+| CMP-DUI-C-54 | `wizard` | Navigation | | |
 
 The package also has 5 hooks (`use-copy-to-clipboard`, `use-debounced-value`, `use-mobile`, `use-prefers-reduced-motion`, `use-scrolled`) and 5 helper modules in `src/hooks/` and `src/lib/`. It has no tests of its own; its components are exercised through the dashboard's tests.
 
@@ -180,69 +181,69 @@ The package also has 5 hooks (`use-copy-to-clipboard`, `use-debounced-value`, `u
 
 `packages/dashboard-core/src/components/<component>.tsx`. These connect design system parts to the dashboard's providers (sign-in, permissions, store, theme) and registries, so a story needs those providers or stand-ins for them.
 
-| ID | Component | Kind |
-|---|---|---|
-| CMP-CORE-01 | `address-form-dialog` | Overlay |
-| CMP-CORE-02 | `app-shell` | Layout |
-| CMP-CORE-03 | `app-sidebar` | Navigation |
-| CMP-CORE-04 | `bulk-action-bar` | Action |
-| CMP-CORE-05 | `can` | Extension |
-| CMP-CORE-06 | `country-combobox` | Input |
-| CMP-CORE-07 | `country-state-fields` | Input |
-| CMP-CORE-08 | `currency-select` | Input |
-| CMP-CORE-09 | `export-button` | Action |
-| CMP-CORE-10 | `file-upload-field` | Input |
-| CMP-CORE-11 | `image-upload-field` | Input |
-| CMP-CORE-12 | `import-button` | Action |
-| CMP-CORE-13 | `import-wizard-dialog` | Overlay |
-| CMP-CORE-14 | `locale-select` | Input |
-| CMP-CORE-15 | `market-combobox` | Input |
-| CMP-CORE-16 | `media-picker-sheet` | Overlay |
-| CMP-CORE-17 | `mobile-top-bar` | Navigation |
-| CMP-CORE-18 | `money` | Display |
-| CMP-CORE-19 | `nav-main` | Navigation |
-| CMP-CORE-20 | `page-header` | Layout |
-| CMP-CORE-21 | `page-tabs` | Navigation |
-| CMP-CORE-22 | `preferences-form` | Input |
-| CMP-CORE-23 | `resource-combobox` | Input |
-| CMP-CORE-24 | `resource-multi-autocomplete` | Input |
-| CMP-CORE-25 | `resource-picker-sheet` | Overlay |
-| CMP-CORE-26 | `resource-table` | Data |
-| CMP-CORE-27 | `route-announcer` | Feedback |
-| CMP-CORE-28 | `section-heading` | Layout |
-| CMP-CORE-29 | `settings-sidebar` | Navigation |
-| CMP-CORE-30 | `sheet-top-bar` | Layout |
-| CMP-CORE-31 | `sidebar-search` | Navigation |
-| CMP-CORE-32 | `sidebar-user` | Navigation |
-| CMP-CORE-33 | `skip-link` | Navigation |
-| CMP-CORE-34 | `slot` | Extension |
-| CMP-CORE-35 | `store-date-picker` | Input |
-| CMP-CORE-36 | `store-switcher` | Navigation |
-| CMP-CORE-37 | `table-toolbar` | Data |
-| CMP-CORE-38 | `tag-combobox` | Input |
-| CMP-CORE-39 | `top-bar-breadcrumbs` | Navigation |
+| ID | Component | Kind | Storybook | Figma |
+|---|---|---|---|---|
+| CMP-CORE-01 | `address-form-dialog` | Overlay | Dashboard core/Address form dialog | |
+| CMP-CORE-02 | `app-shell` | Layout | Dashboard core/Shell/App shell | |
+| CMP-CORE-03 | `app-sidebar` | Navigation | Dashboard core/Shell/App sidebar | |
+| CMP-CORE-04 | `bulk-action-bar` | Action | | |
+| CMP-CORE-05 | `can` | Extension | Dashboard core/Can | |
+| CMP-CORE-06 | `country-combobox` | Input | Dashboard core/Country combobox | |
+| CMP-CORE-07 | `country-state-fields` | Input | Dashboard core/Country state fields | |
+| CMP-CORE-08 | `currency-select` | Input | Dashboard core/Currency select | |
+| CMP-CORE-09 | `export-button` | Action | | |
+| CMP-CORE-10 | `file-upload-field` | Input | | |
+| CMP-CORE-11 | `image-upload-field` | Input | Dashboard core/Image upload field | |
+| CMP-CORE-12 | `import-button` | Action | | |
+| CMP-CORE-13 | `import-wizard-dialog` | Overlay | | |
+| CMP-CORE-14 | `locale-select` | Input | Dashboard core/Locale select | |
+| CMP-CORE-15 | `market-combobox` | Input | | |
+| CMP-CORE-16 | `media-picker-sheet` | Overlay | Dashboard core/Media picker sheet | |
+| CMP-CORE-17 | `mobile-top-bar` | Navigation | Dashboard core/Shell/Mobile top bar | |
+| CMP-CORE-18 | `money` | Display | | |
+| CMP-CORE-19 | `nav-main` | Navigation | Dashboard core/Shell/Nav main | |
+| CMP-CORE-20 | `page-header` | Layout | Dashboard core/Page header | |
+| CMP-CORE-21 | `page-tabs` | Navigation | | |
+| CMP-CORE-22 | `preferences-form` | Input | Dashboard core/Preferences form | |
+| CMP-CORE-23 | `resource-combobox` | Input | Dashboard core/Resource combobox | |
+| CMP-CORE-24 | `resource-multi-autocomplete` | Input | | |
+| CMP-CORE-25 | `resource-picker-sheet` | Overlay | | |
+| CMP-CORE-26 | `resource-table` | Data | Dashboard core/Resource table | |
+| CMP-CORE-27 | `route-announcer` | Feedback | | |
+| CMP-CORE-28 | `section-heading` | Layout | | |
+| CMP-CORE-29 | `settings-sidebar` | Navigation | Dashboard core/Shell/Settings sidebar | |
+| CMP-CORE-30 | `sheet-top-bar` | Layout | Dashboard core/Shell/Sheet top bar | |
+| CMP-CORE-31 | `sidebar-search` | Navigation | Dashboard core/Shell/Sidebar search | |
+| CMP-CORE-32 | `sidebar-user` | Navigation | Dashboard core/Shell/Sidebar user | |
+| CMP-CORE-33 | `skip-link` | Navigation | Dashboard core/Shell/Skip link | |
+| CMP-CORE-34 | `slot` | Extension | Dashboard core/Slot | |
+| CMP-CORE-35 | `store-date-picker` | Input | | |
+| CMP-CORE-36 | `store-switcher` | Navigation | Dashboard core/Shell/Store switcher | |
+| CMP-CORE-37 | `table-toolbar` | Data | Dashboard core/Table toolbar | |
+| CMP-CORE-38 | `tag-combobox` | Input | | |
+| CMP-CORE-39 | `top-bar-breadcrumbs` | Navigation | Dashboard core/Shell/Top bar breadcrumbs | |
 
 Also in `@spree/dashboard-core`, the shared pages in `src/pages/`, used by both the dashboard and the seller panel:
 
-| ID | Page | Kind | Used on |
-|---|---|---|---|
-| CMP-CORE-PG-01 | `package-types` | Data | DA-SET-19, SP-SET-03 |
-| CMP-CORE-PG-02 | `settings-index` | Navigation | DA-SET-01, SP-SET-01 |
-| CMP-CORE-PG-03 | `stock-locations` | Data | DA-SET-18, SP-SET-05 |
+| ID | Page | Kind | Used on | Storybook | Figma |
+|---|---|---|---|---|---|
+| CMP-CORE-PG-01 | `package-types` | Data | DA-SET-19, SP-SET-03 | | |
+| CMP-CORE-PG-02 | `settings-index` | Navigation | DA-SET-01, SP-SET-01 | Dashboard core/Pages/Settings index | |
+| CMP-CORE-PG-03 | `stock-locations` | Data | DA-SET-18, SP-SET-05 | | |
 
 And the product form modules in `src/products/`, used by DA-PRD-02 and DA-PRD-03:
 
-| ID | Module | Kind |
-|---|---|---|
-| CMP-CORE-PF-01 | `add-video-dialog` | Overlay |
-| CMP-CORE-PF-02 | `bulk-variants-dialog` | Overlay |
-| CMP-CORE-PF-03 | `inventory-section` | Input |
-| CMP-CORE-PF-04 | `media-edit-sheet` | Overlay |
-| CMP-CORE-PF-05 | `product-bulk-price-editor` | Data |
-| CMP-CORE-PF-06 | `product-form-cards` | Input |
-| CMP-CORE-PF-07 | `variant-edit-sheet` | Overlay |
-| CMP-CORE-PF-08 | `variants-options-builder` | Input |
-| CMP-CORE-PF-09 | `variants-section` | Data |
+| ID | Module | Kind | Storybook | Figma |
+|---|---|---|---|---|
+| CMP-CORE-PF-01 | `add-video-dialog` | Overlay | | |
+| CMP-CORE-PF-02 | `bulk-variants-dialog` | Overlay | | |
+| CMP-CORE-PF-03 | `inventory-section` | Input | | |
+| CMP-CORE-PF-04 | `media-edit-sheet` | Overlay | | |
+| CMP-CORE-PF-05 | `product-bulk-price-editor` | Data | | |
+| CMP-CORE-PF-06 | `product-form-cards` | Input | | |
+| CMP-CORE-PF-07 | `variant-edit-sheet` | Overlay | | |
+| CMP-CORE-PF-08 | `variants-options-builder` | Input | | |
+| CMP-CORE-PF-09 | `variants-section` | Data | | |
 
 ## 4. Application components
 
@@ -252,42 +253,42 @@ These are compositions bound to one application's data hooks and API. They are l
 
 `packages/dashboard/src/components/spree/`.
 
-| ID | Group | Files | Components | Used on |
-|---|---|---|---|---|
-| CMP-DA-G-01 | `api-keys/` | 6 | `api-key-create-sheet`, `api-key-edit-sheet`, `api-key-form-fields`, `api-key-scope-picker`, `api-key-table`, `api-key-token-reveal-dialog` | DA-SET-26 |
-| CMP-DA-G-02 | `bulk-price-editor/` | 2 | `bulk-price-editor`, `bulk-price-editor-dialog` | DA-PRD-03, DA-PRD-17 |
-| CMP-DA-G-03 | `categories/` | 4 | `category-form`, `category-list`, `category-products-card`, `category-tree` | DA-PRD-07 to DA-PRD-09 |
-| CMP-DA-G-04 | `collections/` | 3 | `collection-form`, `collection-products-card`, `collection-rules-card` | DA-PRD-10 to DA-PRD-12 |
-| CMP-DA-G-05 | `command-palette/` | 1 | `command-palette` | DA-OVL-02 |
-| CMP-DA-G-06 | `custom-fields/` | 2 | `custom-fields-inline`, `definition-form` | DA-SET-09 and the detail pages with custom fields |
-| CMP-DA-G-07 | `customers/` | 10 | `customer-addresses-card`, `customer-groups-card`, `customer-internal-note-card`, `customer-last-order-card`, `customer-lifetime-stats-card`, `customer-orders-card`, `customer-privacy-card`, `customer-profile-card`, `customer-store-credits-card`, `customer-tax-identifiers-card` | DA-CUS-02 |
-| CMP-DA-G-08 | `email-templates/` | 8 | `conflict-dialog`, `default-diff-dialog`, `email-preview-frame`, `emails-tabs`, `history-sheet`, `preview-card`, `problems-alert`, `variables-card` | DA-SET-03 to DA-SET-05 |
-| CMP-DA-G-09 | `imports/` | 1 | `import-wizard-dialog` | DA-OVL-05, DA-SET-31 |
-| CMP-DA-G-10 | `integrations/` | 3 | `configure-integration-sheet`, `integration-card`, `setup-guide-link` | DA-SET-10 |
-| CMP-DA-G-11 | `orders/` | 26 | `fulfillment-deliveries`, `fulfillment-delivery-dialog`, `fulfillment-edit-dialog`, `fulfillment-fulfill-form`, `fulfillment-label-upload-dialog`, `fulfillments-card`, `line-item-dialogs`, `line-item-price-source`, `order-adjustments-cards`, `order-cancel-dialog`, `order-commission-lines-card`, `order-customer-card`, `order-discounts-sidebar-card`, `order-edit-items-table`, `order-header`, `order-logistics-card`, `order-marketplace-card`, `order-notes-cards`, `order-payments-card`, `order-purchase-order-card`, `order-seller-transfers-card`, `order-skeleton`, `order-summary-card`, `payment-details-dialog`, `shipping-documents`, `shipping-label-row` | DA-ORD-01 to DA-ORD-05 |
-| CMP-DA-G-12 | `payment-method-editors/` | 2 | `payment-method-form`, `payment-method-sheets` | DA-SET-10, DA-SET-12 |
-| CMP-DA-G-13 | `price-list-editors/` | 7 | `price-list-form`, `rule-channel`, `rule-customer`, `rule-customer-group`, `rule-market`, `rule-volume`, `status-badge` | DA-PRD-15 to DA-PRD-17 |
-| CMP-DA-G-14 | `products/` | 9 | `digital-asset-edit-sheet`, `digital-asset-provider-sheet`, `digital-assets-card`, `digital-files-form-card`, `product-custom-fields-provider`, `product-review-actions`, `product-seller-card`, `provider-settings-fields`, `publishing-card` | DA-PRD-03 |
-| CMP-DA-G-15 | `promotion-editors/` | 13 | `action-adjustment`, `action-create-line-items`, `editor-shell`, `match-policy-picker`, `promotion-form`, `rule-category`, `rule-channel`, `rule-country`, `rule-customer-group`, `rule-market`, `rule-option-value`, `rule-product`, `rule-user` | DA-PRM-02, DA-PRM-03 |
-| CMP-DA-G-16 | `reasons/` | 1 | `reason-section` | DA-SET-15, DA-SET-21 |
-| CMP-DA-G-17 | `reporting/` | 5 | `growth-badge`, `report-builder`, `report-view`, `report-workspace`, `save-report-dialog` | DA-HOME-01, DA-RPT-01 to DA-RPT-03 |
-| CMP-DA-G-18 | `sellers/` | 14 | `payout-complete-dialog`, `seller-address-card`, `seller-at-a-glance-card`, `seller-balance-card`, `seller-brand-card`, `seller-contact-card`, `seller-edit-profile-sheet`, `seller-edit-settlement-sheet`, `seller-invite-sheet`, `seller-onboarding-card`, `seller-read-row`, `seller-settlement-card`, `seller-status-card`, `seller-team-card` | DA-SEL-01 to DA-SEL-06 |
-| CMP-DA-G-19 | `setup-tasks/` | 3 | `add-products-task`, `store-address-task`, `storefront-connect-task` | DA-HOME-02 |
-| CMP-DA-G-20 | `shipping/` | 14 | `delivery-digital-methods-card`, `delivery-method-form`, `delivery-method-list`, `delivery-method-sheet`, `delivery-origin-group-dialog`, `delivery-origin-group-section`, `delivery-pickup-card`, `delivery-profile-general-card`, `delivery-profile-origins-card`, `delivery-zone-card`, `delivery-zone-region-picker`, `delivery-zone-sheet`, `delivery-zones-and-methods-section`, `stock-location-scope-field` | DA-SET-16, DA-SET-17 |
-| CMP-DA-G-21 | `store-credits/` | 2 | `edit-store-credit-dialog`, `issue-store-credit-dialog` | DA-LOY-02, DA-CUS-02 |
-| CMP-DA-G-22 | `taxes/` | 2 | `market-tax-providers`, `taxes-tabs` | DA-SET-13 to DA-SET-15 |
-| CMP-DA-G-23 | `translations/` | 2 | `resource-translations-card`, `resource-translations-dialog` | DA-PRD-03, DA-PRD-05, DA-PRD-06 |
-| CMP-DA-G-24 | Top level | 60 | `actor-label`, `agent-connections-card`, `auth-shell`, `catalog-audience`, `catalog-price-columns`, `catalog-pricing-fields`, `catalog-terms-card`, `catalog-wizard-dialog`, `channel-select`, `choice-card-picker`, `close-short-dialog`, `company-address-sheet`, `company-combobox-option`, `company-kind-badge`, `deferred-product-membership-card`, `enterprise-upsell`, `getting-started-nav-badge`, `inventory-cells`, `inventory-status-badge`, `jurisdiction-label`, `mcp-connect-sheet`, `media-rich-text-editor`, `nav-counter-badge`, `no-store-access`, `notifications`, `oauth-application-sheet`, `order-digital-links-card`, `order-post-sale-cards`, `order-returns-card`, `order-routing-rules-section`, `permission-picker`, `post-sale-create-dialogs`, `price-list-csv-buttons`, `product-membership-staging`, `profile-dialog`, `purchase-order-form`, `quantity-cell`, `reason-field`, `receive-delivery-card`, `release-notes`, `resource-image-field`, `role-sheet`, `route-pending`, `settings-list-card`, `stock-history-card`, `stock-levels-panel`, `stock-receipts-card`, `stock-transfer-form`, `store-setup-fields`, `storefront-connect-sheet`, `supplier-sheet`, `tax-category-label`, `tax-exemption-certificates-card`, `tax-identifiers-card`, `tax-provider-field`, `transfer-cancel-dialog`, `type-picker-sheet`, `variant-line-editor`, `variant-link`, `webhook-endpoint-form` | Across the dashboard; for example `auth-shell` on DA-AUTH-01 to DA-AUTH-04, the `catalog-*` parts on DA-PRD-13 and DA-PRD-14, `role-sheet` and `permission-picker` on DA-SET-25, `webhook-endpoint-form` on DA-SET-28 and DA-SET-29, `enterprise-upsell` on DA-CUS-05 |
+| ID | Group | Files | Components | Used on | Storybook | Figma |
+|---|---|---|---|---|---|---|
+| CMP-DA-G-01 | `api-keys/` | 6 | `api-key-create-sheet`, `api-key-edit-sheet`, `api-key-form-fields`, `api-key-scope-picker`, `api-key-table`, `api-key-token-reveal-dialog` | DA-SET-26 | `api-key-create-sheet`: Admin dashboard/API keys/Create sheet; `api-key-edit-sheet`: Admin dashboard/API keys/Edit sheet; `api-key-form-fields`: Admin dashboard/API keys/Form fields; `api-key-scope-picker`: Admin dashboard/API keys/Scope picker; `api-key-table`: Admin dashboard/API keys/API key table; `api-key-token-reveal-dialog`: Admin dashboard/API keys/Token reveal dialog | |
+| CMP-DA-G-02 | `bulk-price-editor/` | 2 | `bulk-price-editor`, `bulk-price-editor-dialog` | DA-PRD-03, DA-PRD-17 | | |
+| CMP-DA-G-03 | `categories/` | 4 | `category-form`, `category-list`, `category-products-card`, `category-tree` | DA-PRD-07 to DA-PRD-09 | | |
+| CMP-DA-G-04 | `collections/` | 3 | `collection-form`, `collection-products-card`, `collection-rules-card` | DA-PRD-10 to DA-PRD-12 | | |
+| CMP-DA-G-05 | `command-palette/` | 1 | `command-palette` | DA-OVL-02 | `command-palette`: Admin dashboard/Shell/Command palette | |
+| CMP-DA-G-06 | `custom-fields/` | 2 | `custom-fields-inline`, `definition-form` | DA-SET-09 and the detail pages with custom fields | `definition-form`: Admin dashboard/Custom fields/Definition form | |
+| CMP-DA-G-07 | `customers/` | 10 | `customer-addresses-card`, `customer-groups-card`, `customer-internal-note-card`, `customer-last-order-card`, `customer-lifetime-stats-card`, `customer-orders-card`, `customer-privacy-card`, `customer-profile-card`, `customer-store-credits-card`, `customer-tax-identifiers-card` | DA-CUS-02 | | |
+| CMP-DA-G-08 | `email-templates/` | 8 | `conflict-dialog`, `default-diff-dialog`, `email-preview-frame`, `emails-tabs`, `history-sheet`, `preview-card`, `problems-alert`, `variables-card` | DA-SET-03 to DA-SET-05 | | |
+| CMP-DA-G-09 | `imports/` | 1 | `import-wizard-dialog` | DA-OVL-05, DA-SET-31 | | |
+| CMP-DA-G-10 | `integrations/` | 3 | `configure-integration-sheet`, `integration-card`, `setup-guide-link` | DA-SET-10 | `configure-integration-sheet`: Admin dashboard/Integrations/Configure sheet; `integration-card`: Admin dashboard/Integrations/Integration card; `setup-guide-link`: Admin dashboard/Integrations/Setup guide link | |
+| CMP-DA-G-11 | `orders/` | 26 | `fulfillment-deliveries`, `fulfillment-delivery-dialog`, `fulfillment-edit-dialog`, `fulfillment-fulfill-form`, `fulfillment-label-upload-dialog`, `fulfillments-card`, `line-item-dialogs`, `line-item-price-source`, `order-adjustments-cards`, `order-cancel-dialog`, `order-commission-lines-card`, `order-customer-card`, `order-discounts-sidebar-card`, `order-edit-items-table`, `order-header`, `order-logistics-card`, `order-marketplace-card`, `order-notes-cards`, `order-payments-card`, `order-purchase-order-card`, `order-seller-transfers-card`, `order-skeleton`, `order-summary-card`, `payment-details-dialog`, `shipping-documents`, `shipping-label-row` | DA-ORD-01 to DA-ORD-05 | | |
+| CMP-DA-G-12 | `payment-method-editors/` | 2 | `payment-method-form`, `payment-method-sheets` | DA-SET-10, DA-SET-12 | | |
+| CMP-DA-G-13 | `price-list-editors/` | 7 | `price-list-form`, `rule-channel`, `rule-customer`, `rule-customer-group`, `rule-market`, `rule-volume`, `status-badge` | DA-PRD-15 to DA-PRD-17 | | |
+| CMP-DA-G-14 | `products/` | 9 | `digital-asset-edit-sheet`, `digital-asset-provider-sheet`, `digital-assets-card`, `digital-files-form-card`, `product-custom-fields-provider`, `product-review-actions`, `product-seller-card`, `provider-settings-fields`, `publishing-card` | DA-PRD-03 | | |
+| CMP-DA-G-15 | `promotion-editors/` | 13 | `action-adjustment`, `action-create-line-items`, `editor-shell`, `match-policy-picker`, `promotion-form`, `rule-category`, `rule-channel`, `rule-country`, `rule-customer-group`, `rule-market`, `rule-option-value`, `rule-product`, `rule-user` | DA-PRM-02, DA-PRM-03 | | |
+| CMP-DA-G-16 | `reasons/` | 1 | `reason-section` | DA-SET-15, DA-SET-21 | `reason-section`: Admin dashboard/Reasons/Reason section | |
+| CMP-DA-G-17 | `reporting/` | 5 | `growth-badge`, `report-builder`, `report-view`, `report-workspace`, `save-report-dialog` | DA-HOME-01, DA-RPT-01 to DA-RPT-03 | | |
+| CMP-DA-G-18 | `sellers/` | 14 | `payout-complete-dialog`, `seller-address-card`, `seller-at-a-glance-card`, `seller-balance-card`, `seller-brand-card`, `seller-contact-card`, `seller-edit-profile-sheet`, `seller-edit-settlement-sheet`, `seller-invite-sheet`, `seller-onboarding-card`, `seller-read-row`, `seller-settlement-card`, `seller-status-card`, `seller-team-card` | DA-SEL-01 to DA-SEL-06 | | |
+| CMP-DA-G-19 | `setup-tasks/` | 3 | `add-products-task`, `store-address-task`, `storefront-connect-task` | DA-HOME-02 | `add-products-task`: Admin dashboard/Getting started/Add products task; `store-address-task`: Admin dashboard/Getting started/Store address task; `storefront-connect-task`: Admin dashboard/Getting started/Storefront connect task | |
+| CMP-DA-G-20 | `shipping/` | 14 | `delivery-digital-methods-card`, `delivery-method-form`, `delivery-method-list`, `delivery-method-sheet`, `delivery-origin-group-dialog`, `delivery-origin-group-section`, `delivery-pickup-card`, `delivery-profile-general-card`, `delivery-profile-origins-card`, `delivery-zone-card`, `delivery-zone-region-picker`, `delivery-zone-sheet`, `delivery-zones-and-methods-section`, `stock-location-scope-field` | DA-SET-16, DA-SET-17 | `stock-location-scope-field`: Admin dashboard/Shipping/Stock location scope field | |
+| CMP-DA-G-21 | `store-credits/` | 2 | `edit-store-credit-dialog`, `issue-store-credit-dialog` | DA-LOY-02, DA-CUS-02 | | |
+| CMP-DA-G-22 | `taxes/` | 2 | `market-tax-providers`, `taxes-tabs` | DA-SET-13 to DA-SET-15 | | |
+| CMP-DA-G-23 | `translations/` | 2 | `resource-translations-card`, `resource-translations-dialog` | DA-PRD-03, DA-PRD-05, DA-PRD-06 | | |
+| CMP-DA-G-24 | Top level | 60 | `actor-label`, `agent-connections-card`, `auth-shell`, `catalog-audience`, `catalog-price-columns`, `catalog-pricing-fields`, `catalog-terms-card`, `catalog-wizard-dialog`, `channel-select`, `choice-card-picker`, `close-short-dialog`, `company-address-sheet`, `company-combobox-option`, `company-kind-badge`, `deferred-product-membership-card`, `enterprise-upsell`, `getting-started-nav-badge`, `inventory-cells`, `inventory-status-badge`, `jurisdiction-label`, `mcp-connect-sheet`, `media-rich-text-editor`, `nav-counter-badge`, `no-store-access`, `notifications`, `oauth-application-sheet`, `order-digital-links-card`, `order-post-sale-cards`, `order-returns-card`, `order-routing-rules-section`, `permission-picker`, `post-sale-create-dialogs`, `price-list-csv-buttons`, `product-membership-staging`, `profile-dialog`, `purchase-order-form`, `quantity-cell`, `reason-field`, `receive-delivery-card`, `release-notes`, `resource-image-field`, `role-sheet`, `route-pending`, `settings-list-card`, `stock-history-card`, `stock-levels-panel`, `stock-receipts-card`, `stock-transfer-form`, `store-setup-fields`, `storefront-connect-sheet`, `supplier-sheet`, `tax-category-label`, `tax-exemption-certificates-card`, `tax-identifiers-card`, `tax-provider-field`, `transfer-cancel-dialog`, `type-picker-sheet`, `variant-line-editor`, `variant-link`, `webhook-endpoint-form` | Across the dashboard; for example `auth-shell` on DA-AUTH-01 to DA-AUTH-04, the `catalog-*` parts on DA-PRD-13 and DA-PRD-14, `role-sheet` and `permission-picker` on DA-SET-25, `webhook-endpoint-form` on DA-SET-28 and DA-SET-29, `enterprise-upsell` on DA-CUS-05 | `agent-connections-card`: Admin dashboard/AI agents/Agent connections card; `auth-shell`: Admin dashboard/Sign-in/Auth shell; `choice-card-picker`: Admin dashboard/AI agents/Choice card picker; `getting-started-nav-badge`: Admin dashboard/Getting started/Getting started nav badge; `mcp-connect-sheet`: Admin dashboard/AI agents/Connect sheet; `media-rich-text-editor`: Admin dashboard/Policies/Media rich text editor; `no-store-access`: Admin dashboard/Sign-in/No store access; `notifications`: Admin dashboard/Shell/Notifications; `oauth-application-sheet`: Admin dashboard/OAuth clients/Client sheet; `order-routing-rules-section`: Admin dashboard/Channels/Order routing rules section; `permission-picker`: Admin dashboard/Roles/Permission picker; `profile-dialog`: Admin dashboard/Shell/Profile dialog; `release-notes`: Admin dashboard/Shell/Release notes; `role-sheet`: Admin dashboard/Roles/Role sheet; `settings-list-card`: Admin dashboard/Reasons/Settings list card; `store-setup-fields`: Admin dashboard/Setup/Store setup fields; `storefront-connect-sheet`: Admin dashboard/Getting started/Storefront connect sheet; `tax-provider-field`: Admin dashboard/Markets/Tax provider field; `webhook-endpoint-form`: Admin dashboard/Webhooks/Endpoint form | |
 
 ### Seller panel
 
 `packages/seller-dashboard/src/components/`.
 
-| ID | Group | Files | Components | Used on |
-|---|---|---|---|---|
-| CMP-SP-G-01 | `finance/` | 1 | `balance-summary` | SP-FIN-01 |
-| CMP-SP-G-02 | `orders/` | 16 | `fulfillment-deliveries`, `fulfillment-delivery-dialog`, `fulfillment-edit-dialog`, `fulfillment-fulfill-form`, `fulfillment-label-upload-dialog`, `fulfillment-split-dialog`, `fulfillments-card`, `order-cancel-dialog`, `order-cards`, `order-earnings-card`, `order-notes-cards`, `order-payment-card`, `post-sale-cards`, `post-sale-create-dialogs`, `returns-card`, `shipping-label-row` | SP-ORD-02 |
-| CMP-SP-G-03 | Top level | 11 | `account-dialog`, `centered-message`, `onboarding-nav-badge`, `product-status-card`, `read-row`, `retryable-error`, `seller-address-card`, `seller-business-card`, `seller-returns-location-card`, `seller-switcher`, `seller-tax-identifiers-card` | SP-OVL-01, SP-OVL-02, SP-PRF-01, SP-PRD-03 and the error and empty states across the panel |
+| ID | Group | Files | Components | Used on | Storybook | Figma |
+|---|---|---|---|---|---|---|
+| CMP-SP-G-01 | `finance/` | 1 | `balance-summary` | SP-FIN-01 | `balance-summary`: Seller panel/Finance/Balance summary | |
+| CMP-SP-G-02 | `orders/` | 16 | `fulfillment-deliveries`, `fulfillment-delivery-dialog`, `fulfillment-edit-dialog`, `fulfillment-fulfill-form`, `fulfillment-label-upload-dialog`, `fulfillment-split-dialog`, `fulfillments-card`, `order-cancel-dialog`, `order-cards`, `order-earnings-card`, `order-notes-cards`, `order-payment-card`, `post-sale-cards`, `post-sale-create-dialogs`, `returns-card`, `shipping-label-row` | SP-ORD-02 | | |
+| CMP-SP-G-03 | Top level | 11 | `account-dialog`, `centered-message`, `onboarding-nav-badge`, `product-status-card`, `read-row`, `retryable-error`, `seller-address-card`, `seller-business-card`, `seller-returns-location-card`, `seller-switcher`, `seller-tax-identifiers-card` | SP-OVL-01, SP-OVL-02, SP-PRF-01, SP-PRD-03 and the error and empty states across the panel | | |
 
 ## 5. Storefront components
 
@@ -295,71 +296,73 @@ These are compositions bound to one application's data hooks and API. They are l
 
 `src/components/ui/<component>.tsx` in `liquorify-storefront`, shadcn's `radix-nova` style on Radix.
 
-| ID | Component | Kind | Built on |
-|---|---|---|---|
-| CMP-SF-P-01 | `alert-dialog` | Overlay | Radix |
-| CMP-SF-P-02 | `alert` | Feedback | — |
-| CMP-SF-P-03 | `badge` | Display | Radix |
-| CMP-SF-P-04 | `button` | Action | Radix |
-| CMP-SF-P-05 | `card` | Layout | — |
-| CMP-SF-P-06 | `category-image` | Display | Next.js image |
-| CMP-SF-P-07 | `checkbox` | Input | Radix |
-| CMP-SF-P-08 | `dialog` | Overlay | Radix |
-| CMP-SF-P-09 | `dropdown-menu` | Overlay | Radix |
-| CMP-SF-P-10 | `field` | Input | — |
-| CMP-SF-P-11 | `input-group` | Input | — |
-| CMP-SF-P-12 | `input` | Input | — |
-| CMP-SF-P-13 | `label` | Input | Radix |
-| CMP-SF-P-14 | `native-select` | Input | — |
-| CMP-SF-P-15 | `popover` | Overlay | Radix |
-| CMP-SF-P-16 | `product-image` | Display | Next.js image |
-| CMP-SF-P-17 | `quantity-picker` | Input | — |
-| CMP-SF-P-18 | `radio-group` | Input | Radix |
-| CMP-SF-P-19 | `separator` | Layout | Radix |
-| CMP-SF-P-20 | `sheet` | Overlay | Radix |
-| CMP-SF-P-21 | `sonner` | Feedback | Sonner, next-themes |
-| CMP-SF-P-22 | `textarea` | Input | — |
+| ID | Component | Kind | Built on | Storybook | Figma |
+|---|---|---|---|---|---|
+| CMP-SF-P-01 | `alert-dialog` | Overlay | Radix | Storefront/UI/Alert dialog | |
+| CMP-SF-P-02 | `alert` | Feedback | — | Storefront/UI/Alert | |
+| CMP-SF-P-03 | `badge` | Display | Radix | | |
+| CMP-SF-P-04 | `button` | Action | Radix | Storefront/UI/Button | |
+| CMP-SF-P-05 | `card` | Layout | — | Storefront/UI/Card | |
+| CMP-SF-P-06 | `category-image` | Display | Next.js image | | |
+| CMP-SF-P-07 | `checkbox` | Input | Radix | Storefront/UI/Checkbox | |
+| CMP-SF-P-08 | `dialog` | Overlay | Radix | Storefront/UI/Dialog | |
+| CMP-SF-P-09 | `dropdown-menu` | Overlay | Radix | Storefront/UI/Dropdown menu | |
+| CMP-SF-P-10 | `field` | Input | — | Storefront/UI/Field | |
+| CMP-SF-P-11 | `input-group` | Input | — | Storefront/UI/Input group | |
+| CMP-SF-P-12 | `input` | Input | — | Storefront/UI/Input | |
+| CMP-SF-P-13 | `label` | Input | Radix | Storefront/UI/Label | |
+| CMP-SF-P-14 | `native-select` | Input | — | Storefront/UI/Native select | |
+| CMP-SF-P-15 | `popover` | Overlay | Radix | | |
+| CMP-SF-P-16 | `product-image` | Display | Next.js image | Storefront/UI/Product image | |
+| CMP-SF-P-17 | `quantity-picker` | Input | — | Storefront/UI/Quantity picker | |
+| CMP-SF-P-18 | `radio-group` | Input | Radix | | |
+| CMP-SF-P-19 | `separator` | Layout | Radix | | |
+| CMP-SF-P-20 | `sheet` | Overlay | Radix | Storefront/UI/Sheet | |
+| CMP-SF-P-21 | `sonner` | Feedback | Sonner, next-themes | Storefront/UI/Toaster | |
+| CMP-SF-P-22 | `textarea` | Input | — | | |
 
 ### Feature components
 
 `src/components/<group>/` in `liquorify-storefront`. 58 of the storefront's 88 component files are client components; the other 30 have no `"use client"` line and run on the server or on both sides, which matters for Storybook, whose Next.js support treats server components as experimental.
 
-| ID | Group | Files | Components | Used on |
-|---|---|---|---|---|
-| CMP-SF-G-01 | `account/` | 6 | AccountShell, AuthenticatedAccountShell, CreditCardList, GiftCardList, OrderDetail, OrderList | SF-ACC |
-| CMP-SF-G-02 | `addresses/` | 1 | AddressManagement | SF-ACC-07, SF-CHK-01 |
-| CMP-SF-G-03 | `cart/` | 2 | CartDrawer, QuantityPickerField | SF-OVL-02, SF-SHOP-05 |
-| CMP-SF-G-04 | `checkout/` | 12 | AddressEditModal, AddressFormFields, AddressSection, AddressSelector, AdyenPaymentForm, CouponCode, DeliveryMethodSection, ExpressCheckoutButton, PayPalPaymentForm, PaymentSection, StripePaymentForm, Summary | SF-CHK-01, SF-OVL-05 |
-| CMP-SF-G-05 | `home/` | 3 | FeaturedProductsSection, HeroSection, WholesaleSection | SF-SHOP-01 |
-| CMP-SF-G-06 | `layout/` | 8 | CartButton, CurrentYear, DocumentShell, Footer, Header, MobileMenu, RegionPreferences, SearchToggle | SF-OVL-01, SF-OVL-03, SF-OVL-04 |
-| CMP-SF-G-07 | `navigation/` | 1 | Breadcrumbs | SF-SHOP-03, SF-SHOP-04 |
-| CMP-SF-G-08 | `order/` | 5 | AddressBlock, FulfillmentBlock, LineItemCard, OrderTotals, PaymentInfo | SF-ACC-06, SF-CHK-03 |
-| CMP-SF-G-09 | `policy/` | 1 | PolicyConsent | SF-ACC-02 |
-| CMP-SF-G-10 | `products/` | 25 | FeaturedProducts, HiddenPricePrompt, InfiniteProductList, ListingAnalytics, ListingFilterBar, MediaGallery, MediaLightbox, ProductCard, ProductCardSkeleton, ProductCarousel, ProductCustomFields, ProductGrid, ProductGridSkeleton, ProductListing, ProductListingSkeleton, VariantPicker; filters: AvailabilityDropdownContent, FilterBarSkeleton, FilterChips, FilterDropdown, MobileFilterDrawer, OptionDropdownContent, PriceDropdownContent, ProductFilters, SortDropdownContent | SF-SHOP-02 to SF-SHOP-04, SF-WHL |
-| CMP-SF-G-11 | `search/` | 1 | SearchBar | SF-OVL-03 |
-| CMP-SF-G-12 | `seo/` | 1 | JsonLd | Every shop page (structured data, not visible) |
+| ID | Group | Files | Components | Used on | Storybook | Figma |
+|---|---|---|---|---|---|---|
+| CMP-SF-G-01 | `account/` | 6 | AccountShell, AuthenticatedAccountShell, CreditCardList, GiftCardList, OrderDetail, OrderList | SF-ACC | `AccountShell`: Storefront/Account/Account shell; `AuthenticatedAccountShell`: Storefront/Account/Authenticated account shell; `CreditCardList`: Storefront/Account/Credit card list; `GiftCardList`: Storefront/Account/Gift card list; `OrderDetail`: Storefront/Account/Order detail; `OrderList`: Storefront/Account/Order list | |
+| CMP-SF-G-02 | `addresses/` | 1 | AddressManagement | SF-ACC-07, SF-CHK-01 | `AddressManagement`: Storefront/Addresses/Address management | |
+| CMP-SF-G-03 | `cart/` | 2 | CartDrawer, QuantityPickerField | SF-OVL-02, SF-SHOP-05 | `CartDrawer`: Storefront/Cart/Cart drawer; `QuantityPickerField`: Storefront/Cart/Quantity picker field | |
+| CMP-SF-G-04 | `checkout/` | 12 | AddressEditModal, AddressFormFields, AddressSection, AddressSelector, AdyenPaymentForm, CouponCode, DeliveryMethodSection, ExpressCheckoutButton, PayPalPaymentForm, PaymentSection, StripePaymentForm, Summary | SF-CHK-01, SF-OVL-05 | `AddressEditModal`: Storefront/Checkout/Address edit modal; `AddressFormFields`: Storefront/Checkout/Address form fields | |
+| CMP-SF-G-05 | `home/` | 3 | FeaturedProductsSection, HeroSection, WholesaleSection | SF-SHOP-01 | `FeaturedProductsSection`: Storefront/Home/Featured products section; `HeroSection`: Storefront/Home/Hero section; `WholesaleSection`: Storefront/Home/Wholesale section | |
+| CMP-SF-G-06 | `layout/` | 8 | CartButton, CurrentYear, DocumentShell, Footer, Header, MobileMenu, RegionPreferences, SearchToggle | SF-OVL-01, SF-OVL-03, SF-OVL-04 | `CartButton`: Storefront/Layout/Cart button; `CurrentYear`: Storefront/Layout/Current year; `DocumentShell`: U5, it draws the page's `html` element, which a story cannot hold; Storybook's preview applies its font and body classes, and every running-screen capture shows it; `Footer`: Storefront/Layout/Footer; `Header`: Storefront/Layout/Header; `MobileMenu`: Storefront/Layout/Mobile menu; `RegionPreferences`: Storefront/Layout/Region preferences; `SearchToggle`: Storefront/Layout/Search toggle | |
+| CMP-SF-G-07 | `navigation/` | 1 | Breadcrumbs | SF-SHOP-03, SF-SHOP-04 | `Breadcrumbs`: Storefront/Navigation/Breadcrumbs | |
+| CMP-SF-G-08 | `order/` | 5 | AddressBlock, FulfillmentBlock, LineItemCard, OrderTotals, PaymentInfo | SF-ACC-06, SF-CHK-03 | `AddressBlock`: Storefront/Order/Address block; `FulfillmentBlock`: Storefront/Order/Fulfillment block; `LineItemCard`: Storefront/Order/Line item card; `OrderTotals`: Storefront/Order/Order totals; `PaymentInfo`: Storefront/Order/Payment info | |
+| CMP-SF-G-09 | `policy/` | 1 | PolicyConsent | SF-ACC-02 | `PolicyConsent`: Storefront/Policy/Policy consent | |
+| CMP-SF-G-10 | `products/` | 25 | FeaturedProducts, HiddenPricePrompt, InfiniteProductList, ListingAnalytics, ListingFilterBar, MediaGallery, MediaLightbox, ProductCard, ProductCardSkeleton, ProductCarousel, ProductCustomFields, ProductGrid, ProductGridSkeleton, ProductListing, ProductListingSkeleton, VariantPicker; filters: AvailabilityDropdownContent, FilterBarSkeleton, FilterChips, FilterDropdown, MobileFilterDrawer, OptionDropdownContent, PriceDropdownContent, ProductFilters, SortDropdownContent | SF-SHOP-02 to SF-SHOP-04, SF-WHL | `FeaturedProducts`: Storefront/Products/Featured products; `HiddenPricePrompt`: Storefront/Products/Hidden price prompt; `InfiniteProductList`: Storefront/Products/Infinite product list; `ListingAnalytics`: U1, rendered only inside `ProductListing`, whose stories render it; it sends analytics events and draws nothing; `ListingFilterBar`: U1, rendered only inside `ProductListing`, whose stories render it with the filter bar; `MediaGallery`: Storefront/Products/Media gallery; `MediaLightbox`: Storefront/Products/Media lightbox; `ProductCard`: Storefront/Products/Product card; `ProductCardSkeleton`: Storefront/Products/Product card skeleton; `ProductCarousel`: Storefront/Products/Product carousel; `ProductCustomFields`: Storefront/Products/Product custom fields; `ProductGrid`: Storefront/Products/Product grid; `ProductGridSkeleton`: Storefront/Products/Product grid skeleton; `ProductListing`: Storefront/Products/Product listing; `ProductListingSkeleton`: Storefront/Products/Product listing skeleton; `VariantPicker`: Storefront/Products/Variant picker; `filters/AvailabilityDropdownContent`: Storefront/Products/Filters/Availability dropdown content; `filters/FilterBarSkeleton`: Storefront/Products/Filters/Filter bar skeleton; `filters/FilterChips`: Storefront/Products/Filters/Filter chips; `filters/FilterDropdown`: Storefront/Products/Filters/Filter dropdown; `filters/MobileFilterDrawer`: Storefront/Products/Filters/Mobile filter drawer; `filters/OptionDropdownContent`: Storefront/Products/Filters/Option dropdown content; `filters/PriceDropdownContent`: Storefront/Products/Filters/Price dropdown content; `filters/ProductFilters`: Storefront/Products/Filters/Product filters, whose `FilterBar` is the file's one component; `filters/SortDropdownContent`: Storefront/Products/Filters/Sort dropdown content | |
+| CMP-SF-G-11 | `search/` | 1 | SearchBar | SF-OVL-03 | `SearchBar`: Storefront/Search/Search bar | |
+| CMP-SF-G-12 | `seo/` | 1 | JsonLd | Every shop page (structured data, not visible) | `JsonLd`: no story; it writes structured data for search engines and draws nothing. Its output is recorded from the pages' source: the home page in the shop batch's part 1, and the category and product pages in part 2, which needs the storefront's site address at build time | |
 
 **Page-level components** (13), kept beside their pages under `src/app/[country]/[locale]/`, except `global-error`, which is `src/app/global-error.tsx`:
 
-| ID | Component | Where | Kind | Used on |
-|---|---|---|---|---|
-| CMP-SF-PG-01 | CheckoutPageContent | `(checkout)/checkout/[id]/` | Layout | SF-CHK-01 |
-| CMP-SF-PG-02 | CheckoutSidebar | `(checkout)/checkout/[id]/` | Display | SF-CHK-01 |
-| CMP-SF-PG-03 | CategoryBanner | `(storefront)/c/[...permalink]/` | Display | SF-SHOP-03 |
-| CMP-SF-PG-04 | ProductDetails | `(storefront)/products/[slug]/` | Display | SF-SHOP-04 |
-| CMP-SF-PG-05 | WholesaleApplicationPending | `(wholesale)/wholesale/_components/` | Feedback | SF-WHL |
-| CMP-SF-PG-06 | WholesaleGate | `(wholesale)/wholesale/_components/` | Extension | SF-WHL |
-| CMP-SF-PG-07 | WholesaleGuestBrowse | `(wholesale)/wholesale/_components/` | Layout | SF-WHL |
-| CMP-SF-PG-08 | WholesaleHeader | `(wholesale)/wholesale/_components/` | Navigation | SF-WHL |
-| CMP-SF-PG-09 | WholesaleSignInWall | `(wholesale)/wholesale/_components/` | Feedback | SF-WHL |
-| CMP-SF-PG-10 | WholesaleCartView | `(wholesale)/wholesale/cart/` | Data | SF-WHL-05 |
-| CMP-SF-PG-11 | QuickOrderView | `(wholesale)/wholesale/quick-order/` | Input | SF-WHL-06 |
-| CMP-SF-PG-12 | SkuCombobox | `(wholesale)/wholesale/quick-order/` | Input | SF-WHL-06 |
-| CMP-SF-PG-13 | global-error | `src/app/` | Feedback | SF-SYS-01 |
+| ID | Component | Where | Kind | Used on | Storybook | Figma |
+|---|---|---|---|---|---|---|
+| CMP-SF-PG-01 | CheckoutPageContent | `(checkout)/checkout/[id]/` | Layout | SF-CHK-01 | | |
+| CMP-SF-PG-02 | CheckoutSidebar | `(checkout)/checkout/[id]/` | Display | SF-CHK-01 | | |
+| CMP-SF-PG-03 | CategoryBanner | `(storefront)/c/[...permalink]/` | Display | SF-SHOP-03 | Storefront/Pages/Category banner | |
+| CMP-SF-PG-04 | ProductDetails | `(storefront)/products/[slug]/` | Display | SF-SHOP-04 | Storefront/Pages/Product details | |
+| CMP-SF-PG-05 | WholesaleApplicationPending | `(wholesale)/wholesale/_components/` | Feedback | SF-WHL | | |
+| CMP-SF-PG-06 | WholesaleGate | `(wholesale)/wholesale/_components/` | Extension | SF-WHL | | |
+| CMP-SF-PG-07 | WholesaleGuestBrowse | `(wholesale)/wholesale/_components/` | Layout | SF-WHL | | |
+| CMP-SF-PG-08 | WholesaleHeader | `(wholesale)/wholesale/_components/` | Navigation | SF-WHL | | |
+| CMP-SF-PG-09 | WholesaleSignInWall | `(wholesale)/wholesale/_components/` | Feedback | SF-WHL | | |
+| CMP-SF-PG-10 | WholesaleCartView | `(wholesale)/wholesale/cart/` | Data | SF-WHL-05 | | |
+| CMP-SF-PG-11 | QuickOrderView | `(wholesale)/wholesale/quick-order/` | Input | SF-WHL-06 | | |
+| CMP-SF-PG-12 | SkuCombobox | `(wholesale)/wholesale/quick-order/` | Input | SF-WHL-06 | | |
+| CMP-SF-PG-13 | global-error | `src/app/` | Feedback | SF-SYS-01 | Storefront/Pages/Global error | |
 
 ## 6. Dashboard design tokens
 
 Declared in `packages/dashboard-ui/src/styles.css`. Merchants and hosts restyle by overriding these below the stylesheet import, without changing components (`docs/developer/dashboard/customization/theming.mdx`).
+
+Storybook: `Tokens/Dashboard` shows every token in this section, the colour utility aliases and the Tailwind palette colours included.
 
 ### Semantic tokens, light and dark
 
@@ -465,6 +468,8 @@ The `@theme inline` block turns tokens into Tailwind utilities.
 
 **Colour utility aliases** (TK-DUI-A, 58 entries). Each maps a Tailwind colour name to the token of the same name, such as `--color-card: var(--card)`. Four groups add meaning rather than repeating a name: `--color-success`, `--color-warning`, `--color-danger` and `--color-info`, with their `-bg` and `-border` variants, point at the status tokens; `--color-blue-500` and `--color-blue-600` replace Tailwind's blues with the brand blues; and `--color-link` and `--color-link-hover` point at the link tokens. The full list: `--color-sidebar-ring`, `--color-sidebar-border`, `--color-sidebar-accent-foreground`, `--color-sidebar-accent-hover`, `--color-sidebar-accent`, `--color-sidebar-primary-foreground`, `--color-sidebar-primary`, `--color-sidebar-foreground`, `--color-sidebar`, `--color-chart-5`, `--color-chart-4`, `--color-chart-3`, `--color-chart-2`, `--color-chart-1`, `--color-ring`, `--color-input`, `--color-border`, `--color-border-card`, `--color-border-subtle`, `--color-border-control`, `--color-card-container`, `--color-nested-raised`, `--color-track-recessed`, `--color-destructive`, `--color-destructive-foreground`, `--color-accent-foreground`, `--color-accent-strong`, `--color-accent-hover`, `--color-accent-strong-hover`, `--color-accent`, `--color-muted-foreground`, `--color-muted`, `--color-secondary-foreground`, `--color-secondary`, `--color-primary-foreground`, `--color-primary`, `--color-popover-foreground`, `--color-popover`, `--color-card-foreground`, `--color-card`, `--color-foreground`, `--color-background`, `--color-success`, `--color-success-bg`, `--color-success-border`, `--color-warning`, `--color-warning-bg`, `--color-warning-border`, `--color-danger`, `--color-danger-bg`, `--color-danger-border`, `--color-info`, `--color-info-bg`, `--color-info-border`, `--color-blue-500`, `--color-blue-600`, `--color-link`, `--color-link-hover`.
 
+**Tailwind palette colours** (TK-TW-D, 48 entries). Colours from Tailwind's own palette that the dashboard packages use without declaring them: 20 are referred to by the status tokens above, and the rest appear in class names such as `text-amber-700`. `--color-blue-500` and `--color-blue-600` are not among them, because the theme replaces them with the brand blues. The values come from Tailwind's theme file at the installed version, and the token script finds the list by searching the four dashboard packages' source, so a class name built at run time is missed. The full list: `--color-red-100`, `--color-red-200`, `--color-red-300`, `--color-red-400`, `--color-red-700`, `--color-red-900`, `--color-amber-100`, `--color-amber-200`, `--color-amber-300`, `--color-amber-400`, `--color-amber-500`, `--color-amber-600`, `--color-amber-700`, `--color-amber-800`, `--color-amber-900`, `--color-green-100`, `--color-green-200`, `--color-green-300`, `--color-green-600`, `--color-green-700`, `--color-green-900`, `--color-emerald-300`, `--color-emerald-400`, `--color-emerald-500`, `--color-emerald-600`, `--color-emerald-700`, `--color-sky-100`, `--color-sky-200`, `--color-sky-300`, `--color-sky-700`, `--color-sky-900`, `--color-blue-50`, `--color-blue-300`, `--color-blue-400`, `--color-blue-700`, `--color-blue-800`, `--color-purple-300`, `--color-zinc-100`, `--color-zinc-300`, `--color-zinc-400`, `--color-zinc-500`, `--color-zinc-600`, `--color-zinc-700`, `--color-zinc-800`, `--color-zinc-900`, `--color-zinc-950`, `--color-black`, `--color-white`.
+
 ## 7. Storefront design tokens
 
 Declared in `src/app/globals.css` in `liquorify-storefront`. The font comes from Next.js's font loader as `--font-geist`.
@@ -542,9 +547,13 @@ Declared in `src/app/globals.css` in `liquorify-storefront`. The font comes from
 
 **Colour utility aliases** (TK-SF-A, 31 entries), each mapping a Tailwind colour name to the token of the same name: `--color-background`, `--color-foreground`, `--color-sidebar-ring`, `--color-sidebar-border`, `--color-sidebar-accent-foreground`, `--color-sidebar-accent`, `--color-sidebar-primary-foreground`, `--color-sidebar-primary`, `--color-sidebar-foreground`, `--color-sidebar`, `--color-chart-5`, `--color-chart-4`, `--color-chart-3`, `--color-chart-2`, `--color-chart-1`, `--color-ring`, `--color-input`, `--color-border`, `--color-destructive`, `--color-accent-foreground`, `--color-accent`, `--color-muted-foreground`, `--color-muted`, `--color-secondary-foreground`, `--color-secondary`, `--color-primary-foreground`, `--color-primary`, `--color-popover-foreground`, `--color-popover`, `--color-card-foreground`, `--color-card`.
 
+**Tailwind palette colours** (TK-TW-S, 44 entries). Colours from Tailwind's own palette that the storefront uses in class names without declaring them, such as `text-gray-900`. None of its tokens refer to the palette. The values come from Tailwind's theme file at the installed version, and the token script finds the list by searching `src/`, so a class name built at run time is missed. One fixed colour in a class name, `rgba(114,114,114,0.9)`, is not in the palette and is not listed here. The full list: `--color-red-50`, `--color-red-100`, `--color-red-300`, `--color-red-500`, `--color-red-600`, `--color-red-700`, `--color-red-800`, `--color-amber-700`, `--color-yellow-100`, `--color-yellow-800`, `--color-green-100`, `--color-green-500`, `--color-green-600`, `--color-green-700`, `--color-green-800`, `--color-blue-50`, `--color-blue-100`, `--color-blue-800`, `--color-slate-50`, `--color-slate-100`, `--color-slate-200`, `--color-slate-300`, `--color-slate-400`, `--color-slate-500`, `--color-slate-600`, `--color-slate-700`, `--color-slate-800`, `--color-slate-900`, `--color-gray-50`, `--color-gray-100`, `--color-gray-200`, `--color-gray-300`, `--color-gray-400`, `--color-gray-500`, `--color-gray-600`, `--color-gray-700`, `--color-gray-800`, `--color-gray-900`, `--color-neutral-200`, `--color-neutral-300`, `--color-neutral-400`, `--color-neutral-800`, `--color-black`, `--color-white`.
+
 ## 8. Email branding values
 
 Each store may set these in the dashboard (DA-SET-03); a blank value keeps the shipped default (`spree/core/app/models/spree/emails/branding.rb`).
+
+Storybook: `Tokens/Email branding` shows the defaults.
 
 | ID | Value | Default |
 |---|---|---|
@@ -562,9 +571,9 @@ Ten agent skills are tracked in the backend under `.agents/skills/` and linked f
 ## 10. What this inventory does not show
 
 - **How anything looks or behaves.** Nothing was rendered. No colour contrast was measured, and no component was checked for accessibility (PD-11 and QV-09 stay not assessed in [LIQ-003](LIQ-003-engineering-baseline.md#3-capability-baseline)).
-- **Variants and states of each component.** Those are recorded when each component's stories are written (FB-19), and they become the Figma component properties (FB-20).
+- **Variants and states of each component.** Those are the story names in each component's Storybook file (FB-19), listed for each batch in its verification record, and they become the Figma component properties (FB-20).
 - **Component-level styles.** The dashboard stylesheet has rules beyond its tokens; they are part of the components they style.
-- **Colours used outside the tokens.** Components in both systems also use Tailwind's own palette colours in their class names, such as `text-gray-900`: 48 distinct colours in the dashboard packages, counting the 20 its tokens refer to, and 42 in the storefront, plus white and black. They are not custom properties declared in the stylesheets, so they have no IDs yet. The token preparation for FB-20 adds them ([LIQ-010 §3.4](LIQ-010-design-system-reproduction-architecture.md#34-colours-used-outside-the-tokens)).
+- **Colours outside the token files.** The storefront's one fixed colour, `rgba(114,114,114,0.9)`, has no ID. The Tailwind palette colours now have the group IDs TK-TW-D and TK-TW-S (§6 and §7); they are found by searching class names, which misses class names built at run time.
 - **Liquorify components and tokens.** None exist.
 
 ## 11. How this links to the other records

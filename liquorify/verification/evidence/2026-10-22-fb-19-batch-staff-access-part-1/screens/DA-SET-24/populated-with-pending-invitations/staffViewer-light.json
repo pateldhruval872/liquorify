@@ -1,0 +1,16 @@
+{
+  "screen": "DA-SET-24",
+  "state": "populated-with-pending-invitations",
+  "variant": "staffViewer",
+  "role": {
+    "name": "Staff viewer",
+    "permissions": [
+      "read_staff"
+    ]
+  },
+  "theme": "light",
+  "revision": "a4a1708",
+  "path": "/<store>/settings/staff",
+  "intercepted": null,
+  "settled": true
+}

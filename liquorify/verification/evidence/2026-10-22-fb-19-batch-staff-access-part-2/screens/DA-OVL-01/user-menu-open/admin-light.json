@@ -1,0 +1,16 @@
+{
+  "screen": "DA-OVL-01",
+  "state": "user-menu-open",
+  "variant": "admin",
+  "role": null,
+  "theme": "light",
+  "revision": "a4a1708",
+  "path": "/<store>",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": null,
+  "settled": true,
+  "outside": []
+}

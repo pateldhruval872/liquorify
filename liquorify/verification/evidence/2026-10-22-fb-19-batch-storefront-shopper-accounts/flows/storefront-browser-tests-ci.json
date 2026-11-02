@@ -1,0 +1,40 @@
+{
+  "revision": "2e5f1196f137020f1b7cd48f6ba3133cbda1f8f7",
+  "workflow": "CI, job \"E2E (Playwright + Spree)\"",
+  "run": "https://github.com/pateldhruval872/liquorify-storefront/actions/runs/39798384888",
+  "attempt": 3,
+  "job": "https://github.com/pateldhruval872/liquorify-storefront/actions/runs/39798384888/job/120234187831",
+  "started": "2026-10-23T04:05:29Z",
+  "completed": "2026-10-23T04:10:45Z",
+  "backend": "ghcr.io/spree/spree:latest through the storefront's e2e-backend, seeded by scripts/e2e/bootstrap-spree.sh with the Stripe test gateway; not the Liquorify backend",
+  "keys_check": "passed: the secret key reached the job, masked in the log",
+  "reporter": "github, which prints only the totals",
+  "summary": "21 passed (2.6m)",
+  "expected": 21,
+  "unexpected": 0,
+  "flaky": 0,
+  "skipped": 0,
+  "tests_per_file": {
+    "e2e/account.spec.ts": 3,
+    "e2e/auth.spec.ts": 4,
+    "e2e/cart.spec.ts": 2,
+    "e2e/catalog.spec.ts": 6,
+    "e2e/checkout.spec.ts": 1,
+    "e2e/product.spec.ts": 5
+  },
+  "server_log": "The storefront's development server logged Next.js errors and warnings throughout: runtime data during prerendering, instant UI validation that could not complete, and aborted or early-closed streams. None failed a test",
+  "earlier_attempts": [
+    {
+      "attempt": 1,
+      "job": "https://github.com/pateldhruval872/liquorify-storefront/actions/runs/39798384888/job/119891752653",
+      "started": "2026-10-22T14:44:54Z",
+      "result": "failed at the keys check, before the owner added the keys; no test ran"
+    },
+    {
+      "attempt": 2,
+      "job": "https://github.com/pateldhruval872/liquorify-storefront/actions/runs/39798384888/job/120223541712",
+      "started": "2026-10-23T03:27:11Z",
+      "result": "failed at the keys check: the publishable key variable was read, the secret key was empty; no test ran"
+    }
+  ]
+}

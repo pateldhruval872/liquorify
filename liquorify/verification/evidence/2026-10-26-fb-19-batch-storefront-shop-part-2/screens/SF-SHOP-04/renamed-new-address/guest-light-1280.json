@@ -1,0 +1,11 @@
+{
+  "screen": "SF-SHOP-04",
+  "state": "renamed-new-address",
+  "variant": "guest",
+  "theme": "light",
+  "width": 1280,
+  "revision": "321fa1c",
+  "path": "/us/en/products/standing-fan",
+  "observed": "Opened /us/en/products/standing-fan; arrived at /us/en/products/standing-fan, answered with status 200. Its headings start \"Standing Fan 40cm\", \"Description\", \"Properties\", \"Details\". It shows 0 product name(s) as level 3 headings and 1 price(s).",
+  "note": "\"Pedestal Fan 40cm\" was renamed \"Standing Fan 40cm\" in the dashboard and its Slug changed from \"pedestal-fan\" to \"standing-fan\" (DA-PRD-03), and the storefront restarted."
+}

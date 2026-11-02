@@ -1,0 +1,50 @@
+{
+ "revision": "a4a1708",
+ "engine": "spree/emails",
+ "database": "SQLite, Spree's test app",
+ "summary": "7 examples, 0 failures",
+ "examples": [
+  {
+   "file": "./spec/mailers/spree/customer_mailer_spec.rb",
+   "line": 13,
+   "description": "Spree::CustomerMailer#password_reset_email sends to the user with the store-prefixed subject",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/mailers/spree/customer_mailer_spec.rb",
+   "line": 28,
+   "description": "Spree::CustomerMailer#password_reset_email prefers the redirect URL when one was validated by the API",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/mailers/spree/customer_mailer_spec.rb",
+   "line": 21,
+   "description": "Spree::CustomerMailer#password_reset_email links to the storefront URL with the reset token appended",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/mailers/spree/customer_mailer_spec.rb",
+   "line": 47,
+   "description": "Spree::CustomerMailer#data_export_email carries a link to the file",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/mailers/spree/customer_mailer_spec.rb",
+   "line": 40,
+   "description": "Spree::CustomerMailer#data_export_email sends to the person who asked for their data",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/mailers/spree/rendered_emails_spec.rb",
+   "line": 61,
+   "description": "rendered emails escapes customer-controlled text everywhere it appears",
+   "status": "passed"
+  },
+  {
+   "file": "./spec/mailers/spree/rendered_emails_spec.rb",
+   "line": 51,
+   "description": "rendered emails renders every email completely, with a subject and both parts",
+   "status": "passed"
+  }
+ ]
+}

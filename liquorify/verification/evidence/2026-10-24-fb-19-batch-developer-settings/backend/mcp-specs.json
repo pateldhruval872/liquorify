@@ -1,0 +1,170 @@
+{
+ "engine": "spree/mcp",
+ "spree_code_at": "3081c8b",
+ "rspec": "3.13.6",
+ "seed": 27685,
+ "summary": {
+  "example_count": 26,
+  "failure_count": 0,
+  "pending_count": 0,
+  "errors_outside_of_examples_count": 0
+ },
+ "examples": [
+  {
+   "file": "spec/requests/spree/api/v3/admin/mcp_spec.rb",
+   "line": 270,
+   "description": "Admin MCP endpoint tenancy ignores a header naming another store",
+   "status": "passed"
+  },
+  {
+   "file": "spec/requests/spree/api/v3/admin/mcp_spec.rb",
+   "line": 283,
+   "description": "Admin MCP endpoint tenancy does not find another store's record",
+   "status": "passed"
+  },
+  {
+   "file": "spec/requests/spree/api/v3/admin/mcp_spec.rb",
+   "line": 257,
+   "description": "Admin MCP endpoint tenancy serves the key's own store when the header agrees",
+   "status": "passed"
+  },
+  {
+   "file": "spec/requests/spree/api/v3/admin/mcp_spec.rb",
+   "line": 352,
+   "description": "Admin MCP endpoint scope filtering offers only what the key's scopes permit",
+   "status": "passed"
+  },
+  {
+   "file": "spec/requests/spree/api/v3/admin/mcp_spec.rb",
+   "line": 64,
+   "description": "Admin MCP endpoint authentication refuses a secret API key as a bearer token",
+   "status": "passed"
+  },
+  {
+   "file": "spec/requests/spree/api/v3/admin/mcp_spec.rb",
+   "line": 118,
+   "description": "Admin MCP endpoint authentication names the same scheme and host in the realm and the metadata URL",
+   "status": "passed"
+  },
+  {
+   "file": "spec/requests/spree/api/v3/admin/mcp_spec.rb",
+   "line": 109,
+   "description": "Admin MCP endpoint authentication challenges an anonymous request with the discovery document",
+   "status": "passed"
+  },
+  {
+   "file": "spec/requests/spree/api/v3/admin/mcp_spec.rb",
+   "line": 49,
+   "description": "Admin MCP endpoint authentication accepts an OAuth token",
+   "status": "passed"
+  },
+  {
+   "file": "spec/requests/spree/api/v3/admin/mcp_spec.rb",
+   "line": 100,
+   "description": "Admin MCP endpoint authentication refuses a JWT",
+   "status": "passed"
+  },
+  {
+   "file": "spec/requests/spree/api/v3/admin/mcp_spec.rb",
+   "line": 74,
+   "description": "Admin MCP endpoint authentication parses a bearer header of many spaces without stalling",
+   "status": "passed"
+  },
+  {
+   "file": "spec/requests/spree/api/v3/admin/mcp_spec.rb",
+   "line": 83,
+   "description": "Admin MCP endpoint authentication accepts a bearer token with extra whitespace",
+   "status": "passed"
+  },
+  {
+   "file": "spec/requests/spree/api/v3/admin/mcp_spec.rb",
+   "line": 91,
+   "description": "Admin MCP endpoint authentication refuses an anonymous request, pointing at signing in",
+   "status": "passed"
+  },
+  {
+   "file": "spec/requests/spree/api/v3/admin/mcp_spec.rb",
+   "line": 56,
+   "description": "Admin MCP endpoint authentication refuses a secret API key in the Admin API header",
+   "status": "passed"
+  },
+  {
+   "file": "spec/requests/spree/api/v3/admin/mcp_spec.rb",
+   "line": 339,
+   "description": "Admin MCP endpoint running a workflow end to end carries the workflow's own refusal back as a tool error",
+   "status": "passed"
+  },
+  {
+   "file": "spec/requests/spree/api/v3/admin/mcp_spec.rb",
+   "line": 326,
+   "description": "Admin MCP endpoint running a workflow end to end records the approving admin as the actor when it cancels an order",
+   "status": "passed"
+  },
+  {
+   "file": "spec/requests/spree/api/v3/admin/mcp_spec.rb",
+   "line": 302,
+   "description": "Admin MCP endpoint running a workflow end to end answers a write with the record it changed",
+   "status": "passed"
+  },
+  {
+   "file": "spec/requests/spree/api/v3/admin/mcp_spec.rb",
+   "line": 312,
+   "description": "Admin MCP endpoint running a workflow end to end marks a fulfillment delivered through the real workflow",
+   "status": "passed"
+  },
+  {
+   "file": "spec/requests/spree/api/v3/admin/mcp_spec.rb",
+   "line": 148,
+   "description": "Admin MCP endpoint the grant refuses a token issued for another resource",
+   "status": "passed"
+  },
+  {
+   "file": "spec/requests/spree/api/v3/admin/mcp_spec.rb",
+   "line": 176,
+   "description": "Admin MCP endpoint the grant refuses an expired token",
+   "status": "passed"
+  },
+  {
+   "file": "spec/requests/spree/api/v3/admin/mcp_spec.rb",
+   "line": 188,
+   "description": "Admin MCP endpoint the grant serves the store its application belongs to, with no store header",
+   "status": "passed"
+  },
+  {
+   "file": "spec/requests/spree/api/v3/admin/mcp_spec.rb",
+   "line": 133,
+   "description": "Admin MCP endpoint the grant authenticates a token and acts as its owner",
+   "status": "passed"
+  },
+  {
+   "file": "spec/requests/spree/api/v3/admin/mcp_spec.rb",
+   "line": 140,
+   "description": "Admin MCP endpoint the grant narrows the catalog to what the merchant consented to",
+   "status": "passed"
+  },
+  {
+   "file": "spec/requests/spree/api/v3/admin/mcp_spec.rb",
+   "line": 161,
+   "description": "Admin MCP endpoint the grant refuses a token with no audience at all",
+   "status": "passed"
+  },
+  {
+   "file": "spec/requests/spree/api/v3/admin/mcp_spec.rb",
+   "line": 167,
+   "description": "Admin MCP endpoint the grant refuses a revoked token",
+   "status": "passed"
+  },
+  {
+   "file": "spec/requests/spree/api/v3/admin/mcp_spec.rb",
+   "line": 247,
+   "description": "Admin MCP endpoint a client connecting for real reaches the Admin API with that same token",
+   "status": "passed"
+  },
+  {
+   "file": "spec/requests/spree/api/v3/admin/mcp_spec.rb",
+   "line": 233,
+   "description": "Admin MCP endpoint a client connecting for real calls a tool with the token consent issued",
+   "status": "passed"
+  }
+ ]
+}

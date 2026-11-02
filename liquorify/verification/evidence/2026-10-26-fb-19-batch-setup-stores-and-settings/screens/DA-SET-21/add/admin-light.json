@@ -1,0 +1,17 @@
+{
+  "screen": "DA-SET-21",
+  "state": "add",
+  "variant": "admin",
+  "role": null,
+  "theme": "light",
+  "revision": "881a619",
+  "path": "/<store>/settings/reasons",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": null,
+  "masked": null,
+  "settled": true,
+  "outside": []
+}

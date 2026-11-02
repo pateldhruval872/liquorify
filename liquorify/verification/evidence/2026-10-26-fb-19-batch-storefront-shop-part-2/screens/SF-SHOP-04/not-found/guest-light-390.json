@@ -1,0 +1,11 @@
+{
+  "screen": "SF-SHOP-04",
+  "state": "not-found",
+  "variant": "guest",
+  "theme": "light",
+  "width": 390,
+  "revision": "321fa1c",
+  "path": "/us/en/products/no-such-product",
+  "observed": "Opened /us/en/products/no-such-product; arrived at /us/en/products/no-such-product, answered with status 200.",
+  "note": null
+}

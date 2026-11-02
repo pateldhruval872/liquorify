@@ -1,0 +1,11 @@
+{
+  "screen": "SF-OVL-04",
+  "state": "failed",
+  "variant": "guest",
+  "theme": "light",
+  "width": 1280,
+  "revision": "321fa1c",
+  "path": "/us/en",
+  "observed": null,
+  "note": "With a product in the cart, which moves to the new currency first. That request was failed in the browser to show the dialog's message; this claims nothing about the server."
+}

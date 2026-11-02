@@ -1,0 +1,1776 @@
+{
+  "revision": "d6a0fb8",
+  "engine": "spree/api",
+  "database": "SQLite, Spree's test app",
+  "command": "bundle exec rspec with the 9 controller spec files and 9 Store API integration spec files listed below",
+  "summary": "304 examples, 0 failures",
+  "examples": [
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 29,
+      "description": "Spree::Api::V3::Store::CartsController GET #index with JWT authentication returns the current users carts",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 38,
+      "description": "Spree::Api::V3::Store::CartsController GET #index with JWT authentication excludes completed carts \u2014 a signed-in customer never re-adopts a finished checkout",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 47,
+      "description": "Spree::Api::V3::Store::CartsController GET #index with JWT authentication scopes carts to the request channel \u2014 other channels never leak into a surface",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 63,
+      "description": "Spree::Api::V3::Store::CartsController GET #index with JWT authentication returns carts ordered by updated_at desc",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 73,
+      "description": "Spree::Api::V3::Store::CartsController GET #index with JWT authentication returns pagination metadata",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 79,
+      "description": "Spree::Api::V3::Store::CartsController GET #index with JWT authentication returns cart-prefixed IDs",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 87,
+      "description": "Spree::Api::V3::Store::CartsController GET #index with JWT authentication does not return other users carts",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 97,
+      "description": "Spree::Api::V3::Store::CartsController GET #index with JWT authentication does not return guest carts",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 106,
+      "description": "Spree::Api::V3::Store::CartsController GET #index with JWT authentication does not return completed orders",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 115,
+      "description": "Spree::Api::V3::Store::CartsController GET #index with JWT authentication does not return carts from other stores",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 127,
+      "description": "Spree::Api::V3::Store::CartsController GET #index without JWT authentication returns unauthorized",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 138,
+      "description": "Spree::Api::V3::Store::CartsController GET #index without API key returns unauthorized",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 147,
+      "description": "Spree::Api::V3::Store::CartsController POST #create creates the cart through the configured carts create service",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 157,
+      "description": "Spree::Api::V3::Store::CartsController POST #create creates a new cart",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 167,
+      "description": "Spree::Api::V3::Store::CartsController POST #create returns token for guest access",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 173,
+      "description": "Spree::Api::V3::Store::CartsController POST #create creates cart associated with current store",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 179,
+      "description": "Spree::Api::V3::Store::CartsController POST #create sets locale on the cart",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 186,
+      "description": "Spree::Api::V3::Store::CartsController POST #create sets market from Spree::Current on the cart",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 201,
+      "description": "Spree::Api::V3::Store::CartsController POST #create with X-Spree-Channel header attributes the cart to the requested channel",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 210,
+      "description": "Spree::Api::V3::Store::CartsController POST #create with X-Spree-Channel header falls back to the store default channel when the header is absent",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 218,
+      "description": "Spree::Api::V3::Store::CartsController POST #create with metadata creates a cart with metadata",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 226,
+      "description": "Spree::Api::V3::Store::CartsController POST #create with metadata does not return metadata in response",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 239,
+      "description": "Spree::Api::V3::Store::CartsController POST #create for authenticated user creates a cart associated with user",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 259,
+      "description": "Spree::Api::V3::Store::CartsController POST #create with line_items creates a cart with line items",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 274,
+      "description": "Spree::Api::V3::Store::CartsController POST #create with line_items returns line items in response",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 284,
+      "description": "Spree::Api::V3::Store::CartsController POST #create with line_items defaults quantity to 1 when not specified",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 293,
+      "description": "Spree::Api::V3::Store::CartsController POST #create with line_items returns variant_not_found for invalid variant_id",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 303,
+      "description": "Spree::Api::V3::Store::CartsController POST #create with line_items refuses an item outside the buyer's catalogs",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 321,
+      "description": "Spree::Api::V3::Store::CartsController POST #create without API key returns unauthorized",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 337,
+      "description": "Spree::Api::V3::Store::CartsController GET #show with x-spree-token header returns the cart",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 345,
+      "description": "Spree::Api::V3::Store::CartsController GET #show with x-spree-token header returns cart with line items",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 352,
+      "description": "Spree::Api::V3::Store::CartsController GET #show with x-spree-token header returns cart token in response",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 358,
+      "description": "Spree::Api::V3::Store::CartsController GET #show with x-spree-token header returns not found for invalid id",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 364,
+      "description": "Spree::Api::V3::Store::CartsController GET #show with x-spree-token header returns not found for completed order",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 371,
+      "description": "Spree::Api::V3::Store::CartsController GET #show with x-spree-token header returns not found for other store cart",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 388,
+      "description": "Spree::Api::V3::Store::CartsController GET #show with JWT authentication returns the users cart",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 395,
+      "description": "Spree::Api::V3::Store::CartsController GET #show with JWT authentication returns forbidden when cart belongs to another user",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 415,
+      "description": "Spree::Api::V3::Store::CartsController GET #show with a completed cart returns not found",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 423,
+      "description": "Spree::Api::V3::Store::CartsController GET #show without authentication returns not found for nonexistent cart",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 433,
+      "description": "Spree::Api::V3::Store::CartsController GET #show without API key returns unauthorized",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 446,
+      "description": "Spree::Api::V3::Store::CartsController GET #show response structure returns expected cart attributes",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 468,
+      "description": "Spree::Api::V3::Store::CartsController GET #show response structure returns line item attributes",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 490,
+      "description": "Spree::Api::V3::Store::CartsController GET #show warnings returns empty warnings array when cart is valid",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 497,
+      "description": "Spree::Api::V3::Store::CartsController GET #show warnings returns warnings when a line item is out of stock",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 513,
+      "description": "Spree::Api::V3::Store::CartsController GET #show warnings returns warnings when a product is discontinued",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 523,
+      "description": "Spree::Api::V3::Store::CartsController GET #show warnings removes the line item when returning a warning",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 532,
+      "description": "Spree::Api::V3::Store::CartsController GET #show warnings drops a batch coupon code another cart has taken, with a warning",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 559,
+      "description": "Spree::Api::V3::Store::CartsController GET #show auto-advance generates shipments when address is present but shipments are empty",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 573,
+      "description": "Spree::Api::V3::Store::CartsController GET #show auto-advance advances through the configured checkout advance service",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 586,
+      "description": "Spree::Api::V3::Store::CartsController GET #show auto-advance surfaces a delivery_unavailable warning when the cart cannot be delivered",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 606,
+      "description": "Spree::Api::V3::Store::CartsController GET #show auto-advance does not advance when no address is set",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 635,
+      "description": "Spree::Api::V3::Store::CartsController GET #show with a custom address serializer serializes the billing address with the configured serializer",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 659,
+      "description": "Spree::Api::V3::Store::CartsController PATCH #update updates the cart through the configured carts update service",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 680,
+      "description": "Spree::Api::V3::Store::CartsController PATCH #update when the tax engine fails on the new address answers an outage with 503 so the client retries",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 690,
+      "description": "Spree::Api::V3::Store::CartsController PATCH #update when the tax engine fails on the new address answers a refusal with 422 and what the engine said",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 701,
+      "description": "Spree::Api::V3::Store::CartsController PATCH #update accepts shipping_address_id to use an existing address",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 712,
+      "description": "Spree::Api::V3::Store::CartsController PATCH #update the buyer purchase order persists the reference and reports it back",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 720,
+      "description": "Spree::Api::V3::Store::CartsController PATCH #update the buyer purchase order clears the reference when the buyer blanks it",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 729,
+      "description": "Spree::Api::V3::Store::CartsController PATCH #update the buyer purchase order reports whether the company demands one",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 738,
+      "description": "Spree::Api::V3::Store::CartsController PATCH #update the buyer purchase order attaches a document from a signed blob id",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 754,
+      "description": "Spree::Api::V3::Store::CartsController PATCH #update the buyer purchase order refuses a tampered signed id",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 765,
+      "description": "Spree::Api::V3::Store::CartsController PATCH #update naming the company the purchase is for persists a node the buyer has standing over",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 776,
+      "description": "Spree::Api::V3::Store::CartsController PATCH #update naming the company the purchase is for refuses a node the buyer has no standing over",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 785,
+      "description": "Spree::Api::V3::Store::CartsController PATCH #update naming the company the purchase is for refuses a company on a guest cart",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 796,
+      "description": "Spree::Api::V3::Store::CartsController PATCH #update naming the company the purchase is for 404s a node of another store",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 804,
+      "description": "Spree::Api::V3::Store::CartsController PATCH #update naming the company the purchase is for clears the node when passed nothing",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 818,
+      "description": "Spree::Api::V3::Store::CartsController PATCH #update selecting a pickup location persists the choice and returns it as a prefixed id",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 826,
+      "description": "Spree::Api::V3::Store::CartsController PATCH #update selecting a pickup location returns 404 for a location that is not pickup-enabled",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 845,
+      "description": "Spree::Api::V3::Store::CartsController PATCH #update when a line item cannot be delivered to the address returns ok with a delivery_unavailable warning, an unmet delivery requirement, and no fulfillments",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 860,
+      "description": "Spree::Api::V3::Store::CartsController PATCH #update updating market updates the cart market",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 869,
+      "description": "Spree::Api::V3::Store::CartsController PATCH #update updating market switches to a different market",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 883,
+      "description": "Spree::Api::V3::Store::CartsController PATCH #update updating market returns not found for invalid market_id",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 889,
+      "description": "Spree::Api::V3::Store::CartsController PATCH #update updating market auto-switches market when currency changes",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 902,
+      "description": "Spree::Api::V3::Store::CartsController PATCH #update updating market keeps the current market when no market exists for the currency",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 915,
+      "description": "Spree::Api::V3::Store::CartsController PATCH #update auto-advances to payment after address submission",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 949,
+      "description": "Spree::Api::V3::Store::CartsController PATCH #update stock reservations creates a reservation when the cart leaves the cart state",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 955,
+      "description": "Spree::Api::V3::Store::CartsController PATCH #update stock reservations extends an existing reservation on subsequent in-checkout updates",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 969,
+      "description": "Spree::Api::V3::Store::CartsController PATCH #update stock reservations when stock_reservations_enabled is false does not create reservations",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 991,
+      "description": "Spree::Api::V3::Store::CartsController PATCH #associate with JWT authentication with the guest cart token associates guest cart with current user",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 999,
+      "description": "Spree::Api::V3::Store::CartsController PATCH #associate with JWT authentication with the guest cart token updates cart email to users email",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 1006,
+      "description": "Spree::Api::V3::Store::CartsController PATCH #associate with JWT authentication with the guest cart token sets user addresses on cart when user has addresses",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 1020,
+      "description": "Spree::Api::V3::Store::CartsController PATCH #associate with JWT authentication allows re-associating a cart already owned by current user with its token",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 1030,
+      "description": "Spree::Api::V3::Store::CartsController PATCH #associate with JWT authentication forbids associating a cart without the cart token",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 1038,
+      "description": "Spree::Api::V3::Store::CartsController PATCH #associate with JWT authentication forbids associating an own cart without the cart token",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 1046,
+      "description": "Spree::Api::V3::Store::CartsController PATCH #associate with JWT authentication forbids associating a cart with the wrong cart token",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 1055,
+      "description": "Spree::Api::V3::Store::CartsController PATCH #associate with JWT authentication returns not found for invalid id",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 1061,
+      "description": "Spree::Api::V3::Store::CartsController PATCH #associate with JWT authentication returns not found for completed order",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 1069,
+      "description": "Spree::Api::V3::Store::CartsController PATCH #associate with JWT authentication returns not found when cart belongs to another user",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 1079,
+      "description": "Spree::Api::V3::Store::CartsController PATCH #associate with JWT authentication returns not found for cart from other store",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 1090,
+      "description": "Spree::Api::V3::Store::CartsController PATCH #associate without JWT authentication returns unauthorized",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 1103,
+      "description": "Spree::Api::V3::Store::CartsController PATCH #associate without API key returns unauthorized",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 1117,
+      "description": "Spree::Api::V3::Store::CartsController DELETE #destroy with x-spree-token header deletes the cart",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 1123,
+      "description": "Spree::Api::V3::Store::CartsController DELETE #destroy with x-spree-token header removes any stock reservations belonging to the cart",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 1149,
+      "description": "Spree::Api::V3::Store::CartsController DELETE #destroy with JWT authentication deletes the users cart",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 1171,
+      "description": "Spree::Api::V3::Store::CartsController POST #complete completes the checkout",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 1181,
+      "description": "Spree::Api::V3::Store::CartsController POST #complete releases stock reservations on successful completion",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 1211,
+      "description": "Spree::Api::V3::Store::CartsController POST #complete when the tax engine fails at completion answers an outage with 503 so the client retries",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 1221,
+      "description": "Spree::Api::V3::Store::CartsController POST #complete when the tax engine fails at completion answers a refusal with 422 and what the engine said",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 1235,
+      "description": "Spree::Api::V3::Store::CartsController POST #complete when order cannot be completed returns unprocessable entity with cart_cannot_complete code",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 1246,
+      "description": "Spree::Api::V3::Store::CartsController POST #complete when order was already completed by the gateway returns the completed order via JWT",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 1253,
+      "description": "Spree::Api::V3::Store::CartsController POST #complete when order was already completed by the gateway returns the completed order via spree token",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 1263,
+      "description": "Spree::Api::V3::Store::CartsController POST #complete when order was already completed by the gateway returns forbidden without valid authentication",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line": 1281,
+      "description": "Spree::Api::V3::Store::CartsController POST #complete with guest cart token completes via spree token",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/categories_controller_spec.rb",
+      "line": 22,
+      "description": "Spree::Api::V3::Store::CategoriesController GET #index returns categories for the current store",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/categories_controller_spec.rb",
+      "line": 30,
+      "description": "Spree::Api::V3::Store::CategoriesController GET #index returns pagination metadata",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/categories_controller_spec.rb",
+      "line": 36,
+      "description": "Spree::Api::V3::Store::CategoriesController GET #index returns category attributes",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/categories_controller_spec.rb",
+      "line": 48,
+      "description": "Spree::Api::V3::Store::CategoriesController GET #index with images returns image URLs",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/categories_controller_spec.rb",
+      "line": 57,
+      "description": "Spree::Api::V3::Store::CategoriesController GET #index filtering filters by depth",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/categories_controller_spec.rb",
+      "line": 64,
+      "description": "Spree::Api::V3::Store::CategoriesController GET #index filtering filters by parent_id",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/categories_controller_spec.rb",
+      "line": 76,
+      "description": "Spree::Api::V3::Store::CategoriesController GET #index sorting sorts by name ascending",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/categories_controller_spec.rb",
+      "line": 86,
+      "description": "Spree::Api::V3::Store::CategoriesController GET #index sorting sorts by name descending",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/categories_controller_spec.rb",
+      "line": 100,
+      "description": "Spree::Api::V3::Store::CategoriesController GET #index without API key returns unauthorized",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/categories_controller_spec.rb",
+      "line": 110,
+      "description": "Spree::Api::V3::Store::CategoriesController GET #show finding by permalink returns the category by permalink",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/categories_controller_spec.rb",
+      "line": 119,
+      "description": "Spree::Api::V3::Store::CategoriesController GET #show finding by permalink returns nested category by full permalink path",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/categories_controller_spec.rb",
+      "line": 129,
+      "description": "Spree::Api::V3::Store::CategoriesController GET #show finding by prefix_id returns the category by prefix_id",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/categories_controller_spec.rb",
+      "line": 139,
+      "description": "Spree::Api::V3::Store::CategoriesController GET #show returns category attributes",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/categories_controller_spec.rb",
+      "line": 145,
+      "description": "Spree::Api::V3::Store::CategoriesController GET #show includes parent information for child category",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/categories_controller_spec.rb",
+      "line": 152,
+      "description": "Spree::Api::V3::Store::CategoriesController GET #show does not include lft and rgt in store API",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/categories_controller_spec.rb",
+      "line": 159,
+      "description": "Spree::Api::V3::Store::CategoriesController GET #show with expand=ancestors returns ancestors for breadcrumbs",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/categories_controller_spec.rb",
+      "line": 168,
+      "description": "Spree::Api::V3::Store::CategoriesController GET #show with expand=ancestors returns empty ancestors for a top-level category",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/categories_controller_spec.rb",
+      "line": 177,
+      "description": "Spree::Api::V3::Store::CategoriesController GET #show with expand=children returns children",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/categories_controller_spec.rb",
+      "line": 202,
+      "description": "Spree::Api::V3::Store::CategoriesController GET #show with translations finds category by English permalink with English locale",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/categories_controller_spec.rb",
+      "line": 211,
+      "description": "Spree::Api::V3::Store::CategoriesController GET #show with translations finds category by French permalink with French locale",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/categories_controller_spec.rb",
+      "line": 221,
+      "description": "Spree::Api::V3::Store::CategoriesController GET #show with translations returns translated content based on locale header",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/categories_controller_spec.rb",
+      "line": 229,
+      "description": "Spree::Api::V3::Store::CategoriesController GET #show with translations returns 404 when searching French permalink with English locale",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/categories_controller_spec.rb",
+      "line": 241,
+      "description": "Spree::Api::V3::Store::CategoriesController GET #show with translations locale fallback falls back to default locale when category has no translation in requested locale",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/categories_controller_spec.rb",
+      "line": 250,
+      "description": "Spree::Api::V3::Store::CategoriesController GET #show with translations locale fallback returns translated content when translation exists",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/categories_controller_spec.rb",
+      "line": 262,
+      "description": "Spree::Api::V3::Store::CategoriesController GET #show error handling returns not found for non-existent category",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/categories_controller_spec.rb",
+      "line": 270,
+      "description": "Spree::Api::V3::Store::CategoriesController GET #show error handling returns not found for category from another store",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/categories_controller_spec.rb",
+      "line": 277,
+      "description": "Spree::Api::V3::Store::CategoriesController GET #show error handling returns not found for invalid prefix_id",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/categories_controller_spec.rb",
+      "line": 288,
+      "description": "Spree::Api::V3::Store::CategoriesController GET #show without API key returns unauthorized",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/categories_controller_spec.rb",
+      "line": 305,
+      "description": "Spree::Api::V3::Store::CategoriesController locale and currency headers x-spree-locale header sets locale from header",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/categories_controller_spec.rb",
+      "line": 313,
+      "description": "Spree::Api::V3::Store::CategoriesController locale and currency headers x-spree-locale header falls back to default locale for unsupported locale",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/categories_controller_spec.rb",
+      "line": 328,
+      "description": "Spree::Api::V3::Store::CategoriesController locale and currency headers x-spree-currency header sets currency from header",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/categories_controller_spec.rb",
+      "line": 336,
+      "description": "Spree::Api::V3::Store::CategoriesController locale and currency headers x-spree-currency header falls back to default currency for unsupported currency",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/channel_binding_spec.rb",
+      "line": 26,
+      "description": "Spree::Api::V3::Store::ProductsController channel-bound publishable key resolves the bound channel ahead of the storefront gate (guest gets 401 without any header)",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/channel_binding_spec.rb",
+      "line": 32,
+      "description": "Spree::Api::V3::Store::ProductsController channel-bound publishable key scopes the catalog to the bound channel for an authenticated customer",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/channel_binding_spec.rb",
+      "line": 42,
+      "description": "Spree::Api::V3::Store::ProductsController channel-bound publishable key accepts a header naming the bound channel",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/channel_binding_spec.rb",
+      "line": 51,
+      "description": "Spree::Api::V3::Store::ProductsController channel-bound publishable key rejects a header naming a different channel with 422 channel_mismatch",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/channel_binding_spec.rb",
+      "line": 61,
+      "description": "Spree::Api::V3::Store::ProductsController channel-bound publishable key rejects requests with 403 channel_inactive when the bound channel is deactivated",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/channel_binding_spec.rb",
+      "line": 77,
+      "description": "Spree::Api::V3::Store::ProductsController show under a header-resolved channel finds a product published only to the header channel",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/channel_binding_spec.rb",
+      "line": 87,
+      "description": "Spree::Api::V3::Store::ProductsController show under a header-resolved channel gates a guest with 401 before revealing whether a resource exists",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/channel_controller_spec.rb",
+      "line": 17,
+      "description": "Spree::Api::V3::Store::ChannelController GET #show returns the store default channel with resolved posture when no channel is requested",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/channel_controller_spec.rb",
+      "line": 27,
+      "description": "Spree::Api::V3::Store::ChannelController GET #show returns the header-resolved channel with resolved posture for a guest",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/channel_controller_spec.rb",
+      "line": 40,
+      "description": "Spree::Api::V3::Store::ChannelController GET #show returns the key-bound channel without any header",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/channel_controller_spec.rb",
+      "line": 54,
+      "description": "Spree::Api::V3::Store::ChannelController GET #show when the request store is not the default store falls back to the request store default channel, not the global default store channel",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/markets_controller_spec.rb",
+      "line": 26,
+      "description": "Spree::Api::V3::Store::MarketsController GET #index returns all markets for the store",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/markets_controller_spec.rb",
+      "line": 33,
+      "description": "Spree::Api::V3::Store::MarketsController GET #index returns market attributes",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/markets_controller_spec.rb",
+      "line": 45,
+      "description": "Spree::Api::V3::Store::MarketsController GET #index includes nested countries",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/markets_controller_spec.rb",
+      "line": 57,
+      "description": "Spree::Api::V3::Store::MarketsController GET #index without API key returns unauthorized",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/markets_controller_spec.rb",
+      "line": 66,
+      "description": "Spree::Api::V3::Store::MarketsController GET #show returns a market by prefixed ID",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/markets_controller_spec.rb",
+      "line": 77,
+      "description": "Spree::Api::V3::Store::MarketsController GET #show returns 404 for non-existent market",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/markets_controller_spec.rb",
+      "line": 85,
+      "description": "Spree::Api::V3::Store::MarketsController GET #resolve resolves a market by country ISO",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/markets_controller_spec.rb",
+      "line": 94,
+      "description": "Spree::Api::V3::Store::MarketsController GET #resolve is case-insensitive for country ISO",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/markets_controller_spec.rb",
+      "line": 101,
+      "description": "Spree::Api::V3::Store::MarketsController GET #resolve returns 404 for a country not in any market",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/markets_controller_spec.rb",
+      "line": 108,
+      "description": "Spree::Api::V3::Store::MarketsController GET #resolve returns 404 for an invalid country ISO",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/policies_controller_spec.rb",
+      "line": 16,
+      "description": "Spree::Api::V3::Store::PoliciesController GET #index returns policies for the store",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/policies_controller_spec.rb",
+      "line": 24,
+      "description": "Spree::Api::V3::Store::PoliciesController GET #index returns policy attributes",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/policies_controller_spec.rb",
+      "line": 33,
+      "description": "Spree::Api::V3::Store::PoliciesController GET #index orders by name",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/policies_controller_spec.rb",
+      "line": 40,
+      "description": "Spree::Api::V3::Store::PoliciesController GET #index does not return policies from other stores",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/policies_controller_spec.rb",
+      "line": 52,
+      "description": "Spree::Api::V3::Store::PoliciesController GET #index does not return a seller\u2019s policies",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/policies_controller_spec.rb",
+      "line": 62,
+      "description": "Spree::Api::V3::Store::PoliciesController GET #index exposes when the policy was last updated",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/policies_controller_spec.rb",
+      "line": 71,
+      "description": "Spree::Api::V3::Store::PoliciesController GET #show returns a policy by slug",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/policies_controller_spec.rb",
+      "line": 81,
+      "description": "Spree::Api::V3::Store::PoliciesController GET #show returns a policy by prefixed ID",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/policies_controller_spec.rb",
+      "line": 88,
+      "description": "Spree::Api::V3::Store::PoliciesController GET #show returns 404 for non-existent policy",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/products/filters_controller_spec.rb",
+      "line": 46,
+      "description": "Spree::Api::V3::Store::Products::FiltersController GET #index returns filter metadata",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/products/filters_controller_spec.rb",
+      "line": 56,
+      "description": "Spree::Api::V3::Store::Products::FiltersController GET #index returns price filter",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/products/filters_controller_spec.rb",
+      "line": 73,
+      "description": "Spree::Api::V3::Store::Products::FiltersController GET #index on a channel that hides prices from guests leaves out the price range for a guest",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/products/filters_controller_spec.rb",
+      "line": 80,
+      "description": "Spree::Api::V3::Store::Products::FiltersController GET #index on a channel that hides prices from guests shows the price range to a signed-in customer",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/products/filters_controller_spec.rb",
+      "line": 89,
+      "description": "Spree::Api::V3::Store::Products::FiltersController GET #index returns availability filter",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/products/filters_controller_spec.rb",
+      "line": 100,
+      "description": "Spree::Api::V3::Store::Products::FiltersController GET #index returns option type filters with counts",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/products/filters_controller_spec.rb",
+      "line": 115,
+      "description": "Spree::Api::V3::Store::Products::FiltersController GET #index returns all sort options",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/products/filters_controller_spec.rb",
+      "line": 125,
+      "description": "Spree::Api::V3::Store::Products::FiltersController GET #index invalidates cached sort options when a custom_field definition becomes sortable",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/products/filters_controller_spec.rb",
+      "line": 138,
+      "description": "Spree::Api::V3::Store::Products::FiltersController GET #index returns total product count",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/products/filters_controller_spec.rb",
+      "line": 145,
+      "description": "Spree::Api::V3::Store::Products::FiltersController GET #index with category_id parameter scopes filters to category",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/products/filters_controller_spec.rb",
+      "line": 151,
+      "description": "Spree::Api::V3::Store::Products::FiltersController GET #index with category_id parameter returns child categories as filter options",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/products/filters_controller_spec.rb",
+      "line": 161,
+      "description": "Spree::Api::V3::Store::Products::FiltersController GET #index with category_id parameter defaults a category to manual sort (category does not drive default_sort in 6.0)",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/products/filters_controller_spec.rb",
+      "line": 175,
+      "description": "Spree::Api::V3::Store::Products::FiltersController GET #index with collection_id parameter scopes filters to the collection",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/products/filters_controller_spec.rb",
+      "line": 181,
+      "description": "Spree::Api::V3::Store::Products::FiltersController GET #index with collection_id parameter returns default_sort from the collection",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/products/filters_controller_spec.rb",
+      "line": 189,
+      "description": "Spree::Api::V3::Store::Products::FiltersController GET #index with ransack query params applies ransack filters to scope",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/products/filters_controller_spec.rb",
+      "line": 195,
+      "description": "Spree::Api::V3::Store::Products::FiltersController GET #index with ransack query params ignores a q that is not a hash",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/products/filters_controller_spec.rb",
+      "line": 206,
+      "description": "Spree::Api::V3::Store::Products::FiltersController GET #index without API key returns unauthorized",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/products_controller_spec.rb",
+      "line": 28,
+      "description": "Spree::Api::V3::Store::ProductsController seller exposes seller_id without an expand",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/products_controller_spec.rb",
+      "line": 35,
+      "description": "Spree::Api::V3::Store::ProductsController seller embeds the public profile on expand",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/products_controller_spec.rb",
+      "line": 44,
+      "description": "Spree::Api::V3::Store::ProductsController seller leaves seller_id nil on a first-party product",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/products_controller_spec.rb",
+      "line": 52,
+      "description": "Spree::Api::V3::Store::ProductsController seller reaches the seller\u2019s policies through a nested expand",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/products_controller_spec.rb",
+      "line": 71,
+      "description": "Spree::Api::V3::Store::ProductsController catalog narrowing narrows a sole-standing buyer to their effective catalogs",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/products_controller_spec.rb",
+      "line": 80,
+      "description": "Spree::Api::V3::Store::ProductsController catalog narrowing leaves anonymous buyers un-narrowed",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/products_controller_spec.rb",
+      "line": 87,
+      "description": "Spree::Api::V3::Store::ProductsController catalog narrowing hides a catalog-only 404 from show for buyers outside the assortment",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/products_controller_spec.rb",
+      "line": 98,
+      "description": "Spree::Api::V3::Store::ProductsController GET #index returns a list of products",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/products_controller_spec.rb",
+      "line": 105,
+      "description": "Spree::Api::V3::Store::ProductsController GET #index returns product attributes",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/products_controller_spec.rb",
+      "line": 112,
+      "description": "Spree::Api::V3::Store::ProductsController GET #index returns pagination metadata",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/products_controller_spec.rb",
+      "line": 129,
+      "description": "Spree::Api::V3::Store::ProductsController GET #index with filters on back-office data ignores them",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/products_controller_spec.rb",
+      "line": 135,
+      "description": "Spree::Api::V3::Store::ProductsController GET #index with filters on back-office data ignores a sort through the variants",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/products_controller_spec.rb",
+      "line": 142,
+      "description": "Spree::Api::V3::Store::ProductsController GET #index with filters on back-office data still filters by tag",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/products_controller_spec.rb",
+      "line": 151,
+      "description": "Spree::Api::V3::Store::ProductsController GET #index respects max limit limit",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/products_controller_spec.rb",
+      "line": 170,
+      "description": "Spree::Api::V3::Store::ProductsController GET #index with custom field filtering and sorting filters by a cf_* predicate",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/products_controller_spec.rb",
+      "line": 177,
+      "description": "Spree::Api::V3::Store::ProductsController GET #index with custom field filtering and sorting sorts by a cf_* attribute",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/products_controller_spec.rb",
+      "line": 184,
+      "description": "Spree::Api::V3::Store::ProductsController GET #index with custom field filtering and sorting ignores unknown cf_* predicates instead of erroring",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/products_controller_spec.rb",
+      "line": 193,
+      "description": "Spree::Api::V3::Store::ProductsController GET #index store scoping does not return products from other stores",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/products_controller_spec.rb",
+      "line": 202,
+      "description": "Spree::Api::V3::Store::ProductsController GET #index status scoping does not return draft products",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/products_controller_spec.rb",
+      "line": 223,
+      "description": "Spree::Api::V3::Store::ProductsController GET #index currency scoping only returns products with prices in the current currency",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/products_controller_spec.rb",
+      "line": 233,
+      "description": "Spree::Api::V3::Store::ProductsController GET #index currency scoping returns EUR products when EUR currency is requested",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/products_controller_spec.rb",
+      "line": 244,
+      "description": "Spree::Api::V3::Store::ProductsController GET #index ransack filtering filters products by name",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/products_controller_spec.rb",
+      "line": 258,
+      "description": "Spree::Api::V3::Store::ProductsController GET #index ransack filtering with q[id_in] using prefixed IDs decodes prefixed IDs and returns matching rows",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/products_controller_spec.rb",
+      "line": 266,
+      "description": "Spree::Api::V3::Store::ProductsController GET #index ransack filtering with q[id_in] using prefixed IDs still accepts raw integer IDs",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/products_controller_spec.rb",
+      "line": 274,
+      "description": "Spree::Api::V3::Store::ProductsController GET #index ransack filtering with q[id_in] using prefixed IDs decodes with q[id_eq] too",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/products_controller_spec.rb",
+      "line": 298,
+      "description": "Spree::Api::V3::Store::ProductsController GET #index ransack filtering filtering by option values filters products by option value prefixed IDs",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/products_controller_spec.rb",
+      "line": 307,
+      "description": "Spree::Api::V3::Store::ProductsController GET #index ransack filtering filtering by option values filters products by price range and option values combined",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/products_controller_spec.rb",
+      "line": 316,
+      "description": "Spree::Api::V3::Store::ProductsController GET #index ransack filtering filtering by option values sorts by price while filtering by option values",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/products_controller_spec.rb",
+      "line": 339,
+      "description": "Spree::Api::V3::Store::ProductsController GET #index sorting sorts by price low to high",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/products_controller_spec.rb",
+      "line": 347,
+      "description": "Spree::Api::V3::Store::ProductsController GET #index sorting sorts by price high to low",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/products_controller_spec.rb",
+      "line": 355,
+      "description": "Spree::Api::V3::Store::ProductsController GET #index sorting paginates correctly when sorting by price",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/products_controller_spec.rb",
+      "line": 363,
+      "description": "Spree::Api::V3::Store::ProductsController GET #index sorting paginates correctly when sorting by price descending",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/products_controller_spec.rb",
+      "line": 371,
+      "description": "Spree::Api::V3::Store::ProductsController GET #index sorting sorts by best selling",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/products_controller_spec.rb",
+      "line": 382,
+      "description": "Spree::Api::V3::Store::ProductsController GET #index sorting sorts by name a-z",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/products_controller_spec.rb",
+      "line": 392,
+      "description": "Spree::Api::V3::Store::ProductsController GET #index sorting sorts by price while filtering in_stock",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/products_controller_spec.rb",
+      "line": 403,
+      "description": "Spree::Api::V3::Store::ProductsController GET #index authentication without API key returns unauthorized",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/products_controller_spec.rb",
+      "line": 415,
+      "description": "Spree::Api::V3::Store::ProductsController GET #index authentication with invalid API key returns unauthorized",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/products_controller_spec.rb",
+      "line": 427,
+      "description": "Spree::Api::V3::Store::ProductsController GET #show finding by slug returns a product by slug",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/products_controller_spec.rb",
+      "line": 438,
+      "description": "Spree::Api::V3::Store::ProductsController GET #show finding by prefix_id returns a product by prefix_id",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/products_controller_spec.rb",
+      "line": 464,
+      "description": "Spree::Api::V3::Store::ProductsController GET #show with translations finds product by English slug with English locale",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/products_controller_spec.rb",
+      "line": 473,
+      "description": "Spree::Api::V3::Store::ProductsController GET #show with translations finds product by French slug with French locale",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/products_controller_spec.rb",
+      "line": 482,
+      "description": "Spree::Api::V3::Store::ProductsController GET #show with translations returns translated content based on locale header",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/products_controller_spec.rb",
+      "line": 490,
+      "description": "Spree::Api::V3::Store::ProductsController GET #show with translations returns 404 when searching French slug with English locale",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/products_controller_spec.rb",
+      "line": 502,
+      "description": "Spree::Api::V3::Store::ProductsController GET #show with translations locale fallback falls back to default locale when product has no translation in requested locale",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/products_controller_spec.rb",
+      "line": 512,
+      "description": "Spree::Api::V3::Store::ProductsController GET #show with translations locale fallback returns translated content when translation exists",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/products_controller_spec.rb",
+      "line": 524,
+      "description": "Spree::Api::V3::Store::ProductsController GET #show error handling returns not found for non-existent product",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/products_controller_spec.rb",
+      "line": 532,
+      "description": "Spree::Api::V3::Store::ProductsController GET #show error handling returns not found for product from another store",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/products_controller_spec.rb",
+      "line": 539,
+      "description": "Spree::Api::V3::Store::ProductsController GET #show error handling returns not found for draft product",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/products_controller_spec.rb",
+      "line": 555,
+      "description": "Spree::Api::V3::Store::ProductsController locale and currency headers x-spree-locale header sets locale from header",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/products_controller_spec.rb",
+      "line": 563,
+      "description": "Spree::Api::V3::Store::ProductsController locale and currency headers x-spree-locale header falls back to default locale for unsupported locale",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/products_controller_spec.rb",
+      "line": 578,
+      "description": "Spree::Api::V3::Store::ProductsController locale and currency headers x-spree-currency header sets currency from header",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/products_controller_spec.rb",
+      "line": 586,
+      "description": "Spree::Api::V3::Store::ProductsController locale and currency headers x-spree-currency header falls back to default currency for unsupported currency",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/storefront_gating_spec.rb",
+      "line": 17,
+      "description": "Spree::Api::V3::Store::ProductsController public storefront access (default) shows prices to a guest",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/storefront_gating_spec.rb",
+      "line": 28,
+      "description": "Spree::Api::V3::Store::ProductsController prices_hidden storefront access nulls the price for a guest",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/storefront_gating_spec.rb",
+      "line": 35,
+      "description": "Spree::Api::V3::Store::ProductsController prices_hidden storefront access returns the price for an authenticated customer",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/storefront_gating_spec.rb",
+      "line": 48,
+      "description": "Spree::Api::V3::Store::ProductsController login_required storefront access rejects a guest with 401",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/storefront_gating_spec.rb",
+      "line": 54,
+      "description": "Spree::Api::V3::Store::ProductsController login_required storefront access allows an authenticated customer",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/storefront_gating_spec.rb",
+      "line": 82,
+      "description": "Spree::Api::V3::Store::CartsController guest checkout gating (Order#guest_checkout_disallowed?) when the channel forbids guest checkout blocks a cart with no registered user",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/storefront_gating_spec.rb",
+      "line": 86,
+      "description": "Spree::Api::V3::Store::CartsController guest checkout gating (Order#guest_checkout_disallowed?) when the channel forbids guest checkout allows a cart owned by a user",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/storefront_gating_spec.rb",
+      "line": 94,
+      "description": "Spree::Api::V3::Store::CartsController guest checkout gating (Order#guest_checkout_disallowed?) when the channel allows guest checkout does not block a guest cart",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/storefront_gating_spec.rb",
+      "line": 102,
+      "description": "Spree::Api::V3::Store::CartsController guest checkout gating (Order#guest_checkout_disallowed?) when the channel hides prices from guests but allows guest checkout still blocks a guest cart \u2014 a buyer who cannot see prices cannot check out",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/storefront_gating_spec.rb",
+      "line": 116,
+      "description": "Spree::Api::V3::Store::CartsController POST #complete when the channel forbids guest checkout rejects a guest with 401 before attempting completion",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/storefront_gating_spec.rb",
+      "line": 142,
+      "description": "Spree::Api::V3::Store::OrdersController login_required gate rejects a guest with 401 before loading the order",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/storefront_gating_spec.rb",
+      "line": 148,
+      "description": "Spree::Api::V3::Store::OrdersController login_required gate lets an authenticated customer through the gate",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/controllers/spree/api/v3/store/storefront_gating_spec.rb",
+      "line": 172,
+      "description": "Spree::Api::V3::Store::CountriesController stays open to guests despite login_required",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/integration/spree/api/v3/store/carts_spec.rb",
+      "description": "Carts API /api/v3/store/carts get carts listed returns a 200 response",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/integration/spree/api/v3/store/carts_spec.rb",
+      "description": "Carts API /api/v3/store/carts get unauthorized returns a 401 response",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/integration/spree/api/v3/store/carts_spec.rb",
+      "description": "Carts API /api/v3/store/carts post cart created returns a 201 response",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/integration/spree/api/v3/store/carts_spec.rb",
+      "description": "Carts API /api/v3/store/carts/{id} delete cart deleted returns a 204 response",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/integration/spree/api/v3/store/carts_spec.rb",
+      "description": "Carts API /api/v3/store/carts/{id} get cart found returns a 200 response",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/integration/spree/api/v3/store/carts_spec.rb",
+      "description": "Carts API /api/v3/store/carts/{id} get cart not found returns a 404 response",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/integration/spree/api/v3/store/carts_spec.rb",
+      "description": "Carts API /api/v3/store/carts/{id} get cart with out-of-stock item removed (warnings returned) returns a 200 response",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/integration/spree/api/v3/store/carts_spec.rb",
+      "description": "Carts API /api/v3/store/carts/{id} patch cart updated returns a 200 response",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/integration/spree/api/v3/store/carts_spec.rb",
+      "description": "Carts API /api/v3/store/carts/{id}/associate patch cart associated successfully returns a 200 response",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/integration/spree/api/v3/store/carts_spec.rb",
+      "description": "Carts API /api/v3/store/carts/{id}/associate patch forbidden - cart token missing or does not match returns a 403 response",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/integration/spree/api/v3/store/carts_spec.rb",
+      "description": "Carts API /api/v3/store/carts/{id}/associate patch unauthorized - JWT required returns a 401 response",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/integration/spree/api/v3/store/carts_spec.rb",
+      "description": "Carts API /api/v3/store/carts/{id}/complete post cannot complete returns a 422 response",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/integration/spree/api/v3/store/carts_spec.rb",
+      "description": "Carts API /api/v3/store/carts/{id}/complete post cart completed returns a 200 response",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/integration/spree/api/v3/store/categories_spec.rb",
+      "description": "Categories API /api/v3/store/categories get categories found returns a 200 response",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/integration/spree/api/v3/store/categories_spec.rb",
+      "description": "Categories API /api/v3/store/categories get unauthorized returns a 401 response",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/integration/spree/api/v3/store/categories_spec.rb",
+      "description": "Categories API /api/v3/store/categories/{id} get category found by permalink returns a 200 response",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/integration/spree/api/v3/store/categories_spec.rb",
+      "description": "Categories API /api/v3/store/categories/{id} get category found by prefix ID returns a 200 response",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/integration/spree/api/v3/store/categories_spec.rb",
+      "description": "Categories API /api/v3/store/categories/{id} get category from other store not accessible returns a 404 response",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/integration/spree/api/v3/store/categories_spec.rb",
+      "description": "Categories API /api/v3/store/categories/{id} get category not found returns a 404 response",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/integration/spree/api/v3/store/categories_spec.rb",
+      "description": "Categories API /api/v3/store/categories/{id} get unauthorized returns a 401 response",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/integration/spree/api/v3/store/channel_spec.rb",
+      "description": "Channel API /api/v3/store/channel get channel found returns a 200 response",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/integration/spree/api/v3/store/channel_spec.rb",
+      "description": "Channel API /api/v3/store/channel get unauthorized returns a 401 response",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/integration/spree/api/v3/store/countries_spec.rb",
+      "description": "Countries API /api/v3/store/countries get countries found returns a 200 response",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/integration/spree/api/v3/store/countries_spec.rb",
+      "description": "Countries API /api/v3/store/countries get unauthorized returns a 401 response",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/integration/spree/api/v3/store/countries_spec.rb",
+      "description": "Countries API /api/v3/store/countries/{iso} get country found returns a 200 response",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/integration/spree/api/v3/store/countries_spec.rb",
+      "description": "Countries API /api/v3/store/countries/{iso} get country not found returns a 404 response",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/integration/spree/api/v3/store/countries_spec.rb",
+      "description": "Countries API GET /api/v3/store/countries/:iso?expand=market includes market details when requested",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/integration/spree/api/v3/store/countries_spec.rb",
+      "description": "Countries API GET /api/v3/store/countries/:iso?expand=states includes states when requested",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/integration/spree/api/v3/store/currencies_spec.rb",
+      "description": "Currencies API /api/v3/store/currencies get currencies found returns a 200 response",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/integration/spree/api/v3/store/currencies_spec.rb",
+      "description": "Currencies API /api/v3/store/currencies get unauthorized returns a 401 response",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/integration/spree/api/v3/store/locales_spec.rb",
+      "description": "Locales API /api/v3/store/locales get locales found returns a 200 response",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/integration/spree/api/v3/store/locales_spec.rb",
+      "description": "Locales API /api/v3/store/locales get unauthorized returns a 401 response",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/integration/spree/api/v3/store/markets_spec.rb",
+      "description": "Markets API /api/v3/store/markets get markets found returns a 200 response",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/integration/spree/api/v3/store/markets_spec.rb",
+      "description": "Markets API /api/v3/store/markets get unauthorized returns a 401 response",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/integration/spree/api/v3/store/markets_spec.rb",
+      "description": "Markets API /api/v3/store/markets/resolve get market resolved returns a 200 response",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/integration/spree/api/v3/store/markets_spec.rb",
+      "description": "Markets API /api/v3/store/markets/resolve get no market for country returns a 404 response",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/integration/spree/api/v3/store/markets_spec.rb",
+      "description": "Markets API /api/v3/store/markets/{id} get market found returns a 200 response",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/integration/spree/api/v3/store/markets_spec.rb",
+      "description": "Markets API /api/v3/store/markets/{id} get market not found returns a 404 response",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/integration/spree/api/v3/store/markets_spec.rb",
+      "description": "Markets API /api/v3/store/markets/{market_id}/countries get countries found returns a 200 response",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/integration/spree/api/v3/store/markets_spec.rb",
+      "description": "Markets API /api/v3/store/markets/{market_id}/countries/{id} get country found returns a 200 response",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/integration/spree/api/v3/store/markets_spec.rb",
+      "description": "Markets API /api/v3/store/markets/{market_id}/countries/{id} get country not in market returns a 404 response",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/integration/spree/api/v3/store/policies_spec.rb",
+      "description": "Policies API /api/v3/store/policies get policies listed returns a 200 response",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/integration/spree/api/v3/store/policies_spec.rb",
+      "description": "Policies API /api/v3/store/policies get unauthorized returns a 401 response",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/integration/spree/api/v3/store/policies_spec.rb",
+      "description": "Policies API /api/v3/store/policies/{id} get policy found returns a 200 response",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/integration/spree/api/v3/store/policies_spec.rb",
+      "description": "Policies API /api/v3/store/policies/{id} get policy not found returns a 404 response",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/integration/spree/api/v3/store/products_spec.rb",
+      "description": "Products API /api/v3/store/products get products found returns a 200 response",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/integration/spree/api/v3/store/products_spec.rb",
+      "description": "Products API /api/v3/store/products get unauthorized - invalid or missing API key returns a 401 response",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/integration/spree/api/v3/store/products_spec.rb",
+      "description": "Products API /api/v3/store/products/filters get filters retrieved successfully returns a 200 response",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/integration/spree/api/v3/store/products_spec.rb",
+      "description": "Products API /api/v3/store/products/filters get filters scoped to category returns a 200 response",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/integration/spree/api/v3/store/products_spec.rb",
+      "description": "Products API /api/v3/store/products/filters get unauthorized - invalid or missing API key returns a 401 response",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/integration/spree/api/v3/store/products_spec.rb",
+      "description": "Products API /api/v3/store/products/{id} get draft product not visible returns a 404 response",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/integration/spree/api/v3/store/products_spec.rb",
+      "description": "Products API /api/v3/store/products/{id} get product found by prefix ID returns a 200 response",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/integration/spree/api/v3/store/products_spec.rb",
+      "description": "Products API /api/v3/store/products/{id} get product found by slug returns a 200 response",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/integration/spree/api/v3/store/products_spec.rb",
+      "description": "Products API /api/v3/store/products/{id} get product from another store returns a 404 response",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/integration/spree/api/v3/store/products_spec.rb",
+      "description": "Products API /api/v3/store/products/{id} get product not found returns a 404 response",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/integration/spree/api/v3/store/products_spec.rb",
+      "description": "Products API /api/v3/store/products/{id} get product with prior_price expanded returns a 200 response",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/integration/spree/api/v3/store/products_spec.rb",
+      "description": "Products API /api/v3/store/products/{id} get product without prior_price expanded does not include field returns a 200 response",
+      "status": "passed"
+    }
+  ]
+}

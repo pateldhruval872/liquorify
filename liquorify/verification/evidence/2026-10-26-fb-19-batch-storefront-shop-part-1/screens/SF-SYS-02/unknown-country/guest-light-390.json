@@ -1,0 +1,11 @@
+{
+  "screen": "SF-SYS-02",
+  "state": "unknown-country",
+  "variant": "guest",
+  "theme": "light",
+  "width": 390,
+  "revision": "321fa1c",
+  "path": "/us/en",
+  "observed": "Opened /zz/en; arrived at /us/en, answered with status 200.",
+  "note": null
+}

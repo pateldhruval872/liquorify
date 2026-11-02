@@ -1,0 +1,45 @@
+2026-10-26T19:30:41.8212204Z ##[group]Run mkdir -p /home/runner/work/liquorify/liquorify/tmp/test-results/rspec
+2026-10-26T19:30:42.2720768Z Shard 3/3: running groups 9,10,11,12 of 12 with 4 processes
+2026-10-26T19:30:42.2721912Z bundle exec parallel_rspec -n 12 --only-group 9,10,11,12 --group-by filesize --highest-exit-status --verbose-rerun-command --serialize-stdout --combine-stderr -o --order random --format progress -r rspec_junit_formatter --format RspecJunitFormatter -o /home/runner/work/liquorify/liquorify/tmp/test-results/rspec/core-3-$TEST_ENV_NUMBER.xml spec
+2026-10-26T19:30:42.5891958Z 4 processes for 232 specs, ~ 58 specs per process
+2026-10-26T19:33:05.7356201Z ..
+2026-10-26T19:33:05.7356535Z 
+2026-10-26T19:33:05.7356757Z Randomized with seed 52217
+2026-10-26T19:33:05.7419735Z Failures:
+2026-10-26T19:33:05.7419826Z 
+2026-10-26T19:33:05.7420022Z   1) Spree::Export#generate custom field columns lines each value up under its own header
+2026-10-26T19:33:05.7420555Z      Failure/Error: file = ::File.open(export_tmp_file_path)
+2026-10-26T19:33:05.7420753Z 
+2026-10-26T19:33:05.7420824Z      Errno::ENOENT:
+2026-10-26T19:33:05.7421295Z        No such file or directory @ rb_sysopen - /home/runner/work/liquorify/liquorify/spree/core/spec/dummy/tmp/products-spree_1-20261026193253.csv
+2026-10-26T19:33:05.7421844Z      # ./app/models/spree/export.rb:175:in 'File#initialize'
+2026-10-26T19:33:05.7422194Z      # ./app/models/spree/export.rb:175:in 'IO.open'
+2026-10-26T19:33:05.7422531Z      # ./app/models/spree/export.rb:175:in 'Spree::Export#handle_attachment'
+2026-10-26T19:33:05.7422935Z      # ./app/models/spree/export.rb:122:in 'block in Spree::Export#generate'
+2026-10-26T19:33:05.7423318Z      # ./app/models/spree/export.rb:120:in 'Spree::Export#generate'
+2026-10-26T19:33:05.7423826Z      # ./spec/models/spree/export_spec.rb:104:in 'RSpec::ExampleGroups::SpreeExport::Generate::CustomFieldColumns#generated_rows'
+2026-10-26T19:33:05.7424373Z      # ./spec/models/spree/export_spec.rb:118:in 'block (4 levels) in <top (required)>'
+2026-10-26T19:33:05.7424642Z 
+2026-10-26T19:33:05.7424785Z Finished in 2 minutes 14.8 seconds (files took 6.02 seconds to load)
+2026-10-26T19:33:05.7425088Z 909 examples, 1 failure, 1 pending
+2026-10-26T19:33:05.7425237Z 
+2026-10-26T19:33:05.7425310Z Failed examples:
+2026-10-26T19:33:05.7425419Z 
+2026-10-26T19:33:05.7425746Z rspec ./spec/models/spree/export_spec.rb:115 # Spree::Export#generate custom field columns lines each value up under its own header
+2026-10-26T19:33:05.7426299Z 
+2026-10-26T19:33:05.7426381Z Randomized with seed 52217
+2026-10-26T19:33:05.7426515Z 
+2026-10-26T19:33:05.7426801Z Coverage report generated for core_shard_3_4 to /home/runner/work/liquorify/liquorify/coverage/core_3_4/coverage.xml.
+2026-10-26T19:33:05.7441484Z Line Coverage: 46.1% (18359 / 39828)
+2026-10-26T19:33:05.7442156Z Stopped processing SimpleCov as a previous error not related to SimpleCov has been detected
+2026-10-26T19:33:49.5264977Z Tests Failed
+2026-10-26T19:33:49.5287798Z 
+2026-10-26T19:33:49.5287908Z 3812 examples, 1 failure, 12 pendings
+2026-10-26T19:33:49.5288082Z 
+2026-10-26T19:33:49.5288084Z 
+2026-10-26T19:33:49.5288327Z Tests have failed for a parallel_test group. Use the following command to run the group again:
+2026-10-26T19:33:49.5288699Z 
+2026-10-26T19:33:49.5295038Z TEST_ENV_NUMBER=4 PARALLEL_TEST_GROUPS=1 bin/rspec --format progress -r rspec_junit_formatter --format RspecJunitFormatter -o /home/runner/work/liquorify/liquorify/tmp/test-results/rspec/core-3-4.xml spec/db/migrate/rename_metafields_to_custom_fields_spec.rb spec/finders/spree/stores/dashboard_url_spec.rb spec/jobs/spree/sample_data/load_job_spec.rb spec/lib/generators/spree/subscriber/subscriber_generator_spec.rb spec/lib/spree/core/pricing/context_spec.rb spec/lib/spree/money_spec.rb spec/lib/spree/reporting/registry_spec.rb spec/lib/tasks/fold_store_credit_categories_spec.rb spec/lib/tasks/media_spec.rb spec/lib/tasks/single_store_associations_spec.rb spec/mailers/spree/seller_user_mailer_spec.rb spec/models/concerns/spree/purchase/line_item_lookup_spec.rb spec/models/concerns/spree/webhook_payload_redaction_spec.rb spec/models/spree/address_spec.rb spec/models/spree/adjusters/promotion_spec.rb spec/models/spree/authentication/strategies/oidc_strategy_spec.rb spec/models/spree/catalog_order_minimum_spec.rb spec/models/spree/commission_rate_spec.rb spec/models/spree/concerns/metadata_spec.rb spec/models/spree/custom_fields/rich_text_spec.rb spec/models/spree/delivery_rate_provider/freight_spec.rb spec/models/spree/export_spec.rb spec/models/spree/locale_spec.rb spec/models/spree/number_sequence_spec.rb spec/models/spree/order/callbacks_spec.rb spec/models/spree/order/digital_auto_fulfillment_spec.rb spec/models/spree/order_inventory_spec.rb spec/models/spree/order_withdrawal_period_spec.rb spec/models/spree/payment/gateway_options_spec.rb spec/models/spree/policy_spec.rb spec/models/spree/product/normalizes_spec.rb spec/models/spree/promotion/rules/item_total_spec.rb spec/models/spree/promotion/rules/option_value_spec.rb spec/models/spree/promotion_handler/coupon_with_gift_card_spec.rb spec/models/spree/search_provider/base_spec.rb spec/models/spree/shipping_calculator_spec.rb spec/models/spree/subscriber_spec.rb spec/models/spree/tax_identifiers/validator/eu_vat_spec.rb spec/models/spree/tax_provider/service_tax_rate_spec.rb spec/models/spree/tax_rate_spec.rb spec/models/spree/taxon_category_aliases_spec.rb spec/models/spree/translations/batch_spec.rb spec/services/spree/categories/add_products_spec.rb spec/services/spree/collections/remove_products_spec.rb spec/services/spree/email_templates/preview_spec.rb spec/services/spree/fulfillments/recalculate_delivery_spec.rb spec/services/spree/locales_spec.rb spec/services/spree/media/destroy_spec.rb spec/services/spree/newsletter/subscribe_spec.rb spec/services/spree/product_types/apply_to_products_spec.rb spec/services/spree/seeds/admin_user_spec.rb spec/services/spree/update_check_spec.rb spec/workflows/spree/carts/complete_spec.rb spec/workflows/spree/carts/quantity_rules_enforcement_spec.rb spec/workflows/spree/customers/create_spec.rb spec/workflows/spree/fulfillments/create_spec.rb spec/workflows/spree/gift_cards/redeem_spec.rb spec/workflows/spree/products/lifecycle_spec.rb --seed 52217
+2026-10-26T19:33:49.5301276Z 
+2026-10-26T19:33:49.5301346Z Took 186 seconds (3:06)
+2026-10-26T19:33:49.5396948Z ##[error]Process completed with exit code 1.

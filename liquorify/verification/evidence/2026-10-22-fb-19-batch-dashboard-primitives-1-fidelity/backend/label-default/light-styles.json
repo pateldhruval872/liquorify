@@ -1,0 +1,64 @@
+{
+  "id": "CMP-DUI-P-27",
+  "story": "dashboard-ui-primitives-label--default",
+  "theme": "light",
+  "revision": "7b1f2b8",
+  "screenWidth": 384,
+  "storyWidth": 1248,
+  "compared": 1,
+  "onlyOnScreen": [],
+  "onlyInStory": [],
+  "differences": [],
+  "styles": {
+    "screen": {
+      "label|label|flex items-center gap-2 text-sm leading-none font-medium select-none group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50": {
+        "color": "oklch(0.147 0.004 49.25)",
+        "background-color": "rgba(0, 0, 0, 0)",
+        "font-family": "\"Geist Variable\", ui-sans-serif, system-ui, sans-serif",
+        "font-size": "13px",
+        "font-weight": "500",
+        "line-height": "13px",
+        "letter-spacing": "normal",
+        "border-top-width": "0px",
+        "border-top-style": "solid",
+        "border-top-color": "oklch(0.923 0.003 48.717)",
+        "border-bottom-width": "0px",
+        "border-bottom-color": "oklch(0.923 0.003 48.717)",
+        "border-top-left-radius": "0px",
+        "padding-top": "0px",
+        "padding-right": "0px",
+        "padding-bottom": "0px",
+        "padding-left": "0px",
+        "height": "13px",
+        "box-shadow": "none",
+        "opacity": "1",
+        "gap": "8px"
+      }
+    },
+    "story": {
+      "label|label|flex items-center gap-2 text-sm leading-none font-medium select-none group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50": {
+        "color": "oklch(0.147 0.004 49.25)",
+        "background-color": "rgba(0, 0, 0, 0)",
+        "font-family": "\"Geist Variable\", ui-sans-serif, system-ui, sans-serif",
+        "font-size": "13px",
+        "font-weight": "500",
+        "line-height": "13px",
+        "letter-spacing": "normal",
+        "border-top-width": "0px",
+        "border-top-style": "solid",
+        "border-top-color": "oklch(0.923 0.003 48.717)",
+        "border-bottom-width": "0px",
+        "border-bottom-color": "oklch(0.923 0.003 48.717)",
+        "border-top-left-radius": "0px",
+        "padding-top": "0px",
+        "padding-right": "0px",
+        "padding-bottom": "0px",
+        "padding-left": "0px",
+        "height": "13px",
+        "box-shadow": "none",
+        "opacity": "1",
+        "gap": "8px"
+      }
+    }
+  }
+}

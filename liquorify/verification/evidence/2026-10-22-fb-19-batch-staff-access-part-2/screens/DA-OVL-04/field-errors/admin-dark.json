@@ -1,0 +1,16 @@
+{
+  "screen": "DA-OVL-04",
+  "state": "field-errors",
+  "variant": "admin",
+  "role": null,
+  "theme": "dark",
+  "revision": "a4a1708",
+  "path": "/<store>",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": "The profile save is answered with a field error and never reaches the server",
+  "settled": true,
+  "outside": []
+}

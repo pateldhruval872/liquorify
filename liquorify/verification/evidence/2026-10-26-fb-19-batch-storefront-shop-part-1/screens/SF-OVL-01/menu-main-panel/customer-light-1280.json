@@ -1,0 +1,11 @@
+{
+  "screen": "SF-OVL-01",
+  "state": "menu-main-panel",
+  "variant": "customer",
+  "theme": "light",
+  "width": 1280,
+  "revision": "321fa1c",
+  "path": "/us/en",
+  "observed": "Focus moved to a button element named \"\" (it has no name).",
+  "note": null
+}

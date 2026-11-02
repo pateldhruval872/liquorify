@@ -1,0 +1,11 @@
+{
+  "screen": "SF-OVL-04",
+  "state": "new-market-before-rebuild",
+  "variant": "guest",
+  "theme": "light",
+  "width": 1280,
+  "revision": "321fa1c",
+  "path": "/us/en",
+  "observed": "The dialog offers the regions France (EUR), Germany (EUR), United States (USD); for the region shown, the languages English (EN).",
+  "note": "Captured at 1280 pixels only: the header has the control from 1024 pixels wide, and part 1 captured the same dialog opened from the menu on a phone. Opened from the United States home page after the storefront restarted with the new market saved, before it was rebuilt: the build keeps this page's list of regions, while the new market's own pages open (SF-SHOP-02 and SF-SHOP-04, new-market)."
+}

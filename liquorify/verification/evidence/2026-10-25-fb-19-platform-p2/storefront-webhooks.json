@@ -1,0 +1,72 @@
+{
+  "check": "P2 criterion 5.5: the storefront's webhook receiver (G-16, webhook part)",
+  "revision": "871a551",
+  "storefrontRevision": "321fa1cfb1ccbd7acde4945512e27e73fad90562",
+  "endpoint": {
+    "url": "The storefront's receiver, on this machine",
+    "subscriptions": [
+      "order.placed",
+      "order.canceled",
+      "order.fulfilled"
+    ]
+  },
+  "written": {
+    "orderPlaced": {
+      "file": "spree-store-order-confirmation--r1005-<time>.html",
+      "namesTheOrder": true
+    },
+    "orderFulfilled": {
+      "file": "spree-store-shipment-notification--r1005-<time>.html",
+      "namesTheOrder": true
+    },
+    "orderCanceled": {
+      "file": "spree-store-order-canceled--r1006-<time>.html",
+      "namesTheOrder": true
+    }
+  },
+  "recorded": {
+    "order.placed for order shipped": [
+      {
+        "success": true,
+        "response_code": 200,
+        "response_body": "{\"received\":true,\"handled\":true}"
+      }
+    ],
+    "order.fulfilled for order shipped": [
+      {
+        "success": true,
+        "response_code": 200,
+        "response_body": "{\"received\":true,\"handled\":true}"
+      }
+    ],
+    "order.placed for order canceled": [
+      {
+        "success": true,
+        "response_code": 200,
+        "response_body": "{\"received\":true,\"handled\":true}"
+      }
+    ],
+    "order.canceled for order canceled": [
+      {
+        "success": true,
+        "response_code": 200,
+        "response_body": "{\"received\":true,\"handled\":true}"
+      }
+    ]
+  },
+  "refusals": {
+    "wrongSignature": {
+      "status": 401,
+      "body": {
+        "error": "Invalid signature"
+      }
+    },
+    "noSignature": {
+      "status": 401,
+      "body": {
+        "error": "Missing signature headers"
+      }
+    },
+    "emailsWritten": 0
+  }
+}

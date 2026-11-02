@@ -1,0 +1,16 @@
+{
+  "screen": "DA-OVL-03",
+  "state": "populated",
+  "variant": "admin",
+  "role": null,
+  "theme": "light",
+  "revision": "a4a1708",
+  "path": "/<store>",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": "The update check is answered with a newer release, and that release's notes are stored in the browser beforehand",
+  "settled": true,
+  "outside": []
+}

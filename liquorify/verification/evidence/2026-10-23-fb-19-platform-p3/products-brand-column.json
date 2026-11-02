@@ -1,0 +1,16 @@
+{
+  "capture": "products-brand-column",
+  "revision": "1f0f598",
+  "path": "/store_UkLWZg9DAJ/products",
+  "columns": [
+    "",
+    "Name",
+    "Status",
+    "Inventory",
+    "Price",
+    "Seller",
+    "Brand",
+    ""
+  ],
+  "outside": []
+}

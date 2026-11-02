@@ -1,0 +1,11 @@
+{
+  "screen": "SF-SHOP-04",
+  "state": "renamed-old-address",
+  "variant": "guest",
+  "theme": "light",
+  "width": 1280,
+  "revision": "321fa1c",
+  "path": "/us/en/products/pedestal-fan",
+  "observed": "Opened /us/en/products/pedestal-fan; arrived at /us/en/products/pedestal-fan, answered with status 200. Its headings start \"404\", \"This page could not be found.\". It shows 0 product name(s) as level 3 headings and 0 price(s).",
+  "note": "\"Pedestal Fan 40cm\" was renamed \"Standing Fan 40cm\" in the dashboard and its Slug changed from \"pedestal-fan\" to \"standing-fan\" (DA-PRD-03), and the storefront restarted. Spree's documentation says the Store API answers a retired slug with not found and leaves redirects to the storefront."
+}

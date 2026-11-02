@@ -1,0 +1,11 @@
+{
+  "screen": "SF-SYS-02",
+  "state": "unknown-page",
+  "variant": "guest",
+  "theme": "light",
+  "width": 390,
+  "revision": "321fa1c",
+  "path": "/us/en/no-such-page",
+  "observed": "Opened /us/en/no-such-page; arrived at /us/en/no-such-page, answered with status 404.",
+  "note": null
+}

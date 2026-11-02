@@ -1,0 +1,35 @@
+{
+  "capture": "brands-page-server-500",
+  "revision": "1f0f598",
+  "path": "/store_UkLWZg9DAJ/brands",
+  "injected": "The browser answers /api/v3/admin/brands with 500",
+  "answers": [
+    {
+      "path": "/api/v3/admin/brands",
+      "status": 500
+    },
+    {
+      "path": "/api/v3/admin/brands",
+      "status": 500
+    },
+    {
+      "path": "/api/v3/admin/brands",
+      "status": 500
+    },
+    {
+      "path": "/api/v3/admin/brands",
+      "status": 500
+    },
+    {
+      "path": "/api/v3/admin/brands",
+      "status": 500
+    },
+    {
+      "path": "/api/v3/admin/brands",
+      "status": 500
+    }
+  ],
+  "checkFailedWith": "brand requests the server failed\n\nexpect(received).toEqual(expected) // deep equality\n\n- Expected  -  1\n+ Received  + 10\n\n- Array []\n+ Array [\n+   Object {\n+     \"path\": \"/api/v3/admin/brands\",\n+     \"status\": 500,\n+   },\n+   Object {\n+     \"path\": \"/api/v3/admin/brands\",\n+     \"status\": 500,\n+   },\n+ ]",
+  "table": "Name\tSlug\tProducts\n\nNo brands yet",
+  "outside": []
+}

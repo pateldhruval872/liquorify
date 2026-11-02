@@ -1,0 +1,11 @@
+{
+  "screen": "DA-PRD-03",
+  "state": "renamed-with-new-address",
+  "variant": "admin",
+  "theme": "light",
+  "width": 1280,
+  "revision": "321fa1c",
+  "path": "/store_UkLWZg9DAJ/products/prod_PQNMcnNFWw",
+  "observed": "The screen said: \"\".",
+  "note": "\"Pedestal Fan 40cm\" renamed \"Standing Fan 40cm\" and saved: its Slug field then read \"pedestal-fan\". The Slug was then changed to \"standing-fan\" and saved."
+}

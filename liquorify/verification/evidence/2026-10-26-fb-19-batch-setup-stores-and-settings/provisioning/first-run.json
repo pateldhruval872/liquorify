@@ -1,0 +1,1172 @@
+{
+  "revision": "da3f79b",
+  "answers": {
+    "storeName": "Fidelity First Run",
+    "country": {
+      "name": "Poland",
+      "code": "PL",
+      "currency": "PLN"
+    },
+    "locale": "en"
+  },
+  "summary": {
+    "checks": 28,
+    "correct": 28,
+    "failing": []
+  },
+  "checks": [
+    {
+      "id": "store-name",
+      "source": "Setup (spree/api/app/controllers/spree/api/v3/admin/setup_controller.rb, adopt_default_store)",
+      "what": "The seeded store, renamed to the merchant's store name",
+      "status": "correct",
+      "problems": [],
+      "expected": {
+        "name": "Fidelity First Run"
+      },
+      "found": {
+        "name": "Fidelity First Run",
+        "default_country_code": "PL",
+        "default_currency": "PLN",
+        "default_locale": "en",
+        "admin_locale": "en",
+        "unit_system": "imperial",
+        "weight_unit": "lb"
+      }
+    },
+    {
+      "id": "store-locale",
+      "source": "ProvisionDefaults (spree/core/app/services/spree/stores/provision_defaults.rb), update_default_market and adopt_admin_locale",
+      "what": "The store's country, currency and language, and the dashboard's language",
+      "status": "correct",
+      "problems": [],
+      "expected": {
+        "default_country_code": "PL",
+        "default_currency": "PLN",
+        "default_locale": "en",
+        "admin_locale": "en"
+      },
+      "found": {
+        "name": "Fidelity First Run",
+        "default_country_code": "PL",
+        "default_currency": "PLN",
+        "default_locale": "en",
+        "admin_locale": "en",
+        "unit_system": "imperial",
+        "weight_unit": "lb"
+      }
+    },
+    {
+      "id": "market",
+      "source": "ProvisionDefaults (spree/core/app/services/spree/stores/provision_defaults.rb), update_default_market",
+      "what": "The default market, named after the country, in its currency and language",
+      "status": "correct",
+      "problems": [],
+      "expected": [
+        {
+          "name": "Poland",
+          "default": true,
+          "currency": "PLN",
+          "default_locale": "en",
+          "country_codes": [
+            "PL"
+          ]
+        }
+      ],
+      "found": [
+        {
+          "name": "Poland",
+          "default": true,
+          "currency": "PLN",
+          "default_locale": "en",
+          "country_codes": [
+            "PL"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stock-location",
+      "source": "ProvisionDefaults (spree/core/app/services/spree/stores/provision_defaults.rb), provision_stock_location and provision_pickup",
+      "what": "The default stock location, in the country, active and open for pickup",
+      "status": "correct",
+      "problems": [],
+      "expected": [
+        {
+          "name": "Shop location",
+          "default": true,
+          "country_code": "PL",
+          "active": true,
+          "pickup_enabled": true,
+          "propagate_all_variants": false,
+          "seller_id": null
+        }
+      ],
+      "found": [
+        {
+          "name": "Shop location",
+          "default": true,
+          "country_code": "PL",
+          "active": true,
+          "pickup_enabled": true,
+          "propagate_all_variants": false,
+          "seller_id": null
+        }
+      ]
+    },
+    {
+      "id": "delivery-profiles",
+      "source": "Spree::Store#create_default_delivery_profile (spree/core/app/models/spree/store.rb), which ProvisionDefaults (spree/core/app/services/spree/stores/provision_defaults.rb) falls back on in provision_delivery_zones; StoreResources › DigitalDelivery (spree/core/app/services/spree/seeds/digital_delivery.rb)",
+      "what": "The default shipping profile, and the digital profile",
+      "status": "correct",
+      "problems": [],
+      "expected": [
+        {
+          "name": "General",
+          "kind": "shipping",
+          "default": true
+        },
+        {
+          "name": "Digital",
+          "kind": "digital",
+          "default": false
+        }
+      ],
+      "found": [
+        {
+          "name": "General",
+          "kind": "shipping",
+          "default": true
+        },
+        {
+          "name": "Digital",
+          "kind": "digital",
+          "default": false
+        }
+      ]
+    },
+    {
+      "id": "delivery-zones",
+      "source": "ProvisionDefaults (spree/core/app/services/spree/stores/provision_defaults.rb), provision_delivery_zones",
+      "what": "A domestic zone for the country and an international one for every other country, on the default profile",
+      "status": "correct",
+      "problems": [],
+      "expected": [
+        {
+          "name": "Domestic",
+          "description": "Poland",
+          "delivery_profile_id": "<delivery profile \"General\">",
+          "countries": [
+            "PL"
+          ]
+        },
+        {
+          "name": "International",
+          "description": "Everywhere else",
+          "delivery_profile_id": "<delivery profile \"General\">",
+          "countries": "every other country (239)"
+        }
+      ],
+      "found": [
+        {
+          "name": "Domestic",
+          "description": "Poland",
+          "delivery_profile_id": "<delivery profile \"General\">",
+          "countries": [
+            "PL"
+          ]
+        },
+        {
+          "name": "International",
+          "description": "Everywhere else",
+          "delivery_profile_id": "<delivery profile \"General\">",
+          "countries": "every other country (239)"
+        }
+      ]
+    },
+    {
+      "id": "standard",
+      "source": "ProvisionDefaults (spree/core/app/services/spree/stores/provision_defaults.rb), provision_delivery_zones",
+      "what": "Standard delivery in the domestic zone, a flat 5.00 PLN",
+      "status": "correct",
+      "problems": [],
+      "expected": {
+        "name": "Standard",
+        "fulfillment_provider": "manual",
+        "delivery_profile_id": "<delivery profile \"General\">",
+        "delivery_zone_id": "<delivery zone \"Domestic\">",
+        "storefront_visible": true,
+        "seller_id": null,
+        "calculator": "flat_rate",
+        "amount": "5.00",
+        "currency": "PLN"
+      },
+      "found": {
+        "name": "Standard",
+        "fulfillment_provider": "manual",
+        "delivery_profile_id": "<delivery profile \"General\">",
+        "delivery_zone_id": "<delivery zone \"Domestic\">",
+        "storefront_visible": true,
+        "seller_id": null,
+        "calculator": "flat_rate",
+        "amount": "5.00",
+        "currency": "PLN"
+      }
+    },
+    {
+      "id": "international",
+      "source": "ProvisionDefaults (spree/core/app/services/spree/stores/provision_defaults.rb), provision_delivery_zones",
+      "what": "International shipping in the international zone, a flat 20.00 PLN",
+      "status": "correct",
+      "problems": [],
+      "expected": {
+        "name": "International Shipping",
+        "fulfillment_provider": "manual",
+        "delivery_profile_id": "<delivery profile \"General\">",
+        "delivery_zone_id": "<delivery zone \"International\">",
+        "storefront_visible": true,
+        "seller_id": null,
+        "calculator": "flat_rate",
+        "amount": "20.00",
+        "currency": "PLN"
+      },
+      "found": {
+        "name": "International Shipping",
+        "fulfillment_provider": "manual",
+        "delivery_profile_id": "<delivery profile \"General\">",
+        "delivery_zone_id": "<delivery zone \"International\">",
+        "storefront_visible": true,
+        "seller_id": null,
+        "calculator": "flat_rate",
+        "amount": "20.00",
+        "currency": "PLN"
+      }
+    },
+    {
+      "id": "pickup",
+      "source": "ProvisionDefaults (spree/core/app/services/spree/stores/provision_defaults.rb), provision_pickup",
+      "what": "Store pickup on the default profile, free, in PLN, shown on the storefront",
+      "status": "correct",
+      "problems": [],
+      "expected": {
+        "name": "Store Pickup",
+        "fulfillment_provider": "pickup",
+        "delivery_profile_id": "<delivery profile \"General\">",
+        "delivery_zone_id": null,
+        "storefront_visible": true,
+        "seller_id": null,
+        "calculator": "flat_rate",
+        "amount": "0.00",
+        "currency": "PLN"
+      },
+      "found": {
+        "name": "Store Pickup",
+        "fulfillment_provider": "pickup",
+        "delivery_profile_id": "<delivery profile \"General\">",
+        "delivery_zone_id": null,
+        "storefront_visible": true,
+        "seller_id": null,
+        "calculator": "flat_rate",
+        "amount": "0.00",
+        "currency": "PLN"
+      }
+    },
+    {
+      "id": "digital-delivery",
+      "source": "StoreResources › DigitalDelivery (spree/core/app/services/spree/seeds/digital_delivery.rb); ProvisionDefaults (spree/core/app/services/spree/stores/provision_defaults.rb), restate_seeded_calculators",
+      "what": "Digital delivery on the digital profile, free, restated in PLN",
+      "status": "correct",
+      "problems": [],
+      "expected": {
+        "name": "Digital Delivery",
+        "fulfillment_provider": "digital",
+        "delivery_profile_id": "<delivery profile \"Digital\">",
+        "delivery_zone_id": null,
+        "storefront_visible": true,
+        "seller_id": null,
+        "calculator": "digital_delivery",
+        "amount": "0.00",
+        "currency": "PLN"
+      },
+      "found": {
+        "name": "Digital Delivery",
+        "fulfillment_provider": "digital",
+        "delivery_profile_id": "<delivery profile \"Digital\">",
+        "delivery_zone_id": null,
+        "storefront_visible": true,
+        "seller_id": null,
+        "calculator": "digital_delivery",
+        "amount": "0.00",
+        "currency": "PLN"
+      }
+    },
+    {
+      "id": "delivery-methods",
+      "source": "ProvisionDefaults (spree/core/app/services/spree/stores/provision_defaults.rb); StoreResources › DigitalDelivery (spree/core/app/services/spree/seeds/digital_delivery.rb)",
+      "what": "Those four delivery methods, and no other",
+      "status": "correct",
+      "problems": [],
+      "expected": [
+        {
+          "name": "Standard",
+          "fulfillment_provider": "manual"
+        },
+        {
+          "name": "International Shipping",
+          "fulfillment_provider": "manual"
+        },
+        {
+          "name": "Store Pickup",
+          "fulfillment_provider": "pickup"
+        },
+        {
+          "name": "Digital Delivery",
+          "fulfillment_provider": "digital"
+        }
+      ],
+      "found": [
+        {
+          "name": "Digital Delivery",
+          "fulfillment_provider": "digital"
+        },
+        {
+          "name": "Standard",
+          "fulfillment_provider": "manual"
+        },
+        {
+          "name": "International Shipping",
+          "fulfillment_provider": "manual"
+        },
+        {
+          "name": "Store Pickup",
+          "fulfillment_provider": "pickup"
+        }
+      ]
+    },
+    {
+      "id": "package-type",
+      "source": "ProvisionDefaults (spree/core/app/services/spree/stores/provision_defaults.rb), provision_package_type",
+      "what": "A default box, sized in the store's imperial units",
+      "status": "correct",
+      "problems": [],
+      "expected": [
+        {
+          "name": "Shipping box",
+          "kind": "box",
+          "default": true,
+          "length": 12,
+          "width": 9,
+          "height": 4,
+          "dimensions_unit": "in",
+          "weight": 0.5,
+          "weight_unit": "lb",
+          "seller_id": null
+        }
+      ],
+      "found": [
+        {
+          "name": "Shipping box",
+          "kind": "box",
+          "default": true,
+          "dimensions_unit": "in",
+          "weight_unit": "lb",
+          "seller_id": null,
+          "length": 12,
+          "width": 9,
+          "height": 4,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": "tax-categories",
+      "source": "StoreResources › TaxCategories (spree/core/app/services/spree/seeds/tax_categories.rb)",
+      "what": "Tax categories, Default the default",
+      "status": "correct",
+      "problems": [],
+      "expected": [
+        {
+          "name": "Default",
+          "is_default": true
+        },
+        {
+          "name": "Non-taxable",
+          "is_default": false
+        }
+      ],
+      "found": [
+        {
+          "name": "Default",
+          "is_default": true
+        },
+        {
+          "name": "Non-taxable",
+          "is_default": false
+        }
+      ]
+    },
+    {
+      "id": "tax-exemption-reasons",
+      "source": "StoreResources › TaxExemptionReasons (spree/core/app/services/spree/seeds/tax_exemption_reasons.rb)",
+      "what": "Tax exemption reasons, each with its code",
+      "status": "correct",
+      "problems": [],
+      "expected": [
+        {
+          "code": "RESALE",
+          "name": "Resale",
+          "active": true
+        },
+        {
+          "code": "GOVERNMENT",
+          "name": "Government",
+          "active": true
+        },
+        {
+          "code": "CHARITABLE",
+          "name": "Charitable organization",
+          "active": true
+        },
+        {
+          "code": "EDUCATIONAL",
+          "name": "Educational institution",
+          "active": true
+        },
+        {
+          "code": "MANUFACTURING",
+          "name": "Manufacturing",
+          "active": true
+        },
+        {
+          "code": "AGRICULTURAL",
+          "name": "Agricultural",
+          "active": true
+        }
+      ],
+      "found": [
+        {
+          "code": "AGRICULTURAL",
+          "name": "Agricultural",
+          "active": true
+        },
+        {
+          "code": "CHARITABLE",
+          "name": "Charitable organization",
+          "active": true
+        },
+        {
+          "code": "EDUCATIONAL",
+          "name": "Educational institution",
+          "active": true
+        },
+        {
+          "code": "GOVERNMENT",
+          "name": "Government",
+          "active": true
+        },
+        {
+          "code": "MANUFACTURING",
+          "name": "Manufacturing",
+          "active": true
+        },
+        {
+          "code": "RESALE",
+          "name": "Resale",
+          "active": true
+        }
+      ]
+    },
+    {
+      "id": "channels",
+      "source": "StoreResources › Channels (spree/core/app/services/spree/seeds/channels.rb), with Spree::Stores::Channels#ensure_default_channel",
+      "what": "The default channel, and the wholesale channel behind a login with no guest checkout",
+      "status": "correct",
+      "problems": [],
+      "expected": [
+        {
+          "code": "online",
+          "name": "Online Store",
+          "default": true,
+          "active": true
+        },
+        {
+          "code": "wholesale",
+          "name": "Wholesale",
+          "default": false,
+          "active": true,
+          "storefront_access": "login_required",
+          "guest_checkout": false
+        }
+      ],
+      "found": [
+        {
+          "code": "online",
+          "name": "Online Store",
+          "default": true,
+          "active": true,
+          "storefront_access": null,
+          "guest_checkout": null
+        },
+        {
+          "code": "wholesale",
+          "name": "Wholesale",
+          "default": false,
+          "active": true,
+          "storefront_access": "login_required",
+          "guest_checkout": false
+        }
+      ]
+    },
+    {
+      "id": "admin-role",
+      "source": "StoreResources › Roles (spree/core/app/services/spree/seeds/roles.rb)",
+      "what": "The store's admin role, which cannot be changed",
+      "status": "correct",
+      "problems": [],
+      "expected": [
+        {
+          "name": "admin",
+          "mutable": false
+        }
+      ],
+      "found": [
+        {
+          "name": "admin",
+          "mutable": false
+        }
+      ]
+    },
+    {
+      "id": "payment-methods",
+      "source": "StoreResources › PaymentMethods (spree/core/app/services/spree/seeds/payment_methods.rb)",
+      "what": "Store credit, the only payment method, active",
+      "status": "correct",
+      "problems": [],
+      "expected": [
+        {
+          "name": "Store Credit",
+          "type": "store_credit",
+          "description": "Store Credit",
+          "active": true
+        }
+      ],
+      "found": [
+        {
+          "name": "Store Credit",
+          "type": "store_credit",
+          "description": "Store Credit",
+          "active": true
+        }
+      ]
+    },
+    {
+      "id": "product-types",
+      "source": "StoreResources › ProductTypes (spree/core/app/services/spree/seeds/product_types.rb)",
+      "what": "The default product type, and the digital one on the digital profile",
+      "status": "correct",
+      "problems": [],
+      "expected": [
+        {
+          "name": "Default",
+          "delivery_profile_id": null
+        },
+        {
+          "name": "Digital",
+          "delivery_profile_id": "<delivery profile \"Digital\">"
+        }
+      ],
+      "found": [
+        {
+          "name": "Default",
+          "delivery_profile_id": null
+        },
+        {
+          "name": "Digital",
+          "delivery_profile_id": "<delivery profile \"Digital\">"
+        }
+      ]
+    },
+    {
+      "id": "customer-groups",
+      "source": "StoreResources › CustomerGroups (spree/core/app/services/spree/seeds/customer_groups.rb)",
+      "what": "The wholesale customer group",
+      "status": "correct",
+      "problems": [],
+      "expected": [
+        {
+          "name": "Wholesale"
+        }
+      ],
+      "found": [
+        {
+          "name": "Wholesale"
+        }
+      ]
+    },
+    {
+      "id": "refund-reasons",
+      "source": "StoreResources › ReturnsEnvironment (spree/core/app/services/spree/seeds/returns_environment.rb), through Spree::RefundReason.return_processing_reason",
+      "what": "The refund reason returns are processed with",
+      "status": "correct",
+      "problems": [],
+      "expected": [
+        {
+          "name": "Return processing",
+          "active": true
+        }
+      ],
+      "found": [
+        {
+          "name": "Return processing",
+          "active": true
+        }
+      ]
+    },
+    {
+      "id": "return-reasons",
+      "source": "StoreResources › ReturnsEnvironment (spree/core/app/services/spree/seeds/returns_environment.rb)",
+      "what": "Return reasons",
+      "status": "correct",
+      "problems": [],
+      "expected": [
+        {
+          "name": "Better price available",
+          "active": true
+        },
+        {
+          "name": "Missed estimated delivery date",
+          "active": true
+        },
+        {
+          "name": "Missing parts or accessories",
+          "active": true
+        },
+        {
+          "name": "Damaged/Defective",
+          "active": true
+        },
+        {
+          "name": "Different from what was ordered",
+          "active": true
+        },
+        {
+          "name": "Different from description",
+          "active": true
+        },
+        {
+          "name": "No longer needed/wanted",
+          "active": true
+        },
+        {
+          "name": "Accidental order",
+          "active": true
+        },
+        {
+          "name": "Unauthorized purchase",
+          "active": true
+        }
+      ],
+      "found": [
+        {
+          "name": "Accidental order",
+          "active": true
+        },
+        {
+          "name": "Better price available",
+          "active": true
+        },
+        {
+          "name": "Damaged/Defective",
+          "active": true
+        },
+        {
+          "name": "Different from description",
+          "active": true
+        },
+        {
+          "name": "Different from what was ordered",
+          "active": true
+        },
+        {
+          "name": "Missed estimated delivery date",
+          "active": true
+        },
+        {
+          "name": "Missing parts or accessories",
+          "active": true
+        },
+        {
+          "name": "No longer needed/wanted",
+          "active": true
+        },
+        {
+          "name": "Unauthorized purchase",
+          "active": true
+        }
+      ]
+    },
+    {
+      "id": "claim-reasons",
+      "source": "StoreResources › ReturnsEnvironment (spree/core/app/services/spree/seeds/returns_environment.rb)",
+      "what": "Claim reasons",
+      "status": "correct",
+      "problems": [],
+      "expected": [
+        {
+          "name": "Arrived damaged",
+          "active": true
+        },
+        {
+          "name": "Never arrived",
+          "active": true
+        },
+        {
+          "name": "Wrong item sent",
+          "active": true
+        },
+        {
+          "name": "Missing item from order",
+          "active": true
+        },
+        {
+          "name": "Item not as described",
+          "active": true
+        }
+      ],
+      "found": [
+        {
+          "name": "Arrived damaged",
+          "active": true
+        },
+        {
+          "name": "Item not as described",
+          "active": true
+        },
+        {
+          "name": "Missing item from order",
+          "active": true
+        },
+        {
+          "name": "Never arrived",
+          "active": true
+        },
+        {
+          "name": "Wrong item sent",
+          "active": true
+        }
+      ]
+    },
+    {
+      "id": "cancellation-reasons",
+      "source": "StoreResources › ReturnsEnvironment (spree/core/app/services/spree/seeds/returns_environment.rb)",
+      "what": "Order cancellation reasons",
+      "status": "correct",
+      "problems": [],
+      "expected": [
+        {
+          "name": "Customer changed their mind",
+          "active": true
+        },
+        {
+          "name": "Payment declined",
+          "active": true
+        },
+        {
+          "name": "Suspected fraud",
+          "active": true
+        },
+        {
+          "name": "Out of stock",
+          "active": true
+        },
+        {
+          "name": "Duplicate order",
+          "active": true
+        },
+        {
+          "name": "Staff error",
+          "active": true
+        },
+        {
+          "name": "Order expired",
+          "active": true
+        }
+      ],
+      "found": [
+        {
+          "name": "Customer changed their mind",
+          "active": true
+        },
+        {
+          "name": "Duplicate order",
+          "active": true
+        },
+        {
+          "name": "Order expired",
+          "active": true
+        },
+        {
+          "name": "Out of stock",
+          "active": true
+        },
+        {
+          "name": "Payment declined",
+          "active": true
+        },
+        {
+          "name": "Staff error",
+          "active": true
+        },
+        {
+          "name": "Suspected fraud",
+          "active": true
+        }
+      ]
+    },
+    {
+      "id": "commission-rate",
+      "source": "StoreResources › CommissionRates (spree/core/app/services/spree/seeds/commission_rates.rb)",
+      "what": "The marketplace's catch-all commission rate: a percentage of 0, disabled, at the bottom",
+      "status": "correct",
+      "problems": [],
+      "expected": [
+        {
+          "code": "marketplace-default",
+          "name": "Marketplace default",
+          "kind": "percentage",
+          "value": "0",
+          "enabled": false,
+          "position": 1
+        }
+      ],
+      "found": [
+        {
+          "code": "marketplace-default",
+          "name": "Marketplace default",
+          "kind": "percentage",
+          "value": "0",
+          "enabled": false,
+          "position": 1
+        }
+      ]
+    },
+    {
+      "id": "seller-requirements",
+      "source": "StoreResources › SellerRequirements (spree/core/app/services/spree/seeds/seller_requirements.rb), through Spree::SellerRequirement.provision_defaults",
+      "what": "The seven default seller requirements, in order, each active and required",
+      "status": "correct",
+      "problems": [],
+      "expected": [
+        {
+          "kind": "accept_terms",
+          "position": 1,
+          "active": true,
+          "required": true
+        },
+        {
+          "kind": "complete_profile",
+          "position": 2,
+          "active": true,
+          "required": true
+        },
+        {
+          "kind": "billing_address",
+          "position": 3,
+          "active": true,
+          "required": true
+        },
+        {
+          "kind": "returns_address",
+          "position": 4,
+          "active": true,
+          "required": true
+        },
+        {
+          "kind": "delivery_method",
+          "position": 5,
+          "active": true,
+          "required": true
+        },
+        {
+          "kind": "package_type",
+          "position": 6,
+          "active": true,
+          "required": true
+        },
+        {
+          "kind": "minimum_products",
+          "position": 7,
+          "active": true,
+          "required": true
+        }
+      ],
+      "found": [
+        {
+          "kind": "accept_terms",
+          "position": 1,
+          "active": true,
+          "required": true
+        },
+        {
+          "kind": "complete_profile",
+          "position": 2,
+          "active": true,
+          "required": true
+        },
+        {
+          "kind": "billing_address",
+          "position": 3,
+          "active": true,
+          "required": true
+        },
+        {
+          "kind": "returns_address",
+          "position": 4,
+          "active": true,
+          "required": true
+        },
+        {
+          "kind": "delivery_method",
+          "position": 5,
+          "active": true,
+          "required": true
+        },
+        {
+          "kind": "package_type",
+          "position": 6,
+          "active": true,
+          "required": true
+        },
+        {
+          "kind": "minimum_products",
+          "position": 7,
+          "active": true,
+          "required": true
+        }
+      ]
+    },
+    {
+      "id": "api-keys",
+      "source": "StoreResources › ApiKeys (spree/core/app/services/spree/seeds/api_keys.rb)",
+      "what": "Publishable keys for the storefront and for the wholesale channel, neither revoked",
+      "status": "correct",
+      "problems": [],
+      "expected": [
+        {
+          "name": "Default",
+          "key_type": "publishable",
+          "channel_id": null,
+          "revoked_at": null
+        },
+        {
+          "name": "Storefront (Wholesale)",
+          "key_type": "publishable",
+          "channel_id": "<channel \"Wholesale\">",
+          "revoked_at": null
+        }
+      ],
+      "found": [
+        {
+          "name": "Default",
+          "key_type": "publishable",
+          "channel_id": null,
+          "revoked_at": null
+        },
+        {
+          "name": "Storefront (Wholesale)",
+          "key_type": "publishable",
+          "channel_id": "<channel \"Wholesale\">",
+          "revoked_at": null
+        }
+      ]
+    },
+    {
+      "id": "saved-reports",
+      "source": "StoreResources › SavedReports (spree/core/app/services/spree/seeds/saved_reports.rb)",
+      "what": "The 20 seeded reports",
+      "status": "correct",
+      "problems": [],
+      "expected": [
+        {
+          "name": "Sales over time",
+          "seeded": true
+        },
+        {
+          "name": "Net sales over time",
+          "seeded": true
+        },
+        {
+          "name": "Sales by channel",
+          "seeded": true
+        },
+        {
+          "name": "Sales by market",
+          "seeded": true
+        },
+        {
+          "name": "Sales by country",
+          "seeded": true
+        },
+        {
+          "name": "Top products",
+          "seeded": true
+        },
+        {
+          "name": "Top categories",
+          "seeded": true
+        },
+        {
+          "name": "Top companies",
+          "seeded": true
+        },
+        {
+          "name": "Top customers",
+          "seeded": true
+        },
+        {
+          "name": "Product margin",
+          "seeded": true
+        },
+        {
+          "name": "Returns over time",
+          "seeded": true
+        },
+        {
+          "name": "First-time vs returning",
+          "seeded": true
+        },
+        {
+          "name": "Seller payouts",
+          "seeded": true
+        },
+        {
+          "name": "Payments over time",
+          "seeded": true
+        },
+        {
+          "name": "Payments by method",
+          "seeded": true
+        },
+        {
+          "name": "Failed payments",
+          "seeded": true
+        },
+        {
+          "name": "Stock movement over time",
+          "seeded": true
+        },
+        {
+          "name": "Sell-through by variant",
+          "seeded": true
+        },
+        {
+          "name": "Orders by payment status",
+          "seeded": true
+        },
+        {
+          "name": "Orders by fulfillment status",
+          "seeded": true
+        }
+      ],
+      "found": [
+        {
+          "name": "Failed payments",
+          "seeded": true
+        },
+        {
+          "name": "First-time vs returning",
+          "seeded": true
+        },
+        {
+          "name": "Net sales over time",
+          "seeded": true
+        },
+        {
+          "name": "Orders by fulfillment status",
+          "seeded": true
+        },
+        {
+          "name": "Orders by payment status",
+          "seeded": true
+        },
+        {
+          "name": "Payments by method",
+          "seeded": true
+        },
+        {
+          "name": "Payments over time",
+          "seeded": true
+        },
+        {
+          "name": "Product margin",
+          "seeded": true
+        },
+        {
+          "name": "Returns over time",
+          "seeded": true
+        },
+        {
+          "name": "Sales by channel",
+          "seeded": true
+        },
+        {
+          "name": "Sales by country",
+          "seeded": true
+        },
+        {
+          "name": "Sales by market",
+          "seeded": true
+        },
+        {
+          "name": "Sales over time",
+          "seeded": true
+        },
+        {
+          "name": "Sell-through by variant",
+          "seeded": true
+        },
+        {
+          "name": "Seller payouts",
+          "seeded": true
+        },
+        {
+          "name": "Stock movement over time",
+          "seeded": true
+        },
+        {
+          "name": "Top categories",
+          "seeded": true
+        },
+        {
+          "name": "Top companies",
+          "seeded": true
+        },
+        {
+          "name": "Top customers",
+          "seeded": true
+        },
+        {
+          "name": "Top products",
+          "seeded": true
+        }
+      ]
+    },
+    {
+      "id": "allowed-origin",
+      "source": "StoreResources › AllowedOrigins (spree/core/app/services/spree/seeds/allowed_origins.rb)",
+      "what": "The seeded allowed origin",
+      "status": "correct",
+      "problems": [],
+      "expected": [
+        {
+          "origin": "the seeded local origin"
+        }
+      ],
+      "found": [
+        {
+          "origin": "the seeded local origin"
+        }
+      ]
+    }
+  ]
+}

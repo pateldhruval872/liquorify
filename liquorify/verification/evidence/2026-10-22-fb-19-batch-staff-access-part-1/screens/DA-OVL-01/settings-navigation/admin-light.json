@@ -1,0 +1,11 @@
+{
+  "screen": "DA-OVL-01",
+  "state": "settings-navigation",
+  "variant": "admin",
+  "role": null,
+  "theme": "light",
+  "revision": "a4a1708",
+  "path": "/<store>/settings",
+  "intercepted": null,
+  "settled": true
+}

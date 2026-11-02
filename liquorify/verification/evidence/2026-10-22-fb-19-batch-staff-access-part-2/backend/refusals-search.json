@@ -1,0 +1,770 @@
+{
+  "revision": "a4a1708",
+  "outcomes": [
+    {
+      "teammate": "staffViewer",
+      "permissionKeys": [
+        "read_staff"
+      ],
+      "request": "GET /api/v3/admin/products?q[search]=e2e&limit=5",
+      "status": 403,
+      "code": "access_denied",
+      "requiredPermission": "read_products",
+      "expected": {
+        "status": 403,
+        "code": "access_denied",
+        "requiredPermission": "read_products"
+      },
+      "asExpected": true
+    },
+    {
+      "teammate": "staffViewer",
+      "permissionKeys": [
+        "read_staff"
+      ],
+      "request": "GET /api/v3/admin/categories?q[search]=e2e&limit=5",
+      "status": 403,
+      "code": "access_denied",
+      "requiredPermission": "read_categories",
+      "expected": {
+        "status": 403,
+        "code": "access_denied",
+        "requiredPermission": "read_categories"
+      },
+      "asExpected": true
+    },
+    {
+      "teammate": "staffViewer",
+      "permissionKeys": [
+        "read_staff"
+      ],
+      "request": "GET /api/v3/admin/collections?q[search]=e2e&limit=5",
+      "status": 403,
+      "code": "access_denied",
+      "requiredPermission": "read_collections",
+      "expected": {
+        "status": 403,
+        "code": "access_denied",
+        "requiredPermission": "read_collections"
+      },
+      "asExpected": true
+    },
+    {
+      "teammate": "staffViewer",
+      "permissionKeys": [
+        "read_staff"
+      ],
+      "request": "GET /api/v3/admin/orders?q[search]=e2e&limit=5",
+      "status": 403,
+      "code": "access_denied",
+      "requiredPermission": "read_orders",
+      "expected": {
+        "status": 403,
+        "code": "access_denied",
+        "requiredPermission": "read_orders"
+      },
+      "asExpected": true
+    },
+    {
+      "teammate": "staffViewer",
+      "permissionKeys": [
+        "read_staff"
+      ],
+      "request": "GET /api/v3/admin/customers?q[search]=e2e&limit=5",
+      "status": 403,
+      "code": "access_denied",
+      "requiredPermission": "read_customers",
+      "expected": {
+        "status": 403,
+        "code": "access_denied",
+        "requiredPermission": "read_customers"
+      },
+      "asExpected": true
+    },
+    {
+      "teammate": "staffViewer",
+      "permissionKeys": [
+        "read_staff"
+      ],
+      "request": "GET /api/v3/admin/customer_groups?q[search]=e2e&limit=5",
+      "status": 403,
+      "code": "access_denied",
+      "requiredPermission": "read_customers",
+      "expected": {
+        "status": 403,
+        "code": "access_denied",
+        "requiredPermission": "read_customers"
+      },
+      "asExpected": true
+    },
+    {
+      "teammate": "staffViewer",
+      "permissionKeys": [
+        "read_staff"
+      ],
+      "request": "GET /api/v3/admin/companies?q[search]=e2e&limit=5",
+      "status": 403,
+      "code": "access_denied",
+      "requiredPermission": "read_customers",
+      "expected": {
+        "status": 403,
+        "code": "access_denied",
+        "requiredPermission": "read_customers"
+      },
+      "asExpected": true
+    },
+    {
+      "teammate": "staffViewer",
+      "permissionKeys": [
+        "read_staff"
+      ],
+      "request": "GET /api/v3/admin/sellers?q[search]=e2e&limit=5",
+      "status": 403,
+      "code": "access_denied",
+      "requiredPermission": "read_sellers",
+      "expected": {
+        "status": 403,
+        "code": "access_denied",
+        "requiredPermission": "read_sellers"
+      },
+      "asExpected": true
+    },
+    {
+      "teammate": "staffViewer",
+      "permissionKeys": [
+        "read_staff"
+      ],
+      "request": "GET /api/v3/admin/promotions?q[search]=e2e&limit=5",
+      "status": 403,
+      "code": "access_denied",
+      "requiredPermission": "read_promotions",
+      "expected": {
+        "status": 403,
+        "code": "access_denied",
+        "requiredPermission": "read_promotions"
+      },
+      "asExpected": true
+    },
+    {
+      "teammate": "support",
+      "permissionKeys": [
+        "read_dashboard",
+        "read_orders",
+        "read_customers"
+      ],
+      "request": "GET /api/v3/admin/products?q[search]=e2e&limit=5",
+      "status": 403,
+      "code": "access_denied",
+      "requiredPermission": "read_products",
+      "expected": {
+        "status": 403,
+        "code": "access_denied",
+        "requiredPermission": "read_products"
+      },
+      "asExpected": true
+    },
+    {
+      "teammate": "support",
+      "permissionKeys": [
+        "read_dashboard",
+        "read_orders",
+        "read_customers"
+      ],
+      "request": "GET /api/v3/admin/categories?q[search]=e2e&limit=5",
+      "status": 403,
+      "code": "access_denied",
+      "requiredPermission": "read_categories",
+      "expected": {
+        "status": 403,
+        "code": "access_denied",
+        "requiredPermission": "read_categories"
+      },
+      "asExpected": true
+    },
+    {
+      "teammate": "support",
+      "permissionKeys": [
+        "read_dashboard",
+        "read_orders",
+        "read_customers"
+      ],
+      "request": "GET /api/v3/admin/collections?q[search]=e2e&limit=5",
+      "status": 403,
+      "code": "access_denied",
+      "requiredPermission": "read_collections",
+      "expected": {
+        "status": 403,
+        "code": "access_denied",
+        "requiredPermission": "read_collections"
+      },
+      "asExpected": true
+    },
+    {
+      "teammate": "support",
+      "permissionKeys": [
+        "read_dashboard",
+        "read_orders",
+        "read_customers"
+      ],
+      "request": "GET /api/v3/admin/orders?q[search]=e2e&limit=5",
+      "status": 200,
+      "code": null,
+      "requiredPermission": null,
+      "expected": {
+        "status": 200,
+        "code": null,
+        "requiredPermission": null
+      },
+      "asExpected": true
+    },
+    {
+      "teammate": "support",
+      "permissionKeys": [
+        "read_dashboard",
+        "read_orders",
+        "read_customers"
+      ],
+      "request": "GET /api/v3/admin/customers?q[search]=e2e&limit=5",
+      "status": 200,
+      "code": null,
+      "requiredPermission": null,
+      "expected": {
+        "status": 200,
+        "code": null,
+        "requiredPermission": null
+      },
+      "asExpected": true
+    },
+    {
+      "teammate": "support",
+      "permissionKeys": [
+        "read_dashboard",
+        "read_orders",
+        "read_customers"
+      ],
+      "request": "GET /api/v3/admin/customer_groups?q[search]=e2e&limit=5",
+      "status": 200,
+      "code": null,
+      "requiredPermission": null,
+      "expected": {
+        "status": 200,
+        "code": null,
+        "requiredPermission": null
+      },
+      "asExpected": true
+    },
+    {
+      "teammate": "support",
+      "permissionKeys": [
+        "read_dashboard",
+        "read_orders",
+        "read_customers"
+      ],
+      "request": "GET /api/v3/admin/companies?q[search]=e2e&limit=5",
+      "status": 200,
+      "code": null,
+      "requiredPermission": null,
+      "expected": {
+        "status": 200,
+        "code": null,
+        "requiredPermission": null
+      },
+      "asExpected": true
+    },
+    {
+      "teammate": "support",
+      "permissionKeys": [
+        "read_dashboard",
+        "read_orders",
+        "read_customers"
+      ],
+      "request": "GET /api/v3/admin/sellers?q[search]=e2e&limit=5",
+      "status": 403,
+      "code": "access_denied",
+      "requiredPermission": "read_sellers",
+      "expected": {
+        "status": 403,
+        "code": "access_denied",
+        "requiredPermission": "read_sellers"
+      },
+      "asExpected": true
+    },
+    {
+      "teammate": "support",
+      "permissionKeys": [
+        "read_dashboard",
+        "read_orders",
+        "read_customers"
+      ],
+      "request": "GET /api/v3/admin/promotions?q[search]=e2e&limit=5",
+      "status": 403,
+      "code": "access_denied",
+      "requiredPermission": "read_promotions",
+      "expected": {
+        "status": 403,
+        "code": "access_denied",
+        "requiredPermission": "read_promotions"
+      },
+      "asExpected": true
+    },
+    {
+      "teammate": "orderManager",
+      "permissionKeys": [
+        "read_orders",
+        "write_orders",
+        "read_payments",
+        "write_payments",
+        "read_fulfillments",
+        "write_fulfillments",
+        "read_refunds",
+        "write_refunds",
+        "read_customers",
+        "read_gift_cards",
+        "write_gift_cards",
+        "read_store_credits",
+        "write_store_credits"
+      ],
+      "request": "GET /api/v3/admin/products?q[search]=e2e&limit=5",
+      "status": 403,
+      "code": "access_denied",
+      "requiredPermission": "read_products",
+      "expected": {
+        "status": 403,
+        "code": "access_denied",
+        "requiredPermission": "read_products"
+      },
+      "asExpected": true
+    },
+    {
+      "teammate": "orderManager",
+      "permissionKeys": [
+        "read_orders",
+        "write_orders",
+        "read_payments",
+        "write_payments",
+        "read_fulfillments",
+        "write_fulfillments",
+        "read_refunds",
+        "write_refunds",
+        "read_customers",
+        "read_gift_cards",
+        "write_gift_cards",
+        "read_store_credits",
+        "write_store_credits"
+      ],
+      "request": "GET /api/v3/admin/categories?q[search]=e2e&limit=5",
+      "status": 403,
+      "code": "access_denied",
+      "requiredPermission": "read_categories",
+      "expected": {
+        "status": 403,
+        "code": "access_denied",
+        "requiredPermission": "read_categories"
+      },
+      "asExpected": true
+    },
+    {
+      "teammate": "orderManager",
+      "permissionKeys": [
+        "read_orders",
+        "write_orders",
+        "read_payments",
+        "write_payments",
+        "read_fulfillments",
+        "write_fulfillments",
+        "read_refunds",
+        "write_refunds",
+        "read_customers",
+        "read_gift_cards",
+        "write_gift_cards",
+        "read_store_credits",
+        "write_store_credits"
+      ],
+      "request": "GET /api/v3/admin/collections?q[search]=e2e&limit=5",
+      "status": 403,
+      "code": "access_denied",
+      "requiredPermission": "read_collections",
+      "expected": {
+        "status": 403,
+        "code": "access_denied",
+        "requiredPermission": "read_collections"
+      },
+      "asExpected": true
+    },
+    {
+      "teammate": "orderManager",
+      "permissionKeys": [
+        "read_orders",
+        "write_orders",
+        "read_payments",
+        "write_payments",
+        "read_fulfillments",
+        "write_fulfillments",
+        "read_refunds",
+        "write_refunds",
+        "read_customers",
+        "read_gift_cards",
+        "write_gift_cards",
+        "read_store_credits",
+        "write_store_credits"
+      ],
+      "request": "GET /api/v3/admin/orders?q[search]=e2e&limit=5",
+      "status": 200,
+      "code": null,
+      "requiredPermission": null,
+      "expected": {
+        "status": 200,
+        "code": null,
+        "requiredPermission": null
+      },
+      "asExpected": true
+    },
+    {
+      "teammate": "orderManager",
+      "permissionKeys": [
+        "read_orders",
+        "write_orders",
+        "read_payments",
+        "write_payments",
+        "read_fulfillments",
+        "write_fulfillments",
+        "read_refunds",
+        "write_refunds",
+        "read_customers",
+        "read_gift_cards",
+        "write_gift_cards",
+        "read_store_credits",
+        "write_store_credits"
+      ],
+      "request": "GET /api/v3/admin/customers?q[search]=e2e&limit=5",
+      "status": 200,
+      "code": null,
+      "requiredPermission": null,
+      "expected": {
+        "status": 200,
+        "code": null,
+        "requiredPermission": null
+      },
+      "asExpected": true
+    },
+    {
+      "teammate": "orderManager",
+      "permissionKeys": [
+        "read_orders",
+        "write_orders",
+        "read_payments",
+        "write_payments",
+        "read_fulfillments",
+        "write_fulfillments",
+        "read_refunds",
+        "write_refunds",
+        "read_customers",
+        "read_gift_cards",
+        "write_gift_cards",
+        "read_store_credits",
+        "write_store_credits"
+      ],
+      "request": "GET /api/v3/admin/customer_groups?q[search]=e2e&limit=5",
+      "status": 200,
+      "code": null,
+      "requiredPermission": null,
+      "expected": {
+        "status": 200,
+        "code": null,
+        "requiredPermission": null
+      },
+      "asExpected": true
+    },
+    {
+      "teammate": "orderManager",
+      "permissionKeys": [
+        "read_orders",
+        "write_orders",
+        "read_payments",
+        "write_payments",
+        "read_fulfillments",
+        "write_fulfillments",
+        "read_refunds",
+        "write_refunds",
+        "read_customers",
+        "read_gift_cards",
+        "write_gift_cards",
+        "read_store_credits",
+        "write_store_credits"
+      ],
+      "request": "GET /api/v3/admin/companies?q[search]=e2e&limit=5",
+      "status": 200,
+      "code": null,
+      "requiredPermission": null,
+      "expected": {
+        "status": 200,
+        "code": null,
+        "requiredPermission": null
+      },
+      "asExpected": true
+    },
+    {
+      "teammate": "orderManager",
+      "permissionKeys": [
+        "read_orders",
+        "write_orders",
+        "read_payments",
+        "write_payments",
+        "read_fulfillments",
+        "write_fulfillments",
+        "read_refunds",
+        "write_refunds",
+        "read_customers",
+        "read_gift_cards",
+        "write_gift_cards",
+        "read_store_credits",
+        "write_store_credits"
+      ],
+      "request": "GET /api/v3/admin/sellers?q[search]=e2e&limit=5",
+      "status": 403,
+      "code": "access_denied",
+      "requiredPermission": "read_sellers",
+      "expected": {
+        "status": 403,
+        "code": "access_denied",
+        "requiredPermission": "read_sellers"
+      },
+      "asExpected": true
+    },
+    {
+      "teammate": "orderManager",
+      "permissionKeys": [
+        "read_orders",
+        "write_orders",
+        "read_payments",
+        "write_payments",
+        "read_fulfillments",
+        "write_fulfillments",
+        "read_refunds",
+        "write_refunds",
+        "read_customers",
+        "read_gift_cards",
+        "write_gift_cards",
+        "read_store_credits",
+        "write_store_credits"
+      ],
+      "request": "GET /api/v3/admin/promotions?q[search]=e2e&limit=5",
+      "status": 403,
+      "code": "access_denied",
+      "requiredPermission": "read_promotions",
+      "expected": {
+        "status": 403,
+        "code": "access_denied",
+        "requiredPermission": "read_promotions"
+      },
+      "asExpected": true
+    },
+    {
+      "teammate": "merchandiser",
+      "permissionKeys": [
+        "read_products",
+        "write_products",
+        "read_categories",
+        "write_categories",
+        "read_collections",
+        "write_collections",
+        "read_stock",
+        "write_stock"
+      ],
+      "request": "GET /api/v3/admin/products?q[search]=e2e&limit=5",
+      "status": 200,
+      "code": null,
+      "requiredPermission": null,
+      "expected": {
+        "status": 200,
+        "code": null,
+        "requiredPermission": null
+      },
+      "asExpected": true
+    },
+    {
+      "teammate": "merchandiser",
+      "permissionKeys": [
+        "read_products",
+        "write_products",
+        "read_categories",
+        "write_categories",
+        "read_collections",
+        "write_collections",
+        "read_stock",
+        "write_stock"
+      ],
+      "request": "GET /api/v3/admin/categories?q[search]=e2e&limit=5",
+      "status": 200,
+      "code": null,
+      "requiredPermission": null,
+      "expected": {
+        "status": 200,
+        "code": null,
+        "requiredPermission": null
+      },
+      "asExpected": true
+    },
+    {
+      "teammate": "merchandiser",
+      "permissionKeys": [
+        "read_products",
+        "write_products",
+        "read_categories",
+        "write_categories",
+        "read_collections",
+        "write_collections",
+        "read_stock",
+        "write_stock"
+      ],
+      "request": "GET /api/v3/admin/collections?q[search]=e2e&limit=5",
+      "status": 200,
+      "code": null,
+      "requiredPermission": null,
+      "expected": {
+        "status": 200,
+        "code": null,
+        "requiredPermission": null
+      },
+      "asExpected": true
+    },
+    {
+      "teammate": "merchandiser",
+      "permissionKeys": [
+        "read_products",
+        "write_products",
+        "read_categories",
+        "write_categories",
+        "read_collections",
+        "write_collections",
+        "read_stock",
+        "write_stock"
+      ],
+      "request": "GET /api/v3/admin/orders?q[search]=e2e&limit=5",
+      "status": 403,
+      "code": "access_denied",
+      "requiredPermission": "read_orders",
+      "expected": {
+        "status": 403,
+        "code": "access_denied",
+        "requiredPermission": "read_orders"
+      },
+      "asExpected": true
+    },
+    {
+      "teammate": "merchandiser",
+      "permissionKeys": [
+        "read_products",
+        "write_products",
+        "read_categories",
+        "write_categories",
+        "read_collections",
+        "write_collections",
+        "read_stock",
+        "write_stock"
+      ],
+      "request": "GET /api/v3/admin/customers?q[search]=e2e&limit=5",
+      "status": 403,
+      "code": "access_denied",
+      "requiredPermission": "read_customers",
+      "expected": {
+        "status": 403,
+        "code": "access_denied",
+        "requiredPermission": "read_customers"
+      },
+      "asExpected": true
+    },
+    {
+      "teammate": "merchandiser",
+      "permissionKeys": [
+        "read_products",
+        "write_products",
+        "read_categories",
+        "write_categories",
+        "read_collections",
+        "write_collections",
+        "read_stock",
+        "write_stock"
+      ],
+      "request": "GET /api/v3/admin/customer_groups?q[search]=e2e&limit=5",
+      "status": 403,
+      "code": "access_denied",
+      "requiredPermission": "read_customers",
+      "expected": {
+        "status": 403,
+        "code": "access_denied",
+        "requiredPermission": "read_customers"
+      },
+      "asExpected": true
+    },
+    {
+      "teammate": "merchandiser",
+      "permissionKeys": [
+        "read_products",
+        "write_products",
+        "read_categories",
+        "write_categories",
+        "read_collections",
+        "write_collections",
+        "read_stock",
+        "write_stock"
+      ],
+      "request": "GET /api/v3/admin/companies?q[search]=e2e&limit=5",
+      "status": 403,
+      "code": "access_denied",
+      "requiredPermission": "read_customers",
+      "expected": {
+        "status": 403,
+        "code": "access_denied",
+        "requiredPermission": "read_customers"
+      },
+      "asExpected": true
+    },
+    {
+      "teammate": "merchandiser",
+      "permissionKeys": [
+        "read_products",
+        "write_products",
+        "read_categories",
+        "write_categories",
+        "read_collections",
+        "write_collections",
+        "read_stock",
+        "write_stock"
+      ],
+      "request": "GET /api/v3/admin/sellers?q[search]=e2e&limit=5",
+      "status": 403,
+      "code": "access_denied",
+      "requiredPermission": "read_sellers",
+      "expected": {
+        "status": 403,
+        "code": "access_denied",
+        "requiredPermission": "read_sellers"
+      },
+      "asExpected": true
+    },
+    {
+      "teammate": "merchandiser",
+      "permissionKeys": [
+        "read_products",
+        "write_products",
+        "read_categories",
+        "write_categories",
+        "read_collections",
+        "write_collections",
+        "read_stock",
+        "write_stock"
+      ],
+      "request": "GET /api/v3/admin/promotions?q[search]=e2e&limit=5",
+      "status": 403,
+      "code": "access_denied",
+      "requiredPermission": "read_promotions",
+      "expected": {
+        "status": 403,
+        "code": "access_denied",
+        "requiredPermission": "read_promotions"
+      },
+      "asExpected": true
+    }
+  ]
+}

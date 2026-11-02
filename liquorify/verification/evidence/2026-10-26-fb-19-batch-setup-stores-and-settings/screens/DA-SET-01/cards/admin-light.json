@@ -1,0 +1,17 @@
+{
+  "screen": "DA-SET-01",
+  "state": "cards",
+  "variant": "admin",
+  "role": null,
+  "theme": "light",
+  "revision": "881a619",
+  "path": "/<store>/settings",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": null,
+  "masked": null,
+  "settled": true,
+  "outside": []
+}

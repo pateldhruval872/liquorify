@@ -1,0 +1,11 @@
+{
+  "screen": "DA-AUTH-01",
+  "state": "with-identity-provider",
+  "variant": "public",
+  "role": null,
+  "theme": "dark",
+  "revision": "a4a1708",
+  "path": "/login",
+  "intercepted": "The sign-in providers response gains an invented identity provider beside the server's password provider",
+  "settled": true
+}

@@ -1,0 +1,11 @@
+{
+  "screen": "SF-SHOP-03",
+  "state": "sign-in-required",
+  "variant": "guest",
+  "theme": "light",
+  "width": 390,
+  "revision": "321fa1c",
+  "path": "/us/en/c/kitchen/coffee-machines",
+  "observed": "Opened /us/en/c/kitchen/coffee-machines; arrived at /us/en/c/kitchen/coffee-machines, answered with status 200. Its first heading reads \"404\". The page shows 0 price(s), 0 product name(s) as level 3 headings and no Add to Cart button.",
+  "note": "The store's storefront access was saved as \"sign-in required\" in the dashboard's store settings (DA-SET-02) before the storefront started."
+}

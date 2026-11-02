@@ -1,0 +1,11 @@
+{
+  "screen": "SF-SHOP-06",
+  "state": "content-saved",
+  "variant": "guest",
+  "theme": "light",
+  "width": 1280,
+  "revision": "321fa1c",
+  "path": "/us/en/policies/privacy-policy",
+  "observed": "Opened /us/en/policies/privacy-policy; arrived at /us/en/policies/privacy-policy, answered with status 200. \"We use your details only to deliver your order and never sell them.\" shown.",
+  "note": "The privacy policy's content, written in the dashboard (DA-SET-06)."
+}

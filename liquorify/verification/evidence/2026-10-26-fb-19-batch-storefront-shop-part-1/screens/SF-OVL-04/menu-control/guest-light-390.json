@@ -1,0 +1,11 @@
+{
+  "screen": "SF-OVL-04",
+  "state": "menu-control",
+  "variant": "guest",
+  "theme": "light",
+  "width": 390,
+  "revision": "321fa1c",
+  "path": "/us/en",
+  "observed": null,
+  "note": "The menu shows the control below 1024 pixels wide, where the header has none."
+}

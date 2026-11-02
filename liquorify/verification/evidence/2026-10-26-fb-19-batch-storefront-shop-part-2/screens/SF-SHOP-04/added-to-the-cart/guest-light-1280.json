@@ -1,0 +1,11 @@
+{
+  "screen": "SF-SHOP-04",
+  "state": "added-to-the-cart",
+  "variant": "guest",
+  "theme": "light",
+  "width": 1280,
+  "revision": "321fa1c",
+  "path": "/us/en/products/e2e-two-option-tee",
+  "observed": "The cart drawer opened and lists the product.",
+  "note": "The cart drawer's own states belong to the cart batch; this records only that it opens."
+}

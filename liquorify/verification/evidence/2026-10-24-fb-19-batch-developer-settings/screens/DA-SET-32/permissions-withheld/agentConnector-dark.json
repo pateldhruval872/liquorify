@@ -1,0 +1,23 @@
+{
+  "screen": "DA-SET-32",
+  "state": "permissions-withheld",
+  "variant": "agentConnector",
+  "role": {
+    "name": "Agent connector",
+    "permissions": [
+      "write_oauth_applications",
+      "read_products"
+    ]
+  },
+  "theme": "dark",
+  "revision": "95bc66f",
+  "path": "/<store>/oauth/authorize",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": null,
+  "masked": null,
+  "settled": true,
+  "outside": []
+}

@@ -1,0 +1,11 @@
+{
+  "screen": "SF-OVL-04",
+  "state": "new-market-offered",
+  "variant": "guest",
+  "theme": "light",
+  "width": 1280,
+  "revision": "321fa1c",
+  "path": "/us/en",
+  "observed": "The dialog offers the regions France (EUR), Germany (EUR), Spain (EUR), United States (USD); for the region shown, the languages English (EN).",
+  "note": "Captured at 1280 pixels only: the header has the control from 1024 pixels wide, and part 1 captured the same dialog opened from the menu on a phone. The market was created in the dashboard (DA-SET-11) with English as its only language. Captured after the storefront was rebuilt twice: the first rebuild, a few minutes after the market was saved, still built this page from the market list its data cache kept on disk, and the dialog did not offer the new market."
+}

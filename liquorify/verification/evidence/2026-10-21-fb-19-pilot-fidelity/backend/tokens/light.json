@@ -1,0 +1,788 @@
+{
+  "theme": "light",
+  "revision": "817e177",
+  "counts": {
+    "dashboard": 202,
+    "sellerPanel": 198,
+    "storybook": 277
+  },
+  "dashboardAgainstStorybook": [
+    {
+      "name": "--spacing-header-height",
+      "screen": "93px",
+      "story": "0px"
+    },
+    {
+      "name": "--shadow-xs",
+      "screen": null,
+      "story": "0 0px 1px 0 #0000000d"
+    },
+    {
+      "name": "--color-info-border",
+      "screen": null,
+      "story": "oklch(90.1% .058 230.902)"
+    },
+    {
+      "name": "--shadow-control",
+      "screen": null,
+      "story": "0 .5px 1px 0 #0000000d"
+    },
+    {
+      "name": "--color-border-card",
+      "screen": null,
+      "story": "color-mix(in srgb, oklch(92.3% .003 48.717) 70%, transparent)"
+    },
+    {
+      "name": "--color-card-foreground",
+      "screen": null,
+      "story": "oklch(14.7% .004 49.25)"
+    },
+    {
+      "name": "--color-primary-foreground",
+      "screen": null,
+      "story": "oklch(100% 0 0)"
+    },
+    {
+      "name": "--color-sidebar",
+      "screen": null,
+      "story": "oklch(97% .001 106.424)"
+    },
+    {
+      "name": "--color-track-recessed",
+      "screen": null,
+      "story": "oklch(97% .001 106.424)"
+    },
+    {
+      "name": "--color-sidebar-border",
+      "screen": null,
+      "story": "color-mix(in srgb, oklch(92.3% .003 48.717) 75%, transparent)"
+    },
+    {
+      "name": "--color-accent",
+      "screen": null,
+      "story": "oklch(97% .001 106.424)"
+    },
+    {
+      "name": "--color-popover",
+      "screen": null,
+      "story": "oklch(100% 0 0)"
+    },
+    {
+      "name": "--color-warning-border",
+      "screen": null,
+      "story": "oklch(92.4% .12 95.746)"
+    },
+    {
+      "name": "--color-input",
+      "screen": null,
+      "story": "color-mix(in srgb, oklch(92.3% .003 48.717) 80%, transparent)"
+    },
+    {
+      "name": "--color-accent-strong",
+      "screen": null,
+      "story": "oklch(94.7% .002 56)"
+    },
+    {
+      "name": "--color-info",
+      "screen": null,
+      "story": "oklch(50% .134 242.749)"
+    },
+    {
+      "name": "--radius-lg",
+      "screen": null,
+      "story": ".625rem"
+    },
+    {
+      "name": "--color-border-subtle",
+      "screen": null,
+      "story": "color-mix(in srgb, oklch(92.3% .003 48.717) 50%, transparent)"
+    },
+    {
+      "name": "--text-xl",
+      "screen": null,
+      "story": "1.25rem"
+    },
+    {
+      "name": "--color-chart-1",
+      "screen": null,
+      "story": "oklch(76.63% .1067 254.4)"
+    },
+    {
+      "name": "--color-nested-raised",
+      "screen": null,
+      "story": "oklch(100% 0 0)"
+    },
+    {
+      "name": "--color-warning-bg",
+      "screen": null,
+      "story": "oklch(96.2% .059 95.617)"
+    },
+    {
+      "name": "--color-sidebar-primary-foreground",
+      "screen": null,
+      "story": "oklch(100% 0 0)"
+    },
+    {
+      "name": "--color-secondary",
+      "screen": null,
+      "story": "oklch(97% .001 106.424)"
+    },
+    {
+      "name": "--text-sm",
+      "screen": null,
+      "story": ".8125rem"
+    },
+    {
+      "name": "--ease-out",
+      "screen": null,
+      "story": "cubic-bezier(.23, 1, .32, 1)"
+    },
+    {
+      "name": "--color-accent-foreground",
+      "screen": null,
+      "story": "oklch(14.7% .004 49.25)"
+    },
+    {
+      "name": "--color-popover-foreground",
+      "screen": null,
+      "story": "oklch(14.7% .004 49.25)"
+    },
+    {
+      "name": "--color-accent-strong-hover",
+      "screen": null,
+      "story": "oklch(92.3% .003 48.717)"
+    },
+    {
+      "name": "--color-danger-bg",
+      "screen": null,
+      "story": "oklch(93.6% .032 17.717)"
+    },
+    {
+      "name": "--color-accent-hover",
+      "screen": null,
+      "story": "oklch(95.9% .002 56)"
+    },
+    {
+      "name": "--color-blue-600",
+      "screen": null,
+      "story": "oklch(51.06% .1868 257.7)"
+    },
+    {
+      "name": "--color-ring",
+      "screen": null,
+      "story": "oklch(59.67% .2212 258)"
+    },
+    {
+      "name": "--color-border",
+      "screen": null,
+      "story": "oklch(92.3% .003 48.717)"
+    },
+    {
+      "name": "--color-chart-3",
+      "screen": null,
+      "story": "oklch(51.06% .1868 257.7)"
+    },
+    {
+      "name": "--color-foreground",
+      "screen": null,
+      "story": "oklch(14.7% .004 49.25)"
+    },
+    {
+      "name": "--spacing-rail-header-height",
+      "screen": null,
+      "story": "42px"
+    },
+    {
+      "name": "--color-sidebar-ring",
+      "screen": null,
+      "story": "oklch(59.67% .2212 258)"
+    },
+    {
+      "name": "--color-success-bg",
+      "screen": null,
+      "story": "oklch(96.2% .044 156.743)"
+    },
+    {
+      "name": "--color-chart-4",
+      "screen": null,
+      "story": "oklch(42.32% .1524 257.4)"
+    },
+    {
+      "name": "--color-sidebar-primary",
+      "screen": null,
+      "story": "oklch(14.7% .004 49.25)"
+    },
+    {
+      "name": "--color-link-hover",
+      "screen": null,
+      "story": "oklch(44% .16 257.7)"
+    },
+    {
+      "name": "--color-link",
+      "screen": null,
+      "story": "oklch(51.06% .1868 257.7)"
+    },
+    {
+      "name": "--color-muted-foreground",
+      "screen": null,
+      "story": "oklch(53.5% .0127 58.071)"
+    },
+    {
+      "name": "--text-2xl",
+      "screen": null,
+      "story": "1.5rem"
+    },
+    {
+      "name": "--shadow-md",
+      "screen": null,
+      "story": "0 4px 16px -4px #00000014, 0 1px 4px -2px #0000000d"
+    },
+    {
+      "name": "--text-lg",
+      "screen": null,
+      "story": "1rem"
+    },
+    {
+      "name": "--shadow-sm",
+      "screen": null,
+      "story": "0 1px 2px 0 #0000000d"
+    },
+    {
+      "name": "--font-sans",
+      "screen": null,
+      "story": "\"Geist Variable\", ui-sans-serif, system-ui, sans-serif"
+    },
+    {
+      "name": "--shadow-lg",
+      "screen": null,
+      "story": "0 8px 32px -8px #0000001a, 0 2px 8px -4px #0000000f"
+    },
+    {
+      "name": "--color-background",
+      "screen": null,
+      "story": "oklch(98.5% .001 106.423)"
+    },
+    {
+      "name": "--color-danger",
+      "screen": null,
+      "story": "oklch(50.5% .213 27.518)"
+    },
+    {
+      "name": "--color-secondary-foreground",
+      "screen": null,
+      "story": "oklch(14.7% .004 49.25)"
+    },
+    {
+      "name": "--ease-in-out",
+      "screen": null,
+      "story": "cubic-bezier(.77, 0, .175, 1)"
+    },
+    {
+      "name": "--color-chart-2",
+      "screen": null,
+      "story": "oklch(59.67% .2212 258)"
+    },
+    {
+      "name": "--color-destructive-foreground",
+      "screen": null,
+      "story": "oklch(100% 0 0)"
+    },
+    {
+      "name": "--color-destructive",
+      "screen": null,
+      "story": "oklch(58% .22 27)"
+    },
+    {
+      "name": "--color-success-border",
+      "screen": null,
+      "story": "oklch(92.5% .084 155.995)"
+    },
+    {
+      "name": "--color-sidebar-foreground",
+      "screen": null,
+      "story": "oklch(26.8% .007 34.298)"
+    },
+    {
+      "name": "--color-sidebar-accent-foreground",
+      "screen": null,
+      "story": "oklch(14.7% .004 49.25)"
+    },
+    {
+      "name": "--color-info-bg",
+      "screen": null,
+      "story": "oklch(95.1% .026 236.824)"
+    },
+    {
+      "name": "--color-success",
+      "screen": null,
+      "story": "oklch(52.7% .154 150.069)"
+    },
+    {
+      "name": "--color-danger-border",
+      "screen": null,
+      "story": "oklch(88.5% .062 18.334)"
+    },
+    {
+      "name": "--color-sidebar-accent",
+      "screen": null,
+      "story": "oklch(92.3% .003 48.717)"
+    },
+    {
+      "name": "--color-blue-500",
+      "screen": null,
+      "story": "oklch(59.67% .2212 258)"
+    },
+    {
+      "name": "--color-muted",
+      "screen": null,
+      "story": "oklch(98.5% .001 106.423)"
+    },
+    {
+      "name": "--text-4xl",
+      "screen": null,
+      "story": "2rem"
+    },
+    {
+      "name": "--color-card-container",
+      "screen": null,
+      "story": "oklch(98.5% .001 106.423)"
+    },
+    {
+      "name": "--shadow-nav",
+      "screen": null,
+      "story": "#0000 0px 0px 0px 0px, #0000 0px 0px 0px 0px, #0000000a 0px 0px 0px 1px, #0000000a 0px 1px 2px -1px, #00000005 0px 2px 4px 0px"
+    },
+    {
+      "name": "--color-primary",
+      "screen": null,
+      "story": "oklch(14.7% .004 49.25)"
+    },
+    {
+      "name": "--text-3xl",
+      "screen": null,
+      "story": "1.75rem"
+    },
+    {
+      "name": "--text-xs",
+      "screen": null,
+      "story": ".75rem"
+    },
+    {
+      "name": "--color-border-control",
+      "screen": null,
+      "story": "oklch(86.9% .005 56.366)"
+    },
+    {
+      "name": "--color-card",
+      "screen": null,
+      "story": "oklch(100% 0 0)"
+    },
+    {
+      "name": "--color-sidebar-accent-hover",
+      "screen": null,
+      "story": "oklch(94.7% .002 56)"
+    },
+    {
+      "name": "--color-chart-5",
+      "screen": null,
+      "story": "oklch(33.58% .118 257.1)"
+    }
+  ],
+  "sellerPanelAgainstStorybook": [
+    {
+      "name": "--shadow-xs",
+      "screen": null,
+      "story": "0 0px 1px 0 #0000000d"
+    },
+    {
+      "name": "--color-info-border",
+      "screen": null,
+      "story": "oklch(90.1% .058 230.902)"
+    },
+    {
+      "name": "--shadow-control",
+      "screen": null,
+      "story": "0 .5px 1px 0 #0000000d"
+    },
+    {
+      "name": "--color-border-card",
+      "screen": null,
+      "story": "color-mix(in srgb, oklch(92.3% .003 48.717) 70%, transparent)"
+    },
+    {
+      "name": "--color-card-foreground",
+      "screen": null,
+      "story": "oklch(14.7% .004 49.25)"
+    },
+    {
+      "name": "--color-primary-foreground",
+      "screen": null,
+      "story": "oklch(100% 0 0)"
+    },
+    {
+      "name": "--color-sidebar",
+      "screen": null,
+      "story": "oklch(97% .001 106.424)"
+    },
+    {
+      "name": "--color-track-recessed",
+      "screen": null,
+      "story": "oklch(97% .001 106.424)"
+    },
+    {
+      "name": "--color-sidebar-border",
+      "screen": null,
+      "story": "color-mix(in srgb, oklch(92.3% .003 48.717) 75%, transparent)"
+    },
+    {
+      "name": "--color-accent",
+      "screen": null,
+      "story": "oklch(97% .001 106.424)"
+    },
+    {
+      "name": "--color-blue-400",
+      "screen": null,
+      "story": "oklch(70.7% .165 254.624)"
+    },
+    {
+      "name": "--color-popover",
+      "screen": null,
+      "story": "oklch(100% 0 0)"
+    },
+    {
+      "name": "--color-warning-border",
+      "screen": null,
+      "story": "oklch(92.4% .12 95.746)"
+    },
+    {
+      "name": "--color-input",
+      "screen": null,
+      "story": "color-mix(in srgb, oklch(92.3% .003 48.717) 80%, transparent)"
+    },
+    {
+      "name": "--color-accent-strong",
+      "screen": null,
+      "story": "oklch(94.7% .002 56)"
+    },
+    {
+      "name": "--color-info",
+      "screen": null,
+      "story": "oklch(50% .134 242.749)"
+    },
+    {
+      "name": "--radius-lg",
+      "screen": null,
+      "story": ".625rem"
+    },
+    {
+      "name": "--color-border-subtle",
+      "screen": null,
+      "story": "color-mix(in srgb, oklch(92.3% .003 48.717) 50%, transparent)"
+    },
+    {
+      "name": "--text-xl",
+      "screen": null,
+      "story": "1.25rem"
+    },
+    {
+      "name": "--color-chart-1",
+      "screen": null,
+      "story": "oklch(76.63% .1067 254.4)"
+    },
+    {
+      "name": "--color-nested-raised",
+      "screen": null,
+      "story": "oklch(100% 0 0)"
+    },
+    {
+      "name": "--color-warning-bg",
+      "screen": null,
+      "story": "oklch(96.2% .059 95.617)"
+    },
+    {
+      "name": "--color-green-600",
+      "screen": null,
+      "story": "oklch(62.7% .194 149.214)"
+    },
+    {
+      "name": "--color-sidebar-primary-foreground",
+      "screen": null,
+      "story": "oklch(100% 0 0)"
+    },
+    {
+      "name": "--color-secondary",
+      "screen": null,
+      "story": "oklch(97% .001 106.424)"
+    },
+    {
+      "name": "--text-sm",
+      "screen": null,
+      "story": ".8125rem"
+    },
+    {
+      "name": "--ease-out",
+      "screen": null,
+      "story": "cubic-bezier(.23, 1, .32, 1)"
+    },
+    {
+      "name": "--color-emerald-500",
+      "screen": null,
+      "story": "oklch(69.6% .17 162.48)"
+    },
+    {
+      "name": "--color-accent-foreground",
+      "screen": null,
+      "story": "oklch(14.7% .004 49.25)"
+    },
+    {
+      "name": "--color-popover-foreground",
+      "screen": null,
+      "story": "oklch(14.7% .004 49.25)"
+    },
+    {
+      "name": "--color-accent-strong-hover",
+      "screen": null,
+      "story": "oklch(92.3% .003 48.717)"
+    },
+    {
+      "name": "--color-danger-bg",
+      "screen": null,
+      "story": "oklch(93.6% .032 17.717)"
+    },
+    {
+      "name": "--color-accent-hover",
+      "screen": null,
+      "story": "oklch(95.9% .002 56)"
+    },
+    {
+      "name": "--color-blue-600",
+      "screen": null,
+      "story": "oklch(51.06% .1868 257.7)"
+    },
+    {
+      "name": "--color-ring",
+      "screen": null,
+      "story": "oklch(59.67% .2212 258)"
+    },
+    {
+      "name": "--color-border",
+      "screen": null,
+      "story": "oklch(92.3% .003 48.717)"
+    },
+    {
+      "name": "--color-chart-3",
+      "screen": null,
+      "story": "oklch(51.06% .1868 257.7)"
+    },
+    {
+      "name": "--color-foreground",
+      "screen": null,
+      "story": "oklch(14.7% .004 49.25)"
+    },
+    {
+      "name": "--spacing-rail-header-height",
+      "screen": null,
+      "story": "42px"
+    },
+    {
+      "name": "--color-sidebar-ring",
+      "screen": null,
+      "story": "oklch(59.67% .2212 258)"
+    },
+    {
+      "name": "--color-success-bg",
+      "screen": null,
+      "story": "oklch(96.2% .044 156.743)"
+    },
+    {
+      "name": "--color-chart-4",
+      "screen": null,
+      "story": "oklch(42.32% .1524 257.4)"
+    },
+    {
+      "name": "--color-sidebar-primary",
+      "screen": null,
+      "story": "oklch(14.7% .004 49.25)"
+    },
+    {
+      "name": "--color-link-hover",
+      "screen": null,
+      "story": "oklch(44% .16 257.7)"
+    },
+    {
+      "name": "--color-link",
+      "screen": null,
+      "story": "oklch(51.06% .1868 257.7)"
+    },
+    {
+      "name": "--color-muted-foreground",
+      "screen": null,
+      "story": "oklch(53.5% .0127 58.071)"
+    },
+    {
+      "name": "--text-2xl",
+      "screen": null,
+      "story": "1.5rem"
+    },
+    {
+      "name": "--shadow-md",
+      "screen": null,
+      "story": "0 4px 16px -4px #00000014, 0 1px 4px -2px #0000000d"
+    },
+    {
+      "name": "--text-lg",
+      "screen": null,
+      "story": "1rem"
+    },
+    {
+      "name": "--shadow-sm",
+      "screen": null,
+      "story": "0 1px 2px 0 #0000000d"
+    },
+    {
+      "name": "--font-sans",
+      "screen": null,
+      "story": "\"Geist Variable\", ui-sans-serif, system-ui, sans-serif"
+    },
+    {
+      "name": "--shadow-lg",
+      "screen": null,
+      "story": "0 8px 32px -8px #0000001a, 0 2px 8px -4px #0000000f"
+    },
+    {
+      "name": "--color-background",
+      "screen": null,
+      "story": "oklch(98.5% .001 106.423)"
+    },
+    {
+      "name": "--color-danger",
+      "screen": null,
+      "story": "oklch(50.5% .213 27.518)"
+    },
+    {
+      "name": "--color-secondary-foreground",
+      "screen": null,
+      "story": "oklch(14.7% .004 49.25)"
+    },
+    {
+      "name": "--ease-in-out",
+      "screen": null,
+      "story": "cubic-bezier(.77, 0, .175, 1)"
+    },
+    {
+      "name": "--color-chart-2",
+      "screen": null,
+      "story": "oklch(59.67% .2212 258)"
+    },
+    {
+      "name": "--color-destructive-foreground",
+      "screen": null,
+      "story": "oklch(100% 0 0)"
+    },
+    {
+      "name": "--color-destructive",
+      "screen": null,
+      "story": "oklch(58% .22 27)"
+    },
+    {
+      "name": "--color-success-border",
+      "screen": null,
+      "story": "oklch(92.5% .084 155.995)"
+    },
+    {
+      "name": "--color-sidebar-foreground",
+      "screen": null,
+      "story": "oklch(26.8% .007 34.298)"
+    },
+    {
+      "name": "--color-sidebar-accent-foreground",
+      "screen": null,
+      "story": "oklch(14.7% .004 49.25)"
+    },
+    {
+      "name": "--color-info-bg",
+      "screen": null,
+      "story": "oklch(95.1% .026 236.824)"
+    },
+    {
+      "name": "--color-success",
+      "screen": null,
+      "story": "oklch(52.7% .154 150.069)"
+    },
+    {
+      "name": "--color-danger-border",
+      "screen": null,
+      "story": "oklch(88.5% .062 18.334)"
+    },
+    {
+      "name": "--color-sidebar-accent",
+      "screen": null,
+      "story": "oklch(92.3% .003 48.717)"
+    },
+    {
+      "name": "--color-blue-500",
+      "screen": null,
+      "story": "oklch(59.67% .2212 258)"
+    },
+    {
+      "name": "--color-muted",
+      "screen": null,
+      "story": "oklch(98.5% .001 106.423)"
+    },
+    {
+      "name": "--text-4xl",
+      "screen": null,
+      "story": "2rem"
+    },
+    {
+      "name": "--color-card-container",
+      "screen": null,
+      "story": "oklch(98.5% .001 106.423)"
+    },
+    {
+      "name": "--shadow-nav",
+      "screen": null,
+      "story": "#0000 0px 0px 0px 0px, #0000 0px 0px 0px 0px, #0000000a 0px 0px 0px 1px, #0000000a 0px 1px 2px -1px, #00000005 0px 2px 4px 0px"
+    },
+    {
+      "name": "--color-primary",
+      "screen": null,
+      "story": "oklch(14.7% .004 49.25)"
+    },
+    {
+      "name": "--text-3xl",
+      "screen": null,
+      "story": "1.75rem"
+    },
+    {
+      "name": "--text-xs",
+      "screen": null,
+      "story": ".75rem"
+    },
+    {
+      "name": "--color-border-control",
+      "screen": null,
+      "story": "oklch(86.9% .005 56.366)"
+    },
+    {
+      "name": "--color-card",
+      "screen": null,
+      "story": "oklch(100% 0 0)"
+    },
+    {
+      "name": "--color-sidebar-accent-hover",
+      "screen": null,
+      "story": "oklch(94.7% .002 56)"
+    },
+    {
+      "name": "--blur-sm",
+      "screen": null,
+      "story": "8px"
+    },
+    {
+      "name": "--color-chart-5",
+      "screen": null,
+      "story": "oklch(33.58% .118 257.1)"
+    }
+  ]
+}

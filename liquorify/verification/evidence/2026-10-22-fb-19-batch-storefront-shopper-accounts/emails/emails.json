@@ -1,0 +1,40 @@
+{
+  "revision": {
+    "spree": "a4a1708",
+    "storefront": "8153a6b1ffbcd8dfd0c435f6fc24f90ff32b9fff"
+  },
+  "browser": "Playwright 1.60.0 image, Chromium, 1280 and 390 pixels wide, fonts served offline",
+  "emails": {
+    "EM-C-08": {
+      "sender": "Spree (spree_emails)",
+      "preview": "Spree::CustomerPreview#password_reset_email",
+      "template": "spree/emails/app/views/spree/customer_mailer/password_reset_email.liquid",
+      "subject": "Shop Password Reset Instructions",
+      "parts": [
+        "text/plain",
+        "text/html"
+      ],
+      "rendered": "In the browser-test Rails app's test environment, against a copy of the browser-test database, inside a transaction that was rolled back",
+      "link": "The store's storefront address with ?token= appended, because no redirect address was given; the link's address is left out here",
+      "captures": [
+        "EM-C-08-1280.webp",
+        "EM-C-08-390.webp"
+      ]
+    },
+    "EM-SF-04": {
+      "sender": "The storefront, on Spree's customer.password_reset_requested webhook",
+      "component": "src/lib/emails/password-reset.tsx",
+      "handler": "src/lib/webhooks/handlers.ts handlePasswordReset",
+      "subject": "Spree Store Password Reset",
+      "subject_note": "The handler's subject is the store name followed by 'Password Reset'; 'Spree Store' is the storefront's default store name",
+      "parts": [
+        "text/html"
+      ],
+      "rendered": "With react-email's render, as the handler calls it, with an example address https://store.example.com/us/en/account/reset-password and the invented token preview-token",
+      "captures": [
+        "EM-SF-04-1280.webp",
+        "EM-SF-04-390.webp"
+      ]
+    }
+  }
+}

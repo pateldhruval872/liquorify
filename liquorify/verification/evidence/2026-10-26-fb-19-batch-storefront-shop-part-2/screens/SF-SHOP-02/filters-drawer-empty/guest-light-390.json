@@ -1,0 +1,11 @@
+{
+  "screen": "SF-SHOP-02",
+  "state": "filters-drawer-empty",
+  "variant": "guest",
+  "theme": "light",
+  "width": 390,
+  "revision": "321fa1c",
+  "path": "/us/en/products",
+  "observed": null,
+  "note": "The filters drawer opens from the filter bar below 768 pixels wide; a wider screen shows the dropdowns instead."
+}

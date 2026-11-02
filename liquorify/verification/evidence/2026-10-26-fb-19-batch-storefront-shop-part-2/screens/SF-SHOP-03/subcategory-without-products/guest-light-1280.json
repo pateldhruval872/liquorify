@@ -1,0 +1,11 @@
+{
+  "screen": "SF-SHOP-03",
+  "state": "subcategory-without-products",
+  "variant": "guest",
+  "theme": "light",
+  "width": 1280,
+  "revision": "321fa1c",
+  "path": "/us/en/c/kitchen/coffee-machines/espresso-machines",
+  "observed": "The page lists 0 products and says \"0 products\". Its address is /us/en/c/kitchen/coffee-machines/espresso-machines.",
+  "note": "A subcategory added to this lane's test database through the Admin API, with no products in it."
+}

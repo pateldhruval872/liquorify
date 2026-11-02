@@ -157,6 +157,9 @@ jobs:
 
       # The apps pin @spree/* to npm ranges. Overriding every package with its
       # tarball also replaces the copies other @spree/* packages depend on.
+      # The apps were installed from npm when created, so each check below
+      # installs afresh: a kept lockfile would mix the newest npm release's
+      # dependencies with the tarballs' own.
       - name: Point the apps at the packed packages
         run: |
           {
@@ -172,6 +175,7 @@ jobs:
         working-directory: ${{ runner.temp }}/app/apps/dashboard
         run: |
           cat "$RUNNER_TEMP/overrides.yaml" >> pnpm-workspace.yaml
+          rm -rf node_modules pnpm-lock.yaml
           pnpm install --no-frozen-lockfile
           pnpm build && pnpm typecheck && pnpm lint
 
@@ -180,6 +184,7 @@ jobs:
         working-directory: ${{ runner.temp }}/app/apps/seller-dashboard
         run: |
           cat "$RUNNER_TEMP/overrides.yaml" >> pnpm-workspace.yaml
+          rm -rf node_modules pnpm-lock.yaml
           pnpm install --no-frozen-lockfile
           pnpm build && pnpm typecheck && pnpm lint
 

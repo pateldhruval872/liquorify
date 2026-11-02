@@ -1,0 +1,11 @@
+{
+  "screen": "SF-ACC-04",
+  "state": "default",
+  "variant": "guest",
+  "theme": "light",
+  "width": 1280,
+  "revision": "8153a6b1ffbcd8dfd0c435f6fc24f90ff32b9fff",
+  "path": "/us/en/account/reset-password",
+  "observed": "Opened with an invented token: the form shows for any token until it is submitted.",
+  "note": null
+}

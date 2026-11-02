@@ -1,0 +1,16 @@
+{
+  "screen": "DA-SETUP-01",
+  "state": "countries-failed",
+  "variant": "installer",
+  "role": null,
+  "theme": "light",
+  "revision": "881a619",
+  "path": "/setup",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": "The country list request is answered with a server error",
+  "masked": null,
+  "outside": []
+}

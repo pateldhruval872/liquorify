@@ -1,0 +1,16 @@
+{
+  "screen": "DA-OVL-01",
+  "state": "mobile-settings-breadcrumbs",
+  "variant": "admin",
+  "role": null,
+  "theme": "dark",
+  "revision": "a4a1708",
+  "path": "/<store>/settings/staff",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "intercepted": null,
+  "settled": true,
+  "outside": []
+}

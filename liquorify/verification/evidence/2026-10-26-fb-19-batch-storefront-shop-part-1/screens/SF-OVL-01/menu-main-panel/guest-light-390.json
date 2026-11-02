@@ -1,0 +1,11 @@
+{
+  "screen": "SF-OVL-01",
+  "state": "menu-main-panel",
+  "variant": "guest",
+  "theme": "light",
+  "width": 390,
+  "revision": "321fa1c",
+  "path": "/us/en",
+  "observed": "Focus moved to a button element named \"Kitchen\".",
+  "note": null
+}

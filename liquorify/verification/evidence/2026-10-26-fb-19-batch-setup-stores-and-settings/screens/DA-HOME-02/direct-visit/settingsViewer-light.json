@@ -1,0 +1,22 @@
+{
+  "screen": "DA-HOME-02",
+  "state": "direct-visit",
+  "variant": "settingsViewer",
+  "role": {
+    "name": "Settings viewer",
+    "permissions": [
+      "read_settings"
+    ]
+  },
+  "theme": "light",
+  "revision": "881a619",
+  "path": "/<store>/getting-started",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": null,
+  "masked": null,
+  "settled": true,
+  "outside": []
+}

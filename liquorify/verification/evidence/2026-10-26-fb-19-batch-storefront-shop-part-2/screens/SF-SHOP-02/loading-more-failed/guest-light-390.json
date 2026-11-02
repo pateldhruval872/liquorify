@@ -1,0 +1,11 @@
+{
+  "screen": "SF-SHOP-02",
+  "state": "loading-more-failed",
+  "variant": "guest",
+  "theme": "light",
+  "width": 390,
+  "revision": "321fa1c",
+  "path": "/us/en/products",
+  "observed": "The page lists 12 products and shows no count of them. Its address is /us/en/products?sort=price. After the failure the page shows no loading message and no end-of-list message, and nothing that offers to try again.",
+  "note": "After the first page arrived, the proxy answered the next page with a server error."
+}

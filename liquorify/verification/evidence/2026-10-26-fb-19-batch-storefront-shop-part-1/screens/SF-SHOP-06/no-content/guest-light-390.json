@@ -1,0 +1,11 @@
+{
+  "screen": "SF-SHOP-06",
+  "state": "no-content",
+  "variant": "guest",
+  "theme": "light",
+  "width": 390,
+  "revision": "321fa1c",
+  "path": "/us/en/policies/shipping-policy",
+  "observed": "Opened /us/en/policies/shipping-policy; arrived at /us/en/policies/shipping-policy, answered with status 200.",
+  "note": null
+}

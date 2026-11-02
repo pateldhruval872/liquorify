@@ -1,0 +1,11 @@
+{
+  "screen": "SF-OVL-01",
+  "state": "menu-first-run-sample-data-pl",
+  "variant": "guest",
+  "theme": "light",
+  "width": 390,
+  "revision": "321fa1c",
+  "path": "/pl/en",
+  "observed": "The menu's links: Home, All Products, Contact, My Account.",
+  "note": "The storefront was built against a store made by first-run setup with \"Load sample data\" left chosen (G-36), served at /pl/en, after the sample data job had stopped. Captured at 390 pixels only, where the menu opens from the header's button."
+}

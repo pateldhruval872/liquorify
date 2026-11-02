@@ -1,0 +1,11 @@
+{
+  "screen": "SF-SYS-01",
+  "state": "malformed-address",
+  "variant": "guest",
+  "theme": "light",
+  "width": 390,
+  "revision": "321fa1c",
+  "path": "/us/en/products/%E0%A4%A",
+  "observed": "Opened /us/en/products/%E0%A4%A; arrived at /us/en/products/%E0%A4%A, answered with status 500.",
+  "note": "Found behaviour: an address the storefront cannot decode is answered with a plain-text error, not the application error page."
+}

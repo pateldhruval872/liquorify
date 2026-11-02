@@ -1,0 +1,16 @@
+{
+  "screen": "DA-AUTH-01",
+  "state": "wrong-credentials",
+  "variant": "public",
+  "role": null,
+  "theme": "dark",
+  "revision": "a4a1708",
+  "path": "/login",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": null,
+  "settled": true,
+  "outside": []
+}

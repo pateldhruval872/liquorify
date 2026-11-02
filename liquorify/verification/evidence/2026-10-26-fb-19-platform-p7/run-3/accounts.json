@@ -1,0 +1,803 @@
+{
+  "revision": "9f512ab841583c92710034056b683dc931b77666",
+  "run": 1793034187829,
+  "store": "default",
+  "gaps": {
+    "G-11": {
+      "cases": 14,
+      "attempts": 29,
+      "passed": 14,
+      "failed": []
+    }
+  },
+  "cases": [
+    {
+      "gap": "G-11",
+      "area": "accounts",
+      "title": "Read the profile",
+      "request": "GET /api/v3/store/customers/me",
+      "attempts": [
+        {
+          "caller": "guest",
+          "permissionKeys": null,
+          "expected": {
+            "status": 401,
+            "code": "authentication_required",
+            "requiredPermission": null
+          },
+          "actual": {
+            "status": 401,
+            "code": "authentication_required",
+            "requiredPermission": null
+          },
+          "asExpected": true,
+          "exposureChecked": 2,
+          "exposed": [],
+          "unchanged": null
+        },
+        {
+          "caller": "other",
+          "permissionKeys": null,
+          "expected": {
+            "status": 200,
+            "code": null,
+            "requiredPermission": null
+          },
+          "actual": {
+            "status": 200,
+            "code": null,
+            "requiredPermission": null
+          },
+          "asExpected": true,
+          "exposureChecked": 2,
+          "exposed": [],
+          "unchanged": null
+        }
+      ],
+      "control": {
+        "caller": "owner",
+        "permissionKeys": null,
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": true,
+        "changed": null
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-11",
+      "area": "accounts",
+      "title": "Change the profile, naming the other customer's id",
+      "request": "PATCH /api/v3/store/customers/me",
+      "attempts": [
+        {
+          "caller": "guest",
+          "permissionKeys": null,
+          "expected": {
+            "status": 401,
+            "code": "authentication_required",
+            "requiredPermission": null
+          },
+          "actual": {
+            "status": 401,
+            "code": "authentication_required",
+            "requiredPermission": null
+          },
+          "asExpected": true,
+          "exposureChecked": 2,
+          "exposed": [],
+          "unchanged": true
+        },
+        {
+          "caller": "other",
+          "permissionKeys": null,
+          "expected": {
+            "status": 200,
+            "code": null,
+            "requiredPermission": null
+          },
+          "actual": {
+            "status": 200,
+            "code": null,
+            "requiredPermission": null
+          },
+          "asExpected": true,
+          "exposureChecked": 2,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "owner",
+        "permissionKeys": null,
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-11",
+      "area": "accounts",
+      "title": "List the addresses",
+      "request": "GET /api/v3/store/customers/me/addresses",
+      "attempts": [
+        {
+          "caller": "guest",
+          "permissionKeys": null,
+          "expected": {
+            "status": 401,
+            "code": "authentication_required",
+            "requiredPermission": null
+          },
+          "actual": {
+            "status": 401,
+            "code": "authentication_required",
+            "requiredPermission": null
+          },
+          "asExpected": true,
+          "exposureChecked": 4,
+          "exposed": [],
+          "unchanged": null
+        },
+        {
+          "caller": "other",
+          "permissionKeys": null,
+          "expected": {
+            "status": 200,
+            "code": null,
+            "requiredPermission": null
+          },
+          "actual": {
+            "status": 200,
+            "code": null,
+            "requiredPermission": null
+          },
+          "asExpected": true,
+          "exposureChecked": 4,
+          "exposed": [],
+          "unchanged": null
+        }
+      ],
+      "control": {
+        "caller": "owner",
+        "permissionKeys": null,
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": true,
+        "changed": null
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-11",
+      "area": "accounts",
+      "title": "Read an address",
+      "request": "GET /api/v3/store/customers/me/addresses/<id>",
+      "attempts": [
+        {
+          "caller": "guest",
+          "permissionKeys": null,
+          "expected": {
+            "status": 401,
+            "code": "authentication_required",
+            "requiredPermission": null
+          },
+          "actual": {
+            "status": 401,
+            "code": "authentication_required",
+            "requiredPermission": null
+          },
+          "asExpected": true,
+          "exposureChecked": 2,
+          "exposed": [],
+          "unchanged": null
+        },
+        {
+          "caller": "other",
+          "permissionKeys": null,
+          "expected": {
+            "status": 404,
+            "code": "record_not_found",
+            "requiredPermission": null
+          },
+          "actual": {
+            "status": 404,
+            "code": "record_not_found",
+            "requiredPermission": null
+          },
+          "asExpected": true,
+          "exposureChecked": 2,
+          "exposed": [],
+          "unchanged": null
+        }
+      ],
+      "control": {
+        "caller": "owner",
+        "permissionKeys": null,
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": true,
+        "changed": null
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-11",
+      "area": "accounts",
+      "title": "Change an address",
+      "request": "PATCH /api/v3/store/customers/me/addresses/<id>",
+      "attempts": [
+        {
+          "caller": "guest",
+          "permissionKeys": null,
+          "expected": {
+            "status": 401,
+            "code": "authentication_required",
+            "requiredPermission": null
+          },
+          "actual": {
+            "status": 401,
+            "code": "authentication_required",
+            "requiredPermission": null
+          },
+          "asExpected": true,
+          "exposureChecked": 2,
+          "exposed": [],
+          "unchanged": true
+        },
+        {
+          "caller": "other",
+          "permissionKeys": null,
+          "expected": {
+            "status": 404,
+            "code": "record_not_found",
+            "requiredPermission": null
+          },
+          "actual": {
+            "status": 404,
+            "code": "record_not_found",
+            "requiredPermission": null
+          },
+          "asExpected": true,
+          "exposureChecked": 2,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "owner",
+        "permissionKeys": null,
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-11",
+      "area": "accounts",
+      "title": "Delete an address",
+      "request": "DELETE /api/v3/store/customers/me/addresses/<id>",
+      "attempts": [
+        {
+          "caller": "guest",
+          "permissionKeys": null,
+          "expected": {
+            "status": 401,
+            "code": "authentication_required",
+            "requiredPermission": null
+          },
+          "actual": {
+            "status": 401,
+            "code": "authentication_required",
+            "requiredPermission": null
+          },
+          "asExpected": true,
+          "exposureChecked": 2,
+          "exposed": [],
+          "unchanged": true
+        },
+        {
+          "caller": "other",
+          "permissionKeys": null,
+          "expected": {
+            "status": 404,
+            "code": "record_not_found",
+            "requiredPermission": null
+          },
+          "actual": {
+            "status": 404,
+            "code": "record_not_found",
+            "requiredPermission": null
+          },
+          "asExpected": true,
+          "exposureChecked": 2,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "owner",
+        "permissionKeys": null,
+        "expectedStatus": 204,
+        "status": 204,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-11",
+      "area": "accounts",
+      "title": "List the orders",
+      "request": "GET /api/v3/store/customers/me/orders",
+      "attempts": [
+        {
+          "caller": "guest",
+          "permissionKeys": null,
+          "expected": {
+            "status": 401,
+            "code": "authentication_required",
+            "requiredPermission": null
+          },
+          "actual": {
+            "status": 401,
+            "code": "authentication_required",
+            "requiredPermission": null
+          },
+          "asExpected": true,
+          "exposureChecked": 2,
+          "exposed": [],
+          "unchanged": null
+        },
+        {
+          "caller": "other",
+          "permissionKeys": null,
+          "expected": {
+            "status": 200,
+            "code": null,
+            "requiredPermission": null
+          },
+          "actual": {
+            "status": 200,
+            "code": null,
+            "requiredPermission": null
+          },
+          "asExpected": true,
+          "exposureChecked": 2,
+          "exposed": [],
+          "unchanged": null
+        }
+      ],
+      "control": {
+        "caller": "owner",
+        "permissionKeys": null,
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": true,
+        "changed": null
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-11",
+      "area": "accounts",
+      "title": "Read an order from the account's orders",
+      "request": "GET /api/v3/store/customers/me/orders/<id>",
+      "attempts": [
+        {
+          "caller": "guest",
+          "permissionKeys": null,
+          "expected": {
+            "status": 401,
+            "code": "authentication_required",
+            "requiredPermission": null
+          },
+          "actual": {
+            "status": 401,
+            "code": "authentication_required",
+            "requiredPermission": null
+          },
+          "asExpected": true,
+          "exposureChecked": 2,
+          "exposed": [],
+          "unchanged": null
+        },
+        {
+          "caller": "other",
+          "permissionKeys": null,
+          "expected": {
+            "status": 404,
+            "code": "order_not_found",
+            "requiredPermission": null
+          },
+          "actual": {
+            "status": 404,
+            "code": "order_not_found",
+            "requiredPermission": null
+          },
+          "asExpected": true,
+          "exposureChecked": 2,
+          "exposed": [],
+          "unchanged": null
+        }
+      ],
+      "control": {
+        "caller": "owner",
+        "permissionKeys": null,
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": true,
+        "changed": null
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-11",
+      "area": "accounts",
+      "title": "Read an order by its id, as the storefront does",
+      "request": "GET /api/v3/store/orders/<id>",
+      "attempts": [
+        {
+          "caller": "guest",
+          "permissionKeys": null,
+          "expected": {
+            "status": 404,
+            "code": "order_not_found",
+            "requiredPermission": null
+          },
+          "actual": {
+            "status": 404,
+            "code": "order_not_found",
+            "requiredPermission": null
+          },
+          "asExpected": true,
+          "exposureChecked": 2,
+          "exposed": [],
+          "unchanged": null
+        },
+        {
+          "caller": "guest with a wrong order token",
+          "permissionKeys": null,
+          "expected": {
+            "status": 404,
+            "code": "order_not_found",
+            "requiredPermission": null
+          },
+          "actual": {
+            "status": 404,
+            "code": "order_not_found",
+            "requiredPermission": null
+          },
+          "asExpected": true,
+          "exposureChecked": 2,
+          "exposed": [],
+          "unchanged": null
+        },
+        {
+          "caller": "other",
+          "permissionKeys": null,
+          "expected": {
+            "status": 404,
+            "code": "order_not_found",
+            "requiredPermission": null
+          },
+          "actual": {
+            "status": 404,
+            "code": "order_not_found",
+            "requiredPermission": null
+          },
+          "asExpected": true,
+          "exposureChecked": 2,
+          "exposed": [],
+          "unchanged": null
+        }
+      ],
+      "control": {
+        "caller": "owner",
+        "permissionKeys": null,
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": true,
+        "changed": null
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-11",
+      "area": "accounts",
+      "title": "List the saved cards",
+      "request": "GET /api/v3/store/customers/me/credit_cards",
+      "attempts": [
+        {
+          "caller": "guest",
+          "permissionKeys": null,
+          "expected": {
+            "status": 401,
+            "code": "authentication_required",
+            "requiredPermission": null
+          },
+          "actual": {
+            "status": 401,
+            "code": "authentication_required",
+            "requiredPermission": null
+          },
+          "asExpected": true,
+          "exposureChecked": 2,
+          "exposed": [],
+          "unchanged": null
+        },
+        {
+          "caller": "other",
+          "permissionKeys": null,
+          "expected": {
+            "status": 200,
+            "code": null,
+            "requiredPermission": null
+          },
+          "actual": {
+            "status": 200,
+            "code": null,
+            "requiredPermission": null
+          },
+          "asExpected": true,
+          "exposureChecked": 2,
+          "exposed": [],
+          "unchanged": null
+        }
+      ],
+      "control": {
+        "caller": "owner",
+        "permissionKeys": null,
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": true,
+        "changed": null
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-11",
+      "area": "accounts",
+      "title": "Read a saved card",
+      "request": "GET /api/v3/store/customers/me/credit_cards/<id>",
+      "attempts": [
+        {
+          "caller": "guest",
+          "permissionKeys": null,
+          "expected": {
+            "status": 401,
+            "code": "authentication_required",
+            "requiredPermission": null
+          },
+          "actual": {
+            "status": 401,
+            "code": "authentication_required",
+            "requiredPermission": null
+          },
+          "asExpected": true,
+          "exposureChecked": 2,
+          "exposed": [],
+          "unchanged": null
+        },
+        {
+          "caller": "other",
+          "permissionKeys": null,
+          "expected": {
+            "status": 404,
+            "code": "record_not_found",
+            "requiredPermission": null
+          },
+          "actual": {
+            "status": 404,
+            "code": "record_not_found",
+            "requiredPermission": null
+          },
+          "asExpected": true,
+          "exposureChecked": 2,
+          "exposed": [],
+          "unchanged": null
+        }
+      ],
+      "control": {
+        "caller": "owner",
+        "permissionKeys": null,
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": true,
+        "changed": null
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-11",
+      "area": "accounts",
+      "title": "Delete a saved card",
+      "request": "DELETE /api/v3/store/customers/me/credit_cards/<id>",
+      "attempts": [
+        {
+          "caller": "guest",
+          "permissionKeys": null,
+          "expected": {
+            "status": 401,
+            "code": "authentication_required",
+            "requiredPermission": null
+          },
+          "actual": {
+            "status": 401,
+            "code": "authentication_required",
+            "requiredPermission": null
+          },
+          "asExpected": true,
+          "exposureChecked": 2,
+          "exposed": [],
+          "unchanged": true
+        },
+        {
+          "caller": "other",
+          "permissionKeys": null,
+          "expected": {
+            "status": 404,
+            "code": "record_not_found",
+            "requiredPermission": null
+          },
+          "actual": {
+            "status": 404,
+            "code": "record_not_found",
+            "requiredPermission": null
+          },
+          "asExpected": true,
+          "exposureChecked": 2,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "owner",
+        "permissionKeys": null,
+        "expectedStatus": 204,
+        "status": 204,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-11",
+      "area": "accounts",
+      "title": "List the gift cards",
+      "request": "GET /api/v3/store/customers/me/gift_cards",
+      "attempts": [
+        {
+          "caller": "guest",
+          "permissionKeys": null,
+          "expected": {
+            "status": 401,
+            "code": "authentication_required",
+            "requiredPermission": null
+          },
+          "actual": {
+            "status": 401,
+            "code": "authentication_required",
+            "requiredPermission": null
+          },
+          "asExpected": true,
+          "exposureChecked": 2,
+          "exposed": [],
+          "unchanged": null
+        },
+        {
+          "caller": "other",
+          "permissionKeys": null,
+          "expected": {
+            "status": 200,
+            "code": null,
+            "requiredPermission": null
+          },
+          "actual": {
+            "status": 200,
+            "code": null,
+            "requiredPermission": null
+          },
+          "asExpected": true,
+          "exposureChecked": 2,
+          "exposed": [],
+          "unchanged": null
+        }
+      ],
+      "control": {
+        "caller": "owner",
+        "permissionKeys": null,
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": true,
+        "changed": null
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-11",
+      "area": "accounts",
+      "title": "Read a gift card",
+      "request": "GET /api/v3/store/customers/me/gift_cards/<id>",
+      "attempts": [
+        {
+          "caller": "guest",
+          "permissionKeys": null,
+          "expected": {
+            "status": 401,
+            "code": "authentication_required",
+            "requiredPermission": null
+          },
+          "actual": {
+            "status": 401,
+            "code": "authentication_required",
+            "requiredPermission": null
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": null
+        },
+        {
+          "caller": "other",
+          "permissionKeys": null,
+          "expected": {
+            "status": 404,
+            "code": "record_not_found",
+            "requiredPermission": null
+          },
+          "actual": {
+            "status": 404,
+            "code": "record_not_found",
+            "requiredPermission": null
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": null
+        }
+      ],
+      "control": {
+        "caller": "owner",
+        "permissionKeys": null,
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": true,
+        "changed": null
+      },
+      "failures": [],
+      "result": "PASS"
+    }
+  ]
+}

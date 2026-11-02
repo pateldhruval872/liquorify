@@ -1,0 +1,22 @@
+{
+  "screen": "DA-SET-11",
+  "state": "edit",
+  "variant": "settingsViewer",
+  "role": {
+    "name": "Settings viewer",
+    "permissions": [
+      "read_settings"
+    ]
+  },
+  "theme": "light",
+  "revision": "881a619",
+  "path": "/<store>/settings/markets",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": null,
+  "masked": null,
+  "settled": true,
+  "outside": []
+}

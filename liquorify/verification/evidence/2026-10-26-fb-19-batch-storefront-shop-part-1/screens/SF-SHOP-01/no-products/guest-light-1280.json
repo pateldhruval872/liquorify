@@ -1,0 +1,11 @@
+{
+  "screen": "SF-SHOP-01",
+  "state": "no-products",
+  "variant": "guest",
+  "theme": "light",
+  "width": 1280,
+  "revision": "321fa1c",
+  "path": "/gb/en",
+  "observed": "Opened /gb/en; arrived at /gb/en, answered with status 200.",
+  "note": "A market that no product has a price in, added to the backend for this capture only. Spree lists only the products priced in the market's currency."
+}

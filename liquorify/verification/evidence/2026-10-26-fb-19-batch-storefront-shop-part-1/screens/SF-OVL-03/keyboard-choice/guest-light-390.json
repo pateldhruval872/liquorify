@@ -1,0 +1,11 @@
+{
+  "screen": "SF-OVL-03",
+  "state": "keyboard-choice",
+  "variant": "guest",
+  "theme": "light",
+  "width": 390,
+  "revision": "321fa1c",
+  "path": "/us/en",
+  "observed": "Pressed the down arrow twice; \"Temperature Control Kettle 1.7L$79.99\" is chosen, and the field names it as its active option: true.",
+  "note": null
+}

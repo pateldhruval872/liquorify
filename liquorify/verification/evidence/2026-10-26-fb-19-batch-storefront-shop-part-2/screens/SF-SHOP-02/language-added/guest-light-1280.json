@@ -1,0 +1,11 @@
+{
+  "screen": "SF-SHOP-02",
+  "state": "language-added",
+  "variant": "guest",
+  "theme": "light",
+  "width": 1280,
+  "revision": "321fa1c",
+  "path": "/es/es/products",
+  "observed": "The page lists 12 products and says \"37 productos\". Its address is /es/es/products.",
+  "note": "The market's list in Spanish, the language added in the dashboard (DA-SET-11)."
+}

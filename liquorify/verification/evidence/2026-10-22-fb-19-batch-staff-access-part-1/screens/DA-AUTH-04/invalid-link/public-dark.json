@@ -1,0 +1,11 @@
+{
+  "screen": "DA-AUTH-04",
+  "state": "invalid-link",
+  "variant": "public",
+  "role": null,
+  "theme": "dark",
+  "revision": "a4a1708",
+  "path": "/accept-invitation/inv_doesnotexist",
+  "intercepted": null,
+  "settled": true
+}

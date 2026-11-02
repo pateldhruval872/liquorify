@@ -1,0 +1,11 @@
+{
+  "screen": "DA-SHELL-01",
+  "state": "opens-first-store",
+  "variant": "admin",
+  "role": null,
+  "theme": "light",
+  "revision": "a4a1708",
+  "path": "/<store>",
+  "intercepted": null,
+  "settled": true
+}

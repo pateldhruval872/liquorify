@@ -1,0 +1,11 @@
+{
+  "screen": "SF-SYS-02",
+  "state": "unknown-policy",
+  "variant": "guest",
+  "theme": "light",
+  "width": 390,
+  "revision": "321fa1c",
+  "path": "/us/en/policies/no-such-policy",
+  "observed": "Opened /us/en/policies/no-such-policy; arrived at /us/en/policies/no-such-policy, answered with status 200.",
+  "note": "Found behaviour: the page says it was not found, but is answered with status 200 rather than 404."
+}

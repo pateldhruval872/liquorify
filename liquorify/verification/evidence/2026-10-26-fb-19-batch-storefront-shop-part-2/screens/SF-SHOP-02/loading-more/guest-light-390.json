@@ -1,0 +1,11 @@
+{
+  "screen": "SF-SHOP-02",
+  "state": "loading-more",
+  "variant": "guest",
+  "theme": "light",
+  "width": 390,
+  "revision": "321fa1c",
+  "path": "/us/en/products",
+  "observed": null,
+  "note": "After the first page arrived, the proxy held the next page for 20 seconds. One visit shows this once, so the page was captured at 390 pixels and then widened to 1280 without reloading."
+}

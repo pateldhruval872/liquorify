@@ -1,0 +1,3142 @@
+{
+ "unchanged-1": {
+  "images": 82,
+  "identical": 74,
+  "failing": {
+   "0.2/0": 0,
+   "0.01/0": 2,
+   "0.01/25": 0,
+   "0.005/0": 2,
+   "0.005/25": 0,
+   "0.02/25": 0
+  },
+  "largestCount": {
+   "0": 19,
+   "0.005": 5,
+   "0.01": 4,
+   "0.02": 1,
+   "0.2": 0
+  },
+  "differing": [
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--publishable-keys/dark.png",
+    "counts": {
+     "0": 1,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--scopes-open/dark.png",
+    "counts": {
+     "0": 19,
+     "0.005": 3,
+     "0.01": 2,
+     "0.02": 1,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--secret-keys/dark.png",
+    "counts": {
+     "0": 6,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-button--ghost/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-button--sizes/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-pagination--last-page/dark.png",
+    "counts": {
+     "0": 6,
+     "0.005": 5,
+     "0.01": 4,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "seller-panel-finance-balance-summary--one-currency/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "seller-panel-finance-balance-summary--two-currencies/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   }
+  ]
+ },
+ "unchanged-2": {
+  "images": 82,
+  "identical": 77,
+  "failing": {
+   "0.2/0": 0,
+   "0.01/0": 1,
+   "0.01/25": 0,
+   "0.005/0": 1,
+   "0.005/25": 0,
+   "0.02/25": 0
+  },
+  "largestCount": {
+   "0": 15,
+   "0.005": 1,
+   "0.01": 1,
+   "0.02": 1,
+   "0.2": 0
+  },
+  "differing": [
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--publishable-keys/dark.png",
+    "counts": {
+     "0": 1,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--scopes-open/dark.png",
+    "counts": {
+     "0": 15,
+     "0.005": 1,
+     "0.01": 1,
+     "0.02": 1,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--secret-keys/dark.png",
+    "counts": {
+     "0": 5,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "seller-panel-finance-balance-summary--one-currency/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "seller-panel-finance-balance-summary--two-currencies/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   }
+  ]
+ },
+ "unchanged-3": {
+  "images": 82,
+  "identical": 74,
+  "failing": {
+   "0.2/0": 0,
+   "0.01/0": 3,
+   "0.01/25": 0,
+   "0.005/0": 3,
+   "0.005/25": 0,
+   "0.02/25": 0
+  },
+  "largestCount": {
+   "0": 12,
+   "0.005": 5,
+   "0.01": 4,
+   "0.02": 1,
+   "0.2": 0
+  },
+  "differing": [
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--empty/dark.png",
+    "counts": {
+     "0": 2,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--publishable-keys/dark.png",
+    "counts": {
+     "0": 1,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--scopes-open/dark.png",
+    "counts": {
+     "0": 12,
+     "0.005": 1,
+     "0.01": 1,
+     "0.02": 1,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--secret-keys/dark.png",
+    "counts": {
+     "0": 10,
+     "0.005": 1,
+     "0.01": 1,
+     "0.02": 1,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-button--ghost/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-pagination--first-page/dark.png",
+    "counts": {
+     "0": 6,
+     "0.005": 5,
+     "0.01": 4,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "seller-panel-finance-balance-summary--one-currency/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "seller-panel-finance-balance-summary--two-currencies/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   }
+  ]
+ },
+ "m1-background": {
+  "images": 82,
+  "identical": 0,
+  "failing": {
+   "0.2/0": 0,
+   "0.01/0": 82,
+   "0.01/25": 82,
+   "0.005/0": 82,
+   "0.005/25": 82,
+   "0.02/25": 41
+  },
+  "largestCount": {
+   "0": 3575639,
+   "0.005": 3551191,
+   "0.01": 3518296,
+   "0.02": 2981130,
+   "0.2": 0
+  },
+  "differing": [
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--empty/dark.png",
+    "counts": {
+     "0": 1094,
+     "0.005": 1076,
+     "0.01": 1062,
+     "0.02": 1050,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--empty/light.png",
+    "counts": {
+     "0": 1052,
+     "0.005": 1040,
+     "0.01": 1026,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--loading/dark.png",
+    "counts": {
+     "0": 206,
+     "0.005": 188,
+     "0.01": 173,
+     "0.02": 160,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--loading/light.png",
+    "counts": {
+     "0": 168,
+     "0.005": 156,
+     "0.01": 141,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--publishable-keys/dark.png",
+    "counts": {
+     "0": 201,
+     "0.005": 186,
+     "0.01": 173,
+     "0.02": 160,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--publishable-keys/light.png",
+    "counts": {
+     "0": 168,
+     "0.005": 156,
+     "0.01": 141,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--scopes-open/dark.png",
+    "counts": {
+     "0": 765266,
+     "0.005": 765241,
+     "0.01": 765223,
+     "0.02": 765209,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--scopes-open/light.png",
+    "counts": {
+     "0": 762907,
+     "0.005": 762888,
+     "0.01": 762886,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--secret-keys/dark.png",
+    "counts": {
+     "0": 204,
+     "0.005": 186,
+     "0.01": 173,
+     "0.02": 160,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--secret-keys/light.png",
+    "counts": {
+     "0": 168,
+     "0.005": 156,
+     "0.01": 141,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-core-country-combobox--disabled/dark.png",
+    "counts": {
+     "0": 33672,
+     "0.005": 33671,
+     "0.01": 33665,
+     "0.02": 33647,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-core-country-combobox--disabled/light.png",
+    "counts": {
+     "0": 33625,
+     "0.005": 33624,
+     "0.01": 33617,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-core-country-combobox--empty/dark.png",
+    "counts": {
+     "0": 33675,
+     "0.005": 33671,
+     "0.01": 33662,
+     "0.02": 33647,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-core-country-combobox--empty/light.png",
+    "counts": {
+     "0": 33624,
+     "0.005": 33620,
+     "0.01": 33616,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-core-country-combobox--invalid/dark.png",
+    "counts": {
+     "0": 33675,
+     "0.005": 33668,
+     "0.01": 33664,
+     "0.02": 33655,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-core-country-combobox--invalid/light.png",
+    "counts": {
+     "0": 33628,
+     "0.005": 33620,
+     "0.01": 33615,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-core-country-combobox--open/dark.png",
+    "counts": {
+     "0": 921121,
+     "0.005": 921106,
+     "0.01": 921096,
+     "0.02": 921080,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-core-country-combobox--open/light.png",
+    "counts": {
+     "0": 919016,
+     "0.005": 919014,
+     "0.01": 919012,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-core-country-combobox--selected/dark.png",
+    "counts": {
+     "0": 33675,
+     "0.005": 33671,
+     "0.01": 33662,
+     "0.02": 33647,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-core-country-combobox--selected/light.png",
+    "counts": {
+     "0": 33624,
+     "0.005": 33620,
+     "0.01": 33616,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-composed-back-button--default/dark.png",
+    "counts": {
+     "0": 39894,
+     "0.005": 39892,
+     "0.01": 39890,
+     "0.02": 39870,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-composed-back-button--default/light.png",
+    "counts": {
+     "0": 39893,
+     "0.005": 39870,
+     "0.01": 39870,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-composed-back-button--focus-visible/dark.png",
+    "counts": {
+     "0": 39752,
+     "0.005": 39731,
+     "0.01": 39713,
+     "0.02": 39648,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-composed-back-button--focus-visible/light.png",
+    "counts": {
+     "0": 39760,
+     "0.005": 39705,
+     "0.01": 39602,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-composed-back-button--seller-panel/dark.png",
+    "counts": {
+     "0": 39894,
+     "0.005": 39892,
+     "0.01": 39890,
+     "0.02": 39870,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-composed-back-button--seller-panel/light.png",
+    "counts": {
+     "0": 39893,
+     "0.005": 39870,
+     "0.01": 39870,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-button--default/dark.png",
+    "counts": {
+     "0": 40998,
+     "0.005": 40998,
+     "0.01": 40998,
+     "0.02": 40998,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-button--default/light.png",
+    "counts": {
+     "0": 40972,
+     "0.005": 40972,
+     "0.01": 40972,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-button--destructive-ghost/dark.png",
+    "counts": {
+     "0": 44797,
+     "0.005": 44774,
+     "0.01": 44736,
+     "0.02": 44684,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-button--destructive-ghost/light.png",
+    "counts": {
+     "0": 44791,
+     "0.005": 44734,
+     "0.01": 44684,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-button--destructive/dark.png",
+    "counts": {
+     "0": 42700,
+     "0.005": 42691,
+     "0.01": 42691,
+     "0.02": 42674,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-button--destructive/light.png",
+    "counts": {
+     "0": 42648,
+     "0.005": 42640,
+     "0.01": 42634,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-button--disabled/dark.png",
+    "counts": {
+     "0": 44653,
+     "0.005": 44653,
+     "0.01": 44653,
+     "0.02": 40998,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-button--disabled/light.png",
+    "counts": {
+     "0": 44625,
+     "0.005": 44499,
+     "0.01": 40972,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-button--focus-visible/dark.png",
+    "counts": {
+     "0": 40993,
+     "0.005": 40993,
+     "0.01": 40987,
+     "0.02": 40981,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-button--focus-visible/light.png",
+    "counts": {
+     "0": 40993,
+     "0.005": 40989,
+     "0.01": 40981,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-button--ghost/dark.png",
+    "counts": {
+     "0": 44672,
+     "0.005": 44623,
+     "0.01": 44569,
+     "0.02": 44501,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-button--ghost/light.png",
+    "counts": {
+     "0": 44672,
+     "0.005": 44588,
+     "0.01": 44516,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-button--link/dark.png",
+    "counts": {
+     "0": 44737,
+     "0.005": 44697,
+     "0.01": 44639,
+     "0.02": 44604,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-button--link/light.png",
+    "counts": {
+     "0": 44728,
+     "0.005": 44645,
+     "0.01": 44605,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-button--outline/dark.png",
+    "counts": {
+     "0": 41042,
+     "0.005": 41039,
+     "0.01": 41038,
+     "0.02": 41023,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-button--outline/light.png",
+    "counts": {
+     "0": 40990,
+     "0.005": 40990,
+     "0.01": 40982,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-button--sizes/dark.png",
+    "counts": {
+     "0": 40256,
+     "0.005": 40256,
+     "0.01": 40256,
+     "0.02": 40256,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-button--sizes/light.png",
+    "counts": {
+     "0": 39687,
+     "0.005": 39687,
+     "0.01": 39687,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-button--with-icon/dark.png",
+    "counts": {
+     "0": 40458,
+     "0.005": 40458,
+     "0.01": 40458,
+     "0.02": 40458,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-button--with-icon/light.png",
+    "counts": {
+     "0": 40432,
+     "0.005": 40432,
+     "0.01": 40432,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-pagination--first-page/dark.png",
+    "counts": {
+     "0": 41520,
+     "0.005": 41451,
+     "0.01": 41270,
+     "0.02": 39518,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-pagination--first-page/light.png",
+    "counts": {
+     "0": 40956,
+     "0.005": 40786,
+     "0.01": 39051,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-pagination--last-page/dark.png",
+    "counts": {
+     "0": 41454,
+     "0.005": 41380,
+     "0.01": 41182,
+     "0.02": 39403,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-pagination--last-page/light.png",
+    "counts": {
+     "0": 40889,
+     "0.005": 40708,
+     "0.01": 38938,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-pagination--middle-page/dark.png",
+    "counts": {
+     "0": 39959,
+     "0.005": 39867,
+     "0.01": 39656,
+     "0.02": 39439,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-pagination--middle-page/light.png",
+    "counts": {
+     "0": 39394,
+     "0.005": 39204,
+     "0.01": 38987,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-pagination--one-page-with-page-size/dark.png",
+    "counts": {
+     "0": 43600,
+     "0.005": 43567,
+     "0.01": 43440,
+     "0.02": 43315,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-pagination--one-page-with-page-size/light.png",
+    "counts": {
+     "0": 43468,
+     "0.005": 43349,
+     "0.01": 43209,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-pagination--without-page-size/dark.png",
+    "counts": {
+     "0": 44036,
+     "0.005": 43992,
+     "0.01": 43900,
+     "0.02": 42216,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-pagination--without-page-size/light.png",
+    "counts": {
+     "0": 43631,
+     "0.005": 43544,
+     "0.01": 41880,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-select--default/dark.png",
+    "counts": {
+     "0": 35355,
+     "0.005": 35351,
+     "0.01": 35342,
+     "0.02": 35327,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-select--default/light.png",
+    "counts": {
+     "0": 35304,
+     "0.005": 35300,
+     "0.01": 35296,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-select--disabled/dark.png",
+    "counts": {
+     "0": 35352,
+     "0.005": 35351,
+     "0.01": 35345,
+     "0.02": 35328,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-select--disabled/light.png",
+    "counts": {
+     "0": 35305,
+     "0.005": 35304,
+     "0.01": 35297,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-select--invalid/dark.png",
+    "counts": {
+     "0": 35355,
+     "0.005": 35348,
+     "0.01": 35344,
+     "0.02": 35334,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-select--invalid/light.png",
+    "counts": {
+     "0": 35308,
+     "0.005": 35300,
+     "0.01": 35295,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-select--open/dark.png",
+    "counts": {
+     "0": 990015,
+     "0.005": 989999,
+     "0.01": 989987,
+     "0.02": 989971,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-select--open/light.png",
+    "counts": {
+     "0": 989124,
+     "0.005": 989122,
+     "0.01": 989120,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-select--small/dark.png",
+    "counts": {
+     "0": 32331,
+     "0.005": 32327,
+     "0.01": 32318,
+     "0.02": 32303,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-select--small/light.png",
+    "counts": {
+     "0": 32283,
+     "0.005": 32279,
+     "0.01": 32275,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "seller-panel-finance-balance-summary--empty/dark.png",
+    "counts": {
+     "0": 201,
+     "0.005": 186,
+     "0.01": 172,
+     "0.02": 159,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "seller-panel-finance-balance-summary--empty/light.png",
+    "counts": {
+     "0": 170,
+     "0.005": 158,
+     "0.01": 132,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "seller-panel-finance-balance-summary--one-currency/dark.png",
+    "counts": {
+     "0": 115310,
+     "0.005": 115290,
+     "0.01": 115275,
+     "0.02": 115262,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "seller-panel-finance-balance-summary--one-currency/light.png",
+    "counts": {
+     "0": 115109,
+     "0.005": 115097,
+     "0.01": 115086,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "seller-panel-finance-balance-summary--two-currencies/dark.png",
+    "counts": {
+     "0": 76215,
+     "0.005": 76173,
+     "0.01": 76143,
+     "0.02": 76117,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "seller-panel-finance-balance-summary--two-currencies/light.png",
+    "counts": {
+     "0": 75514,
+     "0.005": 75491,
+     "0.01": 75472,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "tokens-dashboard--colour-utility-aliases/dark.png",
+    "counts": {
+     "0": 2846527,
+     "0.005": 2839313,
+     "0.01": 2821027,
+     "0.02": 2798541,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "tokens-dashboard--colour-utility-aliases/light.png",
+    "counts": {
+     "0": 2767112,
+     "0.005": 2744163,
+     "0.01": 2714950,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "tokens-dashboard--semantic-tokens/dark.png",
+    "counts": {
+     "0": 3033632,
+     "0.005": 3025454,
+     "0.01": 3006969,
+     "0.02": 2981130,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "tokens-dashboard--semantic-tokens/light.png",
+    "counts": {
+     "0": 3575639,
+     "0.005": 3551191,
+     "0.01": 3518296,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "tokens-dashboard--tailwind-palette/dark.png",
+    "counts": {
+     "0": 2351446,
+     "0.005": 2345069,
+     "0.01": 2330121,
+     "0.02": 2307617,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "tokens-dashboard--tailwind-palette/light.png",
+    "counts": {
+     "0": 2290818,
+     "0.005": 2274215,
+     "0.01": 2249053,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "tokens-dashboard--theme-entries/dark.png",
+    "counts": {
+     "0": 2098747,
+     "0.005": 2094778,
+     "0.01": 2086533,
+     "0.02": 2075903,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "tokens-dashboard--theme-entries/light.png",
+    "counts": {
+     "0": 2066182,
+     "0.005": 2057432,
+     "0.01": 2044777,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "tokens-email-branding--defaults/dark.png",
+    "counts": {
+     "0": 302768,
+     "0.005": 301741,
+     "0.01": 299123,
+     "0.02": 296396,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "tokens-email-branding--defaults/light.png",
+    "counts": {
+     "0": 295088,
+     "0.005": 292185,
+     "0.01": 288934,
+     "0.02": 0,
+     "0.2": 0
+    }
+   }
+  ]
+ },
+ "m2-light-card": {
+  "images": 82,
+  "identical": 35,
+  "failing": {
+   "0.2/0": 2,
+   "0.01/0": 43,
+   "0.01/25": 41,
+   "0.005/0": 43,
+   "0.005/25": 41,
+   "0.02/25": 2
+  },
+  "largestCount": {
+   "0": 3574493,
+   "0.005": 3529320,
+   "0.01": 3495712,
+   "0.02": 2214,
+   "0.2": 1710
+  },
+  "differing": [
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--empty/dark.png",
+    "counts": {
+     "0": 2,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--empty/light.png",
+    "counts": {
+     "0": 185243,
+     "0.005": 181225,
+     "0.01": 179575,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--loading/light.png",
+    "counts": {
+     "0": 87936,
+     "0.005": 84434,
+     "0.01": 83880,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--publishable-keys/dark.png",
+    "counts": {
+     "0": 16,
+     "0.005": 3,
+     "0.01": 2,
+     "0.02": 1,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--publishable-keys/light.png",
+    "counts": {
+     "0": 150337,
+     "0.005": 144447,
+     "0.01": 142864,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--scopes-open/dark.png",
+    "counts": {
+     "0": 14,
+     "0.005": 1,
+     "0.01": 1,
+     "0.02": 1,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--scopes-open/light.png",
+    "counts": {
+     "0": 975255,
+     "0.005": 966064,
+     "0.01": 962906,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--secret-keys/dark.png",
+    "counts": {
+     "0": 2,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--secret-keys/light.png",
+    "counts": {
+     "0": 213695,
+     "0.005": 203541,
+     "0.01": 200723,
+     "0.02": 9,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-core-country-combobox--disabled/light.png",
+    "counts": {
+     "0": 33631,
+     "0.005": 33623,
+     "0.01": 33612,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-core-country-combobox--empty/light.png",
+    "counts": {
+     "0": 42569,
+     "0.005": 42402,
+     "0.01": 42289,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-core-country-combobox--invalid/light.png",
+    "counts": {
+     "0": 42572,
+     "0.005": 42403,
+     "0.01": 42289,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-core-country-combobox--open/light.png",
+    "counts": {
+     "0": 1015499,
+     "0.005": 1014119,
+     "0.01": 1012858,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-core-country-combobox--selected/light.png",
+    "counts": {
+     "0": 42464,
+     "0.005": 42359,
+     "0.01": 42289,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-composed-back-button--default/light.png",
+    "counts": {
+     "0": 39873,
+     "0.005": 39870,
+     "0.01": 39870,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-composed-back-button--focus-visible/light.png",
+    "counts": {
+     "0": 39724,
+     "0.005": 39688,
+     "0.01": 39598,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-composed-back-button--seller-panel/light.png",
+    "counts": {
+     "0": 39873,
+     "0.005": 39870,
+     "0.01": 39870,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-button--default/light.png",
+    "counts": {
+     "0": 41379,
+     "0.005": 41332,
+     "0.01": 41186,
+     "0.02": 17,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-button--destructive-ghost/light.png",
+    "counts": {
+     "0": 44791,
+     "0.005": 44706,
+     "0.01": 44644,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-button--destructive/light.png",
+    "counts": {
+     "0": 44557,
+     "0.005": 44478,
+     "0.01": 44421,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-button--disabled/light.png",
+    "counts": {
+     "0": 44625,
+     "0.005": 41328,
+     "0.01": 41180,
+     "0.02": 8,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-button--focus-visible/light.png",
+    "counts": {
+     "0": 41400,
+     "0.005": 41343,
+     "0.01": 41189,
+     "0.02": 17,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-button--ghost/light.png",
+    "counts": {
+     "0": 44643,
+     "0.005": 44537,
+     "0.01": 44426,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-button--link/light.png",
+    "counts": {
+     "0": 44711,
+     "0.005": 44612,
+     "0.01": 44550,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-button--outline/light.png",
+    "counts": {
+     "0": 44304,
+     "0.005": 44190,
+     "0.01": 44068,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-button--sizes/light.png",
+    "counts": {
+     "0": 40186,
+     "0.005": 40112,
+     "0.01": 39930,
+     "0.02": 11,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-button--with-icon/light.png",
+    "counts": {
+     "0": 40791,
+     "0.005": 40732,
+     "0.01": 40604,
+     "0.02": 10,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-pagination--first-page/light.png",
+    "counts": {
+     "0": 44159,
+     "0.005": 43650,
+     "0.01": 43409,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-pagination--last-page/light.png",
+    "counts": {
+     "0": 44093,
+     "0.005": 43550,
+     "0.01": 43278,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-pagination--middle-page/light.png",
+    "counts": {
+     "0": 43958,
+     "0.005": 43576,
+     "0.01": 43337,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-pagination--one-page-with-page-size/light.png",
+    "counts": {
+     "0": 45322,
+     "0.005": 45077,
+     "0.01": 44913,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-pagination--without-page-size/light.png",
+    "counts": {
+     "0": 44977,
+     "0.005": 44628,
+     "0.01": 44499,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-select--default/light.png",
+    "counts": {
+     "0": 42901,
+     "0.005": 42788,
+     "0.01": 42721,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-select--disabled/light.png",
+    "counts": {
+     "0": 35312,
+     "0.005": 35303,
+     "0.01": 35292,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-select--invalid/light.png",
+    "counts": {
+     "0": 42904,
+     "0.005": 42789,
+     "0.01": 42721,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-select--open/light.png",
+    "counts": {
+     "0": 1014129,
+     "0.005": 1013979,
+     "0.01": 1013892,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-select--small/light.png",
+    "counts": {
+     "0": 39195,
+     "0.005": 39102,
+     "0.01": 39039,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "seller-panel-finance-balance-summary--empty/light.png",
+    "counts": {
+     "0": 62324,
+     "0.005": 59673,
+     "0.01": 59139,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "seller-panel-finance-balance-summary--one-currency/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "seller-panel-finance-balance-summary--one-currency/light.png",
+    "counts": {
+     "0": 166238,
+     "0.005": 164327,
+     "0.01": 163844,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "seller-panel-finance-balance-summary--two-currencies/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "seller-panel-finance-balance-summary--two-currencies/light.png",
+    "counts": {
+     "0": 204601,
+     "0.005": 200111,
+     "0.01": 198795,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "tokens-dashboard--colour-utility-aliases/light.png",
+    "counts": {
+     "0": 2766105,
+     "0.005": 2725475,
+     "0.01": 2697589,
+     "0.02": 2214,
+     "0.2": 1710
+    }
+   },
+   {
+    "image": "tokens-dashboard--semantic-tokens/light.png",
+    "counts": {
+     "0": 3574493,
+     "0.005": 3529320,
+     "0.01": 3495712,
+     "0.02": 2214,
+     "0.2": 1710
+    }
+   },
+   {
+    "image": "tokens-dashboard--tailwind-palette/light.png",
+    "counts": {
+     "0": 2288542,
+     "0.005": 2255451,
+     "0.01": 2229102,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "tokens-dashboard--theme-entries/light.png",
+    "counts": {
+     "0": 2064724,
+     "0.005": 2047183,
+     "0.01": 2033091,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "tokens-email-branding--defaults/light.png",
+    "counts": {
+     "0": 294516,
+     "0.005": 289529,
+     "0.01": 285536,
+     "0.02": 0,
+     "0.2": 0
+    }
+   }
+  ]
+ },
+ "m3-dark-card": {
+  "images": 82,
+  "identical": 41,
+  "failing": {
+   "0.2/0": 2,
+   "0.01/0": 6,
+   "0.01/25": 2,
+   "0.005/0": 41,
+   "0.005/25": 41,
+   "0.02/25": 2
+  },
+  "largestCount": {
+   "0": 3025286,
+   "0.005": 2891232,
+   "0.01": 87,
+   "0.02": 87,
+   "0.2": 75
+  },
+  "differing": [
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--empty/dark.png",
+    "counts": {
+     "0": 185077,
+     "0.005": 180978,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--loading/dark.png",
+    "counts": {
+     "0": 87851,
+     "0.005": 85129,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--publishable-keys/dark.png",
+    "counts": {
+     "0": 150042,
+     "0.005": 145532,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--scopes-open/dark.png",
+    "counts": {
+     "0": 979224,
+     "0.005": 970721,
+     "0.01": 5,
+     "0.02": 1,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--secret-keys/dark.png",
+    "counts": {
+     "0": 213684,
+     "0.005": 205095,
+     "0.01": 6,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-core-country-combobox--disabled/dark.png",
+    "counts": {
+     "0": 33666,
+     "0.005": 33638,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-core-country-combobox--empty/dark.png",
+    "counts": {
+     "0": 43172,
+     "0.005": 42403,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-core-country-combobox--invalid/dark.png",
+    "counts": {
+     "0": 42584,
+     "0.005": 42399,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-core-country-combobox--open/dark.png",
+    "counts": {
+     "0": 1018627,
+     "0.005": 1016065,
+     "0.01": 3,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-core-country-combobox--selected/dark.png",
+    "counts": {
+     "0": 43121,
+     "0.005": 42366,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-composed-back-button--default/dark.png",
+    "counts": {
+     "0": 39892,
+     "0.005": 39870,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-composed-back-button--focus-visible/dark.png",
+    "counts": {
+     "0": 39741,
+     "0.005": 39593,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-composed-back-button--seller-panel/dark.png",
+    "counts": {
+     "0": 39892,
+     "0.005": 39870,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-button--default/dark.png",
+    "counts": {
+     "0": 40998,
+     "0.005": 40998,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-button--destructive-ghost/dark.png",
+    "counts": {
+     "0": 44786,
+     "0.005": 44666,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-button--destructive/dark.png",
+    "counts": {
+     "0": 44725,
+     "0.005": 44492,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-button--disabled/dark.png",
+    "counts": {
+     "0": 41385,
+     "0.005": 40998,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-button--focus-visible/dark.png",
+    "counts": {
+     "0": 40991,
+     "0.005": 40977,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-button--ghost/dark.png",
+    "counts": {
+     "0": 44607,
+     "0.005": 44448,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-button--link/dark.png",
+    "counts": {
+     "0": 44683,
+     "0.005": 44559,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-button--outline/dark.png",
+    "counts": {
+     "0": 44546,
+     "0.005": 44377,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-button--sizes/dark.png",
+    "counts": {
+     "0": 40256,
+     "0.005": 40256,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-button--with-icon/dark.png",
+    "counts": {
+     "0": 40458,
+     "0.005": 40458,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-pagination--first-page/dark.png",
+    "counts": {
+     "0": 44943,
+     "0.005": 44375,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-pagination--last-page/dark.png",
+    "counts": {
+     "0": 44874,
+     "0.005": 44266,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-pagination--middle-page/dark.png",
+    "counts": {
+     "0": 44881,
+     "0.005": 44290,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-pagination--one-page-with-page-size/dark.png",
+    "counts": {
+     "0": 45560,
+     "0.005": 45119,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-pagination--without-page-size/dark.png",
+    "counts": {
+     "0": 45478,
+     "0.005": 45272,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-select--default/dark.png",
+    "counts": {
+     "0": 43419,
+     "0.005": 42764,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-select--disabled/dark.png",
+    "counts": {
+     "0": 35346,
+     "0.005": 35318,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-select--invalid/dark.png",
+    "counts": {
+     "0": 42927,
+     "0.005": 42762,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-select--open/dark.png",
+    "counts": {
+     "0": 1015657,
+     "0.005": 1014536,
+     "0.01": 1,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-select--small/dark.png",
+    "counts": {
+     "0": 39716,
+     "0.005": 39082,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "seller-panel-finance-balance-summary--empty/dark.png",
+    "counts": {
+     "0": 62264,
+     "0.005": 59519,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "seller-panel-finance-balance-summary--one-currency/dark.png",
+    "counts": {
+     "0": 166230,
+     "0.005": 164450,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "seller-panel-finance-balance-summary--two-currencies/dark.png",
+    "counts": {
+     "0": 204852,
+     "0.005": 200525,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "tokens-dashboard--colour-utility-aliases/dark.png",
+    "counts": {
+     "0": 2838842,
+     "0.005": 2715347,
+     "0.01": 87,
+     "0.02": 87,
+     "0.2": 75
+    }
+   },
+   {
+    "image": "tokens-dashboard--semantic-tokens/dark.png",
+    "counts": {
+     "0": 3025286,
+     "0.005": 2891232,
+     "0.01": 87,
+     "0.02": 87,
+     "0.2": 75
+    }
+   },
+   {
+    "image": "tokens-dashboard--tailwind-palette/dark.png",
+    "counts": {
+     "0": 2343040,
+     "0.005": 2236846,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "tokens-dashboard--theme-entries/dark.png",
+    "counts": {
+     "0": 2093789,
+     "0.005": 2037846,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "tokens-email-branding--defaults/dark.png",
+    "counts": {
+     "0": 301323,
+     "0.005": 287546,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   }
+  ]
+ },
+ "m4-light-border": {
+  "images": 82,
+  "identical": 45,
+  "failing": {
+   "0.2/0": 2,
+   "0.01/0": 24,
+   "0.01/25": 20,
+   "0.005/0": 31,
+   "0.005/25": 28,
+   "0.02/25": 2
+  },
+  "largestCount": {
+   "0": 84643,
+   "0.005": 84451,
+   "0.01": 82657,
+   "0.02": 198,
+   "0.2": 162
+  },
+  "differing": [
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--empty/dark.png",
+    "counts": {
+     "0": 2,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--empty/light.png",
+    "counts": {
+     "0": 3032,
+     "0.005": 3016,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--loading/light.png",
+    "counts": {
+     "0": 2893,
+     "0.005": 2874,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--publishable-keys/dark.png",
+    "counts": {
+     "0": 1,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--publishable-keys/light.png",
+    "counts": {
+     "0": 4829,
+     "0.005": 4810,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--scopes-open/dark.png",
+    "counts": {
+     "0": 11,
+     "0.005": 1,
+     "0.01": 1,
+     "0.02": 1,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--scopes-open/light.png",
+    "counts": {
+     "0": 7458,
+     "0.005": 7451,
+     "0.01": 1983,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--secret-keys/dark.png",
+    "counts": {
+     "0": 6,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--secret-keys/light.png",
+    "counts": {
+     "0": 6433,
+     "0.005": 6414,
+     "0.01": 568,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-core-country-combobox--disabled/light.png",
+    "counts": {
+     "0": 621,
+     "0.005": 610,
+     "0.01": 595,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-core-country-combobox--empty/light.png",
+    "counts": {
+     "0": 605,
+     "0.005": 599,
+     "0.01": 592,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-core-country-combobox--open/light.png",
+    "counts": {
+     "0": 908,
+     "0.005": 906,
+     "0.01": 904,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-core-country-combobox--selected/light.png",
+    "counts": {
+     "0": 605,
+     "0.005": 599,
+     "0.01": 592,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-button--destructive/light.png",
+    "counts": {
+     "0": 148,
+     "0.005": 142,
+     "0.01": 130,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-button--outline/light.png",
+    "counts": {
+     "0": 240,
+     "0.005": 231,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-pagination--first-page/dark.png",
+    "counts": {
+     "0": 6,
+     "0.005": 5,
+     "0.01": 4,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-pagination--first-page/light.png",
+    "counts": {
+     "0": 435,
+     "0.005": 427,
+     "0.01": 148,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-pagination--last-page/light.png",
+    "counts": {
+     "0": 435,
+     "0.005": 426,
+     "0.01": 148,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-pagination--middle-page/dark.png",
+    "counts": {
+     "0": 17,
+     "0.005": 13,
+     "0.01": 5,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-pagination--middle-page/light.png",
+    "counts": {
+     "0": 435,
+     "0.005": 429,
+     "0.01": 148,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-pagination--one-page-with-page-size/light.png",
+    "counts": {
+     "0": 156,
+     "0.005": 154,
+     "0.01": 148,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-pagination--without-page-size/light.png",
+    "counts": {
+     "0": 283,
+     "0.005": 277,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-select--default/light.png",
+    "counts": {
+     "0": 509,
+     "0.005": 503,
+     "0.01": 496,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-select--disabled/light.png",
+    "counts": {
+     "0": 525,
+     "0.005": 513,
+     "0.01": 500,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-select--open/light.png",
+    "counts": {
+     "0": 496,
+     "0.005": 494,
+     "0.01": 492,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-select--small/light.png",
+    "counts": {
+     "0": 503,
+     "0.005": 497,
+     "0.01": 490,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "seller-panel-finance-balance-summary--empty/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "seller-panel-finance-balance-summary--empty/light.png",
+    "counts": {
+     "0": 2026,
+     "0.005": 2005,
+     "0.01": 1,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "seller-panel-finance-balance-summary--one-currency/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "seller-panel-finance-balance-summary--one-currency/light.png",
+    "counts": {
+     "0": 1222,
+     "0.005": 1208,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "seller-panel-finance-balance-summary--two-currencies/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "seller-panel-finance-balance-summary--two-currencies/light.png",
+    "counts": {
+     "0": 2616,
+     "0.005": 2592,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "tokens-dashboard--colour-utility-aliases/light.png",
+    "counts": {
+     "0": 78994,
+     "0.005": 78810,
+     "0.01": 77024,
+     "0.02": 165,
+     "0.2": 135
+    }
+   },
+   {
+    "image": "tokens-dashboard--semantic-tokens/light.png",
+    "counts": {
+     "0": 84643,
+     "0.005": 84451,
+     "0.01": 82657,
+     "0.02": 198,
+     "0.2": 162
+    }
+   },
+   {
+    "image": "tokens-dashboard--tailwind-palette/light.png",
+    "counts": {
+     "0": 61012,
+     "0.005": 60936,
+     "0.01": 60824,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "tokens-dashboard--theme-entries/light.png",
+    "counts": {
+     "0": 32448,
+     "0.005": 32448,
+     "0.01": 32448,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "tokens-email-branding--defaults/light.png",
+    "counts": {
+     "0": 7632,
+     "0.005": 7628,
+     "0.01": 7618,
+     "0.02": 0,
+     "0.2": 0
+    }
+   }
+  ]
+ },
+ "m5-light-primary": {
+  "images": 82,
+  "identical": 67,
+  "failing": {
+   "0.2/0": 2,
+   "0.01/0": 10,
+   "0.01/25": 9,
+   "0.005/0": 10,
+   "0.005/25": 9,
+   "0.02/25": 2
+  },
+  "largestCount": {
+   "0": 8749,
+   "0.005": 8552,
+   "0.01": 8452,
+   "0.02": 84,
+   "0.2": 62
+  },
+  "differing": [
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--empty/dark.png",
+    "counts": {
+     "0": 2,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--scopes-open/dark.png",
+    "counts": {
+     "0": 11,
+     "0.005": 2,
+     "0.01": 1,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--secret-keys/dark.png",
+    "counts": {
+     "0": 3,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--secret-keys/light.png",
+    "counts": {
+     "0": 2383,
+     "0.005": 2216,
+     "0.01": 2064,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-button--default/light.png",
+    "counts": {
+     "0": 3600,
+     "0.005": 3479,
+     "0.01": 3395,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-button--disabled/light.png",
+    "counts": {
+     "0": 3582,
+     "0.005": 3446,
+     "0.01": 42,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-button--focus-visible/light.png",
+    "counts": {
+     "0": 3345,
+     "0.005": 3221,
+     "0.01": 3137,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-button--ghost/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-button--link/light.png",
+    "counts": {
+     "0": 243,
+     "0.005": 180,
+     "0.01": 132,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-button--sizes/light.png",
+    "counts": {
+     "0": 8749,
+     "0.005": 8552,
+     "0.01": 8452,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-button--with-icon/light.png",
+    "counts": {
+     "0": 4135,
+     "0.005": 3985,
+     "0.01": 3915,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "seller-panel-finance-balance-summary--one-currency/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "seller-panel-finance-balance-summary--two-currencies/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "tokens-dashboard--colour-utility-aliases/light.png",
+    "counts": {
+     "0": 1020,
+     "0.005": 1020,
+     "0.01": 1020,
+     "0.02": 84,
+     "0.2": 62
+    }
+   },
+   {
+    "image": "tokens-dashboard--semantic-tokens/light.png",
+    "counts": {
+     "0": 1020,
+     "0.005": 1020,
+     "0.01": 1020,
+     "0.02": 84,
+     "0.2": 62
+    }
+   }
+  ]
+ },
+ "m6-light-muted-text": {
+  "images": 82,
+  "identical": 45,
+  "failing": {
+   "0.2/0": 2,
+   "0.01/0": 3,
+   "0.01/25": 2,
+   "0.005/0": 32,
+   "0.005/25": 26,
+   "0.02/25": 2
+  },
+  "largestCount": {
+   "0": 39372,
+   "0.005": 26878,
+   "0.01": 38,
+   "0.02": 38,
+   "0.2": 27
+  },
+  "differing": [
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--empty/light.png",
+    "counts": {
+     "0": 1722,
+     "0.005": 1116,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--loading/light.png",
+    "counts": {
+     "0": 1235,
+     "0.005": 807,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--publishable-keys/dark.png",
+    "counts": {
+     "0": 1,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--publishable-keys/light.png",
+    "counts": {
+     "0": 4011,
+     "0.005": 2544,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--scopes-open/dark.png",
+    "counts": {
+     "0": 4,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--scopes-open/light.png",
+    "counts": {
+     "0": 4049,
+     "0.005": 2354,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--secret-keys/dark.png",
+    "counts": {
+     "0": 3,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--secret-keys/light.png",
+    "counts": {
+     "0": 4049,
+     "0.005": 2354,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-core-country-combobox--disabled/light.png",
+    "counts": {
+     "0": 243,
+     "0.005": 155,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-core-country-combobox--empty/light.png",
+    "counts": {
+     "0": 328,
+     "0.005": 226,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-core-country-combobox--invalid/light.png",
+    "counts": {
+     "0": 328,
+     "0.005": 226,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-core-country-combobox--open/light.png",
+    "counts": {
+     "0": 1258,
+     "0.005": 839,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-core-country-combobox--selected/light.png",
+    "counts": {
+     "0": 14,
+     "0.005": 8,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-composed-back-button--default/light.png",
+    "counts": {
+     "0": 36,
+     "0.005": 32,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-composed-back-button--focus-visible/light.png",
+    "counts": {
+     "0": 36,
+     "0.005": 32,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-composed-back-button--seller-panel/light.png",
+    "counts": {
+     "0": 36,
+     "0.005": 32,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-pagination--first-page/dark.png",
+    "counts": {
+     "0": 16,
+     "0.005": 10,
+     "0.01": 2,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-pagination--first-page/light.png",
+    "counts": {
+     "0": 650,
+     "0.005": 478,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-pagination--last-page/light.png",
+    "counts": {
+     "0": 724,
+     "0.005": 534,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-pagination--middle-page/light.png",
+    "counts": {
+     "0": 674,
+     "0.005": 494,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-pagination--one-page-with-page-size/light.png",
+    "counts": {
+     "0": 456,
+     "0.005": 329,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-pagination--without-page-size/light.png",
+    "counts": {
+     "0": 347,
+     "0.005": 274,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-select--default/light.png",
+    "counts": {
+     "0": 14,
+     "0.005": 8,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-select--disabled/light.png",
+    "counts": {
+     "0": 242,
+     "0.005": 159,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-select--invalid/light.png",
+    "counts": {
+     "0": 14,
+     "0.005": 8,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-select--open/light.png",
+    "counts": {
+     "0": 14,
+     "0.005": 8,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-select--small/light.png",
+    "counts": {
+     "0": 6,
+     "0.005": 6,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "seller-panel-finance-balance-summary--empty/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "seller-panel-finance-balance-summary--empty/light.png",
+    "counts": {
+     "0": 1298,
+     "0.005": 854,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "seller-panel-finance-balance-summary--one-currency/light.png",
+    "counts": {
+     "0": 524,
+     "0.005": 351,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "seller-panel-finance-balance-summary--two-currencies/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "seller-panel-finance-balance-summary--two-currencies/light.png",
+    "counts": {
+     "0": 2108,
+     "0.005": 1424,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "tokens-dashboard--colour-utility-aliases/light.png",
+    "counts": {
+     "0": 28000,
+     "0.005": 19404,
+     "0.01": 38,
+     "0.02": 38,
+     "0.2": 27
+    }
+   },
+   {
+    "image": "tokens-dashboard--semantic-tokens/light.png",
+    "counts": {
+     "0": 39372,
+     "0.005": 26878,
+     "0.01": 38,
+     "0.02": 38,
+     "0.2": 27
+    }
+   },
+   {
+    "image": "tokens-dashboard--tailwind-palette/light.png",
+    "counts": {
+     "0": 29121,
+     "0.005": 20534,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "tokens-dashboard--theme-entries/light.png",
+    "counts": {
+     "0": 17412,
+     "0.005": 11976,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "tokens-email-branding--defaults/light.png",
+    "counts": {
+     "0": 7665,
+     "0.005": 5100,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   }
+  ]
+ },
+ "m7-ring-hue": {
+  "images": 82,
+  "identical": 69,
+  "failing": {
+   "0.2/0": 4,
+   "0.01/0": 8,
+   "0.01/25": 7,
+   "0.005/0": 10,
+   "0.005/25": 8,
+   "0.02/25": 5
+  },
+  "largestCount": {
+   "0": 1286,
+   "0.005": 1286,
+   "0.01": 1274,
+   "0.02": 1268,
+   "0.2": 54
+  },
+  "differing": [
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--publishable-keys/dark.png",
+    "counts": {
+     "0": 1,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--scopes-open/dark.png",
+    "counts": {
+     "0": 12,
+     "0.005": 1,
+     "0.01": 1,
+     "0.02": 1,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "admin-dashboard-api-keys-api-key-table--secret-keys/dark.png",
+    "counts": {
+     "0": 4,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-composed-back-button--focus-visible/dark.png",
+    "counts": {
+     "0": 168,
+     "0.005": 156,
+     "0.01": 147,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-composed-back-button--focus-visible/light.png",
+    "counts": {
+     "0": 128,
+     "0.005": 127,
+     "0.01": 127,
+     "0.02": 127,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-button--focus-visible/dark.png",
+    "counts": {
+     "0": 147,
+     "0.005": 131,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "dashboard-ui-primitives-button--focus-visible/light.png",
+    "counts": {
+     "0": 149,
+     "0.005": 141,
+     "0.01": 133,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "seller-panel-finance-balance-summary--one-currency/dark.png",
+    "counts": {
+     "0": 0,
+     "0.005": 0,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "seller-panel-finance-balance-summary--two-currencies/dark.png",
+    "counts": {
+     "0": 3,
+     "0.005": 1,
+     "0.01": 0,
+     "0.02": 0,
+     "0.2": 0
+    }
+   },
+   {
+    "image": "tokens-dashboard--colour-utility-aliases/dark.png",
+    "counts": {
+     "0": 1286,
+     "0.005": 1286,
+     "0.01": 1274,
+     "0.02": 1268,
+     "0.2": 54
+    }
+   },
+   {
+    "image": "tokens-dashboard--colour-utility-aliases/light.png",
+    "counts": {
+     "0": 1104,
+     "0.005": 1104,
+     "0.01": 1104,
+     "0.02": 1088,
+     "0.2": 54
+    }
+   },
+   {
+    "image": "tokens-dashboard--semantic-tokens/dark.png",
+    "counts": {
+     "0": 1286,
+     "0.005": 1286,
+     "0.01": 1274,
+     "0.02": 1268,
+     "0.2": 54
+    }
+   },
+   {
+    "image": "tokens-dashboard--semantic-tokens/light.png",
+    "counts": {
+     "0": 1104,
+     "0.005": 1104,
+     "0.01": 1104,
+     "0.02": 1088,
+     "0.2": 54
+    }
+   }
+  ]
+ }
+}

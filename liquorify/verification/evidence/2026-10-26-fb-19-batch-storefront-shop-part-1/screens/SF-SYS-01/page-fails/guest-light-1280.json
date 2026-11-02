@@ -1,0 +1,11 @@
+{
+  "screen": "SF-SYS-01",
+  "state": "page-fails",
+  "variant": "guest",
+  "theme": "light",
+  "width": 1280,
+  "revision": "321fa1c",
+  "path": "/us/en/products",
+  "observed": "Opened /us/en/products?q=fidelity-mvosgl43; arrived at /us/en/products, answered with status 200.",
+  "note": "The proxy in front of the backend answered the product list with a server error, so the page could not load its data."
+}

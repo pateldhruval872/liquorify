@@ -1,0 +1,11 @@
+{
+  "screen": "SF-ACC-06",
+  "state": "paid-by-saved-card",
+  "variant": "customer",
+  "theme": "light",
+  "width": 390,
+  "revision": "8153a6b1ffbcd8dfd0c435f6fc24f90ff32b9fff",
+  "path": "/us/en/account/orders/or_nJqfPa3Cpe",
+  "observed": null,
+  "note": "Found behaviour: the order was paid with a card saved by the test payment gateway, which records no brand, and the page fails."
+}

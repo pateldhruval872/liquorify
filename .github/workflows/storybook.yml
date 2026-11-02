@@ -1,0 +1,91 @@
+name: Storybook
+
+# Liquorify's Storybook of Spree's dashboard components (LIQ-010 §11): builds
+# it, checks the token files and inventory IDs, reports coverage, and compares
+# every story with its committed reference image in Playwright's pinned
+# container image. Advisory: it is not a required check, and it never writes
+# or accepts a reference image.
+on:
+  pull_request:
+    paths:
+      - "packages/liquorify-storybook/**"
+      - "packages/dashboard-ui/src/**"
+      - "packages/dashboard-core/src/**"
+      - "packages/dashboard/src/**"
+      - "packages/seller-dashboard/src/**"
+      - "packages/admin-sdk/src/**"
+      - "packages/seller-sdk/src/**"
+      - "packages/sdk-core/src/**"
+      - "spree/core/app/models/spree/emails/branding.rb"
+      - "liquorify/LIQ-009-spree-component-and-token-inventory.md"
+      - "pnpm-lock.yaml"
+      - ".github/workflows/storybook.yml"
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  storybook:
+    name: "Storybook & visual check"
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    defaults:
+      run:
+        working-directory: packages/liquorify-storybook
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: pnpm/action-setup@008330803749db0355799c700092d9a85fd074e9 # v6.0.9
+
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+        working-directory: .
+
+      # The SDKs are imported from their built files; the dashboard packages
+      # are imported from source.
+      - name: Build the SDKs
+        run: pnpm turbo build --filter=@spree/admin-sdk --filter=@spree/seller-sdk
+        working-directory: .
+
+      - run: pnpm build-storybook
+
+      - name: Check token files and inventory IDs
+        run: pnpm tokens:check
+
+      - name: Report coverage
+        run: node scripts/coverage.mjs --summary "$GITHUB_STEP_SUMMARY"
+
+      - name: Compare screenshots in the pinned Playwright image
+        run: pnpm visual
+
+      - name: Upload the comparison report
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: visual-report
+          path: packages/liquorify-storybook/visual/report
+          retention-days: 14
+          if-no-files-found: ignore
+
+      # Reference, actual and difference images for each changed story, and a
+      # proposed image for each story without a reference. A person reviews
+      # them and commits accepted ones in a pull request.
+      - name: Upload failure images
+        if: failure()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: visual-failures
+          path: packages/liquorify-storybook/visual/results
+          retention-days: 14
+          if-no-files-found: ignore

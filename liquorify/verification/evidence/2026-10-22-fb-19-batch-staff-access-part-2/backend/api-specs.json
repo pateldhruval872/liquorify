@@ -1,0 +1,589 @@
+{
+  "engine": "spree/api",
+  "spree_code_at": "a4a1708",
+  "rspec": "3.13.6",
+  "summary": {
+    "example_count": 96,
+    "failure_count": 0,
+    "pending_count": 0,
+    "errors_outside_of_examples_count": 0
+  },
+  "examples": [
+    {
+      "file": "spec/controllers/spree/api/v3/admin/updates_controller_spec.rb",
+      "line": 25,
+      "description": "Spree::Api::V3::Admin::UpdatesController GET #show returns what the last check found",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/updates_controller_spec.rb",
+      "line": 50,
+      "description": "Spree::Api::V3::Admin::UpdatesController GET #show as a staffer who cannot manage the store is forbidden, so the running version stays hidden",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/updates_controller_spec.rb",
+      "line": 61,
+      "description": "Spree::Api::V3::Admin::UpdatesController GET #show when authenticated via a secret API key responds as if the endpoint did not exist",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/dashboard_controller_spec.rb",
+      "line": 45,
+      "description": "Spree::Api::V3::Admin::DashboardController GET #counters names the sidebar entry a post-sale counter badges",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/dashboard_controller_spec.rb",
+      "line": 15,
+      "description": "Spree::Api::V3::Admin::DashboardController GET #counters returns every registered counter as a key, a number and where it leads",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/dashboard_controller_spec.rb",
+      "line": 34,
+      "description": "Spree::Api::V3::Admin::DashboardController GET #counters scopes order counts to the requested channel",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/dashboard_controller_spec.rb",
+      "line": 52,
+      "description": "Spree::Api::V3::Admin::DashboardController GET #counters refuses a channel from another store",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/dashboard_controller_spec.rb",
+      "line": 98,
+      "description": "Spree::Api::V3::Admin::DashboardController GET #counters without authentication returns unauthorized",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/dashboard_controller_spec.rb",
+      "line": 88,
+      "description": "Spree::Api::V3::Admin::DashboardController GET #counters for a staff role without order access returns only the stock counters",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/dashboard_controller_spec.rb",
+      "line": 66,
+      "description": "Spree::Api::V3::Admin::DashboardController GET #counters via a secret key with the dashboard scope alone returns an empty list rather than counters over data the key cannot read",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/dashboard_controller_spec.rb",
+      "line": 76,
+      "description": "Spree::Api::V3::Admin::DashboardController GET #counters via a secret key with the scopes some counters require returns only those counters",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/files_controller_spec.rb",
+      "line": 65,
+      "description": "Spree::Api::V3::Admin::FilesController POST #create holds a multipart upload to its own, lower limit",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/files_controller_spec.rb",
+      "line": 20,
+      "description": "Spree::Api::V3::Admin::FilesController POST #create reserves a file on public storage and returns where to send the bytes",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/files_controller_spec.rb",
+      "line": 38,
+      "description": "Spree::Api::V3::Admin::FilesController POST #create stores the bytes of a multipart upload and reads their type from the content",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/files_controller_spec.rb",
+      "line": 74,
+      "description": "Spree::Api::V3::Admin::FilesController POST #create refuses an unknown visibility",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/files_controller_spec.rb",
+      "line": 88,
+      "description": "Spree::Api::V3::Admin::FilesController POST #create requires a checksum for a presigned upload",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/files_controller_spec.rb",
+      "line": 81,
+      "description": "Spree::Api::V3::Admin::FilesController POST #create treats a file that is not a file as a presigned upload missing its checksum",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/files_controller_spec.rb",
+      "line": 31,
+      "description": "Spree::Api::V3::Admin::FilesController POST #create puts a private upload on private storage, whatever its type",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/files_controller_spec.rb",
+      "line": 56,
+      "description": "Spree::Api::V3::Admin::FilesController POST #create refuses a presigned upload over the size limit",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/files_controller_spec.rb",
+      "line": 49,
+      "description": "Spree::Api::V3::Admin::FilesController POST #create refuses a public upload of a type customers should not be served",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/files_controller_spec.rb",
+      "line": 97,
+      "description": "Spree::Api::V3::Admin::FilesController POST #create without API key returns unauthorized",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/me_controller_spec.rb",
+      "line": 252,
+      "description": "Spree::Api::V3::Admin::MeController PATCH #update with a non-image avatar rejects the upload with a validation error",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/me_controller_spec.rb",
+      "line": 282,
+      "description": "Spree::Api::V3::Admin::MeController PATCH #update when authenticated via a secret API key (no Spree user) returns not found",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/me_controller_spec.rb",
+      "line": 216,
+      "description": "Spree::Api::V3::Admin::MeController PATCH #update with a locale code returns ok and persists the locale, even one the backend has no translations for",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/me_controller_spec.rb",
+      "line": 234,
+      "description": "Spree::Api::V3::Admin::MeController PATCH #update with an avatar signed id attaches the avatar and returns its url",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/me_controller_spec.rb",
+      "line": 269,
+      "description": "Spree::Api::V3::Admin::MeController PATCH #update clearing the avatar purges the avatar",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/me_controller_spec.rb",
+      "line": 18,
+      "description": "Spree::Api::V3::Admin::MeController GET #show returns ok",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/me_controller_spec.rb",
+      "line": 69,
+      "description": "Spree::Api::V3::Admin::MeController GET #show returns the full catalog as permission_keys for admin users",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/me_controller_spec.rb",
+      "line": 146,
+      "description": "Spree::Api::V3::Admin::MeController GET #show exposes the user avatar_url (null when no photo is attached)",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/me_controller_spec.rb",
+      "line": 38,
+      "description": "Spree::Api::V3::Admin::MeController GET #show returns an array of permissions",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/me_controller_spec.rb",
+      "line": 61,
+      "description": "Spree::Api::V3::Admin::MeController GET #show includes a manage all rule for admin users",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/me_controller_spec.rb",
+      "line": 23,
+      "description": "Spree::Api::V3::Admin::MeController GET #show does not raise accessing the internal CanCanCan rules",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/me_controller_spec.rb",
+      "line": 32,
+      "description": "Spree::Api::V3::Admin::MeController GET #show returns the current admin user",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/me_controller_spec.rb",
+      "line": 54,
+      "description": "Spree::Api::V3::Admin::MeController GET #show preserves rule order matching Spree::Ability",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/me_controller_spec.rb",
+      "line": 152,
+      "description": "Spree::Api::V3::Admin::MeController GET #show exposes the user selected_locale",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/me_controller_spec.rb",
+      "line": 44,
+      "description": "Spree::Api::V3::Admin::MeController GET #show serializes each rule with allow, actions, subjects and has_conditions",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/me_controller_spec.rb",
+      "line": 89,
+      "description": "Spree::Api::V3::Admin::MeController GET #show as a staffer with a limited role names subjects by their short name, never the Ruby class",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/me_controller_spec.rb",
+      "line": 84,
+      "description": "Spree::Api::V3::Admin::MeController GET #show as a staffer with a limited role returns the expanded role keys",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/me_controller_spec.rb",
+      "line": 163,
+      "description": "Spree::Api::V3::Admin::MeController GET #show as an admin who holds no role on any store returns the user with no stores, roles or permission keys",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/me_controller_spec.rb",
+      "line": 175,
+      "description": "Spree::Api::V3::Admin::MeController GET #show as an admin who holds no role on any store when the request names a store returns forbidden",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/me_controller_spec.rb",
+      "line": 186,
+      "description": "Spree::Api::V3::Admin::MeController GET #show without authentication returns unauthorized",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/me_controller_spec.rb",
+      "line": 138,
+      "description": "Spree::Api::V3::Admin::MeController GET #show as a staffer with different roles on different stores returns the other store keys under that store context",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/me_controller_spec.rb",
+      "line": 133,
+      "description": "Spree::Api::V3::Admin::MeController GET #show as a staffer with different roles on different stores returns only the current store keys",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/me_controller_spec.rb",
+      "line": 112,
+      "description": "Spree::Api::V3::Admin::MeController GET #show as a staffer who may manage connected agents names the OAuth application subject the way the dashboard expects",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/me_controller_spec.rb",
+      "line": 199,
+      "description": "Spree::Api::V3::Admin::MeController GET #show when authenticated via a secret API key (no Spree user) returns not found instead of raising",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+      "line": 563,
+      "description": "Spree::Api::V3::Admin::StoreController PATCH #update reads and writes the routing strategy and payout provider by their shorthand",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+      "line": 550,
+      "description": "Spree::Api::V3::Admin::StoreController PATCH #update saves the chosen providers and policies",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+      "line": 572,
+      "description": "Spree::Api::V3::Admin::StoreController PATCH #update refuses a policy that is neither falling back nor strict",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+      "line": 332,
+      "description": "Spree::Api::V3::Admin::StoreController PATCH #update with email-section params updates the email preferences and addresses",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+      "line": 183,
+      "description": "Spree::Api::V3::Admin::StoreController PATCH #update with valid params updates the store and returns ok",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+      "line": 195,
+      "description": "Spree::Api::V3::Admin::StoreController PATCH #update with valid params returns the storefront_url in the url field",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+      "line": 189,
+      "description": "Spree::Api::V3::Admin::StoreController PATCH #update with valid params returns the prefixed id in the response (not the raw DB id)",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+      "line": 235,
+      "description": "Spree::Api::V3::Admin::StoreController PATCH #update with the digital download limits saves them",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+      "line": 204,
+      "description": "Spree::Api::V3::Admin::StoreController PATCH #update with the low stock threshold saves it and returns it",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+      "line": 211,
+      "description": "Spree::Api::V3::Admin::StoreController PATCH #update with the low stock threshold refuses a negative threshold",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+      "line": 346,
+      "description": "Spree::Api::V3::Admin::StoreController PATCH #update with email branding params saves the colors and font customer emails use",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+      "line": 355,
+      "description": "Spree::Api::V3::Admin::StoreController PATCH #update with email branding params with a value that is not a color refuses it",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+      "line": 276,
+      "description": "Spree::Api::V3::Admin::StoreController PATCH #update with order-numbering params exposes them in the response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+      "line": 281,
+      "description": "Spree::Api::V3::Admin::StoreController PATCH #update with order-numbering params reports that numbering has not started yet",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+      "line": 266,
+      "description": "Spree::Api::V3::Admin::StoreController PATCH #update with order-numbering params updates the numbering preferences",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+      "line": 289,
+      "description": "Spree::Api::V3::Admin::StoreController PATCH #update with order-numbering params once the counter has issued a number reports the started flag",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+      "line": 296,
+      "description": "Spree::Api::V3::Admin::StoreController PATCH #update with order-numbering params once the counter has issued a number rejects a changed starting value",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+      "line": 435,
+      "description": "Spree::Api::V3::Admin::StoreController PATCH #update with marketplace params updates the marketplace settings",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+      "line": 388,
+      "description": "Spree::Api::V3::Admin::StoreController PATCH #update with a pre-6.0 preferred_ key ignores it: the Admin API takes the setting under its own name",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+      "line": 316,
+      "description": "Spree::Api::V3::Admin::StoreController PATCH #update with a prefix containing unsupported characters returns a validation error",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+      "line": 222,
+      "description": "Spree::Api::V3::Admin::StoreController PATCH #update with an attribute an extension opened saves it",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+      "line": 472,
+      "description": "Spree::Api::V3::Admin::StoreController PATCH #update without authentication returns unauthorized",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+      "line": 249,
+      "description": "Spree::Api::V3::Admin::StoreController PATCH #update with invalid params returns a validation error",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+      "line": 376,
+      "description": "Spree::Api::V3::Admin::StoreController PATCH #update with storefront-access gating params updates the store-wide gating defaults",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+      "line": 397,
+      "description": "Spree::Api::V3::Admin::StoreController PATCH #update with address params updates the address settings",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+      "line": 503,
+      "description": "Spree::Api::V3::Admin::StoreController PATCH #update authenticated with a secret API key carrying the write_settings scope allows the write",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+      "line": 492,
+      "description": "Spree::Api::V3::Admin::StoreController PATCH #update authenticated with a secret API key lacking the write_settings scope denies the write with the required scope",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+      "line": 307,
+      "description": "Spree::Api::V3::Admin::StoreController PATCH #update with an unsupported numbering format returns a validation error",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+      "line": 366,
+      "description": "Spree::Api::V3::Admin::StoreController PATCH #update with an invalid mail_from_address returns a validation error",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+      "line": 451,
+      "description": "Spree::Api::V3::Admin::StoreController PATCH #update with a commission tax rate above 1 returns a validation error",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+      "line": 415,
+      "description": "Spree::Api::V3::Admin::StoreController PATCH #update with commerce behavior params updates the store-scoped commerce settings",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+      "line": 461,
+      "description": "Spree::Api::V3::Admin::StoreController PATCH #update with an invalid storefront_access value returns a validation error",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+      "line": 93,
+      "description": "Spree::Api::V3::Admin::StoreController GET #show serializes the prefixed id, not the raw integer DB id",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+      "line": 24,
+      "description": "Spree::Api::V3::Admin::StoreController GET #show returns the storefront url setting as stored, not its fallback",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+      "line": 17,
+      "description": "Spree::Api::V3::Admin::StoreController GET #show returns ok",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+      "line": 104,
+      "description": "Spree::Api::V3::Admin::StoreController GET #show returns the store name",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+      "line": 141,
+      "description": "Spree::Api::V3::Admin::StoreController GET #show exposes the full canonical set of translatable locales",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+      "line": 148,
+      "description": "Spree::Api::V3::Admin::StoreController GET #show exposes the email-section attributes",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+      "line": 159,
+      "description": "Spree::Api::V3::Admin::StoreController GET #show exposes the storefront-access gating defaults",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+      "line": 130,
+      "description": "Spree::Api::V3::Admin::StoreController GET #show includes computed default_currency, default_locale, default_country_code and supported lists",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+      "line": 86,
+      "description": "Spree::Api::V3::Admin::StoreController GET #show via a secret API key with the settings scope reads the store",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+      "line": 47,
+      "description": "Spree::Api::V3::Admin::StoreController GET #show as a staffer without any settings permission still reads the store",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+      "line": 53,
+      "description": "Spree::Api::V3::Admin::StoreController GET #show as a staffer without any settings permission cannot update it",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+      "line": 69,
+      "description": "Spree::Api::V3::Admin::StoreController GET #show via a secret API key without a settings scope is denied",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+      "line": 75,
+      "description": "Spree::Api::V3::Admin::StoreController GET #show via a secret API key without a settings scope cannot update it",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+      "line": 170,
+      "description": "Spree::Api::V3::Admin::StoreController GET #show without authentication returns unauthorized",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+      "line": 110,
+      "description": "Spree::Api::V3::Admin::StoreController GET #show when the store has no allowed origins serializes url from storefront_url (falling back to formatted_url)",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+      "line": 124,
+      "description": "Spree::Api::V3::Admin::StoreController GET #show when the store has an allowed origin serializes url from the first allowed origin",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+      "line": 513,
+      "description": "Spree::Api::V3::Admin::StoreController GET #data_sources lists Spree own engines as available",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+      "line": 531,
+      "description": "Spree::Api::V3::Admin::StoreController GET #data_sources marks a provider whose integration is not connected as unavailable",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/store_controller_spec.rb",
+      "line": 522,
+      "description": "Spree::Api::V3::Admin::StoreController GET #data_sources offers the failure policies a merchant can choose between",
+      "status": "passed"
+    }
+  ]
+}

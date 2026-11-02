@@ -1,0 +1,16 @@
+{
+  "screen": "DA-SET-24",
+  "state": "populated-with-pending-invitations",
+  "variant": "staffManager",
+  "role": {
+    "name": "Staff manager",
+    "permissions": [
+      "write_staff"
+    ]
+  },
+  "theme": "dark",
+  "revision": "a4a1708",
+  "path": "/<store>/settings/staff",
+  "intercepted": null,
+  "settled": true
+}

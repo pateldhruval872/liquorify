@@ -1,0 +1,31 @@
+{
+  "test": "command-palette-records",
+  "revision": "1f0f598",
+  "steps": [
+    {
+      "kind": "product",
+      "query": "E2E Promo Product",
+      "listed": [
+        "E2E Promo Product\nActive\nIn stock • $19.99"
+      ],
+      "opened": "/products/prod_UkLWZg9DAJ"
+    },
+    {
+      "kind": "order",
+      "query": "R1001",
+      "listed": [
+        "R1001e2e-ledger@example.com"
+      ],
+      "opened": "/orders/or_UkLWZg9DAJ"
+    },
+    {
+      "kind": "customer",
+      "query": "Promo Customer",
+      "listed": [
+        "Promo Customere2e-promo-customer@example.com"
+      ],
+      "opened": "/customers/cust_UkLWZg9DAJ"
+    }
+  ],
+  "outside": []
+}

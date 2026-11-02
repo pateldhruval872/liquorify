@@ -1,0 +1,282 @@
+[
+  {
+    "round": 0,
+    "worker": "beta",
+    "created_at": "2026-10-27T01:48:44.234Z",
+    "file": "products-sd11-collision-20261027014844.csv",
+    "outcome": "own rows"
+  },
+  {
+    "round": 1,
+    "worker": "beta",
+    "created_at": "2026-10-27T01:48:46.205Z",
+    "file": "products-sd11-collision-20261027014846.csv",
+    "outcome": "failed: ActiveStorage::IntegrityError"
+  },
+  {
+    "round": 2,
+    "worker": "beta",
+    "created_at": "2026-10-27T01:48:48.206Z",
+    "file": "products-sd11-collision-20261027014848.csv",
+    "outcome": "own rows"
+  },
+  {
+    "round": 3,
+    "worker": "beta",
+    "created_at": "2026-10-27T01:48:50.206Z",
+    "file": "products-sd11-collision-20261027014850.csv",
+    "outcome": "the other worker's rows"
+  },
+  {
+    "round": 4,
+    "worker": "beta",
+    "created_at": "2026-10-27T01:48:52.207Z",
+    "file": "products-sd11-collision-20261027014852.csv",
+    "outcome": "own rows"
+  },
+  {
+    "round": 5,
+    "worker": "beta",
+    "created_at": "2026-10-27T01:48:54.206Z",
+    "file": "products-sd11-collision-20261027014854.csv",
+    "outcome": "failed: ActiveStorage::IntegrityError"
+  },
+  {
+    "round": 6,
+    "worker": "beta",
+    "created_at": "2026-10-27T01:48:56.207Z",
+    "file": "products-sd11-collision-20261027014856.csv",
+    "outcome": "own rows"
+  },
+  {
+    "round": 7,
+    "worker": "beta",
+    "created_at": "2026-10-27T01:48:58.211Z",
+    "file": "products-sd11-collision-20261027014858.csv",
+    "outcome": "failed: ActiveStorage::IntegrityError"
+  },
+  {
+    "round": 8,
+    "worker": "beta",
+    "created_at": "2026-10-27T01:49:00.213Z",
+    "file": "products-sd11-collision-20261027014900.csv",
+    "outcome": "own rows"
+  },
+  {
+    "round": 9,
+    "worker": "beta",
+    "created_at": "2026-10-27T01:49:02.206Z",
+    "file": "products-sd11-collision-20261027014902.csv",
+    "outcome": "own rows"
+  },
+  {
+    "round": 10,
+    "worker": "beta",
+    "created_at": "2026-10-27T01:49:04.206Z",
+    "file": "products-sd11-collision-20261027014904.csv",
+    "outcome": "failed: ActiveStorage::IntegrityError"
+  },
+  {
+    "round": 11,
+    "worker": "beta",
+    "created_at": "2026-10-27T01:49:06.206Z",
+    "file": "products-sd11-collision-20261027014906.csv",
+    "outcome": "failed: ActiveStorage::IntegrityError"
+  },
+  {
+    "round": 12,
+    "worker": "beta",
+    "created_at": "2026-10-27T01:49:08.205Z",
+    "file": "products-sd11-collision-20261027014908.csv",
+    "outcome": "the other worker's rows"
+  },
+  {
+    "round": 13,
+    "worker": "beta",
+    "created_at": "2026-10-27T01:49:10.207Z",
+    "file": "products-sd11-collision-20261027014910.csv",
+    "outcome": "the other worker's rows"
+  },
+  {
+    "round": 14,
+    "worker": "beta",
+    "created_at": "2026-10-27T01:49:12.208Z",
+    "file": "products-sd11-collision-20261027014912.csv",
+    "outcome": "failed: Errno::ENOENT"
+  },
+  {
+    "round": 15,
+    "worker": "beta",
+    "created_at": "2026-10-27T01:49:14.205Z",
+    "file": "products-sd11-collision-20261027014914.csv",
+    "outcome": "failed: ActiveStorage::IntegrityError"
+  },
+  {
+    "round": 16,
+    "worker": "beta",
+    "created_at": "2026-10-27T01:49:16.208Z",
+    "file": "products-sd11-collision-20261027014916.csv",
+    "outcome": "own rows"
+  },
+  {
+    "round": 17,
+    "worker": "beta",
+    "created_at": "2026-10-27T01:49:18.206Z",
+    "file": "products-sd11-collision-20261027014918.csv",
+    "outcome": "own rows"
+  },
+  {
+    "round": 18,
+    "worker": "beta",
+    "created_at": "2026-10-27T01:49:20.205Z",
+    "file": "products-sd11-collision-20261027014920.csv",
+    "outcome": "own rows"
+  },
+  {
+    "round": 19,
+    "worker": "beta",
+    "created_at": "2026-10-27T01:49:22.206Z",
+    "file": "products-sd11-collision-20261027014922.csv",
+    "outcome": "the other worker's rows"
+  },
+  {
+    "round": 20,
+    "worker": "beta",
+    "created_at": "2026-10-27T01:49:24.206Z",
+    "file": "products-sd11-collision-20261027014924.csv",
+    "outcome": "failed: Errno::ENOENT"
+  },
+  {
+    "round": 21,
+    "worker": "beta",
+    "created_at": "2026-10-27T01:49:26.215Z",
+    "file": "products-sd11-collision-20261027014926.csv",
+    "outcome": "own rows"
+  },
+  {
+    "round": 22,
+    "worker": "beta",
+    "created_at": "2026-10-27T01:49:28.210Z",
+    "file": "products-sd11-collision-20261027014928.csv",
+    "outcome": "own rows"
+  },
+  {
+    "round": 23,
+    "worker": "beta",
+    "created_at": "2026-10-27T01:49:30.211Z",
+    "file": "products-sd11-collision-20261027014930.csv",
+    "outcome": "the other worker's rows"
+  },
+  {
+    "round": 24,
+    "worker": "beta",
+    "created_at": "2026-10-27T01:49:32.208Z",
+    "file": "products-sd11-collision-20261027014932.csv",
+    "outcome": "own rows"
+  },
+  {
+    "round": 25,
+    "worker": "beta",
+    "created_at": "2026-10-27T01:49:34.207Z",
+    "file": "products-sd11-collision-20261027014934.csv",
+    "outcome": "own rows"
+  },
+  {
+    "round": 26,
+    "worker": "beta",
+    "created_at": "2026-10-27T01:49:36.205Z",
+    "file": "products-sd11-collision-20261027014936.csv",
+    "outcome": "the other worker's rows"
+  },
+  {
+    "round": 27,
+    "worker": "beta",
+    "created_at": "2026-10-27T01:49:38.206Z",
+    "file": "products-sd11-collision-20261027014938.csv",
+    "outcome": "failed: ActiveStorage::IntegrityError"
+  },
+  {
+    "round": 28,
+    "worker": "beta",
+    "created_at": "2026-10-27T01:49:40.209Z",
+    "file": "products-sd11-collision-20261027014940.csv",
+    "outcome": "failed: Errno::ENOENT"
+  },
+  {
+    "round": 29,
+    "worker": "beta",
+    "created_at": "2026-10-27T01:49:42.205Z",
+    "file": "products-sd11-collision-20261027014942.csv",
+    "outcome": "failed: ActiveStorage::IntegrityError"
+  },
+  {
+    "round": 30,
+    "worker": "beta",
+    "created_at": "2026-10-27T01:49:44.206Z",
+    "file": "products-sd11-collision-20261027014944.csv",
+    "outcome": "failed: ActiveStorage::IntegrityError"
+  },
+  {
+    "round": 31,
+    "worker": "beta",
+    "created_at": "2026-10-27T01:49:46.207Z",
+    "file": "products-sd11-collision-20261027014946.csv",
+    "outcome": "own rows"
+  },
+  {
+    "round": 32,
+    "worker": "beta",
+    "created_at": "2026-10-27T01:49:48.210Z",
+    "file": "products-sd11-collision-20261027014948.csv",
+    "outcome": "own rows"
+  },
+  {
+    "round": 33,
+    "worker": "beta",
+    "created_at": "2026-10-27T01:49:50.205Z",
+    "file": "products-sd11-collision-20261027014950.csv",
+    "outcome": "own rows"
+  },
+  {
+    "round": 34,
+    "worker": "beta",
+    "created_at": "2026-10-27T01:49:52.211Z",
+    "file": "products-sd11-collision-20261027014952.csv",
+    "outcome": "failed: ActiveStorage::IntegrityError"
+  },
+  {
+    "round": 35,
+    "worker": "beta",
+    "created_at": "2026-10-27T01:49:54.205Z",
+    "file": "products-sd11-collision-20261027014954.csv",
+    "outcome": "own rows"
+  },
+  {
+    "round": 36,
+    "worker": "beta",
+    "created_at": "2026-10-27T01:49:56.208Z",
+    "file": "products-sd11-collision-20261027014956.csv",
+    "outcome": "own rows"
+  },
+  {
+    "round": 37,
+    "worker": "beta",
+    "created_at": "2026-10-27T01:49:58.205Z",
+    "file": "products-sd11-collision-20261027014958.csv",
+    "outcome": "own rows"
+  },
+  {
+    "round": 38,
+    "worker": "beta",
+    "created_at": "2026-10-27T01:50:00.206Z",
+    "file": "products-sd11-collision-20261027015000.csv",
+    "outcome": "failed: ActiveStorage::IntegrityError"
+  },
+  {
+    "round": 39,
+    "worker": "beta",
+    "created_at": "2026-10-27T01:50:02.207Z",
+    "file": "products-sd11-collision-20261027015002.csv",
+    "outcome": "own rows"
+  }
+]

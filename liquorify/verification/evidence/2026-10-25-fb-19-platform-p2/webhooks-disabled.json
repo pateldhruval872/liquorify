@@ -1,0 +1,37 @@
+{
+  "check": "P2 criterion 5.4: retries, auto-disable at the 15th failed delivery, EM-S-07",
+  "revision": "1c2f041",
+  "endpoint": {
+    "name": "P2 refusing receiver 1792950786739",
+    "url": "A local receiver",
+    "receiverAnswers": 500
+  },
+  "firstDeliverySentAgain": {
+    "secondsBetween": 3.1,
+    "samePayloadId": true
+  },
+  "testsSent": 15,
+  "afterFourteenFailedDeliveries": {
+    "failedDeliveries": 14,
+    "active": true,
+    "disabled": false
+  },
+  "afterTheFifteenth": {
+    "failedDeliveries": 15,
+    "active": false,
+    "disabled": true
+  },
+  "requestsReceived": 29,
+  "distinctDeliveries": 15,
+  "endpointAfter": {
+    "active": false,
+    "disabled": true,
+    "disabled_reason": "Automatically disabled after repeated delivery failures"
+  },
+  "email": {
+    "template": "EM-S-07, webhook_mailer/endpoint_disabled",
+    "to": "the store staff address",
+    "subject": "Webhook endpoint disabled: P2 refusing receiver 1792950786739",
+    "namesTheEndpoint": true
+  }
+}

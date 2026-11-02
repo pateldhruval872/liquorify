@@ -1,0 +1,16 @@
+{
+  "screen": "DA-OVL-01",
+  "state": "settings-navigation",
+  "variant": "storeSettings",
+  "role": {
+    "name": "Store settings",
+    "permissions": [
+      "write_settings"
+    ]
+  },
+  "theme": "light",
+  "revision": "a4a1708",
+  "path": "/<store>/settings",
+  "intercepted": null,
+  "settled": true
+}

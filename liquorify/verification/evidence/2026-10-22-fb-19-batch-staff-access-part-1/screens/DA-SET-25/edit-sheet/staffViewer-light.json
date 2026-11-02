@@ -1,0 +1,16 @@
+{
+  "screen": "DA-SET-25",
+  "state": "edit-sheet",
+  "variant": "staffViewer",
+  "role": {
+    "name": "Staff viewer",
+    "permissions": [
+      "read_staff"
+    ]
+  },
+  "theme": "light",
+  "revision": "a4a1708",
+  "path": "/<store>/settings/roles",
+  "intercepted": null,
+  "settled": true
+}

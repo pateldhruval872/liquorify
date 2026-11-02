@@ -1,0 +1,69 @@
+{
+ "engine": "spree/api",
+ "spree_code_at": "3081c8b",
+ "rspec": "3.13.6",
+ "seed": 46657,
+ "summary": {
+  "example_count": 9,
+  "failure_count": 0,
+  "pending_count": 0,
+  "errors_outside_of_examples_count": 0
+ },
+ "note": "An integration spec, beyond the work item's list, run for the allowed origins endpoints",
+ "examples": [
+  {
+   "file": "spec/integration/spree/api/v3/admin/allowed_origins_spec.rb",
+   "line": null,
+   "description": "Admin Allowed Origins API /api/v3/admin/allowed_origins/{id} delete allowed origin deleted returns a 204 response",
+   "status": "passed"
+  },
+  {
+   "file": "spec/integration/spree/api/v3/admin/allowed_origins_spec.rb",
+   "line": null,
+   "description": "Admin Allowed Origins API /api/v3/admin/allowed_origins/{id} get allowed origin not found returns a 404 response",
+   "status": "passed"
+  },
+  {
+   "file": "spec/integration/spree/api/v3/admin/allowed_origins_spec.rb",
+   "line": null,
+   "description": "Admin Allowed Origins API /api/v3/admin/allowed_origins/{id} get allowed origin found returns a 200 response",
+   "status": "passed"
+  },
+  {
+   "file": "spec/integration/spree/api/v3/admin/allowed_origins_spec.rb",
+   "line": null,
+   "description": "Admin Allowed Origins API /api/v3/admin/allowed_origins/{id} patch validation error returns a 422 response",
+   "status": "passed"
+  },
+  {
+   "file": "spec/integration/spree/api/v3/admin/allowed_origins_spec.rb",
+   "line": null,
+   "description": "Admin Allowed Origins API /api/v3/admin/allowed_origins/{id} patch allowed origin updated returns a 200 response",
+   "status": "passed"
+  },
+  {
+   "file": "spec/integration/spree/api/v3/admin/allowed_origins_spec.rb",
+   "line": null,
+   "description": "Admin Allowed Origins API /api/v3/admin/allowed_origins get unauthorized returns a 401 response",
+   "status": "passed"
+  },
+  {
+   "file": "spec/integration/spree/api/v3/admin/allowed_origins_spec.rb",
+   "line": null,
+   "description": "Admin Allowed Origins API /api/v3/admin/allowed_origins get allowed origins found returns a 200 response",
+   "status": "passed"
+  },
+  {
+   "file": "spec/integration/spree/api/v3/admin/allowed_origins_spec.rb",
+   "line": null,
+   "description": "Admin Allowed Origins API /api/v3/admin/allowed_origins post allowed origin created returns a 201 response",
+   "status": "passed"
+  },
+  {
+   "file": "spec/integration/spree/api/v3/admin/allowed_origins_spec.rb",
+   "line": null,
+   "description": "Admin Allowed Origins API /api/v3/admin/allowed_origins post validation error returns a 422 response",
+   "status": "passed"
+  }
+ ]
+}

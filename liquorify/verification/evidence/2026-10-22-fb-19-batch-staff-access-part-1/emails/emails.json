@@ -1,0 +1,78 @@
+{
+  "revision": "a4a1708",
+  "rendered_in": "the dashboard browser tests' Rails app (spree/api/spec/dummy), test environment, against a copy of its database",
+  "emails": [
+    {
+      "id": "EM-S-01",
+      "capture": "EM-S-01.webp",
+      "data": "the first staff member has no name, as in the browser-test data",
+      "preview": "Spree::AdminUserPreview#password_reset_email",
+      "template": "spree/core/app/views/spree/admin_user_mailer/password_reset_email.liquid",
+      "subject": "Shop Password Reset Instructions",
+      "parts": [
+        "text/plain",
+        "text/html"
+      ]
+    },
+    {
+      "id": "EM-S-03",
+      "capture": "EM-S-03.webp",
+      "data": "the first staff member has no name, as in the browser-test data",
+      "preview": "Spree::InvitationPreview#invitation_email",
+      "template": "spree/core/app/views/spree/invitation_mailer/invitation_email.liquid",
+      "subject": "Invitation to join Shop",
+      "parts": [
+        "text/plain",
+        "text/html"
+      ]
+    },
+    {
+      "id": "EM-S-04",
+      "capture": "EM-S-04.webp",
+      "data": "the first staff member has no name, as in the browser-test data",
+      "preview": "Spree::InvitationPreview#invitation_accepted",
+      "template": "spree/core/app/views/spree/invitation_mailer/invitation_accepted.liquid",
+      "subject": "has accepted your invitation to join Shop",
+      "parts": [
+        "text/plain",
+        "text/html"
+      ]
+    },
+    {
+      "id": "EM-S-01",
+      "capture": "EM-S-01-named.webp",
+      "data": "the first staff member is given a name inside a rolled-back transaction",
+      "preview": "Spree::AdminUserPreview#password_reset_email",
+      "template": "spree/core/app/views/spree/admin_user_mailer/password_reset_email.liquid",
+      "subject": "Shop Password Reset Instructions",
+      "parts": [
+        "text/plain",
+        "text/html"
+      ]
+    },
+    {
+      "id": "EM-S-03",
+      "capture": "EM-S-03-named.webp",
+      "data": "the first staff member is given a name inside a rolled-back transaction",
+      "preview": "Spree::InvitationPreview#invitation_email",
+      "template": "spree/core/app/views/spree/invitation_mailer/invitation_email.liquid",
+      "subject": "Invitation to join Shop",
+      "parts": [
+        "text/plain",
+        "text/html"
+      ]
+    },
+    {
+      "id": "EM-S-04",
+      "capture": "EM-S-04-named.webp",
+      "data": "the first staff member is given a name inside a rolled-back transaction",
+      "preview": "Spree::InvitationPreview#invitation_accepted",
+      "template": "spree/core/app/views/spree/invitation_mailer/invitation_accepted.liquid",
+      "subject": "Alex Doe has accepted your invitation to join Shop",
+      "parts": [
+        "text/plain",
+        "text/html"
+      ]
+    }
+  ]
+}

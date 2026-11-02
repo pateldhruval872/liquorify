@@ -1,0 +1,11 @@
+{
+  "screen": "DA-SET-09",
+  "state": "saved-shown-and-hidden-fields",
+  "variant": "admin",
+  "theme": "light",
+  "width": 1280,
+  "revision": "321fa1c",
+  "path": "/store_UkLWZg9DAJ/settings/custom-field-definitions",
+  "observed": "The screen said: \"Custom field definition created\".",
+  "note": "\"Origin\" saved as visible on the storefront and \"Supplier code\" as not, through the custom fields screen."
+}

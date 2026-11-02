@@ -1,0 +1,11 @@
+{
+  "screen": "SF-SHOP-02",
+  "state": "filters-failed",
+  "variant": "guest",
+  "theme": "light",
+  "width": 390,
+  "revision": "321fa1c",
+  "path": "/us/en/products",
+  "observed": "The page lists 12 products and shows no count of them. Its address is /us/en/products?availability=in_stock. The whole filter bar is missing, sorting with it, so nothing shows the address's availability filter or offers to clear it.",
+  "note": "The proxy answered the list's filters with a server error; the products themselves arrived."
+}

@@ -1,0 +1,11 @@
+{
+  "screen": "SF-SHOP-01",
+  "state": "first-run-sample-data-pl",
+  "variant": "guest",
+  "theme": "light",
+  "width": 1280,
+  "revision": "321fa1c",
+  "path": "/pl/en",
+  "observed": "Opened /pl/en; arrived at /pl/en, answered with status 200. Its headings start \"Spree Store Storefront\", \"Featured Products\", \"Shop\", \"Account\". It shows 0 product name(s) as level 3 headings and 0 price(s).",
+  "note": "The storefront was built against a store made by first-run setup with \"Load sample data\" left chosen (G-36), served at /pl/en, after the sample data job had stopped."
+}

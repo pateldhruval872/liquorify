@@ -1,0 +1,11 @@
+{
+  "screen": "SF-ACC-09",
+  "state": "gift-cards-listed",
+  "variant": "customer",
+  "theme": "light",
+  "width": 390,
+  "revision": "8153a6b1ffbcd8dfd0c435f6fc24f90ff32b9fff",
+  "path": "/us/en/account/gift-cards",
+  "observed": "The customer holds an active, a partly used, a fully redeemed and an expired gift card, so one page shows each of those states.",
+  "note": null
+}

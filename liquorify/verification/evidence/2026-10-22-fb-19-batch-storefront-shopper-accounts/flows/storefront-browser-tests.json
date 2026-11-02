@@ -1,0 +1,68 @@
+{
+  "revision": "8153a6b1ffbcd8dfd0c435f6fc24f90ff32b9fff",
+  "browser": "Playwright 1.60.0 image, Chromium",
+  "server": "the built storefront, reused; Spree browser-test server at a4a1708",
+  "started": "2026-10-22T04:55:55.321Z",
+  "expected": 7,
+  "unexpected": 0,
+  "flaky": 0,
+  "skipped": 0,
+  "tests": [
+    {
+      "file": "e2e/account.spec.ts",
+      "line": 9,
+      "title": "customer account \u203a the account navigation reaches every section",
+      "status": "passed",
+      "retries": 0,
+      "duration_ms": 2826
+    },
+    {
+      "file": "e2e/account.spec.ts",
+      "line": 35,
+      "title": "customer account \u203a a customer adds and deletes an address",
+      "status": "passed",
+      "retries": 0,
+      "duration_ms": 3165
+    },
+    {
+      "file": "e2e/account.spec.ts",
+      "line": 86,
+      "title": "customer account \u203a a customer updates their name",
+      "status": "passed",
+      "retries": 0,
+      "duration_ms": 2763
+    },
+    {
+      "file": "e2e/auth.spec.ts",
+      "line": 11,
+      "title": "sign up and sign in \u203a a new customer signs up, signs out and signs back in",
+      "status": "passed",
+      "retries": 0,
+      "duration_ms": 2147
+    },
+    {
+      "file": "e2e/auth.spec.ts",
+      "line": 36,
+      "title": "sign up and sign in \u203a a wrong password is refused",
+      "status": "passed",
+      "retries": 0,
+      "duration_ms": 2108
+    },
+    {
+      "file": "e2e/auth.spec.ts",
+      "line": 47,
+      "title": "sign up and sign in \u203a an account page sends a guest to sign in and back",
+      "status": "passed",
+      "retries": 0,
+      "duration_ms": 3216
+    },
+    {
+      "file": "e2e/auth.spec.ts",
+      "line": 61,
+      "title": "sign up and sign in \u203a sign up refuses passwords that do not match",
+      "status": "passed",
+      "retries": 0,
+      "duration_ms": 987
+    }
+  ]
+}

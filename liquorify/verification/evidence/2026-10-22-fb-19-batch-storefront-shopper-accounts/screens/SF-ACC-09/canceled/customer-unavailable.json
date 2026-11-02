@@ -1,0 +1,7 @@
+{
+  "screen": "SF-ACC-09",
+  "state": "canceled",
+  "variant": "customer",
+  "revision": "8153a6b1ffbcd8dfd0c435f6fc24f90ff32b9fff",
+  "unavailable": "Spree can cancel a gift card, but no API offers it, so no canceled gift card can be made without changing Spree's code."
+}

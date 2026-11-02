@@ -1,0 +1,123 @@
+{
+  "id": "CMP-SF-PG-03",
+  "story": "storefront-pages-category-banner--with-picture-and-subcategories",
+  "mode": "desktop",
+  "revision": "321fa1c",
+  "screenWidth": 1216,
+  "storyWidth": 1216,
+  "compared": 2,
+  "onlyOnScreen": [],
+  "onlyInStory": [],
+  "differences": [
+    {
+      "element": "div||flex flex-wrap gap-2 items-center border-b border-gray-100 pb-4",
+      "property": "font-family",
+      "screen": "Geist, \"Geist Fallback\", system-ui, sans-serif",
+      "story": "Geist, system-ui, sans-serif"
+    },
+    {
+      "element": "a||px-1.5 py-1 hover:bg-gray-100 rounded-lg text-gray-700 transition-colors",
+      "property": "font-family",
+      "screen": "Geist, \"Geist Fallback\", system-ui, sans-serif",
+      "story": "Geist, system-ui, sans-serif"
+    }
+  ],
+  "styles": {
+    "screen": {
+      "div||flex flex-wrap gap-2 items-center border-b border-gray-100 pb-4": {
+        "color": "rgba(10, 10, 10, 255)",
+        "background-color": "rgba(0, 0, 0, 0)",
+        "font-family": "Geist, \"Geist Fallback\", system-ui, sans-serif",
+        "font-size": "16px",
+        "font-weight": "400",
+        "line-height": "24px",
+        "letter-spacing": "normal",
+        "border-top-width": "0px",
+        "border-top-color": "rgba(243, 244, 246, 255)",
+        "border-right-width": "0px",
+        "border-bottom-width": "1px",
+        "border-left-width": "0px",
+        "border-radius": "0px",
+        "padding-top": "0px",
+        "padding-right": "0px",
+        "padding-bottom": "16px",
+        "padding-left": "0px",
+        "height": "49px",
+        "box-shadow": "none",
+        "opacity": "1",
+        "gap": "8px"
+      },
+      "a||px-1.5 py-1 hover:bg-gray-100 rounded-lg text-gray-700 transition-colors": {
+        "color": "rgba(54, 65, 83, 255)",
+        "background-color": "rgba(0, 0, 0, 0)",
+        "font-family": "Geist, \"Geist Fallback\", system-ui, sans-serif",
+        "font-size": "16px",
+        "font-weight": "400",
+        "line-height": "24px",
+        "letter-spacing": "normal",
+        "border-top-width": "0px",
+        "border-top-color": "rgba(229, 229, 229, 255)",
+        "border-right-width": "0px",
+        "border-bottom-width": "0px",
+        "border-left-width": "0px",
+        "border-radius": "10px",
+        "padding-top": "4px",
+        "padding-right": "6px",
+        "padding-bottom": "4px",
+        "padding-left": "6px",
+        "height": "32px",
+        "box-shadow": "none",
+        "opacity": "1",
+        "gap": "normal"
+      }
+    },
+    "story": {
+      "div||flex flex-wrap gap-2 items-center border-b border-gray-100 pb-4": {
+        "color": "rgba(10, 10, 10, 255)",
+        "background-color": "rgba(0, 0, 0, 0)",
+        "font-family": "Geist, system-ui, sans-serif",
+        "font-size": "16px",
+        "font-weight": "400",
+        "line-height": "24px",
+        "letter-spacing": "normal",
+        "border-top-width": "0px",
+        "border-top-color": "rgba(243, 244, 246, 255)",
+        "border-right-width": "0px",
+        "border-bottom-width": "1px",
+        "border-left-width": "0px",
+        "border-radius": "0px",
+        "padding-top": "0px",
+        "padding-right": "0px",
+        "padding-bottom": "16px",
+        "padding-left": "0px",
+        "height": "49px",
+        "box-shadow": "none",
+        "opacity": "1",
+        "gap": "8px"
+      },
+      "a||px-1.5 py-1 hover:bg-gray-100 rounded-lg text-gray-700 transition-colors": {
+        "color": "rgba(54, 65, 83, 255)",
+        "background-color": "rgba(0, 0, 0, 0)",
+        "font-family": "Geist, system-ui, sans-serif",
+        "font-size": "16px",
+        "font-weight": "400",
+        "line-height": "24px",
+        "letter-spacing": "normal",
+        "border-top-width": "0px",
+        "border-top-color": "rgba(229, 229, 229, 255)",
+        "border-right-width": "0px",
+        "border-bottom-width": "0px",
+        "border-left-width": "0px",
+        "border-radius": "10px",
+        "padding-top": "4px",
+        "padding-right": "6px",
+        "padding-bottom": "4px",
+        "padding-left": "6px",
+        "height": "32px",
+        "box-shadow": "none",
+        "opacity": "1",
+        "gap": "normal"
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "screen": "DA-SET-10",
+  "state": "switch-reverted",
+  "variant": "admin",
+  "role": null,
+  "theme": "dark",
+  "revision": "95bc66f",
+  "path": "/<store>/settings/integrations",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": "The gateway's save is dropped in the browser, so nothing is saved",
+  "masked": null,
+  "settled": true,
+  "outside": []
+}

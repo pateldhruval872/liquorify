@@ -1,0 +1,11 @@
+{
+  "screen": "SF-SHOP-06",
+  "state": "new-policy",
+  "variant": "guest",
+  "theme": "light",
+  "width": 1280,
+  "revision": "321fa1c",
+  "path": "/us/en/policies/gift-card-terms",
+  "observed": "Opened /us/en/policies/gift-card-terms; arrived at /us/en/policies/gift-card-terms, answered with status 200. \"Gift Card Terms\" shown; \"Gift cards never expire and can be used on any order.\" shown. The footer's policy links: Shipping Policy, Privacy Policy, Returns Policy, Terms of Service.",
+  "note": "A policy created in the dashboard (DA-SET-06), opened at its address."
+}

@@ -1,0 +1,1287 @@
+{
+  "revision": "1cab30d",
+  "engine": "spree/core",
+  "database": "SQLite, Spree's test app",
+  "command": "bundle exec rspec with the 3 model spec files listed below, and the shared metadata examples they include",
+  "summary": "213 examples, 0 failures, 1 pending",
+  "examples": [
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 821,
+      "description": "Spree::Store#formatted_url is expected to eq \"http://mystore.mydomain.dev:3000\"",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 826,
+      "description": "Spree::Store#formatted_url url with port is expected to eq \"http://localhost:3000\"",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 832,
+      "description": "Spree::Store#formatted_url on production is expected to eq \"https://mystore.mydomain.dev\"",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 402,
+      "description": "Spree::Store#states_available_for_checkout returns list of states associated to country",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 351,
+      "description": "Spree::Store.default when a default store is not present returns nil",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 340,
+      "description": "Spree::Store.default when a default store is already present returns the already existing default store",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 905,
+      "description": "Spree::Store#storefront_url when only loopback origins exist falls back to formatted_url",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 873,
+      "description": "Spree::Store#storefront_url when the storefront_url preference is set returns the preference over allowed origins",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 893,
+      "description": "Spree::Store#storefront_url when allowed origins exist skips loopback origins even when they are oldest",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 883,
+      "description": "Spree::Store#storefront_url when allowed origins exist returns the first allowed origin",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 887,
+      "description": "Spree::Store#storefront_url when allowed origins exist returns the oldest allowed origin when multiple exist",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 911,
+      "description": "Spree::Store#storefront_url when no allowed origins exist falls back to formatted_url",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 447,
+      "description": "Spree::Store#default_country_code= ignores a code no country has",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 440,
+      "description": "Spree::Store#default_country_code= names the country the store defaults to",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 926,
+      "description": "Spree::Store preferred_storefront_url normalization rejects unparseable input",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 920,
+      "description": "Spree::Store preferred_storefront_url normalization normalizes free-form input to a canonical origin",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 811,
+      "description": "Spree::Store#countries_with_shipping_coverage when country appears in multiple zones deduplicates countries",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 756,
+      "description": "Spree::Store#countries_with_shipping_coverage with country-type zones with shipping methods returns countries from those zones",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 794,
+      "description": "Spree::Store#countries_with_shipping_coverage when no shipping zones exist returns empty relation",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 786,
+      "description": "Spree::Store#countries_with_shipping_coverage when zone has no shipping method does not include countries from that zone",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 772,
+      "description": "Spree::Store#countries_with_shipping_coverage with state-type zones with shipping methods returns countries inferred from state-type zones",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 52,
+      "description": "Spree::Store Callbacks #set_install_id keeps an identifier the store already has",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 46,
+      "description": "Spree::Store Callbacks #set_install_id generates a UUID when the store is saved without one",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 117,
+      "description": "Spree::Store Callbacks #set_default_code when code is already set does not change the code",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 87,
+      "description": "Spree::Store Callbacks #set_default_code when no store exists yet sets the very first store's code to 'default'",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 184,
+      "description": "Spree::Store Callbacks #set_default_code #ensure_default_channel is idempotent",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 175,
+      "description": "Spree::Store Callbacks #set_default_code #ensure_default_channel creates an \"online\" channel on save",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 125,
+      "description": "Spree::Store Callbacks #set_default_code #create_default_policies creates default policies",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 137,
+      "description": "Spree::Store Callbacks #set_default_code #create_default_policies is idempotent - does not create duplicates when called multiple times",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 158,
+      "description": "Spree::Store Callbacks #set_default_code #create_default_policies with non-English store locale creates policies with translated names in store locale",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 197,
+      "description": "Spree::Store Callbacks #set_default_code #default_channel follows the default flag, not the code, when another channel is promoted",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 203,
+      "description": "Spree::Store Callbacks #set_default_code #default_channel still resolves the default channel after the online channel is renamed",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 193,
+      "description": "Spree::Store Callbacks #set_default_code #default_channel returns the seeded online channel",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 208,
+      "description": "Spree::Store Callbacks #set_default_code #default_channel falls back to the first active channel when no channel is flagged default",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 103,
+      "description": "Spree::Store Callbacks #set_default_code when other stores exist suffixes the code until unique, counting soft-deleted stores",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 97,
+      "description": "Spree::Store Callbacks #set_default_code when other stores exist derives the code from the name",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 245,
+      "description": "Spree::Store Callbacks #ensure_default_market when default_country_code is not set creates a fallback default market so the store always owns one",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 227,
+      "description": "Spree::Store Callbacks #ensure_default_market when default_country_code is set with shipping coverage creates a default market named after the country",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 236,
+      "description": "Spree::Store Callbacks #ensure_default_market when default_country_code is set with shipping coverage does not create a second market on re-run",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 72,
+      "description": "Spree::Store Callbacks #ensure_default_exists_and_is_unique makes the first created store the default automatically",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 62,
+      "description": "Spree::Store Callbacks #ensure_default_exists_and_is_unique demotes every other store when one is saved as default",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 608,
+      "description": "Spree::Store#supported_locales_list with markets includes default_locale from each market even when not in supported_locales",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 625,
+      "description": "Spree::Store#supported_locales_list without markets (legacy) without supported locales set returns empty array",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 617,
+      "description": "Spree::Store#supported_locales_list without markets (legacy) with supported locales set returns supported locales list",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 480,
+      "description": "Spree::Store#supported_currencies_list without markets (legacy) with supported currencies set returns supported currencies list",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 490,
+      "description": "Spree::Store#supported_currencies_list without markets (legacy) without supported currencies set returns default currency only",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 463,
+      "description": "Spree::Store#supported_currencies_list with markets derives currencies from markets plus the legacy column",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 470,
+      "description": "Spree::Store#supported_currencies_list with markets puts default currency first",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 313,
+      "description": "Spree::Store order routing strategy preference rejects an unregistered strategy",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 962,
+      "description": "Spree::Store capture method answers the matching question for each value",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 957,
+      "description": "Spree::Store capture method charges at checkout unless told otherwise",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 971,
+      "description": "Spree::Store capture method rejects a value outside the vocabulary",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 1010,
+      "description": "Spree::Store capture method deprecated accessors falls back to charging manually when the old flag is turned off at checkout",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 995,
+      "description": "Spree::Store capture method deprecated accessors writes charging on dispatch through the old name",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 981,
+      "description": "Spree::Store capture method deprecated accessors reads the old names off the new preference",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 1003,
+      "description": "Spree::Store capture method deprecated accessors keeps an existing dispatch choice when the old flag is turned off",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 988,
+      "description": "Spree::Store capture method deprecated accessors writes charging at checkout through the old name",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 381,
+      "description": "Spree::Store#countries_available_for_checkout with markets returns countries from all markets",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 390,
+      "description": "Spree::Store#countries_available_for_checkout without markets returns list of all countries",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 40,
+      "description": "Spree::Store Associations #products is expected to eq [#<Spree::Product id: 1, name: \"Product 14640\", description: \"Aperiam cupiditate excepturi aspernatur...ns_count: 0, product_type_id: nil, seller_id: nil, preferences: {}, tag_list: nil, label_list: nil>]",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 277,
+      "description": "Spree::Store Validations #customer_support_email is valid with a properly formatted email",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 272,
+      "description": "Spree::Store Validations #customer_support_email is valid when blank",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 282,
+      "description": "Spree::Store Validations #customer_support_email is invalid with a malformed email",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 946,
+      "description": "Spree::Store units accepts a store saved with no unit before the check existed",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 937,
+      "description": "Spree::Store units rejects a unit system or weight unit outside its list",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 847,
+      "description": "Spree::Store#allowed_origin? matches when any allowed origin matches",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 857,
+      "description": "Spree::Store#allowed_origin? returns false for blank or invalid url",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 852,
+      "description": "Spree::Store#allowed_origin? does not match when no allowed origin matches",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 537,
+      "description": "Spree::Store#default_currency without markets and no default_currency on store column returns nil",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 508,
+      "description": "Spree::Store#default_currency with markets delegates to default market",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 529,
+      "description": "Spree::Store#default_currency without markets returns the store column value",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 521,
+      "description": "Spree::Store#default_currency with markets but no default_currency on store column returns default market currency",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 431,
+      "description": "Spree::Store#default_country without markets returns the store column value",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 420,
+      "description": "Spree::Store#default_country with markets derives from the default market",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 1201,
+      "description": "Spree::Store#payout_provider_instance follows the setting when it changes",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 1188,
+      "description": "Spree::Store#payout_provider_instance answers with the store\u2019s own provider",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 1192,
+      "description": "Spree::Store#payout_provider_instance stores the class name of a provider named by its shorthand",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 580,
+      "description": "Spree::Store#default_locale without markets and no default_locale on store column returns nil",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 572,
+      "description": "Spree::Store#default_locale without markets returns the store column value",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 564,
+      "description": "Spree::Store#default_locale with markets but no default_locale on store column returns default market locale",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 552,
+      "description": "Spree::Store#default_locale with markets delegates to default market",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 25,
+      "description": "Spree::Store order number sequence start accepts a save that does not change the start after numbering began",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 11,
+      "description": "Spree::Store order number sequence start can change while no number has been issued",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 17,
+      "description": "Spree::Store order number sequence start locks once the counter has issued a number",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 1173,
+      "description": "Spree::Store#payment_method_setup? with an active storefront-visible payment method marks the setup task as done",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 1149,
+      "description": "Spree::Store#payment_method_setup? with no payment methods is expected to equal false",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 1182,
+      "description": "Spree::Store#payment_method_setup? when the storefront-visible method is inactive is expected to equal false",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 1164,
+      "description": "Spree::Store#payment_method_setup? when the only non-store-credit methods are admin-only stays pending",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 1155,
+      "description": "Spree::Store#payment_method_setup? with only a store credit payment method is expected to equal false",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 1048,
+      "description": "Spree::Store storefront setup task drops the memoized checklist on reload",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 1042,
+      "description": "Spree::Store storefront setup task #storefront_setup? without a saved storefront URL stays pending even when an allowed origin exists",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 1032,
+      "description": "Spree::Store storefront setup task #storefront_setup? with a saved storefront URL marks the setup task as done",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 1030,
+      "description": "Spree::Store storefront setup task #storefront_setup? with a saved storefront URL is expected to equal true",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 587,
+      "description": "Spree::Store locale validation accepts listed locales",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 591,
+      "description": "Spree::Store locale validation rejects locales that are not listed",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 1138,
+      "description": "Spree::Store address setup task does not provision a stock location just by being asked",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 1132,
+      "description": "Spree::Store address setup task #address_setup? when only a seller owns an addressed location is expected to be falsey",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 1082,
+      "description": "Spree::Store address setup task #address_setup? with a postable address on the default location marks the setup task as done",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 1070,
+      "description": "Spree::Store address setup task #address_setup? with a stock location carrying no address stays pending",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 1120,
+      "description": "Spree::Store address setup task #address_setup? when the addressed location is inactive is expected to be falsey",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 1111,
+      "description": "Spree::Store address setup task #address_setup? when no location accepts returns is expected to equal true",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 1098,
+      "description": "Spree::Store address setup task #address_setup? when a returns-enabled location has no address reads the location that accepts returns",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 1064,
+      "description": "Spree::Store address setup task #address_setup? with no stock location is expected to be falsey",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 639,
+      "description": "Spree::Store#default_market with a default market returns the default market",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 645,
+      "description": "Spree::Store#default_market without an explicit default returns the auto-created bootstrap market",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 364,
+      "description": "Spree::Store.available_locales returns the default store supported locales",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 661,
+      "description": "Spree::Store#market_for_country returns nil for a country not in any market",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 657,
+      "description": "Spree::Store#market_for_country returns the market containing the country",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 263,
+      "description": "Spree::Store#setup_url is nil once the token is spent",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 257,
+      "description": "Spree::Store#setup_url points at the configured dashboard origin",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 304,
+      "description": "Spree::Store Translations translates store fields",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 696,
+      "description": "Spree::Store#countries_from_markets without markets returns the bootstrap market country",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 684,
+      "description": "Spree::Store#countries_from_markets with markets orders by name",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 689,
+      "description": "Spree::Store#countries_from_markets with markets does not include countries not in any market",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 679,
+      "description": "Spree::Store#countries_from_markets with markets returns countries from all markets",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 724,
+      "description": "Spree::Store#default_stock_location with default stock location ignores a seller default",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 712,
+      "description": "Spree::Store#default_stock_location with default stock location returns the default stock location",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 718,
+      "description": "Spree::Store#default_stock_location with default stock location ignores a default belonging to another store",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 733,
+      "description": "Spree::Store#default_stock_location without default stock location creates a new default stock location",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 323,
+      "description": "Spree::Store.current returns Spree::Current.store",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/store_spec.rb",
+      "line": 328,
+      "description": "Spree::Store.current ignores url argument",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/category_spec.rb",
+      "line": 48,
+      "description": "Spree::Category permalink uniqueness generates lowercase permalinks, so mixed-case names cannot collide by case alone",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/category_spec.rb",
+      "line": 9,
+      "description": "Spree::Category permalink uniqueness allows the same permalink in different stores",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/category_spec.rb",
+      "line": 19,
+      "description": "Spree::Category permalink uniqueness enforces it at the database level, including for top-level categories",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/category_spec.rb",
+      "line": 40,
+      "description": "Spree::Category permalink uniqueness rejects a permalink that differs only by case",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/category_spec.rb",
+      "line": 26,
+      "description": "Spree::Category permalink uniqueness allows the same name under different parents, since the paths differ",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/category_spec.rb",
+      "line": 52,
+      "description": "Spree::Category permalink uniqueness rejects two categories sharing a parent and a name, whose paths collide",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/category_spec.rb",
+      "line": 61,
+      "description": "Spree::Category parent store boundary rejects a parent owned by another store",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/category_spec.rb",
+      "line": 69,
+      "description": "Spree::Category parent store boundary accepts a parent in the same store",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/category_spec.rb",
+      "line": 616,
+      "description": "Spree::Category#pretty_name top level is just the category name",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/category_spec.rb",
+      "line": 129,
+      "description": "Spree::Category creation without a taxonomy creates a parentless, store-owned top-level category",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/category_spec.rb",
+      "line": 415,
+      "description": "Spree::Category creating a child node using first_or_create does not error out",
+      "status": "passed"
+    },
+    {
+      "file": "./lib/spree/testing_support/metadata.rb",
+      "line": 57,
+      "description": "Spree::Category behaves like metadata can query records by metadata properties",
+      "status": "passed"
+    },
+    {
+      "file": "./lib/spree/testing_support/metadata.rb",
+      "line": 29,
+      "description": "Spree::Category behaves like metadata reads data as not symbolized keys",
+      "status": "passed"
+    },
+    {
+      "file": "./lib/spree/testing_support/metadata.rb",
+      "line": 8,
+      "description": "Spree::Category behaves like metadata is expected to eq ActiveSupport::HashWithIndifferentAccess",
+      "status": "passed"
+    },
+    {
+      "file": "./lib/spree/testing_support/metadata.rb",
+      "line": 43,
+      "description": "Spree::Category behaves like metadata can query records by metadata properties",
+      "status": "pending"
+    },
+    {
+      "file": "./lib/spree/testing_support/metadata.rb",
+      "line": 6,
+      "description": "Spree::Category behaves like metadata is expected to eq {}",
+      "status": "passed"
+    },
+    {
+      "file": "./lib/spree/testing_support/metadata.rb",
+      "line": 10,
+      "description": "Spree::Category behaves like metadata no longer carries the split metadata columns",
+      "status": "passed"
+    },
+    {
+      "file": "./lib/spree/testing_support/metadata.rb",
+      "line": 15,
+      "description": "Spree::Category behaves like metadata reads data as symbolized keys",
+      "status": "passed"
+    },
+    {
+      "file": "./lib/spree/testing_support/metadata.rb",
+      "line": 4,
+      "description": "Spree::Category behaves like metadata is expected to be truthy",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/category_spec.rb",
+      "line": 258,
+      "description": "Spree::Category#to_param is the permalink, so category URLs use the full path",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/category_spec.rb",
+      "line": 693,
+      "description": "Spree::Category per-store nested set leaves another store untouched when a tree is reordered",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/category_spec.rb",
+      "line": 706,
+      "description": "Spree::Category per-store nested set keeps subtree reads inside the owning store",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/category_spec.rb",
+      "line": 686,
+      "description": "Spree::Category per-store nested set numbers each store from the start instead of continuing the previous one",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/category_spec.rb",
+      "line": 341,
+      "description": "Spree::Category set_permalink supports Chinese characters",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/category_spec.rb",
+      "line": 336,
+      "description": "Spree::Category set_permalink sets permalink correctly when no parent present",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/category_spec.rb",
+      "line": 352,
+      "description": "Spree::Category set_permalink with parent category sets permalink correctly when category has parent",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/category_spec.rb",
+      "line": 363,
+      "description": "Spree::Category set_permalink with parent category supports Chinese characters",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/category_spec.rb",
+      "line": 357,
+      "description": "Spree::Category set_permalink with parent category sets permalink correctly with existing permalink present",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/category_spec.rb",
+      "line": 378,
+      "description": "Spree::Category set_permalink with parent category setting a new node sibling position via :child_index= category is not new passes the desired index move_to_child_with_index of :parent ",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/category_spec.rb",
+      "line": 421,
+      "description": "Spree::Category ransackable_associations is expected to include \"parent\"",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/category_spec.rb",
+      "line": 422,
+      "description": "Spree::Category ransackable_associations is expected not to include \"taxonomy\"",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/category_spec.rb",
+      "line": 478,
+      "description": "Spree::Category#localized_slugs_for_store when setting the slug translations for the parent sets the slugs in slug format",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/category_spec.rb",
+      "line": 495,
+      "description": "Spree::Category#localized_slugs_for_store when setting the slugs in category under taxomony with different parent slug sets the slug in valid format",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/category_spec.rb",
+      "line": 461,
+      "description": "Spree::Category#localized_slugs_for_store when one of the supported locales does not have a translation falls back to store's default locale",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/category_spec.rb",
+      "line": 447,
+      "description": "Spree::Category#localized_slugs_for_store when there are slugs in locales not supported by the store returns only slugs in locales supported by the store",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/category_spec.rb",
+      "line": 505,
+      "description": "Spree::Category#regenerate_pretty_name_and_permalink regenerates pretty name and permalink",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/category_spec.rb",
+      "line": 542,
+      "description": "Spree::Category#regenerate_pretty_name_and_permalink with translations updates the pretty name and permalink for translations as well",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/category_spec.rb",
+      "line": 526,
+      "description": "Spree::Category#regenerate_pretty_name_and_permalink when parent name is changed updates the pretty name and permalink",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/category_spec.rb",
+      "line": 596,
+      "description": "Spree::Category#regenerate_pretty_name_and_permalink when category is moved updates the pretty name and permalink when move is done inside different locales",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/category_spec.rb",
+      "line": 584,
+      "description": "Spree::Category#regenerate_pretty_name_and_permalink when category is moved updates the pretty name and permalink",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/category_spec.rb",
+      "line": 515,
+      "description": "Spree::Category#regenerate_pretty_name_and_permalink when parent's permalink is changed updates the pretty name and permalink",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/category_spec.rb",
+      "line": 101,
+      "description": "Spree::Category products_count on destroy decrements every ancestor level when a mid-tree node is destroyed",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/category_spec.rb",
+      "line": 113,
+      "description": "Spree::Category products_count on destroy keeps a product still reachable through a surviving sibling (dedup)",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/category_spec.rb",
+      "line": 77,
+      "description": "Spree::Category products_count on destroy decrements ancestors when a subcategory is destroyed",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/category_spec.rb",
+      "line": 88,
+      "description": "Spree::Category products_count on destroy keeps the count from surviving siblings",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/category_spec.rb",
+      "line": 242,
+      "description": "Spree::Category products_count (descendant-inclusive) updates both ancestor chains when a subtree moves",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/category_spec.rb",
+      "line": 204,
+      "description": "Spree::Category products_count (descendant-inclusive) rolls subcategory products up to ancestors",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/category_spec.rb",
+      "line": 222,
+      "description": "Spree::Category products_count (descendant-inclusive) decrements ancestors when a product is removed",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/category_spec.rb",
+      "line": 214,
+      "description": "Spree::Category products_count (descendant-inclusive) de-duplicates a product reachable through several nodes",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/category_spec.rb",
+      "line": 233,
+      "description": "Spree::Category products_count (descendant-inclusive) maintains the count on a direct Classification create/destroy",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/category_spec.rb",
+      "line": 197,
+      "description": "Spree::Category products_count (descendant-inclusive) counts a directly-assigned product on the category",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/category_spec.rb",
+      "line": 392,
+      "description": "Spree::Category permalink uniqueness after normalization returns a validation error instead of raising RecordNotUnique when normalized permalink conflicts",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/category_spec.rb",
+      "line": 402,
+      "description": "Spree::Category permalink uniqueness after normalization normalizes permalink before validation on update",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/category_spec.rb",
+      "line": 141,
+      "description": "Spree::Category store auto-resolution (#ensure_store) falls back to the current store when none is given",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/category_spec.rb",
+      "line": 157,
+      "description": "Spree::Category store auto-resolution (#ensure_store) prefers the parent store over the current store",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/category_spec.rb",
+      "line": 148,
+      "description": "Spree::Category store auto-resolution (#ensure_store) prefers an explicit store over the current store",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/category_spec.rb",
+      "line": 664,
+      "description": "Spree::Category#active_products_with_descendants when category has products but children categories have no products returns false when products aren't active",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/category_spec.rb",
+      "line": 660,
+      "description": "Spree::Category#active_products_with_descendants when category has products but children categories have no products returns true",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/category_spec.rb",
+      "line": 675,
+      "description": "Spree::Category#active_products_with_descendants when children categories also have no products returns false",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/category_spec.rb",
+      "line": 650,
+      "description": "Spree::Category#active_products_with_descendants when category has no products returns false",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/category_spec.rb",
+      "line": 628,
+      "description": "Spree::Category#active_products_with_descendants when category has products returns true",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/category_spec.rb",
+      "line": 642,
+      "description": "Spree::Category#active_products_with_descendants when only children categories have products returns false when products aren't active",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/category_spec.rb",
+      "line": 638,
+      "description": "Spree::Category#active_products_with_descendants when only children categories have products returns true",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/category_spec.rb",
+      "line": 169,
+      "description": "Spree::Category.for_store / .for_stores excludes categories owned by another store",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/category_spec.rb",
+      "line": 179,
+      "description": "Spree::Category.for_store / .for_stores finds categories across multiple stores",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/category_spec.rb",
+      "line": 324,
+      "description": "Spree::Category when using another locale translates category fields",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/category_spec.rb",
+      "line": 272,
+      "description": "Spree::Category Scopes .with_matching_name returns the category with the matching name",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/category_spec.rb",
+      "line": 290,
+      "description": "Spree::Category Scopes .with_matching_name with translations returns the category with the matching name",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/product/slugs_spec.rb",
+      "line": 137,
+      "description": "Spree::Product::Slugs falls back to 'name-sku' for slug if regular name-based slug already in use",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/product/slugs_spec.rb",
+      "line": 72,
+      "description": "Spree::Product::Slugs when product destroyed renames slug",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/product/slugs_spec.rb",
+      "line": 128,
+      "description": "Spree::Product::Slugs when product destroyed when slug is already at or near max length truncates renamed slug to ensure it remains within length limit",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/product/slugs_spec.rb",
+      "line": 83,
+      "description": "Spree::Product::Slugs when product destroyed when more than one translation exists renames slug for all translations",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/product/slugs_spec.rb",
+      "line": 104,
+      "description": "Spree::Product::Slugs when product destroyed when using translations when product translation exists with a translated slug renames slug for the translation",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/product/slugs_spec.rb",
+      "line": 111,
+      "description": "Spree::Product::Slugs when product destroyed when using translations when product translation does not exist does nothing",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/product/slugs_spec.rb",
+      "line": 244,
+      "description": "Spree::Product::Slugs#localized_slugs_for_store the slugs are generated from default locale name when name and slug for translation is empty saves slugs generated from fallback name",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/product/slugs_spec.rb",
+      "line": 226,
+      "description": "Spree::Product::Slugs#localized_slugs_for_store the slugs are generated from name when slug field is empty saves slugs generated from name",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/product/slugs_spec.rb",
+      "line": 208,
+      "description": "Spree::Product::Slugs#localized_slugs_for_store when one of the supported locales does not have a translation falls back to store's default locale",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/product/slugs_spec.rb",
+      "line": 194,
+      "description": "Spree::Product::Slugs#localized_slugs_for_store when there are slugs in locales not supported by the store returns only slugs in locales supported by the store",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/product/slugs_spec.rb",
+      "line": 262,
+      "description": "Spree::Product::Slugs#localized_slugs_for_store the slugs are generated from invalid slug format saves slugs in valid format",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/product/slugs_spec.rb",
+      "line": 322,
+      "description": "Spree::Product::Slugs translated slugs ensuring slug uniqueness when the slug is not unique in the same locale appends a UUID to make it unique",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/product/slugs_spec.rb",
+      "line": 333,
+      "description": "Spree::Product::Slugs translated slugs ensuring slug uniqueness when the slug is unique in a different locale allows the same slug in different locales",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/product/slugs_spec.rb",
+      "line": 312,
+      "description": "Spree::Product::Slugs translated slugs ensuring slug uniqueness when the slug is unique in the same locale keeps the original slug",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/product/slugs_spec.rb",
+      "line": 277,
+      "description": "Spree::Product::Slugs translated slugs generating slugs when a translated product has no name and slug generates slug from the product name",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/product/slugs_spec.rb",
+      "line": 286,
+      "description": "Spree::Product::Slugs translated slugs generating slugs when a translated product has no slug generates slug from the translated product name",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/product/slugs_spec.rb",
+      "line": 295,
+      "description": "Spree::Product::Slugs translated slugs generating slugs when a translated product has a slug normalizes the existing slug",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/product/slugs_spec.rb",
+      "line": 50,
+      "description": "Spree::Product::Slugs ability to retake a slug of deleted record with the same name can delete the product again and then create a new product with the original slug",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/product/slugs_spec.rb",
+      "line": 165,
+      "description": "Spree::Product::Slugs history when product is restored regenerates the product slug",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/product/slugs_spec.rb",
+      "line": 160,
+      "description": "Spree::Product::Slugs history when product is restored updates the history",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/product/slugs_spec.rb",
+      "line": 30,
+      "description": "Spree::Product::Slugs with slug history allows re-using the slug from history",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/product/slugs_spec.rb",
+      "line": 22,
+      "description": "Spree::Product::Slugs with slug history updates slugs with deleted-{id} prefix to ensure uniqueness",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/product/slugs_spec.rb",
+      "line": 26,
+      "description": "Spree::Product::Slugs with slug history soft deletes slug record",
+      "status": "passed"
+    },
+    {
+      "file": "./spec/models/spree/product/slugs_spec.rb",
+      "line": 12,
+      "description": "Spree::Product::Slugs with not normalized slug normalizes slug on update validation",
+      "status": "passed"
+    }
+  ]
+}

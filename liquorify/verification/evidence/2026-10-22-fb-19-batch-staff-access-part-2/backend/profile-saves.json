@@ -1,0 +1,19 @@
+{
+  "revision": "a4a1708",
+  "teammate": "roleChange",
+  "answers": [
+    {
+      "field": "first_name",
+      "length": 300,
+      "status": 200,
+      "saved": true
+    },
+    {
+      "field": "selected_locale",
+      "length": 2,
+      "status": 200,
+      "saved": true
+    }
+  ],
+  "restored": true
+}

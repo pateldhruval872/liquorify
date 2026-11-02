@@ -1,0 +1,11 @@
+{
+  "screen": "SF-SHOP-02",
+  "state": "search-results",
+  "variant": "customer",
+  "theme": "light",
+  "width": 1280,
+  "revision": "321fa1c",
+  "path": "/us/en/products",
+  "observed": "The page lists 2 products and says \"2 products\". Its address is /us/en/products?q=espresso.",
+  "note": "The address the header's search opens for the word."
+}

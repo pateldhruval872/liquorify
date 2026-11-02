@@ -1,0 +1,11 @@
+{
+  "screen": "SF-OVL-01",
+  "state": "header-cart-count",
+  "variant": "guest",
+  "theme": "light",
+  "width": 390,
+  "revision": "321fa1c",
+  "path": "/us/en",
+  "observed": "The cart button shows \"1\". Its accessible name is \"Open cart\", which replaces what it shows, so the count is not announced.",
+  "note": null
+}
