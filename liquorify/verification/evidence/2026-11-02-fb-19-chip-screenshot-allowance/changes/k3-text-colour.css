@@ -1,0 +1,2 @@
+/* k3: the chips' text, the dark foreground token lowered by 3 % lightness */
+.dark button.rounded-full.text-xs { color: oklch(from var(--foreground) calc(l - 0.03) c h) !important; }

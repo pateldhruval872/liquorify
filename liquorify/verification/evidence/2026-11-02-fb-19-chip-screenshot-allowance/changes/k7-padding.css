@@ -1,0 +1,2 @@
+/* k7: the chips' side padding, 12 pixels to 13 */
+.dark button.rounded-full.text-xs { padding-left: 13px !important; padding-right: 13px !important; }

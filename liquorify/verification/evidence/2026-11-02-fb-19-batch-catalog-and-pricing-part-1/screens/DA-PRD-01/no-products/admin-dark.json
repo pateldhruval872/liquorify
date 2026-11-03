@@ -1,0 +1,17 @@
+{
+  "screen": "DA-PRD-01",
+  "state": "no-products",
+  "variant": "admin",
+  "role": null,
+  "theme": "dark",
+  "revision": "db550f1d",
+  "path": "/<store>/products",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": "The product list is answered with no products",
+  "masked": null,
+  "settled": true,
+  "outside": []
+}

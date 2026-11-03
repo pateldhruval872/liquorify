@@ -1,0 +1,2 @@
+/* k6: the add-value chip's dashed border drawn solid */
+.dark button.rounded-full.text-xs.border-dashed { border-style: solid !important; }

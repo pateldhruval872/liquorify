@@ -31,7 +31,7 @@ export function storeRequest(store: Store = shellStore) {
 }
 
 /** Answers a list request, filtering records by the `name_cont` and `id_in` the pickers send. */
-function searchable<T extends { id: string; name: string }>(path: string, records: T[]) {
+export function searchable<T extends { id: string; name: string }>(path: string, records: T[]) {
   return http.get(path, ({ request }) => {
     const params = new URL(request.url).searchParams
     const query = (params.get('q[name_cont]') ?? params.get('name_cont') ?? '').toLowerCase()

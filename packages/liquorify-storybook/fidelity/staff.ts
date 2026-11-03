@@ -47,6 +47,17 @@ export const roles = {
   },
   /** Read on `settings`, the scope of batch 3's screens, and write on nothing. */
   settingsViewer: { name: 'Settings viewer', permissions: ['read_settings'] },
+  /** Read on the five scopes of batch 5 part 1's screens, and write on none. */
+  catalogViewer: {
+    name: 'Catalog viewer',
+    permissions: [
+      'read_products',
+      'read_publishing',
+      'read_media',
+      'read_product_types',
+      'read_stock',
+    ],
+  },
   /** May connect an agent, which takes write on OAuth applications, and holds little else. */
   agentConnector: {
     name: 'Agent connector',
@@ -107,6 +118,12 @@ export const teammates: Record<
     email: 'fidelity-settings-viewer@example.com',
     role: 'settingsViewer',
     first: 'Set',
+    last: 'Viewer',
+  },
+  catalogViewer: {
+    email: 'fidelity-catalog-viewer@example.com',
+    role: 'catalogViewer',
+    first: 'Cat',
     last: 'Viewer',
   },
   agentConnector: {

@@ -1,0 +1,117 @@
+{
+ "note": "Runs of the visual check itself in the pinned image, on this session's machine, at the allowance commit's files. \"counted\" is the number of pixels Playwright counted at threshold 0.005; \"changed\" and \"largest\" come from the check's own log line for a failed comparison. A passing image under an allowance of 1 counted 0 or 1 pixel.",
+ "unchanged, allowance 60": {
+  "dashboard-core-product-form-variants-section--seeded-from-type/dark": "passed",
+  "dashboard-core-product-form-variants-options-builder--awaiting-values/dark": "passed"
+ },
+ "unchanged, allowance set back to 25": {
+  "dashboard-core-product-form-variants-section--seeded-from-type/dark": "passed",
+  "dashboard-core-product-form-variants-options-builder--awaiting-values/dark": {
+   "counted": 43,
+   "changed": 178,
+   "largest": 14
+  }
+ },
+ "unchanged, allowance set to 1, 10 repeats": {
+  "dashboard-core-product-form-variants-section--seeded-from-type/dark": [
+   "passed",
+   "passed",
+   "passed",
+   "passed",
+   "passed",
+   {
+    "counted": 2,
+    "changed": 7,
+    "largest": 5
+   },
+   {
+    "counted": 37,
+    "changed": 117,
+    "largest": 14
+   },
+   {
+    "counted": 37,
+    "changed": 117,
+    "largest": 14
+   },
+   {
+    "counted": 37,
+    "changed": 116,
+    "largest": 12
+   },
+   {
+    "counted": 37,
+    "changed": 116,
+    "largest": 12
+   }
+  ],
+  "dashboard-core-product-form-variants-options-builder--awaiting-values/dark": [
+   "passed",
+   "passed",
+   "passed",
+   "passed",
+   "passed",
+   "passed",
+   "passed",
+   "passed",
+   {
+    "counted": 43,
+    "changed": 178,
+    "largest": 14
+   },
+   {
+    "counted": 40,
+    "changed": 161,
+    "largest": 12
+   }
+  ]
+ },
+ "k2-border-colour, allowance 60": {
+  "dashboard-core-product-form-variants-section--seeded-from-type/dark": {
+   "counted": 404,
+   "changed": 787,
+   "largest": 10
+  },
+  "dashboard-core-product-form-variants-options-builder--awaiting-values/dark": {
+   "counted": 301,
+   "changed": 681,
+   "largest": 10
+  }
+ },
+ "k5-radius, allowance 60": {
+  "dashboard-core-product-form-variants-section--seeded-from-type/dark": {
+   "counted": 562,
+   "changed": 1079,
+   "largest": 38
+  },
+  "dashboard-core-product-form-variants-options-builder--awaiting-values/dark": {
+   "counted": 562,
+   "changed": 1082,
+   "largest": 38
+  }
+ },
+ "k6-dashed-to-solid, allowance 60": {
+  "dashboard-core-product-form-variants-section--seeded-from-type/dark": {
+   "counted": 78,
+   "changed": 202,
+   "largest": 38
+  },
+  "dashboard-core-product-form-variants-options-builder--awaiting-values/dark": {
+   "counted": 78,
+   "changed": 202,
+   "largest": 38
+  }
+ },
+ "k8-gap, allowance 60": {
+  "dashboard-core-product-form-variants-section--seeded-from-type/dark": {
+   "counted": 1142,
+   "changed": 1886,
+   "largest": 223
+  },
+  "dashboard-core-product-form-variants-options-builder--awaiting-values/dark": {
+   "counted": 909,
+   "changed": 1549,
+   "largest": 223
+  }
+ }
+}

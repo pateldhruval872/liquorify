@@ -20,7 +20,8 @@ export default defineConfig({
     // 25 counted pixels are allowed for the dark-mode corners that differ
     // between unchanged runs. Measured in
     // liquorify/verification/2026-10-21-fb-19-screenshot-tolerance.md; a change
-    // to either number needs a new record.
+    // to either number needs a new record. Two dark images allow 60 pixels
+    // (stories.spec.ts, recorded in 2026-11-02-fb-19-chip-screenshot-allowance.md).
     toHaveScreenshot: {
       threshold: 0.005,
       maxDiffPixels: 25,

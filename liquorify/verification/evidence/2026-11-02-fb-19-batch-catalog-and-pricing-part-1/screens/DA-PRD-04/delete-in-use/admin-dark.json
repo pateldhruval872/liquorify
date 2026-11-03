@@ -1,0 +1,17 @@
+{
+  "screen": "DA-PRD-04",
+  "state": "delete-in-use",
+  "variant": "admin",
+  "role": null,
+  "theme": "dark",
+  "revision": "db550f1d",
+  "path": "/<store>/products/media",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": "YouTube's still for the video link is answered with a local picture",
+  "masked": null,
+  "settled": true,
+  "outside": []
+}

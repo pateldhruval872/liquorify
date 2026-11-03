@@ -266,7 +266,8 @@ export const extensionRoutingRule = routingRule('orr_2Qa7Sd5G', 'nearest_locatio
   preferences: { max_distance_km: 80 },
 })
 
-function definition(
+/** A custom field definition as Spree serves it, in the `custom` namespace. */
+export function definition(
   id: string,
   label: string,
   key: string,
@@ -466,7 +467,13 @@ export const exemptionReasons: TaxExemptionReason[] = [
   exemptionReason('txr_6Qa3Zs4W', 'Resale', 'RESALE'),
 ]
 
-function media(id: string, file: string, alt: string | null, fields: Partial<Media> = {}): Media {
+/** A file in the store's media library, served from Storybook's fixtures. */
+export function media(
+  id: string,
+  file: string,
+  alt: string | null,
+  fields: Partial<Media> = {},
+): Media {
   const url = `/fixtures/${file}`
   return {
     id,

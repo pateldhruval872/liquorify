@@ -1,0 +1,3765 @@
+{
+  "engine": "spree/core",
+  "spree_code_at": "01a0365",
+  "database": "SQLite",
+  "rspec": "3.13.6",
+  "seed": 30411,
+  "summary": {
+    "example_count": 624,
+    "failure_count": 0,
+    "pending_count": 6,
+    "errors_outside_of_examples_count": 0
+  },
+  "examples": [
+    {
+      "file": "spec/models/spree/media_spec.rb",
+      "line": 497,
+      "description": "Spree::Media orphan asset (viewable_type set, viewable_id nil) creates and destroys without raising",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/media_spec.rb",
+      "line": 234,
+      "description": "Spree::Media#duplicate_for leaves the file intact when one copy is destroyed",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/media_spec.rb",
+      "line": 222,
+      "description": "Spree::Media#duplicate_for takes no variant links from the source",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/media_spec.rb",
+      "line": 193,
+      "description": "Spree::Media#duplicate_for copies the descriptive attributes",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/media_spec.rb",
+      "line": 186,
+      "description": "Spree::Media#duplicate_for shares the blob rather than uploading a second copy",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/media_spec.rb",
+      "line": 202,
+      "description": "Spree::Media#duplicate_for belongs to the new owner, leaving the source in place",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/media_spec.rb",
+      "line": 212,
+      "description": "Spree::Media#duplicate_for belongs to the target product store",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/media_spec.rb",
+      "line": 248,
+      "description": "Spree::Media#duplicate_for with a video and its poster shares the poster blob too",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/media_spec.rb",
+      "line": 308,
+      "description": "Spree::Media media_type accepts valid media types",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/media_spec.rb",
+      "line": 316,
+      "description": "Spree::Media media_type rejects invalid media types",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/media_spec.rb",
+      "line": 327,
+      "description": "Spree::Media media_type answers a predicate per media type",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/media_spec.rb",
+      "line": 322,
+      "description": "Spree::Media media_type defaults to image",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/media_spec.rb",
+      "line": 481,
+      "description": "Spree::Media thumbnail updates with product viewable sets product primary_media_id when image is created",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/media_spec.rb",
+      "line": 486,
+      "description": "Spree::Media thumbnail updates with product viewable clears product primary_media_id when image is destroyed",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/media_spec.rb",
+      "line": 561,
+      "description": "Spree::Media external URL #external_url= sets the external URL",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/media_spec.rb",
+      "line": 524,
+      "description": "Spree::Media external URL .with_external_url returns assets with the given external URL",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/media_spec.rb",
+      "line": 530,
+      "description": "Spree::Media external URL .with_external_url returns no assets if the external URL is blank",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/media_spec.rb",
+      "line": 536,
+      "description": "Spree::Media external URL #external_url returns the external URL",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/media_spec.rb",
+      "line": 549,
+      "description": "Spree::Media external URL #external_url files the definition on the viewable store while the row is unsaved",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/media_spec.rb",
+      "line": 542,
+      "description": "Spree::Media external URL #external_url returns nil if the external URL is blank",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/media_spec.rb",
+      "line": 401,
+      "description": "Spree::Media external video re-parses after the URL changes",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/media_spec.rb",
+      "line": 436,
+      "description": "Spree::Media external video rejects a signed id it cannot resolve",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/media_spec.rb",
+      "line": 381,
+      "description": "Spree::Media external video needs no attachment",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/media_spec.rb",
+      "line": 409,
+      "description": "Spree::Media external video attaches a poster only once the record saves",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/media_spec.rb",
+      "line": 445,
+      "description": "Spree::Media external video rejects a poster that is not a web image",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/media_spec.rb",
+      "line": 388,
+      "description": "Spree::Media external video exposes the parsed video",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/media_spec.rb",
+      "line": 422,
+      "description": "Spree::Media external video removes the poster when the signed id is blank",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/media_spec.rb",
+      "line": 363,
+      "description": "Spree::Media external video accepts a Vimeo link",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/media_spec.rb",
+      "line": 395,
+      "description": "Spree::Media external video strips whitespace around the URL",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/media_spec.rb",
+      "line": 456,
+      "description": "Spree::Media external video falls back to the provider thumbnail when no poster was uploaded",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/media_spec.rb",
+      "line": 374,
+      "description": "Spree::Media external video rejects a link Spree cannot embed",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/media_spec.rb",
+      "line": 367,
+      "description": "Spree::Media external video requires a URL",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/media_spec.rb",
+      "line": 94,
+      "description": "Spree::Media viewable types accepts a type an extension registered",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/media_spec.rb",
+      "line": 87,
+      "description": "Spree::Media viewable types rejects a type that is not registered",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/media_spec.rb",
+      "line": 134,
+      "description": "Spree::Media library scopes separates placed rows from library uploads",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/media_spec.rb",
+      "line": 513,
+      "description": "Spree::Media.with_session_uploaded_assets_uuid returns assets with the given uuid",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/media_spec.rb",
+      "line": null,
+      "description": "Spree::Media behaves like lifecycle events lifecycle events media.updated publishes updated event when record is updated",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/media_spec.rb",
+      "line": null,
+      "description": "Spree::Media behaves like lifecycle events lifecycle events media.updated does not publish updated event on a bare touch",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/media_spec.rb",
+      "line": null,
+      "description": "Spree::Media behaves like lifecycle events lifecycle events media.created publishes created event when record is created",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/media_spec.rb",
+      "line": null,
+      "description": "Spree::Media behaves like lifecycle events lifecycle events media.deleted publishes deleted event when record is deleted",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/media_spec.rb",
+      "line": 280,
+      "description": "Spree::Media#focal_point returns hash with x and y",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/media_spec.rb",
+      "line": 284,
+      "description": "Spree::Media#focal_point returns nil when coordinates are not set",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/media_spec.rb",
+      "line": 270,
+      "description": "Spree::Media#product returns the product when viewable is a Product",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/media_spec.rb",
+      "line": 264,
+      "description": "Spree::Media#product returns the product when viewable is a Variant",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/media_spec.rb",
+      "line": 33,
+      "description": "Spree::Media named variants defines :xlarge variant with correct options",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/media_spec.rb",
+      "line": 33,
+      "description": "Spree::Media named variants defines :og_image variant with correct options",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/media_spec.rb",
+      "line": 33,
+      "description": "Spree::Media named variants defines :mini variant with correct options",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/media_spec.rb",
+      "line": 33,
+      "description": "Spree::Media named variants defines :medium variant with correct options",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/media_spec.rb",
+      "line": 33,
+      "description": "Spree::Media named variants defines :large variant with correct options",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/media_spec.rb",
+      "line": 10,
+      "description": "Spree::Media named variants defines preprocessed variants based on config",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/media_spec.rb",
+      "line": 33,
+      "description": "Spree::Media named variants defines :small variant with correct options",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/media_spec.rb",
+      "line": 27,
+      "description": "Spree::Media named variants :embed is not preprocessed",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/media_spec.rb",
+      "line": 20,
+      "description": "Spree::Media named variants :embed bounds the image without cropping it",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/media_spec.rb",
+      "line": 44,
+      "description": "Spree::Media store follows the product it is placed on",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/media_spec.rb",
+      "line": 60,
+      "description": "Spree::Media store falls back to the current store when unplaced",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/media_spec.rb",
+      "line": 51,
+      "description": "Spree::Media store follows the variant product for a variant-pinned row",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/media_spec.rb",
+      "line": 67,
+      "description": "Spree::Media store is required",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/media_spec.rb",
+      "line": 335,
+      "description": "Spree::Media video requires a file, not a URL",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/media_spec.rb",
+      "line": 343,
+      "description": "Spree::Media video rejects a file type browsers cannot play",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/media_spec.rb",
+      "line": 355,
+      "description": "Spree::Media video reports as playable",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/media_spec.rb",
+      "line": 154,
+      "description": "Spree::Media.distinct_by_file keeps rows whose files differ",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/media_spec.rb",
+      "line": 164,
+      "description": "Spree::Media.distinct_by_file keeps a file visible in its own store when another store shares it",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/media_spec.rb",
+      "line": 145,
+      "description": "Spree::Media.distinct_by_file keeps one row per shared file",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/media_spec.rb",
+      "line": 173,
+      "description": "Spree::Media.distinct_by_file keeps external videos",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/media_spec.rb",
+      "line": 121,
+      "description": "Spree::Media a row that predates the store column still refuses moving a row between stores",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/media_spec.rb",
+      "line": 110,
+      "description": "Spree::Media a row that predates the store column adopts a store on its next save",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/media_spec.rb",
+      "line": 293,
+      "description": "Spree::Media#focal_point= sets x and y from hash",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/media_spec.rb",
+      "line": 299,
+      "description": "Spree::Media#focal_point= clears focal point when set to nil",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/media_spec.rb",
+      "line": null,
+      "description": "Spree::Media behaves like metadata reads data as not symbolized keys",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/media_spec.rb",
+      "line": null,
+      "description": "Spree::Media behaves like metadata is expected to eq ActiveSupport::HashWithIndifferentAccess",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/media_spec.rb",
+      "line": null,
+      "description": "Spree::Media behaves like metadata is expected to eq {}",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/media_spec.rb",
+      "line": null,
+      "description": "Spree::Media behaves like metadata can query records by metadata properties",
+      "status": "pending",
+      "pending": "skipped by Spree on this database"
+    },
+    {
+      "file": "spec/models/spree/media_spec.rb",
+      "line": null,
+      "description": "Spree::Media behaves like metadata can query records by metadata properties",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/media_spec.rb",
+      "line": null,
+      "description": "Spree::Media behaves like metadata reads data as symbolized keys",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/media_spec.rb",
+      "line": null,
+      "description": "Spree::Media behaves like metadata no longer carries the split metadata columns",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/media_spec.rb",
+      "line": null,
+      "description": "Spree::Media behaves like metadata is expected to be truthy",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/media_spec.rb",
+      "line": 472,
+      "description": "Spree::Media counter caches with product viewable decrements media_count on product when image is destroyed",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/media_spec.rb",
+      "line": 467,
+      "description": "Spree::Media counter caches with product viewable increments media_count on product when image is created",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/digital_asset_spec.rb",
+      "line": 131,
+      "description": "Spree::DigitalAsset rejects non-positive limit overrides",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/digital_asset_spec.rb",
+      "line": 19,
+      "description": "Spree::DigitalAsset validates presence of attachment and variant",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/digital_asset_spec.rb",
+      "line": 11,
+      "description": "Spree::DigitalAsset validates presence of variant",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/digital_asset_spec.rb",
+      "line": 15,
+      "description": "Spree::DigitalAsset validates presence of attachment",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/digital_asset_spec.rb",
+      "line": 88,
+      "description": "Spree::DigitalAsset providers returns an empty hash when no provider settings are set",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/digital_asset_spec.rb",
+      "line": 59,
+      "description": "Spree::DigitalAsset providers still requires an attachment for a File asset",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/digital_asset_spec.rb",
+      "line": 40,
+      "description": "Spree::DigitalAsset providers resolves a blank provider_type to the File default",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/digital_asset_spec.rb",
+      "line": 49,
+      "description": "Spree::DigitalAsset providers stores the class name of a provider named by its shorthand",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/digital_asset_spec.rb",
+      "line": 44,
+      "description": "Spree::DigitalAsset providers resolves a set provider_type to that class",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/digital_asset_spec.rb",
+      "line": 80,
+      "description": "Spree::DigitalAsset providers stores provider settings under one key in metadata",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/digital_asset_spec.rb",
+      "line": 54,
+      "description": "Spree::DigitalAsset providers requires no attachment for a provider that declares so",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/digital_asset_spec.rb",
+      "line": 63,
+      "description": "Spree::DigitalAsset providers rejects an unregistered provider_type",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/digital_asset_spec.rb",
+      "line": 72,
+      "description": "Spree::DigitalAsset providers rejects a provider_type that names a non-provider class without raising",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/digital_asset_spec.rb",
+      "line": null,
+      "description": "Spree::DigitalAsset behaves like lifecycle events lifecycle events digital_asset.deleted publishes deleted event when record is deleted",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/digital_asset_spec.rb",
+      "line": null,
+      "description": "Spree::DigitalAsset behaves like lifecycle events lifecycle events digital_asset.created publishes created event when record is created",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/digital_asset_spec.rb",
+      "line": null,
+      "description": "Spree::DigitalAsset behaves like lifecycle events lifecycle events digital_asset.updated publishes updated event when record is updated",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/digital_asset_spec.rb",
+      "line": null,
+      "description": "Spree::DigitalAsset behaves like lifecycle events lifecycle events digital_asset.updated does not publish updated event on a bare touch",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/digital_asset_spec.rb",
+      "line": 122,
+      "description": "Spree::DigitalAsset legacy digital.* events emits the legacy name alongside the canonical one on destroy",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/digital_asset_spec.rb",
+      "line": 105,
+      "description": "Spree::DigitalAsset legacy digital.* events emits the legacy name alongside the canonical one on update",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/digital_asset_spec.rb",
+      "line": 98,
+      "description": "Spree::DigitalAsset legacy digital.* events emits the legacy name alongside the canonical one on create",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/digital_asset_spec.rb",
+      "line": 113,
+      "description": "Spree::DigitalAsset legacy digital.* events does not emit either name on a bare touch",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/digital_asset_spec.rb",
+      "line": 156,
+      "description": "Spree::DigitalAsset effective limits overrides each limit independently",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/digital_asset_spec.rb",
+      "line": 149,
+      "description": "Spree::DigitalAsset effective limits prefers the asset overrides when present",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/digital_asset_spec.rb",
+      "line": 144,
+      "description": "Spree::DigitalAsset effective limits falls back to the store settings when the asset leaves them blank",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/digital_asset_spec.rb",
+      "line": 169,
+      "description": "Spree::DigitalAsset replacing the attachment keeps existing links pointing at the new file",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_spec.rb",
+      "line": 58,
+      "description": "Spree::Price Callbacks after_commit :auto_match_collections when price is discounted on create auto matches collections",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_spec.rb",
+      "line": 68,
+      "description": "Spree::Price Callbacks after_commit :auto_match_collections when price is discounted on update and changed to not be discounted auto matches collections",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_spec.rb",
+      "line": 75,
+      "description": "Spree::Price Callbacks after_commit :auto_match_collections when price is discounted on update and is still discounted does not touch shop product",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_spec.rb",
+      "line": 97,
+      "description": "Spree::Price Callbacks after_commit :auto_match_collections when price is not discounted on update and changed to be discounted auto matches collections",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_spec.rb",
+      "line": 104,
+      "description": "Spree::Price Callbacks after_commit :auto_match_collections when price is not discounted on update and is still not discounted does not touch shop product",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_spec.rb",
+      "line": 87,
+      "description": "Spree::Price Callbacks after_commit :auto_match_collections when price is not discounted on create auto matches collections",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_spec.rb",
+      "line": 38,
+      "description": "Spree::Price Callbacks touching the variant touches the variant when an amount is cleared",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_spec.rb",
+      "line": 45,
+      "description": "Spree::Price Callbacks touching the variant touches the variant when a priced row is destroyed",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_spec.rb",
+      "line": 32,
+      "description": "Spree::Price Callbacks touching the variant touches the variant when a priced row is saved",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_spec.rb",
+      "line": 20,
+      "description": "Spree::Price Callbacks when compare_at_amount is equal to amount sets compare_at_amount to nil",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_spec.rb",
+      "line": 131,
+      "description": "Spree::Price#amount= keeps a unit price to four decimals and refuses a fifth",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_spec.rb",
+      "line": 126,
+      "description": "Spree::Price#amount= does not grow when what it read back is saved again",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_spec.rb",
+      "line": 117,
+      "description": "Spree::Price#amount= stores a canonical decimal exactly under a comma-decimal locale",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_spec.rb",
+      "line": 122,
+      "description": "Spree::Price#amount= refuses text it would otherwise misread, naming the attribute",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_spec.rb",
+      "line": 327,
+      "description": "Spree::Price#compare_at_amount_in_cents when compare_at_amount is nil returns nil",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_spec.rb",
+      "line": 319,
+      "description": "Spree::Price#compare_at_amount_in_cents when compare_at_amount is set returns the amount in cents",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_spec.rb",
+      "line": 417,
+      "description": "Spree::Price#record_price_history when creating a new base price creates a price history record",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_spec.rb",
+      "line": 385,
+      "description": "Spree::Price#record_price_history when only compare_at_amount changes does not create a price history record",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_spec.rb",
+      "line": 395,
+      "description": "Spree::Price#record_price_history when price belongs to a price list does not create a price history record",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_spec.rb",
+      "line": 371,
+      "description": "Spree::Price#record_price_history when amount changes on a base price creates a price history record",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_spec.rb",
+      "line": 409,
+      "description": "Spree::Price#record_price_history when track_price_history is disabled does not create a price history record",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_spec.rb",
+      "line": null,
+      "description": "Spree::Price behaves like lifecycle events lifecycle events price.deleted publishes deleted event when record is deleted",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_spec.rb",
+      "line": null,
+      "description": "Spree::Price behaves like lifecycle events lifecycle events price.updated does not publish updated event on a bare touch",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_spec.rb",
+      "line": null,
+      "description": "Spree::Price behaves like lifecycle events lifecycle events price.updated publishes updated event when record is updated",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_spec.rb",
+      "line": null,
+      "description": "Spree::Price behaves like lifecycle events lifecycle events price.created publishes created event when record is created",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_spec.rb",
+      "line": 149,
+      "description": "Spree::Price#compare_at_amount= stores a canonical decimal exactly",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_spec.rb",
+      "line": 156,
+      "description": "Spree::Price#compare_at_amount= with empty string being passed as value casts value to nil",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_spec.rb",
+      "line": 340,
+      "description": "Spree::Price#discounted? when compare at amount is higher is expected to equal true",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_spec.rb",
+      "line": 345,
+      "description": "Spree::Price#discounted? when compare at amount is lower is expected to equal false",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_spec.rb",
+      "line": 355,
+      "description": "Spree::Price#discounted? when there is no compare at amount is expected to equal false",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_spec.rb",
+      "line": 350,
+      "description": "Spree::Price#discounted? when compare at amount is the same is expected to equal false",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_spec.rb",
+      "line": 307,
+      "description": "Spree::Price#display_compare_at_amount when compare_at_amount is nil returns nil",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_spec.rb",
+      "line": 298,
+      "description": "Spree::Price#display_compare_at_amount when compare_at_amount is set returns a Spree::Money object",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_spec.rb",
+      "line": 179,
+      "description": "Spree::Price validations when the amount is nil new behavior is expected not to be valid",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_spec.rb",
+      "line": 175,
+      "description": "Spree::Price validations when the amount is nil legacy behavior is expected to be valid",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_spec.rb",
+      "line": 196,
+      "description": "Spree::Price validations when the amount is greater than maximum amount populates errors",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_spec.rb",
+      "line": 272,
+      "description": "Spree::Price validations #quantity_break? is false for the bottom rung and true above it",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_spec.rb",
+      "line": 187,
+      "description": "Spree::Price validations when the amount is less than 0 populates errors",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_spec.rb",
+      "line": 260,
+      "description": "Spree::Price validations min_quantity counts the cap per currency",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_spec.rb",
+      "line": 212,
+      "description": "Spree::Price validations min_quantity refuses a quantity below one",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_spec.rb",
+      "line": 250,
+      "description": "Spree::Price validations min_quantity does not count placeholder rows against the cap",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_spec.rb",
+      "line": 236,
+      "description": "Spree::Price validations min_quantity refuses a ladder past the cap",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_spec.rb",
+      "line": 221,
+      "description": "Spree::Price validations min_quantity refuses a break with no price list",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_spec.rb",
+      "line": 228,
+      "description": "Spree::Price validations min_quantity accepts a break on a price list",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_spec.rb",
+      "line": 204,
+      "description": "Spree::Price validations when the amount is between 0 and the maximum amount is expected to be valid",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_spec.rb",
+      "line": 442,
+      "description": "Spree::Price#prior_price with price history returns the price history record with the lowest amount within 30 days",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_spec.rb",
+      "line": 451,
+      "description": "Spree::Price#prior_price without price history returns nil",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_spec.rb",
+      "line": 282,
+      "description": "Spree::Price#price_including_vat_for returns the price as entered for a buyer abroad",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_spec.rb",
+      "line": 478,
+      "description": "Spree::Price a ladder that charges more for a bigger order refuses a break above the base price when the list prices nothing below",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_spec.rb",
+      "line": 497,
+      "description": "Spree::Price a ladder that charges more for a bigger order refuses dropping the base price below a break",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_spec.rb",
+      "line": 515,
+      "description": "Spree::Price a ladder that charges more for a bigger order accepts a bottom rung above the base price",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_spec.rb",
+      "line": 487,
+      "description": "Spree::Price a ladder that charges more for a bigger order refuses lowering a rung below one that sits above it",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_spec.rb",
+      "line": 505,
+      "description": "Spree::Price a ladder that charges more for a bigger order accepts a descending ladder and a flat one",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_spec.rb",
+      "line": 469,
+      "description": "Spree::Price a ladder that charges more for a bigger order refuses a break above the rung below it",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_publication_spec.rb",
+      "line": 57,
+      "description": "Spree::ProductPublication#published? is false when published_at is in the future",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_publication_spec.rb",
+      "line": 62,
+      "description": "Spree::ProductPublication#published? is false when unpublished_at is in the past",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_publication_spec.rb",
+      "line": 53,
+      "description": "Spree::ProductPublication#published? is true when dates are nil",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_publication_spec.rb",
+      "line": 42,
+      "description": "Spree::ProductPublication.published excludes publications with past unpublished_at",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_publication_spec.rb",
+      "line": 28,
+      "description": "Spree::ProductPublication.published includes publications with null dates",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_publication_spec.rb",
+      "line": 33,
+      "description": "Spree::ProductPublication.published excludes publications with future published_at",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_publication_spec.rb",
+      "line": 73,
+      "description": "Spree::ProductPublication associations on Product reaches channels through product_publications",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_publication_spec.rb",
+      "line": 16,
+      "description": "Spree::ProductPublication validations rejects unpublished_at before published_at",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/option_value_spec.rb",
+      "line": 55,
+      "description": "Spree::OptionValue color_code validation rejects invalid hex colors",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/option_value_spec.rb",
+      "line": 48,
+      "description": "Spree::OptionValue color_code validation accepts 6- and 8-digit hex colors in any case, or no color",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/option_value_spec.rb",
+      "line": null,
+      "description": "Spree::OptionValue behaves like metadata reads data as symbolized keys",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/option_value_spec.rb",
+      "line": null,
+      "description": "Spree::OptionValue behaves like metadata reads data as not symbolized keys",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/option_value_spec.rb",
+      "line": null,
+      "description": "Spree::OptionValue behaves like metadata can query records by metadata properties",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/option_value_spec.rb",
+      "line": null,
+      "description": "Spree::OptionValue behaves like metadata is expected to eq ActiveSupport::HashWithIndifferentAccess",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/option_value_spec.rb",
+      "line": null,
+      "description": "Spree::OptionValue behaves like metadata is expected to be truthy",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/option_value_spec.rb",
+      "line": null,
+      "description": "Spree::OptionValue behaves like metadata is expected to eq {}",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/option_value_spec.rb",
+      "line": null,
+      "description": "Spree::OptionValue behaves like metadata no longer carries the split metadata columns",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/option_value_spec.rb",
+      "line": null,
+      "description": "Spree::OptionValue behaves like metadata can query records by metadata properties",
+      "status": "pending",
+      "pending": "skipped by Spree on this database"
+    },
+    {
+      "file": "spec/models/spree/option_value_spec.rb",
+      "line": 78,
+      "description": "Spree::OptionValue translations #label returns the translated label for a different locale",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/option_value_spec.rb",
+      "line": 74,
+      "description": "Spree::OptionValue translations #label returns the translated label for the current locale",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/option_value_spec.rb",
+      "line": 84,
+      "description": "Spree::OptionValue translations #label sets the translated label",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/option_value_spec.rb",
+      "line": 22,
+      "description": "Spree::OptionValue callbacks #touch_all_variants touches all variants associated with the option value",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/option_value_spec.rb",
+      "line": 10,
+      "description": "Spree::OptionValue callbacks #normalize_name should parameterize the name",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/option_value_spec.rb",
+      "line": 41,
+      "description": "Spree::OptionValue callbacks #touch_all_products touches all products associated with the option value",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 1177,
+      "description": "Spree::Product#primary_category is nil when the product has no categories",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 1171,
+      "description": "Spree::Product#primary_category returns the first assigned category",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 866,
+      "description": "Spree::Product#gallery_media falls back to variant_images when no product media",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 860,
+      "description": "Spree::Product#gallery_media returns product media when present",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 1574,
+      "description": "Spree::Product#price_varies? when variants have different prices in the given currency is expected to equal true",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 1590,
+      "description": "Spree::Product#price_varies? when a price list prices the variants differently is expected to equal false",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 1565,
+      "description": "Spree::Product#price_varies? when all variants have the same price in the given currency is expected to equal false",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": null,
+      "description": "Spree::Product behaves like metadata is expected to be truthy",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": null,
+      "description": "Spree::Product behaves like metadata can query records by metadata properties",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": null,
+      "description": "Spree::Product behaves like metadata can query records by metadata properties",
+      "status": "pending",
+      "pending": "skipped by Spree on this database"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": null,
+      "description": "Spree::Product behaves like metadata reads data as not symbolized keys",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": null,
+      "description": "Spree::Product behaves like metadata is expected to eq {}",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": null,
+      "description": "Spree::Product behaves like metadata is expected to eq ActiveSupport::HashWithIndifferentAccess",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": null,
+      "description": "Spree::Product behaves like metadata no longer carries the split metadata columns",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": null,
+      "description": "Spree::Product behaves like metadata reads data as symbolized keys",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 938,
+      "description": "Spree::Product#has_images? when no variants have images returns false",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 947,
+      "description": "Spree::Product#has_images? when any variant has images returns true",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 1010,
+      "description": "Spree::Product#variant_for_images when only a non-default variant has images returns the variant with images",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 1001,
+      "description": "Spree::Product#variant_for_images when the default variant has images returns the default variant",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 993,
+      "description": "Spree::Product#variant_for_images when no variants have images returns nil",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 383,
+      "description": "Spree::Product promotions #possible_promotions lists the promotion as a possible promotion",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 1783,
+      "description": "Spree::Product scopes .available when show_products_without_price is true returns products regardless of price",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 1733,
+      "description": "Spree::Product scopes .available when available_on is not specified returns active, not discontinued products",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 1721,
+      "description": "Spree::Product scopes .available when available_on is specified returns products available before or on the specified date",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 1725,
+      "description": "Spree::Product scopes .available when available_on is specified excludes draft products even if available_on is in the past",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 1758,
+      "description": "Spree::Product scopes .available when show_products_without_price is false only returns products with prices in the specified currency",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 1813,
+      "description": "Spree::Product scopes .ascend_by_price places products without prices at the end",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 1808,
+      "description": "Spree::Product scopes .ascend_by_price orders products by minimum price ascending",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 1833,
+      "description": "Spree::Product scopes .ascend_by_price with variant prices uses minimum variant price for sorting",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 1693,
+      "description": "Spree::Product scopes .not_discontinued when false is passed as an argument returns all products",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 1685,
+      "description": "Spree::Product scopes .not_discontinued when nothing is passed as an argument returns only not discontinued products",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 1858,
+      "description": "Spree::Product scopes .descend_by_price orders products by maximum price descending",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 1863,
+      "description": "Spree::Product scopes .descend_by_price places products without prices at the end",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 1883,
+      "description": "Spree::Product scopes .descend_by_price with variant prices uses maximum variant price for sorting",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 825,
+      "description": "Spree::Product#primary_media when default variant has no images but variant does returns the variant image",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 807,
+      "description": "Spree::Product#primary_media when default variant has images returns the default variant image",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 815,
+      "description": "Spree::Product#primary_media when default variant has images with variants that also have images returns the default variant image (default variant takes priority)",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 831,
+      "description": "Spree::Product#primary_media when no variants have images returns nil",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 957,
+      "description": "Spree::Product#media_count when no variants have media returns 0",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 983,
+      "description": "Spree::Product#media_count when only variant has media returns the variant media count",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 965,
+      "description": "Spree::Product#media_count when default variant has media returns total media count",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 973,
+      "description": "Spree::Product#media_count when default variant has media when variant also has media returns total across all variants",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 644,
+      "description": "Spree::Product#images only looks for variant images",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 648,
+      "description": "Spree::Product#images is sorted by position",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 845,
+      "description": "Spree::Product#media does not include variant images",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 850,
+      "description": "Spree::Product#media is ordered by position",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 840,
+      "description": "Spree::Product#media returns product-level assets",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 1470,
+      "description": "Spree::Product#on_sale? when no variant is on sale returns false",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 1464,
+      "description": "Spree::Product#on_sale? when at least one variant is on sale returns true",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 1236,
+      "description": "Spree::Product#any_variant_in_stock_or_backorderable? with more variants aside from the default variant when all option variant stock items have count_on_hand <= 0 is expected to eq false",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 1247,
+      "description": "Spree::Product#any_variant_in_stock_or_backorderable? with more variants aside from the default variant when all option variant stock items have count_on_hand <= 0 when all option variant stock items have backorderable = true is expected to eq true",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 1241,
+      "description": "Spree::Product#any_variant_in_stock_or_backorderable? with more variants aside from the default variant when all option variant stock items have count_on_hand <= 0 when all option variant stock items have track_inventory = false is expected to equal true",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 1230,
+      "description": "Spree::Product#any_variant_in_stock_or_backorderable? with more variants aside from the default variant with at least one option variant stock items count_on_hand > 0 is expected to eq true",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 1212,
+      "description": "Spree::Product#any_variant_in_stock_or_backorderable? when only default variant is in stock or backorderable is expected to eq true",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 1263,
+      "description": "Spree::Product#any_variant_in_stock_or_backorderable? when the only stocked variant is discontinued is expected to eq false",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 1966,
+      "description": "Spree::Product nested variants with hash params creates new variants",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 1983,
+      "description": "Spree::Product nested variants with hash params removes unlisted variants",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 1976,
+      "description": "Spree::Product nested variants with hash params updates existing variants by prefixed id",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 1995,
+      "description": "Spree::Product nested variants with Variant objects passes through to ActiveRecord setter",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 2024,
+      "description": "Spree::Product nested variants in-memory derived state after build + save (no reload) reflects an options-less default variant in default_variant and price",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 2007,
+      "description": "Spree::Product nested variants in-memory derived state after build + save (no reload) reflects new option-bearing variants in variant_count and default_variant",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 502,
+      "description": "Spree::Product required custom fields from the product type does not block creating an active product with the field missing",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 509,
+      "description": "Spree::Product required custom fields from the product type does not block activating a product with the field missing",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 518,
+      "description": "Spree::Product required custom fields from the product type keeps the flag readable so the dashboard can mark the field",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 41,
+      "description": "Spree::Product delivery eligibility comes from the delivery profile, defaulting to physical shipping",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 355,
+      "description": "Spree::Product product instance when using another locale translates product fields",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 252,
+      "description": "Spree::Product product instance variants_and_option_values returns only variants with option values",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 333,
+      "description": "Spree::Product product instance memoized data resets memoized data reload",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 328,
+      "description": "Spree::Product product instance memoized data resets memoized data after save",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 63,
+      "description": "Spree::Product product instance purchasable? is false when no variant is purchasable",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 70,
+      "description": "Spree::Product product instance purchasable? is true when a variant is purchasable",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 285,
+      "description": "Spree::Product product instance #discontinue_on_must_be_later_than_make_active_at make_active_at is a date earlier than discontinue_on is not valid is expected to include \"must be later than available date\"",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 284,
+      "description": "Spree::Product product instance #discontinue_on_must_be_later_than_make_active_at make_active_at is a date earlier than discontinue_on is not valid is expected not to be valid",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 295,
+      "description": "Spree::Product product instance #discontinue_on_must_be_later_than_make_active_at make_active_at and discontinue_on are nil is valid",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 273,
+      "description": "Spree::Product product instance #discontinue_on_must_be_later_than_make_active_at make_active_at is a date earlier than discontinue_on is valid",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 308,
+      "description": "Spree::Product product instance history keeps translations when product is destroyed",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 194,
+      "description": "Spree::Product product instance #compare_at_price delegates to the default variant",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 240,
+      "description": "Spree::Product product instance #can_supply? is false",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 236,
+      "description": "Spree::Product product instance #can_supply? is true",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 218,
+      "description": "Spree::Product product instance #available? is available if status is set to active",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 223,
+      "description": "Spree::Product product instance #available? is not available if destroyed",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 228,
+      "description": "Spree::Product product instance #available? is not available when available_on is in the future",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 171,
+      "description": "Spree::Product product instance product has no variants #destroy sets deleted_at value",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 90,
+      "description": "Spree::Product product instance #duplicate duplicates product",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 118,
+      "description": "Spree::Product product instance #duplicate calls #duplicate_extra",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 109,
+      "description": "Spree::Product product instance #duplicate when translations exist for another locale duplicates translations for all locales",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 130,
+      "description": "Spree::Product product instance default variant when a delegated attribute changed persists the default variant on save",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 163,
+      "description": "Spree::Product product instance #variants_including_master emits a deprecation warning",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 159,
+      "description": "Spree::Product product instance #variants_including_master returns the variants",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 185,
+      "description": "Spree::Product product instance product has variants #destroy sets deleted_at value",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 261,
+      "description": "Spree::Product product instance has stock movements doesnt raise ReadOnlyRecord error",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 63,
+      "description": "Spree::Product product instance backorderable? is false when no variant is backorderable",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 70,
+      "description": "Spree::Product product instance backorderable? is true when a variant is backorderable",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 63,
+      "description": "Spree::Product product instance in_stock? is false when no variant is in stock",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 70,
+      "description": "Spree::Product product instance in_stock? is true when a variant is in stock",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 201,
+      "description": "Spree::Product product instance #price_in shows the amount",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 211,
+      "description": "Spree::Product product instance #price_in with currency set to JPY displays the currency in yen",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 146,
+      "description": "Spree::Product product instance #master returns the default variant",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 150,
+      "description": "Spree::Product product instance #master emits a deprecation warning",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 302,
+      "description": "Spree::Product product instance hard deletion doesnt raise ActiveRecordError error",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 138,
+      "description": "Spree::Product product instance #master_id returns the id of the default variant",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 1921,
+      "description": "Spree::Product#has_variants? with additional variants returns true",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 1925,
+      "description": "Spree::Product#has_variants? with additional variants has variant_count of 2",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 1909,
+      "description": "Spree::Product#has_variants? a simple product (only the default variant) returns false",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 1913,
+      "description": "Spree::Product#has_variants? a simple product (only the default variant) has variant_count of 1",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 1939,
+      "description": "Spree::Product#has_variants? when variants are loaded in memory uses the loaded association instead of variant_count",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 1514,
+      "description": "Spree::Product#first_or_default_variant with all variants in different currencies returns the first variant",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 1482,
+      "description": "Spree::Product#first_or_default_variant without variants returns the default variant",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 1498,
+      "description": "Spree::Product#first_or_default_variant with a variant in the given currency returns the available variant in the given currency",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 899,
+      "description": "Spree::Product#has_variant_images? when default variant has images returns true",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 891,
+      "description": "Spree::Product#has_variant_images? when no variants have images returns false",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 908,
+      "description": "Spree::Product#has_variant_images? when a variant has images returns true",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 916,
+      "description": "Spree::Product#has_variant_images? when variant_images are preloaded uses loaded association",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 925,
+      "description": "Spree::Product#has_variant_images? when variant_images are preloaded but empty returns false",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 477,
+      "description": "Spree::Product#create a product supplied with nested variants creates exactly the supplied variants \u2014 no phantom default",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 481,
+      "description": "Spree::Product#create a product supplied with nested variants uses the first supplied variant as the default",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 452,
+      "description": "Spree::Product#create a simple product (no variants supplied) auto-creates a single option-less default variant",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 458,
+      "description": "Spree::Product#create a simple product (no variants supplied) persists default_variant_id",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 431,
+      "description": "Spree::Product#create when a product type with categories is supplied adds the type categories to the product",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 409,
+      "description": "Spree::Product#create when a product type with option types is supplied adds the type option types to the product",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 416,
+      "description": "Spree::Product#create when a product type with option types is supplied keeps option types the product already has (additive sync)",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 440,
+      "description": "Spree::Product#create when track inventory is disabled creates a default stock item",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 1954,
+      "description": "Spree::Product#tags= clears tags with empty array",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 1948,
+      "description": "Spree::Product#tags= sets tag_list from array",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 1893,
+      "description": "Spree::Product status rejects an unknown status",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 1900,
+      "description": "Spree::Product status keeps the currency-aware active scope",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 2354,
+      "description": "Spree::Product.search finds products by searchable custom_field value via plain SQL",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 659,
+      "description": "Spree::Product the price filter filters on the default variant's base price in the current currency",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 664,
+      "description": "Spree::Product the price filter ignores price list prices",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 1433,
+      "description": "Spree::Product#to_translation_csv returns translation rows for specified locales",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 1446,
+      "description": "Spree::Product#to_translation_csv skips locales without any translations",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 606,
+      "description": "Spree::Product#variants= on a persisted product with an option-bearing entry builds a new variant and drops the option-less placeholder",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 593,
+      "description": "Spree::Product#variants= on a persisted product with an id-less, option-less entry (simple-product update) updates the existing default variant in place instead of replacing it",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 2227,
+      "description": "Spree::Product Channels #available_on= emits a deprecation warning",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 2237,
+      "description": "Spree::Product Channels #available_on= cascades to published_at on every publication via autosave",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 2232,
+      "description": "Spree::Product Channels #available_on= still writes the legacy column for backward-compatible reads",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 2297,
+      "description": "Spree::Product Channels #product_publications= with ProductPublication objects passes through to the ActiveRecord setter",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 2277,
+      "description": "Spree::Product Channels #product_publications= with hash params removes publications not in the payload",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 2269,
+      "description": "Spree::Product Channels #product_publications= with hash params updates existing publications by prefixed id",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 2259,
+      "description": "Spree::Product Channels #product_publications= with hash params creates new publications keyed by channel_id",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 2286,
+      "description": "Spree::Product Channels #product_publications= with hash params defers creation on new records",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 2306,
+      "description": "Spree::Product Channels #product_publications= cross-store isolation ignores a channel that belongs to another store",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 2330,
+      "description": "Spree::Product Channels #product_publications= idempotency and detach detaches every channel when given an empty array",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 2320,
+      "description": "Spree::Product Channels #product_publications= idempotency and detach is idempotent when re-sending an existing channel by channel_id",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 2244,
+      "description": "Spree::Product Channels #discontinue_on= emits a deprecation warning",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 2249,
+      "description": "Spree::Product Channels #discontinue_on= cascades to unpublished_at on every publication",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 1052,
+      "description": "Spree::Product#secondary_image when images are on a option variant returns the second image from that variant",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 1042,
+      "description": "Spree::Product#secondary_image when variant has multiple images returns the second image",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 1024,
+      "description": "Spree::Product#secondary_image when no variants have images returns nil",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 1033,
+      "description": "Spree::Product#secondary_image when variant has only one image returns nil",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 675,
+      "description": "Spree::Product#total_on_hand is infinite if track_inventory_levels is false",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 680,
+      "description": "Spree::Product#total_on_hand is infinite if variant is on demand",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 691,
+      "description": "Spree::Product#total_on_hand returns sum of stock items count_on_hand when variants are not loaded",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 685,
+      "description": "Spree::Product#total_on_hand returns sum of stock items count_on_hand",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 875,
+      "description": "Spree::Product#update_thumbnail! uses product media first",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 880,
+      "description": "Spree::Product#update_thumbnail! falls back to variant images when no product media",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 32,
+      "description": "Spree::Product after_initialize :assign_default_tax_category when product is persisted does not assign default tax category",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 24,
+      "description": "Spree::Product after_initialize :assign_default_tax_category when product is new assigns default tax category",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 746,
+      "description": "Spree::Product#backordered? returns false when there is available item in stock",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 737,
+      "description": "Spree::Product#backordered? returns true when out of stock and backorderable",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 741,
+      "description": "Spree::Product#backordered? returns false when out of stock and not backorderable",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 2182,
+      "description": "Spree::Product nested media with media model instances passes through to ActiveRecord setter",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 2165,
+      "description": "Spree::Product nested media on a new record defers attachment until after the product is saved",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 2192,
+      "description": "Spree::Product nested media with a blank array is a no-op",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 2049,
+      "description": "Spree::Product nested media on a persisted record attaches a new media item from a signed_id",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 2072,
+      "description": "Spree::Product nested media on a persisted record patches variant_ids on an existing media item",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 2091,
+      "description": "Spree::Product nested media on a persisted record adds an external video without a file",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 2085,
+      "description": "Spree::Product nested media on a persisted record rejects an unknown media type",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 2139,
+      "description": "Spree::Product nested media on a persisted record silently skips entries with neither id nor signed_id",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 2103,
+      "description": "Spree::Product nested media on a persisted record rejects an external video Spree cannot embed",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 2111,
+      "description": "Spree::Product nested media on a persisted record attaches a poster to a video through the inline path",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 2129,
+      "description": "Spree::Product nested media on a persisted record patches the focal point on an existing media item",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 2061,
+      "description": "Spree::Product nested media on a persisted record patches an existing media item by id (alt, position)",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 2151,
+      "description": "Spree::Product nested media on a persisted record preserves an existing media item omitted from the array (no implicit delete)",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 2145,
+      "description": "Spree::Product nested media on a persisted record silently skips id entries that do not match an existing media item",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 540,
+      "description": "Spree::Product assigning a product type to a persisted product keeps associations the product already had",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 547,
+      "description": "Spree::Product assigning a product type to a persisted product seeds nothing when an unrelated attribute changes",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 568,
+      "description": "Spree::Product assigning a product type to a persisted product does not seed a category from another store",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 533,
+      "description": "Spree::Product assigning a product type to a persisted product seeds the type option types and categories",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 578,
+      "description": "Spree::Product assigning a product type to a persisted product detaching the type removes nothing",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 559,
+      "description": "Spree::Product assigning a product type to a persisted product reassigning to another type seeds the new type additively and removes nothing",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 766,
+      "description": "Spree::Product#default_variant stays fixed (sticky) when other variants are added, regardless of stock",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 776,
+      "description": "Spree::Product#default_variant when the default variant is removed auto-promotes the next remaining variant",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 788,
+      "description": "Spree::Product#default_variant before the product is persisted converges delegated setters onto a single in-memory variant",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 704,
+      "description": "Spree::Product when duplicate SKUs are entered is expected to be invalid",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 1539,
+      "description": "Spree::Product#first_available_variant returns the first available variant",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 1183,
+      "description": "Spree::Product after_commit :auto_match_collections is invoked on an eligible save",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 2204,
+      "description": "Spree::Product assign_default_tax_category with explicit tax_category_id does not overwrite explicit tax_category_id",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 1670,
+      "description": "Spree::Product#lowest_price ignores a price list's rows, including its quantity breaks",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 1664,
+      "description": "Spree::Product#lowest_price returns the lowest price",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 1199,
+      "description": "Spree::Product#auto_match_collections does not enqueue when the store has no automatic collections",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 1192,
+      "description": "Spree::Product#auto_match_collections enqueues AutoMatchCollectionsJob when the store has automatic collections",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 1121,
+      "description": "Spree::Product#collection_ids= assigns collections belonging to the product store",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 1126,
+      "description": "Spree::Product#collection_ids= ignores collections from another store",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 1157,
+      "description": "Spree::Product#collection_ids= with automatic collections clears manual membership on an empty array without touching automatic",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 1148,
+      "description": "Spree::Product#collection_ids= with automatic collections ignores an automatic collection passed by hand",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 1142,
+      "description": "Spree::Product#collection_ids= with automatic collections preserves automatic membership when assigning manual collections",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 757,
+      "description": "Spree::Product#ensure_not_in_complete_orders adds error on product destroy",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": null,
+      "description": "Spree::Product behaves like lifecycle events lifecycle events product.created publishes created event when record is created",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": null,
+      "description": "Spree::Product behaves like lifecycle events lifecycle events product.updated publishes updated event when record is updated",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": null,
+      "description": "Spree::Product behaves like lifecycle events lifecycle events product.updated does not publish updated event on a bare touch",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": null,
+      "description": "Spree::Product behaves like lifecycle events lifecycle events product.deleted publishes deleted event when record is deleted",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 1277,
+      "description": "Spree::Product#to_csv when product has no variants returns an array with one line of CSV data",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 1295,
+      "description": "Spree::Product#to_csv when product has variants returns an array with CSV data for each variant including the default variant",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 1311,
+      "description": "Spree::Product#to_csv when store is not provided uses the product's own store",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 1327,
+      "description": "Spree::Product#to_csv when store has multiple currencies appends price-only rows for additional currencies",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 1362,
+      "description": "Spree::Product#to_csv when store has multiple currencies skips variants without a price in the additional currency",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 1408,
+      "description": "Spree::Product#to_csv when stock sits at several locations also covers the seller's own locations for a seller's product",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 1414,
+      "description": "Spree::Product#to_csv when stock sits at several locations covers only a seller's own locations on the seller's export",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 1404,
+      "description": "Spree::Product#to_csv when stock sits at several locations covers the marketplace's locations, the default on the full row",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 1107,
+      "description": "Spree::Product#category_ids= ignores categories belonging to another store",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 1102,
+      "description": "Spree::Product#category_ids= assigns categories belonging to the product store",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 1638,
+      "description": "Spree::Product#any_variant_available? with variants when no variants are available is expected to equal false",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 1632,
+      "description": "Spree::Product#any_variant_available? with variants when all variants are available is expected to equal true",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 1608,
+      "description": "Spree::Product#any_variant_available? without variants when default variant is available is expected to equal true",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 1614,
+      "description": "Spree::Product#any_variant_available? without variants when default variant is not available is expected to equal false",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 1092,
+      "description": "Spree::Product default store assignment store passed uses the passed store",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 1084,
+      "description": "Spree::Product default store assignment no store passed auto-assigns the default store",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 710,
+      "description": "Spree::Product#discontinue! archives the product as discontinued",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 1071,
+      "description": "Spree::Product image methods with eager loading returns correct images with storefront includes",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 729,
+      "description": "Spree::Product#discontinued? is true",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_spec.rb",
+      "line": 725,
+      "description": "Spree::Product#discontinued? is false",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 1163,
+      "description": "Spree::Variant stock movements builds out collection just fine through stock items",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": null,
+      "description": "Spree::Variant behaves like metadata reads data as not symbolized keys",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": null,
+      "description": "Spree::Variant behaves like metadata is expected to be truthy",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": null,
+      "description": "Spree::Variant behaves like metadata no longer carries the split metadata columns",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": null,
+      "description": "Spree::Variant behaves like metadata is expected to eq {}",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": null,
+      "description": "Spree::Variant behaves like metadata can query records by metadata properties",
+      "status": "pending",
+      "pending": "skipped by Spree on this database"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": null,
+      "description": "Spree::Variant behaves like metadata can query records by metadata properties",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": null,
+      "description": "Spree::Variant behaves like metadata reads data as symbolized keys",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": null,
+      "description": "Spree::Variant behaves like metadata is expected to eq ActiveSupport::HashWithIndifferentAccess",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 579,
+      "description": "Spree::Variant#set_price stores a canonical amount exactly",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 1326,
+      "description": "Spree::Variant#remove_line_items_from_incomplete_orders schedules RemoveFromIncompleteOrdersJob",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 1331,
+      "description": "Spree::Variant#remove_line_items_from_incomplete_orders deletes the line items from the order",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 1365,
+      "description": "Spree::Variant#secondary_image with images pinned to the variant returns the second image",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 1377,
+      "description": "Spree::Variant#secondary_image with product-level media linked to the variant reads the gallery rather than variant-pinned images only",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 1389,
+      "description": "Spree::Variant#additional_images returns all images except the default",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 1215,
+      "description": "Spree::Variant#discontinue! sets the discontinued",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 1221,
+      "description": "Spree::Variant#discontinue! changes updated_at",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 586,
+      "description": "Spree::Variant#weight= stores a canonical decimal exactly under a comma-decimal locale",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 1195,
+      "description": "Spree::Variant#volume reads the same numbers in inches as a larger volume",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 1189,
+      "description": "Spree::Variant#volume reports cubic meters from the recorded unit",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 1185,
+      "description": "Spree::Variant#volume is zero if any dimension parameter is zero",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 200,
+      "description": "Spree::Variant#set_stock writes the difference as an adjustment with the default reason",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 210,
+      "description": "Spree::Variant#set_stock writes nothing when the count is unchanged",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 215,
+      "description": "Spree::Variant#set_stock refuses a negative count",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 551,
+      "description": "Spree::Variant#in_stock_or_backorderable? when variant has stock items when variant stock items count_on_hand > 0 is expected to eq true",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 557,
+      "description": "Spree::Variant#in_stock_or_backorderable? when variant has stock items when variant stock items count_on_hand <= 0 is expected to eq false",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 562,
+      "description": "Spree::Variant#in_stock_or_backorderable? when variant has stock items when variant stock items count_on_hand <= 0 when variant track_inventory = false is expected to eq true",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 566,
+      "description": "Spree::Variant#in_stock_or_backorderable? when variant has stock items when variant stock items count_on_hand <= 0 when variant track_inventory = true is expected to eq false",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 571,
+      "description": "Spree::Variant#in_stock_or_backorderable? when variant has stock items when variant stock items count_on_hand <= 0 when variant track_inventory = true with some variant stock item having backorderable = true is expected to eq true",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 540,
+      "description": "Spree::Variant#in_stock_or_backorderable? when variant has no stock items is expected to eq false",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 781,
+      "description": "Spree::Variant#on_sale? when existing currency is passed checks if variant is discounted in that currency",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 798,
+      "description": "Spree::Variant#on_sale? when existing currency is passed when variant is not discounted returns false",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 790,
+      "description": "Spree::Variant#on_sale? when existing currency is passed when variant is discounted returns true",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 810,
+      "description": "Spree::Variant#on_sale? when passed currency does not exist returns false",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 502,
+      "description": "Spree::Variant product has other variants option value accessors does not duplicate associated option values when set multiple times",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 491,
+      "description": "Spree::Variant product has other variants option value accessors never attaches another store's option type of the same name",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 481,
+      "description": "Spree::Variant product has other variants option value accessors sets option value",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 682,
+      "description": "Spree::Variant#set_price updates existing base price",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 691,
+      "description": "Spree::Variant#set_price does not update price list price",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 702,
+      "description": "Spree::Variant#set_price sets compare_at_amount when provided",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 674,
+      "description": "Spree::Variant#set_price creates a base price for the currency",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 750,
+      "description": "Spree::Variant#set_price when the prices association is already loaded reflects the update in the loaded collection and price readers",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 713,
+      "description": "Spree::Variant#set_price when the amount is blank does not create a base price",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 736,
+      "description": "Spree::Variant#set_price when the amount is blank does not raise when the prices association is loaded",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 727,
+      "description": "Spree::Variant#set_price when the amount is blank leaves a price list placeholder alone",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 719,
+      "description": "Spree::Variant#set_price when the amount is blank removes an existing base price",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 108,
+      "description": "Spree::Variant after create propagate to stock items",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 113,
+      "description": "Spree::Variant after create does not propagate into another seller's location",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 126,
+      "description": "Spree::Variant after create stock location has disable propagate all variants propagate to stock items",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 174,
+      "description": "Spree::Variant after create #create_default_stock_level when tracking inventory does not create a default stock item",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 188,
+      "description": "Spree::Variant after create #create_default_stock_level existing variant creates a default stock item",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 139,
+      "description": "Spree::Variant after create #create_default_stock_level when not tracking inventory creates a default stock item",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 161,
+      "description": "Spree::Variant after create #create_default_stock_level when not tracking inventory when variant is created along with a stock item does not create an another stock item",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 1492,
+      "description": "Spree::Variant#prices= (hash array) with Price objects passes through to ActiveRecord setter",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 1478,
+      "description": "Spree::Variant#prices= (hash array) on new variant builds prices in memory and saves with variant",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 1448,
+      "description": "Spree::Variant#prices= (hash array) on persisted variant upserts prices by currency",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 1466,
+      "description": "Spree::Variant#prices= (hash array) on persisted variant clears every base price when given an empty array",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 1459,
+      "description": "Spree::Variant#prices= (hash array) on persisted variant removes base prices for unlisted currencies",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 926,
+      "description": "Spree::Variant descriptive_name without option values returns name",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 932,
+      "description": "Spree::Variant descriptive_name with option values returns options text with name",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 1028,
+      "description": "Spree::Variant#purchasable? when stock_levels are out of stock when stock item are backorderable returns true if stock_levels are backorderable",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 1002,
+      "description": "Spree::Variant#purchasable? when stock_levels are not backorderable when stock_levels in stock returns true if stock_levels in stock",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 1012,
+      "description": "Spree::Variant#purchasable? when stock_levels are not backorderable when stock_levels out of stock return false if stock_levels out of stock",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 295,
+      "description": "Spree::Variant scope .available_at_stock_location selects nothing for a value that is no ID at all",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 270,
+      "description": "Spree::Variant scope .available_at_stock_location is the variants that warehouse could send, and no others",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 291,
+      "description": "Spree::Variant scope .available_at_stock_location selects nothing for an ID belonging to another model",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 283,
+      "description": "Spree::Variant scope .available_at_stock_location drops a variant once its stock is promised to an order",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 279,
+      "description": "Spree::Variant scope .available_at_stock_location takes a raw id as readily as a prefixed one",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 341,
+      "description": "Spree::Variant scope .for_currency_and_available_price_amount when price with currency present when price has amount is expected to include #<Spree::Variant id: 2, sku: \"SKU-696\", weight: #<BigDecimal: 62.2>, height: #<BigDecimal: 158.81>, w...ton: nil, carton_package_type_id: nil, carton_weight: nil, cartons_per_pallet: nil, preferences: {}>",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 351,
+      "description": "Spree::Variant scope .for_currency_and_available_price_amount when price with currency present when price do not have amount is expected not to include #<Spree::Variant id: 2, sku: \"SKU-698\", weight: #<BigDecimal: 20.91>, height: #<BigDecimal: 95.8>, wi...ton: nil, carton_package_type_id: nil, carton_weight: nil, cartons_per_pallet: nil, preferences: {}>",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 376,
+      "description": "Spree::Variant scope .for_currency_and_available_price_amount when currency parameter is nil falls back to the default store currency",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 361,
+      "description": "Spree::Variant scope .for_currency_and_available_price_amount when price with currency not present when price has amount is expected not to include #<Spree::Variant id: 2, sku: \"SKU-702\", weight: #<BigDecimal: 76.16>, height: #<BigDecimal: 49.9>, wi...ton: nil, carton_package_type_id: nil, carton_weight: nil, cartons_per_pallet: nil, preferences: {}>",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 371,
+      "description": "Spree::Variant scope .for_currency_and_available_price_amount when price with currency not present when price do not have amount is expected not to include #<Spree::Variant id: 2, sku: \"SKU-704\", weight: #<BigDecimal: 23.87>, height: #<BigDecimal: 104.65>, ...ton: nil, carton_package_type_id: nil, carton_weight: nil, cartons_per_pallet: nil, preferences: {}>",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 460,
+      "description": "Spree::Variant scope .active returns variants that are not discontinued, not deleted and priced in the currency",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 431,
+      "description": "Spree::Variant scope .search returns none for blank queries",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 440,
+      "description": "Spree::Variant scope .search returns each matching variant exactly once even with multiple matching option values",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 421,
+      "description": "Spree::Variant scope .search matches by option-value presentation",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 417,
+      "description": "Spree::Variant scope .search matches by parent product name (case-insensitive)",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 412,
+      "description": "Spree::Variant scope .search matches by SKU substring",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 448,
+      "description": "Spree::Variant scope .search escapes LIKE wildcards in the query",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 436,
+      "description": "Spree::Variant scope .search returns none for queries under the 3-char floor",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 324,
+      "description": "Spree::Variant scope .not_deleted when deleted is expected not to include #<Spree::Variant id: 2, sku: \"SKU-727\", weight: #<BigDecimal: 98.85>, height: #<BigDecimal: 3.7>, wid...ton: nil, carton_package_type_id: nil, carton_weight: nil, cartons_per_pallet: nil, preferences: {}>",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 330,
+      "description": "Spree::Variant scope .not_deleted when not deleted is expected to include #<Spree::Variant id: 2, sku: \"SKU-729\", weight: #<BigDecimal: 185.3>, height: #<BigDecimal: 173.9>, w...ton: nil, carton_package_type_id: nil, carton_weight: nil, cartons_per_pallet: nil, preferences: {}>",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 310,
+      "description": "Spree::Variant scope .not_discontinued when not discontinued is expected to include #<Spree::Variant id: 2, sku: \"SKU-731\", weight: #<BigDecimal: 6.93>, height: #<BigDecimal: 132.27>, w...ton: nil, carton_package_type_id: nil, carton_weight: nil, cartons_per_pallet: nil, preferences: {}>",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 316,
+      "description": "Spree::Variant scope .not_discontinued when discontinue_on not present is expected to include #<Spree::Variant id: 2, sku: \"SKU-733\", weight: #<BigDecimal: 173.72>, height: #<BigDecimal: 158.65>,...ton: nil, carton_package_type_id: nil, carton_weight: nil, cartons_per_pallet: nil, preferences: {}>",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 304,
+      "description": "Spree::Variant scope .not_discontinued when discontinued is expected not to include #<Spree::Variant id: 2, sku: \"SKU-735\", weight: #<BigDecimal: 129.53>, height: #<BigDecimal: 104.81>,...ton: nil, carton_package_type_id: nil, carton_weight: nil, cartons_per_pallet: nil, preferences: {}>",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 630,
+      "description": "Spree::Variant#price_in when currency is USD returns the value in the USD",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 622,
+      "description": "Spree::Variant#price_in when currency is EUR returns the value in the EUR",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 655,
+      "description": "Spree::Variant#price_in when price exists in a price list does not return price list price",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 664,
+      "description": "Spree::Variant#price_in when price exists in a price list when base price also exists returns the base price, not the price list price",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 614,
+      "description": "Spree::Variant#price_in when currency is not specified returns 0",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 642,
+      "description": "Spree::Variant#price_in when there is no price with present amount in given currency returns 0",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 11,
+      "description": "Spree::Variant validations rejects a negative price",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 92,
+      "description": "Spree::Variant validations validates the weight unit",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 15,
+      "description": "Spree::Variant validations allows a price of 0",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 80,
+      "description": "Spree::Variant validations validates the dimensions unit",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 68,
+      "description": "Spree::Variant validations SKU disabled validation valid with the same SKU",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 72,
+      "description": "Spree::Variant validations SKU disabled validation valid without SKU",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 22,
+      "description": "Spree::Variant validations SKU normalizes strips leading and trailing whitespace",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 27,
+      "description": "Spree::Variant validations SKU normalizes preserves empty string (does not convert to nil)",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 49,
+      "description": "Spree::Variant validations SKU default behaviour valid without SKU",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 45,
+      "description": "Spree::Variant validations SKU default behaviour valid with different SKU",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 37,
+      "description": "Spree::Variant validations SKU default behaviour invalid with the same SKU",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 1311,
+      "description": "Spree::Variant#ensure_not_in_complete_orders adds error on variant destroy",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 1399,
+      "description": "Spree::Variant#has_images? when variant has no images returns false",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 1424,
+      "description": "Spree::Variant#has_images? when images are preloaded but empty returns false",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 1415,
+      "description": "Spree::Variant#has_images? when images are preloaded uses loaded association",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 1407,
+      "description": "Spree::Variant#has_images? when variant has images returns true",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 1206,
+      "description": "Spree::Variant#dimension return the dimension if the dimension parameters are different of zero",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 909,
+      "description": "Spree::Variant exchange_name with option values returns options text",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 903,
+      "description": "Spree::Variant exchange_name without option values returns name",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 826,
+      "description": "Spree::Variant.amount_in when currency is not specified returns nil",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 842,
+      "description": "Spree::Variant.amount_in when currency is USD returns the value in the USD",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 834,
+      "description": "Spree::Variant.amount_in when currency is EUR returns the value in the EUR",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 856,
+      "description": "Spree::Variant#options returns an array of hashes with option type name, value, and presentation ordered by option type position",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 1599,
+      "description": "Spree::Variant#options= defers when product is nil",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 1583,
+      "description": "Spree::Variant#options= calls set_option_value for each option hash",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 1591,
+      "description": "Spree::Variant#options= skips options with blank name or value",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 1169,
+      "description": "Spree::Variant in_stock scope returns all in stock variants",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 229,
+      "description": "Spree::Variant after_update_commit :handle_track_inventory_change when not tracking inventory updates stock level count on hand to 0",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 235,
+      "description": "Spree::Variant after_update_commit :handle_track_inventory_change when not tracking inventory records the write-off as an adjustment",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 249,
+      "description": "Spree::Variant after_update_commit :handle_track_inventory_change when tracking inventory keeps stock items",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 1132,
+      "description": "Spree::Variant#should_track_inventory? does not track inventory when global setting is off",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 1144,
+      "description": "Spree::Variant#should_track_inventory? tracks inventory when global and variant are on",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 1138,
+      "description": "Spree::Variant#should_track_inventory? does not track inventory when variant is turned off",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 1437,
+      "description": "Spree::Variant counter cache variant_count on product decrements when a variant is destroyed",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 525,
+      "description": "Spree::Variant#cost_price= keeps the value when given a blank",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 519,
+      "description": "Spree::Variant#cost_price= stores a canonical decimal exactly under a comma-decimal locale",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 1236,
+      "description": "Spree::Variant#discontinued? is true",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 1232,
+      "description": "Spree::Variant#discontinued? is false",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 1262,
+      "description": "Spree::Variant#available? when discontinued when product is not available is expected to equal false",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 1254,
+      "description": "Spree::Variant#available? when discontinued when product is available is expected to equal false",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 1276,
+      "description": "Spree::Variant#available? when not discontinued when product is available is expected to equal true",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 1284,
+      "description": "Spree::Variant#available? when not discontinued when product is not available is expected to equal false",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 1154,
+      "description": "Spree::Variant deleted_at scope has a price if deleted",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 1047,
+      "description": "Spree::Variant#tax_category when tax_category is nil returns the parent products tax_category",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 1056,
+      "description": "Spree::Variant#tax_category when tax_category is set returns the tax_category set on itself",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 1088,
+      "description": "Spree::Variant#tax_category when tax category is deleted also in product with default tax category returns the default tax category",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 1100,
+      "description": "Spree::Variant#tax_category when tax category is deleted also in product without default tax category returns nil",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 1069,
+      "description": "Spree::Variant#tax_category when tax category is deleted returns the parent products tax_category",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 1108,
+      "description": "Spree::Variant touching updates a product",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 1122,
+      "description": "Spree::Variant touching when unlinking an option value touches variant",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 1610,
+      "description": "Spree::Variant customs classification is valid without any customs data",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 1617,
+      "description": "Spree::Variant customs classification strips non-digits from the hs code",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 1631,
+      "description": "Spree::Variant customs classification rejects an hs code shorter than six digits",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 1638,
+      "description": "Spree::Variant customs classification rejects an hs code longer than thirteen digits",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 1624,
+      "description": "Spree::Variant customs classification upcases the country of origin",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 1645,
+      "description": "Spree::Variant customs classification rejects a country of origin that is not a two-letter code",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 1659,
+      "description": "Spree::Variant customs classification #customs_description_for_declaration falls back to the product name",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 1653,
+      "description": "Spree::Variant customs classification #customs_description_for_declaration prefers the explicit customs description",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 1344,
+      "description": "Spree::Variant#primary_media when variant has images returns the first image",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 1350,
+      "description": "Spree::Variant#primary_media when variant has no images returns nil",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": null,
+      "description": "Spree::Variant behaves like lifecycle events lifecycle events variant.updated publishes updated event when record is updated",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": null,
+      "description": "Spree::Variant behaves like lifecycle events lifecycle events variant.updated does not publish updated event on a bare touch",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": null,
+      "description": "Spree::Variant behaves like lifecycle events lifecycle events variant.deleted publishes deleted event when record is deleted",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": null,
+      "description": "Spree::Variant behaves like lifecycle events lifecycle events variant.created publishes created event when record is created",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 1036,
+      "description": "Spree::Variant#total_on_hand is infinite if track_inventory_levels is false",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 1572,
+      "description": "Spree::Variant#stock_levels= (hash array) does not write it through stock_levels_attributes= either",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 1563,
+      "description": "Spree::Variant#stock_levels= (hash array) does not write stock into a stock location belonging to another store",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 1553,
+      "description": "Spree::Variant#stock_levels= (hash array) skips a stock location id that does not resolve",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 1540,
+      "description": "Spree::Variant#stock_levels= (hash array) on new variant defers stock_levels creation to after_create",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 1515,
+      "description": "Spree::Variant#stock_levels= (hash array) on persisted variant accepts prefixed IDs for stock_location_id",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 1505,
+      "description": "Spree::Variant#stock_levels= (hash array) on persisted variant upserts stock by location",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 1524,
+      "description": "Spree::Variant#stock_levels= (hash array) on persisted variant soft-deletes stock items for unlisted locations",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 597,
+      "description": "Spree::Variant#cost_currency when cost currency is nil populates cost currency with the default value on save",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 980,
+      "description": "Spree::Variant#in_stock? when stock_levels are backorderable when stock_levels out of stock in_stock? returns false",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 984,
+      "description": "Spree::Variant#in_stock? when stock_levels are backorderable when stock_levels out of stock can_supply? return true",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 964,
+      "description": "Spree::Variant#in_stock? when stock_levels are not backorderable when stock_levels out of stock return false if stock_levels out of stock",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 953,
+      "description": "Spree::Variant#in_stock? when stock_levels are not backorderable when stock_levels in stock returns true if stock_levels in stock",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 1296,
+      "description": "Spree::Variant#backordered? returns false when out of stock and not backorderable",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 1301,
+      "description": "Spree::Variant#backordered? returns false when there is available item in stock",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 1292,
+      "description": "Spree::Variant#backordered? returns true when out of stock and backorderable",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 878,
+      "description": "Spree::Variant#options_text when the variant has no option values returns an empty string",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/variant_spec.rb",
+      "line": 886,
+      "description": "Spree::Variant#options_text when the variant has option values returns the options text of the variant",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_type_spec.rb",
+      "line": 27,
+      "description": "Spree::ProductType deletion destroys its joins when unused",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_type_spec.rb",
+      "line": 19,
+      "description": "Spree::ProductType deletion is restricted while products use the type",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_type_spec.rb",
+      "line": 69,
+      "description": "Spree::ProductType#custom_field_definitions= keeps the existing joins when a definition is not for products",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_type_spec.rb",
+      "line": 51,
+      "description": "Spree::ProductType#custom_field_definitions= keeps the existing joins when the payload names an unknown definition",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_type_spec.rb",
+      "line": 43,
+      "description": "Spree::ProductType#custom_field_definitions= replaces the set",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_type_spec.rb",
+      "line": 60,
+      "description": "Spree::ProductType#custom_field_definitions= refuses a definition owned by another store",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_type_spec.rb",
+      "line": 7,
+      "description": "Spree::ProductType delivery profile template stamps its profile onto products at creation",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_type_spec.rb",
+      "line": null,
+      "description": "Spree::ProductType behaves like metadata is expected to eq ActiveSupport::HashWithIndifferentAccess",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_type_spec.rb",
+      "line": null,
+      "description": "Spree::ProductType behaves like metadata is expected to eq {}",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_type_spec.rb",
+      "line": null,
+      "description": "Spree::ProductType behaves like metadata is expected to be truthy",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_type_spec.rb",
+      "line": null,
+      "description": "Spree::ProductType behaves like metadata can query records by metadata properties",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_type_spec.rb",
+      "line": null,
+      "description": "Spree::ProductType behaves like metadata reads data as not symbolized keys",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_type_spec.rb",
+      "line": null,
+      "description": "Spree::ProductType behaves like metadata reads data as symbolized keys",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/product_type_spec.rb",
+      "line": null,
+      "description": "Spree::ProductType behaves like metadata can query records by metadata properties",
+      "status": "pending",
+      "pending": "skipped by Spree on this database"
+    },
+    {
+      "file": "spec/models/spree/product_type_spec.rb",
+      "line": null,
+      "description": "Spree::ProductType behaves like metadata no longer carries the split metadata columns",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/option_type_spec.rb",
+      "line": 101,
+      "description": "Spree::OptionType#color_swatch? returns false when kind is dropdown",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/option_type_spec.rb",
+      "line": 96,
+      "description": "Spree::OptionType#color_swatch? returns true when kind is color_swatch",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/option_type_spec.rb",
+      "line": null,
+      "description": "Spree::OptionType behaves like metadata is expected to be truthy",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/option_type_spec.rb",
+      "line": null,
+      "description": "Spree::OptionType behaves like metadata can query records by metadata properties",
+      "status": "pending",
+      "pending": "skipped by Spree on this database"
+    },
+    {
+      "file": "spec/models/spree/option_type_spec.rb",
+      "line": null,
+      "description": "Spree::OptionType behaves like metadata no longer carries the split metadata columns",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/option_type_spec.rb",
+      "line": null,
+      "description": "Spree::OptionType behaves like metadata is expected to eq {}",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/option_type_spec.rb",
+      "line": null,
+      "description": "Spree::OptionType behaves like metadata can query records by metadata properties",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/option_type_spec.rb",
+      "line": null,
+      "description": "Spree::OptionType behaves like metadata is expected to eq ActiveSupport::HashWithIndifferentAccess",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/option_type_spec.rb",
+      "line": null,
+      "description": "Spree::OptionType behaves like metadata reads data as symbolized keys",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/option_type_spec.rb",
+      "line": null,
+      "description": "Spree::OptionType behaves like metadata reads data as not symbolized keys",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/option_type_spec.rb",
+      "line": 127,
+      "description": "Spree::OptionType#option_values= on a new option type persists option values when the parent is saved",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/option_type_spec.rb",
+      "line": 173,
+      "description": "Spree::OptionType#option_values= on a persisted option type destroys all values when given an empty array",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/option_type_spec.rb",
+      "line": 144,
+      "description": "Spree::OptionType#option_values= on a persisted option type updates existing values matched by id on save",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/option_type_spec.rb",
+      "line": 150,
+      "description": "Spree::OptionType#option_values= on a persisted option type renames a value when name is sent with its id (id-based matching)",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/option_type_spec.rb",
+      "line": 156,
+      "description": "Spree::OptionType#option_values= on a persisted option type creates new values when id is absent",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/option_type_spec.rb",
+      "line": 183,
+      "description": "Spree::OptionType#option_values= on a persisted option type returns false from save and surfaces validation errors when option values are invalid",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/option_type_spec.rb",
+      "line": 166,
+      "description": "Spree::OptionType#option_values= on a persisted option type destroys values not referenced in the payload",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/option_type_spec.rb",
+      "line": 178,
+      "description": "Spree::OptionType#option_values= on a persisted option type leaves values untouched when the writer is not called",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/option_type_spec.rb",
+      "line": 81,
+      "description": "Spree::OptionType kind validates inclusion in KINDS",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/option_type_spec.rb",
+      "line": 87,
+      "description": "Spree::OptionType kind allows dropdown, color_swatch, and buttons",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/option_type_spec.rb",
+      "line": 57,
+      "description": "Spree::OptionType translations with always_use_translations enabled creates option type with normalized label without NotNullViolation",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/option_type_spec.rb",
+      "line": 64,
+      "description": "Spree::OptionType translations with always_use_translations enabled normalizes translated labels across locales",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/option_type_spec.rb",
+      "line": 32,
+      "description": "Spree::OptionType translations #label returns the translated label for a different locale",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/option_type_spec.rb",
+      "line": 28,
+      "description": "Spree::OptionType translations #label returns the translated label for the current locale",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/option_type_spec.rb",
+      "line": 38,
+      "description": "Spree::OptionType translations #label sets the translated label",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/option_type_spec.rb",
+      "line": 224,
+      "description": "Spree::OptionType attaching to a product accepts the product's own store's option type",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/option_type_spec.rb",
+      "line": 218,
+      "description": "Spree::OptionType attaching to a product refuses another store's option type",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/option_type_spec.rb",
+      "line": 206,
+      "description": "Spree::OptionType the deprecated presentation reader writes the label",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/option_type_spec.rb",
+      "line": 200,
+      "description": "Spree::OptionType the deprecated presentation reader reads the label",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/option_type_spec.rb",
+      "line": 10,
+      "description": "Spree::OptionType callbacks #normalize_name should parameterize the name",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/option_type_spec.rb",
+      "line": 116,
+      "description": "Spree::OptionType touching touches a product on touch",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/option_type_spec.rb",
+      "line": 120,
+      "description": "Spree::OptionType touching touches a product on update",
+      "status": "passed"
+    }
+  ]
+}

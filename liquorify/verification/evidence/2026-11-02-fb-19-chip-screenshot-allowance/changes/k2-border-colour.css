@@ -1,0 +1,2 @@
+/* k2: the chips' border colour, white at 16 % opacity raised to 20 % */
+.dark button.rounded-full.text-xs { border-color: oklch(1 0 0 / 20%) !important; }

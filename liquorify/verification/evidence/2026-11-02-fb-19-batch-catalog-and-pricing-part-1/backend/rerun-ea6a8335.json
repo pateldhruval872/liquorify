@@ -1,0 +1,257 @@
+{
+  "revision": "ea6a8335",
+  "spree_code": "ea6a8335, which is main at 739e0ea2: 01a0365 with #30 and #10",
+  "database": "SQLite",
+  "engines": [
+    {
+      "engine": "spree/api",
+      "rspec": "3.13.6",
+      "seed": 51205,
+      "summary": {
+        "example_count": 473,
+        "failure_count": 0,
+        "pending_count": 0,
+        "errors_outside_of_examples_count": 0
+      },
+      "same_examples_and_results_as": "api-specs.json, at 01a0365",
+      "files": [
+        {
+          "file": "spec/controllers/spree/api/v3/admin/files_controller_spec.rb",
+          "examples": 10,
+          "pending": 0,
+          "failed": 0
+        },
+        {
+          "file": "spec/controllers/spree/api/v3/admin/media_library_controller_spec.rb",
+          "examples": 23,
+          "pending": 0,
+          "failed": 0
+        },
+        {
+          "file": "spec/controllers/spree/api/v3/admin/option_types_controller_spec.rb",
+          "examples": 10,
+          "pending": 0,
+          "failed": 0
+        },
+        {
+          "file": "spec/controllers/spree/api/v3/admin/prices_controller_spec.rb",
+          "examples": 34,
+          "pending": 0,
+          "failed": 0
+        },
+        {
+          "file": "spec/controllers/spree/api/v3/admin/product_types_controller_spec.rb",
+          "examples": 8,
+          "pending": 0,
+          "failed": 0
+        },
+        {
+          "file": "spec/controllers/spree/api/v3/admin/products/digital_assets_controller_spec.rb",
+          "examples": 23,
+          "pending": 0,
+          "failed": 0
+        },
+        {
+          "file": "spec/controllers/spree/api/v3/admin/products/media_controller_spec.rb",
+          "examples": 36,
+          "pending": 0,
+          "failed": 0
+        },
+        {
+          "file": "spec/controllers/spree/api/v3/admin/products/media_signed_id_spec.rb",
+          "examples": 1,
+          "pending": 0,
+          "failed": 0
+        },
+        {
+          "file": "spec/controllers/spree/api/v3/admin/products/variants_controller_spec.rb",
+          "examples": 23,
+          "pending": 0,
+          "failed": 0
+        },
+        {
+          "file": "spec/controllers/spree/api/v3/admin/products_controller_spec.rb",
+          "examples": 158,
+          "pending": 0,
+          "failed": 0
+        },
+        {
+          "file": "spec/controllers/spree/api/v3/admin/stock_levels_controller_spec.rb",
+          "examples": 27,
+          "pending": 0,
+          "failed": 0
+        },
+        {
+          "file": "spec/controllers/spree/api/v3/admin/tags_controller_spec.rb",
+          "examples": 7,
+          "pending": 0,
+          "failed": 0
+        },
+        {
+          "file": "spec/controllers/spree/api/v3/admin/translations/batches_controller_spec.rb",
+          "examples": 6,
+          "pending": 0,
+          "failed": 0
+        },
+        {
+          "file": "spec/controllers/spree/api/v3/admin/translations_controller_spec.rb",
+          "examples": 8,
+          "pending": 0,
+          "failed": 0
+        },
+        {
+          "file": "spec/controllers/spree/api/v3/admin/variants_controller_spec.rb",
+          "examples": 11,
+          "pending": 0,
+          "failed": 0
+        },
+        {
+          "file": "spec/integration/spree/api/v3/admin/files_spec.rb",
+          "examples": 2,
+          "pending": 0,
+          "failed": 0
+        },
+        {
+          "file": "spec/integration/spree/api/v3/admin/media_spec.rb",
+          "examples": 8,
+          "pending": 0,
+          "failed": 0
+        },
+        {
+          "file": "spec/integration/spree/api/v3/admin/option_types_spec.rb",
+          "examples": 9,
+          "pending": 0,
+          "failed": 0
+        },
+        {
+          "file": "spec/integration/spree/api/v3/admin/prices_spec.rb",
+          "examples": 9,
+          "pending": 0,
+          "failed": 0
+        },
+        {
+          "file": "spec/integration/spree/api/v3/admin/product_types_spec.rb",
+          "examples": 9,
+          "pending": 0,
+          "failed": 0
+        },
+        {
+          "file": "spec/integration/spree/api/v3/admin/products/custom_fields_spec.rb",
+          "examples": 6,
+          "pending": 0,
+          "failed": 0
+        },
+        {
+          "file": "spec/integration/spree/api/v3/admin/products/digital_assets_spec.rb",
+          "examples": 3,
+          "pending": 0,
+          "failed": 0
+        },
+        {
+          "file": "spec/integration/spree/api/v3/admin/products/translations_spec.rb",
+          "examples": 1,
+          "pending": 0,
+          "failed": 0
+        },
+        {
+          "file": "spec/integration/spree/api/v3/admin/products_spec.rb",
+          "examples": 25,
+          "pending": 0,
+          "failed": 0
+        },
+        {
+          "file": "spec/integration/spree/api/v3/admin/stock_levels_spec.rb",
+          "examples": 4,
+          "pending": 0,
+          "failed": 0
+        },
+        {
+          "file": "spec/integration/spree/api/v3/admin/tags_spec.rb",
+          "examples": 2,
+          "pending": 0,
+          "failed": 0
+        },
+        {
+          "file": "spec/integration/spree/api/v3/admin/translations/batch_spec.rb",
+          "examples": 2,
+          "pending": 0,
+          "failed": 0
+        },
+        {
+          "file": "spec/integration/spree/api/v3/admin/variants_spec.rb",
+          "examples": 8,
+          "pending": 0,
+          "failed": 0
+        }
+      ]
+    },
+    {
+      "engine": "spree/core",
+      "rspec": "3.13.6",
+      "seed": 30411,
+      "summary": {
+        "example_count": 624,
+        "failure_count": 0,
+        "pending_count": 6,
+        "errors_outside_of_examples_count": 0
+      },
+      "same_examples_and_results_as": "core-specs.json, at 01a0365",
+      "files": [
+        {
+          "file": "spec/models/spree/digital_asset_spec.rb",
+          "examples": 25,
+          "pending": 0,
+          "failed": 0
+        },
+        {
+          "file": "spec/models/spree/media_spec.rb",
+          "examples": 78,
+          "pending": 1,
+          "failed": 0
+        },
+        {
+          "file": "spec/models/spree/option_type_spec.rb",
+          "examples": 32,
+          "pending": 1,
+          "failed": 0
+        },
+        {
+          "file": "spec/models/spree/option_value_spec.rb",
+          "examples": 16,
+          "pending": 1,
+          "failed": 0
+        },
+        {
+          "file": "spec/models/spree/price_spec.rb",
+          "examples": 54,
+          "pending": 0,
+          "failed": 0
+        },
+        {
+          "file": "spec/models/spree/product_publication_spec.rb",
+          "examples": 8,
+          "pending": 0,
+          "failed": 0
+        },
+        {
+          "file": "spec/models/spree/product_spec.rb",
+          "examples": 222,
+          "pending": 1,
+          "failed": 0
+        },
+        {
+          "file": "spec/models/spree/product_type_spec.rb",
+          "examples": 15,
+          "pending": 1,
+          "failed": 0
+        },
+        {
+          "file": "spec/models/spree/variant_spec.rb",
+          "examples": 174,
+          "pending": 1,
+          "failed": 0
+        }
+      ]
+    }
+  ]
+}

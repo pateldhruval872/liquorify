@@ -1,0 +1,2 @@
+/* k1: the chips' background, the dark background token raised by 1 % lightness */
+.dark button.rounded-full.text-xs { background-color: oklch(from var(--background) calc(l + 0.01) c h) !important; }

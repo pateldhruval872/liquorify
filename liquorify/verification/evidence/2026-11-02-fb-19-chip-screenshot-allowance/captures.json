@@ -1,0 +1,288 @@
+{
+ "k1-background": {
+  "dashboard-core-product-form-variants-section--seeded-from-type/light.png": {
+   "identical": true,
+   "counted": 0,
+   "failsAt25": false,
+   "failsAt60": false
+  },
+  "dashboard-core-product-form-variants-section--seeded-from-type/dark.png": {
+   "identical": false,
+   "counted": 5198,
+   "failsAt25": true,
+   "failsAt60": true
+  },
+  "dashboard-core-product-form-variants-options-builder--awaiting-values/light.png": {
+   "identical": true,
+   "counted": 0,
+   "failsAt25": false,
+   "failsAt60": false
+  },
+  "dashboard-core-product-form-variants-options-builder--awaiting-values/dark.png": {
+   "identical": false,
+   "counted": 4050,
+   "failsAt25": true,
+   "failsAt60": true
+  }
+ },
+ "k2-border-colour": {
+  "dashboard-core-product-form-variants-section--seeded-from-type/light.png": {
+   "identical": true,
+   "counted": 0,
+   "failsAt25": false,
+   "failsAt60": false
+  },
+  "dashboard-core-product-form-variants-section--seeded-from-type/dark.png": {
+   "identical": false,
+   "counted": 392,
+   "failsAt25": true,
+   "failsAt60": true
+  },
+  "dashboard-core-product-form-variants-options-builder--awaiting-values/light.png": {
+   "identical": true,
+   "counted": 0,
+   "failsAt25": false,
+   "failsAt60": false
+  },
+  "dashboard-core-product-form-variants-options-builder--awaiting-values/dark.png": {
+   "identical": false,
+   "counted": 301,
+   "failsAt25": true,
+   "failsAt60": true
+  }
+ },
+ "k3-text-colour": {
+  "dashboard-core-product-form-variants-section--seeded-from-type/light.png": {
+   "identical": true,
+   "counted": 0,
+   "failsAt25": false,
+   "failsAt60": false
+  },
+  "dashboard-core-product-form-variants-section--seeded-from-type/dark.png": {
+   "identical": false,
+   "counted": 608,
+   "failsAt25": true,
+   "failsAt60": true
+  },
+  "dashboard-core-product-form-variants-options-builder--awaiting-values/light.png": {
+   "identical": true,
+   "counted": 0,
+   "failsAt25": false,
+   "failsAt60": false
+  },
+  "dashboard-core-product-form-variants-options-builder--awaiting-values/dark.png": {
+   "identical": false,
+   "counted": 353,
+   "failsAt25": true,
+   "failsAt60": true
+  }
+ },
+ "k4-no-border": {
+  "dashboard-core-product-form-variants-section--seeded-from-type/light.png": {
+   "identical": true,
+   "counted": 0,
+   "failsAt25": false,
+   "failsAt60": false
+  },
+  "dashboard-core-product-form-variants-section--seeded-from-type/dark.png": {
+   "identical": false,
+   "counted": 10385,
+   "failsAt25": true,
+   "failsAt60": true
+  },
+  "dashboard-core-product-form-variants-options-builder--awaiting-values/light.png": {
+   "identical": true,
+   "counted": 0,
+   "failsAt25": false,
+   "failsAt60": false
+  },
+  "dashboard-core-product-form-variants-options-builder--awaiting-values/dark.png": {
+   "identical": false,
+   "counted": 5740,
+   "failsAt25": true,
+   "failsAt60": true
+  }
+ },
+ "k5-radius": {
+  "dashboard-core-product-form-variants-section--seeded-from-type/light.png": {
+   "identical": true,
+   "counted": 0,
+   "failsAt25": false,
+   "failsAt60": false
+  },
+  "dashboard-core-product-form-variants-section--seeded-from-type/dark.png": {
+   "identical": false,
+   "counted": 561,
+   "failsAt25": true,
+   "failsAt60": true
+  },
+  "dashboard-core-product-form-variants-options-builder--awaiting-values/light.png": {
+   "identical": true,
+   "counted": 0,
+   "failsAt25": false,
+   "failsAt60": false
+  },
+  "dashboard-core-product-form-variants-options-builder--awaiting-values/dark.png": {
+   "identical": false,
+   "counted": 562,
+   "failsAt25": true,
+   "failsAt60": true
+  }
+ },
+ "k6-dashed-to-solid": {
+  "dashboard-core-product-form-variants-section--seeded-from-type/light.png": {
+   "identical": true,
+   "counted": 0,
+   "failsAt25": false,
+   "failsAt60": false
+  },
+  "dashboard-core-product-form-variants-section--seeded-from-type/dark.png": {
+   "identical": false,
+   "counted": 113,
+   "failsAt25": true,
+   "failsAt60": true
+  },
+  "dashboard-core-product-form-variants-options-builder--awaiting-values/light.png": {
+   "identical": true,
+   "counted": 0,
+   "failsAt25": false,
+   "failsAt60": false
+  },
+  "dashboard-core-product-form-variants-options-builder--awaiting-values/dark.png": {
+   "identical": false,
+   "counted": 80,
+   "failsAt25": true,
+   "failsAt60": true
+  }
+ },
+ "k7-padding": {
+  "dashboard-core-product-form-variants-section--seeded-from-type/light.png": {
+   "identical": true,
+   "counted": 0,
+   "failsAt25": false,
+   "failsAt60": false
+  },
+  "dashboard-core-product-form-variants-section--seeded-from-type/dark.png": {
+   "identical": false,
+   "counted": 1681,
+   "failsAt25": true,
+   "failsAt60": true
+  },
+  "dashboard-core-product-form-variants-options-builder--awaiting-values/light.png": {
+   "identical": true,
+   "counted": 0,
+   "failsAt25": false,
+   "failsAt60": false
+  },
+  "dashboard-core-product-form-variants-options-builder--awaiting-values/dark.png": {
+   "identical": false,
+   "counted": 1338,
+   "failsAt25": true,
+   "failsAt60": true
+  }
+ },
+ "k8-gap": {
+  "dashboard-core-product-form-variants-section--seeded-from-type/light.png": {
+   "identical": true,
+   "counted": 0,
+   "failsAt25": false,
+   "failsAt60": false
+  },
+  "dashboard-core-product-form-variants-section--seeded-from-type/dark.png": {
+   "identical": false,
+   "counted": 1152,
+   "failsAt25": true,
+   "failsAt60": true
+  },
+  "dashboard-core-product-form-variants-options-builder--awaiting-values/light.png": {
+   "identical": true,
+   "counted": 0,
+   "failsAt25": false,
+   "failsAt60": false
+  },
+  "dashboard-core-product-form-variants-options-builder--awaiting-values/dark.png": {
+   "identical": false,
+   "counted": 909,
+   "failsAt25": true,
+   "failsAt60": true
+  }
+ },
+ "k9-shift": {
+  "dashboard-core-product-form-variants-section--seeded-from-type/light.png": {
+   "identical": true,
+   "counted": 0,
+   "failsAt25": false,
+   "failsAt60": false
+  },
+  "dashboard-core-product-form-variants-section--seeded-from-type/dark.png": {
+   "identical": false,
+   "counted": 1556,
+   "failsAt25": true,
+   "failsAt60": true
+  },
+  "dashboard-core-product-form-variants-options-builder--awaiting-values/light.png": {
+   "identical": true,
+   "counted": 0,
+   "failsAt25": false,
+   "failsAt60": false
+  },
+  "dashboard-core-product-form-variants-options-builder--awaiting-values/dark.png": {
+   "identical": false,
+   "counted": 1029,
+   "failsAt25": true,
+   "failsAt60": true
+  }
+ },
+ "unchanged-1": {
+  "dashboard-core-product-form-variants-section--seeded-from-type/light.png": {
+   "identical": true,
+   "counted": 0,
+   "failsAt25": false,
+   "failsAt60": false
+  },
+  "dashboard-core-product-form-variants-section--seeded-from-type/dark.png": {
+   "identical": false,
+   "counted": 37,
+   "failsAt25": true,
+   "failsAt60": false
+  },
+  "dashboard-core-product-form-variants-options-builder--awaiting-values/light.png": {
+   "identical": true,
+   "counted": 0,
+   "failsAt25": false,
+   "failsAt60": false
+  },
+  "dashboard-core-product-form-variants-options-builder--awaiting-values/dark.png": {
+   "identical": false,
+   "counted": 1,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "unchanged-2": {
+  "dashboard-core-product-form-variants-section--seeded-from-type/light.png": {
+   "identical": true,
+   "counted": 0,
+   "failsAt25": false,
+   "failsAt60": false
+  },
+  "dashboard-core-product-form-variants-section--seeded-from-type/dark.png": {
+   "identical": false,
+   "counted": 37,
+   "failsAt25": true,
+   "failsAt60": false
+  },
+  "dashboard-core-product-form-variants-options-builder--awaiting-values/light.png": {
+   "identical": true,
+   "counted": 0,
+   "failsAt25": false,
+   "failsAt60": false
+  },
+  "dashboard-core-product-form-variants-options-builder--awaiting-values/dark.png": {
+   "identical": true,
+   "counted": 0,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ }
+}

@@ -1,0 +1,25 @@
+{
+  "screen": "DA-PRD-02",
+  "state": "empty",
+  "variant": "merchandiser",
+  "role": {
+    "name": "Merchandiser",
+    "permissions": [
+      "write_products",
+      "write_categories",
+      "write_collections",
+      "write_stock"
+    ]
+  },
+  "theme": "light",
+  "revision": "db550f1d",
+  "path": "/<store>/products/new",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": null,
+  "masked": null,
+  "settled": true,
+  "outside": []
+}

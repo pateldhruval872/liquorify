@@ -679,6 +679,9 @@ importers:
 
   packages/liquorify-storybook:
     devDependencies:
+      '@hookform/resolvers':
+        specifier: ^5.9.1
+        version: 5.9.1(@standard-schema/spec@1.1.0)(ajv-formats@2.1.1(ajv@8.20.0))(ajv@8.20.0)(react-hook-form@7.90.0(@types/react@19.3.0)(react@19.3.1))(zod@4.6.7)
       '@playwright/test':
         specifier: 1.64.1
         version: 1.64.1
