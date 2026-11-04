@@ -1,0 +1,26 @@
+{
+  "test": "bulk-add-to-collection",
+  "revision": "f1e947a0",
+  "stamp": "mw1y3z4t",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "chose two products",
+      "chosen": [
+        "P8 Fir mw1y3z4t",
+        "P8 Gorse mw1y3z4t"
+      ]
+    },
+    {
+      "step": "added them to P8 Collection mw1y3z4t"
+    },
+    {
+      "step": "opened the collection and reloaded it",
+      "products": [
+        "P8 Fir mw1y3z4t",
+        "P8 Gorse mw1y3z4t"
+      ]
+    }
+  ],
+  "outside": []
+}

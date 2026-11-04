@@ -1,0 +1,27 @@
+{
+  "test": "search-engine-card",
+  "revision": "f1e947a0",
+  "stamp": "mw1y3z4t",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "opened the product",
+      "slug": "p8-ivy-mw1y3z4t",
+      "metaTitle": "",
+      "metaDescription": ""
+    },
+    {
+      "step": "changed all three and saved",
+      "slug": "p8-ivy-for-search-mw1y3z4t",
+      "title": "Ivy, poured by hand mw1y3z4t",
+      "description": "A description for search engines, written in P8 run mw1y3z4t."
+    },
+    {
+      "step": "reloaded",
+      "slug": "p8-ivy-for-search-mw1y3z4t",
+      "metaTitle": "Ivy, poured by hand mw1y3z4t",
+      "metaDescription": "A description for search engines, written in P8 run mw1y3z4t."
+    }
+  ],
+  "outside": []
+}

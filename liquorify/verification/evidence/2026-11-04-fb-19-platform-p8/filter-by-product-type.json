@@ -1,0 +1,33 @@
+{
+  "test": "filter-by-product-type",
+  "revision": "f1e947a0",
+  "stamp": "mw1y3z4t",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "opened the product list",
+      "range": "1–25 of 28"
+    },
+    {
+      "step": "filtered by P8 Spirits mw1y3z4t",
+      "chip": "Product type is any of P8 Spirits mw1y3z4t",
+      "range": "1–2 of 2",
+      "listed": [
+        "P8 Cedar mw1y3z4t",
+        "P8 Amber mw1y3z4t"
+      ]
+    },
+    {
+      "step": "reloaded; still filtered",
+      "listed": [
+        "P8 Cedar mw1y3z4t",
+        "P8 Amber mw1y3z4t"
+      ]
+    },
+    {
+      "step": "cleared the filter, then reloaded",
+      "range": "1–25 of 28"
+    }
+  ],
+  "outside": []
+}
