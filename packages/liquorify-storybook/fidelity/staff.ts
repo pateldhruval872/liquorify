@@ -81,6 +81,16 @@ export const roles = {
     name: 'Agent connector',
     permissions: ['write_oauth_applications', 'read_products'],
   },
+  /** Read on stock, purchasing and products, batch 6's three scopes, and write on none. */
+  stockViewer: {
+    name: 'Stock viewer',
+    permissions: ['read_stock', 'read_purchasing', 'read_products'],
+  },
+  /** Write on purchasing, and read on stock and products: buying in without moving stock. */
+  purchaser: {
+    name: 'Purchaser',
+    permissions: ['write_purchasing', 'read_stock', 'read_products'],
+  },
 } as const
 
 export type RoleKey = keyof typeof roles
@@ -161,6 +171,18 @@ export const teammates: Record<
     role: 'agentConnector',
     first: 'Ari',
     last: 'Connector',
+  },
+  stockViewer: {
+    email: 'fidelity-stock-viewer@example.com',
+    role: 'stockViewer',
+    first: 'Stu',
+    last: 'Viewer',
+  },
+  purchaser: {
+    email: 'fidelity-purchaser@example.com',
+    role: 'purchaser',
+    first: 'Pat',
+    last: 'Buyer',
   },
 }
 

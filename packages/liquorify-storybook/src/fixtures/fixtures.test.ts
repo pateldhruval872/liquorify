@@ -37,11 +37,16 @@ import {
   PriceSchema,
   ProductSchema,
   ProductTypeSchema,
+  PurchaseOrderSchema,
   RefundReasonSchema,
   ReturnReasonSchema,
+  StockLevelSchema,
   StockLocationSchema,
   StockMovementSchema,
+  StockReceiptSchema,
+  StockTransferSchema,
   StoreSchema,
+  SupplierSchema,
   TaxCategorySchema,
   TaxExemptionReasonSchema,
   TaxRateSchema,
@@ -82,6 +87,13 @@ import {
   shippingProfiles,
   westGroup,
 } from './admin/delivery'
+import {
+  purchaseOrders,
+  stockLevels,
+  stockReceipts,
+  stockTransfers,
+  suppliers,
+} from './admin/inventory'
 import {
   cafeCatalog,
   cafeProducts,
@@ -248,6 +260,11 @@ const fixtures: [string, ZodType, unknown[]][] = [
   ['prices', PriceSchema, [...tradePrices, ...tradeBreaks]],
   ['part 2 catalogs', CatalogSchema, [cafeCatalog, harborCatalog, springCatalog]],
   ['catalog products', CatalogProductSchema, [...cafeProducts, ...harborProducts]],
+  ['inventory stock levels', StockLevelSchema, stockLevels],
+  ['suppliers', SupplierSchema, suppliers],
+  ['stock transfers', StockTransferSchema, stockTransfers],
+  ['purchase orders', PurchaseOrderSchema, purchaseOrders],
+  ['stock receipts', StockReceiptSchema, stockReceipts],
 ]
 
 describe('fixtures match the SDK schemas', () => {
