@@ -13,7 +13,7 @@ result: On 2026-11-04 the owner corrected criterion 1.6 to Spree's design (row E
 
 ## 1. The owner's answer to row E
 
-On 2026-11-04 the owner wrote, as row E of their decisions:
+On 2026-11-04 the owner wrote, as row E of their decisions ([the owner's second set of answers](2026-11-04-owner-decision-brief-answers-2.md), which records it here):
 
 > Correct criterion 1.6 to test Spree's warning, cancellation preserving the file, and confirmation removing it from the library and product. Close G-57 only on the corrected condition's passing evidence. Preserve SD-19, SD-20 and their failing test results; do not describe P8 as entirely passing.
 
