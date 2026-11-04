@@ -85,3 +85,5 @@ The fix was built as §3 proposes, in pull request #44, and every required check
 - Found on the way and not fixed: a store whose language is German or French gets no sample orders, because the orders step finds its products by their English names (SD-13). The welcome screen's limitation of §4 is now tracked on its own, as SD-14, so it stays open when SD-8 closes.
 
 SD-8 and G-36 close only when the acceptance of this evidence is recorded with the merge, as delegated acceptance under the owner's delegation of 2026-11-04 ([record](../verification/2026-11-04-delegated-acceptance-and-merging.md)). This work item's status stays PROPOSED.
+
+**Merged and accepted, 2026-11-04.** #44 merged at `c283660`, and its evidence was accepted as delegated acceptance, not the owner's review. SD-8 and G-36 are closed; SD-13 and SD-14 stay open ([merge record](../verification/2026-11-04-sd-8-sample-data-currency-fix-merge.md)).
