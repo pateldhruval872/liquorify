@@ -6,7 +6,7 @@ The captures, comparisons and backend results behind the [verification record](.
 
 | What | Revision |
 |---|---|
-| Stories and scripts | Pull request [#99999](https://github.com/pateldhruval872/liquorify/pull/99999). The captures ran from `4a05d9c8`, and five promotion states from `e040f9d1`: usage-limit-below-one, save-refused, action-removed-unsaved, saved-rule-products-unreadable and saved-rule-customers-unreadable (record §2.1). The comparison ran from `e040f9d1`. Between the two, only the capture and comparison scripts and the records changed |
+| Stories and scripts | Pull request [#61](https://github.com/pateldhruval872/liquorify/pull/61). The captures ran from `4a05d9c8`, and five promotion states from `e040f9d1`: usage-limit-below-one, save-refused, action-removed-unsaved, saved-rule-products-unreadable and saved-rule-customers-unreadable (record §2.1). The comparison ran from `e040f9d1`. Between the two, only the capture and comparison scripts and the records changed |
 | Running screens and Spree's specs | Spree's code as `main` has it at `ffc9f5e0`, whose last change to Spree's code is `bbf401c4`; the pull request does not change it. The built admin dashboard against the dashboard browser tests' own Rails server and fixtures, with Spree's sample catalog loaded into its database |
 | Browser | The pinned Playwright 1.64.1 image. Captures at 1280 by 960 pixels, and 390 by 844 for the phone states; comparisons at 1280 by 800, or 1280 by 960 where a case names it. Captures follow the system's light or dark setting; none stores a choice of theme |
 

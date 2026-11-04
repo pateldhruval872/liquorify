@@ -4,12 +4,12 @@ record: review list
 work_item: FB-19
 date: 2026-11-04
 prepared_by: Claude (automated session)
-status: Accepted on 2026-11-04 by delegated acceptance (Claude, under the owner's delegation of 2026-11-04), at #NN's final commit; not the owner's review
+status: Accepted on 2026-11-04 by delegated acceptance (Claude, under the owner's delegation of 2026-11-04), at #61's final commit; not the owner's review
 ---
 
 # FB-19 catalog and pricing batch, part 3, reference images for review
 
-This list holds every reference image part 3 commits, by inventory ID ([LIQ-009](../LIQ-009-spree-component-and-token-inventory.md)), so each can be accepted or rejected, and the earlier batches' stories that part 3's running screens compare. On 2026-11-04 part 3 was accepted by delegated acceptance, under the owner's delegation of 2026-11-04 ([record](2026-11-04-delegated-acceptance-and-merging.md)), at #NN's final commit, by Claude in the thread "Build dashboard catalog part 3" ([verification record §12](2026-11-04-fb-19-batch-catalog-and-pricing-part-3.md#12-acceptance)). The owner did not review these images. The Acceptance column reads DELEGATED ACCEPTANCE for each.
+This list holds every reference image part 3 commits, by inventory ID ([LIQ-009](../LIQ-009-spree-component-and-token-inventory.md)), so each can be accepted or rejected, and the earlier batches' stories that part 3's running screens compare. On 2026-11-04 part 3 was accepted by delegated acceptance, under the owner's delegation of 2026-11-04 ([record](2026-11-04-delegated-acceptance-and-merging.md)), at #61's final commit, by Claude in the thread "Build dashboard catalog part 3" ([verification record §12](2026-11-04-fb-19-batch-catalog-and-pricing-part-3.md#12-acceptance)). The owner did not review these images. The Acceptance column reads DELEGATED ACCEPTANCE for each.
 
 **What to look at.** Each link opens the image beside this list, in the revision being read, and the pull request's file list shows the same images. Every image was looked at in light and dark before it was committed. Stories use invented shoppers, codes and amounts; the running screens show the browser tests' data, Spree's sample catalog and the records part 3 added through the Admin API. Some story names hold a comma of their own, such as "New promotion, a coupon code by default".
 
