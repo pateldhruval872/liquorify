@@ -1,0 +1,2559 @@
+{
+  "engine": "spree/api",
+  "spree_code_at": "5794da6",
+  "database": "SQLite",
+  "rspec": "3.13.6",
+  "seed": 32558,
+  "summary": {
+    "example_count": 424,
+    "failure_count": 0,
+    "pending_count": 0,
+    "errors_outside_of_examples_count": 0
+  },
+  "examples": [
+    {
+      "file": "spec/integration/spree/api/v3/admin/products/translations_spec.rb",
+      "line": null,
+      "description": "Admin Product Translations API /api/v3/admin/products/{product_id}/translations get translations found returns a 200 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/catalogs/order_minimums_controller_spec.rb",
+      "line": 43,
+      "description": "Spree::Api::V3::Admin::Catalogs::OrderMinimumsController DELETE #destroy lifts the minimum",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/catalogs/order_minimums_controller_spec.rb",
+      "line": 33,
+      "description": "Spree::Api::V3::Admin::Catalogs::OrderMinimumsController POST #create refuses a second row for the same currency",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/catalogs/order_minimums_controller_spec.rb",
+      "line": 26,
+      "description": "Spree::Api::V3::Admin::Catalogs::OrderMinimumsController POST #create records a minimum for a currency",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/catalogs/order_minimums_controller_spec.rb",
+      "line": 13,
+      "description": "Spree::Api::V3::Admin::Catalogs::OrderMinimumsController GET #index lists the minimums with their formatted amount",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/catalogs/order_minimums_controller_spec.rb",
+      "line": 54,
+      "description": "Spree::Api::V3::Admin::Catalogs::OrderMinimumsController a catalog in another store is not found",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/catalogs_controller_spec.rb",
+      "line": 14,
+      "description": "Spree::Api::V3::Admin::CatalogsController writes and returns the description",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/catalogs_controller_spec.rb",
+      "line": 403,
+      "description": "Spree::Api::V3::Admin::CatalogsController DELETE #destroy removes the catalog with its assortment and assignments",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/catalogs_controller_spec.rb",
+      "line": 263,
+      "description": "Spree::Api::V3::Admin::CatalogsController POST #create with nested sets accepts the sets as empty arrays",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/catalogs_controller_spec.rb",
+      "line": 269,
+      "description": "Spree::Api::V3::Admin::CatalogsController POST #create with nested sets stands a catalog up with its audience and minimums in one request",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/catalogs_controller_spec.rb",
+      "line": 435,
+      "description": "Spree::Api::V3::Admin::CatalogsController PATCH #activate 404s a catalog from another store",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/catalogs_controller_spec.rb",
+      "line": 415,
+      "description": "Spree::Api::V3::Admin::CatalogsController PATCH #activate puts an assigned catalog into effect",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/catalogs_controller_spec.rb",
+      "line": 426,
+      "description": "Spree::Api::V3::Admin::CatalogsController PATCH #activate refuses a catalog with no audience",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/catalogs_controller_spec.rb",
+      "line": 239,
+      "description": "Spree::Api::V3::Admin::CatalogsController POST #import_products copies the price list products into the assortment",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/catalogs_controller_spec.rb",
+      "line": 251,
+      "description": "Spree::Api::V3::Admin::CatalogsController POST #import_products 422s without a price list",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/catalogs_controller_spec.rb",
+      "line": 392,
+      "description": "Spree::Api::V3::Admin::CatalogsController POST #assign rejects a duplicate assignment",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/catalogs_controller_spec.rb",
+      "line": 376,
+      "description": "Spree::Api::V3::Admin::CatalogsController POST #assign 404s an audience the caller may not see",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/catalogs_controller_spec.rb",
+      "line": 366,
+      "description": "Spree::Api::V3::Admin::CatalogsController POST #assign 404s an audience from another store",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/catalogs_controller_spec.rb",
+      "line": 358,
+      "description": "Spree::Api::V3::Admin::CatalogsController POST #assign assigns to a customer group",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/catalogs_controller_spec.rb",
+      "line": 347,
+      "description": "Spree::Api::V3::Admin::CatalogsController POST #assign assigns the catalog to a company node",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/catalogs_controller_spec.rb",
+      "line": 386,
+      "description": "Spree::Api::V3::Admin::CatalogsController POST #assign 404s an unknown audience type",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/catalogs_controller_spec.rb",
+      "line": 222,
+      "description": "Spree::Api::V3::Admin::CatalogsController POST #create creates a catalog with the price list it owns",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/catalogs_controller_spec.rb",
+      "line": 230,
+      "description": "Spree::Api::V3::Admin::CatalogsController POST #create creates a catalog that prices at base",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/catalogs_controller_spec.rb",
+      "line": 445,
+      "description": "Spree::Api::V3::Admin::CatalogsController PATCH #deactivate takes the catalog out of effect",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/catalogs_controller_spec.rb",
+      "line": 198,
+      "description": "Spree::Api::V3::Admin::CatalogsController GET #index hides catalogs belonging to another store",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/catalogs_controller_spec.rb",
+      "line": 206,
+      "description": "Spree::Api::V3::Admin::CatalogsController GET #index returns catalogs in list order",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/catalogs_controller_spec.rb",
+      "line": 186,
+      "description": "Spree::Api::V3::Admin::CatalogsController GET #index lists the store catalogs with product counts",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/catalogs_controller_spec.rb",
+      "line": 321,
+      "description": "Spree::Api::V3::Admin::CatalogsController PATCH #update with nested sets rolls the catalog back when a nested set is invalid",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/catalogs_controller_spec.rb",
+      "line": 333,
+      "description": "Spree::Api::V3::Admin::CatalogsController PATCH #update with nested sets is not found for an audience in another store",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/catalogs_controller_spec.rb",
+      "line": 302,
+      "description": "Spree::Api::V3::Admin::CatalogsController PATCH #update with nested sets leaves both sets alone when their keys are absent",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/catalogs_controller_spec.rb",
+      "line": 287,
+      "description": "Spree::Api::V3::Admin::CatalogsController PATCH #update with nested sets saves the audience and the minimums with the catalog",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/catalogs_controller_spec.rb",
+      "line": 312,
+      "description": "Spree::Api::V3::Admin::CatalogsController PATCH #update with nested sets clears a set sent as an empty array",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/catalogs_controller_spec.rb",
+      "line": 175,
+      "description": "Spree::Api::V3::Admin::CatalogsController the inline price_list payload expands the owned list on read",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/catalogs_controller_spec.rb",
+      "line": 90,
+      "description": "Spree::Api::V3::Admin::CatalogsController the inline price_list payload clears the volume rule when the agreement moves to fixed prices",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/catalogs_controller_spec.rb",
+      "line": 68,
+      "description": "Spree::Api::V3::Admin::CatalogsController the inline price_list payload accepts the contextual rules that make automatic volume pricing work",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/catalogs_controller_spec.rb",
+      "line": 112,
+      "description": "Spree::Api::V3::Admin::CatalogsController the inline price_list payload updates the owned list in place",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/catalogs_controller_spec.rb",
+      "line": 128,
+      "description": "Spree::Api::V3::Admin::CatalogsController the inline price_list payload removes the owned list on an explicit null",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/catalogs_controller_spec.rb",
+      "line": 140,
+      "description": "Spree::Api::V3::Admin::CatalogsController the inline price_list payload leaves the list alone when the key is omitted",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/catalogs_controller_spec.rb",
+      "line": 150,
+      "description": "Spree::Api::V3::Admin::CatalogsController the inline price_list payload refuses an invalid adjustment without creating the catalog",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/catalogs_controller_spec.rb",
+      "line": 160,
+      "description": "Spree::Api::V3::Admin::CatalogsController the inline price_list payload clears hand-entered amounts when the payload says to",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/catalogs_controller_spec.rb",
+      "line": 23,
+      "description": "Spree::Api::V3::Admin::CatalogsController the inline price_list payload creates the catalog and its owned list together",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/catalogs_controller_spec.rb",
+      "line": 46,
+      "description": "Spree::Api::V3::Admin::CatalogsController the inline price_list payload ignores another store's variant in the inline prices",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/translations/batch_spec.rb",
+      "line": null,
+      "description": "Admin Translations Batch API /api/v3/admin/translations/batch post unsupported locale rolls back the whole batch returns a 422 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/translations/batch_spec.rb",
+      "line": null,
+      "description": "Admin Translations Batch API /api/v3/admin/translations/batch post translations upserted returns a 200 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/exports_spec.rb",
+      "line": null,
+      "description": "Admin Exports API /api/v3/admin/exports/{id} delete export deleted returns a 204 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/exports_spec.rb",
+      "line": null,
+      "description": "Admin Exports API /api/v3/admin/exports/{id} get export found returns a 200 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/exports_spec.rb",
+      "line": null,
+      "description": "Admin Exports API /api/v3/admin/exports post export queued returns a 201 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/exports_spec.rb",
+      "line": null,
+      "description": "Admin Exports API /api/v3/admin/exports get exports found returns a 200 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/exports_spec.rb",
+      "line": null,
+      "description": "Admin Exports API /api/v3/admin/exports/{id}/download get CSV file returns a 200 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/catalogs/quantity_rules_controller_spec.rb",
+      "line": 64,
+      "description": "Spree::Api::V3::Admin::Catalogs::QuantityRulesController a catalog in another store is not found",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/catalogs/quantity_rules_controller_spec.rb",
+      "line": 17,
+      "description": "Spree::Api::V3::Admin::Catalogs::QuantityRulesController PUT #upsert states terms for a product and adds it to the assortment",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/catalogs/quantity_rules_controller_spec.rb",
+      "line": 51,
+      "description": "Spree::Api::V3::Admin::Catalogs::QuantityRulesController PUT #upsert is not found for a product from another store",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/catalogs/quantity_rules_controller_spec.rb",
+      "line": 40,
+      "description": "Spree::Api::V3::Admin::Catalogs::QuantityRulesController PUT #upsert clears a product's terms when both fields are blank",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/catalogs/quantity_rules_controller_spec.rb",
+      "line": 28,
+      "description": "Spree::Api::V3::Admin::Catalogs::QuantityRulesController PUT #upsert writes the stated pair to every variant of the product",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/catalog_assignments_controller_spec.rb",
+      "line": 14,
+      "description": "Spree::Api::V3::Admin::CatalogAssignmentsController DELETE #destroy withdraws the catalog from the audience",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/catalog_assignments_controller_spec.rb",
+      "line": 21,
+      "description": "Spree::Api::V3::Admin::CatalogAssignmentsController DELETE #destroy 404s an assignment of another store catalog",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/price_lists_spec.rb",
+      "line": null,
+      "description": "Admin Price Lists API /api/v3/admin/price_lists post validation error returns a 422 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/price_lists_spec.rb",
+      "line": null,
+      "description": "Admin Price Lists API /api/v3/admin/price_lists post price list created (server-to-server \u2014 rules + prices) returns a 201 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/price_lists_spec.rb",
+      "line": null,
+      "description": "Admin Price Lists API /api/v3/admin/price_lists post price list created (one-shot \u2014 metadata, schedule, rules) returns a 201 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/price_lists_spec.rb",
+      "line": null,
+      "description": "Admin Price Lists API /api/v3/admin/price_lists get price lists found returns a 200 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/price_lists_spec.rb",
+      "line": null,
+      "description": "Admin Price Lists API /api/v3/admin/price_lists/{id} patch price overrides reconcile via prices returns a 200 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/price_lists_spec.rb",
+      "line": null,
+      "description": "Admin Price Lists API /api/v3/admin/price_lists/{id} patch price list updated with nested rules returns a 200 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/price_lists_spec.rb",
+      "line": null,
+      "description": "Admin Price Lists API /api/v3/admin/price_lists/{id} patch price list updated returns a 200 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/price_lists_spec.rb",
+      "line": null,
+      "description": "Admin Price Lists API /api/v3/admin/price_lists/{id} get price list not found returns a 404 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/price_lists_spec.rb",
+      "line": null,
+      "description": "Admin Price Lists API /api/v3/admin/price_lists/{id} get price list found returns a 200 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/price_lists_spec.rb",
+      "line": null,
+      "description": "Admin Price Lists API /api/v3/admin/price_lists/{id} delete price list deleted returns a 204 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/price_lists_spec.rb",
+      "line": null,
+      "description": "Admin Price Lists API /api/v3/admin/price_lists/{price_list_id}/products get products found, with what the list charges returns a 200 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/price_lists_spec.rb",
+      "line": null,
+      "description": "Admin Price Lists API /api/v3/admin/price_lists/{price_list_id}/products get products found returns a 200 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/price_lists_spec.rb",
+      "line": null,
+      "description": "Admin Price Lists API /api/v3/admin/price_lists/{price_list_id}/products post products added returns a 201 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/price_lists_spec.rb",
+      "line": null,
+      "description": "Admin Price Lists API /api/v3/admin/price_lists/{price_list_id}/products delete products removed returns a 200 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/price_lists_spec.rb",
+      "line": null,
+      "description": "Admin Price Lists API /api/v3/admin/price_lists/{id}/activate patch price list activated returns a 200 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/price_lists_spec.rb",
+      "line": null,
+      "description": "Admin Price Lists API /api/v3/admin/price_lists/{id}/deactivate patch price list deactivated returns a 200 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line": 433,
+      "description": "Spree::Api::V3::Admin::ImportsController DELETE #destroy refuses to delete a processing import",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line": 423,
+      "description": "Spree::Api::V3::Admin::ImportsController DELETE #destroy deletes a completed import",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line": 23,
+      "description": "Spree::Api::V3::Admin::ImportsController GET #index returns imports for the current store",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line": 29,
+      "description": "Spree::Api::V3::Admin::ImportsController GET #index omits imports owned by other stores",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line": 64,
+      "description": "Spree::Api::V3::Admin::ImportsController GET #show returns 404 for an unknown id",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line": 48,
+      "description": "Spree::Api::V3::Admin::ImportsController GET #show while processing returns poll counters without the mapping payload",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line": 447,
+      "description": "Spree::Api::V3::Admin::ImportsController authentication without any credential returns 401 unauthorized",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line": 488,
+      "description": "Spree::Api::V3::Admin::ImportsController authentication with a secret API key filters the index to import types the key can write",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line": 478,
+      "description": "Spree::Api::V3::Admin::ImportsController authentication with a secret API key gates price-list imports by the products scope",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line": 498,
+      "description": "Spree::Api::V3::Admin::ImportsController authentication with a secret API key hides imports of unwritable types from member actions",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line": 457,
+      "description": "Spree::Api::V3::Admin::ImportsController authentication with a secret API key allows creating a Products import with write_products, attributed to the key creator",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line": 469,
+      "description": "Spree::Api::V3::Admin::ImportsController authentication with a secret API key rejects creating a Customers import without write_customers",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line": 509,
+      "description": "Spree::Api::V3::Admin::ImportsController authentication with a secret API key when the key has no admin creator rejects create with a user presence error",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line": 354,
+      "description": "Spree::Api::V3::Admin::ImportsController PATCH #retry_failed_rows returns 422 when there are no failed rows",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line": 344,
+      "description": "Spree::Api::V3::Admin::ImportsController PATCH #retry_failed_rows with failed rows re-enters processing and re-dispatches the rows",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line": 314,
+      "description": "Spree::Api::V3::Admin::ImportsController a seller's import is readable in full",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line": 301,
+      "description": "Spree::Api::V3::Admin::ImportsController a seller's import appears in the operator's list",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line": 322,
+      "description": "Spree::Api::V3::Admin::ImportsController a seller's import cannot be retried by the operator",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line": 328,
+      "description": "Spree::Api::V3::Admin::ImportsController a seller's import cannot be deleted by the operator",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line": 307,
+      "description": "Spree::Api::V3::Admin::ImportsController a seller's import names the seller, so the list can say whose it is",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line": 363,
+      "description": "Spree::Api::V3::Admin::ImportsController GET #download streams the originally uploaded CSV for auditing",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line": 372,
+      "description": "Spree::Api::V3::Admin::ImportsController GET #download returns 404 for an unknown id",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line": 285,
+      "description": "Spree::Api::V3::Admin::ImportsController PATCH #complete_mapping returns 422 when the import is not in the mapping state",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line": 273,
+      "description": "Spree::Api::V3::Admin::ImportsController PATCH #complete_mapping when a file column is assigned twice returns 422 with the mapping validation error",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line": 261,
+      "description": "Spree::Api::V3::Admin::ImportsController PATCH #complete_mapping when a required column needs manual mapping returns 422 listing missing required fields when left unmapped",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line": 248,
+      "description": "Spree::Api::V3::Admin::ImportsController PATCH #complete_mapping when a required column needs manual mapping applies submitted mappings before completing",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line": 235,
+      "description": "Spree::Api::V3::Admin::ImportsController PATCH #complete_mapping when every required field auto-mapped transitions into completed_mapping and enqueues row creation",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line": 407,
+      "description": "Spree::Api::V3::Admin::ImportsController GET #example returns 404 for a type with no example file",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line": 399,
+      "description": "Spree::Api::V3::Admin::ImportsController GET #example redirects to the example CSV for the installed version",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line": 415,
+      "description": "Spree::Api::V3::Admin::ImportsController GET #example returns 404 for an unknown type",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line": 389,
+      "description": "Spree::Api::V3::Admin::ImportsController GET #template returns 422 for an unknown type",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line": 380,
+      "description": "Spree::Api::V3::Admin::ImportsController GET #template returns a CSV header row for the type schema",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line": 192,
+      "description": "Spree::Api::V3::Admin::ImportsController POST #create rejects an invalid attachment signed id",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line": 100,
+      "description": "Spree::Api::V3::Admin::ImportsController POST #create accepts a preferred delimiter",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line": 185,
+      "description": "Spree::Api::V3::Admin::ImportsController POST #create rejects unregistered import types",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line": 208,
+      "description": "Spree::Api::V3::Admin::ImportsController POST #create marks the import failed when the CSV is unparseable",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line": 71,
+      "description": "Spree::Api::V3::Admin::ImportsController POST #create creates a Products import from a signed blob id and advances into mapping",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line": 198,
+      "description": "Spree::Api::V3::Admin::ImportsController POST #create rejects a non-CSV attachment",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line": 127,
+      "description": "Spree::Api::V3::Admin::ImportsController POST #create for a price list is refused without a list",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line": 118,
+      "description": "Spree::Api::V3::Admin::ImportsController POST #create for a price list binds the import to the store's list and reports it back",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line": 133,
+      "description": "Spree::Api::V3::Admin::ImportsController POST #create for a price list returns 404 for another store's list",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line": 141,
+      "description": "Spree::Api::V3::Admin::ImportsController POST #create for a price list ignores the list on a type that has none",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line": 171,
+      "description": "Spree::Api::V3::Admin::ImportsController POST #create with a results_url silently drops it when it does not match an allowed origin",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line": 155,
+      "description": "Spree::Api::V3::Admin::ImportsController POST #create with a results_url stores it when it matches an allowed origin",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/collections_controller_spec.rb",
+      "line": 123,
+      "description": "Spree::Api::V3::Admin::CollectionsController POST #create returns 422 for a blank name",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/collections_controller_spec.rb",
+      "line": 104,
+      "description": "Spree::Api::V3::Admin::CollectionsController POST #create creates an automatic collection with typed rules from the flat rules payload",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/collections_controller_spec.rb",
+      "line": 94,
+      "description": "Spree::Api::V3::Admin::CollectionsController POST #create creates a manual collection owned by the store",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/collections_controller_spec.rb",
+      "line": 74,
+      "description": "Spree::Api::V3::Admin::CollectionsController GET #show returns the collection with its rules when expanded",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/collections_controller_spec.rb",
+      "line": 87,
+      "description": "Spree::Api::V3::Admin::CollectionsController GET #show returns not found for another store's collection",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/collections_controller_spec.rb",
+      "line": 208,
+      "description": "Spree::Api::V3::Admin::CollectionsController reordering via position on update moves a collection above its siblings when position is sent",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/collections_controller_spec.rb",
+      "line": 62,
+      "description": "Spree::Api::V3::Admin::CollectionsController GET #index omits rules unless expanded",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/collections_controller_spec.rb",
+      "line": 53,
+      "description": "Spree::Api::V3::Admin::CollectionsController GET #index exposes the merchandising config + timestamps (admin surface)",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/collections_controller_spec.rb",
+      "line": 28,
+      "description": "Spree::Api::V3::Admin::CollectionsController GET #index returns collections in list order",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/collections_controller_spec.rb",
+      "line": 19,
+      "description": "Spree::Api::V3::Admin::CollectionsController GET #index lists collections for the current store only",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/collections_controller_spec.rb",
+      "line": 40,
+      "description": "Spree::Api::V3::Admin::CollectionsController GET #index returns collections in list order when filtered by permalink",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/collections_controller_spec.rb",
+      "line": 130,
+      "description": "Spree::Api::V3::Admin::CollectionsController PATCH #update updates collection attributes",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/collections_controller_spec.rb",
+      "line": 174,
+      "description": "Spree::Api::V3::Admin::CollectionsController PATCH #update rules sync rejects a rule type that is not registered",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/collections_controller_spec.rb",
+      "line": 144,
+      "description": "Spree::Api::V3::Admin::CollectionsController PATCH #update rules sync updates present rules, creates new ones, and destroys omitted ones",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/collections_controller_spec.rb",
+      "line": 163,
+      "description": "Spree::Api::V3::Admin::CollectionsController PATCH #update rules sync accepts the api_type shorthand for a rule type",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/collections_controller_spec.rb",
+      "line": 187,
+      "description": "Spree::Api::V3::Admin::CollectionsController DELETE #destroy deletes the collection",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/catalogs_spec.rb",
+      "line": null,
+      "description": "Admin Catalogs API /api/v3/admin/catalogs/{id}/assign post catalog assigned returns a 201 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/catalogs_spec.rb",
+      "line": null,
+      "description": "Admin Catalogs API /api/v3/admin/catalogs get catalogs found returns a 200 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/catalogs_spec.rb",
+      "line": null,
+      "description": "Admin Catalogs API /api/v3/admin/catalogs post catalog created returns a 201 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/catalogs_spec.rb",
+      "line": null,
+      "description": "Admin Catalogs API /api/v3/admin/catalogs post invalid request returns a 422 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/catalogs_spec.rb",
+      "line": null,
+      "description": "Admin Catalogs API /api/v3/admin/catalogs/{id} patch catalog updated returns a 200 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/catalogs_spec.rb",
+      "line": null,
+      "description": "Admin Catalogs API /api/v3/admin/catalogs/{catalog_id}/products post products added returns a 201 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/catalogs_spec.rb",
+      "line": null,
+      "description": "Admin Catalogs API /api/v3/admin/catalogs/{catalog_id}/products delete products removed returns a 200 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/catalogs_spec.rb",
+      "line": null,
+      "description": "Admin Catalogs API /api/v3/admin/catalogs/{catalog_id}/products get products found returns a 200 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/catalogs_spec.rb",
+      "line": null,
+      "description": "Admin Catalogs API /api/v3/admin/catalogs/{catalog_id}/products get products found, with what the agreement charges returns a 200 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/catalogs_spec.rb",
+      "line": null,
+      "description": "Admin Catalogs API /api/v3/admin/catalogs/{id}/activate patch catalog activated returns a 200 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/catalogs_spec.rb",
+      "line": null,
+      "description": "Admin Catalogs API /api/v3/admin/catalogs/{catalog_id}/order_minimums/{id} delete order minimum deleted returns a 204 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/catalogs_spec.rb",
+      "line": null,
+      "description": "Admin Catalogs API /api/v3/admin/catalogs/{catalog_id}/order_minimums/{id} patch order minimum updated returns a 200 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/catalogs_spec.rb",
+      "line": null,
+      "description": "Admin Catalogs API /api/v3/admin/catalogs/{id}/deactivate patch catalog deactivated returns a 200 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/catalogs_spec.rb",
+      "line": null,
+      "description": "Admin Catalogs API /api/v3/admin/catalogs/{catalog_id}/quantity_rules put quantity rules set returns a 204 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/catalogs_spec.rb",
+      "line": null,
+      "description": "Admin Catalogs API /api/v3/admin/catalogs/{catalog_id}/order_minimums get order minimums found returns a 200 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/catalogs_spec.rb",
+      "line": null,
+      "description": "Admin Catalogs API /api/v3/admin/catalogs/{catalog_id}/order_minimums post order minimum created returns a 201 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/catalogs_spec.rb",
+      "line": null,
+      "description": "Admin Catalogs API /api/v3/admin/catalogs/{catalog_id}/order_minimums post invalid request returns a 422 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/collections_spec.rb",
+      "line": null,
+      "description": "Admin Collections API /api/v3/admin/collections/{collection_id}/products/{id}/reposition patch product repositioned returns a 204 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/collections_spec.rb",
+      "line": null,
+      "description": "Admin Collections API /api/v3/admin/collections/{id} get collection not found returns a 404 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/collections_spec.rb",
+      "line": null,
+      "description": "Admin Collections API /api/v3/admin/collections/{id} get collection found returns a 200 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/collections_spec.rb",
+      "line": null,
+      "description": "Admin Collections API /api/v3/admin/collections/{id} patch collection updated returns a 200 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/collections_spec.rb",
+      "line": null,
+      "description": "Admin Collections API /api/v3/admin/collections/{id} delete collection deleted returns a 204 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/collections_spec.rb",
+      "line": null,
+      "description": "Admin Collections API /api/v3/admin/collections/{collection_id}/products get products found returns a 200 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/collections_spec.rb",
+      "line": null,
+      "description": "Admin Collections API /api/v3/admin/collections/{collection_id}/products delete products removed returns a 200 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/collections_spec.rb",
+      "line": null,
+      "description": "Admin Collections API /api/v3/admin/collections/{collection_id}/products post products added returns a 201 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/collections_spec.rb",
+      "line": null,
+      "description": "Admin Collections API /api/v3/admin/collection_rules/types get types found returns a 200 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/collections_spec.rb",
+      "line": null,
+      "description": "Admin Collections API /api/v3/admin/collections get collections found returns a 200 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/collections_spec.rb",
+      "line": null,
+      "description": "Admin Collections API /api/v3/admin/collections post validation error returns a 422 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/collections_spec.rb",
+      "line": null,
+      "description": "Admin Collections API /api/v3/admin/collections post collection created returns a 201 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/categories_controller_spec.rb",
+      "line": 18,
+      "description": "Spree::Api::V3::Admin::CategoriesController GET #index lists the store categories",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/categories_controller_spec.rb",
+      "line": 34,
+      "description": "Spree::Api::V3::Admin::CategoriesController GET #index sorted by name in a non-default locale sorts by the translation, falling back to the base name",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/categories_controller_spec.rb",
+      "line": 288,
+      "description": "Spree::Api::V3::Admin::CategoriesController PATCH #reposition reordering top-level categories (no parent change) moves a root category to the first position among its siblings",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/categories_controller_spec.rb",
+      "line": 297,
+      "description": "Spree::Api::V3::Admin::CategoriesController PATCH #reposition reordering top-level categories (no parent change) moves a root category to the last position",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/categories_controller_spec.rb",
+      "line": 304,
+      "description": "Spree::Api::V3::Admin::CategoriesController PATCH #reposition reordering top-level categories (no parent change) moves a root category to a middle position",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/categories_controller_spec.rb",
+      "line": 311,
+      "description": "Spree::Api::V3::Admin::CategoriesController PATCH #reposition reordering top-level categories (no parent change) clamps an out-of-range top-level index to the end",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/categories_controller_spec.rb",
+      "line": 325,
+      "description": "Spree::Api::V3::Admin::CategoriesController PATCH #reposition invalid new_position returns 422 for a non-integer new_position",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/categories_controller_spec.rb",
+      "line": 320,
+      "description": "Spree::Api::V3::Admin::CategoriesController PATCH #reposition invalid new_position returns 422 for a missing new_position",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/categories_controller_spec.rb",
+      "line": 240,
+      "description": "Spree::Api::V3::Admin::CategoriesController PATCH #reposition changing the parent reorders among an existing parent's children",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/categories_controller_spec.rb",
+      "line": 271,
+      "description": "Spree::Api::V3::Admin::CategoriesController PATCH #reposition changing the parent returns 422 for an impossible move (into its own descendant)",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/categories_controller_spec.rb",
+      "line": 250,
+      "description": "Spree::Api::V3::Admin::CategoriesController PATCH #reposition changing the parent clamps an out-of-range index instead of 404ing",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/categories_controller_spec.rb",
+      "line": 231,
+      "description": "Spree::Api::V3::Admin::CategoriesController PATCH #reposition changing the parent inserts among existing children at the requested index",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/categories_controller_spec.rb",
+      "line": 262,
+      "description": "Spree::Api::V3::Admin::CategoriesController PATCH #reposition changing the parent promotes a nested category to the top level when no parent is given",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/categories_controller_spec.rb",
+      "line": 223,
+      "description": "Spree::Api::V3::Admin::CategoriesController PATCH #reposition changing the parent moves a category under a new parent at the given index",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/categories_controller_spec.rb",
+      "line": 113,
+      "description": "Spree::Api::V3::Admin::CategoriesController PATCH #update sanitizes the description on write",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/categories_controller_spec.rb",
+      "line": 96,
+      "description": "Spree::Api::V3::Admin::CategoriesController PATCH #update updates category attributes",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/categories_controller_spec.rb",
+      "line": 105,
+      "description": "Spree::Api::V3::Admin::CategoriesController PATCH #update stores the description as HTML and reads back both shapes",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/categories_controller_spec.rb",
+      "line": 120,
+      "description": "Spree::Api::V3::Admin::CategoriesController PATCH #update purges the image when image is set to null",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/categories_controller_spec.rb",
+      "line": 151,
+      "description": "Spree::Api::V3::Admin::CategoriesController PATCH #update with inline custom fields round-trips an array-shaped JSON custom field value",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/categories_controller_spec.rb",
+      "line": 164,
+      "description": "Spree::Api::V3::Admin::CategoriesController PATCH #update with inline custom fields round-trips an object-shaped JSON custom field value",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/categories_controller_spec.rb",
+      "line": 177,
+      "description": "Spree::Api::V3::Admin::CategoriesController PATCH #update with inline custom fields persists custom_fields inline on update",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/categories_controller_spec.rb",
+      "line": 191,
+      "description": "Spree::Api::V3::Admin::CategoriesController PATCH #update with inline custom fields leaves existing values untouched when custom_fields is omitted",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/categories_controller_spec.rb",
+      "line": 203,
+      "description": "Spree::Api::V3::Admin::CategoriesController DELETE #destroy deletes the category",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/categories_controller_spec.rb",
+      "line": 45,
+      "description": "Spree::Api::V3::Admin::CategoriesController GET #show returns the category",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/categories_controller_spec.rb",
+      "line": 59,
+      "description": "Spree::Api::V3::Admin::CategoriesController GET #show rolls subcategory products up into the product count",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/categories_controller_spec.rb",
+      "line": 52,
+      "description": "Spree::Api::V3::Admin::CategoriesController GET #show exposes the product count",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/categories_controller_spec.rb",
+      "line": 79,
+      "description": "Spree::Api::V3::Admin::CategoriesController POST #create creates a top-level category (no parent, owned by the store) when no parent is given",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/categories_controller_spec.rb",
+      "line": 71,
+      "description": "Spree::Api::V3::Admin::CategoriesController POST #create creates a category nested under the given parent",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/categories_controller_spec.rb",
+      "line": 89,
+      "description": "Spree::Api::V3::Admin::CategoriesController POST #create returns 422 for a blank name",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/exports_controller_spec.rb",
+      "line": 254,
+      "description": "Spree::Api::V3::Admin::ExportsController GET #download returns 404 for an unknown id",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/exports_controller_spec.rb",
+      "line": 227,
+      "description": "Spree::Api::V3::Admin::ExportsController GET #download when the export is not done yet returns 422 with export_not_ready code",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/exports_controller_spec.rb",
+      "line": 243,
+      "description": "Spree::Api::V3::Admin::ExportsController GET #download when the export is done streams the CSV with attachment disposition",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/exports_controller_spec.rb",
+      "line": 115,
+      "description": "Spree::Api::V3::Admin::ExportsController POST #create creates a Products export with a Ransack search_params hash",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/exports_controller_spec.rb",
+      "line": 200,
+      "description": "Spree::Api::V3::Admin::ExportsController POST #create clears search_params when record_selection is \"all\"",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/exports_controller_spec.rb",
+      "line": 157,
+      "description": "Spree::Api::V3::Admin::ExportsController POST #create creates an Orders export",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/exports_controller_spec.rb",
+      "line": 164,
+      "description": "Spree::Api::V3::Admin::ExportsController POST #create creates a Customers export",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/exports_controller_spec.rb",
+      "line": 214,
+      "description": "Spree::Api::V3::Admin::ExportsController POST #create rejects unregistered export types",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/exports_controller_spec.rb",
+      "line": 172,
+      "description": "Spree::Api::V3::Admin::ExportsController POST #create with a results_url stores it when it matches an allowed origin",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/exports_controller_spec.rb",
+      "line": 187,
+      "description": "Spree::Api::V3::Admin::ExportsController POST #create with a results_url silently drops it when it does not match an allowed origin",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/exports_controller_spec.rb",
+      "line": 137,
+      "description": "Spree::Api::V3::Admin::ExportsController POST #create for a price list creates the export filtered to the list",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/exports_controller_spec.rb",
+      "line": 146,
+      "description": "Spree::Api::V3::Admin::ExportsController POST #create for a price list is refused without a list of this store",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/exports_controller_spec.rb",
+      "line": 263,
+      "description": "Spree::Api::V3::Admin::ExportsController DELETE #destroy deletes the export",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/exports_controller_spec.rb",
+      "line": 24,
+      "description": "Spree::Api::V3::Admin::ExportsController GET #index omits exports from other stores",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/exports_controller_spec.rb",
+      "line": 17,
+      "description": "Spree::Api::V3::Admin::ExportsController GET #index returns exports for the current store",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/exports_controller_spec.rb",
+      "line": 61,
+      "description": "Spree::Api::V3::Admin::ExportsController GET #index serializes status fields",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/exports_controller_spec.rb",
+      "line": 36,
+      "description": "Spree::Api::V3::Admin::ExportsController GET #index filtering by type takes the same shorthand the response carries",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/exports_controller_spec.rb",
+      "line": 48,
+      "description": "Spree::Api::V3::Admin::ExportsController GET #index filtering by type takes the indexed list form",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/exports_controller_spec.rb",
+      "line": 42,
+      "description": "Spree::Api::V3::Admin::ExportsController GET #index filtering by type takes a list of shorthands",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/exports_controller_spec.rb",
+      "line": 54,
+      "description": "Spree::Api::V3::Admin::ExportsController GET #index filtering by type takes a shorthand inside a filter group",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/exports_controller_spec.rb",
+      "line": 108,
+      "description": "Spree::Api::V3::Admin::ExportsController GET #show returns 404 for an unknown id",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/exports_controller_spec.rb",
+      "line": 74,
+      "description": "Spree::Api::V3::Admin::ExportsController GET #show returns the export",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/exports_controller_spec.rb",
+      "line": 90,
+      "description": "Spree::Api::V3::Admin::ExportsController GET #show when the export has a generated attachment reports done with filename and byte_size",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/exports_controller_spec.rb",
+      "line": 99,
+      "description": "Spree::Api::V3::Admin::ExportsController GET #show when the export has a generated attachment exposes download_url as the API download endpoint path",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/exports_controller_spec.rb",
+      "line": 275,
+      "description": "Spree::Api::V3::Admin::ExportsController authentication without any credential returns 401 unauthorized",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/exports_controller_spec.rb",
+      "line": 310,
+      "description": "Spree::Api::V3::Admin::ExportsController authentication with a secret API key filters the index to export types the key can read",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/exports_controller_spec.rb",
+      "line": 321,
+      "description": "Spree::Api::V3::Admin::ExportsController authentication with a secret API key hides exports of unreadable types from member actions",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/exports_controller_spec.rb",
+      "line": 295,
+      "description": "Spree::Api::V3::Admin::ExportsController authentication with a secret API key rejects creating a Customers export without read_customers",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/exports_controller_spec.rb",
+      "line": 329,
+      "description": "Spree::Api::V3::Admin::ExportsController authentication with a secret API key allows downloading an export of a readable type",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/exports_controller_spec.rb",
+      "line": 302,
+      "description": "Spree::Api::V3::Admin::ExportsController authentication with a secret API key gates price-list exports by the products scope",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/exports_controller_spec.rb",
+      "line": 290,
+      "description": "Spree::Api::V3::Admin::ExportsController authentication with a secret API key allows creating a Products export with read_products",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/exports_controller_spec.rb",
+      "line": 342,
+      "description": "Spree::Api::V3::Admin::ExportsController authentication with a secret API key with a promotions-scoped key gates coupon-code exports by the promotions scope",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/import_rows_controller_spec.rb",
+      "line": 37,
+      "description": "Spree::Api::V3::Admin::ImportRowsController GET #index filters by status via Ransack",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/import_rows_controller_spec.rb",
+      "line": 26,
+      "description": "Spree::Api::V3::Admin::ImportRowsController GET #index serializes the raw row data and error message",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/import_rows_controller_spec.rb",
+      "line": 52,
+      "description": "Spree::Api::V3::Admin::ImportRowsController GET #index returns 401 without credentials",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/import_rows_controller_spec.rb",
+      "line": 18,
+      "description": "Spree::Api::V3::Admin::ImportRowsController GET #index lists the rows of the import",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/import_rows_controller_spec.rb",
+      "line": 44,
+      "description": "Spree::Api::V3::Admin::ImportRowsController GET #index returns 404 for an import owned by another store",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/prices_spec.rb",
+      "line": null,
+      "description": "Admin Prices API /api/v3/admin/prices get prices found returns a 200 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/prices_spec.rb",
+      "line": null,
+      "description": "Admin Prices API /api/v3/admin/prices post price created returns a 201 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/prices_spec.rb",
+      "line": null,
+      "description": "Admin Prices API /api/v3/admin/prices/{id} delete price deleted returns a 204 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/prices_spec.rb",
+      "line": null,
+      "description": "Admin Prices API /api/v3/admin/prices/{id} patch price updated returns a 200 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/prices_spec.rb",
+      "line": null,
+      "description": "Admin Prices API /api/v3/admin/prices/{id} get price not found returns a 404 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/prices_spec.rb",
+      "line": null,
+      "description": "Admin Prices API /api/v3/admin/prices/{id} get price found returns a 200 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/prices_spec.rb",
+      "line": null,
+      "description": "Admin Prices API /api/v3/admin/prices/bulk_upsert post missing prices key returns a 422 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/prices_spec.rb",
+      "line": null,
+      "description": "Admin Prices API /api/v3/admin/prices/bulk_upsert post prices upserted returns a 200 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/prices_spec.rb",
+      "line": null,
+      "description": "Admin Prices API /api/v3/admin/prices/bulk_destroy delete prices deleted returns a 200 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/price_lists/products_controller_spec.rb",
+      "line": 94,
+      "description": "Spree::Api::V3::Admin::PriceLists::ProductsController POST #create materializes a placeholder price per variant and store currency",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/price_lists/products_controller_spec.rb",
+      "line": 82,
+      "description": "Spree::Api::V3::Admin::PriceLists::ProductsController GET #index prices each variant with its ladder when expanded",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/price_lists/products_controller_spec.rb",
+      "line": 48,
+      "description": "Spree::Api::V3::Admin::PriceLists::ProductsController GET #index prices the page without a query per variant",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/price_lists/products_controller_spec.rb",
+      "line": 36,
+      "description": "Spree::Api::V3::Admin::PriceLists::ProductsController GET #index lists plain products without the price reading",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/price_lists/products_controller_spec.rb",
+      "line": 69,
+      "description": "Spree::Api::V3::Admin::PriceLists::ProductsController GET #index sends only what the membership card and the picker read",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/price_lists/products_controller_spec.rb",
+      "line": 75,
+      "description": "Spree::Api::V3::Admin::PriceLists::ProductsController GET #index adds only the price reading when expanded",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/price_lists/products_controller_spec.rb",
+      "line": 111,
+      "description": "Spree::Api::V3::Admin::PriceLists::ProductsController DELETE #destroy counts products, not price rows",
+      "status": "passed"
+    },
+    {
+      "file": "spec/support/shared_examples/product_membership.rb",
+      "line": 82,
+      "description": "Spree::Api::V3::Admin::PriceLists::ProductsController behaves like a product membership surface DELETE #destroy removes several products in one request",
+      "status": "passed"
+    },
+    {
+      "file": "spec/support/shared_examples/product_membership.rb",
+      "line": 95,
+      "description": "Spree::Api::V3::Admin::PriceLists::ProductsController behaves like a product membership surface DELETE #destroy ignores ids that are not members",
+      "status": "passed"
+    },
+    {
+      "file": "spec/support/shared_examples/product_membership.rb",
+      "line": 42,
+      "description": "Spree::Api::V3::Admin::PriceLists::ProductsController behaves like a product membership surface POST #create skips ids that are already members",
+      "status": "passed"
+    },
+    {
+      "file": "spec/support/shared_examples/product_membership.rb",
+      "line": 30,
+      "description": "Spree::Api::V3::Admin::PriceLists::ProductsController behaves like a product membership surface POST #create adds store products in bulk by prefixed id",
+      "status": "passed"
+    },
+    {
+      "file": "spec/support/shared_examples/product_membership.rb",
+      "line": 69,
+      "description": "Spree::Api::V3::Admin::PriceLists::ProductsController behaves like a product membership surface POST #create silently drops products of another store",
+      "status": "passed"
+    },
+    {
+      "file": "spec/support/shared_examples/product_membership.rb",
+      "line": 57,
+      "description": "Spree::Api::V3::Admin::PriceLists::ProductsController behaves like a product membership surface POST #create counts what the write actually added, not what was requested",
+      "status": "passed"
+    },
+    {
+      "file": "spec/support/shared_examples/product_membership.rb",
+      "line": 12,
+      "description": "Spree::Api::V3::Admin::PriceLists::ProductsController behaves like a product membership surface GET #index lists the members",
+      "status": "passed"
+    },
+    {
+      "file": "spec/support/shared_examples/product_membership.rb",
+      "line": 22,
+      "description": "Spree::Api::V3::Admin::PriceLists::ProductsController behaves like a product membership surface GET #index 404s under another store parent",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/collections/products_controller_spec.rb",
+      "line": 114,
+      "description": "Spree::Api::V3::Admin::Collections::ProductsController PATCH #reposition returns 422 for a missing new_position",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/collections/products_controller_spec.rb",
+      "line": 107,
+      "description": "Spree::Api::V3::Admin::Collections::ProductsController PATCH #reposition moves a product to the requested index",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/collections/products_controller_spec.rb",
+      "line": 40,
+      "description": "Spree::Api::V3::Admin::Collections::ProductsController GET #index returns an empty list for a collection with no products",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/collections/products_controller_spec.rb",
+      "line": 31,
+      "description": "Spree::Api::V3::Admin::Collections::ProductsController GET #index lists only the collection products, ordered by membership position",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/collections/products_controller_spec.rb",
+      "line": 48,
+      "description": "Spree::Api::V3::Admin::Collections::ProductsController GET #index lists the rule-materialized products of an automatic collection",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/collections/products_controller_spec.rb",
+      "line": 79,
+      "description": "Spree::Api::V3::Admin::Collections::ProductsController automatic collections rejects adding (rule-managed, not curated)",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/collections/products_controller_spec.rb",
+      "line": 87,
+      "description": "Spree::Api::V3::Admin::Collections::ProductsController automatic collections rejects removing before looking up the products",
+      "status": "passed"
+    },
+    {
+      "file": "spec/support/shared_examples/product_membership.rb",
+      "line": 82,
+      "description": "Spree::Api::V3::Admin::Collections::ProductsController behaves like a product membership surface DELETE #destroy removes several products in one request",
+      "status": "passed"
+    },
+    {
+      "file": "spec/support/shared_examples/product_membership.rb",
+      "line": 95,
+      "description": "Spree::Api::V3::Admin::Collections::ProductsController behaves like a product membership surface DELETE #destroy ignores ids that are not members",
+      "status": "passed"
+    },
+    {
+      "file": "spec/support/shared_examples/product_membership.rb",
+      "line": 30,
+      "description": "Spree::Api::V3::Admin::Collections::ProductsController behaves like a product membership surface POST #create adds store products in bulk by prefixed id",
+      "status": "passed"
+    },
+    {
+      "file": "spec/support/shared_examples/product_membership.rb",
+      "line": 57,
+      "description": "Spree::Api::V3::Admin::Collections::ProductsController behaves like a product membership surface POST #create counts what the write actually added, not what was requested",
+      "status": "passed"
+    },
+    {
+      "file": "spec/support/shared_examples/product_membership.rb",
+      "line": 42,
+      "description": "Spree::Api::V3::Admin::Collections::ProductsController behaves like a product membership surface POST #create skips ids that are already members",
+      "status": "passed"
+    },
+    {
+      "file": "spec/support/shared_examples/product_membership.rb",
+      "line": 69,
+      "description": "Spree::Api::V3::Admin::Collections::ProductsController behaves like a product membership surface POST #create silently drops products of another store",
+      "status": "passed"
+    },
+    {
+      "file": "spec/support/shared_examples/product_membership.rb",
+      "line": 12,
+      "description": "Spree::Api::V3::Admin::Collections::ProductsController behaves like a product membership surface GET #index lists the members",
+      "status": "passed"
+    },
+    {
+      "file": "spec/support/shared_examples/product_membership.rb",
+      "line": 22,
+      "description": "Spree::Api::V3::Admin::Collections::ProductsController behaves like a product membership surface GET #index 404s under another store parent",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/categories/products_controller_spec.rb",
+      "line": 31,
+      "description": "Spree::Api::V3::Admin::Categories::ProductsController GET #index lists only the category products, ordered by classification position",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/categories/products_controller_spec.rb",
+      "line": 42,
+      "description": "Spree::Api::V3::Admin::Categories::ProductsController GET #index returns an empty list for a category with no products",
+      "status": "passed"
+    },
+    {
+      "file": "spec/support/shared_examples/product_membership.rb",
+      "line": 95,
+      "description": "Spree::Api::V3::Admin::Categories::ProductsController behaves like a product membership surface DELETE #destroy ignores ids that are not members",
+      "status": "passed"
+    },
+    {
+      "file": "spec/support/shared_examples/product_membership.rb",
+      "line": 82,
+      "description": "Spree::Api::V3::Admin::Categories::ProductsController behaves like a product membership surface DELETE #destroy removes several products in one request",
+      "status": "passed"
+    },
+    {
+      "file": "spec/support/shared_examples/product_membership.rb",
+      "line": 42,
+      "description": "Spree::Api::V3::Admin::Categories::ProductsController behaves like a product membership surface POST #create skips ids that are already members",
+      "status": "passed"
+    },
+    {
+      "file": "spec/support/shared_examples/product_membership.rb",
+      "line": 30,
+      "description": "Spree::Api::V3::Admin::Categories::ProductsController behaves like a product membership surface POST #create adds store products in bulk by prefixed id",
+      "status": "passed"
+    },
+    {
+      "file": "spec/support/shared_examples/product_membership.rb",
+      "line": 57,
+      "description": "Spree::Api::V3::Admin::Categories::ProductsController behaves like a product membership surface POST #create counts what the write actually added, not what was requested",
+      "status": "passed"
+    },
+    {
+      "file": "spec/support/shared_examples/product_membership.rb",
+      "line": 69,
+      "description": "Spree::Api::V3::Admin::Categories::ProductsController behaves like a product membership surface POST #create silently drops products of another store",
+      "status": "passed"
+    },
+    {
+      "file": "spec/support/shared_examples/product_membership.rb",
+      "line": 22,
+      "description": "Spree::Api::V3::Admin::Categories::ProductsController behaves like a product membership surface GET #index 404s under another store parent",
+      "status": "passed"
+    },
+    {
+      "file": "spec/support/shared_examples/product_membership.rb",
+      "line": 12,
+      "description": "Spree::Api::V3::Admin::Categories::ProductsController behaves like a product membership surface GET #index lists the members",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/categories/products_controller_spec.rb",
+      "line": 89,
+      "description": "Spree::Api::V3::Admin::Categories::ProductsController PATCH #reposition returns 422 for a non-integer new_position",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/categories/products_controller_spec.rb",
+      "line": 77,
+      "description": "Spree::Api::V3::Admin::Categories::ProductsController PATCH #reposition moves a product to the requested index",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/categories/products_controller_spec.rb",
+      "line": 84,
+      "description": "Spree::Api::V3::Admin::Categories::ProductsController PATCH #reposition returns 422 for a missing new_position",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/translations/batches_controller_spec.rb",
+      "line": 72,
+      "description": "Spree::Api::V3::Admin::Translations::BatchesController POST #create rejects an empty batch",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/translations/batches_controller_spec.rb",
+      "line": 18,
+      "description": "Spree::Api::V3::Admin::Translations::BatchesController POST #create upserts translations across multiple resource types in one request",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/translations/batches_controller_spec.rb",
+      "line": 77,
+      "description": "Spree::Api::V3::Admin::Translations::BatchesController POST #create rejects a non-array translations param with 422, not a 500",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/translations/batches_controller_spec.rb",
+      "line": 62,
+      "description": "Spree::Api::V3::Admin::Translations::BatchesController POST #create returns 404-equivalent 422 for a resource missing in the current store",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/translations/batches_controller_spec.rb",
+      "line": 37,
+      "description": "Spree::Api::V3::Admin::Translations::BatchesController POST #create is atomic: one invalid entry rolls back the whole batch",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/translations/batches_controller_spec.rb",
+      "line": 50,
+      "description": "Spree::Api::V3::Admin::Translations::BatchesController POST #create reports the offending entry index for an unknown resource type",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/translations_coverage_spec.rb",
+      "line": null,
+      "description": "Admin Translations Coverage API /api/v3/admin/translations get resource type is not translatable returns a 404 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/translations_coverage_spec.rb",
+      "line": null,
+      "description": "Admin Translations Coverage API /api/v3/admin/translations get coverage found returns a 200 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/price_lists_controller_spec.rb",
+      "line": 98,
+      "description": "Spree::Api::V3::Admin::PriceListsController GET #index returns price lists in list order",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/price_lists_controller_spec.rb",
+      "line": 16,
+      "description": "Spree::Api::V3::Admin::PriceListsController automatic pricing attributes refuses a percentage on a standalone list",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/price_lists_controller_spec.rb",
+      "line": 28,
+      "description": "Spree::Api::V3::Admin::PriceListsController automatic pricing attributes still exposes the fields, read-only in effect, on an owned list",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/price_lists_controller_spec.rb",
+      "line": 64,
+      "description": "Spree::Api::V3::Admin::PriceListsController quantity bands on the percentage removes a band the payload leaves out",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/price_lists_controller_spec.rb",
+      "line": 87,
+      "description": "Spree::Api::V3::Admin::PriceListsController quantity bands on the percentage refuses bands on a standalone list",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/price_lists_controller_spec.rb",
+      "line": 45,
+      "description": "Spree::Api::V3::Admin::PriceListsController quantity bands on the percentage writes a ladder of bands and reads it back",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/price_lists_controller_spec.rb",
+      "line": 76,
+      "description": "Spree::Api::V3::Admin::PriceListsController quantity bands on the percentage clears the ladder on an empty array",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/price_lists_controller_spec.rb",
+      "line": 478,
+      "description": "Spree::Api::V3::Admin::PriceListsController extension-contributed attributes permits an attribute the model declares",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/price_lists_controller_spec.rb",
+      "line": 543,
+      "description": "Spree::Api::V3::Admin::PriceListsController PATCH #update \u2014 prices nullability contract when prices carries an upsert row updates the listed row only",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/price_lists_controller_spec.rb",
+      "line": 562,
+      "description": "Spree::Api::V3::Admin::PriceListsController PATCH #update \u2014 prices nullability contract when prices carries an upsert row ignores rows whose id is not in this list",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/price_lists_controller_spec.rb",
+      "line": 532,
+      "description": "Spree::Api::V3::Admin::PriceListsController PATCH #update \u2014 prices nullability contract when prices is explicitly an empty array keeps the price rows themselves",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/price_lists_controller_spec.rb",
+      "line": 524,
+      "description": "Spree::Api::V3::Admin::PriceListsController PATCH #update \u2014 prices nullability contract when prices is explicitly an empty array clears amount and compare_at_amount on every existing override",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/price_lists_controller_spec.rb",
+      "line": 511,
+      "description": "Spree::Api::V3::Admin::PriceListsController PATCH #update \u2014 prices nullability contract when the prices key is omitted entirely leaves existing overrides untouched",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/price_lists_controller_spec.rb",
+      "line": 376,
+      "description": "Spree::Api::V3::Admin::PriceListsController PATCH #update \u2014 rule reconciliation per rule type replaces customer_group_ids on an existing customer_group_rule",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/price_lists_controller_spec.rb",
+      "line": 397,
+      "description": "Spree::Api::V3::Admin::PriceListsController PATCH #update \u2014 rule reconciliation per rule type destroys rules omitted from the payload",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/price_lists_controller_spec.rb",
+      "line": 453,
+      "description": "Spree::Api::V3::Admin::PriceListsController PATCH #update \u2014 rule reconciliation per rule type silently drops a rule with an unknown type",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/price_lists_controller_spec.rb",
+      "line": 360,
+      "description": "Spree::Api::V3::Admin::PriceListsController PATCH #update \u2014 rule reconciliation per rule type updates a volume_rule in place when matched by id",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/price_lists_controller_spec.rb",
+      "line": 428,
+      "description": "Spree::Api::V3::Admin::PriceListsController PATCH #update \u2014 rule reconciliation per rule type adds a new rule alongside an existing one in a single PATCH",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/price_lists_controller_spec.rb",
+      "line": 415,
+      "description": "Spree::Api::V3::Admin::PriceListsController PATCH #update \u2014 rule reconciliation per rule type destroys all rules when given an empty array",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/price_lists_controller_spec.rb",
+      "line": 286,
+      "description": "Spree::Api::V3::Admin::PriceListsController POST #create \u2014 per rule type customer_group_rule refuses an unknown customer-group ID",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/price_lists_controller_spec.rb",
+      "line": 269,
+      "description": "Spree::Api::V3::Admin::PriceListsController POST #create \u2014 per rule type customer_group_rule decodes prefixed customer-group IDs to raw IDs in storage",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/price_lists_controller_spec.rb",
+      "line": 228,
+      "description": "Spree::Api::V3::Admin::PriceListsController POST #create \u2014 per rule type volume_rule persists min_quantity / max_quantity as integers",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/price_lists_controller_spec.rb",
+      "line": 242,
+      "description": "Spree::Api::V3::Admin::PriceListsController POST #create \u2014 per rule type volume_rule accepts a nil max_quantity (unbounded ceiling)",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/price_lists_controller_spec.rb",
+      "line": 325,
+      "description": "Spree::Api::V3::Admin::PriceListsController POST #create \u2014 per rule type user_rule refuses an unknown user ID",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/price_lists_controller_spec.rb",
+      "line": 308,
+      "description": "Spree::Api::V3::Admin::PriceListsController POST #create \u2014 per rule type user_rule decodes prefixed user IDs to raw IDs in storage",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/price_lists_controller_spec.rb",
+      "line": 340,
+      "description": "Spree::Api::V3::Admin::PriceListsController POST #create \u2014 per rule type duplicate rule types in a single payload rejects two rules of the same type on one list",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/price_lists_controller_spec.rb",
+      "line": 154,
+      "description": "Spree::Api::V3::Admin::PriceListsController POST #create \u2014 one-shot creation server-to-server shape (rules + prices) persists metadata, rules, and prices in one request",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/price_lists_controller_spec.rb",
+      "line": 196,
+      "description": "Spree::Api::V3::Admin::PriceListsController POST #create \u2014 one-shot creation cross-store IDOR \u2014 membership in another store ignores another store's variant in nested prices",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/price_lists_controller_spec.rb",
+      "line": 116,
+      "description": "Spree::Api::V3::Admin::PriceListsController POST #create \u2014 one-shot creation admin UI shape (rules) persists metadata and rules in one request",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/collection_rules_controller_spec.rb",
+      "line": 11,
+      "description": "Spree::Api::V3::Admin::CollectionRulesController GET #types lists every registered rule kind with its wire type and label",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/collection_rules_controller_spec.rb",
+      "line": 23,
+      "description": "Spree::Api::V3::Admin::CollectionRulesController GET #types includes a rule kind registered by a plugin",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/prices_controller_spec.rb",
+      "line": 403,
+      "description": "Spree::Api::V3::Admin::PricesController POST #bulk_upsert with quantity breaks accepts a batch that rewrites a full ladder in place",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/prices_controller_spec.rb",
+      "line": 431,
+      "description": "Spree::Api::V3::Admin::PricesController POST #bulk_upsert with quantity breaks accepts a break that undercuts the shop price without a rung of its own",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/prices_controller_spec.rb",
+      "line": 440,
+      "description": "Spree::Api::V3::Admin::PricesController POST #bulk_upsert with quantity breaks refuses two rows addressing the same quantity",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/prices_controller_spec.rb",
+      "line": 422,
+      "description": "Spree::Api::V3::Admin::PricesController POST #bulk_upsert with quantity breaks refuses a break that costs more than the shop price",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/prices_controller_spec.rb",
+      "line": 370,
+      "description": "Spree::Api::V3::Admin::PricesController POST #bulk_upsert with quantity breaks refuses a batch that would push the ladder past the cap",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/prices_controller_spec.rb",
+      "line": 355,
+      "description": "Spree::Api::V3::Admin::PricesController POST #bulk_upsert with quantity breaks updates one rung without disturbing the others",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/prices_controller_spec.rb",
+      "line": 343,
+      "description": "Spree::Api::V3::Admin::PricesController POST #bulk_upsert with quantity breaks writes a ladder as separate rows rather than overwriting one",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/prices_controller_spec.rb",
+      "line": 387,
+      "description": "Spree::Api::V3::Admin::PricesController POST #bulk_upsert with quantity breaks refuses a quantity that is not a whole number",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/prices_controller_spec.rb",
+      "line": 534,
+      "description": "Spree::Api::V3::Admin::PricesController DELETE #bulk_destroy returns 422 when ids is missing",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/prices_controller_spec.rb",
+      "line": 523,
+      "description": "Spree::Api::V3::Admin::PricesController DELETE #bulk_destroy soft-deletes the listed prices and reports the count",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/prices_controller_spec.rb",
+      "line": 496,
+      "description": "Spree::Api::V3::Admin::PricesController PATCH #update updates a price on a variant in the current store",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/prices_controller_spec.rb",
+      "line": 503,
+      "description": "Spree::Api::V3::Admin::PricesController PATCH #update 404s when rebinding a price to another store's variant",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/prices_controller_spec.rb",
+      "line": 70,
+      "description": "Spree::Api::V3::Admin::PricesController GET #index scopes to a single product via q[variant_product_id_eq] (base prices only)",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/prices_controller_spec.rb",
+      "line": 24,
+      "description": "Spree::Api::V3::Admin::PricesController GET #index returns prices scoped to the current store",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/prices_controller_spec.rb",
+      "line": 32,
+      "description": "Spree::Api::V3::Admin::PricesController GET #index filters by price_list_id via Ransack",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/prices_controller_spec.rb",
+      "line": 39,
+      "description": "Spree::Api::V3::Admin::PricesController GET #index filters by currency via Ransack",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/prices_controller_spec.rb",
+      "line": 59,
+      "description": "Spree::Api::V3::Admin::PricesController GET #index sorts by variant product name without raising",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/prices_controller_spec.rb",
+      "line": 132,
+      "description": "Spree::Api::V3::Admin::PricesController GET #index excludes prices from other stores",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/prices_controller_spec.rb",
+      "line": 119,
+      "description": "Spree::Api::V3::Admin::PricesController GET #index free-text search via q[search] matches by product name",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/prices_controller_spec.rb",
+      "line": 107,
+      "description": "Spree::Api::V3::Admin::PricesController GET #index free-text search via q[search] matches by SKU substring",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/prices_controller_spec.rb",
+      "line": 126,
+      "description": "Spree::Api::V3::Admin::PricesController GET #index free-text search via q[search] returns no rows for a short query (under the 3-char floor)",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/prices_controller_spec.rb",
+      "line": 113,
+      "description": "Spree::Api::V3::Admin::PricesController GET #index free-text search via q[search] matches by option-value presentation",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/prices_controller_spec.rb",
+      "line": 145,
+      "description": "Spree::Api::V3::Admin::PricesController POST #bulk_upsert refuses a price below zero",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/prices_controller_spec.rb",
+      "line": 193,
+      "description": "Spree::Api::V3::Admin::PricesController POST #bulk_upsert when no row exists at the unique key creates a new row",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/prices_controller_spec.rb",
+      "line": 214,
+      "description": "Spree::Api::V3::Admin::PricesController POST #bulk_upsert when no row exists at the unique key creates a base price (price_list_id null)",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/prices_controller_spec.rb",
+      "line": 268,
+      "description": "Spree::Api::V3::Admin::PricesController POST #bulk_upsert when targeting a row in a sibling list allows updates within the store but the row stays in its list",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/prices_controller_spec.rb",
+      "line": 240,
+      "description": "Spree::Api::V3::Admin::PricesController POST #bulk_upsert with canonical decimal-string amounts upserts amount and compare_at_amount as canonical strings",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/prices_controller_spec.rb",
+      "line": 168,
+      "description": "Spree::Api::V3::Admin::PricesController POST #bulk_upsert when the unique-key triple matches an existing row updates the matching row via the unique key",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/prices_controller_spec.rb",
+      "line": 155,
+      "description": "Spree::Api::V3::Admin::PricesController POST #bulk_upsert when the prices key is omitted entirely returns 422 with a missing_prices error",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/prices_controller_spec.rb",
+      "line": 314,
+      "description": "Spree::Api::V3::Admin::PricesController POST #bulk_upsert cross-store IDOR \u2014 a variant in another store rejects targeting another store's price list and leaves its rows untouched",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/prices_controller_spec.rb",
+      "line": 294,
+      "description": "Spree::Api::V3::Admin::PricesController POST #bulk_upsert cross-store IDOR \u2014 a variant in another store rejects writing a price on another store's variant and leaves it untouched",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/prices_controller_spec.rb",
+      "line": 453,
+      "description": "Spree::Api::V3::Admin::PricesController POST #create creates a price on a variant in the current store",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/prices_controller_spec.rb",
+      "line": 478,
+      "description": "Spree::Api::V3::Admin::PricesController POST #create cross-store IDOR 404s when attaching a price to another store's price list",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/prices_controller_spec.rb",
+      "line": 468,
+      "description": "Spree::Api::V3::Admin::PricesController POST #create cross-store IDOR 404s when writing a price on another store's variant",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/translations_coverage_controller_spec.rb",
+      "line": 93,
+      "description": "Spree::Api::V3::Admin::TranslationsCoverageController GET #index filters through ransack",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/translations_coverage_controller_spec.rb",
+      "line": 85,
+      "description": "Spree::Api::V3::Admin::TranslationsCoverageController GET #index paginates",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/translations_coverage_controller_spec.rb",
+      "line": 34,
+      "description": "Spree::Api::V3::Admin::TranslationsCoverageController GET #index reports the store locales without the default one",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/translations_coverage_controller_spec.rb",
+      "line": 57,
+      "description": "Spree::Api::V3::Admin::TranslationsCoverageController GET #index returns the per-record translated field count for each locale",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/translations_coverage_controller_spec.rb",
+      "line": 68,
+      "description": "Spree::Api::V3::Admin::TranslationsCoverageController GET #index labels records in the default locale, not the request locale",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/translations_coverage_controller_spec.rb",
+      "line": 107,
+      "description": "Spree::Api::V3::Admin::TranslationsCoverageController GET #index reports which predicate the grid can filter by",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/translations_coverage_controller_spec.rb",
+      "line": 43,
+      "description": "Spree::Api::V3::Admin::TranslationsCoverageController GET #index counts a record as covered only when every field is translated",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/translations_coverage_controller_spec.rb",
+      "line": 100,
+      "description": "Spree::Api::V3::Admin::TranslationsCoverageController GET #index applies a plain search term through the whitelisted predicate",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/translations_coverage_controller_spec.rb",
+      "line": 78,
+      "description": "Spree::Api::V3::Admin::TranslationsCoverageController GET #index returns prefixed ids so a row can deep-link to its editor",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/translations_coverage_controller_spec.rb",
+      "line": 148,
+      "description": "Spree::Api::V3::Admin::TranslationsCoverageController GET #index with a resource scoped by a polymorphic owner excludes another store's records",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/translations_coverage_controller_spec.rb",
+      "line": 240,
+      "description": "Spree::Api::V3::Admin::TranslationsCoverageController GET #index with another store's records excludes them",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/translations_coverage_controller_spec.rb",
+      "line": 221,
+      "description": "Spree::Api::V3::Admin::TranslationsCoverageController GET #index with an unknown resource type returns 404",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/translations_coverage_controller_spec.rb",
+      "line": 129,
+      "description": "Spree::Api::V3::Admin::TranslationsCoverageController GET #index with a model whose whitelist omits name still searches by name, which Ransack allows by default",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/translations_coverage_controller_spec.rb",
+      "line": 119,
+      "description": "Spree::Api::V3::Admin::TranslationsCoverageController GET #index with a model whose label is a different column than its name searches the column the grid displays",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/translations_coverage_controller_spec.rb",
+      "line": 177,
+      "description": "Spree::Api::V3::Admin::TranslationsCoverageController GET #index with another resource type reports coverage using the public field name",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/translations_coverage_controller_spec.rb",
+      "line": 163,
+      "description": "Spree::Api::V3::Admin::TranslationsCoverageController GET #index with a singleton resource type reports only the current store, never every store in the install",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/translations_coverage_controller_spec.rb",
+      "line": 212,
+      "description": "Spree::Api::V3::Admin::TranslationsCoverageController GET #index authorization reads option_type translations under products",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/translations_coverage_controller_spec.rb",
+      "line": 212,
+      "description": "Spree::Api::V3::Admin::TranslationsCoverageController GET #index authorization reads collection translations under collections",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/translations_coverage_controller_spec.rb",
+      "line": 212,
+      "description": "Spree::Api::V3::Admin::TranslationsCoverageController GET #index authorization reads category translations under categories",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/translations_coverage_controller_spec.rb",
+      "line": 212,
+      "description": "Spree::Api::V3::Admin::TranslationsCoverageController GET #index authorization reads product translations under products",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/translations_coverage_controller_spec.rb",
+      "line": 212,
+      "description": "Spree::Api::V3::Admin::TranslationsCoverageController GET #index authorization reads policy translations under settings",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/translations_coverage_controller_spec.rb",
+      "line": 191,
+      "description": "Spree::Api::V3::Admin::TranslationsCoverageController GET #index when the store has no non-default locales returns empty locales and coverage",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/translations_coverage_controller_spec.rb",
+      "line": 229,
+      "description": "Spree::Api::V3::Admin::TranslationsCoverageController GET #index with a resource type that is not translatable returns 404",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/categories_spec.rb",
+      "line": null,
+      "description": "Admin Categories API /api/v3/admin/categories/{id}/reposition patch category repositioned returns a 200 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/categories_spec.rb",
+      "line": null,
+      "description": "Admin Categories API /api/v3/admin/categories/{category_id}/products post products added returns a 201 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/categories_spec.rb",
+      "line": null,
+      "description": "Admin Categories API /api/v3/admin/categories/{category_id}/products delete products removed returns a 200 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/categories_spec.rb",
+      "line": null,
+      "description": "Admin Categories API /api/v3/admin/categories/{category_id}/products get products found returns a 200 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/categories_spec.rb",
+      "line": null,
+      "description": "Admin Categories API /api/v3/admin/categories get categories found returns a 200 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/categories_spec.rb",
+      "line": null,
+      "description": "Admin Categories API /api/v3/admin/categories post validation error returns a 422 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/categories_spec.rb",
+      "line": null,
+      "description": "Admin Categories API /api/v3/admin/categories post category created returns a 201 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/categories_spec.rb",
+      "line": null,
+      "description": "Admin Categories API /api/v3/admin/categories/{category_id}/products/{id}/reposition patch product repositioned returns a 204 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/categories_spec.rb",
+      "line": null,
+      "description": "Admin Categories API /api/v3/admin/categories/{id} delete category deleted returns a 204 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/categories_spec.rb",
+      "line": null,
+      "description": "Admin Categories API /api/v3/admin/categories/{id} patch category updated returns a 200 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/categories_spec.rb",
+      "line": null,
+      "description": "Admin Categories API /api/v3/admin/categories/{id} get category found returns a 200 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/categories_spec.rb",
+      "line": null,
+      "description": "Admin Categories API /api/v3/admin/categories/{id} get category not found returns a 404 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/translations_controller_spec.rb",
+      "line": 86,
+      "description": "Spree::Api::V3::Admin::TranslationsController when the parent has translatable children (option type \u2192 values) nests each option value matrix under the option type translations",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/translations_controller_spec.rb",
+      "line": 124,
+      "description": "Spree::Api::V3::Admin::TranslationsController when the parent param resolves to nothing translatable has no route for a non-translatable parent",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/translations_controller_spec.rb",
+      "line": 73,
+      "description": "Spree::Api::V3::Admin::TranslationsController key gate over polymorphic parents as a staffer without a products permission is denied with the products permission named",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/translations_controller_spec.rb",
+      "line": 56,
+      "description": "Spree::Api::V3::Admin::TranslationsController key gate over polymorphic parents as a staffer holding read_products reads an option type translation matrix",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/translations_controller_spec.rb",
+      "line": 34,
+      "description": "Spree::Api::V3::Admin::TranslationsController GET #index returns 404 for a missing parent",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/translations_controller_spec.rb",
+      "line": 18,
+      "description": "Spree::Api::V3::Admin::TranslationsController GET #index returns the translation matrix, fields, and locales for the parent",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/translations_controller_spec.rb",
+      "line": 117,
+      "description": "Spree::Api::V3::Admin::TranslationsController when the parent is a category works for a top-level taxonomy root category",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/translations_controller_spec.rb",
+      "line": 108,
+      "description": "Spree::Api::V3::Admin::TranslationsController when the parent is a category returns the translation matrix for the category",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/catalogs/products_controller_spec.rb",
+      "line": 143,
+      "description": "Spree::Api::V3::Admin::Catalogs::ProductsController GET #index reports a product the agreement does not price as base",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/catalogs/products_controller_spec.rb",
+      "line": 103,
+      "description": "Spree::Api::V3::Admin::Catalogs::ProductsController GET #index adds only the price reading when expanded",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/catalogs/products_controller_spec.rb",
+      "line": 95,
+      "description": "Spree::Api::V3::Admin::Catalogs::ProductsController GET #index sends only what the membership card and the picker read",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/catalogs/products_controller_spec.rb",
+      "line": 115,
+      "description": "Spree::Api::V3::Admin::Catalogs::ProductsController GET #index reports an amount derived from the catalog percentage",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/catalogs/products_controller_spec.rb",
+      "line": 28,
+      "description": "Spree::Api::V3::Admin::Catalogs::ProductsController GET #index lists the assortment by name",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/catalogs/products_controller_spec.rb",
+      "line": 39,
+      "description": "Spree::Api::V3::Admin::Catalogs::ProductsController GET #index leaves the resolved price out unless it is asked for",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/catalogs/products_controller_spec.rb",
+      "line": 51,
+      "description": "Spree::Api::V3::Admin::Catalogs::ProductsController GET #index rolls a product's quantity terms up onto its row",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/catalogs/products_controller_spec.rb",
+      "line": 67,
+      "description": "Spree::Api::V3::Admin::Catalogs::ProductsController GET #index marks a product whose variants carry different terms as mixed",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/catalogs/products_controller_spec.rb",
+      "line": 130,
+      "description": "Spree::Api::V3::Admin::Catalogs::ProductsController GET #index still resolves when the expand carries a nested path",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/catalogs/products_controller_spec.rb",
+      "line": 80,
+      "description": "Spree::Api::V3::Admin::Catalogs::ProductsController GET #index leaves the terms out unless they are asked for",
+      "status": "passed"
+    },
+    {
+      "file": "spec/support/shared_examples/product_membership.rb",
+      "line": 12,
+      "description": "Spree::Api::V3::Admin::Catalogs::ProductsController behaves like a product membership surface GET #index lists the members",
+      "status": "passed"
+    },
+    {
+      "file": "spec/support/shared_examples/product_membership.rb",
+      "line": 22,
+      "description": "Spree::Api::V3::Admin::Catalogs::ProductsController behaves like a product membership surface GET #index 404s under another store parent",
+      "status": "passed"
+    },
+    {
+      "file": "spec/support/shared_examples/product_membership.rb",
+      "line": 82,
+      "description": "Spree::Api::V3::Admin::Catalogs::ProductsController behaves like a product membership surface DELETE #destroy removes several products in one request",
+      "status": "passed"
+    },
+    {
+      "file": "spec/support/shared_examples/product_membership.rb",
+      "line": 95,
+      "description": "Spree::Api::V3::Admin::Catalogs::ProductsController behaves like a product membership surface DELETE #destroy ignores ids that are not members",
+      "status": "passed"
+    },
+    {
+      "file": "spec/support/shared_examples/product_membership.rb",
+      "line": 42,
+      "description": "Spree::Api::V3::Admin::Catalogs::ProductsController behaves like a product membership surface POST #create skips ids that are already members",
+      "status": "passed"
+    },
+    {
+      "file": "spec/support/shared_examples/product_membership.rb",
+      "line": 30,
+      "description": "Spree::Api::V3::Admin::Catalogs::ProductsController behaves like a product membership surface POST #create adds store products in bulk by prefixed id",
+      "status": "passed"
+    },
+    {
+      "file": "spec/support/shared_examples/product_membership.rb",
+      "line": 57,
+      "description": "Spree::Api::V3::Admin::Catalogs::ProductsController behaves like a product membership surface POST #create counts what the write actually added, not what was requested",
+      "status": "passed"
+    },
+    {
+      "file": "spec/support/shared_examples/product_membership.rb",
+      "line": 69,
+      "description": "Spree::Api::V3::Admin::Catalogs::ProductsController behaves like a product membership surface POST #create silently drops products of another store",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/imports_spec.rb",
+      "line": null,
+      "description": "Admin Imports API /api/v3/admin/imports/{id}/retry_failed_rows patch retry queued returns a 200 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/imports_spec.rb",
+      "line": null,
+      "description": "Admin Imports API /api/v3/admin/imports/{id}/complete_mapping patch mapping completed, processing queued returns a 200 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/imports_spec.rb",
+      "line": null,
+      "description": "Admin Imports API /api/v3/admin/imports/{id}/download get CSV file returns a 200 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/imports_spec.rb",
+      "line": null,
+      "description": "Admin Imports API /api/v3/admin/imports/{id} delete import deleted returns a 204 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/imports_spec.rb",
+      "line": null,
+      "description": "Admin Imports API /api/v3/admin/imports/{id} get import found returns a 200 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/imports_spec.rb",
+      "line": null,
+      "description": "Admin Imports API /api/v3/admin/imports/template get CSV template returns a 200 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/imports_spec.rb",
+      "line": null,
+      "description": "Admin Imports API /api/v3/admin/imports/example get Redirect to the example CSV returns a 302 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/imports_spec.rb",
+      "line": null,
+      "description": "Admin Imports API /api/v3/admin/imports post unknown import type returns a 422 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/imports_spec.rb",
+      "line": null,
+      "description": "Admin Imports API /api/v3/admin/imports post import created in mapping state returns a 201 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/imports_spec.rb",
+      "line": null,
+      "description": "Admin Imports API /api/v3/admin/imports get imports found returns a 200 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/imports_spec.rb",
+      "line": null,
+      "description": "Admin Imports API /api/v3/admin/imports/{import_id}/rows get rows found returns a 200 response",
+      "status": "passed"
+    }
+  ]
+}

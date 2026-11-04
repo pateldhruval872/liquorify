@@ -1,0 +1,17 @@
+{
+  "screen": "DA-PRD-12",
+  "state": "manual-narrow",
+  "variant": "admin",
+  "role": null,
+  "theme": "light",
+  "revision": "5c2e38fd",
+  "path": "/<store>/products/collections/coll_EfhxLZ9ck8",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "intercepted": null,
+  "masked": null,
+  "settled": true,
+  "outside": []
+}

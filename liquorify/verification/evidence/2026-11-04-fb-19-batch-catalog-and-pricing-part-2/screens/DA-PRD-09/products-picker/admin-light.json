@@ -1,0 +1,17 @@
+{
+  "screen": "DA-PRD-09",
+  "state": "products-picker",
+  "variant": "admin",
+  "role": null,
+  "theme": "light",
+  "revision": "36173fb5",
+  "path": "/<store>/products/categories/ctg_D6Psx31WaT",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": null,
+  "masked": null,
+  "settled": true,
+  "outside": []
+}

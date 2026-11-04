@@ -1,0 +1,4 @@
+slug,sku,name,price,compare_at_price,status,description,meta_title,meta_description,tags,weight,weight_unit,width,height,depth,dimensions_unit,track_inventory,inventory_count,option1_name,option1_value,category1
+fidelity-fl21-tray-1793763455244,FL21-TRAY-1793763455244,Fidelity FL-21 serving tray 1793763455244,24.50,29.00,active,"An oak serving tray, sized for breakfast in bed.",Oak serving tray,A serving tray made of oiled oak.,"fl21, tray",0.8,kg,40,3,28,cm,true,12,,,Kitchen -> Coffee Machines
+fidelity-fl21-jug-1793763455244,FL21-JUG-SM-1793763455244,Fidelity FL-21 water jug 1793763455244,18.00,21.00,draft,A glass water jug with a beech lid.,Glass water jug,"A glass jug for water, with a beech lid.","fl21, jug",0.5,kg,10,24,10,cm,true,5,Size,Small,Kitchen -> Coffee Machines
+fidelity-fl21-jug-1793763455244,FL21-JUG-LG-1793763455244,,22.00,25.00,,,,,,0.7,kg,12,28,12,cm,true,7,Size,Large,
