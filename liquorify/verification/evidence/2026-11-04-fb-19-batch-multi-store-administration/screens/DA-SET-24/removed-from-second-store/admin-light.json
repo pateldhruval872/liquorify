@@ -1,0 +1,22 @@
+{
+  "screen": "DA-SET-24",
+  "state": "removed-from-second-store",
+  "variant": "admin",
+  "role": {
+    "Shop": "admin",
+    "Winkel": "admin"
+  },
+  "theme": "light",
+  "revision": "1320592d",
+  "path": "/<second-store>/settings/staff",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": null,
+  "settled": true,
+  "checked": "Once confirmed, the teammate is no longer in Winkel's staff list",
+  "navigation": null,
+  "answered": null,
+  "outside": []
+}

@@ -1,0 +1,29 @@
+{
+  "screen": "DA-SHELL-01",
+  "state": "opens-first-of-two-stores",
+  "variant": "teammate",
+  "role": {
+    "Shop": "admin",
+    "Winkel": {
+      "name": "Support",
+      "permissions": [
+        "read_orders",
+        "read_customers",
+        "read_dashboard"
+      ]
+    }
+  },
+  "theme": "dark",
+  "revision": "1320592d",
+  "path": "/<store>",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": null,
+  "settled": true,
+  "checked": "Signing in through the form opens Shop, the first of the teammate's two stores by name, with the admin role's navigation",
+  "navigation": null,
+  "answered": null,
+  "outside": []
+}

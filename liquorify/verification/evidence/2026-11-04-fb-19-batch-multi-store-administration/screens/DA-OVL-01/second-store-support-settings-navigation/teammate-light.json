@@ -1,0 +1,29 @@
+{
+  "screen": "DA-OVL-01",
+  "state": "second-store-support-settings-navigation",
+  "variant": "teammate",
+  "role": {
+    "Shop": "admin",
+    "Winkel": {
+      "name": "Support",
+      "permissions": [
+        "read_orders",
+        "read_customers",
+        "read_dashboard"
+      ]
+    }
+  },
+  "theme": "light",
+  "revision": "1320592d",
+  "path": "/<second-store>/settings",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": null,
+  "settled": true,
+  "checked": "The settings navigation of the Support role in Winkel, opened by its address",
+  "navigation": null,
+  "answered": null,
+  "outside": []
+}
