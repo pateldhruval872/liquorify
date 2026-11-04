@@ -1,0 +1,198 @@
+{
+  "screen": "DA-OVL-01",
+  "state": "second-store-create-product-after-switching",
+  "variant": "teammate",
+  "role": {
+    "Shop": "admin",
+    "Winkel": {
+      "name": "Support",
+      "permissions": [
+        "read_orders",
+        "read_customers",
+        "read_dashboard"
+      ]
+    }
+  },
+  "theme": "light",
+  "revision": "1320592d",
+  "path": "/<second-store>/products/new",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": null,
+  "settled": true,
+  "checked": "A product created from the new product page the switch left reachable in Winkel. Message shown: none",
+  "navigation": null,
+  "answered": [
+    {
+      "method": "GET",
+      "path": "/api/v3/admin/products",
+      "status": 403,
+      "code": "access_denied"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v3/admin/custom_field_definitions",
+      "status": 403,
+      "code": "access_denied"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v3/admin/products",
+      "status": 403,
+      "code": "access_denied"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v3/admin/custom_field_definitions",
+      "status": 403,
+      "code": "access_denied"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v3/admin/option_types",
+      "status": 403,
+      "code": "access_denied"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v3/admin/stock_locations",
+      "status": 403,
+      "code": "access_denied"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v3/admin/custom_field_definitions",
+      "status": 403,
+      "code": "access_denied"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v3/admin/package_types",
+      "status": 403,
+      "code": "access_denied"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v3/admin/tax_categories",
+      "status": 403,
+      "code": "access_denied"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v3/admin/channels",
+      "status": 403,
+      "code": "access_denied"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v3/admin/tags",
+      "status": 403,
+      "code": "access_denied"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v3/admin/categories",
+      "status": 403,
+      "code": "access_denied"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v3/admin/collections",
+      "status": 403,
+      "code": "access_denied"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v3/admin/product_types",
+      "status": 403,
+      "code": "access_denied"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v3/admin/products",
+      "status": 403,
+      "code": "access_denied"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v3/admin/delivery_profiles",
+      "status": 403,
+      "code": "access_denied"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v3/admin/option_types",
+      "status": 403,
+      "code": "access_denied"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v3/admin/stock_locations",
+      "status": 403,
+      "code": "access_denied"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v3/admin/custom_field_definitions",
+      "status": 403,
+      "code": "access_denied"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v3/admin/package_types",
+      "status": 403,
+      "code": "access_denied"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v3/admin/tax_categories",
+      "status": 403,
+      "code": "access_denied"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v3/admin/channels",
+      "status": 403,
+      "code": "access_denied"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v3/admin/tags",
+      "status": 403,
+      "code": "access_denied"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v3/admin/categories",
+      "status": 403,
+      "code": "access_denied"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v3/admin/collections",
+      "status": 403,
+      "code": "access_denied"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v3/admin/product_types",
+      "status": 403,
+      "code": "access_denied"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v3/admin/delivery_profiles",
+      "status": 403,
+      "code": "access_denied"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v3/admin/countries",
+      "status": 200,
+      "code": null
+    }
+  ],
+  "outside": []
+}

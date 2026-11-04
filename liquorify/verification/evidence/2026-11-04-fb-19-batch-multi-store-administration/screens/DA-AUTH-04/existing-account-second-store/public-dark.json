@@ -1,0 +1,19 @@
+{
+  "screen": "DA-AUTH-04",
+  "state": "existing-account-second-store",
+  "variant": "public",
+  "role": null,
+  "theme": "dark",
+  "revision": "1320592d",
+  "path": "/accept-invitation/<invitation>",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": null,
+  "settled": true,
+  "checked": "The heading names Winkel, the text names the Support role, and the form asks only for the existing account's password",
+  "navigation": null,
+  "answered": null,
+  "outside": []
+}

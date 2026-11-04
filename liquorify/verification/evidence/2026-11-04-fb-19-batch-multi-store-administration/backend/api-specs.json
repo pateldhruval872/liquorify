@@ -1,0 +1,834 @@
+{
+  "engine": "spree/api",
+  "spree_code_at": "68236c5",
+  "rspec": "3.13.6",
+  "database": "SQLite, the engine test app default",
+  "summary": {
+    "duration": 8.306662094,
+    "example_count": 117,
+    "failure_count": 0,
+    "pending_count": 0,
+    "errors_outside_of_examples_count": 0
+  },
+  "examples": [
+    {
+      "file": "spec/controllers/spree/api/v3/admin/roles_controller_spec.rb",
+      "line": 149,
+      "id": "spec/controllers/spree/api/v3/admin/roles_controller_spec.rb[1:3:2]",
+      "description": "Spree::Api::V3::Admin::RolesController PATCH #update rejects renaming the admin role",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/roles_controller_spec.rb",
+      "line": 141,
+      "id": "spec/controllers/spree/api/v3/admin/roles_controller_spec.rb[1:3:1]",
+      "description": "Spree::Api::V3::Admin::RolesController PATCH #update updates name, description and permissions",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/roles_controller_spec.rb",
+      "line": 156,
+      "id": "spec/controllers/spree/api/v3/admin/roles_controller_spec.rb[1:3:3]",
+      "description": "Spree::Api::V3::Admin::RolesController PATCH #update rejects changing admin role permissions",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/roles_controller_spec.rb",
+      "line": 58,
+      "id": "spec/controllers/spree/api/v3/admin/roles_controller_spec.rb[1:2:2]",
+      "description": "Spree::Api::V3::Admin::RolesController POST #create rejects unknown permission keys as validation errors",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/roles_controller_spec.rb",
+      "line": 49,
+      "id": "spec/controllers/spree/api/v3/admin/roles_controller_spec.rb[1:2:1]",
+      "description": "Spree::Api::V3::Admin::RolesController POST #create creates a role with catalog permissions",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/roles_controller_spec.rb",
+      "line": 130,
+      "id": "spec/controllers/spree/api/v3/admin/roles_controller_spec.rb[1:2:4:2]",
+      "description": "Spree::Api::V3::Admin::RolesController POST #create via a secret API key with limited scopes allows granting within the key scopes",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/roles_controller_spec.rb",
+      "line": 124,
+      "id": "spec/controllers/spree/api/v3/admin/roles_controller_spec.rb[1:2:4:1]",
+      "description": "Spree::Api::V3::Admin::RolesController POST #create via a secret API key with limited scopes is bounded by the key scopes",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/roles_controller_spec.rb",
+      "line": 81,
+      "id": "spec/controllers/spree/api/v3/admin/roles_controller_spec.rb[1:2:3:2]",
+      "description": "Spree::Api::V3::Admin::RolesController POST #create as a staffer with limited permissions forbids granting keys beyond its own grant",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/roles_controller_spec.rb",
+      "line": 91,
+      "id": "spec/controllers/spree/api/v3/admin/roles_controller_spec.rb[1:2:3:3]",
+      "description": "Spree::Api::V3::Admin::RolesController POST #create as a staffer with limited permissions ignores keys the caller holds only on a non-store resource",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/roles_controller_spec.rb",
+      "line": 109,
+      "id": "spec/controllers/spree/api/v3/admin/roles_controller_spec.rb[1:2:3:4]",
+      "description": "Spree::Api::V3::Admin::RolesController POST #create as a staffer with limited permissions ignores keys the caller holds only on a different store",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/roles_controller_spec.rb",
+      "line": 75,
+      "id": "spec/controllers/spree/api/v3/admin/roles_controller_spec.rb[1:2:3:1]",
+      "description": "Spree::Api::V3::Admin::RolesController POST #create as a staffer with limited permissions allows granting keys within its own grant",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/roles_controller_spec.rb",
+      "line": 39,
+      "id": "spec/controllers/spree/api/v3/admin/roles_controller_spec.rb[1:1:3]",
+      "description": "Spree::Api::V3::Admin::RolesController GET #index reports the admin role as immutable with the full catalog",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/roles_controller_spec.rb",
+      "line": 15,
+      "id": "spec/controllers/spree/api/v3/admin/roles_controller_spec.rb[1:1:1]",
+      "description": "Spree::Api::V3::Admin::RolesController GET #index lists roles with permissions and mutability",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/roles_controller_spec.rb",
+      "line": 30,
+      "id": "spec/controllers/spree/api/v3/admin/roles_controller_spec.rb[1:1:2]",
+      "description": "Spree::Api::V3::Admin::RolesController GET #index omits roles owned by another resource",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/roles_controller_spec.rb",
+      "line": 173,
+      "id": "spec/controllers/spree/api/v3/admin/roles_controller_spec.rb[1:4:2]",
+      "description": "Spree::Api::V3::Admin::RolesController DELETE #destroy refuses to delete the admin role",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/roles_controller_spec.rb",
+      "line": 180,
+      "id": "spec/controllers/spree/api/v3/admin/roles_controller_spec.rb[1:4:3]",
+      "description": "Spree::Api::V3::Admin::RolesController DELETE #destroy refuses to delete a role still assigned to staff",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/roles_controller_spec.rb",
+      "line": 164,
+      "id": "spec/controllers/spree/api/v3/admin/roles_controller_spec.rb[1:4:1]",
+      "description": "Spree::Api::V3::Admin::RolesController DELETE #destroy deletes an unreferenced role",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/invitations_controller_spec.rb",
+      "line": 110,
+      "id": "spec/controllers/spree/api/v3/admin/invitations_controller_spec.rb[1:2:1]",
+      "description": "Spree::Api::V3::Admin::InvitationsController GET #index does not expose the acceptance token",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/invitations_controller_spec.rb",
+      "line": 21,
+      "id": "spec/controllers/spree/api/v3/admin/invitations_controller_spec.rb[1:1:1:1]",
+      "description": "Spree::Api::V3::Admin::InvitationsController POST #create \u2014 role-grant privilege escalation authenticated via a secret API key (no human identity) forbids inviting straight into the admin role",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/invitations_controller_spec.rb",
+      "line": 91,
+      "id": "spec/controllers/spree/api/v3/admin/invitations_controller_spec.rb[1:1:3:2]",
+      "description": "Spree::Api::V3::Admin::InvitationsController POST #create \u2014 role-grant privilege escalation authenticated as a super-admin JWT refuses inviting store staff into a role owned by another resource",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/invitations_controller_spec.rb",
+      "line": 79,
+      "id": "spec/controllers/spree/api/v3/admin/invitations_controller_spec.rb[1:1:3:1]",
+      "description": "Spree::Api::V3::Admin::InvitationsController POST #create \u2014 role-grant privilege escalation authenticated as a super-admin JWT allows inviting with the admin role",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/invitations_controller_spec.rb",
+      "line": 39,
+      "id": "spec/controllers/spree/api/v3/admin/invitations_controller_spec.rb[1:1:2:1]",
+      "description": "Spree::Api::V3::Admin::InvitationsController POST #create \u2014 role-grant privilege escalation authenticated as a non-admin staff JWT forbids a non-admin from inviting into the admin role",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/invitations_controller_spec.rb",
+      "line": 47,
+      "id": "spec/controllers/spree/api/v3/admin/invitations_controller_spec.rb[1:1:2:2]",
+      "description": "Spree::Api::V3::Admin::InvitationsController POST #create \u2014 role-grant privilege escalation authenticated as a non-admin staff JWT allows inviting with a non-admin role",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/invitations_controller_spec.rb",
+      "line": 65,
+      "id": "spec/controllers/spree/api/v3/admin/invitations_controller_spec.rb[1:1:2:4]",
+      "description": "Spree::Api::V3::Admin::InvitationsController POST #create \u2014 role-grant privilege escalation authenticated as a non-admin staff JWT forbids inviting into a role whose permissions exceed its own",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/invitations_controller_spec.rb",
+      "line": 57,
+      "id": "spec/controllers/spree/api/v3/admin/invitations_controller_spec.rb[1:1:2:3]",
+      "description": "Spree::Api::V3::Admin::InvitationsController POST #create \u2014 role-grant privilege escalation authenticated as a non-admin staff JWT refuses an invitation without a role",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/me_controller_spec.rb",
+      "line": 44,
+      "id": "spec/controllers/spree/api/v3/admin/me_controller_spec.rb[1:1:5]",
+      "description": "Spree::Api::V3::Admin::MeController GET #show serializes each rule with allow, actions, subjects and has_conditions",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/me_controller_spec.rb",
+      "line": 69,
+      "id": "spec/controllers/spree/api/v3/admin/me_controller_spec.rb[1:1:8]",
+      "description": "Spree::Api::V3::Admin::MeController GET #show returns the full catalog as permission_keys for admin users",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/me_controller_spec.rb",
+      "line": 18,
+      "id": "spec/controllers/spree/api/v3/admin/me_controller_spec.rb[1:1:1]",
+      "description": "Spree::Api::V3::Admin::MeController GET #show returns ok",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/me_controller_spec.rb",
+      "line": 152,
+      "id": "spec/controllers/spree/api/v3/admin/me_controller_spec.rb[1:1:13]",
+      "description": "Spree::Api::V3::Admin::MeController GET #show exposes the user selected_locale",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/me_controller_spec.rb",
+      "line": 23,
+      "id": "spec/controllers/spree/api/v3/admin/me_controller_spec.rb[1:1:2]",
+      "description": "Spree::Api::V3::Admin::MeController GET #show does not raise accessing the internal CanCanCan rules",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/me_controller_spec.rb",
+      "line": 32,
+      "id": "spec/controllers/spree/api/v3/admin/me_controller_spec.rb[1:1:3]",
+      "description": "Spree::Api::V3::Admin::MeController GET #show returns the current admin user",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/me_controller_spec.rb",
+      "line": 61,
+      "id": "spec/controllers/spree/api/v3/admin/me_controller_spec.rb[1:1:7]",
+      "description": "Spree::Api::V3::Admin::MeController GET #show includes a manage all rule for admin users",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/me_controller_spec.rb",
+      "line": 146,
+      "id": "spec/controllers/spree/api/v3/admin/me_controller_spec.rb[1:1:12]",
+      "description": "Spree::Api::V3::Admin::MeController GET #show exposes the user avatar_url (null when no photo is attached)",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/me_controller_spec.rb",
+      "line": 38,
+      "id": "spec/controllers/spree/api/v3/admin/me_controller_spec.rb[1:1:4]",
+      "description": "Spree::Api::V3::Admin::MeController GET #show returns an array of permissions",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/me_controller_spec.rb",
+      "line": 54,
+      "id": "spec/controllers/spree/api/v3/admin/me_controller_spec.rb[1:1:6]",
+      "description": "Spree::Api::V3::Admin::MeController GET #show preserves rule order matching Spree::Ability",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/me_controller_spec.rb",
+      "line": 199,
+      "id": "spec/controllers/spree/api/v3/admin/me_controller_spec.rb[1:1:16:1]",
+      "description": "Spree::Api::V3::Admin::MeController GET #show when authenticated via a secret API key (no Spree user) returns not found instead of raising",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/me_controller_spec.rb",
+      "line": 163,
+      "id": "spec/controllers/spree/api/v3/admin/me_controller_spec.rb[1:1:14:1]",
+      "description": "Spree::Api::V3::Admin::MeController GET #show as an admin who holds no role on any store returns the user with no stores, roles or permission keys",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/me_controller_spec.rb",
+      "line": 175,
+      "id": "spec/controllers/spree/api/v3/admin/me_controller_spec.rb[1:1:14:2:1]",
+      "description": "Spree::Api::V3::Admin::MeController GET #show as an admin who holds no role on any store when the request names a store returns forbidden",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/me_controller_spec.rb",
+      "line": 138,
+      "id": "spec/controllers/spree/api/v3/admin/me_controller_spec.rb[1:1:11:2]",
+      "description": "Spree::Api::V3::Admin::MeController GET #show as a staffer with different roles on different stores returns the other store keys under that store context",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/me_controller_spec.rb",
+      "line": 133,
+      "id": "spec/controllers/spree/api/v3/admin/me_controller_spec.rb[1:1:11:1]",
+      "description": "Spree::Api::V3::Admin::MeController GET #show as a staffer with different roles on different stores returns only the current store keys",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/me_controller_spec.rb",
+      "line": 89,
+      "id": "spec/controllers/spree/api/v3/admin/me_controller_spec.rb[1:1:9:2]",
+      "description": "Spree::Api::V3::Admin::MeController GET #show as a staffer with a limited role names subjects by their short name, never the Ruby class",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/me_controller_spec.rb",
+      "line": 84,
+      "id": "spec/controllers/spree/api/v3/admin/me_controller_spec.rb[1:1:9:1]",
+      "description": "Spree::Api::V3::Admin::MeController GET #show as a staffer with a limited role returns the expanded role keys",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/me_controller_spec.rb",
+      "line": 112,
+      "id": "spec/controllers/spree/api/v3/admin/me_controller_spec.rb[1:1:10:1]",
+      "description": "Spree::Api::V3::Admin::MeController GET #show as a staffer who may manage connected agents names the OAuth application subject the way the dashboard expects",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/me_controller_spec.rb",
+      "line": 186,
+      "id": "spec/controllers/spree/api/v3/admin/me_controller_spec.rb[1:1:15:1]",
+      "description": "Spree::Api::V3::Admin::MeController GET #show without authentication returns unauthorized",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/me_controller_spec.rb",
+      "line": 216,
+      "id": "spec/controllers/spree/api/v3/admin/me_controller_spec.rb[1:2:1:1]",
+      "description": "Spree::Api::V3::Admin::MeController PATCH #update with a locale code returns ok and persists the locale, even one the backend has no translations for",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/me_controller_spec.rb",
+      "line": 282,
+      "id": "spec/controllers/spree/api/v3/admin/me_controller_spec.rb[1:2:5:1]",
+      "description": "Spree::Api::V3::Admin::MeController PATCH #update when authenticated via a secret API key (no Spree user) returns not found",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/me_controller_spec.rb",
+      "line": 269,
+      "id": "spec/controllers/spree/api/v3/admin/me_controller_spec.rb[1:2:4:1]",
+      "description": "Spree::Api::V3::Admin::MeController PATCH #update clearing the avatar purges the avatar",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/me_controller_spec.rb",
+      "line": 234,
+      "id": "spec/controllers/spree/api/v3/admin/me_controller_spec.rb[1:2:2:1]",
+      "description": "Spree::Api::V3::Admin::MeController PATCH #update with an avatar signed id attaches the avatar and returns its url",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/me_controller_spec.rb",
+      "line": 252,
+      "id": "spec/controllers/spree/api/v3/admin/me_controller_spec.rb[1:2:3:1]",
+      "description": "Spree::Api::V3::Admin::MeController PATCH #update with a non-image avatar rejects the upload with a validation error",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/admin_users_controller_spec.rb",
+      "line": 32,
+      "id": "spec/controllers/spree/api/v3/admin/admin_users_controller_spec.rb[1:1:1:2]",
+      "description": "Spree::Api::V3::Admin::AdminUsersController PATCH #update \u2014 role-grant privilege escalation authenticated via a secret API key (no human identity) still allows assigning a non-admin role",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/admin_users_controller_spec.rb",
+      "line": 25,
+      "id": "spec/controllers/spree/api/v3/admin/admin_users_controller_spec.rb[1:1:1:1]",
+      "description": "Spree::Api::V3::Admin::AdminUsersController PATCH #update \u2014 role-grant privilege escalation authenticated via a secret API key (no human identity) forbids granting the admin role",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/admin_users_controller_spec.rb",
+      "line": 129,
+      "id": "spec/controllers/spree/api/v3/admin/admin_users_controller_spec.rb[1:1:3:6]",
+      "description": "Spree::Api::V3::Admin::AdminUsersController PATCH #update \u2014 role-grant privilege escalation authenticated as a staff JWT holding write_staff forbids assigning a role whose permissions exceed its own",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/admin_users_controller_spec.rb",
+      "line": 113,
+      "id": "spec/controllers/spree/api/v3/admin/admin_users_controller_spec.rb[1:1:3:4]",
+      "description": "Spree::Api::V3::Admin::AdminUsersController PATCH #update \u2014 role-grant privilege escalation authenticated as a staff JWT holding write_staff forbids clearing an owner's roles",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/admin_users_controller_spec.rb",
+      "line": 95,
+      "id": "spec/controllers/spree/api/v3/admin/admin_users_controller_spec.rb[1:1:3:2]",
+      "description": "Spree::Api::V3::Admin::AdminUsersController PATCH #update \u2014 role-grant privilege escalation authenticated as a staff JWT holding write_staff forbids promoting an account to admin",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/admin_users_controller_spec.rb",
+      "line": 104,
+      "id": "spec/controllers/spree/api/v3/admin/admin_users_controller_spec.rb[1:1:3:3]",
+      "description": "Spree::Api::V3::Admin::AdminUsersController PATCH #update \u2014 role-grant privilege escalation authenticated as a staff JWT holding write_staff forbids removing a store owner",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/admin_users_controller_spec.rb",
+      "line": 122,
+      "id": "spec/controllers/spree/api/v3/admin/admin_users_controller_spec.rb[1:1:3:5]",
+      "description": "Spree::Api::V3::Admin::AdminUsersController PATCH #update \u2014 role-grant privilege escalation authenticated as a staff JWT holding write_staff still removes a member it could have added",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/admin_users_controller_spec.rb",
+      "line": 88,
+      "id": "spec/controllers/spree/api/v3/admin/admin_users_controller_spec.rb[1:1:3:1]",
+      "description": "Spree::Api::V3::Admin::AdminUsersController PATCH #update \u2014 role-grant privilege escalation authenticated as a staff JWT holding write_staff allows assigning a non-privileged role",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/admin_users_controller_spec.rb",
+      "line": 149,
+      "id": "spec/controllers/spree/api/v3/admin/admin_users_controller_spec.rb[1:1:4:2]",
+      "description": "Spree::Api::V3::Admin::AdminUsersController PATCH #update \u2014 role-grant privilege escalation authenticated as a super-admin JWT refuses removing the last admin",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/admin_users_controller_spec.rb",
+      "line": 158,
+      "id": "spec/controllers/spree/api/v3/admin/admin_users_controller_spec.rb[1:1:4:3]",
+      "description": "Spree::Api::V3::Admin::AdminUsersController PATCH #update \u2014 role-grant privilege escalation authenticated as a super-admin JWT removes an admin while another remains",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/admin_users_controller_spec.rb",
+      "line": 142,
+      "id": "spec/controllers/spree/api/v3/admin/admin_users_controller_spec.rb[1:1:4:1]",
+      "description": "Spree::Api::V3::Admin::AdminUsersController PATCH #update \u2014 role-grant privilege escalation authenticated as a super-admin JWT allows granting the admin role",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/admin_users_controller_spec.rb",
+      "line": 53,
+      "id": "spec/controllers/spree/api/v3/admin/admin_users_controller_spec.rb[1:1:2:1]",
+      "description": "Spree::Api::V3::Admin::AdminUsersController PATCH #update \u2014 role-grant privilege escalation authenticated as a staff JWT without staff permissions cannot promote an account to admin",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/admin_users_controller_spec.rb",
+      "line": 60,
+      "id": "spec/controllers/spree/api/v3/admin/admin_users_controller_spec.rb[1:1:2:2]",
+      "description": "Spree::Api::V3::Admin::AdminUsersController PATCH #update \u2014 role-grant privilege escalation authenticated as a staff JWT without staff permissions cannot assign any role",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/admin_users_controller_spec.rb",
+      "line": 70,
+      "id": "spec/controllers/spree/api/v3/admin/admin_users_controller_spec.rb[1:1:2:3]",
+      "description": "Spree::Api::V3::Admin::AdminUsersController PATCH #update \u2014 role-grant privilege escalation authenticated as a staff JWT without staff permissions cannot mutate roles with unresolved role ids",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/base_controller_spec.rb",
+      "line": 315,
+      "id": "spec/controllers/spree/api/v3/admin/base_controller_spec.rb[1:7:1:1]",
+      "description": "Spree::Api::V3::Admin::BaseController JWT audience enforcement with admin JWT token (audience: admin_api) authenticates successfully and sets current_user",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/base_controller_spec.rb",
+      "line": 339,
+      "id": "spec/controllers/spree/api/v3/admin/base_controller_spec.rb[1:7:3:1]",
+      "description": "Spree::Api::V3::Admin::BaseController JWT audience enforcement without JWT token but with valid secret key proceeds without user (optional auth via JWT)",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/base_controller_spec.rb",
+      "line": 330,
+      "id": "spec/controllers/spree/api/v3/admin/base_controller_spec.rb[1:7:2:1]",
+      "description": "Spree::Api::V3::Admin::BaseController JWT audience enforcement with store JWT token (audience: store_api) and valid secret key authenticates via secret key, ignoring the store JWT",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/base_controller_spec.rb",
+      "line": 97,
+      "id": "spec/controllers/spree/api/v3/admin/base_controller_spec.rb[1:2:1:1]",
+      "description": "Spree::Api::V3::Admin::BaseController authentication via JWT token with valid admin JWT token returns 200 and sets current_user",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/base_controller_spec.rb",
+      "line": 116,
+      "id": "spec/controllers/spree/api/v3/admin/base_controller_spec.rb[1:2:2:1]",
+      "description": "Spree::Api::V3::Admin::BaseController authentication via JWT token with expired JWT token returns 401 unauthorized",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/base_controller_spec.rb",
+      "line": 171,
+      "id": "spec/controllers/spree/api/v3/admin/base_controller_spec.rb[1:2:6:1]",
+      "description": "Spree::Api::V3::Admin::BaseController authentication via JWT token with a non-admin user JWT token (no role on the store) returns 403 forbidden",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/base_controller_spec.rb",
+      "line": 194,
+      "id": "spec/controllers/spree/api/v3/admin/base_controller_spec.rb[1:2:7:1]",
+      "description": "Spree::Api::V3::Admin::BaseController authentication via JWT token with an admin JWT whose user has no role on the current store returns 403 forbidden",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/base_controller_spec.rb",
+      "line": 133,
+      "id": "spec/controllers/spree/api/v3/admin/base_controller_spec.rb[1:2:3:1]",
+      "description": "Spree::Api::V3::Admin::BaseController authentication via JWT token with store JWT token (wrong audience) returns 401 unauthorized",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/base_controller_spec.rb",
+      "line": 227,
+      "id": "spec/controllers/spree/api/v3/admin/base_controller_spec.rb[1:2:8:2]",
+      "description": "Spree::Api::V3::Admin::BaseController authentication via JWT token with an admin JWT whose only role is on a non-store resource of this store returns 403 forbidden",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/base_controller_spec.rb",
+      "line": 223,
+      "id": "spec/controllers/spree/api/v3/admin/base_controller_spec.rb[1:2:8:1]",
+      "description": "Spree::Api::V3::Admin::BaseController authentication via JWT token with an admin JWT whose only role is on a non-store resource of this store holds the role on a resource of this store",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/base_controller_spec.rb",
+      "line": 143,
+      "id": "spec/controllers/spree/api/v3/admin/base_controller_spec.rb[1:2:4:1]",
+      "description": "Spree::Api::V3::Admin::BaseController authentication via JWT token with tampered JWT token returns 401 unauthorized",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/base_controller_spec.rb",
+      "line": 153,
+      "id": "spec/controllers/spree/api/v3/admin/base_controller_spec.rb[1:2:5:1]",
+      "description": "Spree::Api::V3::Admin::BaseController authentication via JWT token with completely invalid JWT token returns 401 unauthorized",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/base_controller_spec.rb",
+      "line": 85,
+      "id": "spec/controllers/spree/api/v3/admin/base_controller_spec.rb[1:1:5:1]",
+      "description": "Spree::Api::V3::Admin::BaseController authentication via secret API key with secret API key from another store authenticates \u2014 the key selects its own store (see Admin::StoreContext)",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/base_controller_spec.rb",
+      "line": 37,
+      "id": "spec/controllers/spree/api/v3/admin/base_controller_spec.rb[1:1:1:1]",
+      "description": "Spree::Api::V3::Admin::BaseController authentication via secret API key with valid secret API key returns 200",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/base_controller_spec.rb",
+      "line": 47,
+      "id": "spec/controllers/spree/api/v3/admin/base_controller_spec.rb[1:1:2:1]",
+      "description": "Spree::Api::V3::Admin::BaseController authentication via secret API key with invalid API key returns 401 unauthorized",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/base_controller_spec.rb",
+      "line": 59,
+      "id": "spec/controllers/spree/api/v3/admin/base_controller_spec.rb[1:1:3:1]",
+      "description": "Spree::Api::V3::Admin::BaseController authentication via secret API key with publishable API key instead of secret returns 401 unauthorized",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/base_controller_spec.rb",
+      "line": 72,
+      "id": "spec/controllers/spree/api/v3/admin/base_controller_spec.rb[1:1:4:1]",
+      "description": "Spree::Api::V3::Admin::BaseController authentication via secret API key with revoked secret API key returns 401 unauthorized",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/base_controller_spec.rb",
+      "line": 286,
+      "id": "spec/controllers/spree/api/v3/admin/base_controller_spec.rb[1:5:1]",
+      "description": "Spree::Api::V3::Admin::BaseController API key query parameter rejection does not accept API key via query parameter",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/base_controller_spec.rb",
+      "line": 255,
+      "id": "spec/controllers/spree/api/v3/admin/base_controller_spec.rb[1:3:2:1]",
+      "description": "Spree::Api::V3::Admin::BaseController authentication priority (secret key vs JWT) with invalid secret key and valid JWT falls back to JWT authentication",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/base_controller_spec.rb",
+      "line": 242,
+      "id": "spec/controllers/spree/api/v3/admin/base_controller_spec.rb[1:3:1:1]",
+      "description": "Spree::Api::V3::Admin::BaseController authentication priority (secret key vs JWT) with both valid secret key and valid JWT authenticates successfully via secret key",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/base_controller_spec.rb",
+      "line": 269,
+      "id": "spec/controllers/spree/api/v3/admin/base_controller_spec.rb[1:3:3:1]",
+      "description": "Spree::Api::V3::Admin::BaseController authentication priority (secret key vs JWT) with both invalid secret key and invalid JWT returns 401 unauthorized",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/base_controller_spec.rb",
+      "line": 302,
+      "id": "spec/controllers/spree/api/v3/admin/base_controller_spec.rb[1:6:2]",
+      "description": "Spree::Api::V3::Admin::BaseController response headers sets private cache control",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/base_controller_spec.rb",
+      "line": 296,
+      "id": "spec/controllers/spree/api/v3/admin/base_controller_spec.rb[1:6:1]",
+      "description": "Spree::Api::V3::Admin::BaseController response headers sets no-store cache control",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/base_controller_spec.rb",
+      "line": 352,
+      "id": "spec/controllers/spree/api/v3/admin/base_controller_spec.rb[1:8:1:1]",
+      "description": "Spree::Api::V3::Admin::BaseController JWT-only audience enforcement with admin JWT only (no secret key) authenticates and sets current_user",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/base_controller_spec.rb",
+      "line": 366,
+      "id": "spec/controllers/spree/api/v3/admin/base_controller_spec.rb[1:8:2:1]",
+      "description": "Spree::Api::V3::Admin::BaseController JWT-only audience enforcement with store JWT only (wrong audience, no secret key) rejects the token because audience does not match",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/base_controller_spec.rb",
+      "line": 278,
+      "id": "spec/controllers/spree/api/v3/admin/base_controller_spec.rb[1:4:1]",
+      "description": "Spree::Api::V3::Admin::BaseController no authentication returns 401 unauthorized",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/invitations/acceptance_links_controller_spec.rb",
+      "line": 57,
+      "id": "spec/controllers/spree/api/v3/admin/invitations/acceptance_links_controller_spec.rb[1:1:3:1]",
+      "description": "Spree::Api::V3::Admin::Invitations::AcceptanceLinksController GET #show as a non-admin staff member who can write staff returns the link for a role it may grant",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/invitations/acceptance_links_controller_spec.rb",
+      "line": 63,
+      "id": "spec/controllers/spree/api/v3/admin/invitations/acceptance_links_controller_spec.rb[1:1:3:2]",
+      "description": "Spree::Api::V3::Admin::Invitations::AcceptanceLinksController GET #show as a non-admin staff member who can write staff is forbidden for an invitation into the admin role",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/invitations/acceptance_links_controller_spec.rb",
+      "line": 25,
+      "id": "spec/controllers/spree/api/v3/admin/invitations/acceptance_links_controller_spec.rb[1:1:1:2]",
+      "description": "Spree::Api::V3::Admin::Invitations::AcceptanceLinksController GET #show as a super-admin does not find an invitation of another store",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/invitations/acceptance_links_controller_spec.rb",
+      "line": 18,
+      "id": "spec/controllers/spree/api/v3/admin/invitations/acceptance_links_controller_spec.rb[1:1:1:1]",
+      "description": "Spree::Api::V3::Admin::Invitations::AcceptanceLinksController GET #show as a super-admin returns the link with its token",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/invitations/acceptance_links_controller_spec.rb",
+      "line": 40,
+      "id": "spec/controllers/spree/api/v3/admin/invitations/acceptance_links_controller_spec.rb[1:1:2:1]",
+      "description": "Spree::Api::V3::Admin::Invitations::AcceptanceLinksController GET #show with a secret key that can only read staff is forbidden",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/invitations_spec.rb",
+      "line": null,
+      "id": "spec/integration/spree/api/v3/admin/invitations_spec.rb[1:5:1:1:1]",
+      "description": "Admin Invitations API /api/v3/admin/auth/invitations/{id}/accept post invitation accepted, session issued returns a 200 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/invitations_spec.rb",
+      "line": null,
+      "id": "spec/integration/spree/api/v3/admin/invitations_spec.rb[1:5:1:2:1]",
+      "description": "Admin Invitations API /api/v3/admin/auth/invitations/{id}/accept post wrong token, or an invitation that can no longer be accepted returns a 404 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/invitations_spec.rb",
+      "line": null,
+      "id": "spec/integration/spree/api/v3/admin/invitations_spec.rb[1:1:2:1:1]",
+      "description": "Admin Invitations API /api/v3/admin/invitations post invitation created returns a 201 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/invitations_spec.rb",
+      "line": null,
+      "id": "spec/integration/spree/api/v3/admin/invitations_spec.rb[1:1:1:1:1]",
+      "description": "Admin Invitations API /api/v3/admin/invitations get invitations found returns a 200 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/invitations_spec.rb",
+      "line": null,
+      "id": "spec/integration/spree/api/v3/admin/invitations_spec.rb[1:3:1:1:1]",
+      "description": "Admin Invitations API /api/v3/admin/invitations/{invitation_id}/acceptance_link get acceptance link found returns a 200 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/invitations_spec.rb",
+      "line": null,
+      "id": "spec/integration/spree/api/v3/admin/invitations_spec.rb[1:4:1:1:1]",
+      "description": "Admin Invitations API /api/v3/admin/invitations/{id}/resend patch invitation resent returns a 200 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/invitations_spec.rb",
+      "line": null,
+      "id": "spec/integration/spree/api/v3/admin/invitations_spec.rb[1:2:1:1:1]",
+      "description": "Admin Invitations API /api/v3/admin/invitations/{id} delete invitation revoked returns a 204 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/admin_users_spec.rb",
+      "line": null,
+      "id": "spec/integration/spree/api/v3/admin/admin_users_spec.rb[1:2:1:1:1]",
+      "description": "Admin Staff API /api/v3/admin/admin_users/{id} get staff member found returns a 200 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/admin_users_spec.rb",
+      "line": null,
+      "id": "spec/integration/spree/api/v3/admin/admin_users_spec.rb[1:2:2:1:1]",
+      "description": "Admin Staff API /api/v3/admin/admin_users/{id} patch staff member updated returns a 200 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/admin_users_spec.rb",
+      "line": null,
+      "id": "spec/integration/spree/api/v3/admin/admin_users_spec.rb[1:2:3:1:1]",
+      "description": "Admin Staff API /api/v3/admin/admin_users/{id} delete staff removed from store returns a 204 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/admin_users_spec.rb",
+      "line": null,
+      "id": "spec/integration/spree/api/v3/admin/admin_users_spec.rb[1:1:1:1:1]",
+      "description": "Admin Staff API /api/v3/admin/admin_users get staff found returns a 200 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/invitation_acceptances_controller_spec.rb",
+      "line": 49,
+      "id": "spec/controllers/spree/api/v3/admin/invitation_acceptances_controller_spec.rb[1:1:3:1]",
+      "description": "Spree::Api::V3::Admin::InvitationAcceptancesController GET #lookup when the invitation has expired returns 404",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/invitation_acceptances_controller_spec.rb",
+      "line": 42,
+      "id": "spec/controllers/spree/api/v3/admin/invitation_acceptances_controller_spec.rb[1:1:2:1]",
+      "description": "Spree::Api::V3::Admin::InvitationAcceptancesController GET #lookup with a wrong token returns 404",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/invitation_acceptances_controller_spec.rb",
+      "line": 33,
+      "id": "spec/controllers/spree/api/v3/admin/invitation_acceptances_controller_spec.rb[1:1:1:2]",
+      "description": "Spree::Api::V3::Admin::InvitationAcceptancesController GET #lookup with a valid prefixed ID + token reports invitee_exists when an admin user with that email already exists",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/invitation_acceptances_controller_spec.rb",
+      "line": 22,
+      "id": "spec/controllers/spree/api/v3/admin/invitation_acceptances_controller_spec.rb[1:1:1:1]",
+      "description": "Spree::Api::V3::Admin::InvitationAcceptancesController GET #lookup with a valid prefixed ID + token returns the safe invitation context",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/invitation_acceptances_controller_spec.rb",
+      "line": 107,
+      "id": "spec/controllers/spree/api/v3/admin/invitation_acceptances_controller_spec.rb[1:2:2:2]",
+      "description": "Spree::Api::V3::Admin::InvitationAcceptancesController POST #accept when the invitee does not yet have an account returns a validation error when password is missing",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/invitation_acceptances_controller_spec.rb",
+      "line": 85,
+      "id": "spec/controllers/spree/api/v3/admin/invitation_acceptances_controller_spec.rb[1:2:2:1]",
+      "description": "Spree::Api::V3::Admin::InvitationAcceptancesController POST #accept when the invitee does not yet have an account creates the user, accepts the invitation, and issues a JWT",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/invitation_acceptances_controller_spec.rb",
+      "line": 75,
+      "id": "spec/controllers/spree/api/v3/admin/invitation_acceptances_controller_spec.rb[1:2:1:2]",
+      "description": "Spree::Api::V3::Admin::InvitationAcceptancesController POST #accept when the invitee already has an account rejects an invalid password without accepting the invitation",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/invitation_acceptances_controller_spec.rb",
+      "line": 64,
+      "id": "spec/controllers/spree/api/v3/admin/invitation_acceptances_controller_spec.rb[1:2:1:1]",
+      "description": "Spree::Api::V3::Admin::InvitationAcceptancesController POST #accept when the invitee already has an account verifies the password, accepts, and issues a JWT",
+      "status": "passed"
+    },
+    {
+      "file": "spec/controllers/spree/api/v3/admin/invitation_acceptances_controller_spec.rb",
+      "line": 117,
+      "id": "spec/controllers/spree/api/v3/admin/invitation_acceptances_controller_spec.rb[1:2:3:1]",
+      "description": "Spree::Api::V3::Admin::InvitationAcceptancesController POST #accept with a wrong token returns 404 without touching the invitation",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/me_spec.rb",
+      "line": null,
+      "id": "spec/integration/spree/api/v3/admin/me_spec.rb[1:1:1:2:1]",
+      "description": "Admin Me API /api/v3/admin/me get unauthorized returns a 401 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/me_spec.rb",
+      "line": null,
+      "id": "spec/integration/spree/api/v3/admin/me_spec.rb[1:1:1:1:1]",
+      "description": "Admin Me API /api/v3/admin/me get current admin user and permissions returns a 200 response",
+      "status": "passed"
+    },
+    {
+      "file": "spec/integration/spree/api/v3/admin/me_spec.rb",
+      "line": null,
+      "id": "spec/integration/spree/api/v3/admin/me_spec.rb[1:1:2:1:1]",
+      "description": "Admin Me API /api/v3/admin/me patch profile updated returns a 200 response",
+      "status": "passed"
+    }
+  ]
+}

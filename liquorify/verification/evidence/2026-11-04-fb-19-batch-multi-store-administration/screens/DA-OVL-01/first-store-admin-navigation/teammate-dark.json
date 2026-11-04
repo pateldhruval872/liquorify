@@ -1,0 +1,29 @@
+{
+  "screen": "DA-OVL-01",
+  "state": "first-store-admin-navigation",
+  "variant": "teammate",
+  "role": {
+    "Shop": "admin",
+    "Winkel": {
+      "name": "Support",
+      "permissions": [
+        "read_orders",
+        "read_customers",
+        "read_dashboard"
+      ]
+    }
+  },
+  "theme": "dark",
+  "revision": "1320592d",
+  "path": "/<store>",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": null,
+  "settled": true,
+  "checked": "Shop after a reload: the navigation is the admin role's, with Products and Orders",
+  "navigation": null,
+  "answered": null,
+  "outside": []
+}

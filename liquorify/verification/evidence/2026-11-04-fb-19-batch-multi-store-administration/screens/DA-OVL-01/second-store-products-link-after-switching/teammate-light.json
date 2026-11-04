@@ -1,0 +1,29 @@
+{
+  "screen": "DA-OVL-01",
+  "state": "second-store-products-link-after-switching",
+  "variant": "teammate",
+  "role": {
+    "Shop": "admin",
+    "Winkel": {
+      "name": "Support",
+      "permissions": [
+        "read_orders",
+        "read_customers",
+        "read_dashboard"
+      ]
+    }
+  },
+  "theme": "light",
+  "revision": "1320592d",
+  "path": "/<second-store>/products",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": null,
+  "settled": true,
+  "checked": "The Products link the navigation shows after the switch, followed in Winkel, whose Support role does not read products",
+  "navigation": null,
+  "answered": [],
+  "outside": []
+}

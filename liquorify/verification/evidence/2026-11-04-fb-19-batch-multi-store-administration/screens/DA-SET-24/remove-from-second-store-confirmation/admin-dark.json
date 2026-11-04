@@ -1,0 +1,22 @@
+{
+  "screen": "DA-SET-24",
+  "state": "remove-from-second-store-confirmation",
+  "variant": "admin",
+  "role": {
+    "Shop": "admin",
+    "Winkel": "admin"
+  },
+  "theme": "dark",
+  "revision": "1320592d",
+  "path": "/<second-store>/settings/staff",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": null,
+  "settled": true,
+  "checked": "Removing the teammate from Winkel asks for confirmation first",
+  "navigation": null,
+  "answered": null,
+  "outside": []
+}
