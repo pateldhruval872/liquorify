@@ -1,0 +1,3367 @@
+{
+ "engine": "spree/core",
+ "spree_code_at": "16380f5",
+ "database": "SQLite",
+ "rspec": "3.13.6",
+ "seed": 34243,
+ "summary": {
+  "example_count": 553,
+  "failure_count": 0,
+  "pending_count": 2,
+  "errors_outside_of_examples_count": 0
+ },
+ "examples": [
+  {
+   "file": "spec/models/spree/promotion_action_spec.rb",
+   "line": 7,
+   "description": "Spree::PromotionAction forces developer to implement 'perform' method",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_action_spec.rb",
+   "line": 15,
+   "description": "Spree::PromotionAction behaves like type labels type labels falls back to the humanized type for a kind without translations",
+   "status": "passed",
+   "shared_example_in": "spec/support/shared_examples/type_labels.rb"
+  },
+  {
+   "file": "spec/models/spree/promotion_action_spec.rb",
+   "line": 6,
+   "description": "Spree::PromotionAction behaves like type labels type labels reads the kind's name and description from the family's scope",
+   "status": "passed",
+   "shared_example_in": "spec/support/shared_examples/type_labels.rb"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/customer_group_spec.rb",
+   "line": 95,
+   "description": "Spree::Promotion::Rules::CustomerGroup when given a customer group from another store rejects the foreign ID",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/customer_group_spec.rb",
+   "line": 14,
+   "description": "Spree::Promotion::Rules::CustomerGroup#applicable? returns true for orders",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/customer_group_spec.rb",
+   "line": 19,
+   "description": "Spree::Promotion::Rules::CustomerGroup#applicable? returns false for non-orders",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/customer_group_spec.rb",
+   "line": 84,
+   "description": "Spree::Promotion::Rules::CustomerGroup#eligible? when customer_group_ids contains strings is eligible",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/customer_group_spec.rb",
+   "line": 73,
+   "description": "Spree::Promotion::Rules::CustomerGroup#eligible? when user is in one of multiple configured customer groups is eligible",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/customer_group_spec.rb",
+   "line": 62,
+   "description": "Spree::Promotion::Rules::CustomerGroup#eligible? when user is not in any configured customer group is not eligible",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/customer_group_spec.rb",
+   "line": 51,
+   "description": "Spree::Promotion::Rules::CustomerGroup#eligible? when user is in the customer group is eligible",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/customer_group_spec.rb",
+   "line": 40,
+   "description": "Spree::Promotion::Rules::CustomerGroup#eligible? when order has no user is not eligible",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/customer_group_spec.rb",
+   "line": 30,
+   "description": "Spree::Promotion::Rules::CustomerGroup#eligible? when no customer groups are configured is not eligible",
+   "status": "passed"
+  },
+  {
+   "file": "spec/jobs/spree/gift_cards/bulk_generate_job_spec.rb",
+   "line": 9,
+   "description": "Spree::GiftCards::BulkGenerateJob#perform generates gift cards",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/actions/free_shipping_spec.rb",
+   "line": 33,
+   "description": "Spree::Promotion::Actions::FreeShipping has fulfillment discount scope and persists at zero",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/actions/free_shipping_spec.rb",
+   "line": 9,
+   "description": "Spree::Promotion::Actions::FreeShipping#perform writes a fulfillment discount covering the cost",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/actions/free_shipping_spec.rb",
+   "line": 19,
+   "description": "Spree::Promotion::Actions::FreeShipping#perform persists rows even at zero cost",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/actions/free_shipping_spec.rb",
+   "line": 27,
+   "description": "Spree::Promotion::Actions::FreeShipping#perform reports no action without fulfillments",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 744,
+   "description": "Spree::Promotion normalize blank values for code & path will save blank value as nil value instead",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 328,
+   "description": "Spree::Promotion#expired is not expired if current time is within starts_at and expires_at range",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 308,
+   "description": "Spree::Promotion#expired is expired if it hasn't started yet",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 313,
+   "description": "Spree::Promotion#expired is expired if it has already ended",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 304,
+   "description": "Spree::Promotion#expired is not exipired",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 323,
+   "description": "Spree::Promotion#expired is not expired if it has not ended yet",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 318,
+   "description": "Spree::Promotion#expired is not expired if it has started already",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 527,
+   "description": "Spree::Promotion#eligible? when promotion is expired is expected to equal false",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 541,
+   "description": "Spree::Promotion#eligible? when promotable is a Spree::LineItem and product is promotionable is expected to equal true",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 547,
+   "description": "Spree::Promotion#eligible? when promotable is a Spree::LineItem and product is not promotionable is expected to equal false",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 555,
+   "description": "Spree::Promotion#eligible? when promotable is a Spree::Order and it is empty is expected to equal true",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 566,
+   "description": "Spree::Promotion#eligible? when promotable is a Spree::Order and it contains items and the items are all non-promotionable is expected to equal false",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 570,
+   "description": "Spree::Promotion#eligible? when promotable is a Spree::Order and it contains items and at least one item is promotionable is expected to equal true",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 19,
+   "description": "Spree::Promotion behaves like lifecycle events lifecycle events promotion.updated publishes updated event when record is updated",
+   "status": "passed",
+   "shared_example_in": "lib/spree/testing_support/lifecycle_events.rb"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 31,
+   "description": "Spree::Promotion behaves like lifecycle events lifecycle events promotion.updated does not publish updated event on a bare touch",
+   "status": "passed",
+   "shared_example_in": "lib/spree/testing_support/lifecycle_events.rb"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 41,
+   "description": "Spree::Promotion behaves like lifecycle events lifecycle events promotion.deleted publishes deleted event when record is deleted",
+   "status": "passed",
+   "shared_example_in": "lib/spree/testing_support/lifecycle_events.rb"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 9,
+   "description": "Spree::Promotion behaves like lifecycle events lifecycle events promotion.created publishes created event when record is created",
+   "status": "passed",
+   "shared_example_in": "lib/spree/testing_support/lifecycle_events.rb"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 880,
+   "description": "Spree::Promotion#generate_coupon_codes has a generated code",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 884,
+   "description": "Spree::Promotion#generate_coupon_codes generates new codes when number_of_codes is changed",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 900,
+   "description": "Spree::Promotion#generate_coupon_codes when number of codes is greater than the web limit generates the codes in a background job",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 892,
+   "description": "Spree::Promotion#generate_coupon_codes with prefix has a generated code with prefix",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 180,
+   "description": "Spree::Promotion#save deeply autosaves records and preferences",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 219,
+   "description": "Spree::Promotion#save allows to change promotion type from multiple discount codes to automatic",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 186,
+   "description": "Spree::Promotion#save allows to change promotion type from automatic to single discount code",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 198,
+   "description": "Spree::Promotion#save allows to change promotion type from automatic to multiple discount codes",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 210,
+   "description": "Spree::Promotion#save allows to change promotion type from single discount code to automatic",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 513,
+   "description": "Spree::Promotion#products when there's no product rule associated does not have products but still return an empty array",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 507,
+   "description": "Spree::Promotion#products when it has product rules with products associated has products",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 140,
+   "description": "Spree::Promotion Ransack allows filtering by name",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 649,
+   "description": "Spree::Promotion#eligible_rules with 'any' match policy has eligible rules if any of the rules are eligible",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 669,
+   "description": "Spree::Promotion#eligible_rules with 'any' match policy when none of the rules are eligible returns nil",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 672,
+   "description": "Spree::Promotion#eligible_rules with 'any' match policy when none of the rules are eligible sets eligibility errors to the first non-nil one",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 593,
+   "description": "Spree::Promotion#eligible_rules when there are no aplicable rules returns true",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 580,
+   "description": "Spree::Promotion#eligible_rules when there are no rules returns true",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 618,
+   "description": "Spree::Promotion#eligible_rules with 'all' match policy when all rules are eligible does set anything to eligiblity errors",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 615,
+   "description": "Spree::Promotion#eligible_rules with 'all' match policy when all rules are eligible returns the eligible rules",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 638,
+   "description": "Spree::Promotion#eligible_rules with 'all' match policy when any of the rules is not eligible sets eligibility errors to the first non-nil one",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 635,
+   "description": "Spree::Promotion#eligible_rules with 'all' match policy when any of the rules is not eligible returns nil",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 244,
+   "description": "Spree::Promotion#activate checks path if present",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 252,
+   "description": "Spree::Promotion#activate does not perform actions against a completed order",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 259,
+   "description": "Spree::Promotion#activate does activate if newer then order",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 276,
+   "description": "Spree::Promotion#activate when not activated doesn't assign the order",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 266,
+   "description": "Spree::Promotion#activate when activated assigns the order",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 846,
+   "description": "Spree::Promotion adding items to the cart updates the promotions for new line items",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 986,
+   "description": "Spree::Promotion#rules= replaces product_ids on an existing Product rule",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 945,
+   "description": "Spree::Promotion#rules= destroys all rules when given an empty array",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 957,
+   "description": "Spree::Promotion#rules= reflects a partial removal in the loaded collection without reload",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 934,
+   "description": "Spree::Promotion#rules= destroys rules omitted from the payload",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 923,
+   "description": "Spree::Promotion#rules= updates an existing rule when matched by id",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 996,
+   "description": "Spree::Promotion#rules= builds a Taxon rule with category_ids",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 1019,
+   "description": "Spree::Promotion#rules= defers application until after_save on a new promotion record",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 1009,
+   "description": "Spree::Promotion#rules= builds a Taxon rule on a new promotion using category_ids (custom setter)",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 914,
+   "description": "Spree::Promotion#rules= builds a rule from a {type, preferences} hash",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 1033,
+   "description": "Spree::Promotion#rules= ignores rows with an unknown type",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 972,
+   "description": "Spree::Promotion#rules= builds a Product rule with product_ids in a single assignment",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 1040,
+   "description": "Spree::Promotion#rules= falls through to AR when assigned PromotionRule instances",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 13,
+   "description": "Spree::Promotion Validations can create multiple promos with the same code",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 39,
+   "description": "Spree::Promotion Validations expires_at_must_be_later_than_starts_at starts_at is a date earlier than expires_at is not valid is expected to include \"must be later than start date\"",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 38,
+   "description": "Spree::Promotion Validations expires_at_must_be_later_than_starts_at starts_at is a date earlier than expires_at is not valid is expected not to be valid",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 49,
+   "description": "Spree::Promotion Validations expires_at_must_be_later_than_starts_at starts_at and expires_at are nil is valid",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 27,
+   "description": "Spree::Promotion Validations expires_at_must_be_later_than_starts_at starts_at is a date earlier than expires_at is valid",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 161,
+   "description": "Spree::Promotion#destroy if promotion was already used does not destroy the promotion",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 737,
+   "description": "Spree::Promotion#line_item_actionable? when the order is not eligible for the promotion is expected not to equal true",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 696,
+   "description": "Spree::Promotion#line_item_actionable? when the order is eligible for promotion when there are no rules is expected to equal true",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 728,
+   "description": "Spree::Promotion#line_item_actionable? when the order is eligible for promotion when there are rules when the match policy is any when no rules allow action on the line item is expected not to equal true",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 722,
+   "description": "Spree::Promotion#line_item_actionable? when the order is eligible for promotion when there are rules when the match policy is any when at least one rule allows action on the line item is expected to equal true",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 706,
+   "description": "Spree::Promotion#line_item_actionable? when the order is eligible for promotion when there are rules when the match policy is all when all rules allow action on the line item is expected to equal true",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 712,
+   "description": "Spree::Promotion#line_item_actionable? when the order is eligible for promotion when there are rules when the match policy is all when at least one rule does not allow action on the line item is expected not to equal true",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 132,
+   "description": "Spree::Promotion scopes .advertised is expected to include promotion advertised",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 128,
+   "description": "Spree::Promotion scopes .advertised is expected to not include promotion not advertised",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 97,
+   "description": "Spree::Promotion scopes .coupons is expected to include promotion with code",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 93,
+   "description": "Spree::Promotion scopes .coupons is expected to not include promotion without code",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 113,
+   "description": "Spree::Promotion scopes .applied is expected to not include promotion not applied",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 117,
+   "description": "Spree::Promotion scopes .applied is expected to include promotion applied",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 870,
+   "description": "Spree::Promotion#generate_code with generate_code has a generated code",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 1111,
+   "description": "Spree::Promotion#actions= defers application until after_save on a new promotion record",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 1068,
+   "description": "Spree::Promotion#actions= updates the calculator type on an existing action",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 1100,
+   "description": "Spree::Promotion#actions= destroys actions omitted from the payload",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 1087,
+   "description": "Spree::Promotion#actions= refuses a calculator type the action does not offer",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 1051,
+   "description": "Spree::Promotion#actions= builds a CreateAdjustment action with a calculator hash",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 1093,
+   "description": "Spree::Promotion#actions= builds a FreeShipping action without a calculator",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 1124,
+   "description": "Spree::Promotion#actions= reports an invalid action on the new promotion it was assigned to",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 811,
+   "description": "Spree::Promotion#used_by? when the user has used this promo when the order is complete is expected to equal true",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 818,
+   "description": "Spree::Promotion#used_by? when the user has used this promo when the order is complete when the promotion discount was removed is expected to equal false",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 824,
+   "description": "Spree::Promotion#used_by? when the user has used this promo when the order is complete when the only matching order is the excluded order is expected to equal false",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 831,
+   "description": "Spree::Promotion#used_by? when the user has used this promo when the order is not complete is expected to equal false",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 836,
+   "description": "Spree::Promotion#used_by? when the user has not used this promo is expected to equal false",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 69,
+   "description": "Spree::Promotion Callbacks #set_usage_limit_to_nil when promo has unique codes sets usage_limit to nil",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 61,
+   "description": "Spree::Promotion Callbacks #set_usage_limit_to_nil when promo has one code for all customers does not change usage_limit",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 80,
+   "description": "Spree::Promotion Callbacks #remove_coupons removes the coupons",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 448,
+   "description": "Spree::Promotion#adjusted_credits_count does not count the current order against its own limit (order-level action)",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 454,
+   "description": "Spree::Promotion#adjusted_credits_count does not count the current order against its own limit (item-level action)",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 470,
+   "description": "Spree::Promotion#adjusted_credits_count across carts and orders counts only order-side credits \u2014 carts never consume usage",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 489,
+   "description": "Spree::Promotion#adjusted_credits_count across carts and orders subtracts the order own credit when checking that order",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 479,
+   "description": "Spree::Promotion#adjusted_credits_count across carts and orders does not subtract another order credit on a cart/line-item id collision",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 756,
+   "description": "Spree::Promotion#with_coupon_code and code stored in uppercase finds the code with lowercase",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 779,
+   "description": "Spree::Promotion#with_coupon_code coupon from coupon code batch finds the code with lowercase",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 783,
+   "description": "Spree::Promotion#with_coupon_code coupon from coupon code batch finds the code with uppercase",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 769,
+   "description": "Spree::Promotion#with_coupon_code when promotion has no actions return the last one created",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 765,
+   "description": "Spree::Promotion#with_coupon_code when promotion has no actions then returns the one with an action",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 292,
+   "description": "Spree::Promotion#usage_limit_exceeded has its usage limit exceeded",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 287,
+   "description": "Spree::Promotion#usage_limit_exceeded does not have its usage limit exceeded with no usage limit",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 358,
+   "description": "Spree::Promotion#credits_count counts applied discounts",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 362,
+   "description": "Spree::Promotion#credits_count does not count manual discounts",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 407,
+   "description": "Spree::Promotion#credits_count with the same action applied to multiple orders counts each order separately",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 387,
+   "description": "Spree::Promotion#credits_count with multiple actions on the same order counts unique orders, not individual discounts",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 8,
+   "description": "Spree::Promotion behaves like metadata is expected to eq ActiveSupport::HashWithIndifferentAccess",
+   "status": "passed",
+   "shared_example_in": "lib/spree/testing_support/metadata.rb"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 4,
+   "description": "Spree::Promotion behaves like metadata is expected to be truthy",
+   "status": "passed",
+   "shared_example_in": "lib/spree/testing_support/metadata.rb"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 6,
+   "description": "Spree::Promotion behaves like metadata is expected to eq {}",
+   "status": "passed",
+   "shared_example_in": "lib/spree/testing_support/metadata.rb"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 15,
+   "description": "Spree::Promotion behaves like metadata reads data as symbolized keys",
+   "status": "passed",
+   "shared_example_in": "lib/spree/testing_support/metadata.rb"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 43,
+   "description": "Spree::Promotion behaves like metadata can query records by metadata properties",
+   "status": "pending",
+   "shared_example_in": "lib/spree/testing_support/metadata.rb",
+   "pending": "No reason given"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 29,
+   "description": "Spree::Promotion behaves like metadata reads data as not symbolized keys",
+   "status": "passed",
+   "shared_example_in": "lib/spree/testing_support/metadata.rb"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 57,
+   "description": "Spree::Promotion behaves like metadata can query records by metadata properties",
+   "status": "passed",
+   "shared_example_in": "lib/spree/testing_support/metadata.rb"
+  },
+  {
+   "file": "spec/models/spree/promotion_spec.rb",
+   "line": 10,
+   "description": "Spree::Promotion behaves like metadata no longer carries the split metadata columns",
+   "status": "passed",
+   "shared_example_in": "lib/spree/testing_support/metadata.rb"
+  },
+  {
+   "file": "spec/models/spree/calculator/flexi_rate_spec.rb",
+   "line": 39,
+   "description": "Spree::Calculator::FlexiRate#compute when apply_only_on_full_priced_items is true returns 0",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/calculator/flexi_rate_spec.rb",
+   "line": 25,
+   "description": "Spree::Calculator::FlexiRate#compute when apply_only_on_full_priced_items is true behaves like computes amount correctly computes amount correctly when additional_items and first_item have values",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/calculator/flexi_rate_spec.rb",
+   "line": 11,
+   "description": "Spree::Calculator::FlexiRate#compute when apply_only_on_full_priced_items is true behaves like computes amount correctly computes amount correctly when all fees are 0",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/calculator/flexi_rate_spec.rb",
+   "line": 20,
+   "description": "Spree::Calculator::FlexiRate#compute when apply_only_on_full_priced_items is true behaves like computes amount correctly computes amount correctly when additional_items has a value",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/calculator/flexi_rate_spec.rb",
+   "line": 30,
+   "description": "Spree::Calculator::FlexiRate#compute when apply_only_on_full_priced_items is true behaves like computes amount correctly computes amount correctly when additional_items and first_item have values AND max items has value",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/calculator/flexi_rate_spec.rb",
+   "line": 15,
+   "description": "Spree::Calculator::FlexiRate#compute when apply_only_on_full_priced_items is true behaves like computes amount correctly computes amount correctly when first_item has a value",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/user_logged_in_spec.rb",
+   "line": 9,
+   "description": "Spree::Promotion::Rules::UserLoggedIn#eligible?(order) is eligible if order has an associated user",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/user_logged_in_spec.rb",
+   "line": 20,
+   "description": "Spree::Promotion::Rules::UserLoggedIn#eligible?(order) when user is not logged in sets an error message",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/user_logged_in_spec.rb",
+   "line": 19,
+   "description": "Spree::Promotion::Rules::UserLoggedIn#eligible?(order) when user is not logged in is expected not to be eligible #<Spree::Order id: nil, number: nil, item_total: #<BigDecimal: 0.0>, total: #<BigDecimal: 0.0>, adjus...by_type: nil, approver_type: nil, canceler_type: nil, preferences: nil, warnings: [], tag_list: nil>",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/gift_card_spec.rb",
+   "line": 255,
+   "description": "Spree::GiftCard deprecated state bridge reads status",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/gift_card_spec.rb",
+   "line": 260,
+   "description": "Spree::GiftCard deprecated state bridge writes status",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/gift_card_spec.rb",
+   "line": 104,
+   "description": "Spree::GiftCard#active? when active returns true",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/gift_card_spec.rb",
+   "line": 96,
+   "description": "Spree::GiftCard#active? when redeemed returns false",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/gift_card_spec.rb",
+   "line": 88,
+   "description": "Spree::GiftCard#active? when expired returns false",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/gift_card_spec.rb",
+   "line": 146,
+   "description": "Spree::GiftCard#open_holds returns only the carts and orders still holding the balance",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/gift_card_spec.rb",
+   "line": 154,
+   "description": "Spree::GiftCard#open_holds excludes on type as well as id",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/gift_card_spec.rb",
+   "line": 150,
+   "description": "Spree::GiftCard#open_holds excludes the record being applied to",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/gift_card_spec.rb",
+   "line": 170,
+   "description": "Spree::GiftCard#open_holds when a cart is mid-completion is reported as being completed",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/gift_card_spec.rb",
+   "line": 166,
+   "description": "Spree::GiftCard#open_holds when a cart is mid-completion is not releasable",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/gift_card_spec.rb",
+   "line": 174,
+   "description": "Spree::GiftCard#open_holds when a cart is mid-completion is not reported once the claim goes stale",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/gift_card_spec.rb",
+   "line": 114,
+   "description": "Spree::GiftCard#amount_remaining when active returns the remaining amount",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/gift_card_spec.rb",
+   "line": 122,
+   "description": "Spree::GiftCard#amount_remaining when redeemed returns 0",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/gift_card_spec.rb",
+   "line": 130,
+   "description": "Spree::GiftCard#amount_remaining when authorized returns the remaining amount",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/gift_card_spec.rb",
+   "line": 16,
+   "description": "Spree::GiftCard Callbacks #generate_code generates a code when blank string is given",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/gift_card_spec.rb",
+   "line": 22,
+   "description": "Spree::GiftCard Callbacks #generate_code preserves the provided code when present",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/gift_card_spec.rb",
+   "line": 10,
+   "description": "Spree::GiftCard Callbacks #generate_code generates a code when blank",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/gift_card_spec.rb",
+   "line": 30,
+   "description": "Spree::GiftCard Callbacks #ensure_can_be_deleted ensures a used gift card can't be destroyed",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/gift_card_spec.rb",
+   "line": 37,
+   "description": "Spree::GiftCard Callbacks #ensure_can_be_deleted adds an error",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/gift_card_spec.rb",
+   "line": 215,
+   "description": "Spree::GiftCard#to_csv includes the gift card code",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/gift_card_spec.rb",
+   "line": 223,
+   "description": "Spree::GiftCard#to_csv includes the user email",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/gift_card_spec.rb",
+   "line": 219,
+   "description": "Spree::GiftCard#to_csv includes the currency",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/gift_card_spec.rb",
+   "line": 207,
+   "description": "Spree::GiftCard#to_csv returns an array",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/gift_card_spec.rb",
+   "line": 211,
+   "description": "Spree::GiftCard#to_csv returns the correct number of fields",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/gift_card_spec.rb",
+   "line": 246,
+   "description": "Spree::GiftCard status scopes and predicates exposes the plain column lookup through with_status",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/gift_card_spec.rb",
+   "line": 235,
+   "description": "Spree::GiftCard status scopes and predicates treats a partially redeemed card as still spendable and an expired one as not",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/gift_card_spec.rb",
+   "line": 240,
+   "description": "Spree::GiftCard status scopes and predicates reports an expired card as inactive even though its status is active",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/gift_card_spec.rb",
+   "line": 195,
+   "description": "Spree::GiftCard#display_status when active returns active",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/gift_card_spec.rb",
+   "line": 187,
+   "description": "Spree::GiftCard#display_status when expired returns expired",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/gift_card_spec.rb",
+   "line": 78,
+   "description": "Spree::GiftCard Scopes #partially_redeemed returns partially redeemed gift cards",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/gift_card_spec.rb",
+   "line": 72,
+   "description": "Spree::GiftCard Scopes #redeemed returns redeemed gift cards",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/gift_card_spec.rb",
+   "line": 66,
+   "description": "Spree::GiftCard Scopes #expired returns expired gift cards",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/gift_card_spec.rb",
+   "line": 60,
+   "description": "Spree::GiftCard Scopes #active returns unexpired active and partially redeemed gift cards",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/gift_card_spec.rb",
+   "line": 54,
+   "description": "Spree::GiftCard Scopes #masked_code shows only the last four characters",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/gift_card_spec.rb",
+   "line": 41,
+   "description": "Spree::GiftCard behaves like lifecycle events lifecycle events gift_card.deleted publishes deleted event when record is deleted",
+   "status": "passed",
+   "shared_example_in": "lib/spree/testing_support/lifecycle_events.rb"
+  },
+  {
+   "file": "spec/models/spree/gift_card_spec.rb",
+   "line": 19,
+   "description": "Spree::GiftCard behaves like lifecycle events lifecycle events gift_card.updated publishes updated event when record is updated",
+   "status": "passed",
+   "shared_example_in": "lib/spree/testing_support/lifecycle_events.rb"
+  },
+  {
+   "file": "spec/models/spree/gift_card_spec.rb",
+   "line": 31,
+   "description": "Spree::GiftCard behaves like lifecycle events lifecycle events gift_card.updated does not publish updated event on a bare touch",
+   "status": "passed",
+   "shared_example_in": "lib/spree/testing_support/lifecycle_events.rb"
+  },
+  {
+   "file": "spec/models/spree/gift_card_spec.rb",
+   "line": 9,
+   "description": "Spree::GiftCard behaves like lifecycle events lifecycle events gift_card.created publishes created event when record is created",
+   "status": "passed",
+   "shared_example_in": "lib/spree/testing_support/lifecycle_events.rb"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/user_spec.rb",
+   "line": 11,
+   "description": "Spree::Promotion::Rules::User#eligible? is not eligible if users are not provided",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/user_spec.rb",
+   "line": 28,
+   "description": "Spree::Promotion::Rules::User#eligible? when users does not include user placing the order is not eligible if user placing the order is not listed",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/user_spec.rb",
+   "line": 18,
+   "description": "Spree::Promotion::Rules::User#eligible? when users include user placing the order is eligible if users include user placing the order",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/user_spec.rb",
+   "line": 40,
+   "description": "Spree::Promotion::Rules::User#add_users adds users to the promotion rule",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/user_spec.rb",
+   "line": 62,
+   "description": "Spree::Promotion::Rules::User#add_users touches the record to invalidate cache",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/user_spec.rb",
+   "line": 46,
+   "description": "Spree::Promotion::Rules::User#add_users removes users from the promotion rule",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/user_spec.rb",
+   "line": 54,
+   "description": "Spree::Promotion::Rules::User#add_users does not remove the users when nil is passed",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/item_total_spec.rb",
+   "line": 54,
+   "description": "Spree::Promotion::Rules::ItemTotal with gt 50 / lt nil and an item total of 50 is not eligible and explains why",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/item_total_spec.rb",
+   "line": 54,
+   "description": "Spree::Promotion::Rules::ItemTotal with gt 50 / lte 60 and an item total of 61 is not eligible and explains why",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/item_total_spec.rb",
+   "line": 59,
+   "description": "Spree::Promotion::Rules::ItemTotal with gt 50 / lt nil and an item total of 51 is eligible",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/item_total_spec.rb",
+   "line": 59,
+   "description": "Spree::Promotion::Rules::ItemTotal with gt 50 / lt 60 and an item total of 51 is eligible",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/item_total_spec.rb",
+   "line": 59,
+   "description": "Spree::Promotion::Rules::ItemTotal with gt 50 / lte 60 and an item total of 60 is eligible",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/item_total_spec.rb",
+   "line": 54,
+   "description": "Spree::Promotion::Rules::ItemTotal with gt 50 / lt 60 and an item total of 60 is not eligible and explains why",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/item_total_spec.rb",
+   "line": 54,
+   "description": "Spree::Promotion::Rules::ItemTotal with gte 50 / lt 60 and an item total of 49 is not eligible and explains why",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/item_total_spec.rb",
+   "line": 54,
+   "description": "Spree::Promotion::Rules::ItemTotal with gt 50 / lt 60 and an item total of 61 is not eligible and explains why",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/item_total_spec.rb",
+   "line": 59,
+   "description": "Spree::Promotion::Rules::ItemTotal with gte 50 / lte 60 and an item total of 50 is eligible",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/item_total_spec.rb",
+   "line": 54,
+   "description": "Spree::Promotion::Rules::ItemTotal with gt 50 / lte 60 and an item total of 49 is not eligible and explains why",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/item_total_spec.rb",
+   "line": 59,
+   "description": "Spree::Promotion::Rules::ItemTotal with gte 50 / lt 60 and an item total of 51 is eligible",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/item_total_spec.rb",
+   "line": 59,
+   "description": "Spree::Promotion::Rules::ItemTotal with gte 50 / lt 60 and an item total of 50 is eligible",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/item_total_spec.rb",
+   "line": 54,
+   "description": "Spree::Promotion::Rules::ItemTotal with gte 50 / lte 60 and an item total of 61 is not eligible and explains why",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/item_total_spec.rb",
+   "line": 54,
+   "description": "Spree::Promotion::Rules::ItemTotal with gte 50 / lt 60 and an item total of 61 is not eligible and explains why",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/item_total_spec.rb",
+   "line": 54,
+   "description": "Spree::Promotion::Rules::ItemTotal with gt 50 / lt 60 and an item total of 50 is not eligible and explains why",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/item_total_spec.rb",
+   "line": 54,
+   "description": "Spree::Promotion::Rules::ItemTotal with gt 50 / lt 60 and an item total of 49 is not eligible and explains why",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/item_total_spec.rb",
+   "line": 54,
+   "description": "Spree::Promotion::Rules::ItemTotal with gte 50 / lt 60 and an item total of 60 is not eligible and explains why",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/item_total_spec.rb",
+   "line": 59,
+   "description": "Spree::Promotion::Rules::ItemTotal with gte 50 / lte 60 and an item total of 51 is eligible",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/item_total_spec.rb",
+   "line": 54,
+   "description": "Spree::Promotion::Rules::ItemTotal with gte 50 / lte 60 and an item total of 49 is not eligible and explains why",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/item_total_spec.rb",
+   "line": 59,
+   "description": "Spree::Promotion::Rules::ItemTotal with gte 50 / lte 60 and an item total of 60 is eligible",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/item_total_spec.rb",
+   "line": 59,
+   "description": "Spree::Promotion::Rules::ItemTotal with gt 50 / lte 60 and an item total of 51 is eligible",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/item_total_spec.rb",
+   "line": 54,
+   "description": "Spree::Promotion::Rules::ItemTotal with gt 50 / lt nil and an item total of 49 is not eligible and explains why",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/item_total_spec.rb",
+   "line": 54,
+   "description": "Spree::Promotion::Rules::ItemTotal with gt 50 / lte 60 and an item total of 50 is not eligible and explains why",
+   "status": "passed"
+  },
+  {
+   "file": "spec/workflows/spree/gift_cards/remove_spec.rb",
+   "line": 57,
+   "description": "Spree::GiftCards::Remove for an order without a gift card does nothing",
+   "status": "passed"
+  },
+  {
+   "file": "spec/workflows/spree/gift_cards/remove_spec.rb",
+   "line": 27,
+   "description": "Spree::GiftCards::Remove for an order with the gift card applied removes the gift card from an order",
+   "status": "passed"
+  },
+  {
+   "file": "spec/workflows/spree/gift_cards/remove_spec.rb",
+   "line": 41,
+   "description": "Spree::GiftCards::Remove for an order with the gift card applied calls recalculate_totals!",
+   "status": "passed"
+  },
+  {
+   "file": "spec/workflows/spree/gift_cards/remove_spec.rb",
+   "line": 49,
+   "description": "Spree::GiftCards::Remove for an order with the gift card applied for a completed order responds with an error",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 209,
+   "description": "Spree::StoreCredit.from_gift_card applies the affirmative side for a literal boolean predicate",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 191,
+   "description": "Spree::StoreCredit.from_gift_card answers the gift card redemptions when true",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 199,
+   "description": "Spree::StoreCredit.from_gift_card unwraps an array argument rather than casting the array",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 195,
+   "description": "Spree::StoreCredit.from_gift_card answers everything else when false",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 204,
+   "description": "Spree::StoreCredit.from_gift_card treats every side selected as no constraint rather than raising",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 71,
+   "description": "Spree::StoreCredit.oldest_first orders credits by issue time, oldest first",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 78,
+   "description": "Spree::StoreCredit.oldest_first keeps order_by_priority as a warning alias",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 29,
+   "description": "Spree::StoreCredit behaves like metadata reads data as not symbolized keys",
+   "status": "passed",
+   "shared_example_in": "lib/spree/testing_support/metadata.rb"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 15,
+   "description": "Spree::StoreCredit behaves like metadata reads data as symbolized keys",
+   "status": "passed",
+   "shared_example_in": "lib/spree/testing_support/metadata.rb"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 4,
+   "description": "Spree::StoreCredit behaves like metadata is expected to be truthy",
+   "status": "passed",
+   "shared_example_in": "lib/spree/testing_support/metadata.rb"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 10,
+   "description": "Spree::StoreCredit behaves like metadata no longer carries the split metadata columns",
+   "status": "passed",
+   "shared_example_in": "lib/spree/testing_support/metadata.rb"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 57,
+   "description": "Spree::StoreCredit behaves like metadata can query records by metadata properties",
+   "status": "passed",
+   "shared_example_in": "lib/spree/testing_support/metadata.rb"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 6,
+   "description": "Spree::StoreCredit behaves like metadata is expected to eq {}",
+   "status": "passed",
+   "shared_example_in": "lib/spree/testing_support/metadata.rb"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 8,
+   "description": "Spree::StoreCredit behaves like metadata is expected to eq ActiveSupport::HashWithIndifferentAccess",
+   "status": "passed",
+   "shared_example_in": "lib/spree/testing_support/metadata.rb"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 43,
+   "description": "Spree::StoreCredit behaves like metadata can query records by metadata properties",
+   "status": "pending",
+   "shared_example_in": "lib/spree/testing_support/metadata.rb",
+   "pending": "No reason given"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 301,
+   "description": "Spree::StoreCredit#authorize amount is valid authorization has already happened returns true",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 276,
+   "description": "Spree::StoreCredit#authorize amount is valid amount has not been authorized yet adds the new amount to authorized amount",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 272,
+   "description": "Spree::StoreCredit#authorize amount is valid amount has not been authorized yet returns true",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 289,
+   "description": "Spree::StoreCredit#authorize amount is valid amount has not been authorized yet originator is present records the originator",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 309,
+   "description": "Spree::StoreCredit#authorize amount is invalid returns false",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 160,
+   "description": "Spree::StoreCredit.outstanding unwraps an array argument rather than casting the array",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 168,
+   "description": "Spree::StoreCredit.outstanding treats every side selected as no constraint rather than raising",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 182,
+   "description": "Spree::StoreCredit.outstanding applies the affirmative side for a literal boolean predicate",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 144,
+   "description": "Spree::StoreCredit.outstanding answers what is still owed when true",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 152,
+   "description": "Spree::StoreCredit.outstanding reads a string the way Ransack passes it",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 148,
+   "description": "Spree::StoreCredit.outstanding answers what has been spent when false",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 173,
+   "description": "Spree::StoreCredit.outstanding applies the chosen side through Ransack",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 108,
+   "description": "Spree::StoreCredit.exhausted is narrower than available, which the checkout path relies on",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 98,
+   "description": "Spree::StoreCredit.exhausted excludes a credit that is only partly committed",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 114,
+   "description": "Spree::StoreCredit.exhausted composes with the caller's own scoping rather than replacing it",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 86,
+   "description": "Spree::StoreCredit.exhausted is every credit with nothing left to spend",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 573,
+   "description": "Spree::StoreCredit#credit amount is more than what is captured adds an error message about the currency mismatch",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 569,
+   "description": "Spree::StoreCredit#credit amount is more than what is captured returns false",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 552,
+   "description": "Spree::StoreCredit#credit unable to find capture event returns false",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 556,
+   "description": "Spree::StoreCredit#credit unable to find capture event adds an error message about the currency mismatch",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 539,
+   "description": "Spree::StoreCredit#credit currency does not match adds an error message about the currency mismatch",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 535,
+   "description": "Spree::StoreCredit#credit currency does not match returns false",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 593,
+   "description": "Spree::StoreCredit#credit amount is successfully credited credit_to_new_allocation is set creates a new store credit record",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 589,
+   "description": "Spree::StoreCredit#credit amount is successfully credited credit_to_new_allocation is set returns true",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 597,
+   "description": "Spree::StoreCredit#credit amount is successfully credited credit_to_new_allocation is set does not create a new store credit event on the parent store credit",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 629,
+   "description": "Spree::StoreCredit#credit amount is successfully credited credit_to_new_allocation is set originator is present records the originator",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 616,
+   "description": "Spree::StoreCredit#credit amount is successfully credited credit_to_new_allocation is set credits the passed amount to a new store credit record sets attribute created_by_id inherited from the originating store credit",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 616,
+   "description": "Spree::StoreCredit#credit amount is successfully credited credit_to_new_allocation is set credits the passed amount to a new store credit record sets attribute user_id inherited from the originating store credit",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 616,
+   "description": "Spree::StoreCredit#credit amount is successfully credited credit_to_new_allocation is set credits the passed amount to a new store credit record sets attribute currency inherited from the originating store credit",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 621,
+   "description": "Spree::StoreCredit#credit amount is successfully credited credit_to_new_allocation is set credits the passed amount to a new store credit record sets a memo",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 607,
+   "description": "Spree::StoreCredit#credit amount is successfully credited credit_to_new_allocation is set credits the passed amount to a new store credit record does not set the amount used on the originating store credit",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 611,
+   "description": "Spree::StoreCredit#credit amount is successfully credited credit_to_new_allocation is set credits the passed amount to a new store credit record sets the correct amount on the new store credit",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 637,
+   "description": "Spree::StoreCredit#credit amount is successfully credited credit_to_new_allocation is not set returns true",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 641,
+   "description": "Spree::StoreCredit#credit amount is successfully credited credit_to_new_allocation is not set credits the passed amount to the store credit amount used",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 646,
+   "description": "Spree::StoreCredit#credit amount is successfully credited credit_to_new_allocation is not set creates a new store credit event",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 394,
+   "description": "Spree::StoreCredit#capture currency mismatch returns false",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 398,
+   "description": "Spree::StoreCredit#capture currency mismatch adds an error to the model",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 404,
+   "description": "Spree::StoreCredit#capture currency mismatch does not update the store credit model",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 376,
+   "description": "Spree::StoreCredit#capture insufficient funds returns false",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 380,
+   "description": "Spree::StoreCredit#capture insufficient funds adds an error to the model",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 386,
+   "description": "Spree::StoreCredit#capture insufficient funds does not update the store credit model",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 423,
+   "description": "Spree::StoreCredit#capture valid capture updates the authorized amount to the difference between the captured amount and the authorized amount",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 428,
+   "description": "Spree::StoreCredit#capture valid capture updates the used amount to the current used amount plus the captured amount",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 419,
+   "description": "Spree::StoreCredit#capture valid capture returns true",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 436,
+   "description": "Spree::StoreCredit#capture valid capture originator is present records the originator",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 753,
+   "description": "Spree::StoreCredit#can_void? complete payment returns false",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 737,
+   "description": "Spree::StoreCredit#can_void? void payment returns false",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 745,
+   "description": "Spree::StoreCredit#can_void? invalid payment returns false",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 724,
+   "description": "Spree::StoreCredit#can_void? remove store credits when order is completed is expected to equal false",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 730,
+   "description": "Spree::StoreCredit#can_void? remove store credits when payment is completed is expected to equal false",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 718,
+   "description": "Spree::StoreCredit#can_void? remove store credits when payment is in checkout and order is not completed is expected to equal true",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 709,
+   "description": "Spree::StoreCredit#can_void? pending payment returns true",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 686,
+   "description": "Spree::StoreCredit#can_capture? invalid payment returns false",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 678,
+   "description": "Spree::StoreCredit#can_capture? void payment returns false",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 694,
+   "description": "Spree::StoreCredit#can_capture? complete payment returns false",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 670,
+   "description": "Spree::StoreCredit#can_capture? checkout payment returns true",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 662,
+   "description": "Spree::StoreCredit#can_capture? pending payment returns true",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 20,
+   "description": "Spree::StoreCredit callbacks amount used is greater than zero can not delete the store credit",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 128,
+   "description": "Spree::StoreCredit#outstanding? agrees with the outstanding scope for every state",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 9,
+   "description": "Spree::StoreCredit behaves like lifecycle events lifecycle events store_credit.created publishes created event when record is created",
+   "status": "passed",
+   "shared_example_in": "lib/spree/testing_support/lifecycle_events.rb"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 41,
+   "description": "Spree::StoreCredit behaves like lifecycle events lifecycle events store_credit.deleted publishes deleted event when record is deleted",
+   "status": "passed",
+   "shared_example_in": "lib/spree/testing_support/lifecycle_events.rb"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 19,
+   "description": "Spree::StoreCredit behaves like lifecycle events lifecycle events store_credit.updated publishes updated event when record is updated",
+   "status": "passed",
+   "shared_example_in": "lib/spree/testing_support/lifecycle_events.rb"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 31,
+   "description": "Spree::StoreCredit behaves like lifecycle events lifecycle events store_credit.updated does not publish updated event on a bare touch",
+   "status": "passed",
+   "shared_example_in": "lib/spree/testing_support/lifecycle_events.rb"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 257,
+   "description": "Spree::StoreCredit#amount= stores a canonical decimal exactly under a comma-decimal locale",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 475,
+   "description": "Spree::StoreCredit#void capture event found for auth_code returns false",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 479,
+   "description": "Spree::StoreCredit#void capture event found for auth_code does not change the amount used on the store credit",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 493,
+   "description": "Spree::StoreCredit#void auth event found for auth_code returns true",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 497,
+   "description": "Spree::StoreCredit#void auth event found for auth_code returns the capture amount to the store credit",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 504,
+   "description": "Spree::StoreCredit#void auth event found for auth_code originator is present records the originator",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 458,
+   "description": "Spree::StoreCredit#void no event found for auth_code adds an error to the model",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 454,
+   "description": "Spree::StoreCredit#void no event found for auth_code returns false",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 358,
+   "description": "Spree::StoreCredit#validate_authorization troublesome floats returns true",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 347,
+   "description": "Spree::StoreCredit#validate_authorization valid authorization returns true",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 333,
+   "description": "Spree::StoreCredit#validate_authorization currency mismatch returns false",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 337,
+   "description": "Spree::StoreCredit#validate_authorization currency mismatch adds an error to the model",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 323,
+   "description": "Spree::StoreCredit#validate_authorization insufficient funds adds an error to the model",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 319,
+   "description": "Spree::StoreCredit#validate_authorization insufficient funds returns false",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 227,
+   "description": "Spree::StoreCredit#amount_remaining the amount_used is not defined the authorized amount is defined subtracts the authorized amount from the credited amount",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 217,
+   "description": "Spree::StoreCredit#amount_remaining the amount_used is not defined the authorized amount is not defined returns the credited amount",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 239,
+   "description": "Spree::StoreCredit#amount_remaining the amount_used is defined the authorized amount is not defined subtracts the amount used from the credited amount",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 249,
+   "description": "Spree::StoreCredit#amount_remaining the amount_used is defined the authorized amount is defined subtracts the amount used and the authorized amount from the credited amount",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 835,
+   "description": "Spree::StoreCredit#can_credit? #store_events create an action is specified creates an event with the set action",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 828,
+   "description": "Spree::StoreCredit#can_credit? #store_events create user has multiple store credits saves the user's total store credit in the event",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 810,
+   "description": "Spree::StoreCredit#can_credit? #store_events create user has one store credit makes the store credit event an allocation event",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 814,
+   "description": "Spree::StoreCredit#can_credit? #store_events create user has one store credit saves the user's total store credit in the event",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 806,
+   "description": "Spree::StoreCredit#can_credit? #store_events create user has one store credit creates a store credit event",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 782,
+   "description": "Spree::StoreCredit#can_credit? payment is completed credit is owed on the order payment doesn't have allowed credit returns false",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 790,
+   "description": "Spree::StoreCredit#can_credit? payment is completed credit is owed on the order payment has allowed credit returns true",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 768,
+   "description": "Spree::StoreCredit#can_credit? payment is not completed returns false",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 33,
+   "description": "Spree::StoreCredit validations used amount should not be greater than the credited amount the used amount is defined is not valid",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 37,
+   "description": "Spree::StoreCredit validations used amount should not be greater than the credited amount the used amount is defined sets the correct error message",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 49,
+   "description": "Spree::StoreCredit validations used amount should not be greater than the credited amount the used amount is not defined yet is valid",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 58,
+   "description": "Spree::StoreCredit validations amount authorized less than or equal to amount is not valid",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_spec.rb",
+   "line": 62,
+   "description": "Spree::StoreCredit validations amount authorized less than or equal to amount adds an error message about the invalid authorized amount",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/coupon_code_spec.rb",
+   "line": 9,
+   "description": "Spree::CouponCode validations code validates uniqueness",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/calculator/flat_rate_spec.rb",
+   "line": 25,
+   "description": "Spree::Calculator::FlatRate#compute behaves like computing amount correctly computes the amount as 0 when currency is blank",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/calculator/flat_rate_spec.rb",
+   "line": 39,
+   "description": "Spree::Calculator::FlatRate#compute behaves like computing amount correctly computes the amount as 0 when there is no object",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/calculator/flat_rate_spec.rb",
+   "line": 32,
+   "description": "Spree::Calculator::FlatRate#compute behaves like computing amount correctly computes the amount as the rate when the currencies use different casing",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/calculator/flat_rate_spec.rb",
+   "line": 18,
+   "description": "Spree::Calculator::FlatRate#compute behaves like computing amount correctly computes the amount as 0 when currency does not match the line_item's currency",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/calculator/flat_rate_spec.rb",
+   "line": 11,
+   "description": "Spree::Calculator::FlatRate#compute behaves like computing amount correctly computes the amount as the rate when currency matches the line_item's currency",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/calculator/flat_rate_spec.rb",
+   "line": 32,
+   "description": "Spree::Calculator::FlatRate#compute when apply_only_on_full_priced_items is true when line item does not have compare at price behaves like computing amount correctly computes the amount as the rate when the currencies use different casing",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/calculator/flat_rate_spec.rb",
+   "line": 18,
+   "description": "Spree::Calculator::FlatRate#compute when apply_only_on_full_priced_items is true when line item does not have compare at price behaves like computing amount correctly computes the amount as 0 when currency does not match the line_item's currency",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/calculator/flat_rate_spec.rb",
+   "line": 25,
+   "description": "Spree::Calculator::FlatRate#compute when apply_only_on_full_priced_items is true when line item does not have compare at price behaves like computing amount correctly computes the amount as 0 when currency is blank",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/calculator/flat_rate_spec.rb",
+   "line": 11,
+   "description": "Spree::Calculator::FlatRate#compute when apply_only_on_full_priced_items is true when line item does not have compare at price behaves like computing amount correctly computes the amount as the rate when currency matches the line_item's currency",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/calculator/flat_rate_spec.rb",
+   "line": 39,
+   "description": "Spree::Calculator::FlatRate#compute when apply_only_on_full_priced_items is true when line item does not have compare at price behaves like computing amount correctly computes the amount as 0 when there is no object",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/calculator/flat_rate_spec.rb",
+   "line": 54,
+   "description": "Spree::Calculator::FlatRate#compute when apply_only_on_full_priced_items is true when line item has compare at price returns 0",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/calculator/flat_percent_item_total_spec.rb",
+   "line": 18,
+   "description": "Spree::Calculator::FlatPercentItemTotal compute returns object.amount if computed amount is greater",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/calculator/flat_percent_item_total_spec.rb",
+   "line": 10,
+   "description": "Spree::Calculator::FlatPercentItemTotal compute rounds result correctly",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_rule_spec.rb",
+   "line": 17,
+   "description": "Spree::PromotionRule forces developer to implement eligible? method",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_rule_spec.rb",
+   "line": 21,
+   "description": "Spree::PromotionRule validates unique rules for a promotion",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion_rule_spec.rb",
+   "line": 15,
+   "description": "Spree::PromotionRule behaves like type labels type labels falls back to the humanized type for a kind without translations",
+   "status": "passed",
+   "shared_example_in": "spec/support/shared_examples/type_labels.rb"
+  },
+  {
+   "file": "spec/models/spree/promotion_rule_spec.rb",
+   "line": 6,
+   "description": "Spree::PromotionRule behaves like type labels type labels reads the kind's name and description from the family's scope",
+   "status": "passed",
+   "shared_example_in": "spec/support/shared_examples/type_labels.rb"
+  },
+  {
+   "file": "spec/workflows/spree/gift_cards/cancel_spec.rb",
+   "line": 9,
+   "description": "Spree::GiftCards::Cancel cancels an unspent card",
+   "status": "passed"
+  },
+  {
+   "file": "spec/workflows/spree/gift_cards/cancel_spec.rb",
+   "line": 14,
+   "description": "Spree::GiftCards::Cancel publishes gift_card.canceled",
+   "status": "passed"
+  },
+  {
+   "file": "spec/workflows/spree/gift_cards/cancel_spec.rb",
+   "line": 34,
+   "description": "Spree::GiftCards::Cancel when the card has been drawn against but not yet redeemed refuses",
+   "status": "passed"
+  },
+  {
+   "file": "spec/workflows/spree/gift_cards/cancel_spec.rb",
+   "line": 23,
+   "description": "Spree::GiftCards::Cancel when the card has already been spent against refuses, so spent value is not taken back",
+   "status": "passed"
+  },
+  {
+   "file": "spec/workflows/spree/gift_cards/cancel_spec.rb",
+   "line": 43,
+   "description": "Spree::GiftCards::Cancel when already canceled fails",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/category_spec.rb",
+   "line": 145,
+   "description": "Spree::Promotion::Rules::Category when given a category from another store is invalid when built before its promotion is known",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/category_spec.rb",
+   "line": 140,
+   "description": "Spree::Promotion::Rules::Category when given a category from another store rejects the foreign raw ID",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/category_spec.rb",
+   "line": 133,
+   "description": "Spree::Promotion::Rules::Category when given a category from another store rejects the foreign ID",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/category_spec.rb",
+   "line": 120,
+   "description": "Spree::Promotion::Rules::Category#category_ids_to_add= does not remove the categories when nil is passed",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/category_spec.rb",
+   "line": 106,
+   "description": "Spree::Promotion::Rules::Category#category_ids_to_add= adds the categories to the rule",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/category_spec.rb",
+   "line": 112,
+   "description": "Spree::Promotion::Rules::Category#category_ids_to_add= removes the categories from the rule",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/category_spec.rb",
+   "line": 67,
+   "description": "Spree::Promotion::Rules::Category#eligible?(order) with all match policy is eligible order has all preferred taxons",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/category_spec.rb",
+   "line": 98,
+   "description": "Spree::Promotion::Rules::Category#eligible?(order) with all match policy when a product has a category child of a category rule is expected to be eligible #<Spree::Order id: 1, number: \"R1001\", item_total: #<BigDecimal: 10.0>, total: #<BigDecimal: 110.0>, ..._by_type: nil, approver_type: nil, canceler_type: nil, preferences: {}, warnings: [], tag_list: nil>",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/category_spec.rb",
+   "line": 80,
+   "description": "Spree::Promotion::Rules::Category#eligible?(order) with all match policy when order does not have all preferred taxons sets an error message",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/category_spec.rb",
+   "line": 79,
+   "description": "Spree::Promotion::Rules::Category#eligible?(order) with all match policy when order does not have all preferred taxons is expected not to be eligible #<Spree::Order id: 1, number: \"R1001\", item_total: #<BigDecimal: 10.0>, total: #<BigDecimal: 110.0>, ..._by_type: nil, approver_type: nil, canceler_type: nil, preferences: {}, warnings: [], tag_list: nil>",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/category_spec.rb",
+   "line": 18,
+   "description": "Spree::Promotion::Rules::Category#eligible?(order) with any match policy is eligible if order does has any preferred category",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/category_spec.rb",
+   "line": 58,
+   "description": "Spree::Promotion::Rules::Category#eligible?(order) with any match policy when a product has a category child of a category rule is expected to be eligible #<Spree::Order id: 1, number: \"R1001\", item_total: #<BigDecimal: 10.0>, total: #<BigDecimal: 110.0>, ..._by_type: nil, approver_type: nil, canceler_type: nil, preferences: {}, warnings: [], tag_list: nil>",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/category_spec.rb",
+   "line": 43,
+   "description": "Spree::Promotion::Rules::Category#eligible?(order) with any match policy when order does not have any preferred category is expected not to be eligible #<Spree::Order id: 1, number: \"R1001\", item_total: #<BigDecimal: 10.0>, total: #<BigDecimal: 110.0>, ..._by_type: nil, approver_type: nil, canceler_type: nil, preferences: {}, warnings: [], tag_list: nil>",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/category_spec.rb",
+   "line": 44,
+   "description": "Spree::Promotion::Rules::Category#eligible?(order) with any match policy when order does not have any preferred category sets an error message",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/category_spec.rb",
+   "line": 30,
+   "description": "Spree::Promotion::Rules::Category#eligible?(order) with any match policy when order contains items from different taxons acts on a product within the eligible category",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/category_spec.rb",
+   "line": 34,
+   "description": "Spree::Promotion::Rules::Category#eligible?(order) with any match policy when order contains items from different taxons does not act on a product in another category",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/product_spec.rb",
+   "line": 14,
+   "description": "Spree::Promotion::Rules::Product#eligible?(order) is eligible if there are no products",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/product_spec.rb",
+   "line": 46,
+   "description": "Spree::Promotion::Rules::Product#eligible?(order) with 'all' match policy is eligible if all of the eligible products are ordered",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/product_spec.rb",
+   "line": 59,
+   "description": "Spree::Promotion::Rules::Product#eligible?(order) with 'all' match policy when any of the eligible products is not ordered sets an error message",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/product_spec.rb",
+   "line": 58,
+   "description": "Spree::Promotion::Rules::Product#eligible?(order) with 'all' match policy when any of the eligible products is not ordered is expected not to be eligible #<Spree::Order id: nil, number: nil, item_total: #<BigDecimal: 0.0>, total: #<BigDecimal: 0.0>, adjus...by_type: nil, approver_type: nil, canceler_type: nil, preferences: nil, warnings: [], tag_list: nil>",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/product_spec.rb",
+   "line": 70,
+   "description": "Spree::Promotion::Rules::Product#eligible?(order) with 'none' match policy is eligible if none of the order's products are in eligible products",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/product_spec.rb",
+   "line": 82,
+   "description": "Spree::Promotion::Rules::Product#eligible?(order) with 'none' match policy when any of the order's products are in eligible products is expected not to be eligible #<Spree::Order id: nil, number: nil, item_total: #<BigDecimal: 0.0>, total: #<BigDecimal: 0.0>, adjus...by_type: nil, approver_type: nil, canceler_type: nil, preferences: nil, warnings: [], tag_list: nil>",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/product_spec.rb",
+   "line": 83,
+   "description": "Spree::Promotion::Rules::Product#eligible?(order) with 'none' match policy when any of the order's products are in eligible products sets an error message",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/product_spec.rb",
+   "line": 22,
+   "description": "Spree::Promotion::Rules::Product#eligible?(order) with 'any' match policy is eligible if any of the products is in eligible products",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/product_spec.rb",
+   "line": 34,
+   "description": "Spree::Promotion::Rules::Product#eligible?(order) with 'any' match policy when none of the products are eligible products is expected not to be eligible #<Spree::Order id: nil, number: nil, item_total: #<BigDecimal: 0.0>, total: #<BigDecimal: 0.0>, adjus...by_type: nil, approver_type: nil, canceler_type: nil, preferences: nil, warnings: [], tag_list: nil>",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/product_spec.rb",
+   "line": 35,
+   "description": "Spree::Promotion::Rules::Product#eligible?(order) with 'any' match policy when none of the products are eligible products sets an error message",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/product_spec.rb",
+   "line": 144,
+   "description": "Spree::Promotion::Rules::Product#actionable? with 'none' match policy for product in rule is expected to be falsey",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/product_spec.rb",
+   "line": 150,
+   "description": "Spree::Promotion::Rules::Product#actionable? with 'none' match policy for product not in rule is expected to be truthy",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/product_spec.rb",
+   "line": 128,
+   "description": "Spree::Promotion::Rules::Product#actionable? with 'all' match policy for product in rule is expected to be truthy",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/product_spec.rb",
+   "line": 134,
+   "description": "Spree::Promotion::Rules::Product#actionable? with 'all' match policy for product not in rule is expected to be falsey",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/product_spec.rb",
+   "line": 118,
+   "description": "Spree::Promotion::Rules::Product#actionable? with 'any' match policy for product not in rule is expected to be falsey",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/product_spec.rb",
+   "line": 112,
+   "description": "Spree::Promotion::Rules::Product#actionable? with 'any' match policy for product in rule is expected to be truthy",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/product_spec.rb",
+   "line": 201,
+   "description": "Spree::Promotion::Rules::Product when given a product from another store rejects the foreign ID",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/product_spec.rb",
+   "line": 208,
+   "description": "Spree::Promotion::Rules::Product when given a product from another store is invalid when built before its promotion is known",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/product_spec.rb",
+   "line": 215,
+   "description": "Spree::Promotion::Rules::Product when given a product from another store accepts the promotion store's own product",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/product_spec.rb",
+   "line": 182,
+   "description": "Spree::Promotion::Rules::Product#add_products touches the record to invalidate cache",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/product_spec.rb",
+   "line": 174,
+   "description": "Spree::Promotion::Rules::Product#add_products does not remove the products when nil is passed",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/product_spec.rb",
+   "line": 160,
+   "description": "Spree::Promotion::Rules::Product#add_products adds the products to the rule",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/product_spec.rb",
+   "line": 166,
+   "description": "Spree::Promotion::Rules::Product#add_products removes the products from the rule",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/gift_card_batch_spec.rb",
+   "line": 41,
+   "description": "Spree::GiftCardBatch#amount= stores a canonical decimal exactly under a comma-decimal locale",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/gift_card_batch_spec.rb",
+   "line": 66,
+   "description": "Spree::GiftCardBatch#generate_gift_cards when codes count is less than 500 generates gift cards",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/gift_card_batch_spec.rb",
+   "line": 76,
+   "description": "Spree::GiftCardBatch#generate_gift_cards when codes count is greater than 500 enqueues a job",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/gift_card_batch_spec.rb",
+   "line": 51,
+   "description": "Spree::GiftCardBatch#create_gift_cards generates gift cards",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/gift_card_batch_spec.rb",
+   "line": 30,
+   "description": "Spree::GiftCardBatch lifecycle events gift_card_batch.deleted publishes deleted event when record is destroyed",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/gift_card_batch_spec.rb",
+   "line": 18,
+   "description": "Spree::GiftCardBatch lifecycle events gift_card_batch.updated publishes updated event when record is updated",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/gift_card_batch_spec.rb",
+   "line": 8,
+   "description": "Spree::GiftCardBatch lifecycle events gift_card_batch.created publishes created event when record is created",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/option_value_spec.rb",
+   "line": 103,
+   "description": "Spree::Promotion::Rules::OptionValue#option_values returns the configured option values",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/option_value_spec.rb",
+   "line": 94,
+   "description": "Spree::Promotion::Rules::OptionValue#actionable? when the line item variant does not carry a matching option value is expected to equal false",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/option_value_spec.rb",
+   "line": 88,
+   "description": "Spree::Promotion::Rules::OptionValue#actionable? when the line item variant carries a matching option value is expected to equal true",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/option_value_spec.rb",
+   "line": 59,
+   "description": "Spree::Promotion::Rules::OptionValue#eligible? when there are no applicable line items is expected to equal false",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/option_value_spec.rb",
+   "line": 49,
+   "description": "Spree::Promotion::Rules::OptionValue#eligible? when there are any applicable line items is expected to equal true",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/option_value_spec.rb",
+   "line": 9,
+   "description": "Spree::Promotion::Rules::OptionValue setting eligible values accepts prefixed option value ids",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/option_value_spec.rb",
+   "line": 14,
+   "description": "Spree::Promotion::Rules::OptionValue setting eligible values rejects unknown ids",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/option_value_spec.rb",
+   "line": 27,
+   "description": "Spree::Promotion::Rules::OptionValue#applicable? when promotable is an order is expected to equal true",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/option_value_spec.rb",
+   "line": 33,
+   "description": "Spree::Promotion::Rules::OptionValue#applicable? when promotable is not an order is expected to equal false",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/calculator/tiered_flat_rate_spec.rb",
+   "line": 70,
+   "description": "Spree::Calculator::TieredFlatRate#compute when amount falls within the second tier is expected to eq 15",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/calculator/tiered_flat_rate_spec.rb",
+   "line": 79,
+   "description": "Spree::Calculator::TieredFlatRate#compute when currency does not match is expected to eq 0",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/calculator/tiered_flat_rate_spec.rb",
+   "line": 102,
+   "description": "Spree::Calculator::TieredFlatRate#compute when there is no object is expected to eq 0",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/calculator/tiered_flat_rate_spec.rb",
+   "line": 64,
+   "description": "Spree::Calculator::TieredFlatRate#compute when amount falls within the first tier is expected to eq 10",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/calculator/tiered_flat_rate_spec.rb",
+   "line": 96,
+   "description": "Spree::Calculator::TieredFlatRate#compute when object currency is nil is expected to eq 0",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/calculator/tiered_flat_rate_spec.rb",
+   "line": 88,
+   "description": "Spree::Calculator::TieredFlatRate#compute when currency is blank is expected to eq 0",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/calculator/tiered_flat_rate_spec.rb",
+   "line": 18,
+   "description": "Spree::Calculator::TieredFlatRate#valid? when tiers is the pre-6.0 hash keyed by threshold is expected to equal false",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/calculator/tiered_flat_rate_spec.rb",
+   "line": 42,
+   "description": "Spree::Calculator::TieredFlatRate#valid? when every tier has a positive threshold and an amount is expected to equal true",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/calculator/tiered_flat_rate_spec.rb",
+   "line": 24,
+   "description": "Spree::Calculator::TieredFlatRate#valid? when a threshold is not a positive number is expected to equal false",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/calculator/tiered_flat_rate_spec.rb",
+   "line": 36,
+   "description": "Spree::Calculator::TieredFlatRate#valid? when an amount is negative is expected to equal false",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/calculator/tiered_flat_rate_spec.rb",
+   "line": 30,
+   "description": "Spree::Calculator::TieredFlatRate#valid? when a threshold repeats is expected to equal false",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/calculator/tiered_flat_rate_spec.rb",
+   "line": 12,
+   "description": "Spree::Calculator::TieredFlatRate#valid? when tiers is not a list of tiers is expected to equal false",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/one_use_per_user_spec.rb",
+   "line": 39,
+   "description": "Spree::Promotion::Rules::OneUsePerUser#eligible?(order) when the order is not assigned to a user is expected to equal false",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/one_use_per_user_spec.rb",
+   "line": 40,
+   "description": "Spree::Promotion::Rules::OneUsePerUser#eligible?(order) when the order is not assigned to a user sets an error message",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/one_use_per_user_spec.rb",
+   "line": 23,
+   "description": "Spree::Promotion::Rules::OneUsePerUser#eligible?(order) when the order is assigned to a user when the user has used this promotion before is expected to equal false",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/one_use_per_user_spec.rb",
+   "line": 24,
+   "description": "Spree::Promotion::Rules::OneUsePerUser#eligible?(order) when the order is assigned to a user when the user has used this promotion before sets an error message",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/one_use_per_user_spec.rb",
+   "line": 32,
+   "description": "Spree::Promotion::Rules::OneUsePerUser#eligible?(order) when the order is assigned to a user when the user has not used this promotion before is expected to equal true",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/channel_spec.rb",
+   "line": 11,
+   "description": "Spree::Promotion::Rules::Channel#applicable? returns true for orders",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/channel_spec.rb",
+   "line": 15,
+   "description": "Spree::Promotion::Rules::Channel#applicable? returns false for non-orders",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/channel_spec.rb",
+   "line": 63,
+   "description": "Spree::Promotion::Rules::Channel#channels returns the configured channels scoped to the store",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/channel_spec.rb",
+   "line": 68,
+   "description": "Spree::Promotion::Rules::Channel#channels returns none when unconfigured",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/channel_spec.rb",
+   "line": 32,
+   "description": "Spree::Promotion::Rules::Channel#eligible? when the order's channel is in the configured list is eligible",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/channel_spec.rb",
+   "line": 40,
+   "description": "Spree::Promotion::Rules::Channel#eligible? when the order's channel is not in the configured list is not eligible",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/channel_spec.rb",
+   "line": 56,
+   "description": "Spree::Promotion::Rules::Channel#eligible? when configured with prefixed IDs decodes them and matches",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/channel_spec.rb",
+   "line": 24,
+   "description": "Spree::Promotion::Rules::Channel#eligible? when no channels are configured is not eligible",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/channel_spec.rb",
+   "line": 48,
+   "description": "Spree::Promotion::Rules::Channel#eligible? when the order matches one of multiple configured channels is eligible",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/channel_spec.rb",
+   "line": 77,
+   "description": "Spree::Promotion::Rules::Channel when configured with a channel from another store rejects the foreign ID",
+   "status": "passed"
+  },
+  {
+   "file": "spec/workflows/spree/gift_cards/apply_spec.rb",
+   "line": 19,
+   "description": "Spree::GiftCards::Apply applies the gift card to an order",
+   "status": "passed"
+  },
+  {
+   "file": "spec/workflows/spree/gift_cards/apply_spec.rb",
+   "line": 38,
+   "description": "Spree::GiftCards::Apply calls recalculate_totals!",
+   "status": "passed"
+  },
+  {
+   "file": "spec/workflows/spree/gift_cards/apply_spec.rb",
+   "line": 299,
+   "description": "Spree::GiftCards::Apply when the gift card is already held by another open cart reports the released holds",
+   "status": "passed"
+  },
+  {
+   "file": "spec/workflows/spree/gift_cards/apply_spec.rb",
+   "line": 286,
+   "description": "Spree::GiftCards::Apply when the gift card is already held by another open cart releases the other hold and applies the freed balance here",
+   "status": "passed"
+  },
+  {
+   "file": "spec/workflows/spree/gift_cards/apply_spec.rb",
+   "line": 314,
+   "description": "Spree::GiftCards::Apply when the gift card is already held by another open cart when the other hold cannot be released reports the discrepancy and refuses the apply",
+   "status": "passed"
+  },
+  {
+   "file": "spec/workflows/spree/gift_cards/apply_spec.rb",
+   "line": 371,
+   "description": "Spree::GiftCards::Apply when several carts hold the card releases every hold and reclaims the balance",
+   "status": "passed"
+  },
+  {
+   "file": "spec/workflows/spree/gift_cards/apply_spec.rb",
+   "line": 383,
+   "description": "Spree::GiftCards::Apply when several carts hold the card locks every affected record before the first removal",
+   "status": "passed"
+  },
+  {
+   "file": "spec/workflows/spree/gift_cards/apply_spec.rb",
+   "line": 542,
+   "description": "Spree::GiftCards::Apply when the gift card is held by a completed order leaves the settled hold alone",
+   "status": "passed"
+  },
+  {
+   "file": "spec/workflows/spree/gift_cards/apply_spec.rb",
+   "line": 415,
+   "description": "Spree::GiftCards::Apply when a hold claims completion after the list is gathered leaves it alone",
+   "status": "passed"
+  },
+  {
+   "file": "spec/workflows/spree/gift_cards/apply_spec.rb",
+   "line": 67,
+   "description": "Spree::GiftCards::Apply when the gift card has a different currency responds with an error",
+   "status": "passed"
+  },
+  {
+   "file": "spec/workflows/spree/gift_cards/apply_spec.rb",
+   "line": 268,
+   "description": "Spree::GiftCards::Apply when the gift card has no amount remaining responds with an error",
+   "status": "passed"
+  },
+  {
+   "file": "spec/workflows/spree/gift_cards/apply_spec.rb",
+   "line": 555,
+   "description": "Spree::GiftCards::Apply when the order belongs to a non-default store applies the gift card to the order",
+   "status": "passed"
+  },
+  {
+   "file": "spec/workflows/spree/gift_cards/apply_spec.rb",
+   "line": 574,
+   "description": "Spree::GiftCards::Apply when the order belongs to a non-default store links the auto-created StoreCredit payment method only to the order store",
+   "status": "passed"
+  },
+  {
+   "file": "spec/workflows/spree/gift_cards/apply_spec.rb",
+   "line": 585,
+   "description": "Spree::GiftCards::Apply when the order belongs to a non-default store when a StoreCredit payment method already exists for the order store reuses the existing payment method without creating a duplicate",
+   "status": "passed"
+  },
+  {
+   "file": "spec/workflows/spree/gift_cards/apply_spec.rb",
+   "line": 439,
+   "description": "Spree::GiftCards::Apply lock ordering locks the target in the same pass as the holds",
+   "status": "passed"
+  },
+  {
+   "file": "spec/workflows/spree/gift_cards/apply_spec.rb",
+   "line": 457,
+   "description": "Spree::GiftCards::Apply lock ordering releases holds before locking the gift card",
+   "status": "passed"
+  },
+  {
+   "file": "spec/workflows/spree/gift_cards/apply_spec.rb",
+   "line": 250,
+   "description": "Spree::GiftCards::Apply when the gift card cannot be spent refuses a canceled card",
+   "status": "passed"
+  },
+  {
+   "file": "spec/workflows/spree/gift_cards/apply_spec.rb",
+   "line": 243,
+   "description": "Spree::GiftCards::Apply when the gift card cannot be spent refuses an expired card",
+   "status": "passed"
+  },
+  {
+   "file": "spec/workflows/spree/gift_cards/apply_spec.rb",
+   "line": 257,
+   "description": "Spree::GiftCards::Apply when the gift card cannot be spent refuses a redeemed card",
+   "status": "passed"
+  },
+  {
+   "file": "spec/workflows/spree/gift_cards/apply_spec.rb",
+   "line": 51,
+   "description": "Spree::GiftCards::Apply when the order has applied store credit responds with an error",
+   "status": "passed"
+  },
+  {
+   "file": "spec/workflows/spree/gift_cards/apply_spec.rb",
+   "line": 342,
+   "description": "Spree::GiftCards::Apply when a hold no longer carries this card skips a hold whose card changed after the list was gathered",
+   "status": "passed"
+  },
+  {
+   "file": "spec/workflows/spree/gift_cards/apply_spec.rb",
+   "line": 91,
+   "description": "Spree::GiftCards::Apply when the gift card is assigned to a user with guest order responds with an error",
+   "status": "passed"
+  },
+  {
+   "file": "spec/workflows/spree/gift_cards/apply_spec.rb",
+   "line": 80,
+   "description": "Spree::GiftCards::Apply when the gift card is assigned to a user with valid user applies the gift card to the order",
+   "status": "passed"
+  },
+  {
+   "file": "spec/workflows/spree/gift_cards/apply_spec.rb",
+   "line": 84,
+   "description": "Spree::GiftCards::Apply when the gift card is assigned to a user with valid user calls recalculate_totals!",
+   "status": "passed"
+  },
+  {
+   "file": "spec/workflows/spree/gift_cards/apply_spec.rb",
+   "line": 100,
+   "description": "Spree::GiftCards::Apply when the gift card is assigned to a user with another user order responds with an error",
+   "status": "passed"
+  },
+  {
+   "file": "spec/workflows/spree/gift_cards/apply_spec.rb",
+   "line": 483,
+   "description": "Spree::GiftCards::Apply when the other cart is mid-completion leaves the claimed hold alone and says the card is in use",
+   "status": "passed"
+  },
+  {
+   "file": "spec/workflows/spree/gift_cards/apply_spec.rb",
+   "line": 494,
+   "description": "Spree::GiftCards::Apply when the other cart is mid-completion when the completion claim has gone stale releases the abandoned hold",
+   "status": "passed"
+  },
+  {
+   "file": "spec/workflows/spree/gift_cards/apply_spec.rb",
+   "line": 523,
+   "description": "Spree::GiftCards::Apply when a draft order from an in-flight checkout holds the card releases the draft once the completion claim goes stale",
+   "status": "passed"
+  },
+  {
+   "file": "spec/workflows/spree/gift_cards/apply_spec.rb",
+   "line": 514,
+   "description": "Spree::GiftCards::Apply when a draft order from an in-flight checkout holds the card leaves the draft alone while its cart is being completed",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/market_spec.rb",
+   "line": 32,
+   "description": "Spree::Promotion::Rules::Market#eligible? when the order's market is in the configured list is eligible",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/market_spec.rb",
+   "line": 40,
+   "description": "Spree::Promotion::Rules::Market#eligible? when the order's market is not in the configured list is not eligible",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/market_spec.rb",
+   "line": 24,
+   "description": "Spree::Promotion::Rules::Market#eligible? when no markets are configured is not eligible",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/market_spec.rb",
+   "line": 56,
+   "description": "Spree::Promotion::Rules::Market#eligible? when configured with prefixed IDs decodes them and matches",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/market_spec.rb",
+   "line": 48,
+   "description": "Spree::Promotion::Rules::Market#eligible? when the order matches one of multiple configured markets is eligible",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/market_spec.rb",
+   "line": 68,
+   "description": "Spree::Promotion::Rules::Market#markets returns none when unconfigured",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/market_spec.rb",
+   "line": 63,
+   "description": "Spree::Promotion::Rules::Market#markets returns the configured markets scoped to the store",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/market_spec.rb",
+   "line": 15,
+   "description": "Spree::Promotion::Rules::Market#applicable? returns false for non-orders",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/market_spec.rb",
+   "line": 11,
+   "description": "Spree::Promotion::Rules::Market#applicable? returns true for orders",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/market_spec.rb",
+   "line": 77,
+   "description": "Spree::Promotion::Rules::Market when configured with a market from another store rejects the foreign ID",
+   "status": "passed"
+  },
+  {
+   "file": "spec/workflows/spree/gift_cards/redeem_spec.rb",
+   "line": 37,
+   "description": "Spree::GiftCards::Redeem when the gift card has amount remaining publishes gift_card.partially_redeemed",
+   "status": "passed"
+  },
+  {
+   "file": "spec/workflows/spree/gift_cards/redeem_spec.rb",
+   "line": 32,
+   "description": "Spree::GiftCards::Redeem when the gift card has amount remaining marks it partially redeemed without stamping redeemed_at",
+   "status": "passed"
+  },
+  {
+   "file": "spec/workflows/spree/gift_cards/redeem_spec.rb",
+   "line": 43,
+   "description": "Spree::GiftCards::Redeem when the gift card has amount remaining republishes on a further partial redemption",
+   "status": "passed"
+  },
+  {
+   "file": "spec/workflows/spree/gift_cards/redeem_spec.rb",
+   "line": 12,
+   "description": "Spree::GiftCards::Redeem when the gift card has no amount remaining marks it redeemed and stamps redeemed_at",
+   "status": "passed"
+  },
+  {
+   "file": "spec/workflows/spree/gift_cards/redeem_spec.rb",
+   "line": 22,
+   "description": "Spree::GiftCards::Redeem when the gift card has no amount remaining publishes gift_card.redeemed",
+   "status": "passed"
+  },
+  {
+   "file": "spec/workflows/spree/gift_cards/redeem_spec.rb",
+   "line": 17,
+   "description": "Spree::GiftCards::Redeem when the gift card has no amount remaining returns success with the gift card",
+   "status": "passed"
+  },
+  {
+   "file": "spec/workflows/spree/gift_cards/redeem_spec.rb",
+   "line": 55,
+   "description": "Spree::GiftCards::Redeem when the gift card is already redeemed fails rather than redeeming twice",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_event_spec.rb",
+   "line": 9,
+   "description": "StoreCreditEvent #display_amount uses the events amount attribute",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_event_spec.rb",
+   "line": 76,
+   "description": "StoreCreditEvent #order there is no associated payment with the event returns nil",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_event_spec.rb",
+   "line": 92,
+   "description": "StoreCreditEvent #order there is an associated payment with the event returns the order associated with the payment",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_event_spec.rb",
+   "line": 19,
+   "description": "StoreCreditEvent #display_user_total_amount uses the events user_total_amount attribute",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_event_spec.rb",
+   "line": 55,
+   "description": "StoreCreditEvent #display_action void event returns credit",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_event_spec.rb",
+   "line": 63,
+   "description": "StoreCreditEvent #display_action credit event returns credit",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_event_spec.rb",
+   "line": 39,
+   "description": "StoreCreditEvent #display_action authorize event returns authorized",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_event_spec.rb",
+   "line": 47,
+   "description": "StoreCreditEvent #display_action allocation event returns added",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_event_spec.rb",
+   "line": 31,
+   "description": "StoreCreditEvent #display_action capture event returns used",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/store_credit_event_spec.rb",
+   "line": 99,
+   "description": "StoreCreditEvent action predicates answers true only for its own action",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/first_order_spec.rb",
+   "line": 25,
+   "description": "Spree::Promotion::Rules::FirstOrder first order for a signed user with no completed orders is expected to be eligible #<Spree::Order id: 1, number: \"R1001\", item_total: #<BigDecimal: 0.0>, total: #<BigDecimal: 0.0>, adj..._by_type: nil, approver_type: nil, canceler_type: nil, preferences: {}, warnings: [], tag_list: nil>",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/first_order_spec.rb",
+   "line": 30,
+   "description": "Spree::Promotion::Rules::FirstOrder first order for a signed user with no completed orders is eligible when user passed in payload data",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/first_order_spec.rb",
+   "line": 38,
+   "description": "Spree::Promotion::Rules::FirstOrder first order for a signed user with completed orders is eligible when checked against first completed order",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/first_order_spec.rb",
+   "line": 49,
+   "description": "Spree::Promotion::Rules::FirstOrder first order for a signed user with completed orders with another order sets an error message",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/first_order_spec.rb",
+   "line": 47,
+   "description": "Spree::Promotion::Rules::FirstOrder first order for a signed user with completed orders with another order is expected not to be eligible #<Spree::Order id: 2, number: \"R1002\", item_total: #<BigDecimal: 10.0>, total: #<BigDecimal: 110.0>, ..._by_type: nil, approver_type: nil, canceler_type: nil, preferences: {}, warnings: [], tag_list: nil>",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/first_order_spec.rb",
+   "line": 70,
+   "description": "Spree::Promotion::Rules::FirstOrder first order for a guest user with another order is expected not to be eligible #<Spree::Order id: 2, number: \"R1002\", item_total: #<BigDecimal: 0.0>, total: #<BigDecimal: 0.0>, adj..._by_type: nil, approver_type: nil, canceler_type: nil, preferences: {}, warnings: [], tag_list: nil>",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/first_order_spec.rb",
+   "line": 72,
+   "description": "Spree::Promotion::Rules::FirstOrder first order for a guest user with another order sets an error message",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/first_order_spec.rb",
+   "line": 64,
+   "description": "Spree::Promotion::Rules::FirstOrder first order for a guest user with no other orders is expected to be eligible #<Spree::Order id: 1, number: \"R1001\", item_total: #<BigDecimal: 0.0>, total: #<BigDecimal: 0.0>, adj..._by_type: nil, approver_type: nil, canceler_type: nil, preferences: {}, warnings: [], tag_list: nil>",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/first_order_spec.rb",
+   "line": 11,
+   "description": "Spree::Promotion::Rules::FirstOrder without a user or email is expected not to be eligible #<Spree::Order id: 1, number: \"R1001\", item_total: #<BigDecimal: 0.0>, total: #<BigDecimal: 0.0>, adj..._by_type: nil, approver_type: nil, canceler_type: nil, preferences: {}, warnings: [], tag_list: nil>",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/first_order_spec.rb",
+   "line": 13,
+   "description": "Spree::Promotion::Rules::FirstOrder without a user or email sets an error message",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/calculator/tiered_percent_spec.rb",
+   "line": 62,
+   "description": "Spree::Calculator::TieredPercent#compute when amount falls within the second tier is expected to eq 22.5",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/calculator/tiered_percent_spec.rb",
+   "line": 56,
+   "description": "Spree::Calculator::TieredPercent#compute when amount falls within the first tier is expected to eq 5",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/calculator/tiered_percent_spec.rb",
+   "line": 71,
+   "description": "Spree::Calculator::TieredPercent#compute when an unsaved tier is not a number skips it",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/calculator/tiered_percent_spec.rb",
+   "line": 80,
+   "description": "Spree::Calculator::TieredPercent#compute when the tiers are still a hash keyed by threshold, as before 6.0 still applies them",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/calculator/tiered_percent_spec.rb",
+   "line": 12,
+   "description": "Spree::Calculator::TieredPercent#valid? when base percent is less than zero is expected to equal false",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/calculator/tiered_percent_spec.rb",
+   "line": 24,
+   "description": "Spree::Calculator::TieredPercent#valid? when tiers is not a list of tiers is expected to equal false",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/calculator/tiered_percent_spec.rb",
+   "line": 30,
+   "description": "Spree::Calculator::TieredPercent#valid? when a threshold is not a positive number is expected to equal false",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/calculator/tiered_percent_spec.rb",
+   "line": 18,
+   "description": "Spree::Calculator::TieredPercent#valid? when base percent is greater than 100 is expected to equal false",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/calculator/tiered_percent_spec.rb",
+   "line": 36,
+   "description": "Spree::Calculator::TieredPercent#valid? when a rate is not a percent is expected to equal false",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/calculator/tiered_percent_spec.rb",
+   "line": 85,
+   "description": "Spree::Calculator::TieredPercent when saved and loaded again keeps the tiers as a list with exact decimals",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/actions/create_line_items_spec.rb",
+   "line": 286,
+   "description": "Spree::Promotion::Actions::CreateLineItems counting toward what the shopper spends counts a copy of the gift the shopper pays for",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/actions/create_line_items_spec.rb",
+   "line": 295,
+   "description": "Spree::Promotion::Actions::CreateLineItems counting toward what the shopper spends counts the gift until its promotion applies to the cart and discounts it",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/actions/create_line_items_spec.rb",
+   "line": 323,
+   "description": "Spree::Promotion::Actions::CreateLineItems counting toward what the shopper spends when the gift promotion has its own threshold settles beside a second gift promotion with a threshold of its own",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/actions/create_line_items_spec.rb",
+   "line": 313,
+   "description": "Spree::Promotion::Actions::CreateLineItems counting toward what the shopper spends when the gift promotion has its own threshold takes the gift back once the paid goods fall below it",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/actions/create_line_items_spec.rb",
+   "line": 278,
+   "description": "Spree::Promotion::Actions::CreateLineItems counting toward what the shopper spends when another promotion gives the gift away takes a percentage of the paid goods only",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/actions/create_line_items_spec.rb",
+   "line": 269,
+   "description": "Spree::Promotion::Actions::CreateLineItems counting toward what the shopper spends when another promotion gives the gift away does not let the gift lift the order over a threshold",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/actions/create_line_items_spec.rb",
+   "line": 34,
+   "description": "Spree::Promotion::Actions::CreateLineItems#perform order is eligible adds line items to order with correct variant and quantity",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/actions/create_line_items_spec.rb",
+   "line": 58,
+   "description": "Spree::Promotion::Actions::CreateLineItems#perform order is eligible doesn't try to add an item if it's out of stock",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/actions/create_line_items_spec.rb",
+   "line": 42,
+   "description": "Spree::Promotion::Actions::CreateLineItems#perform order is eligible only adds the delta of quantity to an order",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/actions/create_line_items_spec.rb",
+   "line": 50,
+   "description": "Spree::Promotion::Actions::CreateLineItems#perform order is eligible doesn't add if the quantity is greater",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/actions/create_line_items_spec.rb",
+   "line": 347,
+   "description": "Spree::Promotion::Actions::CreateLineItems#item_available? returns false if the item is out of stock",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/actions/create_line_items_spec.rb",
+   "line": 352,
+   "description": "Spree::Promotion::Actions::CreateLineItems#item_available? returns true if the item is in stock",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/actions/create_line_items_spec.rb",
+   "line": 416,
+   "description": "Spree::Promotion::Actions::CreateLineItems when given a variant from another store drops it",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/actions/create_line_items_spec.rb",
+   "line": 369,
+   "description": "Spree::Promotion::Actions::CreateLineItems#handle_promotion_action_line_items creates new promotion action line items",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/actions/create_line_items_spec.rb",
+   "line": 386,
+   "description": "Spree::Promotion::Actions::CreateLineItems#handle_promotion_action_line_items with existing promotion action line items updates existing promotion action line items in place",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/actions/create_line_items_spec.rb",
+   "line": 403,
+   "description": "Spree::Promotion::Actions::CreateLineItems#handle_promotion_action_line_items with rows omitted from the desired set removes the omitted rows",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/actions/create_line_items_spec.rb",
+   "line": 93,
+   "description": "Spree::Promotion::Actions::CreateLineItems when the promotable is a cart leaves the variant alone on a cart the promotion never applied to",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/actions/create_line_items_spec.rb",
+   "line": 80,
+   "description": "Spree::Promotion::Actions::CreateLineItems when the promotable is a cart takes the gift back when the promotion stops applying",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/actions/create_line_items_spec.rb",
+   "line": 75,
+   "description": "Spree::Promotion::Actions::CreateLineItems when the promotable is a cart adds the gift to the cart",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/actions/create_line_items_spec.rb",
+   "line": 199,
+   "description": "Spree::Promotion::Actions::CreateLineItems pricing the gift keeps the gift free when its price would take the order out of range",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/actions/create_line_items_spec.rb",
+   "line": 125,
+   "description": "Spree::Promotion::Actions::CreateLineItems pricing the gift makes only Y free on a \"buy X, get Y free\" promotion",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/actions/create_line_items_spec.rb",
+   "line": 112,
+   "description": "Spree::Promotion::Actions::CreateLineItems pricing the gift discounts the gift it adds down to nothing",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/actions/create_line_items_spec.rb",
+   "line": 188,
+   "description": "Spree::Promotion::Actions::CreateLineItems pricing the gift leaves units beyond the gifted quantity paid for",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/actions/create_line_items_spec.rb",
+   "line": 146,
+   "description": "Spree::Promotion::Actions::CreateLineItems pricing the gift when the rules name the gift's own product refuses the gift when the only qualifying line is the gift itself",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/actions/create_line_items_spec.rb",
+   "line": 171,
+   "description": "Spree::Promotion::Actions::CreateLineItems pricing the gift when the rules name the gift's own product gifts one once the shopper holds more than the gift covers",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/actions/create_line_items_spec.rb",
+   "line": 157,
+   "description": "Spree::Promotion::Actions::CreateLineItems pricing the gift when the rules name the gift's own product stops paying for the gift when the qualifying line goes",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/currency_spec.rb",
+   "line": 11,
+   "description": "Spree::Promotion::Rules::Currency preferred currency is set is eligible for correct currency",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/currency_spec.rb",
+   "line": 17,
+   "description": "Spree::Promotion::Rules::Currency preferred currency is set is not eligible for incorrect currency",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/currency_spec.rb",
+   "line": 31,
+   "description": "Spree::Promotion::Rules::Currency#applicable? when promotable is an order is expected to equal true",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/currency_spec.rb",
+   "line": 36,
+   "description": "Spree::Promotion::Rules::Currency#applicable? when promotable is not an order is expected to equal false",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/calculator/percent_on_line_item_spec.rb",
+   "line": 19,
+   "description": "Spree::Calculator::PercentOnLineItem#compute behaves like computing amount correctly returns object.amount if computed amount is greater",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/calculator/percent_on_line_item_spec.rb",
+   "line": 11,
+   "description": "Spree::Calculator::PercentOnLineItem#compute behaves like computing amount correctly rounds result correctly",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/calculator/percent_on_line_item_spec.rb",
+   "line": 11,
+   "description": "Spree::Calculator::PercentOnLineItem#compute when apply_only_on_full_priced_items preference is true when line item does not have a compare at price behaves like computing amount correctly rounds result correctly",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/calculator/percent_on_line_item_spec.rb",
+   "line": 19,
+   "description": "Spree::Calculator::PercentOnLineItem#compute when apply_only_on_full_priced_items preference is true when line item does not have a compare at price behaves like computing amount correctly returns object.amount if computed amount is greater",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/calculator/percent_on_line_item_spec.rb",
+   "line": 35,
+   "description": "Spree::Calculator::PercentOnLineItem#compute when apply_only_on_full_priced_items preference is true when line item has a compare at price returns 0",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/actions/create_item_adjustments_spec.rb",
+   "line": 49,
+   "description": "Spree::Promotion::Actions::CreateItemAdjustments has line_item discount scope",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/actions/create_item_adjustments_spec.rb",
+   "line": 43,
+   "description": "Spree::Promotion::Actions::CreateItemAdjustments#compute_amount returns 0 for non-actionable line items",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/actions/create_item_adjustments_spec.rb",
+   "line": 35,
+   "description": "Spree::Promotion::Actions::CreateItemAdjustments#compute_amount caps at the line item amount",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/actions/create_item_adjustments_spec.rb",
+   "line": 27,
+   "description": "Spree::Promotion::Actions::CreateItemAdjustments#perform reports no action when nothing is actionable",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/actions/create_item_adjustments_spec.rb",
+   "line": 20,
+   "description": "Spree::Promotion::Actions::CreateItemAdjustments#perform is idempotent",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/actions/create_item_adjustments_spec.rb",
+   "line": 11,
+   "description": "Spree::Promotion::Actions::CreateItemAdjustments#perform writes a discount per actionable line item and reports action taken",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/actions/create_adjustment_spec.rb",
+   "line": 43,
+   "description": "Spree::Promotion::Actions::CreateAdjustment#compute_amount caps at the order total",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/actions/create_adjustment_spec.rb",
+   "line": 19,
+   "description": "Spree::Promotion::Actions::CreateAdjustment#perform reports no action at zero amount",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/actions/create_adjustment_spec.rb",
+   "line": 11,
+   "description": "Spree::Promotion::Actions::CreateAdjustment#perform distributes the order-level discount across line items",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/actions/create_adjustment_spec.rb",
+   "line": 32,
+   "description": "Spree::Promotion::Actions::CreateAdjustment#perform when the promotable is a cart discounts it by a flat percent of the item total",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/actions/create_adjustment_spec.rb",
+   "line": 32,
+   "description": "Spree::Promotion::Actions::CreateAdjustment#perform when the promotable is a cart discounts it by a tiered flat rate",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/actions/create_adjustment_spec.rb",
+   "line": 32,
+   "description": "Spree::Promotion::Actions::CreateAdjustment#perform when the promotable is a cart discounts it by a tiered percent",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/country_spec.rb",
+   "line": 33,
+   "description": "Spree::Promotion::Rules::Country preferred country is not set is eligible for default country",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/country_spec.rb",
+   "line": 40,
+   "description": "Spree::Promotion::Rules::Country preferred country is not set is not eligible for incorrect country",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/country_spec.rb",
+   "line": 21,
+   "description": "Spree::Promotion::Rules::Country preferred country_code is set is not eligible for incorrect country",
+   "status": "passed"
+  },
+  {
+   "file": "spec/models/spree/promotion/rules/country_spec.rb",
+   "line": 13,
+   "description": "Spree::Promotion::Rules::Country preferred country_code is set is eligible for correct country",
+   "status": "passed"
+  }
+ ]
+}

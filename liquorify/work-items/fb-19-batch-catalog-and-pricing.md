@@ -463,3 +463,17 @@ Part 2's running screens showed where §10 did not match Spree at `5794da6`. The
 | §10.10 | The superseded customer and customer group rules, a known gap if Spree's API refuses them | Spree's API accepted both rules for an existing price list, so they are captured as they render, and the gap does not arise |
 | §10.6 and criterion 15 | EM-S-05's download link is fetched, and its file checked | The email's button links back to the page the export was started from, the product list, not to the file (B17). The file checked is the one the dashboard downloads when the export finishes. This corrects what Spree does, not the criterion: that part of criterion 15 stays not met. On 2026-11-04 the owner accepted it as a baseline exception and had it tracked as SD-17, which stays open |
 | §10.6 | The size estimate: about 230 stories, 460 reference images and 170 captures | 306 stories and 612 reference images, 16.8 MB; 199 captures, 398 images, and evidence of 21 MB in all |
+
+## 14. Corrections found during part 3
+
+Part 3's running screens showed where §12 did not match Spree. The proposal's text above is unchanged; these corrections govern. Each is recorded in part 3's [verification record](../verification/2026-11-04-fb-19-batch-catalog-and-pricing-part-3.md) §6 and §7.
+
+| Where | The proposal says | Spree does |
+|---|---|---|
+| §12.2, DA-PRM-03 | The codes sheet, with used, partly used and unused codes | A coupon code is either used or unused; there is no partly used code. The sheet is captured with used and unused codes |
+| §12.2, DA-PRM-03 | The `promotion.form_sidebar` slot, as it renders | The slot draws nothing without a plugin, as the product page's does (part 1). Every capture of the page shows the sidebar as it renders |
+| §12.2, DA-LOY-01 | Listed in each status: active, partly redeemed, redeemed and expired | Expired is not one of Spree's gift card statuses. It is worked out from the expiry date and shown as a badge in the list, and the status filter does not offer it (B15). The list is captured as it shows it |
+| §12.2, DA-PRM-03 | A save refused with its errors | A usage limit below one is stopped by the browser's own number check before any request (B11). The state is captured twice: as the browser stops it, and as the server refuses a name of spaces |
+| §12.3, the loyalty viewer | The promotion screens, with create, edit and delete controls recorded as each shows them | A promotion's page never finishes loading for this role, because Spree refuses its rules and actions to a teammate who may not change the promotion (B1). Its controls cannot be recorded there; the story "Read-only role" shows what the form would draw, checked against its source |
+| §12.6 | States that need an order or a past date are checked against their source if the API cannot reach them | Spree's Admin API completed the orders with its sample check payment method and accepted a gift card expiry date in the past, so every such state was reached on the running server |
+| §12.6 | The size estimate: about 100 stories, 200 reference images and 90 captures | 130 stories and 260 reference images; 163 captures, 326 images |

@@ -9,6 +9,7 @@ import {
   CollectionSchema,
   CompanySchema,
   CountrySchema,
+  CouponCodeSchema,
   CustomerGroupSchema,
   CustomerSchema,
   CustomFieldDefinitionSchema,
@@ -19,6 +20,8 @@ import {
   DeliveryZoneSchema,
   DigitalAssetSchema,
   ExportSchema,
+  GiftCardBatchSchema,
+  GiftCardSchema,
   ImportRowSchema,
   ImportSchema,
   MarketSchema,
@@ -37,6 +40,9 @@ import {
   PriceSchema,
   ProductSchema,
   ProductTypeSchema,
+  PromotionActionSchema,
+  PromotionRuleSchema,
+  PromotionSchema,
   PurchaseOrderSchema,
   RefundReasonSchema,
   ReturnReasonSchema,
@@ -45,12 +51,15 @@ import {
   StockMovementSchema,
   StockReceiptSchema,
   StockTransferSchema,
+  StoreCreditEventSchema,
+  StoreCreditSchema,
   StoreSchema,
   SupplierSchema,
   TaxCategorySchema,
   TaxExemptionReasonSchema,
   TaxRateSchema,
   UpdateStatusSchema,
+  VariantSchema,
 } from '@spree/admin-sdk/zod'
 import { BalanceSchema } from '@spree/seller-sdk/zod'
 import { describe, expect, it } from 'vitest'
@@ -94,6 +103,20 @@ import {
   stockTransfers,
   suppliers,
 } from './admin/inventory'
+import {
+  erasedShopper,
+  giftCards,
+  goodwillEvents,
+  lineItemVariants,
+  loyaltyCustomers,
+  newShopper,
+  promotionActions,
+  promotionRules,
+  promotions,
+  storeCredits,
+  winterCodes,
+  xmasBatch,
+} from './admin/loyalty'
 import {
   cafeCatalog,
   cafeProducts,
@@ -175,6 +198,14 @@ import { balances } from './seller/balances'
  */
 const LiveDeliveryMethodSchema = DeliveryMethodSchema.extend({
   deleted_at: DeliveryMethodSchema.shape.deleted_at.nullable(),
+})
+
+/**
+ * The generated type says a gift card's batch is left out when it has none,
+ * but the server answers null, as the browser-test server did on 2026-11-04.
+ */
+const LiveGiftCardSchema = GiftCardSchema.extend({
+  gift_card_batch: GiftCardBatchSchema.nullable().optional(),
 })
 
 // A fixture that no longer parses means the API changed and the mock now shows
@@ -265,6 +296,16 @@ const fixtures: [string, ZodType, unknown[]][] = [
   ['stock transfers', StockTransferSchema, stockTransfers],
   ['purchase orders', PurchaseOrderSchema, purchaseOrders],
   ['stock receipts', StockReceiptSchema, stockReceipts],
+  ['part 3 customers', CustomerSchema, [...loyaltyCustomers, erasedShopper, newShopper]],
+  ['promotions', PromotionSchema, promotions],
+  ['promotion rules', PromotionRuleSchema, Object.values(promotionRules).flat()],
+  ['promotion actions', PromotionActionSchema, Object.values(promotionActions).flat()],
+  ['coupon codes', CouponCodeSchema, winterCodes],
+  ['part 3 variants', VariantSchema, lineItemVariants],
+  ['gift card batches', GiftCardBatchSchema, [xmasBatch]],
+  ['gift cards', LiveGiftCardSchema, giftCards],
+  ['store credits', StoreCreditSchema, storeCredits],
+  ['store credit events', StoreCreditEventSchema, goodwillEvents],
 ]
 
 describe('fixtures match the SDK schemas', () => {

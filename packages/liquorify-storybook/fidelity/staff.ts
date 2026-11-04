@@ -91,6 +91,16 @@ export const roles = {
     name: 'Purchaser',
     permissions: ['write_purchasing', 'read_stock', 'read_products'],
   },
+  /**
+   * Write on `promotions` and nothing else: no template covers promotions, so
+   * this is the role a store would make for the person who runs them.
+   */
+  marketer: { name: 'Marketer', permissions: ['write_promotions'] },
+  /** Read on the four scopes of catalog part 3's screens, and write on none. */
+  loyaltyViewer: {
+    name: 'Loyalty viewer',
+    permissions: ['read_promotions', 'read_gift_cards', 'read_store_credits', 'read_customers'],
+  },
 } as const
 
 export type RoleKey = keyof typeof roles
@@ -183,6 +193,18 @@ export const teammates: Record<
     role: 'purchaser',
     first: 'Pat',
     last: 'Buyer',
+  },
+  marketer: {
+    email: 'fidelity-marketer@example.com',
+    role: 'marketer',
+    first: 'Max',
+    last: 'Promotions',
+  },
+  loyaltyViewer: {
+    email: 'fidelity-loyalty-viewer@example.com',
+    role: 'loyaltyViewer',
+    first: 'Lou',
+    last: 'Viewer',
   },
 }
 

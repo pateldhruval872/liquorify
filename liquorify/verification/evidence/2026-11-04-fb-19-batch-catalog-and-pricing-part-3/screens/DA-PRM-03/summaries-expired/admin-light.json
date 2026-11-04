@@ -1,0 +1,17 @@
+{
+  "screen": "DA-PRM-03",
+  "state": "summaries-expired",
+  "variant": "admin",
+  "role": null,
+  "theme": "light",
+  "revision": "4a05d9c8",
+  "path": "/<store>/promotions/promo_OIJLhNcSbf",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": null,
+  "settled": true,
+  "outside": [],
+  "refused": []
+}

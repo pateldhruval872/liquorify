@@ -1,0 +1,33 @@
+{
+  "screen": "DA-PRM-03",
+  "state": "saved-rule-products-unreadable",
+  "variant": "marketer",
+  "role": {
+    "name": "Marketer",
+    "permissions": [
+      "write_promotions"
+    ]
+  },
+  "theme": "light",
+  "revision": "e040f9d1",
+  "path": "/<store>/promotions/promo_VqXmZF31wY",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": null,
+  "settled": true,
+  "outside": [],
+  "refused": [
+    {
+      "method": "GET",
+      "path": "/api/v3/admin/dashboard/counters",
+      "status": 403
+    },
+    {
+      "method": "GET",
+      "path": "/api/v3/admin/products?q[id_in][]=prod_UkLWZg9DAJ&q[id_in][]=prod_3uWpPTcf5W&limit=2",
+      "status": 403
+    }
+  ]
+}

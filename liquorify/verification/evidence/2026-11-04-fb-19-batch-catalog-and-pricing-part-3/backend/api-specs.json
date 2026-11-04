@@ -1,0 +1,1186 @@
+{
+ "engine": "spree/api",
+ "spree_code_at": "ffc9f5e",
+ "database": "SQLite",
+ "rspec": "3.13.6",
+ "seed": 48472,
+ "summary": {
+  "example_count": 187,
+  "failure_count": 0,
+  "pending_count": 0,
+  "errors_outside_of_examples_count": 0
+ },
+ "examples": [
+  {
+   "file": "spec/controllers/spree/api/v3/admin/gift_cards_controller_spec.rb",
+   "line": 209,
+   "description": "Spree::Api::V3::Admin::GiftCardsController PATCH #update returns 404 for a card from another store",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/gift_cards_controller_spec.rb",
+   "line": 203,
+   "description": "Spree::Api::V3::Admin::GiftCardsController PATCH #update updates editable attributes on an active card",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/gift_cards_controller_spec.rb",
+   "line": 223,
+   "description": "Spree::Api::V3::Admin::GiftCardsController DELETE #destroy refuses to delete a redeemed gift card",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/gift_cards_controller_spec.rb",
+   "line": 217,
+   "description": "Spree::Api::V3::Admin::GiftCardsController DELETE #destroy deletes an unused gift card",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/gift_cards_controller_spec.rb",
+   "line": 177,
+   "description": "Spree::Api::V3::Admin::GiftCardsController POST #create returns 422 when amount is missing",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/gift_cards_controller_spec.rb",
+   "line": 189,
+   "description": "Spree::Api::V3::Admin::GiftCardsController POST #create auto-generates a code when not provided",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/gift_cards_controller_spec.rb",
+   "line": 195,
+   "description": "Spree::Api::V3::Admin::GiftCardsController POST #create honors a caller-supplied code",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/gift_cards_controller_spec.rb",
+   "line": 184,
+   "description": "Spree::Api::V3::Admin::GiftCardsController POST #create returns 422 when amount is not positive",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/gift_cards_controller_spec.rb",
+   "line": 130,
+   "description": "Spree::Api::V3::Admin::GiftCardsController POST #create attaches a customer when customer_id is passed as a prefixed ID",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/gift_cards_controller_spec.rb",
+   "line": 104,
+   "description": "Spree::Api::V3::Admin::GiftCardsController POST #create creates a gift card scoped to the current store and stamps created_by",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/gift_cards_controller_spec.rb",
+   "line": 142,
+   "description": "Spree::Api::V3::Admin::GiftCardsController POST #create refuses a raw integer customer id",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/gift_cards_controller_spec.rb",
+   "line": 122,
+   "description": "Spree::Api::V3::Admin::GiftCardsController POST #create when a secret API key made the call creates the gift card without an actor",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/gift_cards_controller_spec.rb",
+   "line": 156,
+   "description": "Spree::Api::V3::Admin::GiftCardsController POST #create with a key that holds gift cards but not customers refuses to attach a customer",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/gift_cards_controller_spec.rb",
+   "line": 167,
+   "description": "Spree::Api::V3::Admin::GiftCardsController POST #create with a key that holds gift cards but not customers does not embed the customer through expand",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/gift_cards_controller_spec.rb",
+   "line": 32,
+   "description": "Spree::Api::V3::Admin::GiftCardsController GET #index surfaces the amount as a decimal string and ISO timestamps",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/gift_cards_controller_spec.rb",
+   "line": 61,
+   "description": "Spree::Api::V3::Admin::GiftCardsController GET #index embeds customer + created_by when expand=customer,created_by is passed",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/gift_cards_controller_spec.rb",
+   "line": 22,
+   "description": "Spree::Api::V3::Admin::GiftCardsController GET #index excludes gift cards from other stores",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/gift_cards_controller_spec.rb",
+   "line": 15,
+   "description": "Spree::Api::V3::Admin::GiftCardsController GET #index returns gift cards in the current store",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/gift_cards_controller_spec.rb",
+   "line": 40,
+   "description": "Spree::Api::V3::Admin::GiftCardsController GET #index does not embed customer or created_by by default",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/gift_cards_controller_spec.rb",
+   "line": 50,
+   "description": "Spree::Api::V3::Admin::GiftCardsController GET #index exposes flat prefixed-ID references even without expand",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/gift_cards_controller_spec.rb",
+   "line": 77,
+   "description": "Spree::Api::V3::Admin::GiftCardsController GET #show returns the gift card",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/gift_cards_controller_spec.rb",
+   "line": 85,
+   "description": "Spree::Api::V3::Admin::GiftCardsController GET #show returns 404 for a gift card from another store",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/gift_cards_controller_spec.rb",
+   "line": 92,
+   "description": "Spree::Api::V3::Admin::GiftCardsController GET #show reports expired status when the card is past its expiration",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/promotions_controller_spec.rb",
+   "line": 478,
+   "description": "Spree::Api::V3::Admin::PromotionsController DELETE #destroy destroys the promotion",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/promotions_controller_spec.rb",
+   "line": 13,
+   "description": "Spree::Api::V3::Admin::PromotionsController GET #index returns promotions list",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/promotions_controller_spec.rb",
+   "line": 23,
+   "description": "Spree::Api::V3::Admin::PromotionsController GET #index filters by name or code via name_or_code_cont",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/promotions_controller_spec.rb",
+   "line": 38,
+   "description": "Spree::Api::V3::Admin::PromotionsController GET #show returns the promotion",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/promotions_controller_spec.rb",
+   "line": 324,
+   "description": "Spree::Api::V3::Admin::PromotionsController PATCH #update updates basic attributes",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/promotions_controller_spec.rb",
+   "line": 439,
+   "description": "Spree::Api::V3::Admin::PromotionsController PATCH #update with actions destroys actions omitted from the payload",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/promotions_controller_spec.rb",
+   "line": 416,
+   "description": "Spree::Api::V3::Admin::PromotionsController PATCH #update with actions swaps the calculator type and persists new preferences",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/promotions_controller_spec.rb",
+   "line": 448,
+   "description": "Spree::Api::V3::Admin::PromotionsController PATCH #update with actions adds a FreeShipping action alongside an existing one",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/promotions_controller_spec.rb",
+   "line": 398,
+   "description": "Spree::Api::V3::Admin::PromotionsController PATCH #update with rules destroys removed rules while keeping the ones explicitly passed",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/promotions_controller_spec.rb",
+   "line": 366,
+   "description": "Spree::Api::V3::Admin::PromotionsController PATCH #update with rules replaces product_ids on an existing Product rule",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/promotions_controller_spec.rb",
+   "line": 332,
+   "description": "Spree::Api::V3::Admin::PromotionsController PATCH #update with rules adds a new rule to an existing promotion",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/promotions_controller_spec.rb",
+   "line": 388,
+   "description": "Spree::Api::V3::Admin::PromotionsController PATCH #update with rules destroys rules omitted from the payload",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/promotions_controller_spec.rb",
+   "line": 346,
+   "description": "Spree::Api::V3::Admin::PromotionsController PATCH #update with rules updates an existing rule by prefixed id",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/promotions_controller_spec.rb",
+   "line": 248,
+   "description": "Spree::Api::V3::Admin::PromotionsController POST #create with shorthand type strings resolves shorthand to the correct rule subclass",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/promotions_controller_spec.rb",
+   "line": 261,
+   "description": "Spree::Api::V3::Admin::PromotionsController POST #create with shorthand type strings resolves shorthand for rules with overridden api_type",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/promotions_controller_spec.rb",
+   "line": 307,
+   "description": "Spree::Api::V3::Admin::PromotionsController POST #create with shorthand type strings rejects unknown shorthand",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/promotions_controller_spec.rb",
+   "line": 276,
+   "description": "Spree::Api::V3::Admin::PromotionsController POST #create with shorthand type strings resolves shorthand for actions and calculators",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/promotions_controller_spec.rb",
+   "line": 293,
+   "description": "Spree::Api::V3::Admin::PromotionsController POST #create with shorthand type strings exposes shorthand via the rule/action `type` attribute",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/promotions_controller_spec.rb",
+   "line": 51,
+   "description": "Spree::Api::V3::Admin::PromotionsController POST #create with basic attributes only creates a promotion",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/promotions_controller_spec.rb",
+   "line": 59,
+   "description": "Spree::Api::V3::Admin::PromotionsController POST #create with basic attributes only returns 422 without a name",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/promotions_controller_spec.rb",
+   "line": 101,
+   "description": "Spree::Api::V3::Admin::PromotionsController POST #create with rules creates a Product rule with prefixed product_ids on a new promotion",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/promotions_controller_spec.rb",
+   "line": 157,
+   "description": "Spree::Api::V3::Admin::PromotionsController POST #create with rules silently ignores rules with an unknown type",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/promotions_controller_spec.rb",
+   "line": 82,
+   "description": "Spree::Api::V3::Admin::PromotionsController POST #create with rules creates an ItemTotal rule with multiple preferences",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/promotions_controller_spec.rb",
+   "line": 141,
+   "description": "Spree::Api::V3::Admin::PromotionsController POST #create with rules creates multiple rules of different types in one request",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/promotions_controller_spec.rb",
+   "line": 123,
+   "description": "Spree::Api::V3::Admin::PromotionsController POST #create with rules creates a Taxon rule with prefixed category_ids",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/promotions_controller_spec.rb",
+   "line": 67,
+   "description": "Spree::Api::V3::Admin::PromotionsController POST #create with rules creates a Currency rule with preferences",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/promotions_controller_spec.rb",
+   "line": 229,
+   "description": "Spree::Api::V3::Admin::PromotionsController POST #create with rules and actions in the same request persists both atomically",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/promotions_controller_spec.rb",
+   "line": 208,
+   "description": "Spree::Api::V3::Admin::PromotionsController POST #create with actions creates a CreateAdjustment action with FlatPercentItemTotal calculator",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/promotions_controller_spec.rb",
+   "line": 175,
+   "description": "Spree::Api::V3::Admin::PromotionsController POST #create with actions creates a CreateItemAdjustments action with a FlatRate calculator",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/promotions_controller_spec.rb",
+   "line": 196,
+   "description": "Spree::Api::V3::Admin::PromotionsController POST #create with actions creates a FreeShipping action without a calculator",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/gift_card_batches_controller_spec.rb",
+   "line": 82,
+   "description": "Spree::Api::V3::Admin::GiftCardBatchesController GET #show returns the batch",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/gift_card_batches_controller_spec.rb",
+   "line": 91,
+   "description": "Spree::Api::V3::Admin::GiftCardBatchesController GET #show returns 404 for a batch from another store",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/gift_card_batches_controller_spec.rb",
+   "line": 63,
+   "description": "Spree::Api::V3::Admin::GiftCardBatchesController POST #create returns 422 when codes_count is zero",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/gift_card_batches_controller_spec.rb",
+   "line": 36,
+   "description": "Spree::Api::V3::Admin::GiftCardBatchesController POST #create creates a batch scoped to the current store and stamps created_by",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/gift_card_batches_controller_spec.rb",
+   "line": 47,
+   "description": "Spree::Api::V3::Admin::GiftCardBatchesController POST #create auto-generates the gift cards inline for small batches",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/gift_card_batches_controller_spec.rb",
+   "line": 57,
+   "description": "Spree::Api::V3::Admin::GiftCardBatchesController POST #create returns 422 when prefix is blank",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/gift_card_batches_controller_spec.rb",
+   "line": 69,
+   "description": "Spree::Api::V3::Admin::GiftCardBatchesController POST #create returns 422 when codes_count exceeds the configured cap",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/gift_card_batches_controller_spec.rb",
+   "line": 21,
+   "description": "Spree::Api::V3::Admin::GiftCardBatchesController GET #index excludes batches from other stores",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/gift_card_batches_controller_spec.rb",
+   "line": 13,
+   "description": "Spree::Api::V3::Admin::GiftCardBatchesController GET #index returns batches scoped to the current store",
+   "status": "passed"
+  },
+  {
+   "file": "spec/integration/spree/api/v3/admin/gift_card_batches_spec.rb",
+   "line": 143,
+   "description": "Admin Gift Card Batches API /api/v3/admin/gift_card_batches post validation error returns a 422 response",
+   "status": "passed",
+   "shared_example_in": "opt/rbenv/versions/3.3.6/lib/ruby/gems/3.3.0/gems/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb"
+  },
+  {
+   "file": "spec/integration/spree/api/v3/admin/gift_card_batches_spec.rb",
+   "line": 143,
+   "description": "Admin Gift Card Batches API /api/v3/admin/gift_card_batches post gift card batch created returns a 201 response",
+   "status": "passed",
+   "shared_example_in": "opt/rbenv/versions/3.3.6/lib/ruby/gems/3.3.0/gems/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb"
+  },
+  {
+   "file": "spec/integration/spree/api/v3/admin/gift_card_batches_spec.rb",
+   "line": 143,
+   "description": "Admin Gift Card Batches API /api/v3/admin/gift_card_batches get gift card batches found returns a 200 response",
+   "status": "passed",
+   "shared_example_in": "opt/rbenv/versions/3.3.6/lib/ruby/gems/3.3.0/gems/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb"
+  },
+  {
+   "file": "spec/integration/spree/api/v3/admin/gift_card_batches_spec.rb",
+   "line": 143,
+   "description": "Admin Gift Card Batches API /api/v3/admin/gift_card_batches/{id} get gift card batch found returns a 200 response",
+   "status": "passed",
+   "shared_example_in": "opt/rbenv/versions/3.3.6/lib/ruby/gems/3.3.0/gems/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb"
+  },
+  {
+   "file": "spec/integration/spree/api/v3/admin/gift_card_batches_spec.rb",
+   "line": 143,
+   "description": "Admin Gift Card Batches API /api/v3/admin/gift_card_batches/{id} get gift card batch not found returns a 404 response",
+   "status": "passed",
+   "shared_example_in": "opt/rbenv/versions/3.3.6/lib/ruby/gems/3.3.0/gems/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/store_credits_controller_spec.rb",
+   "line": 177,
+   "description": "Spree::Api::V3::Admin::StoreCreditsController GET #show 404s for a credit in another store",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/store_credits_controller_spec.rb",
+   "line": 169,
+   "description": "Spree::Api::V3::Admin::StoreCreditsController GET #show returns the credit",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/store_credits_controller_spec.rb",
+   "line": 16,
+   "description": "Spree::Api::V3::Admin::StoreCreditsController GET #index returns store credits in the current store",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/store_credits_controller_spec.rb",
+   "line": 60,
+   "description": "Spree::Api::V3::Admin::StoreCreditsController GET #index leaves the originator null for a credit an admin issued by hand",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/store_credits_controller_spec.rb",
+   "line": 22,
+   "description": "Spree::Api::V3::Admin::StoreCreditsController GET #index excludes store credits from other stores",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/store_credits_controller_spec.rb",
+   "line": 29,
+   "description": "Spree::Api::V3::Admin::StoreCreditsController GET #index exposes the authorized amount and its display string",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/store_credits_controller_spec.rb",
+   "line": 50,
+   "description": "Spree::Api::V3::Admin::StoreCreditsController GET #index reports the originator id without loading the originator",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/store_credits_controller_spec.rb",
+   "line": 37,
+   "description": "Spree::Api::V3::Admin::StoreCreditsController GET #index reports the originator as a polymorphic shorthand with a prefixed id",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/store_credits_controller_spec.rb",
+   "line": 91,
+   "description": "Spree::Api::V3::Admin::StoreCreditsController GET #index meta.totals counts every match, not only the current page",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/store_credits_controller_spec.rb",
+   "line": 98,
+   "description": "Spree::Api::V3::Admin::StoreCreditsController GET #index meta.totals is an empty list when nothing matches",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/store_credits_controller_spec.rb",
+   "line": 70,
+   "description": "Spree::Api::V3::Admin::StoreCreditsController GET #index meta.totals sums one row per currency over the whole scope",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/store_credits_controller_spec.rb",
+   "line": 107,
+   "description": "Spree::Api::V3::Admin::StoreCreditsController GET #index meta.totals does not double-count when the filter joins an association",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/store_credits_controller_spec.rb",
+   "line": 83,
+   "description": "Spree::Api::V3::Admin::StoreCreditsController GET #index meta.totals follows the active filter rather than the whole store",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/store_credits_controller_spec.rb",
+   "line": 139,
+   "description": "Spree::Api::V3::Admin::StoreCreditsController GET #index filters filters by the customer email through the association",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/store_credits_controller_spec.rb",
+   "line": 158,
+   "description": "Spree::Api::V3::Admin::StoreCreditsController GET #index filters filters by the memo",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/store_credits_controller_spec.rb",
+   "line": 131,
+   "description": "Spree::Api::V3::Admin::StoreCreditsController GET #index filters narrows to spent credits when outstanding is false",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/store_credits_controller_spec.rb",
+   "line": 149,
+   "description": "Spree::Api::V3::Admin::StoreCreditsController GET #index filters filters by whether a gift card issued the credit",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/store_credits_controller_spec.rb",
+   "line": 123,
+   "description": "Spree::Api::V3::Admin::StoreCreditsController GET #index filters narrows to credits with money left via the outstanding scope",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/store_credits_controller_spec.rb",
+   "line": 187,
+   "description": "Spree::Api::V3::Admin::StoreCreditsController write actions has no create, update or destroy route",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/promotion_rules_controller_spec.rb",
+   "line": 13,
+   "description": "Spree::Api::V3::Admin::PromotionRulesController POST #create creates a rule on a promotion in the current store",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/promotion_rules_controller_spec.rb",
+   "line": 53,
+   "description": "Spree::Api::V3::Admin::PromotionRulesController POST #create 404s for a promotion that belongs to another store",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/promotion_rules_controller_spec.rb",
+   "line": 38,
+   "description": "Spree::Api::V3::Admin::PromotionRulesController POST #create creates a market rule, storing the selected market IDs in preferences",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/promotion_rules_controller_spec.rb",
+   "line": 23,
+   "description": "Spree::Api::V3::Admin::PromotionRulesController POST #create creates a channel rule, storing the selected channel IDs in preferences",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/promotion_rules_controller_spec.rb",
+   "line": 67,
+   "description": "Spree::Api::V3::Admin::PromotionRulesController GET #index 404s when listing rules of another store's promotion",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/promotion_actions_controller_spec.rb",
+   "line": 49,
+   "description": "Spree::Api::V3::Admin::PromotionActionsController GET #calculators returns calculator api types that match the action serializer",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/promotion_actions_controller_spec.rb",
+   "line": 38,
+   "description": "Spree::Api::V3::Admin::PromotionActionsController GET #index 404s when listing actions of another store's promotion",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/promotion_actions_controller_spec.rb",
+   "line": 24,
+   "description": "Spree::Api::V3::Admin::PromotionActionsController POST #create 404s for a promotion that belongs to another store",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/promotion_actions_controller_spec.rb",
+   "line": 13,
+   "description": "Spree::Api::V3::Admin::PromotionActionsController POST #create creates an action on a promotion in the current store",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/store_credits/events_controller_spec.rb",
+   "line": 53,
+   "description": "Spree::Api::V3::Admin::StoreCredits::EventsController GET #index 404s for a credit belonging to another store",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/store_credits/events_controller_spec.rb",
+   "line": 44,
+   "description": "Spree::Api::V3::Admin::StoreCredits::EventsController GET #index returns the newest entry first",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/store_credits/events_controller_spec.rb",
+   "line": 24,
+   "description": "Spree::Api::V3::Admin::StoreCredits::EventsController GET #index describes each entry with its amount and display string",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/store_credits/events_controller_spec.rb",
+   "line": 16,
+   "description": "Spree::Api::V3::Admin::StoreCredits::EventsController GET #index lists the credit's ledger",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/store_credits/events_controller_spec.rb",
+   "line": 33,
+   "description": "Spree::Api::V3::Admin::StoreCredits::EventsController GET #index reports the originator as a polymorphic shorthand",
+   "status": "passed"
+  },
+  {
+   "file": "spec/integration/spree/api/v3/admin/orders/gift_cards_spec.rb",
+   "line": 143,
+   "description": "Admin Order Gift Cards API /api/v3/admin/orders/{order_id}/gift_cards post gift card applied returns a 201 response",
+   "status": "passed",
+   "shared_example_in": "opt/rbenv/versions/3.3.6/lib/ruby/gems/3.3.0/gems/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb"
+  },
+  {
+   "file": "spec/integration/spree/api/v3/admin/orders/gift_cards_spec.rb",
+   "line": 143,
+   "description": "Admin Order Gift Cards API /api/v3/admin/orders/{order_id}/gift_cards/{id} delete gift card removed returns a 204 response",
+   "status": "passed",
+   "shared_example_in": "opt/rbenv/versions/3.3.6/lib/ruby/gems/3.3.0/gems/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb"
+  },
+  {
+   "file": "spec/integration/spree/api/v3/admin/promotion_actions_spec.rb",
+   "line": 143,
+   "description": "Admin Promotion Actions API /api/v3/admin/promotions/{promotion_id}/promotion_actions post unknown action type returns a 422 response",
+   "status": "passed",
+   "shared_example_in": "opt/rbenv/versions/3.3.6/lib/ruby/gems/3.3.0/gems/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb"
+  },
+  {
+   "file": "spec/integration/spree/api/v3/admin/promotion_actions_spec.rb",
+   "line": 143,
+   "description": "Admin Promotion Actions API /api/v3/admin/promotions/{promotion_id}/promotion_actions post action created returns a 201 response",
+   "status": "passed",
+   "shared_example_in": "opt/rbenv/versions/3.3.6/lib/ruby/gems/3.3.0/gems/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb"
+  },
+  {
+   "file": "spec/integration/spree/api/v3/admin/promotion_actions_spec.rb",
+   "line": 143,
+   "description": "Admin Promotion Actions API /api/v3/admin/promotions/{promotion_id}/promotion_actions get actions found returns a 200 response",
+   "status": "passed",
+   "shared_example_in": "opt/rbenv/versions/3.3.6/lib/ruby/gems/3.3.0/gems/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb"
+  },
+  {
+   "file": "spec/integration/spree/api/v3/admin/promotion_actions_spec.rb",
+   "line": 143,
+   "description": "Admin Promotion Actions API /api/v3/admin/promotions/{promotion_id}/promotion_actions/{id} delete action deleted returns a 204 response",
+   "status": "passed",
+   "shared_example_in": "opt/rbenv/versions/3.3.6/lib/ruby/gems/3.3.0/gems/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb"
+  },
+  {
+   "file": "spec/integration/spree/api/v3/admin/promotion_actions_spec.rb",
+   "line": 143,
+   "description": "Admin Promotion Actions API /api/v3/admin/promotions/{promotion_id}/promotion_actions/{id} patch action updated returns a 200 response",
+   "status": "passed",
+   "shared_example_in": "opt/rbenv/versions/3.3.6/lib/ruby/gems/3.3.0/gems/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb"
+  },
+  {
+   "file": "spec/integration/spree/api/v3/admin/coupon_codes_spec.rb",
+   "line": 143,
+   "description": "Admin Coupon Codes API /api/v3/admin/promotions/{promotion_id}/coupon_codes get coupon codes found returns a 200 response",
+   "status": "passed",
+   "shared_example_in": "opt/rbenv/versions/3.3.6/lib/ruby/gems/3.3.0/gems/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb"
+  },
+  {
+   "file": "spec/integration/spree/api/v3/admin/orders/store_credits_spec.rb",
+   "line": 143,
+   "description": "Admin Order Store Credits API /api/v3/admin/orders/{order_id}/store_credits post store credit applied returns a 201 response",
+   "status": "passed",
+   "shared_example_in": "opt/rbenv/versions/3.3.6/lib/ruby/gems/3.3.0/gems/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb"
+  },
+  {
+   "file": "spec/integration/spree/api/v3/admin/orders/store_credits_spec.rb",
+   "line": 143,
+   "description": "Admin Order Store Credits API /api/v3/admin/orders/{order_id}/store_credits delete store credit removed returns a 204 response",
+   "status": "passed",
+   "shared_example_in": "opt/rbenv/versions/3.3.6/lib/ruby/gems/3.3.0/gems/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/orders/store_credits_controller_spec.rb",
+   "line": 92,
+   "description": "Spree::Api::V3::Admin::Orders::StoreCreditsController DELETE #destroy when store credit was applied removes store credit from the order",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/orders/store_credits_controller_spec.rb",
+   "line": 101,
+   "description": "Spree::Api::V3::Admin::Orders::StoreCreditsController DELETE #destroy when no store credit was applied returns 204 (idempotent)",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/orders/store_credits_controller_spec.rb",
+   "line": 115,
+   "description": "Spree::Api::V3::Admin::Orders::StoreCreditsController API-key scope enforcement with a key holding only write_store_credits forbids applying store credit to the order",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/orders/store_credits_controller_spec.rb",
+   "line": 126,
+   "description": "Spree::Api::V3::Admin::Orders::StoreCreditsController API-key scope enforcement with a key holding write_orders allows applying store credit to the order",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/orders/store_credits_controller_spec.rb",
+   "line": 16,
+   "description": "Spree::Api::V3::Admin::Orders::StoreCreditsController POST #create applies store credit to the order",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/orders/store_credits_controller_spec.rb",
+   "line": 43,
+   "description": "Spree::Api::V3::Admin::Orders::StoreCreditsController POST #create when explicit amount exceeds available balance caps at the available store credit balance",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/orders/store_credits_controller_spec.rb",
+   "line": 57,
+   "description": "Spree::Api::V3::Admin::Orders::StoreCreditsController POST #create when the customer has no store credit balance returns 422",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/orders/store_credits_controller_spec.rb",
+   "line": 67,
+   "description": "Spree::Api::V3::Admin::Orders::StoreCreditsController POST #create when the order has no customer returns 422 (no customer means no store credit)",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/orders/store_credits_controller_spec.rb",
+   "line": 78,
+   "description": "Spree::Api::V3::Admin::Orders::StoreCreditsController POST #create when order belongs to a different store returns 404",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/orders/store_credits_controller_spec.rb",
+   "line": 24,
+   "description": "Spree::Api::V3::Admin::Orders::StoreCreditsController POST #create with explicit amount applies up to the requested amount",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/orders/store_credits_controller_spec.rb",
+   "line": 34,
+   "description": "Spree::Api::V3::Admin::Orders::StoreCreditsController POST #create with an amount in cents applies it exactly",
+   "status": "passed"
+  },
+  {
+   "file": "spec/integration/spree/api/v3/admin/store_credits_spec.rb",
+   "line": 143,
+   "description": "Admin Store Credits API /api/v3/admin/store_credits/{id} get store credit found returns a 200 response",
+   "status": "passed",
+   "shared_example_in": "opt/rbenv/versions/3.3.6/lib/ruby/gems/3.3.0/gems/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb"
+  },
+  {
+   "file": "spec/integration/spree/api/v3/admin/store_credits_spec.rb",
+   "line": 143,
+   "description": "Admin Store Credits API /api/v3/admin/store_credits/{id} get not found returns a 404 response",
+   "status": "passed",
+   "shared_example_in": "opt/rbenv/versions/3.3.6/lib/ruby/gems/3.3.0/gems/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb"
+  },
+  {
+   "file": "spec/integration/spree/api/v3/admin/store_credits_spec.rb",
+   "line": 143,
+   "description": "Admin Store Credits API /api/v3/admin/store_credits get unauthorized returns a 401 response",
+   "status": "passed",
+   "shared_example_in": "opt/rbenv/versions/3.3.6/lib/ruby/gems/3.3.0/gems/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb"
+  },
+  {
+   "file": "spec/integration/spree/api/v3/admin/store_credits_spec.rb",
+   "line": 143,
+   "description": "Admin Store Credits API /api/v3/admin/store_credits get store credits found returns a 200 response",
+   "status": "passed",
+   "shared_example_in": "opt/rbenv/versions/3.3.6/lib/ruby/gems/3.3.0/gems/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb"
+  },
+  {
+   "file": "spec/integration/spree/api/v3/admin/store_credits_spec.rb",
+   "line": 143,
+   "description": "Admin Store Credits API /api/v3/admin/store_credits/{store_credit_id}/events get events found returns a 200 response",
+   "status": "passed",
+   "shared_example_in": "opt/rbenv/versions/3.3.6/lib/ruby/gems/3.3.0/gems/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/customers/store_credits_controller_spec.rb",
+   "line": 183,
+   "description": "Spree::Api::V3::Admin::Customers::StoreCreditsController cross-store isolation cannot show another store's credit",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/customers/store_credits_controller_spec.rb",
+   "line": 189,
+   "description": "Spree::Api::V3::Admin::Customers::StoreCreditsController cross-store isolation cannot update another store's credit",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/customers/store_credits_controller_spec.rb",
+   "line": 175,
+   "description": "Spree::Api::V3::Admin::Customers::StoreCreditsController cross-store isolation excludes other stores' credits from the index",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/customers/store_credits_controller_spec.rb",
+   "line": 196,
+   "description": "Spree::Api::V3::Admin::Customers::StoreCreditsController cross-store isolation cannot delete another store's credit",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/customers/store_credits_controller_spec.rb",
+   "line": 108,
+   "description": "Spree::Api::V3::Admin::Customers::StoreCreditsController POST #create creates a store credit and sets created_by",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/customers/store_credits_controller_spec.rb",
+   "line": 53,
+   "description": "Spree::Api::V3::Admin::Customers::StoreCreditsController write authorization with a read-only customer role cannot create a store credit on a customer it can only view",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/customers/store_credits_controller_spec.rb",
+   "line": 47,
+   "description": "Spree::Api::V3::Admin::Customers::StoreCreditsController write authorization with a read-only customer role allows reading the customer's store credits",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/customers/store_credits_controller_spec.rb",
+   "line": 14,
+   "description": "Spree::Api::V3::Admin::Customers::StoreCreditsController GET #index returns the customer store credits",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/customers/store_credits_controller_spec.rb",
+   "line": 30,
+   "description": "Spree::Api::V3::Admin::Customers::StoreCreditsController GET #index with a limited-role admin that cannot read customers cannot read another customer's store credits",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/customers/store_credits_controller_spec.rb",
+   "line": 97,
+   "description": "Spree::Api::V3::Admin::Customers::StoreCreditsController secret API key scope enforcement on writes with a key granting write_store_credits allows creating a store credit",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/customers/store_credits_controller_spec.rb",
+   "line": 84,
+   "description": "Spree::Api::V3::Admin::Customers::StoreCreditsController secret API key scope enforcement on writes with a key granting only read_store_credits rejects creating a store credit with 403",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/customers/store_credits_controller_spec.rb",
+   "line": 78,
+   "description": "Spree::Api::V3::Admin::Customers::StoreCreditsController secret API key scope enforcement on writes with a key granting only read_store_credits allows reading",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/customers/store_credits_controller_spec.rb",
+   "line": 127,
+   "description": "Spree::Api::V3::Admin::Customers::StoreCreditsController PATCH #update updates memo",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/customers/store_credits_controller_spec.rb",
+   "line": 137,
+   "description": "Spree::Api::V3::Admin::Customers::StoreCreditsController PATCH #update when store credit has been used rejects amount changes with 422",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/customers/store_credits_controller_spec.rb",
+   "line": 143,
+   "description": "Spree::Api::V3::Admin::Customers::StoreCreditsController PATCH #update when store credit has been used allows memo changes",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/customers/store_credits_controller_spec.rb",
+   "line": 152,
+   "description": "Spree::Api::V3::Admin::Customers::StoreCreditsController DELETE #destroy destroys an unused store credit",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/customers/store_credits_controller_spec.rb",
+   "line": 161,
+   "description": "Spree::Api::V3::Admin::Customers::StoreCreditsController DELETE #destroy when store credit has been used returns 422",
+   "status": "passed"
+  },
+  {
+   "file": "spec/integration/spree/api/v3/admin/gift_cards_spec.rb",
+   "line": 143,
+   "description": "Admin Gift Cards API /api/v3/admin/gift_cards/{id} delete gift card deleted returns a 204 response",
+   "status": "passed",
+   "shared_example_in": "opt/rbenv/versions/3.3.6/lib/ruby/gems/3.3.0/gems/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb"
+  },
+  {
+   "file": "spec/integration/spree/api/v3/admin/gift_cards_spec.rb",
+   "line": 143,
+   "description": "Admin Gift Cards API /api/v3/admin/gift_cards/{id} delete redeemed gift card cannot be deleted returns a 422 response",
+   "status": "passed",
+   "shared_example_in": "opt/rbenv/versions/3.3.6/lib/ruby/gems/3.3.0/gems/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb"
+  },
+  {
+   "file": "spec/integration/spree/api/v3/admin/gift_cards_spec.rb",
+   "line": 143,
+   "description": "Admin Gift Cards API /api/v3/admin/gift_cards/{id} patch gift card updated returns a 200 response",
+   "status": "passed",
+   "shared_example_in": "opt/rbenv/versions/3.3.6/lib/ruby/gems/3.3.0/gems/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb"
+  },
+  {
+   "file": "spec/integration/spree/api/v3/admin/gift_cards_spec.rb",
+   "line": 143,
+   "description": "Admin Gift Cards API /api/v3/admin/gift_cards/{id} get gift card not found returns a 404 response",
+   "status": "passed",
+   "shared_example_in": "opt/rbenv/versions/3.3.6/lib/ruby/gems/3.3.0/gems/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb"
+  },
+  {
+   "file": "spec/integration/spree/api/v3/admin/gift_cards_spec.rb",
+   "line": 143,
+   "description": "Admin Gift Cards API /api/v3/admin/gift_cards/{id} get gift card found returns a 200 response",
+   "status": "passed",
+   "shared_example_in": "opt/rbenv/versions/3.3.6/lib/ruby/gems/3.3.0/gems/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb"
+  },
+  {
+   "file": "spec/integration/spree/api/v3/admin/gift_cards_spec.rb",
+   "line": 143,
+   "description": "Admin Gift Cards API /api/v3/admin/gift_cards post gift card created returns a 201 response",
+   "status": "passed",
+   "shared_example_in": "opt/rbenv/versions/3.3.6/lib/ruby/gems/3.3.0/gems/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb"
+  },
+  {
+   "file": "spec/integration/spree/api/v3/admin/gift_cards_spec.rb",
+   "line": 143,
+   "description": "Admin Gift Cards API /api/v3/admin/gift_cards post validation error returns a 422 response",
+   "status": "passed",
+   "shared_example_in": "opt/rbenv/versions/3.3.6/lib/ruby/gems/3.3.0/gems/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb"
+  },
+  {
+   "file": "spec/integration/spree/api/v3/admin/gift_cards_spec.rb",
+   "line": 143,
+   "description": "Admin Gift Cards API /api/v3/admin/gift_cards get gift cards found returns a 200 response",
+   "status": "passed",
+   "shared_example_in": "opt/rbenv/versions/3.3.6/lib/ruby/gems/3.3.0/gems/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb"
+  },
+  {
+   "file": "spec/integration/spree/api/v3/admin/gift_cards_spec.rb",
+   "line": 143,
+   "description": "Admin Gift Cards API /api/v3/admin/gift_cards get unauthorized returns a 401 response",
+   "status": "passed",
+   "shared_example_in": "opt/rbenv/versions/3.3.6/lib/ruby/gems/3.3.0/gems/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb"
+  },
+  {
+   "file": "spec/integration/spree/api/v3/admin/customers/store_credits_spec.rb",
+   "line": 143,
+   "description": "Admin Customer Store Credits API /api/v3/admin/customers/{customer_id}/store_credits get store credits found returns a 200 response",
+   "status": "passed",
+   "shared_example_in": "opt/rbenv/versions/3.3.6/lib/ruby/gems/3.3.0/gems/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb"
+  },
+  {
+   "file": "spec/integration/spree/api/v3/admin/customers/store_credits_spec.rb",
+   "line": 143,
+   "description": "Admin Customer Store Credits API /api/v3/admin/customers/{customer_id}/store_credits post store credit created returns a 201 response",
+   "status": "passed",
+   "shared_example_in": "opt/rbenv/versions/3.3.6/lib/ruby/gems/3.3.0/gems/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb"
+  },
+  {
+   "file": "spec/integration/spree/api/v3/admin/customers/store_credits_spec.rb",
+   "line": 143,
+   "description": "Admin Customer Store Credits API /api/v3/admin/customers/{customer_id}/store_credits/{id} delete store credit deleted returns a 204 response",
+   "status": "passed",
+   "shared_example_in": "opt/rbenv/versions/3.3.6/lib/ruby/gems/3.3.0/gems/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb"
+  },
+  {
+   "file": "spec/integration/spree/api/v3/admin/customers/store_credits_spec.rb",
+   "line": 143,
+   "description": "Admin Customer Store Credits API /api/v3/admin/customers/{customer_id}/store_credits/{id} patch store credit updated returns a 200 response",
+   "status": "passed",
+   "shared_example_in": "opt/rbenv/versions/3.3.6/lib/ruby/gems/3.3.0/gems/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/orders/gift_cards_controller_spec.rb",
+   "line": 15,
+   "description": "Spree::Api::V3::Admin::Orders::GiftCardsController POST #create applies the gift card to the order and returns the gift card",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/orders/gift_cards_controller_spec.rb",
+   "line": 77,
+   "description": "Spree::Api::V3::Admin::Orders::GiftCardsController POST #create when the order already has store credit applied (mutual exclusion) returns 422 (cannot mix gift card and store credit)",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/orders/gift_cards_controller_spec.rb",
+   "line": 98,
+   "description": "Spree::Api::V3::Admin::Orders::GiftCardsController POST #create when gift card is restricted to a specific user but order has none returns 422",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/orders/gift_cards_controller_spec.rb",
+   "line": 43,
+   "description": "Spree::Api::V3::Admin::Orders::GiftCardsController POST #create when gift card belongs to a different store returns 404 (cross-store leakage prevented)",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/orders/gift_cards_controller_spec.rb",
+   "line": 111,
+   "description": "Spree::Api::V3::Admin::Orders::GiftCardsController POST #create when gift card is restricted to a different user than the order returns 422",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/orders/gift_cards_controller_spec.rb",
+   "line": 53,
+   "description": "Spree::Api::V3::Admin::Orders::GiftCardsController POST #create when gift card is expired returns 422",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/orders/gift_cards_controller_spec.rb",
+   "line": 87,
+   "description": "Spree::Api::V3::Admin::Orders::GiftCardsController POST #create when gift card currency does not match order currency returns 422",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/orders/gift_cards_controller_spec.rb",
+   "line": 63,
+   "description": "Spree::Api::V3::Admin::Orders::GiftCardsController POST #create when gift card is fully redeemed returns 422",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/orders/gift_cards_controller_spec.rb",
+   "line": 24,
+   "description": "Spree::Api::V3::Admin::Orders::GiftCardsController POST #create when the code is provided in lowercase matches case-insensitively",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/orders/gift_cards_controller_spec.rb",
+   "line": 32,
+   "description": "Spree::Api::V3::Admin::Orders::GiftCardsController POST #create when gift card code is unknown returns 404",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/orders/gift_cards_controller_spec.rb",
+   "line": 122,
+   "description": "Spree::Api::V3::Admin::Orders::GiftCardsController POST #create when order belongs to a different store returns 404 from the parent order lookup",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/orders/gift_cards_controller_spec.rb",
+   "line": 133,
+   "description": "Spree::Api::V3::Admin::Orders::GiftCardsController DELETE #destroy removes the gift card from the order",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/orders/gift_cards_controller_spec.rb",
+   "line": 143,
+   "description": "Spree::Api::V3::Admin::Orders::GiftCardsController DELETE #destroy when the order has no gift card applied still returns 204 (idempotent)",
+   "status": "passed"
+  },
+  {
+   "file": "spec/integration/spree/api/v3/admin/promotions_spec.rb",
+   "line": 143,
+   "description": "Admin Promotions API /api/v3/admin/promotions post promotion created with rules and actions returns a 201 response",
+   "status": "passed",
+   "shared_example_in": "opt/rbenv/versions/3.3.6/lib/ruby/gems/3.3.0/gems/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb"
+  },
+  {
+   "file": "spec/integration/spree/api/v3/admin/promotions_spec.rb",
+   "line": 143,
+   "description": "Admin Promotions API /api/v3/admin/promotions post promotion created returns a 201 response",
+   "status": "passed",
+   "shared_example_in": "opt/rbenv/versions/3.3.6/lib/ruby/gems/3.3.0/gems/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb"
+  },
+  {
+   "file": "spec/integration/spree/api/v3/admin/promotions_spec.rb",
+   "line": 143,
+   "description": "Admin Promotions API /api/v3/admin/promotions post invalid params returns a 422 response",
+   "status": "passed",
+   "shared_example_in": "opt/rbenv/versions/3.3.6/lib/ruby/gems/3.3.0/gems/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb"
+  },
+  {
+   "file": "spec/integration/spree/api/v3/admin/promotions_spec.rb",
+   "line": 143,
+   "description": "Admin Promotions API /api/v3/admin/promotions get promotions found returns a 200 response",
+   "status": "passed",
+   "shared_example_in": "opt/rbenv/versions/3.3.6/lib/ruby/gems/3.3.0/gems/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb"
+  },
+  {
+   "file": "spec/integration/spree/api/v3/admin/promotions_spec.rb",
+   "line": 143,
+   "description": "Admin Promotions API /api/v3/admin/promotion_actions/types get action types found returns a 200 response",
+   "status": "passed",
+   "shared_example_in": "opt/rbenv/versions/3.3.6/lib/ruby/gems/3.3.0/gems/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb"
+  },
+  {
+   "file": "spec/integration/spree/api/v3/admin/promotions_spec.rb",
+   "line": 143,
+   "description": "Admin Promotions API /api/v3/admin/promotion_rules/types get rule types found returns a 200 response",
+   "status": "passed",
+   "shared_example_in": "opt/rbenv/versions/3.3.6/lib/ruby/gems/3.3.0/gems/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb"
+  },
+  {
+   "file": "spec/integration/spree/api/v3/admin/promotions_spec.rb",
+   "line": 143,
+   "description": "Admin Promotions API /api/v3/admin/promotions/{id} delete promotion deleted returns a 204 response",
+   "status": "passed",
+   "shared_example_in": "opt/rbenv/versions/3.3.6/lib/ruby/gems/3.3.0/gems/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb"
+  },
+  {
+   "file": "spec/integration/spree/api/v3/admin/promotions_spec.rb",
+   "line": 143,
+   "description": "Admin Promotions API /api/v3/admin/promotions/{id} patch promotion updated returns a 200 response",
+   "status": "passed",
+   "shared_example_in": "opt/rbenv/versions/3.3.6/lib/ruby/gems/3.3.0/gems/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb"
+  },
+  {
+   "file": "spec/integration/spree/api/v3/admin/promotions_spec.rb",
+   "line": 143,
+   "description": "Admin Promotions API /api/v3/admin/promotions/{id} patch rules and actions reconciled to desired set returns a 200 response",
+   "status": "passed",
+   "shared_example_in": "opt/rbenv/versions/3.3.6/lib/ruby/gems/3.3.0/gems/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb"
+  },
+  {
+   "file": "spec/integration/spree/api/v3/admin/promotions_spec.rb",
+   "line": 143,
+   "description": "Admin Promotions API /api/v3/admin/promotions/{id} patch rules and actions cleared with empty arrays returns a 200 response",
+   "status": "passed",
+   "shared_example_in": "opt/rbenv/versions/3.3.6/lib/ruby/gems/3.3.0/gems/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb"
+  },
+  {
+   "file": "spec/integration/spree/api/v3/admin/promotions_spec.rb",
+   "line": 143,
+   "description": "Admin Promotions API /api/v3/admin/promotions/{id} get promotion found returns a 200 response",
+   "status": "passed",
+   "shared_example_in": "opt/rbenv/versions/3.3.6/lib/ruby/gems/3.3.0/gems/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb"
+  },
+  {
+   "file": "spec/integration/spree/api/v3/admin/promotion_rules_spec.rb",
+   "line": 143,
+   "description": "Admin Promotion Rules API /api/v3/admin/promotions/{promotion_id}/promotion_rules get rules found returns a 200 response",
+   "status": "passed",
+   "shared_example_in": "opt/rbenv/versions/3.3.6/lib/ruby/gems/3.3.0/gems/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb"
+  },
+  {
+   "file": "spec/integration/spree/api/v3/admin/promotion_rules_spec.rb",
+   "line": 143,
+   "description": "Admin Promotion Rules API /api/v3/admin/promotions/{promotion_id}/promotion_rules post unknown rule type returns a 422 response",
+   "status": "passed",
+   "shared_example_in": "opt/rbenv/versions/3.3.6/lib/ruby/gems/3.3.0/gems/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb"
+  },
+  {
+   "file": "spec/integration/spree/api/v3/admin/promotion_rules_spec.rb",
+   "line": 143,
+   "description": "Admin Promotion Rules API /api/v3/admin/promotions/{promotion_id}/promotion_rules post rule created with preferences returns a 201 response",
+   "status": "passed",
+   "shared_example_in": "opt/rbenv/versions/3.3.6/lib/ruby/gems/3.3.0/gems/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb"
+  },
+  {
+   "file": "spec/integration/spree/api/v3/admin/promotion_rules_spec.rb",
+   "line": 143,
+   "description": "Admin Promotion Rules API /api/v3/admin/promotions/{promotion_id}/promotion_rules/{id} patch rule updated returns a 200 response",
+   "status": "passed",
+   "shared_example_in": "opt/rbenv/versions/3.3.6/lib/ruby/gems/3.3.0/gems/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb"
+  },
+  {
+   "file": "spec/integration/spree/api/v3/admin/promotion_rules_spec.rb",
+   "line": 143,
+   "description": "Admin Promotion Rules API /api/v3/admin/promotions/{promotion_id}/promotion_rules/{id} delete rule deleted returns a 204 response",
+   "status": "passed",
+   "shared_example_in": "opt/rbenv/versions/3.3.6/lib/ruby/gems/3.3.0/gems/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/coupon_codes_controller_spec.rb",
+   "line": 24,
+   "description": "Spree::Api::V3::Admin::CouponCodesController GET #index 404s when reading coupon codes of another store's promotion",
+   "status": "passed"
+  },
+  {
+   "file": "spec/controllers/spree/api/v3/admin/coupon_codes_controller_spec.rb",
+   "line": 17,
+   "description": "Spree::Api::V3::Admin::CouponCodesController GET #index lists coupon codes for a promotion in the current store",
+   "status": "passed"
+  }
+ ]
+}
