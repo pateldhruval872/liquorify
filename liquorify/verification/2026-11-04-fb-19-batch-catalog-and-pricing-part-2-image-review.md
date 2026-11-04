@@ -9,7 +9,7 @@ status: Pending acceptance
 
 # FB-19 catalog and pricing batch, part 2, reference images for review
 
-This list holds every reference image part 2 commits, by inventory ID ([LIQ-009](../LIQ-009-spree-component-and-token-inventory.md)), so each can be accepted or rejected. Since 2026-11-04 the routine image and fidelity acceptance of approved baseline work is delegated by the owner (recorded in [#39](https://github.com/pateldhruval872/liquorify/pull/39), not yet merged); an acceptance made under it is recorded here as delegated acceptance, never as the owner's review.
+This list holds every reference image part 2 commits, by inventory ID ([LIQ-009](../LIQ-009-spree-component-and-token-inventory.md)), so each can be accepted or rejected. Since 2026-11-04 the routine image and fidelity acceptance of approved baseline work is delegated by the owner ([record](2026-11-04-delegated-acceptance-and-merging.md)); an acceptance made under it is recorded here as delegated acceptance, never as the owner's review.
 
 **What to look at.** Each link opens the image beside this list, in the revision being read, and the pull request's file list shows the same images. Every image was looked at in light and dark before it was committed. Stories use invented products, categories, prices and files; the running screens show the browser tests' data and Spree's sample catalog. Some story names hold a comma of their own, such as "Dialog, no filter".
 
