@@ -1,0 +1,17 @@
+{
+  "screen": "DA-LOY-01",
+  "state": "failing-to-load",
+  "variant": "admin",
+  "role": null,
+  "theme": "dark",
+  "revision": "4a05d9c8",
+  "path": "/<store>/loyalty/gift-cards",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": "The gift cards request is answered with a server error",
+  "settled": true,
+  "outside": [],
+  "refused": []
+}

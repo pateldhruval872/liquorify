@@ -1,0 +1,150 @@
+{
+  "what": "Admin API checks on the dashboard browser tests' Rails server, as its admin, on 2026-11-04. Each record made for a check was deleted after it.",
+  "spree_code_at": "ffc9f5e",
+  "server": "The dashboard browser tests' own Rails server and fixtures, with Spree's sample catalog and the records fidelity/loyalty.ts adds",
+  "checks": [
+    {
+      "for": "G-14 (record §4)",
+      "steps": [
+        {
+          "request": "POST /api/v3/admin/gift_cards",
+          "body": {
+            "amount": "5.00",
+            "currency": "USD",
+            "code": "FIDELITY-G14-CHECK"
+          },
+          "status": 201,
+          "answer": {
+            "status": "active"
+          }
+        },
+        {
+          "request": "PATCH /api/v3/admin/gift_cards/<id>",
+          "body": {
+            "status": "canceled"
+          },
+          "status": 200,
+          "answer": {
+            "status": "active"
+          }
+        },
+        {
+          "request": "GET /api/v3/admin/gift_cards/<id>",
+          "status": 200,
+          "answer": {
+            "status": "active"
+          }
+        },
+        {
+          "request": "PATCH /api/v3/admin/gift_cards/<id>/cancel",
+          "body": {},
+          "status": 404,
+          "answer": "No route matches"
+        },
+        {
+          "request": "POST /api/v3/admin/gift_cards/<id>/cancel",
+          "body": {},
+          "status": 404
+        },
+        {
+          "request": "DELETE /api/v3/admin/gift_cards/<id>",
+          "status": 204
+        },
+        {
+          "request": "GET /api/v3/admin/gift_cards/<id>",
+          "status": 404,
+          "answer": {
+            "error": {
+              "code": "record_not_found",
+              "message": "Gift card not found"
+            }
+          }
+        }
+      ],
+      "observed": "No request cancels a gift card: the status in a change is ignored and there is no cancel route."
+    },
+    {
+      "for": "B13",
+      "steps": [
+        {
+          "request": "POST /api/v3/admin/promotions",
+          "body": {
+            "name": "Fidelity duplicate code check",
+            "kind": "coupon_code",
+            "code": "LOYAL15"
+          },
+          "status": 201,
+          "answer": {
+            "code": "loyal15",
+            "errors": null
+          }
+        },
+        {
+          "request": "GET /api/v3/admin/promotions?q[code_eq]=loyal15",
+          "status": 200,
+          "answer": [
+            [
+              "Fidelity loyal shoppers",
+              "loyal15"
+            ],
+            [
+              "Fidelity duplicate code check",
+              "loyal15"
+            ]
+          ]
+        },
+        {
+          "request": "DELETE /api/v3/admin/promotions/<id of the check's promotion>",
+          "status": 204
+        },
+        {
+          "request": "GET /api/v3/admin/promotions?q[code_eq]=loyal15",
+          "status": 200,
+          "answer": [
+            [
+              "Fidelity loyal shoppers",
+              "loyal15"
+            ]
+          ]
+        }
+      ],
+      "observed": "A second promotion with a code another promotion holds is accepted. Codes are stored in lower case, so the query for the upper-case code lists none."
+    },
+    {
+      "for": "B18",
+      "steps": [
+        {
+          "request": "GET /api/v3/admin/store_credits?expand=customer&limit=50",
+          "status": 200,
+          "answer": "The credits with no memo, with their customers",
+          "rows": [
+            {
+              "customer": {
+                "first_name": "Redacted",
+                "last_name": "Redacted",
+                "full_name": "Redacted Redacted",
+                "email": "anonymized-…@invalid"
+              },
+              "memo": null
+            },
+            {
+              "customer": {
+                "full_name": "Sarah Johnson",
+                "email": "sarah.johnson@example.com"
+              },
+              "memo": null
+            },
+            {
+              "customer": {
+                "full_name": "Michael Chen",
+                "email": "michael.chen@example.com"
+              },
+              "memo": null
+            }
+          ]
+        }
+      ],
+      "observed": "The erased shopper's credit stays, issued to an account the Admin API answers as Redacted Redacted. The address's random part is left out here."
+    }
+  ]
+}

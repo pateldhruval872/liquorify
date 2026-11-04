@@ -1,0 +1,64 @@
+{
+  "id": "CMP-CORE-23",
+  "story": "dashboard-core-resource-combobox--chosen",
+  "theme": "light",
+  "revision": "e040f9d1",
+  "screenWidth": 536.796875,
+  "storyWidth": 290.796875,
+  "compared": 1,
+  "onlyOnScreen": [],
+  "onlyInStory": [],
+  "differences": [],
+  "styles": {
+    "screen": {
+      "input|input-group-control|block w-full min-w-0 min-h-8 border-border shadow-control py-1.5 px-2.5 text-base font-normal leading-normal text-foreground transition-[color,background-color,border-color,box-shadow] duration-100 ease-out outline-none placeholder:text-muted-foreground focus:border-blue-500 disabled:cursor-not-allowed disabled:text-muted-foreground aria-invalid:border-destructive file:inline-flex file:h-6 file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground flex-1 rounded-none border-0 bg-transparent shadow-none ring-0 focus:border-0 focus:shadow-none focus-visible:ring-0 disabled:bg-transparent aria-invalid:ring-0": {
+        "color": "oklch(0.147 0.004 49.25)",
+        "background-color": "rgba(0, 0, 0, 0)",
+        "font-family": "\"Geist Variable\", ui-sans-serif, system-ui, sans-serif",
+        "font-size": "14px",
+        "font-weight": "400",
+        "line-height": "21px",
+        "letter-spacing": "normal",
+        "border-top-width": "0px",
+        "border-top-style": "solid",
+        "border-top-color": "oklch(0.923 0.003 48.717)",
+        "border-bottom-width": "0px",
+        "border-bottom-color": "oklch(0.923 0.003 48.717)",
+        "border-top-left-radius": "0px",
+        "padding-top": "6px",
+        "padding-right": "6px",
+        "padding-bottom": "6px",
+        "padding-left": "10px",
+        "height": "33px",
+        "box-shadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, oklch(0.147 0.004 49.25) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+        "opacity": "1",
+        "gap": "normal"
+      }
+    },
+    "story": {
+      "input|input-group-control|block w-full min-w-0 min-h-8 border-border shadow-control py-1.5 px-2.5 text-base font-normal leading-normal text-foreground transition-[color,background-color,border-color,box-shadow] duration-100 ease-out outline-none placeholder:text-muted-foreground focus:border-blue-500 disabled:cursor-not-allowed disabled:text-muted-foreground aria-invalid:border-destructive file:inline-flex file:h-6 file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground flex-1 rounded-none border-0 bg-transparent shadow-none ring-0 focus:border-0 focus:shadow-none focus-visible:ring-0 disabled:bg-transparent aria-invalid:ring-0": {
+        "color": "oklch(0.147 0.004 49.25)",
+        "background-color": "rgba(0, 0, 0, 0)",
+        "font-family": "\"Geist Variable\", ui-sans-serif, system-ui, sans-serif",
+        "font-size": "14px",
+        "font-weight": "400",
+        "line-height": "21px",
+        "letter-spacing": "normal",
+        "border-top-width": "0px",
+        "border-top-style": "solid",
+        "border-top-color": "oklch(0.923 0.003 48.717)",
+        "border-bottom-width": "0px",
+        "border-bottom-color": "oklch(0.923 0.003 48.717)",
+        "border-top-left-radius": "0px",
+        "padding-top": "6px",
+        "padding-right": "6px",
+        "padding-bottom": "6px",
+        "padding-left": "10px",
+        "height": "33px",
+        "box-shadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, oklch(0.147 0.004 49.25) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+        "opacity": "1",
+        "gap": "normal"
+      }
+    }
+  }
+}
