@@ -663,8 +663,9 @@ test.describe('FL-21', () => {
               at(candidate, 'sku') === (variant.sku ?? ''),
           )
           const checks: Comparison[] = []
-          const add = (column: string, server: string, same?: boolean) => {
-            const value = row ? at(row, column) : '(no row)'
+          // A check that reads several columns passes what it read as `file`.
+          const add = (column: string, server: string, same?: boolean, file?: string) => {
+            const value = row ? (file ?? at(row, column)) : '(no row)'
             checks.push({ field: column, file: value, server, same: same ?? value === server })
           }
           const first = index === 0
@@ -742,6 +743,7 @@ test.describe('FL-21', () => {
               `option${number}_name and value`,
               match ? `${match.option_type_label}: ${match.label}` : '',
               name === '' ? value === '' : match?.label === value,
+              name === '' && value === '' ? '' : `${name}: ${value}`,
             )
           }
           const fileCategories = row
@@ -759,6 +761,7 @@ test.describe('FL-21', () => {
             'category1 to category3',
             serverCategories.join(' | '),
             sameSet(fileCategories, serverCategories),
+            fileCategories.join(' | '),
           )
           exportComparisons[`${product.slug} ${variant.sku ?? ''}`] = checks
         })

@@ -5219,6 +5219,13 @@ const collectionCaptures: Capture[] = [
   ...forRoles('DA-PRD-12', 'manual', collectionPath('manual'), openCollection('manual')),
   {
     screen: 'DA-PRD-12',
+    state: 'manual-narrow',
+    variant: 'admin',
+    phone: true,
+    reach: openCollection('manual'),
+  },
+  {
+    screen: 'DA-PRD-12',
     state: 'products-staged',
     variant: 'admin',
     reach: async (page) => {
