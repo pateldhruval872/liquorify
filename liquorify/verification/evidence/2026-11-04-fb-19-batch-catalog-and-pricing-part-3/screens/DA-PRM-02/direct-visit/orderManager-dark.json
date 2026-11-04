@@ -1,0 +1,44 @@
+{
+  "screen": "DA-PRM-02",
+  "state": "direct-visit",
+  "variant": "orderManager",
+  "role": {
+    "name": "Order manager",
+    "permissions": [
+      "write_orders",
+      "write_payments",
+      "write_fulfillments",
+      "write_refunds",
+      "write_gift_cards",
+      "write_store_credits",
+      "read_customers"
+    ]
+  },
+  "theme": "dark",
+  "revision": "4a05d9c8",
+  "path": "/<store>/promotions/new",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": null,
+  "settled": true,
+  "outside": [],
+  "refused": [
+    {
+      "method": "GET",
+      "path": "/api/v3/admin/promotion_rules/types",
+      "status": 403
+    },
+    {
+      "method": "GET",
+      "path": "/api/v3/admin/dashboard/counters",
+      "status": 403
+    },
+    {
+      "method": "GET",
+      "path": "/api/v3/admin/promotion_actions/types",
+      "status": 403
+    }
+  ]
+}

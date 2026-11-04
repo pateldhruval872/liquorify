@@ -1,0 +1,11 @@
+{
+  "screen": "DA-SET-12",
+  "state": "sample-data-methods",
+  "variant": "admin",
+  "theme": "light",
+  "width": 1280,
+  "revision": "storefront 8865498, backend 06ccfbce",
+  "path": "/store_UkLWZg9DAJ/settings/payment-methods",
+  "observed": null,
+  "note": "Spree's sample data, before anything was saved: Check and the test gateway (named Credit Card) are active but shown to staff only."
+}

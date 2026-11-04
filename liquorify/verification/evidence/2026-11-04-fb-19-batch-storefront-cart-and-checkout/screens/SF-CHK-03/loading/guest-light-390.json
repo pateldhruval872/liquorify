@@ -1,0 +1,11 @@
+{
+  "screen": "SF-CHK-03",
+  "state": "loading",
+  "variant": "guest",
+  "theme": "light",
+  "width": 390,
+  "revision": "storefront 8865498, backend 06ccfbce",
+  "path": "/us/en/order-placed/cart_fidelity_unknown",
+  "observed": null,
+  "note": "The storefront's request for the order was left unanswered."
+}

@@ -1,0 +1,11 @@
+{
+  "screen": "SF-SHOP-05",
+  "state": "store-credit-applied",
+  "variant": "customer",
+  "theme": "light",
+  "width": 390,
+  "revision": "storefront 8865498, backend 06ccfbce",
+  "path": "/us/en/cart",
+  "observed": "The cart's totals read: \"Subtotal $89.99 Total $89.99 Store credit -$15.00 Amount due $74.99\".",
+  "note": "15.00 of store credit granted to the customer through the Admin API and applied to their cart through the Store API, because the storefront has no control for it (FB-19 §2.7)."
+}

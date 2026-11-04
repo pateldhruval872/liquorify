@@ -1,0 +1,11 @@
+{
+  "screen": "SF-CHK-01",
+  "state": "not-found",
+  "variant": "guest",
+  "theme": "light",
+  "width": 1280,
+  "revision": "storefront 8865498, backend 06ccfbce",
+  "path": "/us/en/checkout/cart_fidelity_unknown",
+  "observed": "Opened /us/en/checkout/cart_fidelity_unknown; arrived at /us/en/checkout/cart_fidelity_unknown, answered with status 200. The page showed no alert or toast.",
+  "note": "An address naming a cart that does not exist."
+}

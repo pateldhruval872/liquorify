@@ -1,0 +1,11 @@
+{
+  "screen": "SF-CHK-01",
+  "state": "guest-arriving",
+  "variant": "guest",
+  "theme": "light",
+  "width": 390,
+  "revision": "storefront 8865498, backend 06ccfbce",
+  "path": "/us/en/checkout/cart_sel8jaGony",
+  "observed": "Rates offered: none. The payment section read: \"Payment Method All transactions are secure and encrypted. Credit Card This payment method is not yet supported in the storefront. Check Same as shipping address\". The order summary read: \"1 Drip Coffee Maker 1.5L Color: Black $89.99 Subtotal $89.99 Shipping Enter shipping address Total USD $89.99 Apply\". The page showed no alert or toast.",
+  "note": "Reached from the cart drawer's Checkout link."
+}

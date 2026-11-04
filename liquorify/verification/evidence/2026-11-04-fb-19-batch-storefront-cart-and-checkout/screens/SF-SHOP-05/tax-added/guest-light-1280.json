@@ -1,0 +1,11 @@
+{
+  "screen": "SF-SHOP-05",
+  "state": "tax-added",
+  "variant": "guest",
+  "theme": "light",
+  "width": 1280,
+  "revision": "storefront 8865498, backend 06ccfbce",
+  "path": "/us/en/cart",
+  "observed": "The cart page read: \"Shopping Cart Drip Coffee Maker 1.5L Color: Black $89.99 Remove Order Summary Subtotal $89.99 Tax $7.20 Total $97.19 Proceed to CheckoutContinue Shopping\".",
+  "note": "With the 8% rate and the United States market's prices not including tax."
+}

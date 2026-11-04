@@ -1,0 +1,31 @@
+{
+  "screen": "DA-LOY-02",
+  "state": "credit-sheet",
+  "variant": "loyaltyViewer",
+  "role": {
+    "name": "Loyalty viewer",
+    "permissions": [
+      "read_promotions",
+      "read_gift_cards",
+      "read_store_credits",
+      "read_customers"
+    ]
+  },
+  "theme": "dark",
+  "revision": "4a05d9c8",
+  "path": "/<store>/loyalty/store-credits",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": null,
+  "settled": true,
+  "outside": [],
+  "refused": [
+    {
+      "method": "GET",
+      "path": "/api/v3/admin/dashboard/counters",
+      "status": 403
+    }
+  ]
+}

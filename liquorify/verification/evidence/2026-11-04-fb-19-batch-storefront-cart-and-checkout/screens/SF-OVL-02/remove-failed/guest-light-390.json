@@ -1,0 +1,11 @@
+{
+  "screen": "SF-OVL-02",
+  "state": "remove-failed",
+  "variant": "guest",
+  "theme": "light",
+  "width": 390,
+  "revision": "storefront 8865498, backend 06ccfbce",
+  "path": "/us/en/products/drip-coffee-maker",
+  "observed": "The page said: \"Failed to fetch\".",
+  "note": "The storefront's request to remove the item failed on the way."
+}

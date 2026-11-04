@@ -1,0 +1,11 @@
+{
+  "screen": "SF-OVL-02",
+  "state": "loading",
+  "variant": "guest",
+  "theme": "light",
+  "width": 390,
+  "revision": "storefront 8865498, backend 06ccfbce",
+  "path": "/us/en",
+  "observed": null,
+  "note": "With a product in the cart, the home page opened again with the storefront's requests answered eight seconds late, and the drawer opened while it waited for the cart. For a visitor with no cart, the header's cart button responded only once the delayed request had answered, so the drawer opened empty."
+}

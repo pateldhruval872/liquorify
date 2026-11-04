@@ -1,0 +1,11 @@
+{
+  "screen": "SF-CHK-01",
+  "state": "loading",
+  "variant": "guest",
+  "theme": "light",
+  "width": 1280,
+  "revision": "storefront 8865498, backend 06ccfbce",
+  "path": "/us/en/checkout/cart_fidelity_unknown",
+  "observed": null,
+  "note": "A cart the server could not find, so the page asks for it again from the browser; that request was left unanswered."
+}

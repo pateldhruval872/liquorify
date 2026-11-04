@@ -1,0 +1,11 @@
+{
+  "screen": "SF-CHK-01",
+  "state": "no-delivery-methods-for-country",
+  "variant": "guest",
+  "theme": "light",
+  "width": 390,
+  "revision": "storefront 8865498, backend 06ccfbce",
+  "path": "/es/en/checkout/cart_M2nyloHRUQ",
+  "observed": "Rates offered: none.",
+  "note": "An address in Spain, which no zone now holds, while International Shipping has a euro amount."
+}

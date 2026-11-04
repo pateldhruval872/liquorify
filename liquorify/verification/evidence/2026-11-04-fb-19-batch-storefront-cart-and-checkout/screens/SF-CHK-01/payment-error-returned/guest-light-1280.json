@@ -1,0 +1,11 @@
+{
+  "screen": "SF-CHK-01",
+  "state": "payment-error-returned",
+  "variant": "guest",
+  "theme": "light",
+  "width": 1280,
+  "revision": "storefront 8865498, backend 06ccfbce",
+  "path": "/us/en/checkout/cart_IoavBlcSU2",
+  "observed": "Arrived at /us/en/checkout/cart_IoavBlcSU2. The page said: \"Payment session not found\", \"Spree Store\".",
+  "note": "Checkout as the payment confirmation page leaves it when the payment could not be confirmed (SF-CHK-02 failed)."
+}

@@ -1,0 +1,17 @@
+{
+  "screen": "DA-PRM-03",
+  "state": "action-removed-unsaved",
+  "variant": "admin",
+  "role": null,
+  "theme": "dark",
+  "revision": "e040f9d1",
+  "path": "/<store>/promotions/promo_gbHJdmfrXB",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": null,
+  "settled": true,
+  "outside": [],
+  "refused": []
+}

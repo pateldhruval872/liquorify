@@ -40,7 +40,8 @@ import { defineConfig } from '@playwright/test'
  * `fl-21.spec.ts` imports a product file and exports the catalog from the
  * product list, reading both staff emails, against a server started as for
  * `mail.spec.ts` (see that file). Batch 7's captures and comparison keep their
- * own files, `screens-batch-7.spec.ts` and `compare-batch-7.spec.ts`. For the
+ * own files, `screens-batch-7.spec.ts` and `compare-batch-7.spec.ts`, as do
+ * catalog part 3's, `screens-catalog-3.spec.ts` and `compare-catalog-3.spec.ts`. For the
  * multi-store administration batch, `multi-store.spec.ts` walks one teammate
  * with different roles in two stores through its states (see that file).
  * `FIDELITY_BASE_URL` points the scripts at a dashboard served on another
@@ -53,6 +54,8 @@ export default defineConfig({
     'screens.spec.ts',
     'screens-batch-7.spec.ts',
     'compare-batch-7.spec.ts',
+    'screens-catalog-3.spec.ts',
+    'compare-catalog-3.spec.ts',
     'setup.spec.ts',
     'refusals.spec.ts',
     'mail.spec.ts',

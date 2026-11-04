@@ -1,0 +1,11 @@
+{
+  "screen": "DA-LOY-01",
+  "state": "balances-after-orders",
+  "variant": "admin",
+  "theme": "light",
+  "width": 1280,
+  "revision": "storefront 8865498, backend 06ccfbce",
+  "path": "/store_UkLWZg9DAJ/loyalty/gift-cards",
+  "observed": null,
+  "note": "The gift cards' list after FIDELITY-PART-25 and FIDELITY-WHOLE-500 were redeemed at checkout (FL-17)."
+}

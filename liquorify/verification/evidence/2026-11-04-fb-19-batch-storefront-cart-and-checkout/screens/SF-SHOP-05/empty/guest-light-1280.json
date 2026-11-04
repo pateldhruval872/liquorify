@@ -1,0 +1,11 @@
+{
+  "screen": "SF-SHOP-05",
+  "state": "empty",
+  "variant": "guest",
+  "theme": "light",
+  "width": 1280,
+  "revision": "storefront 8865498, backend 06ccfbce",
+  "path": "/us/en/cart",
+  "observed": null,
+  "note": null
+}

@@ -1,0 +1,17 @@
+{
+  "screen": "DA-PRM-01",
+  "state": "filter-fields",
+  "variant": "admin",
+  "role": null,
+  "theme": "dark",
+  "revision": "4a05d9c8",
+  "path": "/<store>/promotions",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": null,
+  "settled": true,
+  "outside": [],
+  "refused": []
+}

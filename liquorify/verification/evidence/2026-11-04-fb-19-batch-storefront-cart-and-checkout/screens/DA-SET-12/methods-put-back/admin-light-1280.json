@@ -1,0 +1,11 @@
+{
+  "screen": "DA-SET-12",
+  "state": "methods-put-back",
+  "variant": "admin",
+  "theme": "light",
+  "width": 1280,
+  "revision": "storefront 8865498, backend 06ccfbce",
+  "path": "/store_UkLWZg9DAJ/settings/payment-methods",
+  "observed": null,
+  "note": "Check and Credit Card put back to staff only: \"Visible in storefront\" switched off and saved for each."
+}
