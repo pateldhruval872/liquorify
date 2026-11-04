@@ -1,12 +1,12 @@
 ---
 document_id: LIQ-001
 title: Liquorify Project Profile
-version: 0.3-draft
+version: 0.4-draft
 status: DRAFT
 owner: unassigned
 approved_by: null
 approved_at: null
-updated: 2026-10-22
+updated: 2026-11-04
 applies: SES-001 2.0-draft, ENG-001 1.0-draft, ENG-002 1.0-draft
 ---
 
@@ -63,7 +63,7 @@ This follows the table in [ENG-001 §1](framework/ENG-001-engineering-charter.md
 
 ## 2. Responsibilities
 
-Proposal: Dhruval holds all six roles in [ENG-001 §2](framework/ENG-001-engineering-charter.md#2-responsibility-and-delegation) (product owner, engineering owner, implementer, reviewer, release owner, operational owner), with automation acting as an implementer within delegated scope.
+Decided on 2026-11-04 (D2, §7): Dhruval holds all six roles in [ENG-001 §2](framework/ENG-001-engineering-charter.md#2-responsibility-and-delegation) (product owner, engineering owner, implementer, reviewer, release owner, operational owner), with automation acting as an implementer within delegated scope.
 
 Consequences to keep visible:
 
@@ -73,7 +73,7 @@ Consequences to keep visible:
 
 ## 3. Delegation
 
-Proposal. Automation, such as a Claude session, and any future contributor may do the following without asking again:
+Decided on 2026-11-04 as written (D3, §7). Automation, such as a Claude session, and any future contributor may do the following without asking again:
 
 - Read both repositories, and read the owner's approved Mac folder without changing it.
 - Create branches, write documentation and tests, and open pull requests.
@@ -186,18 +186,18 @@ The resolutions are in effect since D1, approved by the owner on 2026-10-21, wit
 
 ## 7. Decisions needed to adopt the foundation
 
-D1 and D4 were decided on 2026-10-21, D4 through D1's exceptions X1 to X3. The others are open, and each can be answered separately. FB-02 goes ahead on its own authorization, recorded on 2026-10-21 in §1, so it does not wait for D3 ([LIQ-004](LIQ-004-foundation-backlog.md#recommended-next-work-item)).
+D1 and D4 were decided on 2026-10-21, D4 through D1's exceptions X1 to X3. The owner answered D2, D3 and D5 to D8 on 2026-11-04, through decisions 23 to 28 of the owner decision brief, as recorded below the table. FB-02 goes ahead on its own authorization, recorded on 2026-10-21 in §1, so it does not wait for D3 ([LIQ-004](LIQ-004-foundation-backlog.md#recommended-next-work-item)).
 
 | # | Decision | Options | Recommendation | Status |
 |---|---|---|---|---|
 | D1 | Adopt the framework | Adopt SES-001 2.0-draft, ENG-001 1.0-draft and ENG-002 1.0-draft as written for both repositories; adopt named sections only; or keep them as drafts for now. The Spree baseline in §6.2 can be adopted whole or by area | Adopt as written, scoped to Liquorify-owned work, with this profile's adjustments, the bounded reuse choices in §6.1, and the default baseline and exceptions in §6.2 and §6.3; revisit after the first release | Decided 2026-10-21 as recorded below. §6.1 stays a proposal |
-| D2 | Assign roles | Dhruval holds all roles (§2); or name other people for some roles | Dhruval for all, with the limitations in §2 recorded | Open |
-| D3 | Delegation | Accept §3 as written, or change the lists | Accept §3 | Open |
+| D2 | Assign roles | Dhruval holds all roles (§2); or name other people for some roles | Dhruval for all, with the limitations in §2 recorded | Decided 2026-11-04 as recommended (decision 25) |
+| D3 | Delegation | Accept §3 as written, or change the lists | Accept §3 | Decided 2026-11-04 as recommended (decision 26) |
 | D4 | Documentation home and scope | This folder as the only Liquorify home (X1 to X3); or Liquorify documents inside `docs/` | This folder | Decided 2026-10-21 through D1's exceptions X1 to X3 |
-| D5 | What counts as acceptance | A merged pull request that sets `status: ACCEPTED` with `approved_by` and `approved_at`; or any merge; or a separate decision log | The first. A merge alone is not acceptance | Open |
-| D6 | Where work items live | Turn on issues in `liquorify` (they are off today); use the storefront repository's issues; or another tracker | Issues in `liquorify`, linked from pull requests in both repositories | Open |
-| D7 | Backend repository visibility | Keep `liquorify` public; or make it private | Decide before any Liquorify-specific security work. Public keeps Spree's large CI suite free to run but publishes everything here, including summaries of open defects; private limits CI minutes and, on GitHub Free, removes the branch rules. The storefront's visibility was decided separately on 2026-10-21: it stays public (§1) | Open |
-| D8 | Home for the merchant lifecycle specification | Move it into this folder as PROPOSED; or keep it in the project workspace | Move it here after D7, keeping reproduction detail out while the defect is unfixed | Open |
+| D5 | What counts as acceptance | A merged pull request that sets `status: ACCEPTED` with `approved_by` and `approved_at`; or any merge; or a separate decision log | The first. A merge alone is not acceptance | Adopted 2026-11-04 with the procedure recorded below (decision 23) |
+| D6 | Where work items live | Turn on issues in `liquorify` (they are off today); use the storefront repository's issues; or another tracker | Issues in `liquorify`, linked from pull requests in both repositories | Decided 2026-11-04 as recommended (decision 24). Issues are not turned on yet (OA-7) |
+| D7 | Backend repository visibility | Keep `liquorify` public; or make it private | Decide before any Liquorify-specific security work. Public keeps Spree's large CI suite free to run but publishes everything here, including summaries of open defects; private limits CI minutes and, on GitHub Free, removes the branch rules. The storefront's visibility was decided separately on 2026-10-21: it stays public (§1) | Decided 2026-11-04 (decision 27): public through the baseline, decided again before the first Liquorify-specific security work |
+| D8 | Home for the merchant lifecycle specification | Move it into this folder as PROPOSED; or keep it in the project workspace | Move it here after D7, keeping reproduction detail out while the defect is unfixed | Decided 2026-11-04 (decision 28): this folder, marked PROPOSED, after a private preview. Not moved yet |
 
 **D1 as recorded.** On 2026-10-21 the owner wrote: "Use SES-001, ENG-001, and ENG-002 as our working process for Liquorify-owned work. Record this scoped adoption with the profile's exceptions. Keep unresolved product and architecture decisions proposed; adopting conventions does not mark capabilities satisfied."
 
@@ -212,3 +212,14 @@ What it leaves open:
 - D2, D3 and D5 to D8; the §6.1 reuse mapping; the merchant lifecycle specification and option A; and every adaptation or resolution that §6.2 or §6.3 names as waiting on a decision.
 - Status fields. Every document here stays DRAFT, and the framework files keep the status they were supplied with, because how acceptance is recorded is D5.
 - Capability findings. Nothing in LIQ-003 becomes Satisfied because a rule was adopted.
+
+**D2, D3 and D5 to D8 as recorded.** On 2026-11-04 the owner answered the owner decision brief, approving its decisions 23 to 28 as recommended, with these clarifications:
+
+- **D5, what counts as acceptance (decision 23).** The owner adopted an explicit procedure: acceptance is the owner's approval, its date and its scope, and the status fields that apply, recorded through a merged pull request. A merge alone is not acceptance. Acceptances already recorded with a date stand. Only the artifacts the owner actually accepts are marked; no draft is marked accepted, and no SES capability is marked satisfied, because this procedure exists. Every document here stays DRAFT until the owner accepts it under this procedure.
+- **D6, where work items live (decision 24).** Issues in `liquorify`, linked from pull requests in both repositories. The decision sets the direction only: issues are still off, and turning them on is the owner's action ([OA-7](LIQ-004-foundation-backlog.md#owner-actions)).
+- **D2, roles (decision 25).** Dhruval holds all six roles, with §2's limitations recorded: review is not independent, no specialist security review is available, and GitHub cannot require a second approver.
+- **D3, delegation (decision 26).** §3 is accepted as written.
+- **D7, backend visibility (decision 27).** `liquorify` stays public through the baseline, so Spree's CI stays free to run and the branch rules stay, and the owner decides again before the first Liquorify-specific security work.
+- **D8, the merchant lifecycle specification (decision 28).** This folder is its eventual home, marked PROPOSED. A sanitized preview is prepared privately for the owner's review before anything is published; reproductions of unfixed defects, credentials and exploit details stay private. It has not moved yet ([FB-13](LIQ-004-foundation-backlog.md)).
+
+The same answers keep the audit's proposed Liquorify entry criteria proposed (decision 29), and Liquorify-specific features stay deferred.
