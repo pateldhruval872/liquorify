@@ -1200,12 +1200,12 @@ async function interrupt(page: Page, method: string, path: RegExp, how: 'hold' |
   )
 }
 
-const directVisit = (screen: string, path: string): Capture => ({
+const directVisit = (screen: string, path: string | (() => string)): Capture => ({
   screen,
   state: 'direct-visit',
   variant: 'orderManager',
   reach: async (page) => {
-    await openStore(page, path)
+    await openStore(page, typeof path === 'string' ? path : path())
     // The dashboard retries a refused request once before it shows the refusal,
     // so a page still reading "Loading…" is given time to reach what it settles on.
     await expect(page.getByText(/^Loading…$/))
@@ -4596,12 +4596,7 @@ const forRoles = (
   reach: Capture['reach'],
 ): Capture[] => [
   ...catalogVariants.map((variant): Capture => ({ screen, state, variant, reach })),
-  {
-    screen,
-    state: 'direct-visit',
-    variant: 'orderManager',
-    reach: (page) => openStore(page, typeof path === 'string' ? path : path()),
-  },
+  directVisit(screen, path),
 ]
 
 /** A record's page whose request is answered with a server error, after the dashboard asks again. */
