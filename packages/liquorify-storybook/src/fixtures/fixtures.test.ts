@@ -10,7 +10,10 @@ import {
   CustomerSchema,
   CustomFieldDefinitionSchema,
   DashboardCounterSchema,
+  DeliveryMethodSchema,
+  DeliveryOriginGroupSchema,
   DeliveryProfileSchema,
+  DeliveryZoneSchema,
   DigitalAssetSchema,
   MarketSchema,
   MediaSchema,
@@ -18,6 +21,8 @@ import {
   OrderCancellationReasonSchema,
   OrderRoutingRuleSchema,
   OrderSchema,
+  PackageTypeSchema,
+  PaymentMethodSchema,
   PermissionSchema,
   PolicySchema,
   ProductSchema,
@@ -29,6 +34,7 @@ import {
   StoreSchema,
   TaxCategorySchema,
   TaxExemptionReasonSchema,
+  TaxRateSchema,
   UpdateStatusSchema,
 } from '@spree/admin-sdk/zod'
 import { BalanceSchema } from '@spree/seller-sdk/zod'
@@ -53,6 +59,20 @@ import {
   taxCategories,
 } from './admin/catalog'
 import { countries } from './admin/countries'
+import {
+  carrierMethodFromSource,
+  deliveryMethods,
+  digitalGroup,
+  eastGroup,
+  freshGroup,
+  furnitureZones,
+  generalGroup,
+  generalZones,
+  packageTypes,
+  shippingProfiles,
+  westGroup,
+} from './admin/delivery'
+import { paymentMethods } from './admin/payments'
 import { permissionCatalog } from './admin/permissions'
 import { adminUser } from './admin/session'
 import {
@@ -88,7 +108,17 @@ import {
   unnamedAdmin,
   updateAvailable,
 } from './admin/shell'
+import { marketsAllOnEngine, marketsWithOneEngine, taxRates } from './admin/taxes'
 import { balances } from './seller/balances'
+
+/**
+ * The generated type says a delivery method's `deleted_at` is a string, but
+ * the server answers null for one that is not deleted, as the browser-test
+ * server did on 2026-11-04. The fixtures follow the server.
+ */
+const LiveDeliveryMethodSchema = DeliveryMethodSchema.extend({
+  deleted_at: DeliveryMethodSchema.shape.deleted_at.nullable(),
+})
 
 // A fixture that no longer parses means the API changed and the mock now shows
 // something Spree would not (LIQ-010 §7.3).
@@ -109,7 +139,7 @@ const fixtures: [string, ZodType, unknown[]][] = [
   ['order routing rules', OrderRoutingRuleSchema, [...routingRules, extensionRoutingRule]],
   ['custom field definitions', CustomFieldDefinitionSchema, customFieldDefinitions],
   ['product field definitions', CustomFieldDefinitionSchema, productFieldDefinitions],
-  ['markets', MarketSchema, markets],
+  ['markets', MarketSchema, [...markets, ...marketsWithOneEngine, ...marketsAllOnEngine]],
   ['return reasons', ReturnReasonSchema, returnReasons],
   ['claim reasons', ClaimReasonSchema, claimReasons],
   ['refund reasons', RefundReasonSchema, refundReasons],
@@ -129,6 +159,17 @@ const fixtures: [string, ZodType, unknown[]][] = [
   ['stock movements', StockMovementSchema, [...stockMovements, ...apronStockMovements]],
   ['orders', OrderSchema, searchOrders],
   ['customers', CustomerSchema, searchCustomers],
+  ['payment methods', PaymentMethodSchema, paymentMethods],
+  ['tax rates', TaxRateSchema, taxRates],
+  ['shipping profiles', DeliveryProfileSchema, shippingProfiles],
+  [
+    'origin groups',
+    DeliveryOriginGroupSchema,
+    [generalGroup, westGroup, eastGroup, freshGroup, digitalGroup],
+  ],
+  ['delivery zones', DeliveryZoneSchema, [...generalZones, ...furnitureZones]],
+  ['delivery methods', LiveDeliveryMethodSchema, [...deliveryMethods, carrierMethodFromSource]],
+  ['package types', PackageTypeSchema, packageTypes],
   ['seller balances', BalanceSchema, balances],
 ]
 

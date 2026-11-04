@@ -1,0 +1,1584 @@
+{
+  "version": "3.13.6",
+  "seed": 41714,
+  "examples": [
+    {
+      "id": "./spec/integration/spree/api/v3/admin/delivery_profiles_spec.rb[1:3:1:1:1]",
+      "description": "returns a 200 response",
+      "full_description": "Admin Delivery Profiles API /api/v3/admin/delivery_profiles/{id} patch delivery profile updated returns a 200 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.401120731,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/delivery_profiles_spec.rb[1:3:2:1:1]",
+      "description": "returns a 204 response",
+      "full_description": "Admin Delivery Profiles API /api/v3/admin/delivery_profiles/{id} delete delivery profile deleted returns a 204 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.082037579,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/delivery_profiles_spec.rb[1:1:1:1:1]",
+      "description": "returns a 200 response",
+      "full_description": "Admin Delivery Profiles API /api/v3/admin/delivery_profiles get delivery profiles found returns a 200 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.058774091,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/delivery_profiles_spec.rb[1:1:2:2:1]",
+      "description": "returns a 422 response",
+      "full_description": "Admin Delivery Profiles API /api/v3/admin/delivery_profiles post validation error returns a 422 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.045608464,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/delivery_profiles_spec.rb[1:1:2:1:1]",
+      "description": "returns a 201 response",
+      "full_description": "Admin Delivery Profiles API /api/v3/admin/delivery_profiles post delivery profile created returns a 201 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.058834186,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/delivery_profiles_spec.rb[1:2:1:1:1]",
+      "description": "returns a 200 response",
+      "full_description": "Admin Delivery Profiles API /api/v3/admin/delivery_profiles/{delivery_profile_id}/origin_groups get origin groups found returns a 200 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.177707338,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/delivery_profiles_spec.rb[1:2:2:1:1]",
+      "description": "returns a 201 response",
+      "full_description": "Admin Delivery Profiles API /api/v3/admin/delivery_profiles/{delivery_profile_id}/origin_groups post origin group created returns a 201 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.090270105,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/serializers/spree/api/v3/admin/payment_method_serializer_spec.rb[1:2:1]",
+      "description": "is true for a gateway backed by an external provider",
+      "full_description": "Spree::Api::V3::Admin::PaymentMethodSerializer third_party is true for a gateway backed by an external provider",
+      "status": "passed",
+      "file_path": "./spec/serializers/spree/api/v3/admin/payment_method_serializer_spec.rb",
+      "line_number": 42,
+      "run_time": 0.016398544,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/serializers/spree/api/v3/admin/payment_method_serializer_spec.rb[1:2:2]",
+      "description": "is false for a method the store handles itself",
+      "full_description": "Spree::Api::V3::Admin::PaymentMethodSerializer third_party is false for a method the store handles itself",
+      "status": "passed",
+      "file_path": "./spec/serializers/spree/api/v3/admin/payment_method_serializer_spec.rb",
+      "line_number": 48,
+      "run_time": 0.014149948,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/serializers/spree/api/v3/admin/payment_method_serializer_spec.rb[1:1:1]",
+      "description": "masks `:password` preferences in the serialized payload",
+      "full_description": "Spree::Api::V3::Admin::PaymentMethodSerializer preferences masking masks `:password` preferences in the serialized payload",
+      "status": "passed",
+      "file_path": "./spec/serializers/spree/api/v3/admin/payment_method_serializer_spec.rb",
+      "line_number": 20,
+      "run_time": 0.064300488,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/serializers/spree/api/v3/admin/payment_method_serializer_spec.rb[1:1:3]",
+      "description": "returns non-password preferences in plaintext",
+      "full_description": "Spree::Api::V3::Admin::PaymentMethodSerializer preferences masking returns non-password preferences in plaintext",
+      "status": "passed",
+      "file_path": "./spec/serializers/spree/api/v3/admin/payment_method_serializer_spec.rb",
+      "line_number": 28,
+      "run_time": 0.013934581,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/serializers/spree/api/v3/admin/payment_method_serializer_spec.rb[1:1:4]",
+      "description": "carries no preference schema, so no secret default reaches the wire",
+      "full_description": "Spree::Api::V3::Admin::PaymentMethodSerializer preferences masking carries no preference schema, so no secret default reaches the wire",
+      "status": "passed",
+      "file_path": "./spec/serializers/spree/api/v3/admin/payment_method_serializer_spec.rb",
+      "line_number": 35,
+      "run_time": 0.015858768,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/serializers/spree/api/v3/admin/payment_method_serializer_spec.rb[1:1:2]",
+      "description": "never includes the plaintext secret anywhere in the payload",
+      "full_description": "Spree::Api::V3::Admin::PaymentMethodSerializer preferences masking never includes the plaintext secret anywhere in the payload",
+      "status": "passed",
+      "file_path": "./spec/serializers/spree/api/v3/admin/payment_method_serializer_spec.rb",
+      "line_number": 24,
+      "run_time": 0.01414624,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/tax_categories_controller_spec.rb[1:4:1]",
+      "description": "updates the tax category",
+      "full_description": "Spree::Api::V3::Admin::TaxCategoriesController PATCH #update updates the tax category",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/tax_categories_controller_spec.rb",
+      "line_number": 63,
+      "run_time": 0.065845307,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/tax_categories_controller_spec.rb[1:3:3]",
+      "description": "demotes the previous default when is_default is true",
+      "full_description": "Spree::Api::V3::Admin::TaxCategoriesController POST #create demotes the previous default when is_default is true",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/tax_categories_controller_spec.rb",
+      "line_number": 52,
+      "run_time": 0.074333086,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/tax_categories_controller_spec.rb[1:3:2]",
+      "description": "returns 422 when name is missing",
+      "full_description": "Spree::Api::V3::Admin::TaxCategoriesController POST #create returns 422 when name is missing",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/tax_categories_controller_spec.rb",
+      "line_number": 46,
+      "run_time": 0.046730154,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/tax_categories_controller_spec.rb[1:3:1]",
+      "description": "creates a tax category",
+      "full_description": "Spree::Api::V3::Admin::TaxCategoriesController POST #create creates a tax category",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/tax_categories_controller_spec.rb",
+      "line_number": 37,
+      "run_time": 0.049651294,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/tax_categories_controller_spec.rb[1:5:1]",
+      "description": "soft-deletes the tax category",
+      "full_description": "Spree::Api::V3::Admin::TaxCategoriesController DELETE #destroy soft-deletes the tax category",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/tax_categories_controller_spec.rb",
+      "line_number": 72,
+      "run_time": 0.080023451,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/tax_categories_controller_spec.rb[1:2:1]",
+      "description": "returns the tax category",
+      "full_description": "Spree::Api::V3::Admin::TaxCategoriesController GET #show returns the tax category",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/tax_categories_controller_spec.rb",
+      "line_number": 26,
+      "run_time": 0.053412123,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/tax_categories_controller_spec.rb[1:1:1]",
+      "description": "returns tax categories",
+      "full_description": "Spree::Api::V3::Admin::TaxCategoriesController GET #index returns tax categories",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/tax_categories_controller_spec.rb",
+      "line_number": 15,
+      "run_time": 0.043309312,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/tax_providers_controller_spec.rb[1:1:2]",
+      "description": "gives each limit a label and the consequence a merchant can act on",
+      "full_description": "Spree::Api::V3::Admin::TaxProvidersController GET #index gives each limit a label and the consequence a merchant can act on",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/tax_providers_controller_spec.rb",
+      "line_number": 24,
+      "run_time": 0.038872105,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/tax_providers_controller_spec.rb[1:1:3]",
+      "description": "reports an engine whose credentials are missing as unavailable",
+      "full_description": "Spree::Api::V3::Admin::TaxProvidersController GET #index reports an engine whose credentials are missing as unavailable",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/tax_providers_controller_spec.rb",
+      "line_number": 34,
+      "run_time": 0.035001837,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/tax_providers_controller_spec.rb[1:1:1]",
+      "description": "lists the built-in engine with the domains it cannot handle",
+      "full_description": "Spree::Api::V3::Admin::TaxProvidersController GET #index lists the built-in engine with the domains it cannot handle",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/tax_providers_controller_spec.rb",
+      "line_number": 11,
+      "run_time": 0.033538063,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/delivery_settings_spec.rb[1:3:1:1:1]",
+      "description": "returns a 200 response",
+      "full_description": "Admin Delivery Settings API /api/v3/admin/delivery_methods/calculators get calculators found returns a 200 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.110776429,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/delivery_settings_spec.rb[1:1:1:1:1]",
+      "description": "returns a 200 response",
+      "full_description": "Admin Delivery Settings API /api/v3/admin/delivery_methods get delivery methods found returns a 200 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.086938653,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/delivery_settings_spec.rb[1:1:2:1:1]",
+      "description": "returns a 201 response",
+      "full_description": "Admin Delivery Settings API /api/v3/admin/delivery_methods post delivery method created returns a 201 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.076989098,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/delivery_settings_spec.rb[1:5:1:1:1]",
+      "description": "returns a 200 response",
+      "full_description": "Admin Delivery Settings API /api/v3/admin/delivery_zones/{id} patch delivery zone updated returns a 200 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.081080383,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/delivery_settings_spec.rb[1:7:1:1:1]",
+      "description": "returns a 200 response",
+      "full_description": "Admin Delivery Settings API /api/v3/admin/delivery_methods/{delivery_method_id}/rules/{id} patch rule updated returns a 200 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.120711907,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/delivery_settings_spec.rb[1:6:1:1:1]",
+      "description": "returns a 200 response",
+      "full_description": "Admin Delivery Settings API /api/v3/admin/delivery_methods/{delivery_method_id}/rules get rules found returns a 200 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.109737813,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/delivery_settings_spec.rb[1:6:2:1:1]",
+      "description": "returns a 201 response",
+      "full_description": "Admin Delivery Settings API /api/v3/admin/delivery_methods/{delivery_method_id}/rules post rule created returns a 201 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.132263863,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/delivery_settings_spec.rb[1:6:2:2:1]",
+      "description": "returns a 422 response",
+      "full_description": "Admin Delivery Settings API /api/v3/admin/delivery_methods/{delivery_method_id}/rules post unknown rule type returns a 422 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.100076944,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/delivery_settings_spec.rb[1:4:2:1:1]",
+      "description": "returns a 201 response",
+      "full_description": "Admin Delivery Settings API /api/v3/admin/delivery_zones post delivery zone created returns a 201 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.049431433,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/delivery_settings_spec.rb[1:4:1:1:1]",
+      "description": "returns a 200 response",
+      "full_description": "Admin Delivery Settings API /api/v3/admin/delivery_zones get delivery zones found returns a 200 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.063007413,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/delivery_settings_spec.rb[1:2:1:1:1]",
+      "description": "returns a 200 response",
+      "full_description": "Admin Delivery Settings API /api/v3/admin/delivery_methods/{id} patch delivery method updated returns a 200 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.1375092,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/delivery_method_rules_controller_spec.rb[1:1:1]",
+      "description": "lists registered rule kinds with their preferences schema",
+      "full_description": "Spree::Api::V3::Admin::DeliveryMethodRulesController GET #types lists registered rule kinds with their preferences schema",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/delivery_method_rules_controller_spec.rb",
+      "line_number": 11,
+      "run_time": 0.1025669,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/delivery_profiles/origin_groups_controller_spec.rb[1:1:1]",
+      "description": "deletes an occupied group and everything it holds",
+      "full_description": "Spree::Api::V3::Admin::DeliveryProfiles::OriginGroupsController DELETE #destroy deletes an occupied group and everything it holds",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/delivery_profiles/origin_groups_controller_spec.rb",
+      "line_number": 17,
+      "run_time": 0.200246491,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/delivery_profiles/origin_groups_controller_spec.rb[1:1:2]",
+      "description": "refuses the last group of a profile",
+      "full_description": "Spree::Api::V3::Admin::DeliveryProfiles::OriginGroupsController DELETE #destroy refuses the last group of a profile",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/delivery_profiles/origin_groups_controller_spec.rb",
+      "line_number": 30,
+      "run_time": 0.062407933,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/package_types_controller_spec.rb[1:5]",
+      "description": "updates a package type",
+      "full_description": "Spree::Api::V3::Admin::PackageTypesController updates a package type",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/package_types_controller_spec.rb",
+      "line_number": 40,
+      "run_time": 0.058728618,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/package_types_controller_spec.rb[1:7]",
+      "description": "deletes a package type nothing is packed into",
+      "full_description": "Spree::Api::V3::Admin::PackageTypesController deletes a package type nothing is packed into",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/package_types_controller_spec.rb",
+      "line_number": 56,
+      "run_time": 0.042477925,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/package_types_controller_spec.rb[1:4]",
+      "description": "refuses a kind outside the vocabulary",
+      "full_description": "Spree::Api::V3::Admin::PackageTypesController refuses a kind outside the vocabulary",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/package_types_controller_spec.rb",
+      "line_number": 34,
+      "run_time": 0.040819428,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/package_types_controller_spec.rb[1:6]",
+      "description": "moves the default flag off the row that held it",
+      "full_description": "Spree::Api::V3::Admin::PackageTypesController moves the default flag off the row that held it",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/package_types_controller_spec.rb",
+      "line_number": 47,
+      "run_time": 0.046577537,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/package_types_controller_spec.rb[1:3]",
+      "description": "creates a package type",
+      "full_description": "Spree::Api::V3::Admin::PackageTypesController creates a package type",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/package_types_controller_spec.rb",
+      "line_number": 26,
+      "run_time": 0.040377317,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/package_types_controller_spec.rb[1:9]",
+      "description": "cannot reach another store package type",
+      "full_description": "Spree::Api::V3::Admin::PackageTypesController cannot reach another store package type",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/package_types_controller_spec.rb",
+      "line_number": 104,
+      "run_time": 0.126181081,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/package_types_controller_spec.rb[1:1]",
+      "description": "lists the packaging this store uses",
+      "full_description": "Spree::Api::V3::Admin::PackageTypesController lists the packaging this store uses",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/package_types_controller_spec.rb",
+      "line_number": 12,
+      "run_time": 0.039890944,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/package_types_controller_spec.rb[1:2]",
+      "description": "reports the cubic meters a merchant tiers freight on",
+      "full_description": "Spree::Api::V3::Admin::PackageTypesController reports the cubic meters a merchant tiers freight on",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/package_types_controller_spec.rb",
+      "line_number": 19,
+      "run_time": 0.039110946,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/package_types_controller_spec.rb[1:8:3]",
+      "description": "reads the marketplace\u2019s own rows as unowned",
+      "full_description": "Spree::Api::V3::Admin::PackageTypesController a marketplace with sellers reads the marketplace\u2019s own rows as unowned",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/package_types_controller_spec.rb",
+      "line_number": 81,
+      "run_time": 0.075064851,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/package_types_controller_spec.rb[1:8:4]",
+      "description": "narrows the list to one seller",
+      "full_description": "Spree::Api::V3::Admin::PackageTypesController a marketplace with sellers narrows the list to one seller",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/package_types_controller_spec.rb",
+      "line_number": 88,
+      "run_time": 0.0701307,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/package_types_controller_spec.rb[1:8:2]",
+      "description": "names the owner of each row",
+      "full_description": "Spree::Api::V3::Admin::PackageTypesController a marketplace with sellers names the owner of each row",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/package_types_controller_spec.rb",
+      "line_number": 74,
+      "run_time": 0.049705632,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/package_types_controller_spec.rb[1:8:1]",
+      "description": "lists every owner\u2019s packaging",
+      "full_description": "Spree::Api::V3::Admin::PackageTypesController a marketplace with sellers lists every owner\u2019s packaging",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/package_types_controller_spec.rb",
+      "line_number": 68,
+      "run_time": 0.054992827,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/package_types_controller_spec.rb[1:8:5]",
+      "description": "ignores a seller_id in the payload",
+      "full_description": "Spree::Api::V3::Admin::PackageTypesController a marketplace with sellers ignores a seller_id in the payload",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/package_types_controller_spec.rb",
+      "line_number": 96,
+      "run_time": 0.082953073,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/tax_categories_spec.rb[1:1:1:1:1]",
+      "description": "returns a 200 response",
+      "full_description": "Admin Tax Categories API /api/v3/admin/tax_categories get tax categories found returns a 200 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.075158028,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/tax_categories_spec.rb[1:1:2:2:1]",
+      "description": "returns a 422 response",
+      "full_description": "Admin Tax Categories API /api/v3/admin/tax_categories post validation failed returns a 422 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.062912105,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/tax_categories_spec.rb[1:1:2:1:1]",
+      "description": "returns a 201 response",
+      "full_description": "Admin Tax Categories API /api/v3/admin/tax_categories post tax category created returns a 201 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.064793015,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/tax_categories_spec.rb[1:2:1:1:1]",
+      "description": "returns a 200 response",
+      "full_description": "Admin Tax Categories API /api/v3/admin/tax_categories/{id} patch tax category updated returns a 200 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.067994355,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/payment_methods_controller_spec.rb[1:7:1]",
+      "description": "returns the available payment provider subclasses",
+      "full_description": "Spree::Api::V3::Admin::PaymentMethodsController GET #types returns the available payment provider subclasses",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/payment_methods_controller_spec.rb",
+      "line_number": 299,
+      "run_time": 0.050002621,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/payment_methods_controller_spec.rb[1:7:2]",
+      "description": "marks providers already installed in the current store, keeping their schema",
+      "full_description": "Spree::Api::V3::Admin::PaymentMethodsController GET #types marks providers already installed in the current store, keeping their schema",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/payment_methods_controller_spec.rb",
+      "line_number": 308,
+      "run_time": 0.044292936,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/payment_methods_controller_spec.rb[1:7:3]",
+      "description": "redacts password defaults in each provider's schema",
+      "full_description": "Spree::Api::V3::Admin::PaymentMethodsController GET #types redacts password defaults in each provider's schema",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/payment_methods_controller_spec.rb",
+      "line_number": 321,
+      "run_time": 0.04099972,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/payment_methods_controller_spec.rb[1:7:5]",
+      "description": "exposes the logo and setup guide a provider declares",
+      "full_description": "Spree::Api::V3::Admin::PaymentMethodsController GET #types exposes the logo and setup guide a provider declares",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/payment_methods_controller_spec.rb",
+      "line_number": 338,
+      "run_time": 0.04737065,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/payment_methods_controller_spec.rb[1:7:4]",
+      "description": "flags providers backed by a third-party gateway",
+      "full_description": "Spree::Api::V3::Admin::PaymentMethodsController GET #types flags providers backed by a third-party gateway",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/payment_methods_controller_spec.rb",
+      "line_number": 331,
+      "run_time": 0.070887809,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/payment_methods_controller_spec.rb[1:7:6:1]",
+      "description": "exposes a unique `type` for every provider",
+      "full_description": "Spree::Api::V3::Admin::PaymentMethodsController GET #types with provider gems that ship a top-level Gateway class exposes a unique `type` for every provider",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/payment_methods_controller_spec.rb",
+      "line_number": 367,
+      "run_time": 0.064567116,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/payment_methods_controller_spec.rb[1:4:1]",
+      "description": "updates the payment method",
+      "full_description": "Spree::Api::V3::Admin::PaymentMethodsController PATCH #update updates the payment method",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/payment_methods_controller_spec.rb",
+      "line_number": 153,
+      "run_time": 0.059369951,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/payment_methods_controller_spec.rb[1:4:2:3]",
+      "description": "replaces the secret when the submitted value is a new plaintext",
+      "full_description": "Spree::Api::V3::Admin::PaymentMethodsController PATCH #update when the payment method has a :password preference replaces the secret when the submitted value is a new plaintext",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/payment_methods_controller_spec.rb",
+      "line_number": 212,
+      "run_time": 0.058603325,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/payment_methods_controller_spec.rb[1:4:2:1]",
+      "description": "preserves the existing secret when the submitted value is a masked round-trip",
+      "full_description": "Spree::Api::V3::Admin::PaymentMethodsController PATCH #update when the payment method has a :password preference preserves the existing secret when the submitted value is a masked round-trip",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/payment_methods_controller_spec.rb",
+      "line_number": 169,
+      "run_time": 0.051560007,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/payment_methods_controller_spec.rb[1:4:2:2]",
+      "description": "refuses a preference the system owns",
+      "full_description": "Spree::Api::V3::Admin::PaymentMethodsController PATCH #update when the payment method has a :password preference refuses a preference the system owns",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/payment_methods_controller_spec.rb",
+      "line_number": 188,
+      "run_time": 0.063015325,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/payment_methods_controller_spec.rb[1:4:2:4]",
+      "description": "still updates non-password preferences alongside a masked password round-trip",
+      "full_description": "Spree::Api::V3::Admin::PaymentMethodsController PATCH #update when the payment method has a :password preference still updates non-password preferences alongside a masked password round-trip",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/payment_methods_controller_spec.rb",
+      "line_number": 224,
+      "run_time": 0.054596506,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/payment_methods_controller_spec.rb[1:1:2]",
+      "description": "filters by whether a method is active",
+      "full_description": "Spree::Api::V3::Admin::PaymentMethodsController GET #index filters by whether a method is active",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/payment_methods_controller_spec.rb",
+      "line_number": 21,
+      "run_time": 0.050456214,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/payment_methods_controller_spec.rb[1:1:3]",
+      "description": "returns payment methods in list order",
+      "full_description": "Spree::Api::V3::Admin::PaymentMethodsController GET #index returns payment methods in list order",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/payment_methods_controller_spec.rb",
+      "line_number": 29,
+      "run_time": 0.068747211,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/payment_methods_controller_spec.rb[1:1:1]",
+      "description": "returns store-scoped payment methods",
+      "full_description": "Spree::Api::V3::Admin::PaymentMethodsController GET #index returns store-scoped payment methods",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/payment_methods_controller_spec.rb",
+      "line_number": 13,
+      "run_time": 0.044007035,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/payment_methods_controller_spec.rb[1:1:4:1]",
+      "description": "is not returned",
+      "full_description": "Spree::Api::V3::Admin::PaymentMethodsController GET #index when payment method belongs to a different store is not returned",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/payment_methods_controller_spec.rb",
+      "line_number": 46,
+      "run_time": 0.145767148,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/payment_methods_controller_spec.rb[1:1:5:2]",
+      "description": "returns only admin-only methods when q[storefront_visible_eq]=false",
+      "full_description": "Spree::Api::V3::Admin::PaymentMethodsController GET #index when filtering by storefront_visible returns only admin-only methods when q[storefront_visible_eq]=false",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/payment_methods_controller_spec.rb",
+      "line_number": 69,
+      "run_time": 0.060577433,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/payment_methods_controller_spec.rb[1:1:5:1]",
+      "description": "returns only storefront-visible methods when q[storefront_visible_eq]=true",
+      "full_description": "Spree::Api::V3::Admin::PaymentMethodsController GET #index when filtering by storefront_visible returns only storefront-visible methods when q[storefront_visible_eq]=true",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/payment_methods_controller_spec.rb",
+      "line_number": 61,
+      "run_time": 0.054273486,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/payment_methods_controller_spec.rb[1:5:1:2]",
+      "description": "returns true for a customer-facing method",
+      "full_description": "Spree::Api::V3::Admin::PaymentMethodsController storefront_visible GET #show returns true for a customer-facing method",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/payment_methods_controller_spec.rb",
+      "line_number": 257,
+      "run_time": 0.074778241,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/payment_methods_controller_spec.rb[1:5:1:1]",
+      "description": "returns false for a backoffice-only method",
+      "full_description": "Spree::Api::V3::Admin::PaymentMethodsController storefront_visible GET #show returns false for a backoffice-only method",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/payment_methods_controller_spec.rb",
+      "line_number": 248,
+      "run_time": 0.076144659,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/payment_methods_controller_spec.rb[1:5:2:1]",
+      "description": "hides the method from the storefront",
+      "full_description": "Spree::Api::V3::Admin::PaymentMethodsController storefront_visible PATCH #update hides the method from the storefront",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/payment_methods_controller_spec.rb",
+      "line_number": 267,
+      "run_time": 0.063658076,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/payment_methods_controller_spec.rb[1:5:2:2]",
+      "description": "shows the method on the storefront",
+      "full_description": "Spree::Api::V3::Admin::PaymentMethodsController storefront_visible PATCH #update shows the method on the storefront",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/payment_methods_controller_spec.rb",
+      "line_number": 276,
+      "run_time": 0.05302647,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/payment_methods_controller_spec.rb[1:2:1]",
+      "description": "returns the payment method",
+      "full_description": "Spree::Api::V3::Admin::PaymentMethodsController GET #show returns the payment method",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/payment_methods_controller_spec.rb",
+      "line_number": 80,
+      "run_time": 0.046433336,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/payment_methods_controller_spec.rb[1:2:2:2]",
+      "description": "returns non-password preferences in plaintext",
+      "full_description": "Spree::Api::V3::Admin::PaymentMethodsController GET #show when the payment method has a :password preference returns non-password preferences in plaintext",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/payment_methods_controller_spec.rb",
+      "line_number": 105,
+      "run_time": 0.052124125,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/payment_methods_controller_spec.rb[1:2:2:3]",
+      "description": "masks the password preference in the index response too",
+      "full_description": "Spree::Api::V3::Admin::PaymentMethodsController GET #show when the payment method has a :password preference masks the password preference in the index response too",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/payment_methods_controller_spec.rb",
+      "line_number": 111,
+      "run_time": 0.051122746,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/payment_methods_controller_spec.rb[1:2:2:1]",
+      "description": "masks the password preference and never leaks the plaintext secret",
+      "full_description": "Spree::Api::V3::Admin::PaymentMethodsController GET #show when the payment method has a :password preference masks the password preference and never leaks the plaintext secret",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/payment_methods_controller_spec.rb",
+      "line_number": 96,
+      "run_time": 0.057667199,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/payment_methods_controller_spec.rb[1:6:1]",
+      "description": "soft-deletes the payment method",
+      "full_description": "Spree::Api::V3::Admin::PaymentMethodsController DELETE #destroy soft-deletes the payment method",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/payment_methods_controller_spec.rb",
+      "line_number": 290,
+      "run_time": 0.069237525,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/payment_methods_controller_spec.rb[1:3:1]",
+      "description": "creates a payment method of the given STI subclass",
+      "full_description": "Spree::Api::V3::Admin::PaymentMethodsController POST #create creates a payment method of the given STI subclass",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/payment_methods_controller_spec.rb",
+      "line_number": 132,
+      "run_time": 0.054975077,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/payment_methods_controller_spec.rb[1:3:2]",
+      "description": "rejects an unknown subclass",
+      "full_description": "Spree::Api::V3::Admin::PaymentMethodsController POST #create rejects an unknown subclass",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/payment_methods_controller_spec.rb",
+      "line_number": 144,
+      "run_time": 0.040665387,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/delivery_methods/rules_controller_spec.rb[1:1:1]",
+      "description": "lists the method rules with schema-driven config",
+      "full_description": "Spree::Api::V3::Admin::DeliveryMethods::RulesController GET #index lists the method rules with schema-driven config",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/delivery_methods/rules_controller_spec.rb",
+      "line_number": 19,
+      "run_time": 0.054807515,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/delivery_methods/rules_controller_spec.rb[1:2:1]",
+      "description": "creates a rule from the wire shorthand",
+      "full_description": "Spree::Api::V3::Admin::DeliveryMethods::RulesController POST #create creates a rule from the wire shorthand",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/delivery_methods/rules_controller_spec.rb",
+      "line_number": 32,
+      "run_time": 0.051826068,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/delivery_methods/rules_controller_spec.rb[1:2:3]",
+      "description": "rejects a duplicate rule kind",
+      "full_description": "Spree::Api::V3::Admin::DeliveryMethods::RulesController POST #create rejects a duplicate rule kind",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/delivery_methods/rules_controller_spec.rb",
+      "line_number": 50,
+      "run_time": 0.05395498,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/delivery_methods/rules_controller_spec.rb[1:2:2]",
+      "description": "rejects unregistered types",
+      "full_description": "Spree::Api::V3::Admin::DeliveryMethods::RulesController POST #create rejects unregistered types",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/delivery_methods/rules_controller_spec.rb",
+      "line_number": 44,
+      "run_time": 0.062123986,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/delivery_methods/rules_controller_spec.rb[1:2:5]",
+      "description": "drops products belonging to another store",
+      "full_description": "Spree::Api::V3::Admin::DeliveryMethods::RulesController POST #create drops products belonging to another store",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/delivery_methods/rules_controller_spec.rb",
+      "line_number": 75,
+      "run_time": 0.319323427,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/delivery_methods/rules_controller_spec.rb[1:2:4]",
+      "description": "creates an excluded-products rule from prefixed product ids",
+      "full_description": "Spree::Api::V3::Admin::DeliveryMethods::RulesController POST #create creates an excluded-products rule from prefixed product ids",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/delivery_methods/rules_controller_spec.rb",
+      "line_number": 58,
+      "run_time": 0.152342346,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/delivery_methods/rules_controller_spec.rb[1:4:1]",
+      "description": "removes the rule",
+      "full_description": "Spree::Api::V3::Admin::DeliveryMethods::RulesController DELETE #destroy removes the rule",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/delivery_methods/rules_controller_spec.rb",
+      "line_number": 128,
+      "run_time": 0.084181621,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/delivery_methods/rules_controller_spec.rb[1:3:1]",
+      "description": "updates preferences and active flag",
+      "full_description": "Spree::Api::V3::Admin::DeliveryMethods::RulesController PATCH #update updates preferences and active flag",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/delivery_methods/rules_controller_spec.rb",
+      "line_number": 92,
+      "run_time": 0.081321677,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/delivery_methods/rules_controller_spec.rb[1:3:2]",
+      "description": "replaces the excluded products",
+      "full_description": "Spree::Api::V3::Admin::DeliveryMethods::RulesController PATCH #update replaces the excluded products",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/delivery_methods/rules_controller_spec.rb",
+      "line_number": 106,
+      "run_time": 0.214721619,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/delivery_profiles_controller_spec.rb[1:1:1]",
+      "description": "returns delivery profiles with the default first, then by position",
+      "full_description": "Spree::Api::V3::Admin::DeliveryProfilesController GET #index returns delivery profiles with the default first, then by position",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/delivery_profiles_controller_spec.rb",
+      "line_number": 16,
+      "run_time": 0.100802413,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/delivery_profiles_controller_spec.rb[1:2:1]",
+      "description": "names each registered kind by its shorthand only",
+      "full_description": "Spree::Api::V3::Admin::DeliveryProfilesController GET #kinds names each registered kind by its shorthand only",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/delivery_profiles_controller_spec.rb",
+      "line_number": 27,
+      "run_time": 0.051131882,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/payment_methods_spec.rb[1:2:1:1:1]",
+      "description": "returns a 200 response",
+      "full_description": "Admin Payment Methods API /api/v3/admin/payment_methods/types get provider types found returns a 200 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.053341489,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/payment_methods_spec.rb[1:3:1:1:1]",
+      "description": "returns a 200 response",
+      "full_description": "Admin Payment Methods API /api/v3/admin/payment_methods/{id} get payment method found returns a 200 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.047707175,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/payment_methods_spec.rb[1:3:2:1:1]",
+      "description": "returns a 200 response",
+      "full_description": "Admin Payment Methods API /api/v3/admin/payment_methods/{id} patch payment method updated returns a 200 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.052015693,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/payment_methods_spec.rb[1:1:1:1:1]",
+      "description": "returns a 200 response",
+      "full_description": "Admin Payment Methods API /api/v3/admin/payment_methods get payment methods found returns a 200 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.046065563,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/payment_methods_spec.rb[1:1:2:1:1]",
+      "description": "returns a 201 response",
+      "full_description": "Admin Payment Methods API /api/v3/admin/payment_methods post payment method created returns a 201 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.047859592,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/payment_methods_spec.rb[1:1:2:2:1]",
+      "description": "returns a 422 response",
+      "full_description": "Admin Payment Methods API /api/v3/admin/payment_methods post unknown payment method type returns a 422 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.058089625,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/delivery_methods_controller_spec.rb[1:5:2]",
+      "description": "reconciles rows: keeps by id, drops the omitted",
+      "full_description": "Spree::Api::V3::Admin::DeliveryMethodsController carrier services reconciles rows: keeps by id, drops the omitted",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/delivery_methods_controller_spec.rb",
+      "line_number": 116,
+      "run_time": 0.081760775,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/delivery_methods_controller_spec.rb[1:5:1]",
+      "description": "creates service rows with markup and label from a flat payload",
+      "full_description": "Spree::Api::V3::Admin::DeliveryMethodsController carrier services creates service rows with markup and label from a flat payload",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/delivery_methods_controller_spec.rb",
+      "line_number": 97,
+      "run_time": 0.06753533,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/delivery_methods_controller_spec.rb[1:1:1]",
+      "description": "lists delivery methods with admin fields",
+      "full_description": "Spree::Api::V3::Admin::DeliveryMethodsController GET #index lists delivery methods with admin fields",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/delivery_methods_controller_spec.rb",
+      "line_number": 13,
+      "run_time": 0.054747923,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/delivery_methods_controller_spec.rb[1:7:1]",
+      "description": "updates attributes and calculator preferences",
+      "full_description": "Spree::Api::V3::Admin::DeliveryMethodsController PATCH #update updates attributes and calculator preferences",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/delivery_methods_controller_spec.rb",
+      "line_number": 226,
+      "run_time": 0.087266531,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/delivery_methods_controller_spec.rb[1:7:7]",
+      "description": "saves nested eligibility rules alongside the method",
+      "full_description": "Spree::Api::V3::Admin::DeliveryMethodsController PATCH #update saves nested eligibility rules alongside the method",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/delivery_methods_controller_spec.rb",
+      "line_number": 300,
+      "run_time": 0.161543375,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/delivery_methods_controller_spec.rb[1:7:5]",
+      "description": "keeps the current calculator when the rest of the update is refused",
+      "full_description": "Spree::Api::V3::Admin::DeliveryMethodsController PATCH #update keeps the current calculator when the rest of the update is refused",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/delivery_methods_controller_spec.rb",
+      "line_number": 271,
+      "run_time": 0.06364038,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/delivery_methods_controller_spec.rb[1:7:8]",
+      "description": "clears excluded products when an empty array is sent",
+      "full_description": "Spree::Api::V3::Admin::DeliveryMethodsController PATCH #update clears excluded products when an empty array is sent",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/delivery_methods_controller_spec.rb",
+      "line_number": 323,
+      "run_time": 0.152570821,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/delivery_methods_controller_spec.rb[1:7:2]",
+      "description": "keeps the current calculator when the new one's settings are refused",
+      "full_description": "Spree::Api::V3::Admin::DeliveryMethodsController PATCH #update keeps the current calculator when the new one's settings are refused",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/delivery_methods_controller_spec.rb",
+      "line_number": 238,
+      "run_time": 0.055001,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/delivery_methods_controller_spec.rb[1:7:9]",
+      "description": "drops nested rule products from another store",
+      "full_description": "Spree::Api::V3::Admin::DeliveryMethodsController PATCH #update drops nested rule products from another store",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/delivery_methods_controller_spec.rb",
+      "line_number": 341,
+      "run_time": 0.351672978,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/delivery_methods_controller_spec.rb[1:7:6]",
+      "description": "stores per-currency amounts",
+      "full_description": "Spree::Api::V3::Admin::DeliveryMethodsController PATCH #update stores per-currency amounts",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/delivery_methods_controller_spec.rb",
+      "line_number": 284,
+      "run_time": 0.073013708,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/delivery_methods_controller_spec.rb[1:7:3]",
+      "description": "refuses a calculator amount with more decimals than its currency has",
+      "full_description": "Spree::Api::V3::Admin::DeliveryMethodsController PATCH #update refuses a calculator amount with more decimals than its currency has",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/delivery_methods_controller_spec.rb",
+      "line_number": 253,
+      "run_time": 0.064083268,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/delivery_methods_controller_spec.rb[1:7:4]",
+      "description": "refuses a calculator amount sent as a JSON number",
+      "full_description": "Spree::Api::V3::Admin::DeliveryMethodsController PATCH #update refuses a calculator amount sent as a JSON number",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/delivery_methods_controller_spec.rb",
+      "line_number": 264,
+      "run_time": 0.062391577,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/delivery_methods_controller_spec.rb[1:4:2]",
+      "description": "marks providers unavailable to the current store",
+      "full_description": "Spree::Api::V3::Admin::DeliveryMethodsController GET #rate_providers marks providers unavailable to the current store",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/delivery_methods_controller_spec.rb",
+      "line_number": 75,
+      "run_time": 0.043096745,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/delivery_methods_controller_spec.rb[1:4:1]",
+      "description": "lists the registered providers and the default",
+      "full_description": "Spree::Api::V3::Admin::DeliveryMethodsController GET #rate_providers lists the registered providers and the default",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/delivery_methods_controller_spec.rb",
+      "line_number": 59,
+      "run_time": 0.038108643,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/delivery_methods_controller_spec.rb[1:3:1]",
+      "description": "lists registered providers with their class predicates",
+      "full_description": "Spree::Api::V3::Admin::DeliveryMethodsController GET #fulfillment_providers lists registered providers with their class predicates",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/delivery_methods_controller_spec.rb",
+      "line_number": 38,
+      "run_time": 0.036052279,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/delivery_methods_controller_spec.rb[1:8:1]",
+      "description": "soft deletes the delivery method",
+      "full_description": "Spree::Api::V3::Admin::DeliveryMethodsController DELETE #destroy soft deletes the delivery method",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/delivery_methods_controller_spec.rb",
+      "line_number": 361,
+      "run_time": 0.058008954,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/delivery_methods_controller_spec.rb[1:2:1]",
+      "description": "lists registered calculators with preference schemas",
+      "full_description": "Spree::Api::V3::Admin::DeliveryMethodsController GET #calculators lists registered calculators with preference schemas",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/delivery_methods_controller_spec.rb",
+      "line_number": 25,
+      "run_time": 0.037532286,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/delivery_methods_controller_spec.rb[1:6:5]",
+      "description": "creates a pickup method without a calculator requirement",
+      "full_description": "Spree::Api::V3::Admin::DeliveryMethodsController POST #create creates a pickup method without a calculator requirement",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/delivery_methods_controller_spec.rb",
+      "line_number": 189,
+      "run_time": 0.060479891,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/delivery_methods_controller_spec.rb[1:6:1]",
+      "description": "rejects a cross-store delivery profile with 404",
+      "full_description": "Spree::Api::V3::Admin::DeliveryMethodsController POST #create rejects a cross-store delivery profile with 404",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/delivery_methods_controller_spec.rb",
+      "line_number": 137,
+      "run_time": 0.136625133,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/delivery_methods_controller_spec.rb[1:6:6]",
+      "description": "assigns configured pickup locations",
+      "full_description": "Spree::Api::V3::Admin::DeliveryMethodsController POST #create assigns configured pickup locations",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/delivery_methods_controller_spec.rb",
+      "line_number": 200,
+      "run_time": 0.071579889,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/delivery_methods_controller_spec.rb[1:6:2]",
+      "description": "persists the chosen fulfillment provider",
+      "full_description": "Spree::Api::V3::Admin::DeliveryMethodsController POST #create persists the chosen fulfillment provider",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/delivery_methods_controller_spec.rb",
+      "line_number": 145,
+      "run_time": 0.08390003,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/delivery_methods_controller_spec.rb[1:6:7]",
+      "description": "rejects unknown calculator types",
+      "full_description": "Spree::Api::V3::Admin::DeliveryMethodsController POST #create rejects unknown calculator types",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/delivery_methods_controller_spec.rb",
+      "line_number": 213,
+      "run_time": 0.048224744,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/delivery_methods_controller_spec.rb[1:6:4]",
+      "description": "keeps the amount when no calculator is named",
+      "full_description": "Spree::Api::V3::Admin::DeliveryMethodsController POST #create keeps the amount when no calculator is named",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/delivery_methods_controller_spec.rb",
+      "line_number": 177,
+      "run_time": 0.061588389,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/delivery_methods_controller_spec.rb[1:6:3]",
+      "description": "creates a delivery method with calculator and zone",
+      "full_description": "Spree::Api::V3::Admin::DeliveryMethodsController POST #create creates a delivery method with calculator and zone",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/delivery_methods_controller_spec.rb",
+      "line_number": 156,
+      "run_time": 0.062428625,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/tax_rates_spec.rb[1:1:2:1:1]",
+      "description": "returns a 201 response",
+      "full_description": "Admin Tax Rates API /api/v3/admin/tax_rates post tax rate created returns a 201 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.080914206,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/tax_rates_spec.rb[1:1:2:2:1]",
+      "description": "returns a 422 response",
+      "full_description": "Admin Tax Rates API /api/v3/admin/tax_rates post validation failed returns a 422 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.063219368,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/tax_rates_spec.rb[1:1:1:2:1]",
+      "description": "returns a 401 response",
+      "full_description": "Admin Tax Rates API /api/v3/admin/tax_rates get unauthorized returns a 401 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.03737507,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/tax_rates_spec.rb[1:1:1:1:1]",
+      "description": "returns a 200 response",
+      "full_description": "Admin Tax Rates API /api/v3/admin/tax_rates get tax rates found returns a 200 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.091367751,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/tax_rates_spec.rb[1:2:1:1:1]",
+      "description": "returns a 200 response",
+      "full_description": "Admin Tax Rates API /api/v3/admin/tax_rates/{id} get tax rate found returns a 200 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.072100341,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/tax_rates_spec.rb[1:2:2:1:1]",
+      "description": "returns a 200 response",
+      "full_description": "Admin Tax Rates API /api/v3/admin/tax_rates/{id} patch tax rate updated returns a 200 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.07183109,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/tax_rates_spec.rb[1:2:3:1:1]",
+      "description": "returns a 204 response",
+      "full_description": "Admin Tax Rates API /api/v3/admin/tax_rates/{id} delete tax rate deleted returns a 204 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.053064174,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/delivery_zones_controller_spec.rb[1:5:1]",
+      "description": "returns members on show when expanded, and preserves them when echoed back",
+      "full_description": "Spree::Api::V3::Admin::DeliveryZonesController member round-trip returns members on show when expanded, and preserves them when echoed back",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/delivery_zones_controller_spec.rb",
+      "line_number": 117,
+      "run_time": 0.074376878,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/delivery_zones_controller_spec.rb[1:1:1]",
+      "description": "lists delivery zones",
+      "full_description": "Spree::Api::V3::Admin::DeliveryZonesController GET #index lists delivery zones",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/delivery_zones_controller_spec.rb",
+      "line_number": 15,
+      "run_time": 0.047651434,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/delivery_zones_controller_spec.rb[1:1:2]",
+      "description": "filters by delivery profile",
+      "full_description": "Spree::Api::V3::Admin::DeliveryZonesController GET #index filters by delivery profile",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/delivery_zones_controller_spec.rb",
+      "line_number": 22,
+      "run_time": 0.055347954,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/delivery_zones_controller_spec.rb[1:2:1]",
+      "description": "creates a zone with typed members",
+      "full_description": "Spree::Api::V3::Admin::DeliveryZonesController POST #create creates a zone with typed members",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/delivery_zones_controller_spec.rb",
+      "line_number": 33,
+      "run_time": 0.046707523,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/delivery_zones_controller_spec.rb[1:2:2]",
+      "description": "validates member shapes",
+      "full_description": "Spree::Api::V3::Admin::DeliveryZonesController POST #create validates member shapes",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/delivery_zones_controller_spec.rb",
+      "line_number": 50,
+      "run_time": 0.059479082,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/delivery_zones_controller_spec.rb[1:4:1]",
+      "description": "deletes the zone",
+      "full_description": "Spree::Api::V3::Admin::DeliveryZonesController DELETE #destroy deletes the zone",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/delivery_zones_controller_spec.rb",
+      "line_number": 91,
+      "run_time": 0.050639445,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/delivery_zones_controller_spec.rb[1:4:2]",
+      "description": "deletes the zone methods with it",
+      "full_description": "Spree::Api::V3::Admin::DeliveryZonesController DELETE #destroy deletes the zone methods with it",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/delivery_zones_controller_spec.rb",
+      "line_number": 100,
+      "run_time": 0.065147769,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/delivery_zones_controller_spec.rb[1:3:2]",
+      "description": "keeps members untouched when the payload has none",
+      "full_description": "Spree::Api::V3::Admin::DeliveryZonesController PATCH #update keeps members untouched when the payload has none",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/delivery_zones_controller_spec.rb",
+      "line_number": 80,
+      "run_time": 0.051183611,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/delivery_zones_controller_spec.rb[1:3:1]",
+      "description": "replaces the member set atomically",
+      "full_description": "Spree::Api::V3::Admin::DeliveryZonesController PATCH #update replaces the member set atomically",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/delivery_zones_controller_spec.rb",
+      "line_number": 67,
+      "run_time": 0.056227389,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/package_types_spec.rb[1:1:2:2:1]",
+      "description": "returns a 422 response",
+      "full_description": "Admin Package Types API /api/v3/admin/package_types post validation error returns a 422 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.0567697,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/package_types_spec.rb[1:1:2:1:1]",
+      "description": "returns a 201 response",
+      "full_description": "Admin Package Types API /api/v3/admin/package_types post package type created returns a 201 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.056567787,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/package_types_spec.rb[1:1:1:1:1]",
+      "description": "returns a 200 response",
+      "full_description": "Admin Package Types API /api/v3/admin/package_types get package types found returns a 200 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.053560663,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/package_types_spec.rb[1:1:1:2:1]",
+      "description": "returns a 401 response",
+      "full_description": "Admin Package Types API /api/v3/admin/package_types get unauthorized returns a 401 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.058744747,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/package_types_spec.rb[1:2:3:1:1]",
+      "description": "returns a 204 response",
+      "full_description": "Admin Package Types API /api/v3/admin/package_types/{id} delete package type deleted returns a 204 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.044229957,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/package_types_spec.rb[1:2:1:1:1]",
+      "description": "returns a 200 response",
+      "full_description": "Admin Package Types API /api/v3/admin/package_types/{id} get package type found returns a 200 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.061719833,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/package_types_spec.rb[1:2:1:2:1]",
+      "description": "returns a 404 response",
+      "full_description": "Admin Package Types API /api/v3/admin/package_types/{id} get package type not found returns a 404 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.061797191,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/package_types_spec.rb[1:2:2:1:1]",
+      "description": "returns a 200 response",
+      "full_description": "Admin Package Types API /api/v3/admin/package_types/{id} patch package type updated returns a 200 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.258798828,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/tax_rates_controller_spec.rb[1:4:2]",
+      "description": "cannot move a rate to another store",
+      "full_description": "Spree::Api::V3::Admin::TaxRatesController PATCH #update cannot move a rate to another store",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/tax_rates_controller_spec.rb",
+      "line_number": 97,
+      "run_time": 0.18758397,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/tax_rates_controller_spec.rb[1:4:1]",
+      "description": "updates the rate",
+      "full_description": "Spree::Api::V3::Admin::TaxRatesController PATCH #update updates the rate",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/tax_rates_controller_spec.rb",
+      "line_number": 90,
+      "run_time": 0.04947086,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/tax_rates_controller_spec.rb[1:3:1]",
+      "description": "creates a rate bound to the current store",
+      "full_description": "Spree::Api::V3::Admin::TaxRatesController POST #create creates a rate bound to the current store",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/tax_rates_controller_spec.rb",
+      "line_number": 51,
+      "run_time": 0.051432564,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/tax_rates_controller_spec.rb[1:3:3]",
+      "description": "accepts a state-level rate by its code",
+      "full_description": "Spree::Api::V3::Admin::TaxRatesController POST #create accepts a state-level rate by its code",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/tax_rates_controller_spec.rb",
+      "line_number": 66,
+      "run_time": 0.059510161,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/tax_rates_controller_spec.rb[1:3:5]",
+      "description": "rejects a rate with no category",
+      "full_description": "Spree::Api::V3::Admin::TaxRatesController POST #create rejects a rate with no category",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/tax_rates_controller_spec.rb",
+      "line_number": 82,
+      "run_time": 0.047072732,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/tax_rates_controller_spec.rb[1:3:4]",
+      "description": "stores the jurisdiction upcased however it was sent",
+      "full_description": "Spree::Api::V3::Admin::TaxRatesController POST #create stores the jurisdiction upcased however it was sent",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/tax_rates_controller_spec.rb",
+      "line_number": 74,
+      "run_time": 0.049082684,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/tax_rates_controller_spec.rb[1:3:2]",
+      "description": "accepts a percentage instead of a decimal",
+      "full_description": "Spree::Api::V3::Admin::TaxRatesController POST #create accepts a percentage instead of a decimal",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/tax_rates_controller_spec.rb",
+      "line_number": 59,
+      "run_time": 0.046702272,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/tax_rates_controller_spec.rb[1:2:1]",
+      "description": "returns the rate with its percentage and associations",
+      "full_description": "Spree::Api::V3::Admin::TaxRatesController GET #show returns the rate with its percentage and associations",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/tax_rates_controller_spec.rb",
+      "line_number": 28,
+      "run_time": 0.044744782,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/tax_rates_controller_spec.rb[1:1:1]",
+      "description": "returns the rates of the current store only",
+      "full_description": "Spree::Api::V3::Admin::TaxRatesController GET #index returns the rates of the current store only",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/tax_rates_controller_spec.rb",
+      "line_number": 15,
+      "run_time": 0.134187163,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/tax_rates_controller_spec.rb[1:5:1]",
+      "description": "soft-deletes the rate",
+      "full_description": "Spree::Api::V3::Admin::TaxRatesController DELETE #destroy soft-deletes the rate",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/tax_rates_controller_spec.rb",
+      "line_number": 108,
+      "run_time": 0.04535829,
+      "pending_message": null
+    }
+  ],
+  "summary": {
+    "duration": 12.100794511,
+    "example_count": 157,
+    "failure_count": 0,
+    "pending_count": 0,
+    "errors_outside_of_examples_count": 0
+  },
+  "summary_line": "157 examples, 0 failures"
+}

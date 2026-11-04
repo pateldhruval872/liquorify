@@ -1,6 +1,6 @@
 import type { Media, Product, Variant } from '@spree/admin-sdk'
 import type { Meta, StoryObj } from '@storybook/react-vite'
-import { fn, screen, userEvent } from 'storybook/test'
+import { expect, fn, screen, userEvent, waitFor } from 'storybook/test'
 import { MediaEditSheet } from '../../../../../dashboard-core/src/products/media-edit-sheet'
 import { withStore } from '../../../decorators/store'
 import { clayMug, clayMugWithVideos, linenApron } from '../../../fixtures/admin/catalog'
@@ -69,9 +69,13 @@ export const Image: Story = {
   },
 }
 
+// The sheet moves focus into itself as it opens, which scrolls its body back to
+// the top, so the variant is picked only after that.
 export const AssignedToVariant: Story = {
   name: 'Assigned to a variant',
   play: async () => {
+    const sheet = await screen.findByRole('dialog')
+    await waitFor(() => expect(sheet.contains(document.activeElement)).toBe(true))
     await userEvent.click(await screen.findByRole('button', { name: /Olive, Size: M/ }))
   },
 }
