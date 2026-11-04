@@ -44,7 +44,7 @@ orders = []
 orders << store.orders.where(
   number: 'R1001',
   email: 'spree@example.com',
-  currency: 'USD'
+  currency: store.default_currency
 ).first_or_create! do |order|
   order.item_total = product_1.default_variant.amount_in(order.currency)
   order.adjustment_total = product_1.default_variant.amount_in(order.currency)
@@ -54,7 +54,7 @@ end
 orders << store.orders.where(
   number: 'R1002',
   email: 'spree@example.com',
-  currency: 'USD'
+  currency: store.default_currency
 ).first_or_create! do |order|
   order.item_total = product_2.default_variant.amount_in(order.currency)
   order.adjustment_total = product_2.default_variant.amount_in(order.currency)
