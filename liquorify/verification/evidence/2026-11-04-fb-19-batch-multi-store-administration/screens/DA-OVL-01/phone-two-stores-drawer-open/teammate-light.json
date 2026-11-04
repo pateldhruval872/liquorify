@@ -1,0 +1,29 @@
+{
+  "screen": "DA-OVL-01",
+  "state": "phone-two-stores-drawer-open",
+  "variant": "teammate",
+  "role": {
+    "Shop": "admin",
+    "Winkel": {
+      "name": "Support",
+      "permissions": [
+        "read_orders",
+        "read_customers",
+        "read_dashboard"
+      ]
+    }
+  },
+  "theme": "light",
+  "revision": "1320592d",
+  "path": "/<store>",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "intercepted": null,
+  "settled": true,
+  "checked": "With the navigation drawer open on a phone, the drawer has no switcher either, so a teammate in two stores has no control to change store",
+  "navigation": null,
+  "answered": null,
+  "outside": []
+}

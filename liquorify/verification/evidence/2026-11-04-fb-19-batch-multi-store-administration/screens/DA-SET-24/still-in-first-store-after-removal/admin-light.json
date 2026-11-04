@@ -1,0 +1,22 @@
+{
+  "screen": "DA-SET-24",
+  "state": "still-in-first-store-after-removal",
+  "variant": "admin",
+  "role": {
+    "Shop": "admin",
+    "Winkel": "admin"
+  },
+  "theme": "light",
+  "revision": "1320592d",
+  "path": "/<store>/settings/staff",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": null,
+  "settled": true,
+  "checked": "Shop's staff list still shows the teammate with the admin role",
+  "navigation": null,
+  "answered": null,
+  "outside": []
+}

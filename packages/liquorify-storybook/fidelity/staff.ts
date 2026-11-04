@@ -197,7 +197,7 @@ export async function admin(api: APIRequestContext) {
   }
 }
 
-async function canSignIn(baseURL: string, email: string) {
+export async function canSignIn(baseURL: string, email: string) {
   const api = await request.newContext({ baseURL })
   try {
     const res = await api.post('/api/v3/admin/auth/login', { data: { email, password: PASSWORD } })
@@ -218,7 +218,7 @@ export async function acceptancePath(
   return acceptance_url.replace(/^https?:\/\/[^/]+/, '')
 }
 
-async function pendingInvitation(
+export async function pendingInvitation(
   api: APIRequestContext,
   headers: Record<string, string>,
   email: string,
@@ -238,7 +238,7 @@ async function pendingInvitation(
   return ((await created.json()) as { id: string }).id
 }
 
-async function join(
+export async function join(
   api: APIRequestContext,
   headers: Record<string, string>,
   baseURL: string,

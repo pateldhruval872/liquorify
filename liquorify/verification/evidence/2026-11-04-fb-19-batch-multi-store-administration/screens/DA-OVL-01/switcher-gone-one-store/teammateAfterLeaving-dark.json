@@ -1,0 +1,21 @@
+{
+  "screen": "DA-OVL-01",
+  "state": "switcher-gone-one-store",
+  "variant": "teammateAfterLeaving",
+  "role": {
+    "Shop": "admin"
+  },
+  "theme": "dark",
+  "revision": "1320592d",
+  "path": "/<store>",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": null,
+  "settled": true,
+  "checked": "After leaving Winkel, the teammate signs in to Shop, whose name is a label with no switcher",
+  "navigation": null,
+  "answered": null,
+  "outside": []
+}

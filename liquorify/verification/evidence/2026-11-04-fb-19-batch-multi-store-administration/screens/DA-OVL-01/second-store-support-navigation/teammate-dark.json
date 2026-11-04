@@ -1,0 +1,29 @@
+{
+  "screen": "DA-OVL-01",
+  "state": "second-store-support-navigation",
+  "variant": "teammate",
+  "role": {
+    "Shop": "admin",
+    "Winkel": {
+      "name": "Support",
+      "permissions": [
+        "read_orders",
+        "read_customers",
+        "read_dashboard"
+      ]
+    }
+  },
+  "theme": "dark",
+  "revision": "1320592d",
+  "path": "/<second-store>",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": null,
+  "settled": true,
+  "checked": "Winkel opened by its address: the navigation is the Support role's, with Orders and no Products",
+  "navigation": null,
+  "answered": null,
+  "outside": []
+}

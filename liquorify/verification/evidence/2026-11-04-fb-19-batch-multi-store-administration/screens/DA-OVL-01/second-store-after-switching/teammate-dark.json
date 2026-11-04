@@ -1,0 +1,54 @@
+{
+  "screen": "DA-OVL-01",
+  "state": "second-store-after-switching",
+  "variant": "teammate",
+  "role": {
+    "Shop": "admin",
+    "Winkel": {
+      "name": "Support",
+      "permissions": [
+        "read_orders",
+        "read_customers",
+        "read_dashboard"
+      ]
+    }
+  },
+  "theme": "dark",
+  "revision": "1320592d",
+  "path": "/<second-store>",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": null,
+  "settled": true,
+  "checked": "Switched to Winkel from the switcher, without a reload. The navigation is recorded as shown, straight after the switch and ten seconds later",
+  "navigation": {
+    "afterSwitch": [
+      "Getting Started",
+      "Home",
+      "Orders",
+      "Products",
+      "Inventory",
+      "Customers",
+      "Sellers",
+      "Loyalty",
+      "Promotions",
+      "Reports"
+    ],
+    "tenSecondsLater": [
+      "Getting Started",
+      "Home",
+      "Orders",
+      "Products",
+      "Inventory",
+      "Customers",
+      "Sellers",
+      "Loyalty",
+      "Promotions",
+      "Reports"
+    ]
+  },
+  "answered": null,
+  "outside": []
+}
