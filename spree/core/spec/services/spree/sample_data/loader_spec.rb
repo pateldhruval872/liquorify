@@ -342,8 +342,9 @@ RSpec.describe Spree::SampleData::Loader, 'in a store that sells only euros', ty
       euro_prices.each do |(sku, _), (amount, compare_at_price)|
         base_prices = variants[sku].prices.select { |price| price.price_list_id.nil? }
         euro_price = base_prices.find { |price| price.currency == 'EUR' }
+        file_currencies = file_prices.keys.select { |key| key.first == sku }.map(&:last)
 
-        expect(base_prices.map(&:currency)).to match_array(file_prices.keys.select { |key| key.first == sku }.map(&:last)), sku
+        expect(base_prices.map(&:currency)).to match_array(file_currencies), sku
         expect(euro_price.amount).to eq(amount), sku
         expect(euro_price.compare_at_amount).to eq(compare_at_price.presence && BigDecimal(compare_at_price)), sku
       end

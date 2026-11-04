@@ -8,11 +8,10 @@
 store = Spree::Current.store
 currency = store.default_currency
 
-dollar_rows = CSV.read(
-  Spree::Core::Engine.root.join('db', 'sample_data', 'products.csv'),
-  headers: true,
-  encoding: 'utf-8'
-).select { |row| row['currency'] == 'USD' && row['price'].present? && BigDecimal(row['price']).positive? }.index_by { |row| row['sku'] }
+sample_rows = CSV.read(Spree::Core::Engine.root.join('db', 'sample_data', 'products.csv'), headers: true, encoding: 'utf-8')
+dollar_rows = sample_rows.select do |row|
+  row['currency'] == 'USD' && row['price'].present? && BigDecimal(row['price']).positive?
+end.index_by { |row| row['sku'] }
 
 unpriced_variants = store.variants.where(sku: dollar_rows.keys).
                     where.not(id: Spree::Price.base_prices.where(currency: currency).select(:variant_id)).
@@ -23,4 +22,6 @@ unpriced_variants.each do |variant|
   variant.set_price(currency, row['price'], row['compare_at_price'])
 end
 
-puts "  Gave #{unpriced_variants.size} #{'variant'.pluralize(unpriced_variants.size)} a demo price in #{currency}" if unpriced_variants.any?
+if unpriced_variants.any?
+  puts "  Gave #{unpriced_variants.size} #{'variant'.pluralize(unpriced_variants.size)} a demo price in #{currency}"
+end
