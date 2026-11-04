@@ -1,7 +1,7 @@
 ---
 document_id: LIQ-001
 title: Liquorify Project Profile
-version: 0.4-draft
+version: 0.5-draft
 status: DRAFT
 owner: unassigned
 approved_by: null
@@ -29,13 +29,13 @@ This follows the table in [ENG-001 §1](framework/ENG-001-engineering-charter.md
 | Product and charter scope | Liquorify is a multi-tenant software platform for independent liquor merchants, built on Spree Commerce. The charter covers Liquorify-owned work in the two repositories below, and upstream Spree code only where Liquorify changes it or relies on it. | Product goal: recorded instruction. Charter scope: proposal |
 | Repositories | `liquorify` (public): backend, admin dashboard, shared packages, and this documentation home. `liquorify-storefront` (public since 2026-10-21; private before): customer storefront. They are independent Git repositories, even when the storefront is cloned inside the backend folder on a developer's machine. | Fact |
 | Revisions assessed | Backend `394b53f`: Spree 6.0.0.rc4, unchanged from upstream. Storefront `c19c466`: the upstream Spree storefront, unchanged. | Fact |
-| Accountable engineering owner | Dhruval (`@pateldhruval872`) | Proposal |
-| Product decision-maker | Dhruval | Proposal |
-| Technical, security and quality reviewers | Dhruval. No independent human reviewer is available. Legal, tax and payment-processor review is external and not yet engaged. | Assignment: proposal. Limitation: fact |
-| Release and operational owners | Dhruval. Nothing is released or operated yet: there is no staging or production environment and no hosting decision. | Proposal |
+| Accountable engineering owner | Dhruval (`@pateldhruval872`) | Decided 2026-11-04 (D2) |
+| Product decision-maker | Dhruval | Decided 2026-11-04 (D2) |
+| Technical, security and quality reviewers | Dhruval. No independent human reviewer is available. Legal, tax and payment-processor review is external and not yet engaged. | Assignment: decided 2026-11-04 (D2). Limitation: fact |
+| Release and operational owners | Dhruval. Nothing is released or operated yet: there is no staging or production environment and no hosting decision. | Decided 2026-11-04 (D2) |
 | Stack, environments and delivery workflow | [LIQ-003 §1](LIQ-003-engineering-baseline.md#1-scope-revisions-and-evidence) | Fact |
-| Delegated actions | §3 | Proposal |
-| Adoption decision | D1, 2026-10-21: the framework is the working process for Liquorify-owned work, with this profile's exceptions. D2 to D8 are open (§7) | Recorded instruction |
+| Delegated actions | §3, with the delegation of acceptance and merging for approved Spree baseline work | Decided 2026-11-04 (D3 and the owner's delegation) |
+| Adoption decision | D1, 2026-10-21: the framework is the working process for Liquorify-owned work, with this profile's exceptions. D2, D3 and D5 to D8 were decided on 2026-11-04 (§7) | Recorded instruction |
 
 ### Recorded instructions that shape engineering work
 
@@ -59,7 +59,8 @@ This follows the table in [ENG-001 §1](framework/ENG-001-engineering-charter.md
 - **2026-10-22 (product-area batches):** the staff access and dashboard shell batch proceeds in two pull requests, and the storefront's shopper accounts baseline may run alongside it in its own. The batch's proposal, its 11 acceptance criteria and the exact LIQ-010 §12.1 amendment are included for review. The batch process links capabilities, screens, workflows, permissions, meaningful states and components to their inventory IDs and verification evidence. What the interface shows each role stays distinct from verified backend authorization and from tenant isolation. The screenshot, fidelity and review requirements stay, and unresolved gaps stay explicit. Existing Spree behaviour is reproduced; Liquorify-specific features stay deferred, and Figma waits for its setup ([work item](work-items/fb-19-batch-staff-access-and-shell.md)).
 - **2026-10-22 (baseline status):** the broader existing Spree baseline continues across both repositories, and staff access, the dashboard shell and storefront shopper accounts are only its first product-area batches. Its status is kept in the existing inventories and backlog, by product area, distinguishing what is built, what is verified and what the owner accepted, with Figma and its setup kept apart from repository progress; a separate tracking system is unnecessary ([LIQ-004](LIQ-004-foundation-backlog.md#baseline-progress-by-product-area)). Liquorify-specific features stay deferred until the agreed Spree baseline is complete and accepted.
 - **2026-10-20:** the three framework documents are authorized draft inputs. Nothing else from the Liquorify-Company workspace, and no earlier product decision, is imported.
-- **Standing:** do not merge or deploy without an explicit instruction. Treat the owner's Mac as read-only unless told otherwise.
+- **2026-11-04 (delegated acceptance and merging):** Claude's sessions complete the approved Spree baseline. The completion audit, LIQ-004 and the owner's recorded decisions are the plan. The owner delegated, on the owner's behalf, the routine technical, image and fidelity acceptance of approved baseline work and its merging, once its approved acceptance criteria and required checks pass on the final commit. Each such acceptance is recorded as delegated acceptance, never as the owner's own review. Owner decisions, gap answers, and material changes to scope, architecture, cost or security stay with the owner, in one brief. Branch protection and the private-evidence boundaries stay. Defects, gaps and exceptions stay accurately recorded, and the completion criteria are not weakened. Liquorify-specific product work stays deferred until the baseline's completion gate ([record](verification/2026-11-04-delegated-acceptance-and-merging.md); §3 and §7).
+- **Standing:** do not merge or deploy without an explicit instruction. Since 2026-11-04 the owner's delegation is that instruction for merging approved Spree baseline work, and for nothing else; deploying still needs its own. Treat the owner's Mac as read-only unless told otherwise.
 
 ## 2. Responsibilities
 
@@ -88,6 +89,8 @@ These need the owner's explicit authorization for the specific scope:
 - Contacting outside parties (Spree, Stripe or other vendors).
 - Publishing a reproduction or exploit-level detail of an unfixed security defect in the public repository.
 - Accepting a specification, a validation result or a security risk.
+
+**Delegated on 2026-11-04.** For approved Spree baseline work only, the owner gave two of these authorizations in advance: merging, and accepting a work item's technical, image and fidelity evidence against its approved acceptance criteria. §7 records the delegation's scope, how a delegated acceptance is recorded, and what stays with the owner. Nothing else on the list is delegated.
 
 Carrying out an action never grants authority to approve it. Note that the backend's tracked `.claude/settings.local.json` gives agents blanket shell permission; that is upstream's local setup, not this delegation ([LIQ-004 FB-08](LIQ-004-foundation-backlog.md)).
 
@@ -223,3 +226,9 @@ What it leaves open:
 - **D8, the merchant lifecycle specification (decision 28).** This folder is its eventual home, marked PROPOSED. A sanitized preview is prepared privately for the owner's review before anything is published; reproductions of unfixed defects, credentials and exploit details stay private. It has not moved yet ([FB-13](LIQ-004-foundation-backlog.md)).
 
 The same answers keep the audit's proposed Liquorify entry criteria proposed (decision 29), and Liquorify-specific features stay deferred.
+
+**Delegated acceptance, 2026-11-04.** Later the same day the owner delegated to Claude's sessions the routine technical, image and fidelity acceptance of approved Spree baseline work, and its merging, on the owner's behalf ([record](verification/2026-11-04-delegated-acceptance-and-merging.md)). It works within D5:
+
+- **What it covers.** Each work item's evidence, accepted against that item's approved acceptance criteria. Its pull requests are merged through GitHub's protected merge once those criteria and every required check pass on the final commit, in dependency order, and the relevant checks are then verified on `main`.
+- **How it is recorded.** The merged pull request records "delegated acceptance, under the owner's delegation of 2026-11-04", with its date, its scope and the session that accepted it. It never describes the acceptance as the owner's review, and it sets status fields only for the artifacts actually accepted.
+- **What stays with the owner.** Answering a gap; a gap may close under the delegation only on passing evidence for its recorded closing condition. Also accepting an exception or a security risk, FB-03's result (N1), any specification, the baseline's completion and the entry criteria, material changes to scope, architecture, cost or security, and every repository setting, purchase or credential.
