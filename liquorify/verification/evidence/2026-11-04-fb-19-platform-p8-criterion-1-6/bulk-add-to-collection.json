@@ -1,0 +1,26 @@
+{
+  "test": "bulk-add-to-collection",
+  "revision": "7ffc7755c8ae683af2c8f00efe543e1070cdbae0",
+  "stamp": "mw2917sl",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "chose two products",
+      "chosen": [
+        "P8 Fir mw2917sl",
+        "P8 Gorse mw2917sl"
+      ]
+    },
+    {
+      "step": "added them to P8 Collection mw2917sl"
+    },
+    {
+      "step": "opened the collection and reloaded it",
+      "products": [
+        "P8 Fir mw2917sl",
+        "P8 Gorse mw2917sl"
+      ]
+    }
+  ],
+  "outside": []
+}

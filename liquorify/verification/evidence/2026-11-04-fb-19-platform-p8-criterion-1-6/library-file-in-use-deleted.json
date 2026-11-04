@@ -1,0 +1,22 @@
+{
+  "test": "library-file-in-use-deleted",
+  "revision": "7ffc7755c8ae683af2c8f00efe543e1070cdbae0",
+  "stamp": "mw292xfr",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "opened the file",
+      "usedIn": "P8 Juniper mw292xfr"
+    },
+    {
+      "step": "confirmed the delete",
+      "sent": "?detach=true",
+      "serverStatus": 204,
+      "toast": "File deleted"
+    },
+    {
+      "step": "reloaded the library and the product; the file is on neither"
+    }
+  ],
+  "outside": []
+}
