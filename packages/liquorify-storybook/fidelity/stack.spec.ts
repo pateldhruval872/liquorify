@@ -11,6 +11,10 @@ const mailInitializer = new URL(
   '../../../spree/api/spec/dummy/config/initializers/zz_liquorify_mail.rb',
   import.meta.url,
 )
+const taxEngineInitializer = new URL(
+  '../../../spree/api/spec/dummy/config/initializers/zz_liquorify_tax_engine.rb',
+  import.meta.url,
+)
 
 /**
  * Starts the dashboard browser tests' own Rails server, database and fixtures,
@@ -23,6 +27,13 @@ const mailInitializer = new URL(
  * initializers the browser tests' own setup writes, the file lives in the
  * generated test app, takes effect only for this server and is removed when it
  * stops; Spree's code is unchanged.
+ *
+ * With `LIQUORIFY_TAX_ENGINE=1`, the server also registers a stand-in tax
+ * engine beside Spree's own, as a tax provider gem registers its engine, so a
+ * market can be put on an engine that is not Spree's own and the taxes page
+ * shows its note for P9 (`settings-actions.spec.ts`). The stand-in works out
+ * tax exactly as Spree's own engine does and calls nothing outside; it is not
+ * a real provider, which stays P4's.
  */
 test('Spree browser-test server', async () => {
   rmSync(stopFile, { force: true })
@@ -41,6 +52,25 @@ test('Spree browser-test server', async () => {
       ].join('\n'),
     )
   }
+  if (process.env.LIQUORIFY_TAX_ENGINE === '1') {
+    writeFileSync(
+      taxEngineInitializer,
+      [
+        '# Written by packages/liquorify-storybook/fidelity/stack.spec.ts — safe to delete.',
+        "if ENV['DASHBOARD_E2E'] == '1' && ENV['LIQUORIFY_TAX_ENGINE'] == '1'",
+        '  Rails.application.config.after_initialize do',
+        '    unless defined?(::LiquorifyStandInTaxEngine)',
+        '      class ::LiquorifyStandInTaxEngine < Spree::TaxProvider::Internal',
+        "        def self.display_name = 'Stand-in tax engine'",
+        '      end',
+        '    end',
+        '    Spree.tax_providers << ::LiquorifyStandInTaxEngine unless Spree.tax_providers.include?(::LiquorifyStandInTaxEngine)',
+        '  end',
+        'end',
+        '',
+      ].join('\n'),
+    )
+  }
   await globalSetup()
   try {
     while (!existsSync(stopFile)) await new Promise((resolve) => setTimeout(resolve, 1000))
@@ -48,6 +78,7 @@ test('Spree browser-test server', async () => {
     await globalTeardown()
     rmSync(stopFile, { force: true })
     rmSync(mailInitializer, { force: true })
+    rmSync(taxEngineInitializer, { force: true })
   }
 })
 
