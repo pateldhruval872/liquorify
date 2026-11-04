@@ -1,0 +1,34 @@
+{
+  "screen": "DA-LOY-02",
+  "state": "credit-sheet",
+  "variant": "orderManager",
+  "role": {
+    "name": "Order manager",
+    "permissions": [
+      "write_orders",
+      "write_payments",
+      "write_fulfillments",
+      "write_refunds",
+      "write_gift_cards",
+      "write_store_credits",
+      "read_customers"
+    ]
+  },
+  "theme": "dark",
+  "revision": "4a05d9c8",
+  "path": "/<store>/loyalty/store-credits",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": null,
+  "settled": true,
+  "outside": [],
+  "refused": [
+    {
+      "method": "GET",
+      "path": "/api/v3/admin/dashboard/counters",
+      "status": 403
+    }
+  ]
+}

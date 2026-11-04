@@ -1,0 +1,17 @@
+{
+  "screen": "DA-LOY-01",
+  "state": "filtered-batch",
+  "variant": "admin",
+  "role": null,
+  "theme": "dark",
+  "revision": "4a05d9c8",
+  "path": "/<store>/loyalty/gift-cards",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": null,
+  "settled": true,
+  "outside": [],
+  "refused": []
+}

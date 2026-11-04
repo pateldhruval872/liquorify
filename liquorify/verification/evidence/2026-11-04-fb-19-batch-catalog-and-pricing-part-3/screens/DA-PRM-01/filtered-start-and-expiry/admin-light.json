@@ -1,0 +1,17 @@
+{
+  "screen": "DA-PRM-01",
+  "state": "filtered-start-and-expiry",
+  "variant": "admin",
+  "role": null,
+  "theme": "light",
+  "revision": "4a05d9c8",
+  "path": "/<store>/promotions",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": "Reached through the address, because the filter panel does not offer Starts or Expires (see filter-fields)",
+  "settled": true,
+  "outside": [],
+  "refused": []
+}

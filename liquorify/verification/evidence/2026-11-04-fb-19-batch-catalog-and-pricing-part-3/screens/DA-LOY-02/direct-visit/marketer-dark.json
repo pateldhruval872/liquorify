@@ -1,0 +1,33 @@
+{
+  "screen": "DA-LOY-02",
+  "state": "direct-visit",
+  "variant": "marketer",
+  "role": {
+    "name": "Marketer",
+    "permissions": [
+      "write_promotions"
+    ]
+  },
+  "theme": "dark",
+  "revision": "4a05d9c8",
+  "path": "/<store>/loyalty/store-credits",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": null,
+  "settled": true,
+  "outside": [],
+  "refused": [
+    {
+      "method": "GET",
+      "path": "/api/v3/admin/store_credits?page=1&sort=-created_at&expand=customer,created_by",
+      "status": 403
+    },
+    {
+      "method": "GET",
+      "path": "/api/v3/admin/dashboard/counters",
+      "status": 403
+    }
+  ]
+}

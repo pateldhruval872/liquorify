@@ -1,0 +1,41 @@
+{
+  "screen": "DA-PRM-03",
+  "state": "rules-and-actions",
+  "variant": "loyaltyViewer",
+  "role": {
+    "name": "Loyalty viewer",
+    "permissions": [
+      "read_promotions",
+      "read_gift_cards",
+      "read_store_credits",
+      "read_customers"
+    ]
+  },
+  "theme": "dark",
+  "revision": "4a05d9c8",
+  "path": "/<store>/promotions/promo_VqXmZF31wY",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": null,
+  "settled": true,
+  "outside": [],
+  "refused": [
+    {
+      "method": "GET",
+      "path": "/api/v3/admin/promotions/promo_VqXmZF31wY/promotion_actions?limit=100",
+      "status": 404
+    },
+    {
+      "method": "GET",
+      "path": "/api/v3/admin/promotions/promo_VqXmZF31wY/promotion_rules?limit=100",
+      "status": 404
+    },
+    {
+      "method": "GET",
+      "path": "/api/v3/admin/dashboard/counters",
+      "status": 403
+    }
+  ]
+}

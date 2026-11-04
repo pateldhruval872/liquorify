@@ -1,0 +1,36 @@
+{
+  "screen": "DA-PRM-01",
+  "state": "direct-visit",
+  "variant": "merchandiser",
+  "role": {
+    "name": "Merchandiser",
+    "permissions": [
+      "write_products",
+      "write_categories",
+      "write_collections",
+      "write_stock"
+    ]
+  },
+  "theme": "dark",
+  "revision": "4a05d9c8",
+  "path": "/<store>/promotions",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": null,
+  "settled": true,
+  "outside": [],
+  "refused": [
+    {
+      "method": "GET",
+      "path": "/api/v3/admin/promotions?page=1&sort=-created_at",
+      "status": 403
+    },
+    {
+      "method": "GET",
+      "path": "/api/v3/admin/dashboard/counters",
+      "status": 403
+    }
+  ]
+}
