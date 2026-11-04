@@ -1,0 +1,11 @@
+{
+  "screen": "SF-SHOP-05",
+  "state": "item-removed",
+  "variant": "guest",
+  "theme": "light",
+  "width": 1280,
+  "revision": "storefront 8865498, backend 06ccfbce",
+  "path": "/us/en/cart",
+  "observed": "The cart's totals read: \"Subtotal $49.99 Total $49.99\".",
+  "note": "Two products added, then the first removed with its remove button."
+}

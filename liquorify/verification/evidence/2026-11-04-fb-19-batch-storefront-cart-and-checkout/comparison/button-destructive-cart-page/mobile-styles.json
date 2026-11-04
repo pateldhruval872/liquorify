@@ -1,0 +1,81 @@
+{
+  "id": "CMP-SF-P-04",
+  "story": "storefront-ui-button--destructive",
+  "mode": "mobile",
+  "revision": "storefront 8865498, backend 06ccfbce",
+  "screenWidth": 72,
+  "storyWidth": 79,
+  "hiddenWhileCaptured": {
+    "screen": [
+      {
+        "element": "header",
+        "overPart": false
+      },
+      {
+        "element": "div",
+        "overPart": false
+      }
+    ],
+    "story": []
+  },
+  "compared": 0,
+  "onlyOnScreen": [
+    "button|button|group/button inline-flex shrink-0 items-center justify-center border border-transparent bg-clip-padding font-medium whitespace-nowrap cursor-pointer transition-all outline-none select-none disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive dark:focus-visible:border-white dark:focus-visible:[outline:1px_solid_white] [&_svg]:pointer-events-none [&_svg]:shrink-0 bg-destructive/10 text-destructive hover:bg-destructive/20 focus-visible:border-destructive focus-visible:[outline:1px_solid_theme(colors.destructive)] dark:bg-destructive/20 dark:hover:bg-destructive/30 h-9 gap-1 rounded-[min(var(--radius-md),12px)] px-2.5 text-[0.8rem] in-data-[slot=button-group]:rounded-sm has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 [&_svg:not([class*='size-'])]:size-3.5"
+  ],
+  "onlyInStory": [
+    "button|button|group/button inline-flex shrink-0 items-center justify-center rounded-md border border-transparent bg-clip-padding text-sm font-medium whitespace-nowrap cursor-pointer transition-all outline-none select-none disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive dark:focus-visible:border-white dark:focus-visible:[outline:1px_solid_white] [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 bg-destructive/10 text-destructive hover:bg-destructive/20 focus-visible:border-destructive focus-visible:[outline:1px_solid_theme(colors.destructive)] dark:bg-destructive/20 dark:hover:bg-destructive/30 h-11 gap-1.5 px-2.5 has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2"
+  ],
+  "differences": [],
+  "styles": {
+    "screen": {
+      "button|button|group/button inline-flex shrink-0 items-center justify-center border border-transparent bg-clip-padding font-medium whitespace-nowrap cursor-pointer transition-all outline-none select-none disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive dark:focus-visible:border-white dark:focus-visible:[outline:1px_solid_white] [&_svg]:pointer-events-none [&_svg]:shrink-0 bg-destructive/10 text-destructive hover:bg-destructive/20 focus-visible:border-destructive focus-visible:[outline:1px_solid_theme(colors.destructive)] dark:bg-destructive/20 dark:hover:bg-destructive/30 h-9 gap-1 rounded-[min(var(--radius-md),12px)] px-2.5 text-[0.8rem] in-data-[slot=button-group]:rounded-sm has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 [&_svg:not([class*='size-'])]:size-3.5": {
+        "color": "rgba(223, 34, 37, 255)",
+        "background-color": "rgba(226, 29, 39, 26)",
+        "font-family": "Geist, \"Geist Fallback\", system-ui, sans-serif",
+        "font-size": "12.8px",
+        "font-weight": "500",
+        "line-height": "19.2px",
+        "letter-spacing": "normal",
+        "border-top-width": "1px",
+        "border-top-color": "rgba(0, 0, 0, 0)",
+        "border-right-width": "1px",
+        "border-bottom-width": "1px",
+        "border-left-width": "1px",
+        "border-radius": "8px",
+        "padding-top": "0px",
+        "padding-right": "10px",
+        "padding-bottom": "0px",
+        "padding-left": "10px",
+        "height": "36px",
+        "box-shadow": "none",
+        "opacity": "1",
+        "gap": "4px"
+      }
+    },
+    "story": {
+      "button|button|group/button inline-flex shrink-0 items-center justify-center rounded-md border border-transparent bg-clip-padding text-sm font-medium whitespace-nowrap cursor-pointer transition-all outline-none select-none disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive dark:focus-visible:border-white dark:focus-visible:[outline:1px_solid_white] [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 bg-destructive/10 text-destructive hover:bg-destructive/20 focus-visible:border-destructive focus-visible:[outline:1px_solid_theme(colors.destructive)] dark:bg-destructive/20 dark:hover:bg-destructive/30 h-11 gap-1.5 px-2.5 has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2": {
+        "color": "rgba(223, 34, 37, 255)",
+        "background-color": "rgba(226, 29, 39, 26)",
+        "font-family": "Geist, system-ui, sans-serif",
+        "font-size": "14px",
+        "font-weight": "500",
+        "line-height": "20px",
+        "letter-spacing": "normal",
+        "border-top-width": "1px",
+        "border-top-color": "rgba(0, 0, 0, 0)",
+        "border-right-width": "1px",
+        "border-bottom-width": "1px",
+        "border-left-width": "1px",
+        "border-radius": "8px",
+        "padding-top": "0px",
+        "padding-right": "10px",
+        "padding-bottom": "0px",
+        "padding-left": "10px",
+        "height": "44px",
+        "box-shadow": "none",
+        "opacity": "1",
+        "gap": "6px"
+      }
+    }
+  }
+}

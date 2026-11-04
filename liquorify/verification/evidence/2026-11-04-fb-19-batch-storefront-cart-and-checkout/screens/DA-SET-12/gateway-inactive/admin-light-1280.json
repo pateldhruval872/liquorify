@@ -1,0 +1,11 @@
+{
+  "screen": "DA-SET-12",
+  "state": "gateway-inactive",
+  "variant": "admin",
+  "theme": "light",
+  "width": 1280,
+  "revision": "storefront 8865498, backend 06ccfbce",
+  "path": "/store_UkLWZg9DAJ/settings/payment-methods",
+  "observed": null,
+  "note": "The test gateway (Credit Card) opened from the list, \"Active\" switched off and saved."
+}

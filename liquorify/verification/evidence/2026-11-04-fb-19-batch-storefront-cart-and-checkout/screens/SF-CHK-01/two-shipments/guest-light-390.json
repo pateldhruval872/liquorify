@@ -1,0 +1,11 @@
+{
+  "screen": "SF-CHK-01",
+  "state": "two-shipments",
+  "variant": "guest",
+  "theme": "light",
+  "width": 390,
+  "revision": "storefront 8865498, backend 06ccfbce",
+  "path": "/us/en/checkout/cart_6VsgxZbenF",
+  "observed": "Rates offered: Digital Delivery $0.00; Store Pickup $0.00; Standard $5.00; Express $15.00. The payment section read: \"Payment Method All transactions are secure and encrypted. Credit Card This payment method is not yet supported in the storefront. Check Same as shipping address\". The order summary read: \"1 The Spree Commerce Handbook $19.99 1 Drip Coffee Maker 1.5L Color: Black $89.99 Subtotal $109.98 Shipping $5.00 Total USD $114.98 Apply\". The page showed no alert or toast.",
+  "note": "The digital handbook and a product that ships, so Spree splits the order into two shipments."
+}

@@ -1,0 +1,11 @@
+{
+  "screen": "DA-SET-12",
+  "state": "check-made-visible",
+  "variant": "admin",
+  "theme": "light",
+  "width": 1280,
+  "revision": "storefront 8865498, backend 06ccfbce",
+  "path": "/store_UkLWZg9DAJ/settings/payment-methods",
+  "observed": null,
+  "note": "Check and Credit Card (Spree's test gateway) each opened from the list, \"Visible in storefront\" switched on and saved; Check reopened to show the saved switch."
+}

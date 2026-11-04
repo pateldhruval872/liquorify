@@ -1,0 +1,7 @@
+{
+  "screen": "SF-CHK-03",
+  "state": "customer-greeted",
+  "variant": "customer",
+  "revision": "storefront 8865498, backend 06ccfbce",
+  "unavailable": "A signed-in customer cannot place an order on this storefront: checkout leaves their email empty and locked, so their address is never saved (SD-21)."
+}

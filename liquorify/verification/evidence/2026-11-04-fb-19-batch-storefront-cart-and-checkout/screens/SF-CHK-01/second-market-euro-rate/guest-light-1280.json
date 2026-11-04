@@ -1,0 +1,11 @@
+{
+  "screen": "SF-CHK-01",
+  "state": "second-market-euro-rate",
+  "variant": "guest",
+  "theme": "light",
+  "width": 1280,
+  "revision": "storefront 8865498, backend 06ccfbce",
+  "path": "/es/en/checkout/cart_5CQZnCRf8J",
+  "observed": "Rates offered: International Shipping €18.00. The order summary read: \"1 Drip Coffee Maker 1.5L Color: Black €84.99 Subtotal €84.99 Shipping €18.00 Total EUR €102.99 Apply\".",
+  "note": "The Spain market in euros, after International Shipping was given a euro amount in the dashboard."
+}

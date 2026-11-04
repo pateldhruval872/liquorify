@@ -1,0 +1,11 @@
+{
+  "screen": "SF-CHK-01",
+  "state": "digital-shipment",
+  "variant": "guest",
+  "theme": "light",
+  "width": 390,
+  "revision": "storefront 8865498, backend 06ccfbce",
+  "path": "/us/en/checkout/cart_XqKbb5HTmV",
+  "observed": "Rates offered: Instant download $0.00.",
+  "note": "Spree's sample handbook is digital, so its shipment is offered the digital profile's method."
+}

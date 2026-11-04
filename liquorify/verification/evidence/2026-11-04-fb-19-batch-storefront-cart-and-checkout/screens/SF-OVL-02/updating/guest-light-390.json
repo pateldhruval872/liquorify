@@ -1,0 +1,11 @@
+{
+  "screen": "SF-OVL-02",
+  "state": "updating",
+  "variant": "guest",
+  "theme": "light",
+  "width": 390,
+  "revision": "storefront 8865498, backend 06ccfbce",
+  "path": "/us/en/products/drip-coffee-maker",
+  "observed": null,
+  "note": "The quantity's \"Increase quantity\" pressed with the storefront's request left unanswered."
+}

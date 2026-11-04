@@ -1,0 +1,11 @@
+{
+  "screen": "SF-CHK-01",
+  "state": "rate-withheld-by-condition",
+  "variant": "guest",
+  "theme": "light",
+  "width": 390,
+  "revision": "storefront 8865498, backend 06ccfbce",
+  "path": "/us/en/checkout/cart_tIMyJwvFCu",
+  "observed": "Rates offered: Store Pickup $0.00; Standard $5.00.",
+  "note": "The cart's items total less than the 200.00 US dollars Express now needs."
+}

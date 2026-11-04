@@ -1,0 +1,2764 @@
+{
+  "version": "3.13.6",
+  "seed": 499,
+  "examples": [
+    {
+      "id": "./spec/integration/spree/api/v3/store/gift_card_cart_spec.rb[1:1:1:1:1]",
+      "description": "returns a 201 response",
+      "full_description": "Cart Gift Card API /api/v3/store/carts/{cart_id}/gift_cards post gift card applied returns a 201 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 1.106385689,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/gift_card_cart_spec.rb[1:1:1:4:1]",
+      "description": "returns a 422 response",
+      "full_description": "Cart Gift Card API /api/v3/store/carts/{cart_id}/gift_cards post gift card already redeemed returns a 422 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.211638955,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/gift_card_cart_spec.rb[1:1:1:3:1]",
+      "description": "returns a 422 response",
+      "full_description": "Cart Gift Card API /api/v3/store/carts/{cart_id}/gift_cards post gift card expired returns a 422 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.176402133,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/gift_card_cart_spec.rb[1:1:1:2:1]",
+      "description": "returns a 404 response",
+      "full_description": "Cart Gift Card API /api/v3/store/carts/{cart_id}/gift_cards post gift card not found returns a 404 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.170111158,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/gift_card_cart_spec.rb[1:2:1:1:1]",
+      "description": "returns a 200 response",
+      "full_description": "Cart Gift Card API /api/v3/store/carts/{cart_id}/gift_cards/{id} delete gift card removed returns a 200 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.454170531,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/gift_card_controller_spec.rb[1:2:1:1]",
+      "description": "removes the gift card successfully",
+      "full_description": "Spree::Api::V3::Store::Carts::GiftCardsController DELETE #destroy with an applied gift card removes the gift card successfully",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/gift_card_controller_spec.rb",
+      "line_number": 146,
+      "run_time": 0.414127545,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/gift_card_controller_spec.rb[1:2:2:1]",
+      "description": "returns success (no-op)",
+      "full_description": "Spree::Api::V3::Store::Carts::GiftCardsController DELETE #destroy without an applied gift card returns success (no-op)",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/gift_card_controller_spec.rb",
+      "line_number": 155,
+      "run_time": 0.282922095,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/gift_card_controller_spec.rb[1:1:3]",
+      "description": "returns error for non-existent gift card",
+      "full_description": "Spree::Api::V3::Store::Carts::GiftCardsController POST #create returns error for non-existent gift card",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/gift_card_controller_spec.rb",
+      "line_number": 33,
+      "run_time": 0.209243143,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/gift_card_controller_spec.rb[1:1:4]",
+      "description": "returns error for expired gift card",
+      "full_description": "Spree::Api::V3::Store::Carts::GiftCardsController POST #create returns error for expired gift card",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/gift_card_controller_spec.rb",
+      "line_number": 40,
+      "run_time": 0.218547178,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/gift_card_controller_spec.rb[1:1:5]",
+      "description": "returns error for redeemed gift card",
+      "full_description": "Spree::Api::V3::Store::Carts::GiftCardsController POST #create returns error for redeemed gift card",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/gift_card_controller_spec.rb",
+      "line_number": 48,
+      "run_time": 0.246451008,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/gift_card_controller_spec.rb[1:1:1]",
+      "description": "applies the gift card successfully",
+      "full_description": "Spree::Api::V3::Store::Carts::GiftCardsController POST #create applies the gift card successfully",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/gift_card_controller_spec.rb",
+      "line_number": 18,
+      "run_time": 0.521560985,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/gift_card_controller_spec.rb[1:1:2]",
+      "description": "is case insensitive",
+      "full_description": "Spree::Api::V3::Store::Carts::GiftCardsController POST #create is case insensitive",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/gift_card_controller_spec.rb",
+      "line_number": 27,
+      "run_time": 0.36976575,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/gift_card_controller_spec.rb[1:1:9:1]",
+      "description": "allows access via spree token",
+      "full_description": "Spree::Api::V3::Store::Carts::GiftCardsController POST #create with guest spree token allows access via spree token",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/gift_card_controller_spec.rb",
+      "line_number": 130,
+      "run_time": 0.457319117,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/gift_card_controller_spec.rb[1:1:6:1]",
+      "description": "moves the card onto this cart",
+      "full_description": "Spree::Api::V3::Store::Carts::GiftCardsController POST #create when the card is already held by the customer's other cart moves the card onto this cart",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/gift_card_controller_spec.rb",
+      "line_number": 64,
+      "run_time": 0.686962565,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/gift_card_controller_spec.rb[1:1:8:1:1]",
+      "description": "leaves the customer on the payment step with nothing outstanding",
+      "full_description": "Spree::Api::V3::Store::Carts::GiftCardsController POST #create on a cart that is otherwise ready to be placed when the card covers the whole basket leaves the customer on the payment step with nothing outstanding",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/gift_card_controller_spec.rb",
+      "line_number": 99,
+      "run_time": 0.602361542,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/gift_card_controller_spec.rb[1:1:8:2:1]",
+      "description": "keeps asking for the rest of the money",
+      "full_description": "Spree::Api::V3::Store::Carts::GiftCardsController POST #create on a cart that is otherwise ready to be placed when a balance remains keeps asking for the rest of the money",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/gift_card_controller_spec.rb",
+      "line_number": 112,
+      "run_time": 0.572422792,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/gift_card_controller_spec.rb[1:1:7:1]",
+      "description": "refuses and tells the customer to retry",
+      "full_description": "Spree::Api::V3::Store::Carts::GiftCardsController POST #create when the other cart is being completed refuses and tells the customer to retry",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/gift_card_controller_spec.rb",
+      "line_number": 82,
+      "run_time": 0.37693721,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/orders_controller_spec.rb[1:1:4:3]",
+      "description": "returns not found without token",
+      "full_description": "Spree::Api::V3::Store::OrdersController GET #show with spree token returns not found without token",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/orders_controller_spec.rb",
+      "line_number": 164,
+      "run_time": 0.303436499,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/orders_controller_spec.rb[1:1:4:1]",
+      "description": "returns the order for guest with valid token",
+      "full_description": "Spree::Api::V3::Store::OrdersController GET #show with spree token returns the order for guest with valid token",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/orders_controller_spec.rb",
+      "line_number": 149,
+      "run_time": 0.297971491,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/orders_controller_spec.rb[1:1:4:2]",
+      "description": "returns not found with invalid token",
+      "full_description": "Spree::Api::V3::Store::OrdersController GET #show with spree token returns not found with invalid token",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/orders_controller_spec.rb",
+      "line_number": 157,
+      "run_time": 0.207393625,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/orders_controller_spec.rb[1:1:5:1]",
+      "description": "returns not found for invalid order id",
+      "full_description": "Spree::Api::V3::Store::OrdersController GET #show error handling returns not found for invalid order id",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/orders_controller_spec.rb",
+      "line_number": 176,
+      "run_time": 0.057384354,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/orders_controller_spec.rb[1:1:5:2]",
+      "description": "returns not found for other users order",
+      "full_description": "Spree::Api::V3::Store::OrdersController GET #show error handling returns not found for other users order",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/orders_controller_spec.rb",
+      "line_number": 182,
+      "run_time": 0.388375154,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/orders_controller_spec.rb[1:1:5:3]",
+      "description": "returns not found for incomplete orders",
+      "full_description": "Spree::Api::V3::Store::OrdersController GET #show error handling returns not found for incomplete orders",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/orders_controller_spec.rb",
+      "line_number": 189,
+      "run_time": 0.252331886,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/orders_controller_spec.rb[1:1:2:1]",
+      "description": "resolves the order created from that cart",
+      "full_description": "Spree::Api::V3::Store::OrdersController GET #show with the cart handle after completion resolves the order created from that cart",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/orders_controller_spec.rb",
+      "line_number": 45,
+      "run_time": 0.45651954,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/orders_controller_spec.rb[1:1:2:2]",
+      "description": "returns not found without the matching token",
+      "full_description": "Spree::Api::V3::Store::OrdersController GET #show with the cart handle after completion returns not found without the matching token",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/orders_controller_spec.rb",
+      "line_number": 55,
+      "run_time": 0.395146099,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/orders_controller_spec.rb[1:1:1:2]",
+      "description": "returns order with expected attributes",
+      "full_description": "Spree::Api::V3::Store::OrdersController GET #show authenticated user returns order with expected attributes",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/orders_controller_spec.rb",
+      "line_number": 27,
+      "run_time": 0.345332897,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/orders_controller_spec.rb[1:1:1:1]",
+      "description": "returns the order",
+      "full_description": "Spree::Api::V3::Store::OrdersController GET #show authenticated user returns the order",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/orders_controller_spec.rb",
+      "line_number": 20,
+      "run_time": 0.274804202,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/orders_controller_spec.rb[1:1:3:5]",
+      "description": "resolves the group’s own id too",
+      "full_description": "Spree::Api::V3::Store::OrdersController GET #show with the cart handle after a checkout that split across sellers resolves the group’s own id too",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/orders_controller_spec.rb",
+      "line_number": 112,
+      "run_time": 0.597990122,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/orders_controller_spec.rb[1:1:3:6]",
+      "description": "returns not found without the matching token",
+      "full_description": "Spree::Api::V3::Store::OrdersController GET #show with the cart handle after a checkout that split across sellers returns not found without the matching token",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/orders_controller_spec.rb",
+      "line_number": 119,
+      "run_time": 0.56417533,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/orders_controller_spec.rb[1:1:3:2]",
+      "description": "answers with every seller’s items rather than one order’s",
+      "full_description": "Spree::Api::V3::Store::OrdersController GET #show with the cart handle after a checkout that split across sellers answers with every seller’s items rather than one order’s",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/orders_controller_spec.rb",
+      "line_number": 87,
+      "run_time": 0.638466325,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/orders_controller_spec.rb[1:1:3:7]",
+      "description": "runs no more queries for a checkout that reached more sellers",
+      "full_description": "Spree::Api::V3::Store::OrdersController GET #show with the cart handle after a checkout that split across sellers runs no more queries for a checkout that reached more sellers",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/orders_controller_spec.rb",
+      "line_number": 127,
+      "run_time": 1.608981586,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/orders_controller_spec.rb[1:1:3:4]",
+      "description": "carries the payment the group was charged, which no child holds",
+      "full_description": "Spree::Api::V3::Store::OrdersController GET #show with the cart handle after a checkout that split across sellers carries the payment the group was charged, which no child holds",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/orders_controller_spec.rb",
+      "line_number": 101,
+      "run_time": 0.648052296,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/orders_controller_spec.rb[1:1:3:3]",
+      "description": "sums the delivery the children were quoted",
+      "full_description": "Spree::Api::V3::Store::OrdersController GET #show with the cart handle after a checkout that split across sellers sums the delivery the children were quoted",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/orders_controller_spec.rb",
+      "line_number": 94,
+      "run_time": 0.608452012,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/orders_controller_spec.rb[1:1:3:1]",
+      "description": "resolves the cart handle to the group",
+      "full_description": "Spree::Api::V3::Store::OrdersController GET #show with the cart handle after a checkout that split across sellers resolves the cart handle to the group",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/orders_controller_spec.rb",
+      "line_number": 79,
+      "run_time": 0.973229278,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/gift_cards_spec.rb[1:2:1:1:1]",
+      "description": "returns a 200 response",
+      "full_description": "Gift Cards API /api/v3/store/customers/me/gift_cards/{id} get gift card found returns a 200 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.072011396,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/gift_cards_spec.rb[1:2:1:2:1]",
+      "description": "returns a 404 response",
+      "full_description": "Gift Cards API /api/v3/store/customers/me/gift_cards/{id} get gift card not found returns a 404 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.064541283,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/gift_cards_spec.rb[1:1:1:1:1]",
+      "description": "returns a 200 response",
+      "full_description": "Gift Cards API /api/v3/store/customers/me/gift_cards get gift cards found returns a 200 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.072456868,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/gift_cards_spec.rb[1:1:1:2:1]",
+      "description": "returns a 401 response",
+      "full_description": "Gift Cards API /api/v3/store/customers/me/gift_cards get unauthorized returns a 401 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.06671679,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/line_items_spec.rb[1:1:1:3:1]",
+      "description": "returns a 404 response",
+      "full_description": "Cart Items API /api/v3/store/carts/{cart_id}/items post variant not found returns a 404 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.177676889,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/line_items_spec.rb[1:1:1:2:1]",
+      "description": "returns a 201 response",
+      "full_description": "Cart Items API /api/v3/store/carts/{cart_id}/items post item added with metadata returns a 201 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.518103908,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/line_items_spec.rb[1:1:1:4:1]",
+      "description": "returns a 422 response",
+      "full_description": "Cart Items API /api/v3/store/carts/{cart_id}/items post rejected by a store rule returns a 422 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.280038663,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/line_items_spec.rb[1:1:1:1:1]",
+      "description": "returns a 201 response",
+      "full_description": "Cart Items API /api/v3/store/carts/{cart_id}/items post item added, returns updated cart returns a 201 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.538912193,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/line_items_spec.rb[1:2:2:1:1]",
+      "description": "returns a 200 response",
+      "full_description": "Cart Items API /api/v3/store/carts/{cart_id}/items/{id} delete line item removed, returns updated cart returns a 200 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.312039007,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/line_items_spec.rb[1:2:2:2:1]",
+      "description": "returns a 404 response",
+      "full_description": "Cart Items API /api/v3/store/carts/{cart_id}/items/{id} delete line item not found returns a 404 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.154494148,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/line_items_spec.rb[1:2:1:3:1]",
+      "description": "returns a 200 response",
+      "full_description": "Cart Items API /api/v3/store/carts/{cart_id}/items/{id} patch quantity change rejected, reported in warnings returns a 200 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.356249187,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/line_items_spec.rb[1:2:1:1:1]",
+      "description": "returns a 200 response",
+      "full_description": "Cart Items API /api/v3/store/carts/{cart_id}/items/{id} patch quantity updated, returns updated cart returns a 200 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.35535751,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/line_items_spec.rb[1:2:1:2:1]",
+      "description": "returns a 200 response",
+      "full_description": "Cart Items API /api/v3/store/carts/{cart_id}/items/{id} patch metadata updated on line item returns a 200 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.241726268,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/payment_sessions_controller_spec.rb[1:1:1]",
+      "description": "creates a payment session",
+      "full_description": "Spree::Api::V3::Store::Carts::PaymentSessionsController POST #create creates a payment session",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/payment_sessions_controller_spec.rb",
+      "line_number": 24,
+      "run_time": 0.203642026,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/payment_sessions_controller_spec.rb[1:1:2]",
+      "description": "does not accept a staff-only payment method",
+      "full_description": "Spree::Api::V3::Store::Carts::PaymentSessionsController POST #create does not accept a staff-only payment method",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/payment_sessions_controller_spec.rb",
+      "line_number": 34,
+      "run_time": 0.190781767,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/payment_sessions_controller_spec.rb[1:1:3]",
+      "description": "rejects a payment method unavailable for the cart",
+      "full_description": "Spree::Api::V3::Store::Carts::PaymentSessionsController POST #create rejects a payment method unavailable for the cart",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/payment_sessions_controller_spec.rb",
+      "line_number": 42,
+      "run_time": 0.193766801,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/payment_sessions_controller_spec.rb[1:1:4]",
+      "description": "passes external_data to the gateway",
+      "full_description": "Spree::Api::V3::Store::Carts::PaymentSessionsController POST #create passes external_data to the gateway",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/payment_sessions_controller_spec.rb",
+      "line_number": 51,
+      "run_time": 0.20491836,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/payment_sessions_controller_spec.rb[1:1:6:1]",
+      "description": "returns not found for non-existent payment method",
+      "full_description": "Spree::Api::V3::Store::Carts::PaymentSessionsController POST #create error handling returns not found for non-existent payment method",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/payment_sessions_controller_spec.rb",
+      "line_number": 82,
+      "run_time": 0.178993108,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/payment_sessions_controller_spec.rb[1:1:7:1]",
+      "description": "returns not found",
+      "full_description": "Spree::Api::V3::Store::Carts::PaymentSessionsController POST #create when the cart is already completed returns not found",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/payment_sessions_controller_spec.rb",
+      "line_number": 92,
+      "run_time": 0.170990842,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/payment_sessions_controller_spec.rb[1:1:5:2]",
+      "description": "returns forbidden without spree token",
+      "full_description": "Spree::Api::V3::Store::Carts::PaymentSessionsController POST #create with spree token (guest) returns forbidden without spree token",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/payment_sessions_controller_spec.rb",
+      "line_number": 74,
+      "run_time": 0.280510626,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/payment_sessions_controller_spec.rb[1:1:5:1]",
+      "description": "creates payment session with valid spree token",
+      "full_description": "Spree::Api::V3::Store::Carts::PaymentSessionsController POST #create with spree token (guest) creates payment session with valid spree token",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/payment_sessions_controller_spec.rb",
+      "line_number": 67,
+      "run_time": 0.269548081,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/payment_sessions_controller_spec.rb[1:2:2]",
+      "description": "finds payment session by external_id",
+      "full_description": "Spree::Api::V3::Store::Carts::PaymentSessionsController GET #show finds payment session by external_id",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/payment_sessions_controller_spec.rb",
+      "line_number": 111,
+      "run_time": 0.165479862,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/payment_sessions_controller_spec.rb[1:2:1]",
+      "description": "returns a payment session",
+      "full_description": "Spree::Api::V3::Store::Carts::PaymentSessionsController GET #show returns a payment session",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/payment_sessions_controller_spec.rb",
+      "line_number": 101,
+      "run_time": 0.217357399,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/payment_sessions_controller_spec.rb[1:2:3:2]",
+      "description": "returns not found for payment session from another order",
+      "full_description": "Spree::Api::V3::Store::Carts::PaymentSessionsController GET #show error handling returns not found for payment session from another order",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/payment_sessions_controller_spec.rb",
+      "line_number": 125,
+      "run_time": 0.322414298,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/payment_sessions_controller_spec.rb[1:2:3:1]",
+      "description": "returns not found for non-existent payment session",
+      "full_description": "Spree::Api::V3::Store::Carts::PaymentSessionsController GET #show error handling returns not found for non-existent payment session",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/payment_sessions_controller_spec.rb",
+      "line_number": 119,
+      "run_time": 0.178621198,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/payment_sessions_controller_spec.rb[1:2:3:3]",
+      "description": "returns not found for external_id from another order",
+      "full_description": "Spree::Api::V3::Store::Carts::PaymentSessionsController GET #show error handling returns not found for external_id from another order",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/payment_sessions_controller_spec.rb",
+      "line_number": 137,
+      "run_time": 0.472055925,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/payment_sessions_controller_spec.rb[1:4:2]",
+      "description": "completes the payment session by external_id",
+      "full_description": "Spree::Api::V3::Store::Carts::PaymentSessionsController PATCH #complete completes the payment session by external_id",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/payment_sessions_controller_spec.rb",
+      "line_number": 179,
+      "run_time": 0.20301056,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/payment_sessions_controller_spec.rb[1:4:1]",
+      "description": "completes the payment session",
+      "full_description": "Spree::Api::V3::Store::Carts::PaymentSessionsController PATCH #complete completes the payment session",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/payment_sessions_controller_spec.rb",
+      "line_number": 172,
+      "run_time": 0.227329091,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/payment_sessions_controller_spec.rb[1:4:3:2]",
+      "description": "still resolves when a webhook already completed the cart",
+      "full_description": "Spree::Api::V3::Store::Carts::PaymentSessionsController PATCH #complete when session is already completed still resolves when a webhook already completed the cart",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/payment_sessions_controller_spec.rb",
+      "line_number": 199,
+      "run_time": 0.281188596,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/payment_sessions_controller_spec.rb[1:4:3:1]",
+      "description": "returns success without re-processing",
+      "full_description": "Spree::Api::V3::Store::Carts::PaymentSessionsController PATCH #complete when session is already completed returns success without re-processing",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/payment_sessions_controller_spec.rb",
+      "line_number": 192,
+      "run_time": 0.21584324,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/payment_sessions_controller_spec.rb[1:3:1]",
+      "description": "updates the payment session",
+      "full_description": "Spree::Api::V3::Store::Carts::PaymentSessionsController PATCH #update updates the payment session",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/payment_sessions_controller_spec.rb",
+      "line_number": 152,
+      "run_time": 0.224119745,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/payment_sessions_controller_spec.rb[1:3:2:1]",
+      "description": "returns not found",
+      "full_description": "Spree::Api::V3::Store::Carts::PaymentSessionsController PATCH #update when the cart is already completed returns not found",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/payment_sessions_controller_spec.rb",
+      "line_number": 163,
+      "run_time": 0.199348836,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/payment_sessions_spec.rb[1:1:1:1:1]",
+      "description": "returns a 201 response",
+      "full_description": "Cart Payment Sessions API /api/v3/store/carts/{cart_id}/payment_sessions post payment session created returns a 201 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.198840214,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/payment_sessions_spec.rb[1:2:1:1:1]",
+      "description": "returns a 200 response",
+      "full_description": "Cart Payment Sessions API /api/v3/store/carts/{cart_id}/payment_sessions/{id} get payment session found returns a 200 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.264504395,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/payment_sessions_spec.rb[1:2:1:2:1]",
+      "description": "returns a 404 response",
+      "full_description": "Cart Payment Sessions API /api/v3/store/carts/{cart_id}/payment_sessions/{id} get payment session not found returns a 404 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.23666271,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/payment_sessions_spec.rb[1:2:2:1:1]",
+      "description": "returns a 200 response",
+      "full_description": "Cart Payment Sessions API /api/v3/store/carts/{cart_id}/payment_sessions/{id} patch payment session updated returns a 200 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.219719253,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/payment_sessions_spec.rb[1:3:1:1:1]",
+      "description": "returns a 200 response",
+      "full_description": "Cart Payment Sessions API /api/v3/store/carts/{cart_id}/payment_sessions/{id}/complete patch payment session completed returns a 200 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.235091745,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/payment_sessions_spec.rb[1:3:1:2:1]",
+      "description": "returns a 404 response",
+      "full_description": "Cart Payment Sessions API /api/v3/store/carts/{cart_id}/payment_sessions/{id}/complete patch payment session not found returns a 404 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.238798459,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/discount_codes_spec.rb[1:1:1:2:1]",
+      "description": "returns a 422 response",
+      "full_description": "Cart Discount Codes API /api/v3/store/carts/{cart_id}/discount_codes post invalid discount code returns a 422 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.242223529,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/discount_codes_spec.rb[1:1:1:1:1]",
+      "description": "returns a 201 response",
+      "full_description": "Cart Discount Codes API /api/v3/store/carts/{cart_id}/discount_codes post discount code applied returns a 201 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.862928802,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/discount_codes_spec.rb[1:1:1:3:1]",
+      "description": "returns a 201 response",
+      "full_description": "Cart Discount Codes API /api/v3/store/carts/{cart_id}/discount_codes post real code kept pending with eligibility warning returns a 201 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.373246965,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/discount_codes_spec.rb[1:2:1:2:1]",
+      "description": "returns a 422 response",
+      "full_description": "Cart Discount Codes API /api/v3/store/carts/{cart_id}/discount_codes/{id} delete discount code not found on cart returns a 422 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.236458911,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/discount_codes_spec.rb[1:2:1:1:1]",
+      "description": "returns a 200 response",
+      "full_description": "Cart Discount Codes API /api/v3/store/carts/{cart_id}/discount_codes/{id} delete discount code removed returns a 200 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.399662623,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/items_controller_spec.rb[1:2:3]",
+      "description": "defaults quantity to 1",
+      "full_description": "Spree::Api::V3::Store::Carts::ItemsController POST #create defaults quantity to 1",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/items_controller_spec.rb",
+      "line_number": 72,
+      "run_time": 0.509627718,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/items_controller_spec.rb[1:2:6]",
+      "description": "returns updated totals",
+      "full_description": "Spree::Api::V3::Store::Carts::ItemsController POST #create returns updated totals",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/items_controller_spec.rb",
+      "line_number": 119,
+      "run_time": 0.485563075,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/items_controller_spec.rb[1:2:4]",
+      "description": "ignores a variant or quantity sent in options",
+      "full_description": "Spree::Api::V3::Store::Carts::ItemsController POST #create ignores a variant or quantity sent in options",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/items_controller_spec.rb",
+      "line_number": 81,
+      "run_time": 0.506459485,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/items_controller_spec.rb[1:2:1]",
+      "description": "adds a line item and returns updated cart",
+      "full_description": "Spree::Api::V3::Store::Carts::ItemsController POST #create adds a line item and returns updated cart",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/items_controller_spec.rb",
+      "line_number": 49,
+      "run_time": 0.605903572,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/items_controller_spec.rb[1:2:2]",
+      "description": "drops a batch coupon code another cart has taken, with a warning",
+      "full_description": "Spree::Api::V3::Store::Carts::ItemsController POST #create drops a batch coupon code another cart has taken, with a warning",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/items_controller_spec.rb",
+      "line_number": 59,
+      "run_time": 0.530500804,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/items_controller_spec.rb[1:2:7:1]",
+      "description": "adds a line item with metadata",
+      "full_description": "Spree::Api::V3::Store::Carts::ItemsController POST #create with metadata adds a line item with metadata",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/items_controller_spec.rb",
+      "line_number": 126,
+      "run_time": 0.479299959,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/items_controller_spec.rb[1:2:8:1]",
+      "description": "adds line item with valid spree token",
+      "full_description": "Spree::Api::V3::Store::Carts::ItemsController POST #create with spree token (guest) adds line item with valid spree token",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/items_controller_spec.rb",
+      "line_number": 145,
+      "run_time": 0.438607978,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/items_controller_spec.rb[1:2:8:2]",
+      "description": "returns forbidden without spree token",
+      "full_description": "Spree::Api::V3::Store::Carts::ItemsController POST #create with spree token (guest) returns forbidden without spree token",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/items_controller_spec.rb",
+      "line_number": 152,
+      "run_time": 0.192910878,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/items_controller_spec.rb[1:2:10:3]",
+      "description": "refuses a product already unpublished from the cart's channel",
+      "full_description": "Spree::Api::V3::Store::Carts::ItemsController POST #create with a variant the buyer cannot order refuses a product already unpublished from the cart's channel",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/items_controller_spec.rb",
+      "line_number": 192,
+      "run_time": 0.221903758,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/items_controller_spec.rb[1:2:10:1]",
+      "description": "refuses a product outside the buyer's catalogs",
+      "full_description": "Spree::Api::V3::Store::Carts::ItemsController POST #create with a variant the buyer cannot order refuses a product outside the buyer's catalogs",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/items_controller_spec.rb",
+      "line_number": 170,
+      "run_time": 0.461133762,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/items_controller_spec.rb[1:2:10:2]",
+      "description": "refuses a product not published on the cart's channel",
+      "full_description": "Spree::Api::V3::Store::Carts::ItemsController POST #create with a variant the buyer cannot order refuses a product not published on the cart's channel",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/items_controller_spec.rb",
+      "line_number": 184,
+      "run_time": 0.22679763,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/items_controller_spec.rb[1:2:9:1]",
+      "description": "returns error for invalid variant",
+      "full_description": "Spree::Api::V3::Store::Carts::ItemsController POST #create validation errors returns error for invalid variant",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/items_controller_spec.rb",
+      "line_number": 160,
+      "run_time": 0.075769408,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/items_controller_spec.rb[1:2:5:1]",
+      "description": "refuses the mutation with a conflict",
+      "full_description": "Spree::Api::V3::Store::Carts::ItemsController POST #create while a completion holds the cart refuses the mutation with a conflict",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/items_controller_spec.rb",
+      "line_number": 101,
+      "run_time": 0.242876526,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/items_controller_spec.rb[1:2:5:2]",
+      "description": "allows the mutation once the claim is stale",
+      "full_description": "Spree::Api::V3::Store::Carts::ItemsController POST #create while a completion holds the cart allows the mutation once the claim is stale",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/items_controller_spec.rb",
+      "line_number": 110,
+      "run_time": 0.627592032,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/items_controller_spec.rb[1:5:1]",
+      "description": "reports a rejected quantity change as a warning and leaves the item alone",
+      "full_description": "Spree::Api::V3::Store::Carts::ItemsController a validate hook vetoing an item reports a rejected quantity change as a warning and leaves the item alone",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/items_controller_spec.rb",
+      "line_number": 297,
+      "run_time": 0.534714263,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/items_controller_spec.rb[1:5:3]",
+      "description": "reports no warnings when everything applied",
+      "full_description": "Spree::Api::V3::Store::Carts::ItemsController a validate hook vetoing an item reports no warnings when everything applied",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/items_controller_spec.rb",
+      "line_number": 326,
+      "run_time": 0.455524805,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/items_controller_spec.rb[1:5:2]",
+      "description": "can veto a removal",
+      "full_description": "Spree::Api::V3::Store::Carts::ItemsController a validate hook vetoing an item can veto a removal",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/items_controller_spec.rb",
+      "line_number": 314,
+      "run_time": 0.44337159,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/items_controller_spec.rb[1:4:1]",
+      "description": "removes line item and returns updated cart",
+      "full_description": "Spree::Api::V3::Store::Carts::ItemsController DELETE #destroy removes line item and returns updated cart",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/items_controller_spec.rb",
+      "line_number": 272,
+      "run_time": 0.376316893,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/items_controller_spec.rb[1:4:2:1]",
+      "description": "returns not found for non-existent line item",
+      "full_description": "Spree::Api::V3::Store::Carts::ItemsController DELETE #destroy error handling returns not found for non-existent line item",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/items_controller_spec.rb",
+      "line_number": 282,
+      "run_time": 0.33386642,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/items_controller_spec.rb[1:1:2]",
+      "description": "passes on what the engine said when it refused the request itself",
+      "full_description": "Spree::Api::V3::Store::Carts::ItemsController when the tax engine fails passes on what the engine said when it refused the request itself",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/items_controller_spec.rb",
+      "line_number": 36,
+      "run_time": 0.328083066,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/items_controller_spec.rb[1:1:1]",
+      "description": "refuses the change and says a retry is worth trying",
+      "full_description": "Spree::Api::V3::Store::Carts::ItemsController when the tax engine fails refuses the change and says a retry is worth trying",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/items_controller_spec.rb",
+      "line_number": 21,
+      "run_time": 0.288987247,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/items_controller_spec.rb[1:3:2]",
+      "description": "returns updated totals",
+      "full_description": "Spree::Api::V3::Store::Carts::ItemsController PATCH #update returns updated totals",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/items_controller_spec.rb",
+      "line_number": 213,
+      "run_time": 0.481861366,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/items_controller_spec.rb[1:3:1]",
+      "description": "updates line item quantity and returns updated cart",
+      "full_description": "Spree::Api::V3::Store::Carts::ItemsController PATCH #update updates line item quantity and returns updated cart",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/items_controller_spec.rb",
+      "line_number": 205,
+      "run_time": 0.506679432,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/items_controller_spec.rb[1:3:3:1]",
+      "description": "updates line item metadata",
+      "full_description": "Spree::Api::V3::Store::Carts::ItemsController PATCH #update with metadata updates line item metadata",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/items_controller_spec.rb",
+      "line_number": 221,
+      "run_time": 0.284988584,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/items_controller_spec.rb[1:3:3:2]",
+      "description": "updates metadata and quantity together",
+      "full_description": "Spree::Api::V3::Store::Carts::ItemsController PATCH #update with metadata updates metadata and quantity together",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/items_controller_spec.rb",
+      "line_number": 232,
+      "run_time": 0.522664001,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/items_controller_spec.rb[1:3:4:2]",
+      "description": "rejects a quantity of 0 instead of deleting the item",
+      "full_description": "Spree::Api::V3::Store::Carts::ItemsController PATCH #update error handling rejects a quantity of 0 instead of deleting the item",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/items_controller_spec.rb",
+      "line_number": 257,
+      "run_time": 0.239371236,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/items_controller_spec.rb[1:3:4:1]",
+      "description": "returns not found for non-existent line item",
+      "full_description": "Spree::Api::V3::Store::Carts::ItemsController PATCH #update error handling returns not found for non-existent line item",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/items_controller_spec.rb",
+      "line_number": 248,
+      "run_time": 0.237707887,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/items_controller_spec.rb[1:3:4:3]",
+      "description": "rejects a quantity of -1 instead of deleting the item",
+      "full_description": "Spree::Api::V3::Store::Carts::ItemsController PATCH #update error handling rejects a quantity of -1 instead of deleting the item",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/items_controller_spec.rb",
+      "line_number": 257,
+      "run_time": 0.231174989,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/payments_controller_spec.rb[1:1:3]",
+      "description": "creates a payment with metadata",
+      "full_description": "Spree::Api::V3::Store::Carts::PaymentsController POST #create creates a payment with metadata",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/payments_controller_spec.rb",
+      "line_number": 34,
+      "run_time": 0.317364007,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/payments_controller_spec.rb[1:1:8]",
+      "description": "rejects store credit, which is applied through its own endpoint",
+      "full_description": "Spree::Api::V3::Store::Carts::PaymentsController POST #create rejects store credit, which is applied through its own endpoint",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/payments_controller_spec.rb",
+      "line_number": 84,
+      "run_time": 0.371707927,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/payments_controller_spec.rb[1:1:4]",
+      "description": "rejects session-required payment methods",
+      "full_description": "Spree::Api::V3::Store::Carts::PaymentsController POST #create rejects session-required payment methods",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/payments_controller_spec.rb",
+      "line_number": 46,
+      "run_time": 0.166628204,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/payments_controller_spec.rb[1:1:2]",
+      "description": "creates a payment with a custom amount",
+      "full_description": "Spree::Api::V3::Store::Carts::PaymentsController POST #create creates a payment with a custom amount",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/payments_controller_spec.rb",
+      "line_number": 27,
+      "run_time": 0.212046315,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/payments_controller_spec.rb[1:1:5]",
+      "description": "rejects unavailable payment methods",
+      "full_description": "Spree::Api::V3::Store::Carts::PaymentsController POST #create rejects unavailable payment methods",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/payments_controller_spec.rb",
+      "line_number": 55,
+      "run_time": 0.227239878,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/payments_controller_spec.rb[1:1:1]",
+      "description": "creates a payment with a non-session payment method",
+      "full_description": "Spree::Api::V3::Store::Carts::PaymentsController POST #create creates a payment with a non-session payment method",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/payments_controller_spec.rb",
+      "line_number": 18,
+      "run_time": 0.260294813,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/payments_controller_spec.rb[1:1:9]",
+      "description": "returns not found for invalid payment method",
+      "full_description": "Spree::Api::V3::Store::Carts::PaymentsController POST #create returns not found for invalid payment method",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/payments_controller_spec.rb",
+      "line_number": 95,
+      "run_time": 0.185308767,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/payments_controller_spec.rb[1:1:6]",
+      "description": "does not accept a staff-only payment method",
+      "full_description": "Spree::Api::V3::Store::Carts::PaymentsController POST #create does not accept a staff-only payment method",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/payments_controller_spec.rb",
+      "line_number": 67,
+      "run_time": 0.175316336,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/payments_controller_spec.rb[1:1:7]",
+      "description": "does not accept an inactive payment method",
+      "full_description": "Spree::Api::V3::Store::Carts::PaymentsController POST #create does not accept an inactive payment method",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/payments_controller_spec.rb",
+      "line_number": 76,
+      "run_time": 0.232447391,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/payments_controller_spec.rb[1:1:10:1]",
+      "description": "creates a payment with valid spree token",
+      "full_description": "Spree::Api::V3::Store::Carts::PaymentsController POST #create with spree token (guest) creates a payment with valid spree token",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/payments_controller_spec.rb",
+      "line_number": 106,
+      "run_time": 0.197717512,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:7:1]",
+      "description": "completes the checkout",
+      "full_description": "Spree::Api::V3::Store::CartsController POST #complete completes the checkout",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 1171,
+      "run_time": 0.73448852,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:7:2]",
+      "description": "releases stock reservations on successful completion",
+      "full_description": "Spree::Api::V3::Store::CartsController POST #complete releases stock reservations on successful completion",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 1181,
+      "run_time": 0.699411203,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:7:4:1]",
+      "description": "returns unprocessable entity with cart_cannot_complete code",
+      "full_description": "Spree::Api::V3::Store::CartsController POST #complete when order cannot be completed returns unprocessable entity with cart_cannot_complete code",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 1235,
+      "run_time": 0.285624031,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:7:5:2]",
+      "description": "returns the completed order via spree token",
+      "full_description": "Spree::Api::V3::Store::CartsController POST #complete when order was already completed by the gateway returns the completed order via spree token",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 1253,
+      "run_time": 0.471350611,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:7:5:3]",
+      "description": "returns forbidden without valid authentication",
+      "full_description": "Spree::Api::V3::Store::CartsController POST #complete when order was already completed by the gateway returns forbidden without valid authentication",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 1263,
+      "run_time": 0.321316619,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:7:5:1]",
+      "description": "returns the completed order via JWT",
+      "full_description": "Spree::Api::V3::Store::CartsController POST #complete when order was already completed by the gateway returns the completed order via JWT",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 1246,
+      "run_time": 0.387953837,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:7:6:1]",
+      "description": "completes via spree token",
+      "full_description": "Spree::Api::V3::Store::CartsController POST #complete with guest cart token completes via spree token",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 1281,
+      "run_time": 0.708437979,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:7:3:1]",
+      "description": "answers an outage with 503 so the client retries",
+      "full_description": "Spree::Api::V3::Store::CartsController POST #complete when the tax engine fails at completion answers an outage with 503 so the client retries",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 1211,
+      "run_time": 0.264051878,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:7:3:2]",
+      "description": "answers a refusal with 422 and what the engine said",
+      "full_description": "Spree::Api::V3::Store::CartsController POST #complete when the tax engine fails at completion answers a refusal with 422 and what the engine said",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 1221,
+      "run_time": 0.194006576,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:5:2:1]",
+      "description": "returns unauthorized",
+      "full_description": "Spree::Api::V3::Store::CartsController PATCH #associate without JWT authentication returns unauthorized",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 1090,
+      "run_time": 0.141372046,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:5:3:1]",
+      "description": "returns unauthorized",
+      "full_description": "Spree::Api::V3::Store::CartsController PATCH #associate without API key returns unauthorized",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 1103,
+      "run_time": 0.1308719,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:5:1:5]",
+      "description": "forbids associating a cart with the wrong cart token",
+      "full_description": "Spree::Api::V3::Store::CartsController PATCH #associate with JWT authentication forbids associating a cart with the wrong cart token",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 1046,
+      "run_time": 0.17651337,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:5:1:2]",
+      "description": "allows re-associating a cart already owned by current user with its token",
+      "full_description": "Spree::Api::V3::Store::CartsController PATCH #associate with JWT authentication allows re-associating a cart already owned by current user with its token",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 1020,
+      "run_time": 0.595862836,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:5:1:9]",
+      "description": "returns not found for cart from other store",
+      "full_description": "Spree::Api::V3::Store::CartsController PATCH #associate with JWT authentication returns not found for cart from other store",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 1079,
+      "run_time": 0.449491776,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:5:1:6]",
+      "description": "returns not found for invalid id",
+      "full_description": "Spree::Api::V3::Store::CartsController PATCH #associate with JWT authentication returns not found for invalid id",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 1055,
+      "run_time": 0.054891772,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:5:1:7]",
+      "description": "returns not found for completed order",
+      "full_description": "Spree::Api::V3::Store::CartsController PATCH #associate with JWT authentication returns not found for completed order",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 1061,
+      "run_time": 0.268426931,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:5:1:4]",
+      "description": "forbids associating an own cart without the cart token",
+      "full_description": "Spree::Api::V3::Store::CartsController PATCH #associate with JWT authentication forbids associating an own cart without the cart token",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 1038,
+      "run_time": 0.237897559,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:5:1:3]",
+      "description": "forbids associating a cart without the cart token",
+      "full_description": "Spree::Api::V3::Store::CartsController PATCH #associate with JWT authentication forbids associating a cart without the cart token",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 1030,
+      "run_time": 0.250334035,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:5:1:8]",
+      "description": "returns not found when cart belongs to another user",
+      "full_description": "Spree::Api::V3::Store::CartsController PATCH #associate with JWT authentication returns not found when cart belongs to another user",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 1069,
+      "run_time": 0.214358649,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:5:1:1:2]",
+      "description": "updates cart email to users email",
+      "full_description": "Spree::Api::V3::Store::CartsController PATCH #associate with JWT authentication with the guest cart token updates cart email to users email",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 999,
+      "run_time": 0.330387541,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:5:1:1:3]",
+      "description": "sets user addresses on cart when user has addresses",
+      "full_description": "Spree::Api::V3::Store::CartsController PATCH #associate with JWT authentication with the guest cart token sets user addresses on cart when user has addresses",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 1006,
+      "run_time": 0.347318679,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:5:1:1:1]",
+      "description": "associates guest cart with current user",
+      "full_description": "Spree::Api::V3::Store::CartsController PATCH #associate with JWT authentication with the guest cart token associates guest cart with current user",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 991,
+      "run_time": 0.29325376,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:4:3]",
+      "description": "accepts shipping_address_id to use an existing address",
+      "full_description": "Spree::Api::V3::Store::CartsController PATCH #update accepts shipping_address_id to use an existing address",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 701,
+      "run_time": 0.465655404,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:4:9]",
+      "description": "auto-advances to payment after address submission",
+      "full_description": "Spree::Api::V3::Store::CartsController PATCH #update auto-advances to payment after address submission",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 915,
+      "run_time": 0.463279001,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:4:1]",
+      "description": "updates the cart through the configured carts update service",
+      "full_description": "Spree::Api::V3::Store::CartsController PATCH #update updates the cart through the configured carts update service",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 659,
+      "run_time": 0.258421336,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:4:10:1]",
+      "description": "creates a reservation when the cart leaves the cart state",
+      "full_description": "Spree::Api::V3::Store::CartsController PATCH #update stock reservations creates a reservation when the cart leaves the cart state",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 949,
+      "run_time": 0.584797574,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:4:10:2]",
+      "description": "extends an existing reservation on subsequent in-checkout updates",
+      "full_description": "Spree::Api::V3::Store::CartsController PATCH #update stock reservations extends an existing reservation on subsequent in-checkout updates",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 955,
+      "run_time": 0.739558733,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:4:10:3:1]",
+      "description": "does not create reservations",
+      "full_description": "Spree::Api::V3::Store::CartsController PATCH #update stock reservations when stock_reservations_enabled is false does not create reservations",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 969,
+      "run_time": 0.461568537,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:4:4:5]",
+      "description": "refuses a tampered signed id",
+      "full_description": "Spree::Api::V3::Store::CartsController PATCH #update the buyer purchase order refuses a tampered signed id",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 754,
+      "run_time": 0.22141318,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:4:4:2]",
+      "description": "clears the reference when the buyer blanks it",
+      "full_description": "Spree::Api::V3::Store::CartsController PATCH #update the buyer purchase order clears the reference when the buyer blanks it",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 720,
+      "run_time": 0.291434904,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:4:4:3]",
+      "description": "reports whether the company demands one",
+      "full_description": "Spree::Api::V3::Store::CartsController PATCH #update the buyer purchase order reports whether the company demands one",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 729,
+      "run_time": 0.310763713,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:4:4:4]",
+      "description": "attaches a document from a signed blob id",
+      "full_description": "Spree::Api::V3::Store::CartsController PATCH #update the buyer purchase order attaches a document from a signed blob id",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 738,
+      "run_time": 0.470533013,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:4:4:1]",
+      "description": "persists the reference and reports it back",
+      "full_description": "Spree::Api::V3::Store::CartsController PATCH #update the buyer purchase order persists the reference and reports it back",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 712,
+      "run_time": 0.366318887,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:4:2:1]",
+      "description": "answers an outage with 503 so the client retries",
+      "full_description": "Spree::Api::V3::Store::CartsController PATCH #update when the tax engine fails on the new address answers an outage with 503 so the client retries",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 680,
+      "run_time": 0.343589696,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:4:2:2]",
+      "description": "answers a refusal with 422 and what the engine said",
+      "full_description": "Spree::Api::V3::Store::CartsController PATCH #update when the tax engine fails on the new address answers a refusal with 422 and what the engine said",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 690,
+      "run_time": 0.361506241,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:4:6:2]",
+      "description": "returns 404 for a location that is not pickup-enabled",
+      "full_description": "Spree::Api::V3::Store::CartsController PATCH #update selecting a pickup location returns 404 for a location that is not pickup-enabled",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 826,
+      "run_time": 0.276078867,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:4:6:1]",
+      "description": "persists the choice and returns it as a prefixed id",
+      "full_description": "Spree::Api::V3::Store::CartsController PATCH #update selecting a pickup location persists the choice and returns it as a prefixed id",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 818,
+      "run_time": 0.810417583,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:4:8:5]",
+      "description": "keeps the current market when no market exists for the currency",
+      "full_description": "Spree::Api::V3::Store::CartsController PATCH #update updating market keeps the current market when no market exists for the currency",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 902,
+      "run_time": 0.360277347,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:4:8:1]",
+      "description": "updates the cart market",
+      "full_description": "Spree::Api::V3::Store::CartsController PATCH #update updating market updates the cart market",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 860,
+      "run_time": 0.312901194,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:4:8:3]",
+      "description": "returns not found for invalid market_id",
+      "full_description": "Spree::Api::V3::Store::CartsController PATCH #update updating market returns not found for invalid market_id",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 883,
+      "run_time": 0.211962134,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:4:8:2]",
+      "description": "switches to a different market",
+      "full_description": "Spree::Api::V3::Store::CartsController PATCH #update updating market switches to a different market",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 869,
+      "run_time": 0.335808673,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:4:8:4]",
+      "description": "auto-switches market when currency changes",
+      "full_description": "Spree::Api::V3::Store::CartsController PATCH #update updating market auto-switches market when currency changes",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 889,
+      "run_time": 0.329817536,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:4:7:1]",
+      "description": "returns ok with a delivery_unavailable warning, an unmet delivery requirement, and no fulfillments",
+      "full_description": "Spree::Api::V3::Store::CartsController PATCH #update when a line item cannot be delivered to the address returns ok with a delivery_unavailable warning, an unmet delivery requirement, and no fulfillments",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 845,
+      "run_time": 0.35934496,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:4:5:2]",
+      "description": "refuses a node the buyer has no standing over",
+      "full_description": "Spree::Api::V3::Store::CartsController PATCH #update naming the company the purchase is for refuses a node the buyer has no standing over",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 776,
+      "run_time": 0.211840368,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:4:5:1]",
+      "description": "persists a node the buyer has standing over",
+      "full_description": "Spree::Api::V3::Store::CartsController PATCH #update naming the company the purchase is for persists a node the buyer has standing over",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 765,
+      "run_time": 0.312204681,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:4:5:5]",
+      "description": "clears the node when passed nothing",
+      "full_description": "Spree::Api::V3::Store::CartsController PATCH #update naming the company the purchase is for clears the node when passed nothing",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 804,
+      "run_time": 0.40203199,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:4:5:3]",
+      "description": "refuses a company on a guest cart",
+      "full_description": "Spree::Api::V3::Store::CartsController PATCH #update naming the company the purchase is for refuses a company on a guest cart",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 785,
+      "run_time": 0.407271468,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:4:5:4]",
+      "description": "404s a node of another store",
+      "full_description": "Spree::Api::V3::Store::CartsController PATCH #update naming the company the purchase is for 404s a node of another store",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 796,
+      "run_time": 0.371982911,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:2:1]",
+      "description": "creates the cart through the configured carts create service",
+      "full_description": "Spree::Api::V3::Store::CartsController POST #create creates the cart through the configured carts create service",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 147,
+      "run_time": 0.065616946,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:2:6]",
+      "description": "sets market from Spree::Current on the cart",
+      "full_description": "Spree::Api::V3::Store::CartsController POST #create sets market from Spree::Current on the cart",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 186,
+      "run_time": 0.105983891,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:2:3]",
+      "description": "returns token for guest access",
+      "full_description": "Spree::Api::V3::Store::CartsController POST #create returns token for guest access",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 167,
+      "run_time": 0.055843028,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:2:2]",
+      "description": "creates a new cart",
+      "full_description": "Spree::Api::V3::Store::CartsController POST #create creates a new cart",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 157,
+      "run_time": 0.052232032,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:2:5]",
+      "description": "sets locale on the cart",
+      "full_description": "Spree::Api::V3::Store::CartsController POST #create sets locale on the cart",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 179,
+      "run_time": 0.052439952,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:2:4]",
+      "description": "creates cart associated with current store",
+      "full_description": "Spree::Api::V3::Store::CartsController POST #create creates cart associated with current store",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 173,
+      "run_time": 0.052912015,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:2:11:1]",
+      "description": "returns unauthorized",
+      "full_description": "Spree::Api::V3::Store::CartsController POST #create without API key returns unauthorized",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 321,
+      "run_time": 0.027286098,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:2:8:2]",
+      "description": "does not return metadata in response",
+      "full_description": "Spree::Api::V3::Store::CartsController POST #create with metadata does not return metadata in response",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 226,
+      "run_time": 0.112185262,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:2:8:1]",
+      "description": "creates a cart with metadata",
+      "full_description": "Spree::Api::V3::Store::CartsController POST #create with metadata creates a cart with metadata",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 218,
+      "run_time": 0.060333785,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:2:9:1]",
+      "description": "creates a cart associated with user",
+      "full_description": "Spree::Api::V3::Store::CartsController POST #create for authenticated user creates a cart associated with user",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 239,
+      "run_time": 0.08337852,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:2:7:1]",
+      "description": "attributes the cart to the requested channel",
+      "full_description": "Spree::Api::V3::Store::CartsController POST #create with X-Spree-Channel header attributes the cart to the requested channel",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 201,
+      "run_time": 0.068511419,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:2:7:2]",
+      "description": "falls back to the store default channel when the header is absent",
+      "full_description": "Spree::Api::V3::Store::CartsController POST #create with X-Spree-Channel header falls back to the store default channel when the header is absent",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 210,
+      "run_time": 0.093700354,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:2:10:4]",
+      "description": "returns variant_not_found for invalid variant_id",
+      "full_description": "Spree::Api::V3::Store::CartsController POST #create with line_items returns variant_not_found for invalid variant_id",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 293,
+      "run_time": 0.371126885,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:2:10:5]",
+      "description": "refuses an item outside the buyer's catalogs",
+      "full_description": "Spree::Api::V3::Store::CartsController POST #create with line_items refuses an item outside the buyer's catalogs",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 303,
+      "run_time": 0.448309636,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:2:10:3]",
+      "description": "defaults quantity to 1 when not specified",
+      "full_description": "Spree::Api::V3::Store::CartsController POST #create with line_items defaults quantity to 1 when not specified",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 284,
+      "run_time": 0.6515131,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:2:10:2]",
+      "description": "returns line items in response",
+      "full_description": "Spree::Api::V3::Store::CartsController POST #create with line_items returns line items in response",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 274,
+      "run_time": 0.651542222,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:2:10:1]",
+      "description": "creates a cart with line items",
+      "full_description": "Spree::Api::V3::Store::CartsController POST #create with line_items creates a cart with line items",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 259,
+      "run_time": 0.689673125,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:1:1:9]",
+      "description": "does not return completed orders",
+      "full_description": "Spree::Api::V3::Store::CartsController GET #index with JWT authentication does not return completed orders",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 106,
+      "run_time": 0.322609469,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:1:1:7]",
+      "description": "does not return other users carts",
+      "full_description": "Spree::Api::V3::Store::CartsController GET #index with JWT authentication does not return other users carts",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 87,
+      "run_time": 0.133038229,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:1:1:2]",
+      "description": "excludes completed carts — a signed-in customer never re-adopts a finished checkout",
+      "full_description": "Spree::Api::V3::Store::CartsController GET #index with JWT authentication excludes completed carts — a signed-in customer never re-adopts a finished checkout",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 38,
+      "run_time": 0.10331846,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:1:1:6]",
+      "description": "returns cart-prefixed IDs",
+      "full_description": "Spree::Api::V3::Store::CartsController GET #index with JWT authentication returns cart-prefixed IDs",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 79,
+      "run_time": 0.142471107,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:1:1:10]",
+      "description": "does not return carts from other stores",
+      "full_description": "Spree::Api::V3::Store::CartsController GET #index with JWT authentication does not return carts from other stores",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 115,
+      "run_time": 0.254582476,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:1:1:1]",
+      "description": "returns the current users carts",
+      "full_description": "Spree::Api::V3::Store::CartsController GET #index with JWT authentication returns the current users carts",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 29,
+      "run_time": 0.119615645,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:1:1:5]",
+      "description": "returns pagination metadata",
+      "full_description": "Spree::Api::V3::Store::CartsController GET #index with JWT authentication returns pagination metadata",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 73,
+      "run_time": 0.109678559,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:1:1:4]",
+      "description": "returns carts ordered by updated_at desc",
+      "full_description": "Spree::Api::V3::Store::CartsController GET #index with JWT authentication returns carts ordered by updated_at desc",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 63,
+      "run_time": 0.256534692,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:1:1:3]",
+      "description": "scopes carts to the request channel — other channels never leak into a surface",
+      "full_description": "Spree::Api::V3::Store::CartsController GET #index with JWT authentication scopes carts to the request channel — other channels never leak into a surface",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 47,
+      "run_time": 0.414083241,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:1:1:8]",
+      "description": "does not return guest carts",
+      "full_description": "Spree::Api::V3::Store::CartsController GET #index with JWT authentication does not return guest carts",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 97,
+      "run_time": 0.133574906,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:1:2:1]",
+      "description": "returns unauthorized",
+      "full_description": "Spree::Api::V3::Store::CartsController GET #index without JWT authentication returns unauthorized",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 127,
+      "run_time": 0.015584968,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:1:3:1]",
+      "description": "returns unauthorized",
+      "full_description": "Spree::Api::V3::Store::CartsController GET #index without API key returns unauthorized",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 138,
+      "run_time": 0.013262803,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:3:5:1]",
+      "description": "returns unauthorized",
+      "full_description": "Spree::Api::V3::Store::CartsController GET #show without API key returns unauthorized",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 433,
+      "run_time": 0.014127472,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:3:7:1]",
+      "description": "returns empty warnings array when cart is valid",
+      "full_description": "Spree::Api::V3::Store::CartsController GET #show warnings returns empty warnings array when cart is valid",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 490,
+      "run_time": 0.209559058,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:3:7:5]",
+      "description": "drops a batch coupon code another cart has taken, with a warning",
+      "full_description": "Spree::Api::V3::Store::CartsController GET #show warnings drops a batch coupon code another cart has taken, with a warning",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 532,
+      "run_time": 0.381022524,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:3:7:4]",
+      "description": "removes the line item when returning a warning",
+      "full_description": "Spree::Api::V3::Store::CartsController GET #show warnings removes the line item when returning a warning",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 523,
+      "run_time": 0.220989672,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:3:7:2]",
+      "description": "returns warnings when a line item is out of stock",
+      "full_description": "Spree::Api::V3::Store::CartsController GET #show warnings returns warnings when a line item is out of stock",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 497,
+      "run_time": 0.202463421,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:3:7:3]",
+      "description": "returns warnings when a product is discontinued",
+      "full_description": "Spree::Api::V3::Store::CartsController GET #show warnings returns warnings when a product is discontinued",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 513,
+      "run_time": 0.226583885,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:3:3:1]",
+      "description": "returns not found",
+      "full_description": "Spree::Api::V3::Store::CartsController GET #show with a completed cart returns not found",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 415,
+      "run_time": 0.132331478,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:3:2:2]",
+      "description": "returns forbidden when cart belongs to another user",
+      "full_description": "Spree::Api::V3::Store::CartsController GET #show with JWT authentication returns forbidden when cart belongs to another user",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 395,
+      "run_time": 0.299684157,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:3:2:1]",
+      "description": "returns the users cart",
+      "full_description": "Spree::Api::V3::Store::CartsController GET #show with JWT authentication returns the users cart",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 388,
+      "run_time": 0.310282992,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:3:1:3]",
+      "description": "returns cart token in response",
+      "full_description": "Spree::Api::V3::Store::CartsController GET #show with x-spree-token header returns cart token in response",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 352,
+      "run_time": 0.21205378,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:3:1:4]",
+      "description": "returns not found for invalid id",
+      "full_description": "Spree::Api::V3::Store::CartsController GET #show with x-spree-token header returns not found for invalid id",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 358,
+      "run_time": 0.152197052,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:3:1:5]",
+      "description": "returns not found for completed order",
+      "full_description": "Spree::Api::V3::Store::CartsController GET #show with x-spree-token header returns not found for completed order",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 364,
+      "run_time": 0.389245159,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:3:1:2]",
+      "description": "returns cart with line items",
+      "full_description": "Spree::Api::V3::Store::CartsController GET #show with x-spree-token header returns cart with line items",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 345,
+      "run_time": 0.228611133,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:3:1:1]",
+      "description": "returns the cart",
+      "full_description": "Spree::Api::V3::Store::CartsController GET #show with x-spree-token header returns the cart",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 337,
+      "run_time": 0.198688732,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:3:1:6]",
+      "description": "returns not found for other store cart",
+      "full_description": "Spree::Api::V3::Store::CartsController GET #show with x-spree-token header returns not found for other store cart",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 371,
+      "run_time": 0.411475487,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:3:6:1]",
+      "description": "returns expected cart attributes",
+      "full_description": "Spree::Api::V3::Store::CartsController GET #show response structure returns expected cart attributes",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 446,
+      "run_time": 0.225918198,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:3:6:2]",
+      "description": "returns line item attributes",
+      "full_description": "Spree::Api::V3::Store::CartsController GET #show response structure returns line item attributes",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 468,
+      "run_time": 0.280268768,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:3:9:1]",
+      "description": "serializes the billing address with the configured serializer",
+      "full_description": "Spree::Api::V3::Store::CartsController GET #show with a custom address serializer serializes the billing address with the configured serializer",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 635,
+      "run_time": 0.275584465,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:3:4:1]",
+      "description": "returns not found for nonexistent cart",
+      "full_description": "Spree::Api::V3::Store::CartsController GET #show without authentication returns not found for nonexistent cart",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 423,
+      "run_time": 0.026348498,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:3:8:1]",
+      "description": "generates shipments when address is present but shipments are empty",
+      "full_description": "Spree::Api::V3::Store::CartsController GET #show auto-advance generates shipments when address is present but shipments are empty",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 559,
+      "run_time": 0.446421817,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:3:8:2]",
+      "description": "advances through the configured checkout advance service",
+      "full_description": "Spree::Api::V3::Store::CartsController GET #show auto-advance advances through the configured checkout advance service",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 573,
+      "run_time": 0.362999301,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:3:8:4]",
+      "description": "does not advance when no address is set",
+      "full_description": "Spree::Api::V3::Store::CartsController GET #show auto-advance does not advance when no address is set",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 606,
+      "run_time": 0.368528343,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:3:8:3]",
+      "description": "surfaces a delivery_unavailable warning when the cart cannot be delivered",
+      "full_description": "Spree::Api::V3::Store::CartsController GET #show auto-advance surfaces a delivery_unavailable warning when the cart cannot be delivered",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 586,
+      "run_time": 0.413127409,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:6:1:1]",
+      "description": "deletes the cart",
+      "full_description": "Spree::Api::V3::Store::CartsController DELETE #destroy with x-spree-token header deletes the cart",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 1117,
+      "run_time": 0.185428889,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:6:1:2]",
+      "description": "removes any stock reservations belonging to the cart",
+      "full_description": "Spree::Api::V3::Store::CartsController DELETE #destroy with x-spree-token header removes any stock reservations belonging to the cart",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 1123,
+      "run_time": 0.192468539,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb[1:6:2:1]",
+      "description": "deletes the users cart",
+      "full_description": "Spree::Api::V3::Store::CartsController DELETE #destroy with JWT authentication deletes the users cart",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_controller_spec.rb",
+      "line_number": 1149,
+      "run_time": 0.214077258,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/orders_spec.rb[1:1:1:2:1]",
+      "description": "returns a 200 response",
+      "full_description": "Orders API /api/v3/store/orders/{id} get order found (guest via order token) returns a 200 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.385890723,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/orders_spec.rb[1:1:1:4:1]",
+      "description": "returns a 404 response",
+      "full_description": "Orders API /api/v3/store/orders/{id} get incomplete order not accessible returns a 404 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.398636983,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/orders_spec.rb[1:1:1:3:1]",
+      "description": "returns a 404 response",
+      "full_description": "Orders API /api/v3/store/orders/{id} get order not found returns a 404 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.186567313,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/orders_spec.rb[1:1:1:1:1]",
+      "description": "returns a 200 response",
+      "full_description": "Orders API /api/v3/store/orders/{id} get order found (authenticated) returns a 200 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.391068822,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/carts_spec.rb[1:2:2:1:1]",
+      "description": "returns a 200 response",
+      "full_description": "Carts API /api/v3/store/carts/{id} patch cart updated returns a 200 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.40142992,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/carts_spec.rb[1:2:3:1:1]",
+      "description": "returns a 204 response",
+      "full_description": "Carts API /api/v3/store/carts/{id} delete cart deleted returns a 204 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.180354317,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/carts_spec.rb[1:2:1:3:1]",
+      "description": "returns a 404 response",
+      "full_description": "Carts API /api/v3/store/carts/{id} get cart not found returns a 404 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.02819268,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/carts_spec.rb[1:2:1:1:1]",
+      "description": "returns a 200 response",
+      "full_description": "Carts API /api/v3/store/carts/{id} get cart found returns a 200 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.243482469,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/carts_spec.rb[1:2:1:2:1]",
+      "description": "returns a 200 response",
+      "full_description": "Carts API /api/v3/store/carts/{id} get cart with out-of-stock item removed (warnings returned) returns a 200 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.277671557,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/carts_spec.rb[1:1:1:1:1]",
+      "description": "returns a 200 response",
+      "full_description": "Carts API /api/v3/store/carts get carts listed returns a 200 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.853386202,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/carts_spec.rb[1:1:1:2:1]",
+      "description": "returns a 401 response",
+      "full_description": "Carts API /api/v3/store/carts get unauthorized returns a 401 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.026036016,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/carts_spec.rb[1:1:2:1:1]",
+      "description": "returns a 201 response",
+      "full_description": "Carts API /api/v3/store/carts post cart created returns a 201 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.072198627,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/carts_spec.rb[1:4:1:1:1]",
+      "description": "returns a 200 response",
+      "full_description": "Carts API /api/v3/store/carts/{id}/complete post cart completed returns a 200 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.683019568,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/carts_spec.rb[1:4:1:2:1]",
+      "description": "returns a 422 response",
+      "full_description": "Carts API /api/v3/store/carts/{id}/complete post cannot complete returns a 422 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.254639068,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/carts_spec.rb[1:3:1:1:1]",
+      "description": "returns a 200 response",
+      "full_description": "Carts API /api/v3/store/carts/{id}/associate patch cart associated successfully returns a 200 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.274947228,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/carts_spec.rb[1:3:1:2:1]",
+      "description": "returns a 401 response",
+      "full_description": "Carts API /api/v3/store/carts/{id}/associate patch unauthorized - JWT required returns a 401 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.130273767,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/carts_spec.rb[1:3:1:3:1]",
+      "description": "returns a 403 response",
+      "full_description": "Carts API /api/v3/store/carts/{id}/associate patch forbidden - cart token missing or does not match returns a 403 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.254076246,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/store_credits_controller_spec.rb[1:1:1]",
+      "description": "applies store credit to the cart",
+      "full_description": "Spree::Api::V3::Store::Carts::StoreCreditsController POST #create applies store credit to the cart",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/store_credits_controller_spec.rb",
+      "line_number": 18,
+      "run_time": 0.372173457,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/store_credits_controller_spec.rb[1:1:2:1]",
+      "description": "applies a decimal string exactly",
+      "full_description": "Spree::Api::V3::Store::Carts::StoreCreditsController POST #create with an amount applies a decimal string exactly",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/store_credits_controller_spec.rb",
+      "line_number": 27,
+      "run_time": 0.36053339,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/store_credits_controller_spec.rb[1:1:2:2]",
+      "description": "still applies a JSON number exactly, with a deprecation warning",
+      "full_description": "Spree::Api::V3::Store::Carts::StoreCreditsController POST #create with an amount still applies a JSON number exactly, with a deprecation warning",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/store_credits_controller_spec.rb",
+      "line_number": 35,
+      "run_time": 0.339963264,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/store_credits_controller_spec.rb[1:1:2:3]",
+      "description": "refuses a localized amount",
+      "full_description": "Spree::Api::V3::Store::Carts::StoreCreditsController POST #create with an amount refuses a localized amount",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/store_credits_controller_spec.rb",
+      "line_number": 44,
+      "run_time": 0.245782231,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/store_credits_controller_spec.rb[1:1:4:1]",
+      "description": "requires authentication",
+      "full_description": "Spree::Api::V3::Store::Carts::StoreCreditsController POST #create authentication requires authentication",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/store_credits_controller_spec.rb",
+      "line_number": 67,
+      "run_time": 0.193501381,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/store_credits_controller_spec.rb[1:1:3:1]",
+      "description": "returns an error",
+      "full_description": "Spree::Api::V3::Store::Carts::StoreCreditsController POST #create without available store credit returns an error",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/store_credits_controller_spec.rb",
+      "line_number": 56,
+      "run_time": 0.299275344,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/store_credits_controller_spec.rb[1:2:1]",
+      "description": "removes store credit and returns updated cart",
+      "full_description": "Spree::Api::V3::Store::Carts::StoreCreditsController DELETE #destroy removes store credit and returns updated cart",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/store_credits_controller_spec.rb",
+      "line_number": 78,
+      "run_time": 0.313675433,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/store_credits_controller_spec.rb[1:2:2:1]",
+      "description": "requires authentication",
+      "full_description": "Spree::Api::V3::Store::Carts::StoreCreditsController DELETE #destroy authentication requires authentication",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/store_credits_controller_spec.rb",
+      "line_number": 88,
+      "run_time": 0.189317738,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/payments_spec.rb[1:1:1:1:1]",
+      "description": "returns a 201 response",
+      "full_description": "Cart Payments API /api/v3/store/carts/{cart_id}/payments post payment created returns a 201 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.217947867,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/payments_spec.rb[1:1:1:2:1]",
+      "description": "returns a 422 response",
+      "full_description": "Cart Payments API /api/v3/store/carts/{cart_id}/payments post session-based payment method returns a 422 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.238828458,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/fulfillments_spec.rb[1:1:1:1:1]",
+      "description": "returns a 200 response",
+      "full_description": "Cart Fulfillments API /api/v3/store/carts/{cart_id}/fulfillments/{id} patch delivery rate selected, returns updated cart returns a 200 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.433372148,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/fulfillments_spec.rb[1:1:1:2:1]",
+      "description": "returns a 404 response",
+      "full_description": "Cart Fulfillments API /api/v3/store/carts/{cart_id}/fulfillments/{id} patch delivery rate not found returns a 404 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.336897549,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/discount_codes_controller_spec.rb[1:1:4:1]",
+      "description": "does not apply gift cards (gift cards use dedicated endpoint)",
+      "full_description": "Spree::Api::V3::Store::Carts::DiscountCodesController POST #create with a gift card code does not apply gift cards (gift cards use dedicated endpoint)",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/discount_codes_controller_spec.rb",
+      "line_number": 123,
+      "run_time": 0.200685248,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/discount_codes_controller_spec.rb[1:1:6:1]",
+      "description": "allows access via spree token",
+      "full_description": "Spree::Api::V3::Store::Carts::DiscountCodesController POST #create with guest spree token allows access via spree token",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/discount_codes_controller_spec.rb",
+      "line_number": 152,
+      "run_time": 0.467868804,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/discount_codes_controller_spec.rb[1:1:3:1]",
+      "description": "applies the multi-code discount successfully",
+      "full_description": "Spree::Api::V3::Store::Carts::DiscountCodesController POST #create with a multi-code promotion applies the multi-code discount successfully",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/discount_codes_controller_spec.rb",
+      "line_number": 105,
+      "run_time": 0.485299069,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/discount_codes_controller_spec.rb[1:1:3:2]",
+      "description": "holds the coupon code for the cart without using it up",
+      "full_description": "Spree::Api::V3::Store::Carts::DiscountCodesController POST #create with a multi-code promotion holds the coupon code for the cart without using it up",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/discount_codes_controller_spec.rb",
+      "line_number": 112,
+      "run_time": 0.514703604,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/discount_codes_controller_spec.rb[1:1:5:1]",
+      "description": "returns error",
+      "full_description": "Spree::Api::V3::Store::Carts::DiscountCodesController POST #create with expired promotion returns error",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/discount_codes_controller_spec.rb",
+      "line_number": 136,
+      "run_time": 0.375647587,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/discount_codes_controller_spec.rb[1:1:2:2]",
+      "description": "returns the rule message in warnings",
+      "full_description": "Spree::Api::V3::Store::Carts::DiscountCodesController POST #create with a real code the cart does not qualify for yet returns the rule message in warnings",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/discount_codes_controller_spec.rb",
+      "line_number": 64,
+      "run_time": 0.492467433,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/discount_codes_controller_spec.rb[1:1:2:1]",
+      "description": "keeps the code pending without discount rows",
+      "full_description": "Spree::Api::V3::Store::Carts::DiscountCodesController POST #create with a real code the cart does not qualify for yet keeps the code pending without discount rows",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/discount_codes_controller_spec.rb",
+      "line_number": 56,
+      "run_time": 0.490737197,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/discount_codes_controller_spec.rb[1:1:2:3:2]",
+      "description": "refuses a code a cart in checkout holds",
+      "full_description": "Spree::Api::V3::Store::Carts::DiscountCodesController POST #create with a real code the cart does not qualify for yet from a batch of single-use codes refuses a code a cart in checkout holds",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/discount_codes_controller_spec.rb",
+      "line_number": 87,
+      "run_time": 0.37754286,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/discount_codes_controller_spec.rb[1:1:2:3:1]",
+      "description": "holds the code for the cart",
+      "full_description": "Spree::Api::V3::Store::Carts::DiscountCodesController POST #create with a real code the cart does not qualify for yet from a batch of single-use codes holds the code for the cart",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/discount_codes_controller_spec.rb",
+      "line_number": 80,
+      "run_time": 0.509347133,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/discount_codes_controller_spec.rb[1:1:1:3]",
+      "description": "returns error for invalid discount code",
+      "full_description": "Spree::Api::V3::Store::Carts::DiscountCodesController POST #create with a standard promotion (single code) returns error for invalid discount code",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/discount_codes_controller_spec.rb",
+      "line_number": 32,
+      "run_time": 0.334467031,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/discount_codes_controller_spec.rb[1:1:1:1]",
+      "description": "applies the discount code successfully",
+      "full_description": "Spree::Api::V3::Store::Carts::DiscountCodesController POST #create with a standard promotion (single code) applies the discount code successfully",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/discount_codes_controller_spec.rb",
+      "line_number": 19,
+      "run_time": 0.593584104,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/discount_codes_controller_spec.rb[1:1:1:4]",
+      "description": "returns error when discount is already applied",
+      "full_description": "Spree::Api::V3::Store::Carts::DiscountCodesController POST #create with a standard promotion (single code) returns error when discount is already applied",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/discount_codes_controller_spec.rb",
+      "line_number": 39,
+      "run_time": 0.416840912,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/discount_codes_controller_spec.rb[1:1:1:2]",
+      "description": "is case insensitive",
+      "full_description": "Spree::Api::V3::Store::Carts::DiscountCodesController POST #create with a standard promotion (single code) is case insensitive",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/discount_codes_controller_spec.rb",
+      "line_number": 26,
+      "run_time": 0.518183655,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/discount_codes_controller_spec.rb[1:2:1:1]",
+      "description": "removes the discount code successfully",
+      "full_description": "Spree::Api::V3::Store::Carts::DiscountCodesController DELETE #destroy with a standard promotion removes the discount code successfully",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/discount_codes_controller_spec.rb",
+      "line_number": 169,
+      "run_time": 0.460981235,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/discount_codes_controller_spec.rb[1:2:2:1]",
+      "description": "returns error",
+      "full_description": "Spree::Api::V3::Store::Carts::DiscountCodesController DELETE #destroy with non-existent discount code returns error",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/discount_codes_controller_spec.rb",
+      "line_number": 178,
+      "run_time": 0.197896763,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/fulfillments_controller_spec.rb[1:1:1:1]",
+      "description": "updates cart totals when a different delivery rate is selected",
+      "full_description": "Spree::Api::V3::Store::Carts::FulfillmentsController PATCH #update when selecting a different delivery rate updates cart totals when a different delivery rate is selected",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/fulfillments_controller_spec.rb",
+      "line_number": 38,
+      "run_time": 0.760164267,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/fulfillments_controller_spec.rb[1:1:2:2]",
+      "description": "does not fail if advancement is not possible",
+      "full_description": "Spree::Api::V3::Store::Carts::FulfillmentsController PATCH #update auto-advance after rate selection does not fail if advancement is not possible",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/fulfillments_controller_spec.rb",
+      "line_number": 72,
+      "run_time": 0.437618516,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/fulfillments_controller_spec.rb[1:1:2:1]",
+      "description": "advances the cart from delivery to payment",
+      "full_description": "Spree::Api::V3::Store::Carts::FulfillmentsController PATCH #update auto-advance after rate selection advances the cart from delivery to payment",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/fulfillments_controller_spec.rb",
+      "line_number": 57,
+      "run_time": 0.430956492,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/fulfillments_controller_spec.rb[1:1:2:3]",
+      "description": "does not complete the cart",
+      "full_description": "Spree::Api::V3::Store::Carts::FulfillmentsController PATCH #update auto-advance after rate selection does not complete the cart",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/fulfillments_controller_spec.rb",
+      "line_number": 84,
+      "run_time": 0.48129534,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts/fulfillments_controller_spec.rb[1:1:3:1]",
+      "description": "returns not found for non-existent delivery rate",
+      "full_description": "Spree::Api::V3::Store::Carts::FulfillmentsController PATCH #update error handling returns not found for non-existent delivery rate",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts/fulfillments_controller_spec.rb",
+      "line_number": 108,
+      "run_time": 0.269138421,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/store_credits_spec.rb[1:1:1:2:1]",
+      "description": "returns a 422 response",
+      "full_description": "Cart Store Credits API /api/v3/store/carts/{cart_id}/store_credits post no store credit available returns a 422 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.192597173,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/store_credits_spec.rb[1:1:1:1:1]",
+      "description": "returns a 200 response",
+      "full_description": "Cart Store Credits API /api/v3/store/carts/{cart_id}/store_credits post store credit applied returns a 200 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.39241489,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/store_credits_spec.rb[1:1:2:1:1]",
+      "description": "returns a 200 response",
+      "full_description": "Cart Store Credits API /api/v3/store/carts/{cart_id}/store_credits delete store credit removed returns a 200 response",
+      "status": "passed",
+      "file_path": "<gems>/rswag-specs-2.17.0/lib/rswag/specs/example_group_helpers.rb",
+      "line_number": 143,
+      "run_time": 0.293364062,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_split_checkout_spec.rb[1:3]",
+      "description": "nests each seller’s order with its own items and total",
+      "full_description": "Spree::Api::V3::Store::CartsController split checkout nests each seller’s order with its own items and total",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_split_checkout_spec.rb",
+      "line_number": 48,
+      "run_time": 1.169605741,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_split_checkout_spec.rb[1:5]",
+      "description": "leaves an unsplit checkout answering with a bare order",
+      "full_description": "Spree::Api::V3::Store::CartsController split checkout leaves an unsplit checkout answering with a bare order",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_split_checkout_spec.rb",
+      "line_number": 66,
+      "run_time": 0.571523341,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_split_checkout_spec.rb[1:2]",
+      "description": "shows the customer one total for the purchase",
+      "full_description": "Spree::Api::V3::Store::CartsController split checkout shows the customer one total for the purchase",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_split_checkout_spec.rb",
+      "line_number": 42,
+      "run_time": 1.026889955,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_split_checkout_spec.rb[1:4]",
+      "description": "lets the client retry with the group id it was given",
+      "full_description": "Spree::Api::V3::Store::CartsController split checkout lets the client retry with the group id it was given",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_split_checkout_spec.rb",
+      "line_number": 56,
+      "run_time": 1.259278991,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/carts_split_checkout_spec.rb[1:1]",
+      "description": "answers with the group rather than one of the orders",
+      "full_description": "Spree::Api::V3::Store::CartsController split checkout answers with the group rather than one of the orders",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/carts_split_checkout_spec.rb",
+      "line_number": 34,
+      "run_time": 1.097734226,
+      "pending_message": null
+    }
+  ],
+  "summary": {
+    "duration": 93.882376594,
+    "example_count": 275,
+    "failure_count": 0,
+    "pending_count": 0,
+    "errors_outside_of_examples_count": 0
+  },
+  "summary_line": "275 examples, 0 failures"
+}
