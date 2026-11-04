@@ -8,7 +8,7 @@ import {
   request,
   test,
 } from '@playwright/test'
-import { getCredentials, login } from '../../dashboard/e2e/helpers'
+import { csvFile, getCredentials, login } from '../../dashboard/e2e/helpers'
 import { animationsFinished } from './animations'
 import {
   acceptancePath,
@@ -137,8 +137,8 @@ async function capture(
   checked: string,
   /** The main navigation's links, where the step records what it shows. */
   shown?: Record<string, string[]>,
-  /** The statuses of the page's own API requests, where the step records them. */
-  answered?: { path: string; status: number }[],
+  /** The page's own Admin API requests and their answers, where the step records them. */
+  answered?: Answer[],
 ) {
   const folder = `${results}screens/${screen}/${state}/`
   mkdirSync(folder, { recursive: true })
@@ -215,6 +215,17 @@ const productsLink = (page: Page) => page.getByRole('link', { name: /^Products/ 
 const ordersLink = (page: Page) => page.getByRole('link', { name: /^Orders/ })
 const staffRow = (page: Page) => page.getByRole('row').filter({ hasText: teammate.email })
 
+/** The text of the first message that appears within six seconds, or null when none does. */
+async function shownToast(page: Page) {
+  const toast = page.locator('[data-slot="toast"]').first()
+  try {
+    await expect(toast).toBeVisible({ timeout: 6_000 })
+    return (await toast.innerText()).replace(/\s+/g, ' ').trim()
+  } catch {
+    return null
+  }
+}
+
 /** The names of the main navigation's links, in order. */
 async function navigation(page: Page) {
   await expect(page.locator('[data-sidebar="content"] [data-slot="skeleton"]')).toHaveCount(0, {
@@ -238,6 +249,70 @@ const adminNavigation = [
   'Reports',
 ]
 const supportNavigation = ['Home', 'Orders', 'Customers']
+
+const attemptedProduct = 'Fidelity two-store attempt'
+const attemptedImport = 'Fidelity two-store import'
+
+interface Answer {
+  method: string
+  path: string
+  status: number
+  code: string | null
+}
+
+/** SD-18's server side: the page's own requests and their answers, and what the store holds after. */
+const sd18: { requests: Answer[]; afterwards: Record<string, number> | null } = {
+  requests: [],
+  afterwards: null,
+}
+
+/**
+ * Records every Admin API request the page itself makes, with the status and
+ * error code the server answered. `take` hands over what came in since the
+ * last call, for one step's record.
+ */
+async function observeAnswers(page: Page) {
+  const all: Answer[] = []
+  let since = 0
+  const pending: Promise<void>[] = []
+  const listener = (response: Response) => {
+    const url = new URL(response.url())
+    if (!url.pathname.startsWith('/api/v3/admin/')) return
+    const answer: Answer = {
+      method: response.request().method(),
+      path: url.pathname
+        .replace(stores.first.id, '<store>')
+        .replace(stores.second.id, '<second-store>')
+        .replace(/\/(prod|imp|variant)_[A-Za-z0-9]+/g, '/<$1>'),
+      status: response.status(),
+      code: null,
+    }
+    all.push(answer)
+    if (response.status() >= 400) {
+      pending.push(
+        response
+          .json()
+          .then((body: { error?: { code?: string } }) => {
+            answer.code = body.error?.code ?? null
+          })
+          .catch(() => undefined),
+      )
+    }
+  }
+  page.on('response', listener)
+  return {
+    all,
+    take() {
+      const taken = all.slice(since)
+      since = all.length
+      return taken
+    },
+    stop() {
+      page.off('response', listener)
+      return Promise.all(pending)
+    },
+  }
+}
 
 /** Signs the teammate in through the API, as the browser tests do, and waits for the first store. */
 async function signInTeammate(page: Page) {
@@ -447,28 +522,102 @@ test('the store switcher lists both stores, and what each store shows after a sw
     { afterSwitch, tenSecondsLater },
   )
 
-  // The statuses of the page's own requests for products, observed only to
-  // describe what the screen shows; no request is made for the check.
-  const answered: { path: string; status: number }[] = []
-  const observe = (response: Response) => {
-    const url = new URL(response.url())
-    if (url.pathname.startsWith('/api/v3/admin/products')) {
-      answered.push({ path: url.pathname, status: response.status() })
-    }
-  }
-  page.on('response', observe)
+  // SD-18's server side, at the baseline audit's request: while the admin's
+  // navigation shows in the second store, the teammate follows it to the
+  // product list, tries to create a product and tries an import, all from the
+  // screen. What the server answered the page's own requests is recorded;
+  // nothing is sent outside the screen's own requests.
+  const answers = await observeAnswers(page)
   await productsLink(page).click()
+  await expect(page.getByRole('heading', { name: 'Products', exact: true })).toBeVisible()
   await page.waitForLoadState('networkidle')
-  page.off('response', observe)
   await capture(
     page,
     'DA-OVL-01',
     'second-store-products-link-after-switching',
     'teammate',
     outside,
-    `The Products link the navigation shows after the switch, followed in ${stores.second.name}, whose ${roles.support.name} role does not read products. The statuses of the page's own product requests are recorded`,
+    `The Products link the navigation shows after the switch, followed in ${stores.second.name}, whose ${roles.support.name} role does not read products`,
     undefined,
-    answered,
+    answers.take(),
+  )
+
+  await page.getByRole('button', { name: /^add product$/i }).click()
+  await expect(page.getByRole('heading', { name: 'New product' })).toBeVisible()
+  await page.getByRole('textbox', { name: 'Name' }).fill(attemptedProduct)
+  await page.getByRole('button', { name: /^create product$/i }).click()
+  const createdToast = await shownToast(page)
+  await capture(
+    page,
+    'DA-OVL-01',
+    'second-store-create-product-after-switching',
+    'teammate',
+    outside,
+    `A product created from the new product page the switch left reachable in ${stores.second.name}. Message shown: ${createdToast ?? 'none'}`,
+    undefined,
+    answers.take(),
+  )
+
+  await productsLink(page).click()
+  await expect(page.getByRole('heading', { name: 'Products', exact: true })).toBeVisible()
+  await page.waitForLoadState('networkidle')
+  answers.take()
+  await page.getByRole('button', { name: /^import$/i }).click()
+  await expect(page.getByRole('heading', { name: /import from csv/i })).toBeVisible()
+  await page
+    .getByRole('dialog')
+    .locator('input[type="file"]')
+    .setInputFiles(
+      csvFile([
+        'slug,sku,name,price',
+        `fidelity-two-store-import,FID-TWO-STORE,${attemptedImport},10.00`,
+      ]),
+    )
+  const uploadToast = await shownToast(page)
+  await page.waitForLoadState('networkidle')
+  const proceed = page.getByRole('dialog').getByRole('button', { name: /^continue$/i })
+  const proceedEnabled = await proceed.isEnabled()
+  if (proceedEnabled) await proceed.click()
+  await page.waitForLoadState('networkidle')
+  await capture(
+    page,
+    'DA-OVL-01',
+    'second-store-import-after-switching',
+    'teammate',
+    outside,
+    `A product import tried from the products page the switch left reachable in ${stores.second.name}. Message shown on choosing the file: ${uploadToast ?? 'none'}. Continue ${proceedEnabled ? 'was enabled and was pressed' : 'stayed disabled'}`,
+    undefined,
+    answers.take(),
+  )
+  await answers.stop()
+
+  // What the second store holds afterwards, read as the browser tests' admin,
+  // who holds the admin role there.
+  const api = await request.newContext({ baseURL })
+  try {
+    const { headers } = await admin(api)
+    const second = storeHeaders(headers, stores.second.id)
+    const named = async (name: string) =>
+      (
+        await list<{ name: string }>(
+          api,
+          `products?q[name_cont]=${encodeURIComponent(name)}`,
+          second,
+        )
+      ).filter((product) => product.name === name).length
+    sd18.afterwards = {
+      [`products named "${attemptedProduct}"`]: await named(attemptedProduct),
+      [`products named "${attemptedImport}"`]: await named(attemptedImport),
+      imports: (await list<{ id: string }>(api, 'imports?limit=100', second)).length,
+    }
+  } finally {
+    await api.dispose()
+  }
+  sd18.requests = answers.all
+  mkdirSync(`${results}multi-store/`, { recursive: true })
+  writeFileSync(
+    `${results}multi-store/sd-18-server-answers.json`,
+    `${JSON.stringify({ revision, ...sd18 }, null, 2)}\n`,
   )
 
   await page.goto(`/${stores.second.id}`)
