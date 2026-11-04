@@ -1,6 +1,6 @@
 import type { Product } from '@spree/admin-sdk'
 import type { Meta, StoryObj } from '@storybook/react-vite'
-import { fn, screen, userEvent } from 'storybook/test'
+import { expect, fn, screen, userEvent, waitFor } from 'storybook/test'
 import { VariantEditSheet } from '../../../../../dashboard-core/src/products/variant-edit-sheet'
 import { withStore } from '../../../decorators/store'
 import { clayMug, linenApron } from '../../../fixtures/admin/catalog'
@@ -31,7 +31,11 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
+// The sheet moves focus into itself as it opens, which scrolls its body back to
+// the top, so a section is scrolled to only after that.
 const section = async (title: string) => {
+  const sheet = await screen.findByRole('dialog')
+  await waitFor(() => expect(sheet.contains(document.activeElement)).toBe(true))
   const heading = await screen.findByText(title)
   heading.scrollIntoView({ block: 'start' })
   return heading

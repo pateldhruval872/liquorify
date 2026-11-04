@@ -1,0 +1,17 @@
+{
+  "screen": "DA-SET-16",
+  "state": "create-sheet-digital",
+  "variant": "admin",
+  "role": null,
+  "theme": "dark",
+  "revision": "87a2ea80",
+  "path": "/<store>/settings/delivery-profiles",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": null,
+  "masked": null,
+  "settled": true,
+  "outside": []
+}

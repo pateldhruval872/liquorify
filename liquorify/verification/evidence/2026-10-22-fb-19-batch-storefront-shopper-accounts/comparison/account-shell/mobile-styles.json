@@ -2,9 +2,18 @@
   "id": "CMP-SF-G-01",
   "story": "storefront-account-account-shell--overview",
   "mode": "mobile",
-  "revision": "8153a6b1ffbcd8dfd0c435f6fc24f90ff32b9fff",
+  "revision": "88654985d6a9bcb2467ebcef000960f81343a01d",
   "screenWidth": 390,
   "storyWidth": 390,
+  "hiddenWhileCaptured": {
+    "screen": [
+      {
+        "element": "header",
+        "overPart": true
+      }
+    ],
+    "story": []
+  },
   "compared": 27,
   "onlyOnScreen": [
     "div||",

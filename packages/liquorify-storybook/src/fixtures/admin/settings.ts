@@ -620,3 +620,19 @@ export const orderManagerRules: PermissionRule[] = [
   ...written(['gift_card', 'gift_card_batch']),
   ...written(['store_credit', 'store_credit_event']),
 ]
+
+/** Delivery methods and package types have scopes of their own beside `settings`. */
+const deliverySubjects = ['delivery_method', 'delivery_method_rule', 'delivery_method_service']
+
+/** A role with `read_settings`, `read_delivery_methods` and `read_package_types`, writing nothing. */
+export const deliveryViewerRules: PermissionRule[] = [
+  ...settingsViewerRules,
+  ...[...deliverySubjects, 'package_type'].map((subject) => rule(['read', 'admin'], subject)),
+]
+
+/** A role reading `settings` and writing `delivery_methods` and `package_types`. */
+export const deliveryEditorRules: PermissionRule[] = [
+  ...settingsViewerRules,
+  ...written(deliverySubjects),
+  ...written(['package_type']),
+]

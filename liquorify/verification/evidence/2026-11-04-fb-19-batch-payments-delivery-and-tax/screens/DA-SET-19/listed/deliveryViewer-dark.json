@@ -1,0 +1,24 @@
+{
+  "screen": "DA-SET-19",
+  "state": "listed",
+  "variant": "deliveryViewer",
+  "role": {
+    "name": "Delivery settings viewer",
+    "permissions": [
+      "read_settings",
+      "read_delivery_methods",
+      "read_package_types"
+    ]
+  },
+  "theme": "dark",
+  "revision": "87a2ea80",
+  "path": "/<store>/settings/package-types",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": null,
+  "masked": null,
+  "settled": true,
+  "outside": []
+}

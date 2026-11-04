@@ -1,0 +1,440 @@
+{
+  "revision": "1320592d",
+  "teammate": {
+    "email": "fidelity-two-stores@example.com",
+    "roles": {
+      "Shop": "admin",
+      "Winkel": {
+        "name": "Support",
+        "permissions": [
+          "read_orders",
+          "read_customers",
+          "read_dashboard"
+        ]
+      }
+    }
+  },
+  "stores": {
+    "<store>": "Shop",
+    "<second-store>": "Winkel"
+  },
+  "steps": [
+    {
+      "screen": "DA-AUTH-04",
+      "state": "existing-account-second-store",
+      "variant": "public",
+      "path": "/accept-invitation/<invitation>",
+      "checked": "The heading names Winkel, the text names the Support role, and the form asks only for the existing account's password",
+      "navigation": null,
+      "answered": null,
+      "settled": true
+    },
+    {
+      "screen": "DA-AUTH-04",
+      "state": "accepted-second-store",
+      "variant": "teammate",
+      "path": "/<store>",
+      "checked": "Accepting signs the teammate in and opens Shop, the first of their stores by name, not Winkel, the store just joined",
+      "navigation": null,
+      "answered": null,
+      "settled": true
+    },
+    {
+      "screen": "DA-SHELL-01",
+      "state": "opens-first-of-two-stores",
+      "variant": "teammate",
+      "path": "/<store>",
+      "checked": "Signing in through the form opens Shop, the first of the teammate's two stores by name, with the admin role's navigation",
+      "navigation": null,
+      "answered": null,
+      "settled": true
+    },
+    {
+      "screen": "DA-OVL-01",
+      "state": "switcher-two-stores-open",
+      "variant": "teammate",
+      "path": "/<store>",
+      "checked": "The switcher lists Shop and Winkel, in that order, with Shop ticked",
+      "navigation": null,
+      "answered": null,
+      "settled": true
+    },
+    {
+      "screen": "DA-OVL-01",
+      "state": "second-store-after-switching",
+      "variant": "teammate",
+      "path": "/<second-store>",
+      "checked": "Switched to Winkel from the switcher, without a reload. The navigation is recorded as shown, straight after the switch and ten seconds later",
+      "navigation": {
+        "afterSwitch": [
+          "Getting Started",
+          "Home",
+          "Orders",
+          "Products",
+          "Inventory",
+          "Customers",
+          "Sellers",
+          "Loyalty",
+          "Promotions",
+          "Reports"
+        ],
+        "tenSecondsLater": [
+          "Getting Started",
+          "Home",
+          "Orders",
+          "Products",
+          "Inventory",
+          "Customers",
+          "Sellers",
+          "Loyalty",
+          "Promotions",
+          "Reports"
+        ]
+      },
+      "answered": null,
+      "settled": true
+    },
+    {
+      "screen": "DA-OVL-01",
+      "state": "second-store-products-link-after-switching",
+      "variant": "teammate",
+      "path": "/<second-store>/products",
+      "checked": "The Products link the navigation shows after the switch, followed in Winkel, whose Support role does not read products",
+      "navigation": null,
+      "answered": [],
+      "settled": true
+    },
+    {
+      "screen": "DA-OVL-01",
+      "state": "second-store-create-product-after-switching",
+      "variant": "teammate",
+      "path": "/<second-store>/products/new",
+      "checked": "A product created from the new product page the switch left reachable in Winkel. Message shown: none",
+      "navigation": null,
+      "answered": [
+        {
+          "method": "GET",
+          "path": "/api/v3/admin/products",
+          "status": 403,
+          "code": "access_denied"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v3/admin/custom_field_definitions",
+          "status": 403,
+          "code": "access_denied"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v3/admin/products",
+          "status": 403,
+          "code": "access_denied"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v3/admin/custom_field_definitions",
+          "status": 403,
+          "code": "access_denied"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v3/admin/option_types",
+          "status": 403,
+          "code": "access_denied"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v3/admin/stock_locations",
+          "status": 403,
+          "code": "access_denied"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v3/admin/custom_field_definitions",
+          "status": 403,
+          "code": "access_denied"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v3/admin/package_types",
+          "status": 403,
+          "code": "access_denied"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v3/admin/tax_categories",
+          "status": 403,
+          "code": "access_denied"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v3/admin/channels",
+          "status": 403,
+          "code": "access_denied"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v3/admin/tags",
+          "status": 403,
+          "code": "access_denied"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v3/admin/categories",
+          "status": 403,
+          "code": "access_denied"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v3/admin/collections",
+          "status": 403,
+          "code": "access_denied"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v3/admin/product_types",
+          "status": 403,
+          "code": "access_denied"
+        },
+        {
+          "method": "POST",
+          "path": "/api/v3/admin/products",
+          "status": 403,
+          "code": "access_denied"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v3/admin/delivery_profiles",
+          "status": 403,
+          "code": "access_denied"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v3/admin/option_types",
+          "status": 403,
+          "code": "access_denied"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v3/admin/stock_locations",
+          "status": 403,
+          "code": "access_denied"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v3/admin/custom_field_definitions",
+          "status": 403,
+          "code": "access_denied"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v3/admin/package_types",
+          "status": 403,
+          "code": "access_denied"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v3/admin/tax_categories",
+          "status": 403,
+          "code": "access_denied"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v3/admin/channels",
+          "status": 403,
+          "code": "access_denied"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v3/admin/tags",
+          "status": 403,
+          "code": "access_denied"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v3/admin/categories",
+          "status": 403,
+          "code": "access_denied"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v3/admin/collections",
+          "status": 403,
+          "code": "access_denied"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v3/admin/product_types",
+          "status": 403,
+          "code": "access_denied"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v3/admin/delivery_profiles",
+          "status": 403,
+          "code": "access_denied"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v3/admin/countries",
+          "status": 200,
+          "code": null
+        }
+      ],
+      "settled": true
+    },
+    {
+      "screen": "DA-OVL-01",
+      "state": "second-store-import-after-switching",
+      "variant": "teammate",
+      "path": "/<second-store>/products",
+      "checked": "A product import tried from the products page the switch left reachable in Winkel. Message shown on choosing the file: Upload failed: Missing permission: write_products. Continue stayed disabled",
+      "navigation": null,
+      "answered": [
+        {
+          "method": "POST",
+          "path": "/api/v3/admin/files",
+          "status": 403,
+          "code": "access_denied"
+        }
+      ],
+      "settled": true
+    },
+    {
+      "screen": "DA-OVL-01",
+      "state": "second-store-support-navigation",
+      "variant": "teammate",
+      "path": "/<second-store>",
+      "checked": "Winkel opened by its address: the navigation is the Support role's, with Orders and no Products",
+      "navigation": null,
+      "answered": null,
+      "settled": true
+    },
+    {
+      "screen": "DA-OVL-01",
+      "state": "second-store-support-settings-navigation",
+      "variant": "teammate",
+      "path": "/<second-store>/settings",
+      "checked": "The settings navigation of the Support role in Winkel, opened by its address",
+      "navigation": null,
+      "answered": null,
+      "settled": true
+    },
+    {
+      "screen": "DA-OVL-01",
+      "state": "first-store-after-switching-back",
+      "variant": "teammate",
+      "path": "/<store>",
+      "checked": "Switched back to Shop from the switcher, without a reload. The navigation is recorded as shown",
+      "navigation": {
+        "afterSwitch": [
+          "Home",
+          "Orders",
+          "Customers"
+        ]
+      },
+      "answered": null,
+      "settled": true
+    },
+    {
+      "screen": "DA-OVL-01",
+      "state": "first-store-admin-navigation",
+      "variant": "teammate",
+      "path": "/<store>",
+      "checked": "Shop after a reload: the navigation is the admin role's, with Products and Orders",
+      "navigation": null,
+      "answered": null,
+      "settled": true
+    },
+    {
+      "screen": "DA-OVL-01",
+      "state": "switcher-two-stores-open-narrow",
+      "variant": "teammate",
+      "path": "/<store>",
+      "checked": "At 768 pixels, the narrowest width that draws the switcher, it opens with both stores",
+      "navigation": null,
+      "answered": null,
+      "settled": true
+    },
+    {
+      "screen": "DA-OVL-01",
+      "state": "phone-two-stores",
+      "variant": "teammate",
+      "path": "/<store>",
+      "checked": "On a phone the top bar names the store, and no switcher is drawn",
+      "navigation": null,
+      "answered": null,
+      "settled": true
+    },
+    {
+      "screen": "DA-OVL-01",
+      "state": "phone-two-stores-drawer-open",
+      "variant": "teammate",
+      "path": "/<store>",
+      "checked": "With the navigation drawer open on a phone, the drawer has no switcher either, so a teammate in two stores has no control to change store",
+      "navigation": null,
+      "answered": null,
+      "settled": true
+    },
+    {
+      "screen": "DA-SET-24",
+      "state": "teammate-in-two-stores-first-store",
+      "variant": "admin",
+      "path": "/<store>/settings/staff",
+      "checked": "Shop's staff list shows the teammate with the admin role",
+      "navigation": null,
+      "answered": null,
+      "settled": true
+    },
+    {
+      "screen": "DA-SET-24",
+      "state": "teammate-in-two-stores-second-store",
+      "variant": "admin",
+      "path": "/<second-store>/settings/staff",
+      "checked": "Winkel's staff list shows the same teammate with the Support role only",
+      "navigation": null,
+      "answered": null,
+      "settled": true
+    },
+    {
+      "screen": "DA-SET-24",
+      "state": "remove-from-second-store-confirmation",
+      "variant": "admin",
+      "path": "/<second-store>/settings/staff",
+      "checked": "Removing the teammate from Winkel asks for confirmation first",
+      "navigation": null,
+      "answered": null,
+      "settled": true
+    },
+    {
+      "screen": "DA-SET-24",
+      "state": "removed-from-second-store",
+      "variant": "admin",
+      "path": "/<second-store>/settings/staff",
+      "checked": "Once confirmed, the teammate is no longer in Winkel's staff list",
+      "navigation": null,
+      "answered": null,
+      "settled": true
+    },
+    {
+      "screen": "DA-SET-24",
+      "state": "still-in-first-store-after-removal",
+      "variant": "admin",
+      "path": "/<store>/settings/staff",
+      "checked": "Shop's staff list still shows the teammate with the admin role",
+      "navigation": null,
+      "answered": null,
+      "settled": true
+    },
+    {
+      "screen": "DA-OVL-01",
+      "state": "switcher-gone-one-store",
+      "variant": "teammateAfterLeaving",
+      "path": "/<store>",
+      "checked": "After leaving Winkel, the teammate signs in to Shop, whose name is a label with no switcher",
+      "navigation": null,
+      "answered": null,
+      "settled": true
+    }
+  ]
+}
