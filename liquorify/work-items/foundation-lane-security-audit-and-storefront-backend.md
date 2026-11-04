@@ -12,7 +12,7 @@ updated: 2026-11-04
 
 One implementation lane for two foundation items, in the order the owner asked on 2026-11-03: first repair the backend's weekly security audit, which has failed both times it ran (part of FB-11), then complete FB-06, so that the storefront's browser tests run against a backend built from a recorded `liquorify` revision and use the matching SDK. Both were found by the baseline audit of 2026-11-02 (its findings A-1 and A-6). Neither changes Spree's application code or the storefront's pages, or adds a Liquorify feature.
 
-**Status.** PROPOSED. On 2026-11-04 the owner approved the lane (decision 1 of the owner decision brief) and answered §5: question 1, the advisory, is **pending** until the owner chooses between the two ways in §1.1; questions 2 and 3 as recommended. Step 2's spike may start while question 1 is pending. At most three implementation lanes run at once; §4 shows where this one fits.
+**Status.** PROPOSED. On 2026-11-04 the owner approved the lane (decision 1 of the owner decision brief) and answered §5: question 1, the advisory, is **pending** until the owner chooses between the two ways in §1.1; questions 2 and 3 as recommended. Step 2's spike may start while question 1 is pending; it ran on 2026-11-04 and showed option A works (§2.1). At most three implementation lanes run at once; §4 shows where this one fits.
 
 ## 1. Step 1: repair the weekly security audit (FB-11)
 
@@ -104,6 +104,44 @@ Prepared on 2026-11-04 because the owner kept decision 9 pending until this was 
 | 6 | Nothing in the storefront's pages or components changes, and nothing carries Liquorify branding | The file list |
 
 **Not included:** the move from 6.0.0.rc4 to Spree's 6.0 releases, which is FB-12's decision; the storefront's ten open Dependabot pull requests, which follow this step in FB-11, because their checks only mean something once the tests run against Liquorify's backend; Meilisearch, which stays with P4.
+
+### 2.1 The spike's result, 2026-11-04
+
+**Result: option A works.** On draft storefront [#23](https://github.com/pateldhruval872/liquorify-storefront/pull/23), the storefront's CI ran all 21 browser tests against a backend built from `liquorify` `55e29504`, and again after the recorded revision moved to the latest `main`, `68236c59`. No step pulled `ghcr.io/spree/spree`. Three of the four jobs took about as long as they did with Spree's published image, and one about a minute longer. #23 stays a draft: it is the spike, not step 2.2's pull request, which follows in the lane's order (§4). This records a spike and accepts nothing.
+
+**How the spike builds the backend.**
+
+- `e2e-backend/liquorify-backend.env` in the storefront records two revisions: `liquorify`, at `55e29504` and then `68236c59`, and Spree's starter application, `spree/spree-starter`, at `a853a63`, the commit that moved it to 6.0.0.rc4. The starter is the host application, with its Gemfile pointed at the `liquorify` checkout, the way Spree's own development setup does it. Its Ruby, 4.0.5, comes from the starter's `.ruby-version`.
+- `scripts/e2e/liquorify-backend.sh` checks out both revisions, installs the gems, prepares a database on a PostgreSQL 18 service, and starts Rails on port 4000 in production mode, with the same settings the compose file gave the published image.
+- `scripts/e2e/bootstrap-spree.sh` seeds that backend with the same Ruby as before. Only how it reaches Rails changed: directly, instead of through the container.
+
+**What was checked.**
+
+| Check | Result | Evidence |
+|---|---|---|
+| CI, first run, no cached gems | PASS: 21 of 21, none retried. Job 3 min 48 s: checking out the backend 9 s, starting it 46 s, seeding 30 s, tests 1 min 45 s | [Job 126441917430](https://github.com/pateldhruval872/liquorify-storefront/actions/runs/41790315870/job/126441917430), at `0fce23c` |
+| CI, second run of the same commit, gems cached | PASS: 21 of 21, none retried. Job 3 min 41 s: starting the backend 19 s, seeding 33 s, tests 1 min 56 s | [Job 126443782668](https://github.com/pateldhruval872/liquorify-storefront/actions/runs/41790315870/job/126443782668), attempt 2 |
+| CI with `@spree/sdk` 2.0.0-rc.4 | PASS: 21 of 21, none retried. Job 3 min 33 s: checking out the backend 9 s, starting it 20 s, seeding 34 s, tests 1 min 52 s. Lint, type check and unit tests also passed | [Job 126445965179](https://github.com/pateldhruval872/liquorify-storefront/actions/runs/41791585944/job/126445965179), at `920534a` |
+| CI after moving the revision to `68236c59`, the latest `main`, which includes the SD-8 sample data fix | PASS: 21 of 21, none retried, gems cached. Job 4 min 52 s: checking out the backend 9 s, starting it 25 s, seeding 50 s, tests 2 min 39 s. Lint, type check and unit tests also passed. The slowest of the four runs; one run cannot separate the runner's speed from the backend's change | [Job 126450469164](https://github.com/pateldhruval872/liquorify-storefront/actions/runs/41792997434/job/126450469164), at `4ce4270`, a one-line change |
+| For comparison, Spree's published image | 21 of 21. Job 3 min 44 s: starting it 36 s, seeding 40 s, tests 1 min 58 s | [Job 123670757847](https://github.com/pateldhruval872/liquorify-storefront/actions/runs/40937193933/job/123670757847), storefront `main` on 2026-10-29 |
+| Locally, in the cloud environment | 20 of 21 passed in each of three runs, none retried, with rc.3 and with rc.4. The Stripe checkout test cannot run there, because the environment cannot reach Stripe. Ruby 3.3.6, because the environment cannot download 4.0.5 | Runs kept in the session only |
+| Which Spree the published image runs | 6.0.2: on 2026-11-04 `latest` had the same digest as the `6.0.2` tag (`sha256:652a35bf…`). So the storefront's CI has been testing against Spree's 6.0 releases, while the backend is 6.0.0.rc4 plus the commits to Spree's code made since that release, nine at `55e29504` and twelve at `68236c59`, Liquorify's address, gift card and sample data fixes among them | The registry, read on 2026-11-04 |
+| Migrations | The starter at `a853a63` already has every migration the backend's gems ship: copying them in added none | Local run |
+| Third-party gems | Every third-party gem stayed at the version in the starter's lockfile. Only the ten Spree gems came from the checkout instead of RubyGems | The lockfile before and after, compared locally |
+| The SDK | The backend's `packages/sdk` is 2.0.0-rc.4 and has not changed since the commit that released it (`862ffb00`), so the published rc.4 is the backend's SDK. npm marks rc.3 and rc.4 as deprecated in favour of the 6.x line, which follows FB-12's move | `liquorify` history; npm |
+
+**What the spike changed on the way.**
+
+- **A server left on port 4000.** Locally, an earlier backend still answered on the port, so the new one failed to start while the health check passed. The seeding then wrote to one database and the tests read another. The start script now refuses to start when the port already answers, and stops if its own server exits.
+- **The cloud environment's storage variables.** That environment sets AWS variables, which make the starter store files in S3 in production. The local runs cleared them. CI has none.
+
+**Decisions step 2.2's pull request needs.**
+
+1. **Where the host application lives (FB-05).** Recommended: keep Spree's starter at a recorded commit, as the spike does. Liquorify then maintains no copy of it, and its lockfile already fixes every third-party gem. The alternative is a host application tracked in `liquorify`, so that one revision describes the whole backend. That is a copy of the starter to maintain, and it belongs with FB-05's hosting question. One limit of the recommendation: with the Spree gems taken from a checkout, Bundler cannot refuse to change the lockfile, so a gem the backend adds later would be resolved to whatever version is newest. Step 2.2 can add a check that fails the job if any third-party version changes.
+2. **The local path.** `pnpm run e2e:up` still starts Spree's published image; the spike only added `pnpm run e2e:up:liquorify`. Recommended: point `e2e:up` at the Liquorify backend and remove the compose file in the same pull request, with the README's testing paragraph, so that local and CI runs test the same backend.
+3. **The lane's order.** Step 2.2 does not depend on step 1, which waits for decision 9 and OA-6. Running it first is the owner's choice, since the owner set the order on 2026-11-03.
+
+**Against the acceptance criteria, as evidence for step 2.2.** Criteria 1, 2, 5 and 6 hold on #23: no step pulls the published image, the revision is one line whose comment says who changes it and when, and the files carry no credential, key, machine path or page change. `4ce4270` showed criterion 2 in use: moving to a newer backend changed that one line and nothing else, and the tests passed. Criterion 3 holds on #23's `920534a`: `package.json` and the lockfile name 2.0.0-rc.4, with no local path. Criterion 4 held twice on `0fce23c`, and single runs on `920534a` and `4ce4270` also passed; step 2.2's pull request runs it again on its own final commit.
 
 ## 3. Risk and release impact
 
