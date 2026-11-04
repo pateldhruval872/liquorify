@@ -815,6 +815,42 @@ const promotionCaptures: Capture[] = [
   },
   {
     screen: 'DA-PRM-03',
+    state: 'action-removed-unsaved',
+    variant: 'admin',
+    reach: async (page) => {
+      await openPromotion('running')(page)
+      await editorRow(page, /^create whole-order adjustment/i)
+        .getByRole('button')
+        .last()
+        .click()
+      await confirmation(page)
+        .getByRole('button', { name: /^remove$/i })
+        .click()
+      await expect(page.getByText(/^flat percent · /i)).toHaveCount(0, { timeout: 5_000 })
+      await expect(page.getByRole('button', { name: /^save$/i })).toBeEnabled()
+    },
+  },
+  // A saved rule opened by the marketer, who may not read what it picks from.
+  ...(
+    [
+      ['saved-rule-products-unreadable', 'manyCodes', /^product\(s\)/i],
+      ['saved-rule-customers-unreadable', 'singleCode', /^customers/i],
+    ] as const
+  ).map(
+    ([state, key, title]): Capture => ({
+      screen: 'DA-PRM-03',
+      state,
+      variant: 'marketer',
+      reach: async (page) => {
+        await openPromotion(key)(page)
+        await editorRow(page, title).click()
+        await expect(dialog(page).getByRole('button', { name: /^save$/i })).toBeVisible()
+        await afterRetry(page)
+      },
+    }),
+  ),
+  {
+    screen: 'DA-PRM-03',
     state: 'tiers-editor',
     variant: 'admin',
     reach: async (page) => {
@@ -934,9 +970,11 @@ const promotionCaptures: Capture[] = [
       })
     },
   },
+  // The browser's own number check stops a usage limit below one before any
+  // request, so the server's refusal is reached with a name of spaces instead.
   {
     screen: 'DA-PRM-03',
-    state: 'save-refused',
+    state: 'usage-limit-below-one',
     variant: 'admin',
     reach: async (page) => {
       await openPromotion('singleCode')(page)
@@ -944,6 +982,22 @@ const promotionCaptures: Capture[] = [
       await page.getByRole('button', { name: /^save$/i }).click()
       await page.waitForTimeout(2_000)
       await toMiddle(page.locator('#usage_limit'))
+    },
+  },
+  {
+    screen: 'DA-PRM-03',
+    state: 'save-refused',
+    variant: 'admin',
+    reach: async (page) => {
+      await openPromotion('singleCode')(page)
+      await page.locator('#name').fill('   ')
+      await page.getByRole('button', { name: /^save$/i }).click()
+      await expect(page.getByText(/can't be blank/i).first()).toBeVisible({ timeout: 15_000 })
+    },
+    after: async () => {
+      await asAdmin('patch', `promotions/${loyalty.ids.promotions.singleCode}`, {
+        name: promotions.singleCode,
+      })
     },
   },
   {

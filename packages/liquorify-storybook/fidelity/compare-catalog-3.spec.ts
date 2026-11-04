@@ -180,9 +180,127 @@ const cases: Case[] = [
   },
 ]
 
+const giftCardsPath = '/loyalty/gift-cards'
+
+/** Opens a gift card's edit sheet from the list by its code. */
+const openGiftCard = async (page: Page, code: string) => {
+  await adminPage(page, giftCardsPath)
+  await page.getByText(code, { exact: true }).click()
+  await sheet(page)
+    .getByText(/^usage$/i)
+    .waitFor()
+  await page.waitForTimeout(1_000)
+  return sheet(page)
+}
+
+const openGiftCardCreate = async (page: Page) => {
+  await adminPage(page, giftCardsPath)
+  await page.getByRole('button', { name: /new gift card/i }).click()
+  await sheet(page)
+    .getByText(/^quantity$/i)
+    .waitFor()
+  await page.waitForTimeout(1_000)
+  return sheet(page)
+}
+
+/**
+ * Earlier batches' stories that part 3's running screens show, held by G-33,
+ * G-53 and G-58 until a running screen shows their state (LIQ-004's comparison
+ * follow-up). Each is compared as part 3's own stories are.
+ */
+const earlier: Case[] = [
+  {
+    id: 'CMP-DA-G-15',
+    name: 'c3-earlier-editor-shell-editing',
+    story: 'admin-dashboard-promotion-editors-editor-shell--editing',
+    window: { width: 1280, height: 960 },
+    screen: (page) => openEditor(page, 'running', /^country/i),
+    inStory: sheet,
+  },
+  {
+    id: 'CMP-DA-G-24',
+    name: 'c3-earlier-type-picker-sheet-some-used',
+    story: 'admin-dashboard-price-lists-type-picker-sheet--some-used',
+    window: { width: 1280, height: 960 },
+    screen: async (page) => {
+      await adminPage(page, promotionPath('running'))
+      await page.getByRole('button', { name: /^add rule$/i }).click()
+      await sheet(page)
+        .getByText(/^currency$/i)
+        .waitFor()
+      await page.waitForTimeout(1_000)
+      return sheet(page)
+    },
+    inStory: sheet,
+    viewport: true,
+  },
+  {
+    id: 'CMP-CORE-18',
+    name: 'c3-earlier-money-euros',
+    story: 'dashboard-core-money--euros',
+    screen: async (page) => {
+      await adminPage(page, giftCardsPath)
+      const amount = page
+        .getByRole('row', { name: /fidelity-euro/i })
+        .getByText('€40.00')
+        .first()
+      await amount.waitFor()
+      return amount
+    },
+    inStory: storyRoot,
+  },
+  {
+    id: 'CMP-CORE-08',
+    name: 'c3-earlier-currency-select-selected',
+    story: 'dashboard-core-currency-select--selected',
+    screen: async (page) =>
+      (await openGiftCardCreate(page))
+        .locator('[data-slot="combobox-button-trigger"]')
+        .filter({ hasText: 'USD' }),
+    inStory: (page) => slot(page, 'combobox-button-trigger').first(),
+  },
+  {
+    id: 'CMP-CORE-23',
+    name: 'c3-earlier-resource-combobox-nothing-chosen',
+    story: 'dashboard-core-resource-combobox--nothing-chosen',
+    screen: async (page) => (await openGiftCardCreate(page)).getByRole('combobox').last(),
+    inStory: (page) => page.getByRole('combobox').first(),
+  },
+  {
+    id: 'CMP-CORE-23',
+    name: 'c3-earlier-resource-combobox-chosen',
+    story: 'dashboard-core-resource-combobox--chosen',
+    screen: async (page) =>
+      (await openGiftCard(page, 'FIDELITY-WELCOME')).getByRole('combobox').last(),
+    inStory: (page) => page.getByRole('combobox').first(),
+  },
+  {
+    id: 'CMP-CORE-35',
+    name: 'c3-earlier-store-date-picker-date-chosen',
+    story: 'dashboard-core-store-date-picker--date-chosen',
+    screen: async (page) =>
+      (await openGiftCard(page, 'FIDELITY-WELCOME')).getByRole('button', {
+        name: /june 30th, 2027/i,
+      }),
+    inStory: (page) => page.locator('#storybook-root').getByRole('button').first(),
+  },
+  {
+    id: 'CMP-CORE-35',
+    name: 'c3-earlier-store-date-picker-date-and-time',
+    story: 'dashboard-core-store-date-picker--date-and-time-in-the-stores-zone',
+    screen: async (page) => {
+      await adminPage(page, promotionPath('running'))
+      const starts = page.getByRole('button', { name: /october 1st, 2026/i }).first()
+      await starts.waitFor()
+      return starts
+    },
+    inStory: (page) => page.locator('#storybook-root').getByRole('button').first(),
+  },
+]
+
 test.beforeAll(async ({ baseURL: configured }) => {
   baseURL = configured ?? baseURL
   loyalty = await seedLoyalty(baseURL)
 })
 
-compareCases(cases)
+compareCases([...cases, ...earlier])
