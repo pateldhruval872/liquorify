@@ -74,10 +74,14 @@ export const AddingMinimum: Story = {
   name: 'Adding a minimum in another currency',
   play: async () => {
     await screen.findByRole('spinbutton', { name: 'Minimum amount' })
-    // Add offers the next store currency, so it stays disabled until the store loads.
-    const add = screen.getByRole('button', { name: 'Add' })
-    await waitFor(() => expect(add).toBeEnabled())
-    await userEvent.click(add)
+    // Add offers the next store currency, so it stays disabled until the store loads,
+    // and it takes clicks only once its disabled styling has gone too.
+    await waitFor(() => {
+      const add = screen.getByRole('button', { name: 'Add' })
+      expect(add).toBeEnabled()
+      expect(getComputedStyle(add).pointerEvents).not.toBe('none')
+    })
+    await userEvent.click(screen.getByRole('button', { name: 'Add' }))
     const amounts = await screen.findAllByRole('spinbutton', { name: 'Minimum amount' })
     await expect(amounts).toHaveLength(2)
     await expect(screen.getByRole('button', { name: 'Add' })).toBeDisabled()

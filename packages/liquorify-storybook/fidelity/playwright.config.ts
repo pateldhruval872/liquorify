@@ -33,7 +33,10 @@ import { defineConfig } from '@playwright/test'
  * caller, and `one-store-checks.spec.ts` shows their judge (`one-store.ts`)
  * failing against a stand-in server (see each file). For batch 5 part 1,
  * `fl-04-storefront.spec.ts` follows a product published in the dashboard to
- * the storefront, built against the same server (see that file).
+ * the storefront, built against the same server (see that file). For part 2,
+ * `fl-21.spec.ts` imports a product file and exports the catalog from the
+ * product list, reading both staff emails, against a server started as for
+ * `mail.spec.ts` (see that file).
  */
 export default defineConfig({
   testDir: '.',
@@ -56,6 +59,7 @@ export default defineConfig({
     'webhooks.spec.ts',
     'storefront-webhooks.spec.ts',
     'fl-04-storefront.spec.ts',
+    'fl-21.spec.ts',
     'agent.spec.ts',
     'webhook-tracing.spec.ts',
     'one-store-admin.spec.ts',
