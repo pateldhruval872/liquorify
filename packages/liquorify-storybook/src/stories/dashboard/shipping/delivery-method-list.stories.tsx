@@ -30,7 +30,7 @@ type Story = StoryObj<typeof meta>
 
 const rowMenu = async (name: string) => {
   const row = (await screen.findByText(name)).closest('.py-2') as HTMLElement
-  await userEvent.click(within(row).getByRole('button', { name: 'Open actions' }))
+  await userEvent.click(await within(row).findByRole('button', { name: 'Open actions' }))
 }
 
 // A flat rate in the store's currency, one priced in two currencies, and one

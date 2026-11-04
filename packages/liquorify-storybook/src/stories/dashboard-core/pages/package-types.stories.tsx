@@ -70,7 +70,7 @@ type Story = StoryObj<typeof meta>
 
 const rowMenu = async (name: string) => {
   const row = (await screen.findByText(name)).closest('tr') as HTMLElement
-  await userEvent.click(within(row).getByRole('button', { name: 'Open actions' }))
+  await userEvent.click(await within(row).findByRole('button', { name: 'Open actions' }))
 }
 
 // A box, a carton and a pallet, each with its measurements; the box is the default.

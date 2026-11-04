@@ -40,7 +40,9 @@ type Story = StoryObj<typeof meta>
 
 const zoneMenu = async () => {
   const header = (await screen.findByText(domesticZone.name)).closest('[data-slot="card-header"]')
-  await userEvent.click(within(header as HTMLElement).getByRole('button', { name: 'Open actions' }))
+  await userEvent.click(
+    await within(header as HTMLElement).findByRole('button', { name: 'Open actions' }),
+  )
 }
 
 export const Domestic: Story = {
