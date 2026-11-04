@@ -693,7 +693,7 @@ const transferCaptures: Capture[] = [
     variant: 'admin',
     reach: async (page) => {
       await openTransfer(page, 'received')
-      await toMiddle(page.getByText('Deliveries', { exact: true }))
+      await toMiddle(page.locator('[data-slot="card-title"]', { hasText: /^Deliveries/ }))
     },
   },
   {
@@ -789,10 +789,14 @@ const orderCaptures: Capture[] = [
     variant: 'admin',
     reach: async (page) => {
       await openOrders(page)
-      await page.getByRole('button', { name: /^status/i }).click()
-      await page.getByRole('menuitemcheckbox', { name: /^ordered$/i }).click()
-      await page.keyboard.press('Escape')
-      await page.waitForLoadState('networkidle')
+      await keepOnly(page, /^status/i, [
+        /^draft$/i,
+        /^partially received$/i,
+        /^received$/i,
+        /^over.received$/i,
+        /^cancell?ed$/i,
+      ])
+      await expect(page.getByRole('button', { name: /^status/i })).toContainText('1/6')
     },
   },
   {
@@ -800,9 +804,11 @@ const orderCaptures: Capture[] = [
     state: 'filtered-supplier',
     variant: 'admin',
     reach: async (page) => {
+      // The supplier filter has no quick control: it is chosen from Add filter.
       await openOrders(page)
-      await page.getByRole('button', { name: /^supplier/i }).click()
-      await page.getByRole('menuitemcheckbox', { name: supplierNames.kilnworks }).click()
+      await page.getByRole('button', { name: /^add filter$/i }).click()
+      await page.locator('[data-slot="filter-panel-item"]', { hasText: /^supplier$/i }).click()
+      await page.getByRole('button', { name: supplierNames.kilnworks }).click()
       await page.keyboard.press('Escape')
       await page.waitForLoadState('networkidle')
     },
@@ -812,11 +818,23 @@ const orderCaptures: Capture[] = [
     state: 'filtered-overdue',
     variant: 'admin',
     reach: async (page) => {
+      // The list asks for the scope as a list of values, which the server
+      // refuses; the screen then shows its empty state (record §5).
       await openOrders(page)
-      await page.getByRole('button', { name: /^overdue/i }).click()
-      await page.getByRole('menuitemcheckbox', { name: /^overdue$/i }).click()
-      await page.keyboard.press('Escape')
-      await page.waitForLoadState('networkidle')
+      await keepOnly(page, /^overdue/i, [/^on time$/i])
+      await expect(page.getByRole('button', { name: /^overdue/i })).toContainText('1/2')
+    },
+  },
+  {
+    screen: 'DA-INV-06',
+    state: 'columns-menu',
+    variant: 'admin',
+    reach: async (page) => {
+      // The menu offers only columns with a default visibility, so the
+      // Cancel by, Overdue and Past cancel-by columns cannot be shown (record §5).
+      await openOrders(page)
+      await page.getByRole('button', { name: /^columns$/i }).click()
+      await expect(page.getByRole('menuitemcheckbox', { name: /^updated at$/i })).toBeVisible()
     },
   },
   {

@@ -6,3 +6,6 @@ visual/results/
 fidelity/results/
 fidelity/.stop
 fidelity/.stop-first-run
+
+# A run started with `--output=./results/...` writes beside the package.
+results/

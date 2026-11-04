@@ -426,7 +426,9 @@ export const receivedTransfer = transfer(
     source_location: counter,
     source_location_id: counter.id,
     received_at: '2026-09-22T16:45:00.000Z',
-    stock_receipts: [secondDelivery, firstDelivery],
+    // In the order they were booked, as the running screen lists them: the
+    // endpoint names no order, so the database's own decides.
+    stock_receipts: [firstDelivery, secondDelivery],
   },
 )
 
