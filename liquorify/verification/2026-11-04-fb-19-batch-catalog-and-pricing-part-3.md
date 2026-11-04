@@ -4,7 +4,7 @@ record: verification
 work_item: FB-19
 date: 2026-11-04
 verifier: Claude (automated session); not independent review
-result: ⟨RESULT⟩
+result: PASS for the map, the stories and their images, the running-screen captures, the comparison with running screens, Spree's own specs for part 3's endpoints, models and workflows, 740 examples with no failures and 2 pending, and criterion 16: no staff control and no Admin API request cancels a gift card, so G-14 stays PENDING with the owner. Every state the work item lists for the five screens is captured but two that Spree does not have, recorded as corrections; 11 states were reached in the browser. CAP-05-12 and CAP-05-13 PARTIAL: the dashboard steps of FL-16 and FL-17 map to Spree's browser tests, and 22 behaviours no browser test drives are G-84. 27 behaviours recorded and not changed. G-81, G-82 and G-84 OPEN for the owner, G-83 linked to G-11 for P10. Tenant isolation NOT_RUN. Delegated acceptance, under the owner's delegation of 2026-11-04, at #61's final commit, which the merge record names; not the owner's review
 ---
 
 # FB-19 batch 5, catalog and pricing, part 3, promotions, gift cards and store credit
@@ -361,15 +361,13 @@ Each names what is missing, the check made instead and what would close it. Part
 
 ## 9. CI runs and local checks
 
-| Run | Revision | Result |
-|---|---|---|
-⟨CI-ROWS⟩
+**CI.** The runs on the final commit, the visual check twice, once from the pull request and once started by hand, with Tests and Packages, are named in the merge record, as criterion 8 asks. If any of them fails, nothing is merged. The pull request runs started at `e86b9746` were cancelled when `4b79664f` was pushed, and those at `4b79664f` when the final commit was pushed, as the workflows' concurrency rules do; none is counted.
 
 The visual check stays advisory: it runs on every pull request, and nothing approves a changed screenshot automatically. CI does not run the capture or comparison scripts or the Admin API checks, which were run locally (§2, §4, §5).
 
 **The browser-test database was emptied by Spree's API specs, as planned.** Spree's API specs use the same SQLite database as the browser-test server, so they ran after every capture, the comparison and the Admin API checks, with the server stopped (§3.2).
 
-**Local checks, in this session.** At `e040f9d1`, lint (Biome, 362 files), the package's type check, the 65 fixture tests and the token check passed. The fidelity scripts type-checked apart from errors in files the branch does not change: the three `main` already had, in Spree's browser test helpers and P2's `collector.ts` and `receiver.ts`, and batch 7's `screens-batch-7.spec.ts`, `compare-batch-7.spec.ts` and `payments-delivery.ts`; part 3's `screens-catalog-3.spec.ts`, `compare-catalog-3.spec.ts`, `loyalty.ts` and `staff.ts` have none. The Storybook built, with 1,402 stories in all. In the pinned image, the visual check of part 3's 130 stories ran in update mode and wrote their 260 reference images, 260 of 260 passing in 5.1 minutes; no earlier image was written or changed. Every new image was then looked at in both themes, on contact sheets of light beside dark, and checked by its brightness for a blank frame or the wrong theme; none was found. The captures and the comparison ran as §2.1 and §5 say, and Spree's specs as §3.2 says. Every evidence image was converted to lossless WebP and checked equal to its capture, pixel for pixel. Criterion 14's search, before each push: every line the pull request adds, in its 413 text files, was searched for the shapes of keys, tokens, passwords and machine paths and compared with the one local secret this part used, the browser tests' admin password, and nothing matched. The link check found none of the 1,434 relative links in the changed Markdown files broken, anchors included.
+**Local checks, in this session.** At `e040f9d1`, lint (Biome, 362 files), the package's type check, the 65 fixture tests and the token check passed. The fidelity scripts type-checked apart from errors in files the branch does not change: the three `main` already had, in Spree's browser test helpers and P2's `collector.ts` and `receiver.ts`, and batch 7's `screens-batch-7.spec.ts`, `compare-batch-7.spec.ts` and `payments-delivery.ts`; part 3's `screens-catalog-3.spec.ts`, `compare-catalog-3.spec.ts`, `loyalty.ts` and `staff.ts` have none. The Storybook built, with 1,402 stories in all. In the pinned image, the visual check of part 3's 130 stories ran in update mode and wrote their 260 reference images, 260 of 260 passing in 5.1 minutes; no earlier image was written or changed. Every new image was then looked at in both themes, on contact sheets of light beside dark, and checked by its brightness for a blank frame or the wrong theme; none was found. The captures and the comparison ran as §2.1 and §5 say, and Spree's specs as §3.2 says. Every evidence image was converted to lossless WebP and checked equal to its capture, pixel for pixel. Criterion 14's search, before each push: every line the pull request adds, in its 412 text files, was searched for the shapes of keys, tokens, passwords and machine paths and compared with the one local secret this part used, the browser tests' admin password, and nothing matched. The link check found none of the 1,434 relative links in the changed Markdown files broken, anchors included.
 
 **The Storybook's coverage report counts 5 of part 3's 15 components.** The report the Storybook job writes from `scripts/coverage.mjs` matches a group's story to a file by the story's title, and the rule and action editors' stories are titled by what each edits, "Product rule editor" for `rule-product.tsx`, as part 2's price list rule editors are. So it lists the calculator summary, the promotion form, the match policy picker and the two store credit dialogs, and not the ten editors, whose stories are tagged with CMP-DA-G-15 and named file by file in LIQ-009's Storybook column. The report is a summary and decides nothing; the counts in this record and in LIQ-004 are of the stories themselves.
 
@@ -390,4 +388,13 @@ The [evidence index](evidence/2026-11-04-fb-19-batch-catalog-and-pricing-part-3/
 
 ## 12. Acceptance
 
-⟨ACCEPTANCE⟩
+| What | Detail |
+|---|---|
+| Kind | **Delegated acceptance, under the owner's delegation of 2026-11-04** ([record](2026-11-04-delegated-acceptance-and-merging.md)). The owner did not review this work |
+| Date | 2026-11-04 |
+| Accepted by | Claude, in the thread "Build dashboard catalog part 3" |
+| Revision | #61's final commit, which the merge record names. Its stories, fixtures and scripts are those of `e040f9d1`, and its reference images those of `5db32bb1`; every later commit changes Liquorify's records only, or brings in `main`, which changed records only |
+| Scope | Criterion 11: the 260 reference images of the [image review list](2026-11-04-fb-19-batch-catalog-and-pricing-part-3-image-review.md), each looked at in light and dark (§9); the running-screen evidence of §2 and §3.1; and fidelity, judged from the comparison of §5, 18 cases and 8 earlier stories with every difference explained. Technical acceptance of criteria 1 to 10 and 12 to 16 as this record gives them. Criterion 8 counts the two full visual runs on the final revision, which the merge record names; if either fails, or Tests or Packages fails, nothing is merged |
+| Not accepted here | Any answer to a gap, any exception or security risk, and any change of status. G-81, G-82 and G-84 stay OPEN for the owner's answers, with their handling proposed, not decided; G-83 is linked to G-11 for P10, and G-11 stays open. G-14 stays PENDING. B1 to B27 stay recorded as Spree's behaviour, and whether to track any of them as a defect is the owner's. Whether promotions on alcohol are restricted is deferred with Liquorify's own work. Tenant isolation stays NOT_RUN (§3.4), ISO-1 to ISO-7 stay open, and FB-03's result stays with the owner. The work item stays PROPOSED and LIQ-004 DRAFT |
+
+What the checks did not show stays as §10 states it. Batch 6, inventory, follows this part.
