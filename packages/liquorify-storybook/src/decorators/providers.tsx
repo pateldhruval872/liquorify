@@ -47,6 +47,8 @@ export interface StoryNeeds {
  * its settings menu, the two columns of a record's page (`ResourceLayout`),
  * its main column and its sidebar, and what a card in either of those two
  * leaves inside its border and padding, for a part drawn without its card.
+ * A record's page inside the settings menu, such as a delivery profile's, has
+ * narrower columns, and its origin group and zone cards nest one inside the other.
  */
 export const columnWidths = {
   page: 965,
@@ -55,6 +57,10 @@ export const columnWidths = {
   sidebar: 306,
   inMainCard: 609,
   inSidebarCard: 280,
+  settingsMain: 585.328125,
+  settingsSidebar: 280.671875,
+  inOriginGroup: 551.328125,
+  inZoneCard: 525.328125,
 } as const
 
 export type Column = keyof typeof columnWidths

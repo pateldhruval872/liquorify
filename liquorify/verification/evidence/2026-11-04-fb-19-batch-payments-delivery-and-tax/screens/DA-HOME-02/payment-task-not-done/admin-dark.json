@@ -1,0 +1,17 @@
+{
+  "screen": "DA-HOME-02",
+  "state": "payment-task-not-done",
+  "variant": "admin",
+  "role": null,
+  "theme": "dark",
+  "revision": "87a2ea80",
+  "path": "/<store>/getting-started",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": null,
+  "masked": null,
+  "settled": true,
+  "outside": []
+}

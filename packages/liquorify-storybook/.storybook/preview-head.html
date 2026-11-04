@@ -1,0 +1,15 @@
+<script>
+  // The dashboard applies its theme before its first paint, from a script in
+  // its own index.html, so nothing on screen fades from light to dark as it
+  // loads. The stories' theme provider applies the toolbar's theme only after
+  // the first render, and under reduced motion every colour then fades for
+  // 100 ms, which left some dark captures drawn mid-fade. A capture names its
+  // theme in the address, so it is applied here, before anything renders.
+  ;(() => {
+    const globals = new URLSearchParams(window.location.search).get('globals') ?? ''
+    const theme = /(?:^|;)theme:(dark|light)(?:;|$)/.exec(globals)?.[1]
+    if (!theme) return
+    document.documentElement.classList.toggle('dark', theme === 'dark')
+    document.documentElement.style.colorScheme = theme
+  })()
+</script>

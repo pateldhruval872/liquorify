@@ -18,8 +18,19 @@ async function startMockServiceWorker() {
   return worker
 }
 
+// Text drawn before its font arrives is drawn again when it does, and a dotted
+// underline drawn twice is not always shaded the same, so a capture could differ
+// from its reference. Stories render once the dashboard's fonts are in.
+async function loadFonts() {
+  await Promise.all(
+    ['"Geist Variable"', '"Geist Mono Variable"'].map((family) =>
+      document.fonts.load(`1em ${family}`, 'Aa\u0142'),
+    ),
+  )
+}
+
 const preview: Preview = {
-  loaders: [mswLoader(startMockServiceWorker), routerLoader],
+  loaders: [loadFonts, mswLoader(startMockServiceWorker), routerLoader],
   // The first decorator is the innermost: the router sits inside the
   // providers, as it does in both panels.
   decorators: [withRouter, withPanelProviders],

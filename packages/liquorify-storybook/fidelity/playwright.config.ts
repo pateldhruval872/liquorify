@@ -33,17 +33,21 @@ import { defineConfig } from '@playwright/test'
  * caller, and `one-store-checks.spec.ts` shows their judge (`one-store.ts`)
  * failing against a stand-in server (see each file). For batch 5 part 1,
  * `fl-04-storefront.spec.ts` follows a product published in the dashboard to
- * the storefront, built against the same server (see that file). For the
- * multi-store administration batch, `multi-store.spec.ts` walks one teammate
- * with different roles in two stores through its states (see that file).
- * `FIDELITY_BASE_URL` points the scripts at a dashboard served on another
- * port, beside a server started with `E2E_RAILS_PORT`.
+ * the storefront, built against the same server (see that file). Batch 7's
+ * captures and comparison keep their own files, `screens-batch-7.spec.ts` and
+ * `compare-batch-7.spec.ts`. For the multi-store administration batch,
+ * `multi-store.spec.ts` walks one teammate with different roles in two stores
+ * through its states (see that file). `FIDELITY_BASE_URL` points the scripts
+ * at a dashboard served on another port, beside a server started with
+ * `E2E_RAILS_PORT`.
  */
 export default defineConfig({
   testDir: '.',
   testMatch: [
     'compare.spec.ts',
     'screens.spec.ts',
+    'screens-batch-7.spec.ts',
+    'compare-batch-7.spec.ts',
     'setup.spec.ts',
     'refusals.spec.ts',
     'mail.spec.ts',

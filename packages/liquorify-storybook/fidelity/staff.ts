@@ -58,6 +58,19 @@ export const roles = {
       'read_stock',
     ],
   },
+  /** Read on the three scopes of batch 7's screens, and write on none. */
+  deliveryViewer: {
+    name: 'Delivery settings viewer',
+    permissions: ['read_settings', 'read_delivery_methods', 'read_package_types'],
+  },
+  /**
+   * Read on `settings` and write on delivery methods and package types: the
+   * boundary the two scopes of their own draw on batch 7's screens.
+   */
+  deliveryEditor: {
+    name: 'Delivery methods editor',
+    permissions: ['read_settings', 'write_delivery_methods', 'write_package_types'],
+  },
   /** May connect an agent, which takes write on OAuth applications, and holds little else. */
   agentConnector: {
     name: 'Agent connector',
@@ -125,6 +138,18 @@ export const teammates: Record<
     role: 'catalogViewer',
     first: 'Cat',
     last: 'Viewer',
+  },
+  deliveryViewer: {
+    email: 'fidelity-delivery-viewer@example.com',
+    role: 'deliveryViewer',
+    first: 'Del',
+    last: 'Viewer',
+  },
+  deliveryEditor: {
+    email: 'fidelity-delivery-editor@example.com',
+    role: 'deliveryEditor',
+    first: 'Ed',
+    last: 'Methods',
   },
   agentConnector: {
     email: 'fidelity-agent-connector@example.com',
