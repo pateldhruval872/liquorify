@@ -1,0 +1,17 @@
+{
+  "screen": "DA-SET-12",
+  "state": "provider-changed",
+  "variant": "admin",
+  "role": null,
+  "theme": "light",
+  "revision": "87a2ea80",
+  "path": "/<store>/settings/payment-methods",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": null,
+  "masked": null,
+  "settled": true,
+  "outside": []
+}

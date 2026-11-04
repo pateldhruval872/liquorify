@@ -1,0 +1,17 @@
+{
+  "screen": "DA-SET-17",
+  "state": "split-origins",
+  "variant": "admin",
+  "role": null,
+  "theme": "dark",
+  "revision": "87a2ea80",
+  "path": "/<store>/settings/delivery-profiles/fp_uw2YK1rnl0",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "intercepted": null,
+  "masked": null,
+  "settled": true,
+  "outside": []
+}

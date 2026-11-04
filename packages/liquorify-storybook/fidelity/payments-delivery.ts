@@ -282,7 +282,7 @@ export const seedPaymentsDelivery = (baseURL: string): Promise<PaymentsDelivery>
           { member_type: 'state', country_code: 'US', state_code: 'CA' },
           { member_type: 'state', country_code: 'US', state_code: 'OR' },
           { member_type: 'state', country_code: 'US', state_code: 'WA' },
-          { member_type: 'postal_code_prefix', country_code: 'US', postal_code_prefix: '941' },
+          { member_type: 'postal_code', country_code: 'US', postal_code_prefix: '941' },
         ],
       }),
       eastCoast: await ensure(api, headers, 'delivery_zones', deliveryNames.eastCoast, {

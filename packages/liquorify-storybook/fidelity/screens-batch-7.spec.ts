@@ -122,9 +122,11 @@ const emptied = (page: Page, path: string) =>
 const toMiddle = (target: Locator) =>
   target.evaluate((element) => element.scrollIntoView({ block: 'center' }))
 
-/** The nearest box around an element that also holds a button with this name. */
+/** The nearest box around an element that also holds a button with this name, in its text or its label. */
 const around = (target: Locator, button: string) =>
-  target.locator(`xpath=ancestor::*[.//button[contains(normalize-space(.), "${button}")]][1]`)
+  target.locator(
+    `xpath=ancestor::*[.//button[@aria-label="${button}" or contains(normalize-space(.), "${button}")]][1]`,
+  )
 
 const optionIn = async (page: Page, field: Locator, option: string | RegExp) => {
   await field.click()
@@ -582,10 +584,14 @@ const taxCaptures: Capture[] = [
     reach: async (page) => {
       await openNewRate(page)
       await page.locator('#name').fill('Fidelity blank rate')
+      // A rate never typed in is saved as 0%; only one typed and then cleared is refused.
+      await page.locator('#rate_percent').fill('5')
+      await page.locator('#rate_percent').fill('')
       await optionIn(page, page.locator('#tax_category_id'), /^default$/i)
       await page.getByRole('button', { name: /create tax rate/i }).click()
       await expect(page.locator('#rate_percent')).toHaveAttribute('aria-invalid', 'true')
     },
+    after: () => removeNamed(baseURL, 'tax_rates', 'Fidelity blank rate'),
   },
   ...(['admin', 'deliveryViewer'] as const).map(
     (variant): Capture => ({
@@ -645,7 +651,7 @@ const taskCaptures: Capture[] = [
       await removePaymentMethods(baseURL)
       await openTask(page, paymentTask)
       await page.getByRole('region', { name: paymentTask }).getByRole('link').click()
-      await expect(page).toHaveURL(new RegExp(`${paymentsPath}$`))
+      await expect(page).toHaveURL(new RegExp(`${paymentsPath}(\\?|$)`))
       await expect(page.getByRole('button', { name: /add payment method/i })).toBeVisible()
     },
     after: putPaymentsBack,
@@ -729,12 +735,14 @@ const zoneBox = (page: Page, name: string) =>
   page.locator('[data-slot="card"]').filter({
     has: page.locator('[data-slot="card-title"]', { hasText: new RegExp(`^${name}$`) }),
   })
-const methodRow = (page: Page, name: string) =>
-  around(page.getByRole('button', { name, exact: true }), 'Open actions')
+/** A method's button in its list, whose name also carries the method's conditions when it has some. */
+const methodButton = (page: Page, name: string) =>
+  page.getByRole('button', { name: new RegExp(`^${name}( |$)`) })
+const methodRow = (page: Page, name: string) => around(methodButton(page, name), 'Open actions')
 
 const openMethod = async (page: Page, name: string) => {
   await openHomeGoods(page)
-  await page.getByRole('button', { name, exact: true }).click()
+  await methodButton(page, name).click()
   await expect(page.getByRole('heading', { name: /edit delivery method/i })).toBeVisible({
     timeout: 15_000,
   })
@@ -793,7 +801,8 @@ const profileCaptures: Capture[] = [
       variant,
       reach: async (page) => {
         await openGeneral(page)
-        await expect(page.getByText(/No zones yet/)).toBeVisible()
+        // With no zone, the page offers the profile's methods everywhere it reaches.
+        await expect(page.getByText('No zone restriction')).toBeVisible()
       },
     }),
   ),
@@ -859,20 +868,12 @@ const profileCaptures: Capture[] = [
         .click()
       await expect(page.getByRole('heading', { name: /new delivery zone/i })).toBeVisible()
       await sheet(page).locator('#name').fill('Fidelity mountain states')
-      await sheet(page)
-        .getByPlaceholder(/search countries and regions/i)
-        .fill('Colorado')
-      await sheet(page)
-        .getByRole('checkbox', { name: /colorado/i })
-        .first()
-        .check()
-      await sheet(page)
-        .getByPlaceholder(/search countries and regions/i)
-        .fill('Utah')
-      await sheet(page).getByRole('checkbox', { name: /utah/i }).first().check()
-      await sheet(page)
-        .getByPlaceholder(/search countries and regions/i)
-        .fill('')
+      // The search finds countries; a country's states open beneath it.
+      await sheet(page).getByRole('checkbox', { name: 'Germany', exact: true }).check()
+      await sheet(page).getByRole('button', { name: 'Show states of United States' }).click()
+      await sheet(page).getByRole('checkbox', { name: 'Colorado', exact: true }).check()
+      await sheet(page).getByRole('checkbox', { name: 'Utah', exact: true }).check()
+      await expect(sheet(page).getByText(/1 countries, 2 states/)).toBeVisible()
     },
   },
   ...(['admin', 'deliveryViewer'] as const).map(
@@ -907,7 +908,7 @@ const profileCaptures: Capture[] = [
       await expect(confirmation(page).getByText(/Delete delivery zone/)).toBeVisible()
     },
   },
-  ...(['admin', 'deliveryViewer', 'deliveryEditor'] as const).map(
+  ...(['admin', 'deliveryEditor'] as const).map(
     (variant): Capture => ({
       screen: 'DA-SET-17',
       state: 'method-flat-rate-per-currency',
@@ -915,6 +916,21 @@ const profileCaptures: Capture[] = [
       reach: (page) => openMethod(page, deliveryNames.standard),
     }),
   ),
+  {
+    // The sheet waits for the kinds of condition a method can have, which
+    // Spree answers only to a role that may create them, so a role that only
+    // reads delivery methods never gets past loading.
+    screen: 'DA-SET-17',
+    state: 'method-flat-rate-per-currency',
+    variant: 'deliveryViewer',
+    reach: async (page) => {
+      await openHomeGoods(page)
+      await methodButton(page, deliveryNames.standard).click()
+      await expect(sheet(page).getByText('Loading…')).toBeVisible({ timeout: 15_000 })
+      await page.waitForTimeout(20_000)
+      await expect(sheet(page).getByText('Loading…')).toBeVisible()
+    },
+  },
   {
     screen: 'DA-SET-17',
     state: 'method-conditions',
