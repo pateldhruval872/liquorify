@@ -88,6 +88,10 @@ async function stageChanges() {
   const sheet = await screen.findByRole('dialog', { name: 'Add products to category' })
   await userEvent.click(await within(sheet).findByRole('button', { name: /Linen apron/ }))
   await userEvent.click(within(sheet).getByRole('button', { name: 'Add 1' }))
+  // The sheet hands focus back to Add products as it closes; waiting for that
+  // keeps a slower machine from moving focus there after the next clicks.
+  await waitFor(() => expect(screen.queryByRole('dialog')).toBeNull())
+  await waitFor(() => expect(screen.getByRole('button', { name: 'Add products' })).toHaveFocus())
   // The new product is pinned on top, so the clay mug's row is found by name.
   const mugRow = (await screen.findByText('Clay mug')).closest('tr') as HTMLElement
   await userEvent.click(within(mugRow).getByRole('button', { name: 'Remove from category' }))

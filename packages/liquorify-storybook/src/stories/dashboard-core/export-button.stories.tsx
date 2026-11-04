@@ -1,6 +1,6 @@
 import { ExportButton, ExportRecordButton } from '@spree/dashboard-core'
 import type { Meta, StoryObj } from '@storybook/react-vite'
-import { expect, screen, userEvent, within } from 'storybook/test'
+import { expect, screen, userEvent, waitFor, within } from 'storybook/test'
 import { storeParameters, withStore } from '../../decorators/store'
 import { withToaster } from '../../decorators/toaster'
 import { exportHeld, exportRefused, exportRequests } from '../../mocks/handlers/admin/merchandising'
@@ -105,6 +105,8 @@ export const Downloaded: Story = {
       within(await screen.findByRole('dialog')).getByRole('button', { name: 'Export' }),
     )
     await screen.findByText('Export downloaded')
+    await waitFor(() => expect(screen.queryByRole('dialog')).toBeNull())
+    await waitFor(() => expect(screen.getByRole('button', { name: 'Export' })).toBeEnabled())
   },
 }
 

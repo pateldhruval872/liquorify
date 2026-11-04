@@ -1,6 +1,6 @@
 import type { Product } from '@spree/admin-sdk'
 import type { Meta, StoryObj } from '@storybook/react-vite'
-import { expect, screen, userEvent, within } from 'storybook/test'
+import { expect, screen, userEvent, waitFor, within } from 'storybook/test'
 import { CategoryProductsCard } from '../../../../../dashboard/src/components/spree/categories/category-products-card'
 import { withStore } from '../../../decorators/store'
 import { withToaster } from '../../../decorators/toaster'
@@ -93,6 +93,10 @@ export const PendingChanges: Story = {
     const sheet = await screen.findByRole('dialog', { name: 'Add products to category' })
     await userEvent.click(await within(sheet).findByRole('button', { name: /Linen apron/ }))
     await userEvent.click(within(sheet).getByRole('button', { name: 'Add 1' }))
+    // The sheet hands focus back to Add products as it closes; waiting for that
+    // keeps a slower machine from moving focus there after the next click.
+    await waitFor(() => expect(screen.queryByRole('dialog')).toBeNull())
+    await waitFor(() => expect(screen.getByRole('button', { name: 'Add products' })).toHaveFocus())
     // The new product is pinned on top, so the clay mug's row is found by name.
     const mugRow = (await screen.findByText('Clay mug')).closest('tr') as HTMLElement
     await userEvent.click(within(mugRow).getByRole('button', { name: 'Remove from category' }))

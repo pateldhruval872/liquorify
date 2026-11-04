@@ -183,6 +183,10 @@ export function exportRequests(finished: Export = productExport) {
   return [
     http.post('/api/v3/admin/exports', async ({ request }) => {
       const body = (await request.json()) as { type: string }
+      // Answered after 0.4 seconds, as a server does. Answered at once, the
+      // export could finish before the dialog had closed, and whether its
+      // button got focus back depended on the machine's speed.
+      await delay(400)
       return HttpResponse.json(
         { ...finished, type: body.type, done: false, download_url: null },
         { status: 201 },
