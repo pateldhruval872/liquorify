@@ -3023,8 +3023,11 @@ const sideCard = (title: string) => (page: Page) =>
     .locator('[data-slot="card"]')
     .filter({ has: page.getByText(title, { exact: true }) })
     .last()
-const firstTable = (page: Page) => page.locator('table').first()
+// Storybook keeps a hidden arguments table in every story's page, so only visible tables count.
+const firstTable = (page: Page) => page.locator('table:visible').first()
 const modal = (page: Page) => page.getByRole('dialog').last()
+const tierEditor = (scope: Locator) =>
+  scope.getByText('From quantity', { exact: true }).first().locator('xpath=../../..')
 const productList = (page: Page) => page.getByRole('main').locator('table').first()
 
 const catalogPartTwo: Case[] = [
@@ -3049,7 +3052,9 @@ const catalogPartTwo: Case[] = [
     screen: async (page) => {
       await adminPage(page, '/products/categories')
       await page.getByPlaceholder(/^search categories…$/i).fill('Air')
-      await expect(page.getByText('Air & Climate → Fans')).toBeVisible({ timeout: 20_000 })
+      await expect(page.getByRole('row', { name: /^Air & Climate .{1,2} Fans/ })).toBeVisible({
+        timeout: 20_000,
+      })
       await page.mouse.move(1270, 5)
       return firstTable(page)
     },
@@ -3066,7 +3071,7 @@ const catalogPartTwo: Case[] = [
   {
     id: 'CMP-DA-G-03',
     name: 'category-form-navigation',
-    story: 'admin-dashboard-categories-category-form--sidebar-saved',
+    story: 'admin-dashboard-categories-category-form--sidebar-with-parent',
     screen: onRecord(categoryRecord, cardOf('Navigation')),
     inStory: cardOf('Navigation'),
     window: tall,
@@ -3149,11 +3154,12 @@ const catalogPartTwo: Case[] = [
     story: 'dashboard-core-section-heading--with-description',
     screen: async (page) => {
       await adminPage(page, '/products/translations')
-      const heading = page.getByRole('heading', { name: 'Translations', exact: true })
-      await expect(heading).toBeVisible({ timeout: 20_000 })
-      return heading.locator('xpath=..')
+      // The page draws its title as plain text, not as a heading, so it is found by its words.
+      const description = page.getByText(/how much of your catalog is translated/)
+      await expect(description).toBeVisible({ timeout: 20_000 })
+      return description.locator('xpath=..')
     },
-    inStory: (page) => page.getByRole('heading').first().locator('xpath=..'),
+    inStory: (page) => page.getByText(/how much of your catalog is translated/).locator('xpath=..'),
   },
 
   // Catalogs (DA-PRD-13, DA-PRD-14)
@@ -3185,10 +3191,9 @@ const catalogPartTwo: Case[] = [
     id: 'CMP-DUI-C-37',
     name: 'quantity-tier-editor',
     story: 'dashboard-ui-composed-quantity-tier-editor--bands',
-    screen: onRecord(catalogRecord('percentage'), (page) =>
-      sideCard('Pricing')(page).getByRole('table').first(),
-    ),
-    inStory: (page) => page.getByRole('table').first(),
+    // The editor is drawn as rows of fields, not a table: its root is three levels above the column label.
+    screen: onRecord(catalogRecord('percentage'), (page) => tierEditor(sideCard('Pricing')(page))),
+    inStory: (page) => tierEditor(page.locator('body')),
     window: tall,
   },
   {
@@ -3205,7 +3210,7 @@ const catalogPartTwo: Case[] = [
     story: 'admin-dashboard-catalogs-catalog-wizard-dialog--details',
     screen: async (page) => {
       await adminPage(page, '/products/catalogs')
-      await page.getByRole('button', { name: /new catalog/i }).click()
+      await page.getByRole('button', { name: /^add catalog$/i }).click()
       await expect(modal(page)).toBeVisible()
       await page.waitForTimeout(600)
       return modal(page)
@@ -3240,12 +3245,12 @@ const catalogPartTwo: Case[] = [
       const badge = page
         .getByRole('row')
         .filter({ hasText: 'Wholesale' })
-        .locator('[data-slot="badge"]')
+        .locator('[data-slot="status-badge"]')
         .first()
       await expect(badge).toBeVisible({ timeout: 20_000 })
       return badge
     },
-    inStory: (page) => page.locator('[data-slot="badge"]').first(),
+    inStory: (page) => page.locator('[data-slot="status-badge"]').first(),
   },
   {
     id: 'CMP-DA-G-13',
