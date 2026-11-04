@@ -31,7 +31,10 @@ import { defineConfig } from '@playwright/test'
  * `one-store-accounts.spec.ts` and `one-store-storefront.spec.ts` send requests
  * within one store as callers who may not make them, each beside an allowed
  * caller, and `one-store-checks.spec.ts` shows their judge (`one-store.ts`)
- * failing against a stand-in server (see each file). For batch 5 part 1,
+ * failing against a stand-in server (see each file). For step P8,
+ * `catalog-behaviours.spec.ts` drives the catalog behaviours that part 1 of the
+ * catalog and pricing batch captured but no browser test drives (see that
+ * file). For batch 5 part 1,
  * `fl-04-storefront.spec.ts` follows a product published in the dashboard to
  * the storefront, built against the same server (see that file).
  */
@@ -62,6 +65,7 @@ export default defineConfig({
     'one-store-accounts.spec.ts',
     'one-store-storefront.spec.ts',
     'one-store-checks.spec.ts',
+    'catalog-behaviours.spec.ts',
   ],
   outputDir: './results/test-output',
   workers: 1,
