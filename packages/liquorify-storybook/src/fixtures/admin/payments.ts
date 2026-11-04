@@ -116,6 +116,15 @@ export const paymentMethodTypes: PaymentMethodType[] = [
 ]
 
 /**
+ * The same providers as the server answers for a store that already has the
+ * test gateway and a cheque method: each is marked installed, so the add sheet
+ * leaves it out and the edit sheet still finds its settings.
+ */
+export const installedPaymentMethodTypes: PaymentMethodType[] = paymentMethodTypes.map((type) =>
+  ['bogus', 'check'].includes(type.type) ? { ...type, installed: true } : type,
+)
+
+/**
  * Stripe as its gem would list it, written from `SpreeStripe::Gateway`'s two
  * password preferences and its setup guide. The browser-test server does not
  * load the gem, so no running screen shows it; the logo is left out so the

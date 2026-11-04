@@ -31,7 +31,7 @@ const meta = {
     onEditZone: nothing,
   },
   decorators: [withStore],
-  parameters: profileParameters({ column: 'main', route: furniturePage }),
+  parameters: profileParameters({ column: 'settingsMain', route: furniturePage }),
 } satisfies Meta<typeof DeliveryOriginGroupSection>
 
 export default meta
@@ -67,7 +67,7 @@ export const NoZones: Story = {
 
 export const GroupMenu: Story = {
   name: 'Group menu',
-  parameters: profileParameters({ column: 'main', route: furniturePage, viewport: true }),
+  parameters: profileParameters({ column: 'settingsMain', route: furniturePage, viewport: true }),
   play: async () => {
     await groupMenu()
     await screen.findByRole('menuitem', { name: 'Delete' })
@@ -76,7 +76,7 @@ export const GroupMenu: Story = {
 
 export const EditDialog: Story = {
   name: 'Edit dialog',
-  parameters: profileParameters({ column: 'main', route: furniturePage, viewport: true }),
+  parameters: profileParameters({ column: 'settingsMain', route: furniturePage, viewport: true }),
   play: async () => {
     await groupMenu()
     await userEvent.click(await screen.findByRole('menuitem', { name: 'Edit' }))
@@ -86,7 +86,7 @@ export const EditDialog: Story = {
 
 export const DeleteConfirmation: Story = {
   name: 'Delete confirmation',
-  parameters: profileParameters({ column: 'main', route: furniturePage, viewport: true }),
+  parameters: profileParameters({ column: 'settingsMain', route: furniturePage, viewport: true }),
   play: async () => {
     await groupMenu()
     await userEvent.click(await screen.findByRole('menuitem', { name: 'Delete' }))
@@ -97,7 +97,7 @@ export const DeleteConfirmation: Story = {
 // Read on settings and the delivery scopes: no add button and no group actions.
 export const Viewer: Story = {
   parameters: profileParameters({
-    column: 'main',
+    column: 'settingsMain',
     route: furniturePage,
     rules: deliveryViewerRules,
   }),
@@ -110,7 +110,7 @@ export const Viewer: Story = {
 export const MethodEditor: Story = {
   name: 'Method editor',
   parameters: profileParameters({
-    column: 'main',
+    column: 'settingsMain',
     route: furniturePage,
     rules: deliveryEditorRules,
   }),

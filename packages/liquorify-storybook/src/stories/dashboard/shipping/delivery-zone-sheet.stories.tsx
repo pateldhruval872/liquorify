@@ -67,6 +67,7 @@ export const Creating: Story = {
   parameters: profileParameters({ viewport: true, first: writeHeld('delivery_zones') }),
   play: async () => {
     await userEvent.type(await name(), 'North America')
+    await userEvent.click(await screen.findByLabelText('Canada'))
     await userEvent.click(screen.getByRole('button', { name: 'Create delivery zone' }))
     await screen.findByRole('button', { name: 'Creating…' })
   },

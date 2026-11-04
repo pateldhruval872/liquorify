@@ -1,6 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
+import type { ComponentProps } from 'react'
 import { expect, screen, userEvent, waitFor } from 'storybook/test'
 import { DeliveryMethodSheet } from '../../../../../dashboard/src/components/spree/shipping/delivery-method-sheet'
+import { useDeliveryRateProviders } from '../../../../../dashboard/src/hooks/use-delivery-methods'
 import { withStore } from '../../../decorators/store'
 import {
   domesticZone,
@@ -12,15 +14,19 @@ import {
   generalZones,
   standardMethod,
 } from '../../../fixtures/admin/delivery'
-import {
-  blankNameRefused,
-  readHeld,
-  takenNameRefused,
-  writeHeld,
-} from '../../../mocks/handlers/admin/records'
+import { readHeld, takenNameRefused, writeHeld } from '../../../mocks/handlers/admin/records'
 import { profileParameters, profileRoute } from './profile-page'
 
 const nothing = () => {}
+
+// The profile's page loads the rate providers for its method lists before the
+// sheet opens over it. That order decides whether an existing method saved with
+// no rate provider shows the default or a blank field, so the sheet waits for
+// them here too.
+function OverItsPage(props: ComponentProps<typeof DeliveryMethodSheet>) {
+  const { data } = useDeliveryRateProviders()
+  return data ? <DeliveryMethodSheet {...props} /> : null
+}
 
 // Adding or editing a delivery method over its profile's page (DA-SET-17).
 const meta = {
@@ -30,6 +36,7 @@ const meta = {
   args: { profile: generalProfile, zones: generalZones, open: true, onOpenChange: nothing },
   decorators: [withStore],
   parameters: profileParameters({ viewport: true }),
+  render: (args) => <OverItsPage {...args} />,
 } satisfies Meta<typeof DeliveryMethodSheet>
 
 export default meta
@@ -109,10 +116,13 @@ export const EditFreight: Story = {
   },
 }
 
+// Holding the method's read holds the rate providers' too, whose address it
+// matches, so this one opens without waiting for them.
 export const EditLoading: Story = {
   name: 'Edit, loading',
   args: { methodId: standardMethod.id },
   parameters: profileParameters({ viewport: true, first: readHeld('delivery_methods/:id') }),
+  render: (args) => <DeliveryMethodSheet {...args} />,
 }
 
 export const EditRefused: Story = {
@@ -120,12 +130,14 @@ export const EditRefused: Story = {
   args: { methodId: standardMethod.id },
   parameters: profileParameters({
     viewport: true,
-    first: blankNameRefused('delivery_methods/:id', 'patch'),
+    first: takenNameRefused('delivery_methods/:id', 'patch'),
   }),
   play: async () => {
-    await userEvent.type(await screen.findByLabelText('Code'), '-2')
+    const field = await screen.findByLabelText('Name')
+    await userEvent.clear(field)
+    await userEvent.type(field, 'Express')
     await userEvent.click(screen.getByRole('button', { name: 'Save' }))
-    await screen.findByText("can't be blank")
+    await screen.findByText('has already been taken')
     ;(document.activeElement as HTMLElement | null)?.blur()
   },
 }

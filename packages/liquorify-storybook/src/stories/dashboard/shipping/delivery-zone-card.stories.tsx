@@ -32,7 +32,7 @@ const meta = {
     onEdit: nothing,
   },
   decorators: [withStore],
-  parameters: profileParameters({ column: 'main' }),
+  parameters: profileParameters({ column: 'inOriginGroup' }),
 } satisfies Meta<typeof DeliveryZoneCard>
 
 export default meta
@@ -61,7 +61,7 @@ export const ManyCountries: Story = {
 export const MoreCountriesShown: Story = {
   name: 'Many countries, the rest shown',
   args: { zone: europeZone, methods: [europeMethod] },
-  parameters: profileParameters({ column: 'main', viewport: true }),
+  parameters: profileParameters({ column: 'inOriginGroup', viewport: true }),
   play: async () => {
     await userEvent.hover(await screen.findByRole('button', { name: '2 more' }))
     await screen.findByText(/United Kingdom/, {}, { timeout: 3000 })
@@ -87,7 +87,7 @@ export const NoMethods: Story = {
 
 export const ZoneMenu: Story = {
   name: 'Zone menu',
-  parameters: profileParameters({ column: 'main', viewport: true }),
+  parameters: profileParameters({ column: 'inOriginGroup', viewport: true }),
   play: async () => {
     await zoneMenu()
     await screen.findByRole('menuitem', { name: 'Delete' })
@@ -96,7 +96,7 @@ export const ZoneMenu: Story = {
 
 export const DeleteConfirmation: Story = {
   name: 'Delete confirmation',
-  parameters: profileParameters({ column: 'main', viewport: true }),
+  parameters: profileParameters({ column: 'inOriginGroup', viewport: true }),
   play: async () => {
     await zoneMenu()
     await userEvent.click(await screen.findByRole('menuitem', { name: 'Delete' }))
@@ -106,7 +106,7 @@ export const DeleteConfirmation: Story = {
 
 // Read on settings, delivery methods and package types: no add button, and the zone can only be opened.
 export const Viewer: Story = {
-  parameters: profileParameters({ column: 'main', rules: deliveryViewerRules }),
+  parameters: profileParameters({ column: 'inOriginGroup', rules: deliveryViewerRules }),
   play: async () => {
     await screen.findByText('United States')
   },
@@ -115,7 +115,7 @@ export const Viewer: Story = {
 // Writing delivery methods but reading settings: methods can be added, the zone not deleted.
 export const MethodEditor: Story = {
   name: 'Method editor',
-  parameters: profileParameters({ column: 'main', rules: deliveryEditorRules }),
+  parameters: profileParameters({ column: 'inOriginGroup', rules: deliveryEditorRules }),
   play: async () => {
     await screen.findAllByRole('button', { name: 'Add method' })
   },

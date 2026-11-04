@@ -1,7 +1,7 @@
 import type { DeliveryMethod, DeliveryProfile, DeliveryZone } from '@spree/admin-sdk'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import { useForm } from 'react-hook-form'
-import { screen, userEvent, within } from 'storybook/test'
+import { expect, screen, userEvent, waitFor, within } from 'storybook/test'
 import { DeliveryMethodFormCards } from '../../../../../dashboard/src/components/spree/shipping/delivery-method-form'
 import {
   DELIVERY_METHOD_DEFAULTS,
@@ -96,7 +96,7 @@ function MethodForm({
       : { ...DELIVERY_METHOD_DEFAULTS, fulfillment_provider: provider ?? 'manual' },
   })
   return (
-    <div className="flex w-[640px] flex-col gap-4 text-sm">
+    <div className="flex w-[566px] flex-col gap-4 text-sm">
       <DeliveryMethodFormCards
         form={form}
         profile={profile}
@@ -158,6 +158,7 @@ export const CalculatorChanged: Story = {
   play: async () => {
     await userEvent.click(await screen.findByRole('combobox', { name: 'Rate calculator' }))
     await userEvent.click(await screen.findByRole('option', { name: 'Flexi Rate' }))
+    await waitFor(() => expect(screen.queryByRole('listbox')).toBeNull())
   },
 }
 

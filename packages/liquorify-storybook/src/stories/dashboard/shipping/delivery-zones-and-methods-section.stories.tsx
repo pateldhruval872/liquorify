@@ -19,11 +19,14 @@ import { deliveryEditorRules, deliveryViewerRules } from '../../../fixtures/admi
 import { readHeld } from '../../../mocks/handlers/admin/records'
 import { profileParameters, profileRoute } from './profile-page'
 
-/** The section reads the method sheet's state from the address, as the profile page passes it. */
+/**
+ * The section reads the method sheet's state from the address, as the profile page passes it,
+ * and its parts are spaced as the record page's main column (`ResourceLayout`) spaces them.
+ */
 function ZonesAndMethods({ profile }: { profile: DeliveryProfile }) {
   const search = useRouterState({ select: (state) => state.location.search }) as MethodSheetSearch
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-6">
       <DeliveryZonesAndMethodsSection profile={profile} search={search} />
     </div>
   )
@@ -38,7 +41,7 @@ function sectionParameters(
   }: { search?: string; rules?: PermissionRule[]; viewport?: boolean } = {},
 ) {
   return profileParameters({
-    column: 'main',
+    column: 'settingsMain',
     route: profileRoute(profile, search),
     rules,
     viewport,
@@ -96,7 +99,7 @@ export const DigitalProfile: Story = {
 }
 
 export const Loading: Story = {
-  parameters: profileParameters({ column: 'main', first: readHeld('delivery_zones') }),
+  parameters: profileParameters({ column: 'settingsMain', first: readHeld('delivery_zones') }),
 }
 
 // A method's own address opens its sheet over the page.

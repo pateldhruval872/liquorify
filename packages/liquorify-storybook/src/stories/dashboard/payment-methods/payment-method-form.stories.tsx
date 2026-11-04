@@ -3,7 +3,7 @@ import { defaultPreferences } from '@spree/dashboard-core'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { screen, userEvent } from 'storybook/test'
+import { expect, screen, userEvent, waitFor } from 'storybook/test'
 import { PaymentMethodForm } from '../../../../../dashboard/src/components/spree/payment-method-editors/payment-method-form'
 import type { PaymentMethodFormValues } from '../../../../../dashboard/src/components/spree/payment-method-editors/types'
 import {
@@ -124,6 +124,7 @@ export const TestGatewayChosen: Story = {
   play: async () => {
     await userEvent.click(screen.getByRole('combobox', { name: 'Provider' }))
     await userEvent.click(await screen.findByRole('option', { name: 'Bogus' }))
+    await waitFor(() => expect(screen.queryByRole('listbox')).toBeNull())
     await screen.findByText('Provider configuration')
   },
 }
@@ -134,6 +135,7 @@ export const ChequeChosen: Story = {
   play: async () => {
     await userEvent.click(screen.getByRole('combobox', { name: 'Provider' }))
     await userEvent.click(await screen.findByRole('option', { name: 'Check' }))
+    await waitFor(() => expect(screen.queryByRole('listbox')).toBeNull())
     await screen.findByDisplayValue('Check')
   },
 }
@@ -145,9 +147,11 @@ export const ProviderChanged: Story = {
     const provider = screen.getByRole('combobox', { name: 'Provider' })
     await userEvent.click(provider)
     await userEvent.click(await screen.findByRole('option', { name: 'Bogus' }))
+    await waitFor(() => expect(screen.queryByRole('listbox')).toBeNull())
     await screen.findByText('Provider configuration')
     await userEvent.click(provider)
     await userEvent.click(await screen.findByRole('option', { name: 'Check' }))
+    await waitFor(() => expect(screen.queryByRole('listbox')).toBeNull())
     await screen.findByDisplayValue('Check')
   },
 }

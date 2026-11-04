@@ -15,7 +15,7 @@ const meta = {
   tags: ['CMP-DA-G-20'],
   args: { methods: [digitalMethod] },
   decorators: [withStore],
-  parameters: profileParameters({ column: 'main', route: digitalPage }),
+  parameters: profileParameters({ column: 'settingsMain', route: digitalPage }),
 } satisfies Meta<typeof DeliveryDigitalMethodsCard>
 
 export default meta
@@ -37,7 +37,11 @@ export const None: Story = {
 
 export const Viewer: Story = {
   args: { methods: [] },
-  parameters: profileParameters({ column: 'main', route: digitalPage, rules: deliveryViewerRules }),
+  parameters: profileParameters({
+    column: 'settingsMain',
+    route: digitalPage,
+    rules: deliveryViewerRules,
+  }),
   play: async () => {
     await screen.findByText('No digital delivery method yet.')
   },

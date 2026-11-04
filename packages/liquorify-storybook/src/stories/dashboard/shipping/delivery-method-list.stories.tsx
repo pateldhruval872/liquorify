@@ -22,7 +22,7 @@ const meta = {
   tags: ['CMP-DA-G-20'],
   args: { methods: domesticMethods },
   decorators: [withStore],
-  parameters: profileParameters({ column: 'inMainCard' }),
+  parameters: profileParameters({ column: 'inZoneCard' }),
 } satisfies Meta<typeof DeliveryMethodList>
 
 export default meta
@@ -62,7 +62,7 @@ export const CarrierPriced: Story = {
 export const CarrierHint: Story = {
   name: 'Carrier rates explained',
   args: { methods: [freightMethod] },
-  parameters: profileParameters({ column: 'inMainCard', viewport: true }),
+  parameters: profileParameters({ column: 'inZoneCard', viewport: true }),
   play: async () => {
     await userEvent.hover(await screen.findByText('Carrier rates'))
     await screen.findByText(/Prices come from Freight at checkout/)
@@ -78,7 +78,7 @@ export const None: Story = {
 
 export const RowMenu: Story = {
   name: 'Row menu',
-  parameters: profileParameters({ column: 'inMainCard', viewport: true }),
+  parameters: profileParameters({ column: 'inZoneCard', viewport: true }),
   play: async () => {
     await rowMenu('Express')
     await screen.findByRole('menuitem', { name: 'Delete' })
@@ -87,7 +87,7 @@ export const RowMenu: Story = {
 
 export const DeleteConfirmation: Story = {
   name: 'Delete confirmation',
-  parameters: profileParameters({ column: 'inMainCard', viewport: true }),
+  parameters: profileParameters({ column: 'inZoneCard', viewport: true }),
   play: async () => {
     await rowMenu('Express')
     await userEvent.click(await screen.findByRole('menuitem', { name: 'Delete' }))
@@ -99,7 +99,7 @@ export const DeleteConfirmation: Story = {
 export const ViewerMenu: Story = {
   name: 'Viewer, row menu',
   parameters: profileParameters({
-    column: 'inMainCard',
+    column: 'inZoneCard',
     viewport: true,
     rules: deliveryViewerRules,
   }),

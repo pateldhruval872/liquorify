@@ -15,7 +15,7 @@ const meta = {
   tags: ['CMP-DA-G-20'],
   args: { profile: generalProfile },
   decorators: [withStore],
-  parameters: profileParameters({ column: 'sidebar' }),
+  parameters: profileParameters({ column: 'settingsSidebar' }),
 } satisfies Meta<typeof DeliveryProfileOriginsCard>
 
 export default meta
@@ -26,7 +26,7 @@ export const AllLocations: Story = { name: 'All locations' }
 export const SomeLocations: Story = {
   name: 'Some locations',
   args: { profile: furnitureProfile },
-  parameters: profileParameters({ column: 'sidebar', route: furniturePage }),
+  parameters: profileParameters({ column: 'settingsSidebar', route: furniturePage }),
   play: async () => {
     await screen.findByText('East coast depot')
   },
@@ -43,7 +43,7 @@ export const Narrowed: Story = {
 export const Viewer: Story = {
   args: { profile: furnitureProfile },
   parameters: profileParameters({
-    column: 'sidebar',
+    column: 'settingsSidebar',
     route: furniturePage,
     rules: deliveryViewerRules,
   }),

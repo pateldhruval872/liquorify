@@ -17,7 +17,7 @@ const meta = {
   tags: ['CMP-DA-G-20'],
   args: { methods: [pickupMethod] },
   decorators: [withStore],
-  parameters: profileParameters({ column: 'main' }),
+  parameters: profileParameters({ column: 'settingsMain' }),
 } satisfies Meta<typeof DeliveryPickupCard>
 
 export default meta
@@ -44,7 +44,7 @@ export const NoLocations: Story = {
   name: 'No locations',
   args: { methods: [] },
   parameters: profileParameters({
-    column: 'main',
+    column: 'settingsMain',
     requests: { ...profilePageRequests(), stockLocations: stockLocationList([]) },
   }),
   play: async () => {
@@ -54,14 +54,14 @@ export const NoLocations: Story = {
 
 export const LocationsLoading: Story = {
   name: 'Locations loading',
-  parameters: profileParameters({ column: 'main', first: readHeld('stock_locations') }),
+  parameters: profileParameters({ column: 'settingsMain', first: readHeld('stock_locations') }),
 }
 
 // A role that may not create delivery methods gets no button; the counters
 // stay ticked as they are, since they belong to the locations.
 export const Viewer: Story = {
   args: { methods: [] },
-  parameters: profileParameters({ column: 'main', rules: deliveryViewerRules }),
+  parameters: profileParameters({ column: 'settingsMain', rules: deliveryViewerRules }),
   play: async () => {
     await screen.findByText('Downtown counter')
   },

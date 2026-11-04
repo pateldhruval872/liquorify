@@ -9,37 +9,43 @@ import { storeParameters, withStore } from '../../../decorators/store'
 import {
   bogusType,
   chequeMethod,
+  installedPaymentMethodTypes,
   paymentMethods,
   paymentMethodTypes,
+  storeCreditMethod,
   stripeTypeFromSource,
   testGateway,
 } from '../../../fixtures/admin/payments'
 import { paymentMethodRequests } from '../../../mocks/handlers/admin/payments'
-import {
-  blankNameRefused,
-  readHeld,
-  takenNameRefused,
-  writeHeld,
-} from '../../../mocks/handlers/admin/records'
+import { readHeld, takenNameRefused, writeHeld } from '../../../mocks/handlers/admin/records'
 
 const nothing = () => {}
 
 /**
- * The store's payment methods, with `first` answering before them. A sheet
- * renders outside the story, against the window's edge.
+ * A store whose only payment method is store credit, so the add sheet offers
+ * the test gateway and the cheque method, with `first` answering before it. A
+ * sheet renders outside the story, against the window's edge.
  */
-function sheetParameters(first: HttpHandler[] = [], types = paymentMethodTypes) {
+function sheetParameters(
+  first: HttpHandler[] = [],
+  types = paymentMethodTypes,
+  methods = [storeCreditMethod],
+) {
   const base = storeParameters()
   return {
     liquorify: { ...base.liquorify, capture: 'viewport' },
     msw: {
       handlers: {
         ...base.msw.handlers,
-        payments: [...first, ...paymentMethodRequests(paymentMethods, types)],
+        payments: [...first, ...paymentMethodRequests(methods, types)],
       },
     },
   }
 }
+
+/** A store with the test gateway and a cheque method installed, for the edit sheet. */
+const editParameters = (first: HttpHandler[] = []) =>
+  sheetParameters(first, installedPaymentMethodTypes, paymentMethods)
 
 // Opened from the payment methods page (DA-SET-12) and, with a provider
 // chosen, from a provider card on the integrations page (DA-SET-10).
@@ -55,9 +61,12 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
+// Waits for the list to close, which hands focus back to the field, so a later
+// click does not race it.
 const chooseProvider = async (name: string) => {
   await userEvent.click(await screen.findByRole('combobox', { name: 'Provider' }))
   await userEvent.click(await screen.findByRole('option', { name }))
+  await waitFor(() => expect(screen.queryByRole('listbox')).toBeNull())
 }
 
 export const Add: Story = {
@@ -114,6 +123,9 @@ export const NameTaken: Story = {
   parameters: sheetParameters(takenNameRefused('payment_methods')),
   play: async () => {
     await chooseProvider('Check')
+    const field = screen.getByLabelText('Name')
+    await userEvent.clear(field)
+    await userEvent.type(field, 'Store Credit')
     await userEvent.click(screen.getByRole('button', { name: 'Create payment method' }))
     await screen.findByText('has already been taken')
     ;(document.activeElement as HTMLElement | null)?.blur()
@@ -160,6 +172,7 @@ const editArgs = (id: string) => ({ id, open: true, onOpenChange: nothing })
 export const Edit: EditStory = {
   render: (args) => <EditPaymentMethodSheet {...args} />,
   args: editArgs(testGateway.id),
+  parameters: editParameters(),
   play: async () => {
     await screen.findByDisplayValue(testGateway.name)
   },
@@ -169,7 +182,7 @@ export const EditLoading: EditStory = {
   name: 'Edit, loading',
   render: (args) => <EditPaymentMethodSheet {...args} />,
   args: editArgs(testGateway.id),
-  parameters: sheetParameters(readHeld('payment_methods/:id')),
+  parameters: editParameters(readHeld('payment_methods/:id')),
 }
 
 // Switched off, admin only and captured by hand.
@@ -177,21 +190,24 @@ export const EditInactive: EditStory = {
   name: 'Edit, inactive',
   render: (args) => <EditPaymentMethodSheet {...args} />,
   args: editArgs(chequeMethod.id),
+  parameters: editParameters(),
   play: async () => {
     await screen.findByDisplayValue(chequeMethod.name)
   },
 }
 
-// A blank name on edit, refused by the server in its words.
+// A rename to another method's name, refused by the server in its words.
 export const EditRefused: EditStory = {
   name: 'Edit refused',
   render: (args) => <EditPaymentMethodSheet {...args} />,
   args: editArgs(chequeMethod.id),
-  parameters: sheetParameters(blankNameRefused('payment_methods/:id', 'patch')),
+  parameters: editParameters(takenNameRefused('payment_methods/:id', 'patch')),
   play: async () => {
-    await userEvent.type(await screen.findByLabelText('Description'), ' Allow ten days abroad.')
+    const field = await screen.findByLabelText('Name')
+    await userEvent.clear(field)
+    await userEvent.type(field, 'Store Credit')
     await userEvent.click(screen.getByRole('button', { name: 'Save' }))
-    await screen.findByText("can't be blank")
+    await screen.findByText('has already been taken')
     ;(document.activeElement as HTMLElement | null)?.blur()
   },
 }
@@ -199,7 +215,7 @@ export const EditRefused: EditStory = {
 export const Saving: EditStory = {
   render: (args) => <EditPaymentMethodSheet {...args} />,
   args: editArgs(chequeMethod.id),
-  parameters: sheetParameters(writeHeld('payment_methods/:id', 'patch')),
+  parameters: editParameters(writeHeld('payment_methods/:id', 'patch')),
   play: async () => {
     await userEvent.type(await screen.findByLabelText('Description'), ' Allow ten days abroad.')
     await userEvent.click(screen.getByRole('button', { name: 'Save' }))

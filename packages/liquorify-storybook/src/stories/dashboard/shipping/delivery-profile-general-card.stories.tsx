@@ -9,7 +9,7 @@ import {
   generalProfile,
 } from '../../../fixtures/admin/delivery'
 import { deliveryViewerRules } from '../../../fixtures/admin/settings'
-import { blankNameRefused, writeHeld } from '../../../mocks/handlers/admin/records'
+import { takenNameRefused, writeHeld } from '../../../mocks/handlers/admin/records'
 import { profileParameters, profileRoute } from './profile-page'
 
 const rename = async (name: string) => {
@@ -25,7 +25,7 @@ const meta = {
   tags: ['CMP-DA-G-20'],
   args: { profile: generalProfile },
   decorators: [withStore],
-  parameters: profileParameters({ column: 'sidebar' }),
+  parameters: profileParameters({ column: 'settingsSidebar' }),
 } satisfies Meta<typeof DeliveryProfileGeneralCard>
 
 export default meta
@@ -42,7 +42,10 @@ export const StoreDefault: Story = {
 export const NotDefault: Story = {
   name: 'Not default',
   args: { profile: furnitureProfile },
-  parameters: profileParameters({ column: 'sidebar', route: profileRoute(furnitureProfile) }),
+  parameters: profileParameters({
+    column: 'settingsSidebar',
+    route: profileRoute(furnitureProfile),
+  }),
   play: async () => {
     await screen.findByRole('button', { name: 'Make default' })
   },
@@ -52,7 +55,7 @@ export const MakeDefaultConfirmation: Story = {
   name: 'Make default, confirmation',
   args: { profile: furnitureProfile },
   parameters: profileParameters({
-    column: 'sidebar',
+    column: 'settingsSidebar',
     route: profileRoute(furnitureProfile),
     viewport: true,
   }),
@@ -64,13 +67,13 @@ export const MakeDefaultConfirmation: Story = {
 
 export const Digital: Story = {
   args: { profile: digitalProfile },
-  parameters: profileParameters({ column: 'sidebar', route: profileRoute(digitalProfile) }),
+  parameters: profileParameters({ column: 'settingsSidebar', route: profileRoute(digitalProfile) }),
 }
 
 // A new name, ready to save.
 export const Renamed: Story = {
   args: { profile: freshProfile },
-  parameters: profileParameters({ column: 'sidebar', route: profileRoute(freshProfile) }),
+  parameters: profileParameters({ column: 'settingsSidebar', route: profileRoute(freshProfile) }),
   play: async () => {
     await rename('Fragile and glass')
   },
@@ -80,7 +83,7 @@ export const Renamed: Story = {
 export const NameRequired: Story = {
   name: 'Name required',
   args: { profile: freshProfile },
-  parameters: profileParameters({ column: 'sidebar', route: profileRoute(freshProfile) }),
+  parameters: profileParameters({ column: 'settingsSidebar', route: profileRoute(freshProfile) }),
   play: async () => {
     await rename('')
     await userEvent.click(await screen.findByRole('button', { name: 'Save' }))
@@ -90,19 +93,19 @@ export const NameRequired: Story = {
   },
 }
 
-// A name the server refuses, in its words.
+// Another profile's name, refused by the server in its words.
 export const NameRefused: Story = {
   name: 'Name refused',
   args: { profile: freshProfile },
   parameters: profileParameters({
-    column: 'sidebar',
+    column: 'settingsSidebar',
     route: profileRoute(freshProfile),
-    first: blankNameRefused('delivery_profiles/:id', 'patch'),
+    first: takenNameRefused('delivery_profiles/:id', 'patch'),
   }),
   play: async () => {
     await rename('General')
     await userEvent.click(await screen.findByRole('button', { name: 'Save' }))
-    await screen.findByText("can't be blank")
+    await screen.findByText('has already been taken')
     ;(document.activeElement as HTMLElement | null)?.blur()
   },
 }
@@ -110,7 +113,7 @@ export const NameRefused: Story = {
 export const Saving: Story = {
   args: { profile: freshProfile },
   parameters: profileParameters({
-    column: 'sidebar',
+    column: 'settingsSidebar',
     route: profileRoute(freshProfile),
     first: writeHeld('delivery_profiles/:id', 'patch'),
   }),
@@ -125,7 +128,7 @@ export const Saving: Story = {
 export const Viewer: Story = {
   args: { profile: furnitureProfile },
   parameters: profileParameters({
-    column: 'sidebar',
+    column: 'settingsSidebar',
     route: profileRoute(furnitureProfile),
     rules: deliveryViewerRules,
   }),
