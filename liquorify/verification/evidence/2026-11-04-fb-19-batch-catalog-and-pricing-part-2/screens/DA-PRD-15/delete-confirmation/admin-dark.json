@@ -1,0 +1,17 @@
+{
+  "screen": "DA-PRD-15",
+  "state": "delete-confirmation",
+  "variant": "admin",
+  "role": null,
+  "theme": "dark",
+  "revision": "36173fb5",
+  "path": "/<store>/products/price-lists",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": null,
+  "masked": null,
+  "settled": true,
+  "outside": []
+}

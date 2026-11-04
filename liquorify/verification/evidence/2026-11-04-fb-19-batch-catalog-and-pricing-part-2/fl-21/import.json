@@ -1,0 +1,372 @@
+{
+  "file": {
+    "columns": [
+      "slug",
+      "sku",
+      "name",
+      "price",
+      "compare_at_price",
+      "status",
+      "description",
+      "meta_title",
+      "meta_description",
+      "tags",
+      "weight",
+      "weight_unit",
+      "width",
+      "height",
+      "depth",
+      "dimensions_unit",
+      "track_inventory",
+      "inventory_count",
+      "option1_name",
+      "option1_value",
+      "category1"
+    ],
+    "rows": 3
+  },
+  "import": {
+    "id": "imp_YHETxCGlb0",
+    "number": "IM1022",
+    "status": "completed"
+  },
+  "seconds_to_results": 3,
+  "seconds_to_email": 3,
+  "EM-S-06": {
+    "subject": "Your import IM1022 has finished processing",
+    "link": "<a local address>/<store>/settings/imports?import=…"
+  },
+  "DA-SET-31": "opened from the email's link, showing IM1022",
+  "compared": {
+    "fidelity-fl21-tray-1793763455244 FL21-TRAY-1793763455244": [
+      {
+        "field": "slug",
+        "file": "fidelity-fl21-tray-1793763455244",
+        "server": "fidelity-fl21-tray-1793763455244",
+        "same": true
+      },
+      {
+        "field": "sku",
+        "file": "FL21-TRAY-1793763455244",
+        "server": "FL21-TRAY-1793763455244",
+        "same": true
+      },
+      {
+        "field": "name",
+        "file": "Fidelity FL-21 serving tray 1793763455244",
+        "server": "Fidelity FL-21 serving tray 1793763455244",
+        "same": true
+      },
+      {
+        "field": "price",
+        "file": "24.50",
+        "server": "24.50",
+        "same": true
+      },
+      {
+        "field": "compare_at_price",
+        "file": "29.00",
+        "server": "29.00",
+        "same": true
+      },
+      {
+        "field": "status",
+        "file": "active",
+        "server": "active",
+        "same": true
+      },
+      {
+        "field": "description",
+        "file": "An oak serving tray, sized for breakfast in bed.",
+        "server": "An oak serving tray, sized for breakfast in bed.",
+        "same": true
+      },
+      {
+        "field": "meta_title",
+        "file": "Oak serving tray",
+        "server": "Oak serving tray",
+        "same": true
+      },
+      {
+        "field": "meta_description",
+        "file": "A serving tray made of oiled oak.",
+        "server": "A serving tray made of oiled oak.",
+        "same": true
+      },
+      {
+        "field": "tags",
+        "file": "fl21, tray",
+        "server": "fl21, tray",
+        "same": true
+      },
+      {
+        "field": "weight",
+        "file": "0.8",
+        "server": "0.8",
+        "same": true
+      },
+      {
+        "field": "width",
+        "file": "40",
+        "server": "40",
+        "same": true
+      },
+      {
+        "field": "height",
+        "file": "3",
+        "server": "3",
+        "same": true
+      },
+      {
+        "field": "depth",
+        "file": "28",
+        "server": "28",
+        "same": true
+      },
+      {
+        "field": "weight_unit",
+        "file": "kg",
+        "server": "kg",
+        "same": true
+      },
+      {
+        "field": "dimensions_unit",
+        "file": "cm",
+        "server": "cm",
+        "same": true
+      },
+      {
+        "field": "track_inventory",
+        "file": "true",
+        "server": "true",
+        "same": true
+      },
+      {
+        "field": "inventory_count",
+        "file": "12",
+        "server": "12",
+        "same": true
+      },
+      {
+        "field": "category1",
+        "file": "Kitchen -> Coffee Machines",
+        "server": "Kitchen -> Coffee Machines",
+        "same": true
+      }
+    ],
+    "fidelity-fl21-jug-1793763455244 FL21-JUG-SM-1793763455244": [
+      {
+        "field": "slug",
+        "file": "fidelity-fl21-jug-1793763455244",
+        "server": "fidelity-fl21-jug-1793763455244",
+        "same": true
+      },
+      {
+        "field": "sku",
+        "file": "FL21-JUG-SM-1793763455244",
+        "server": "FL21-JUG-SM-1793763455244",
+        "same": true
+      },
+      {
+        "field": "name",
+        "file": "Fidelity FL-21 water jug 1793763455244",
+        "server": "Fidelity FL-21 water jug 1793763455244",
+        "same": true
+      },
+      {
+        "field": "price",
+        "file": "18.00",
+        "server": "18.00",
+        "same": true
+      },
+      {
+        "field": "compare_at_price",
+        "file": "21.00",
+        "server": "21.00",
+        "same": true
+      },
+      {
+        "field": "status",
+        "file": "draft",
+        "server": "draft",
+        "same": true
+      },
+      {
+        "field": "description",
+        "file": "A glass water jug with a beech lid.",
+        "server": "A glass water jug with a beech lid.",
+        "same": true
+      },
+      {
+        "field": "meta_title",
+        "file": "Glass water jug",
+        "server": "Glass water jug",
+        "same": true
+      },
+      {
+        "field": "meta_description",
+        "file": "A glass jug for water, with a beech lid.",
+        "server": "A glass jug for water, with a beech lid.",
+        "same": true
+      },
+      {
+        "field": "tags",
+        "file": "fl21, jug",
+        "server": "fl21, jug",
+        "same": true
+      },
+      {
+        "field": "weight",
+        "file": "0.5",
+        "server": "0.5",
+        "same": true
+      },
+      {
+        "field": "width",
+        "file": "10",
+        "server": "10",
+        "same": true
+      },
+      {
+        "field": "height",
+        "file": "24",
+        "server": "24",
+        "same": true
+      },
+      {
+        "field": "depth",
+        "file": "10",
+        "server": "10",
+        "same": true
+      },
+      {
+        "field": "weight_unit",
+        "file": "kg",
+        "server": "kg",
+        "same": true
+      },
+      {
+        "field": "dimensions_unit",
+        "file": "cm",
+        "server": "cm",
+        "same": true
+      },
+      {
+        "field": "track_inventory",
+        "file": "true",
+        "server": "true",
+        "same": true
+      },
+      {
+        "field": "inventory_count",
+        "file": "5",
+        "server": "5",
+        "same": true
+      },
+      {
+        "field": "option1_name",
+        "file": "Size",
+        "server": "Size",
+        "same": true
+      },
+      {
+        "field": "option1_value",
+        "file": "Small",
+        "server": "Small",
+        "same": true
+      },
+      {
+        "field": "category1",
+        "file": "Kitchen -> Coffee Machines",
+        "server": "Kitchen -> Coffee Machines",
+        "same": true
+      }
+    ],
+    "fidelity-fl21-jug-1793763455244 FL21-JUG-LG-1793763455244": [
+      {
+        "field": "slug",
+        "file": "fidelity-fl21-jug-1793763455244",
+        "server": "fidelity-fl21-jug-1793763455244",
+        "same": true
+      },
+      {
+        "field": "sku",
+        "file": "FL21-JUG-LG-1793763455244",
+        "server": "FL21-JUG-LG-1793763455244",
+        "same": true
+      },
+      {
+        "field": "price",
+        "file": "22.00",
+        "server": "22.00",
+        "same": true
+      },
+      {
+        "field": "compare_at_price",
+        "file": "25.00",
+        "server": "25.00",
+        "same": true
+      },
+      {
+        "field": "weight",
+        "file": "0.7",
+        "server": "0.7",
+        "same": true
+      },
+      {
+        "field": "width",
+        "file": "12",
+        "server": "12",
+        "same": true
+      },
+      {
+        "field": "height",
+        "file": "28",
+        "server": "28",
+        "same": true
+      },
+      {
+        "field": "depth",
+        "file": "12",
+        "server": "12",
+        "same": true
+      },
+      {
+        "field": "weight_unit",
+        "file": "kg",
+        "server": "kg",
+        "same": true
+      },
+      {
+        "field": "dimensions_unit",
+        "file": "cm",
+        "server": "cm",
+        "same": true
+      },
+      {
+        "field": "track_inventory",
+        "file": "true",
+        "server": "true",
+        "same": true
+      },
+      {
+        "field": "inventory_count",
+        "file": "7",
+        "server": "7",
+        "same": true
+      },
+      {
+        "field": "option1_name",
+        "file": "Size",
+        "server": "Size",
+        "same": true
+      },
+      {
+        "field": "option1_value",
+        "file": "Large",
+        "server": "Large",
+        "same": true
+      }
+    ]
+  }
+}

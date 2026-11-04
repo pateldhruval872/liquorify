@@ -1,0 +1,17 @@
+{
+  "screen": "DA-PRD-16",
+  "state": "rule-type-picker",
+  "variant": "admin",
+  "role": null,
+  "theme": "dark",
+  "revision": "36173fb5",
+  "path": "/<store>/products/price-lists/new",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": null,
+  "masked": null,
+  "settled": true,
+  "outside": []
+}

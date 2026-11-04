@@ -1,0 +1,17 @@
+{
+  "screen": "DA-PRD-10",
+  "state": "no-collections",
+  "variant": "admin",
+  "role": null,
+  "theme": "dark",
+  "revision": "36173fb5",
+  "path": "/<store>/products/collections",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": "The collection list is answered with no collections",
+  "masked": null,
+  "settled": true,
+  "outside": []
+}

@@ -1,0 +1,28 @@
+{
+  "screen": "DA-PRD-09",
+  "state": "edited",
+  "variant": "catalogViewer",
+  "role": {
+    "name": "Catalog viewer",
+    "permissions": [
+      "read_products",
+      "read_publishing",
+      "read_media",
+      "read_product_types",
+      "read_stock",
+      "read_categories",
+      "read_collections"
+    ]
+  },
+  "theme": "dark",
+  "revision": "36173fb5",
+  "path": "/<store>/products/categories/ctg_D6Psx31WaT",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": null,
+  "masked": null,
+  "settled": true,
+  "outside": []
+}

@@ -1,0 +1,28 @@
+{
+  "screen": "DA-PRD-13",
+  "state": "listed",
+  "variant": "catalogViewer",
+  "role": {
+    "name": "Catalog viewer",
+    "permissions": [
+      "read_products",
+      "read_publishing",
+      "read_media",
+      "read_product_types",
+      "read_stock",
+      "read_categories",
+      "read_collections"
+    ]
+  },
+  "theme": "light",
+  "revision": "36173fb5",
+  "path": "/<store>/products/catalogs",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": null,
+  "masked": null,
+  "settled": true,
+  "outside": []
+}

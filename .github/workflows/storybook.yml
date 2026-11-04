@@ -34,8 +34,8 @@ jobs:
     name: "Storybook & visual check"
     runs-on: ubuntu-latest
     # 1,616 comparisons took 22 to 30 minutes on GitHub's runners in
-    # November 2026, depending on the processor.
-    timeout-minutes: 45
+    # November 2026, depending on the processor, and 2,228 took 40.
+    timeout-minutes: 60
     defaults:
       run:
         working-directory: packages/liquorify-storybook

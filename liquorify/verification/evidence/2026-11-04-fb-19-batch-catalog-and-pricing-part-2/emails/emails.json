@@ -1,0 +1,22 @@
+[
+  {
+    "id": "EM-S-05",
+    "preview": "Spree::ExportPreview#export_done",
+    "template": "spree/core/app/views/spree/export_mailer/export_done.liquid",
+    "subject": "Your export EF1010 was successfully processed!",
+    "parts": [
+      "text/plain",
+      "text/html"
+    ]
+  },
+  {
+    "id": "EM-S-06",
+    "preview": "Spree::ImportPreview#import_done",
+    "template": "spree/core/app/views/spree/import_mailer/import_done.liquid",
+    "subject": "Your import IM1022 has finished processing",
+    "parts": [
+      "text/plain",
+      "text/html"
+    ]
+  }
+]

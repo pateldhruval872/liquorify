@@ -1,0 +1,17 @@
+{
+  "screen": "DA-OVL-05",
+  "state": "progress",
+  "variant": "admin",
+  "role": null,
+  "theme": "light",
+  "revision": "36173fb5",
+  "path": "/<store>/products",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": "The import's status requests are held open once it starts, so the wizard stays on its progress step",
+  "masked": null,
+  "settled": null,
+  "outside": []
+}

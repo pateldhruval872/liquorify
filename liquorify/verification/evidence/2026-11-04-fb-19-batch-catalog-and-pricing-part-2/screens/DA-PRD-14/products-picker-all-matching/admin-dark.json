@@ -1,0 +1,17 @@
+{
+  "screen": "DA-PRD-14",
+  "state": "products-picker-all-matching",
+  "variant": "admin",
+  "role": null,
+  "theme": "dark",
+  "revision": "36173fb5",
+  "path": "/<store>/products/catalogs/cat_gbHJdmfrXB",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": null,
+  "masked": null,
+  "settled": true,
+  "outside": []
+}

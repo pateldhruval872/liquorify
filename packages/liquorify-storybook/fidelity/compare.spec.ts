@@ -15,6 +15,14 @@ import {
   setRelay,
 } from './developers'
 import {
+  category as coffeeCategory,
+  type Merchandising,
+  catalogs as merchandisingCatalogs,
+  collections as merchandisingCollections,
+  priceLists as merchandisingPriceLists,
+  seedMerchandising,
+} from './merchandising'
+import {
   openRoleMenu,
   openRowMenu,
   PASSWORD,
@@ -2948,6 +2956,418 @@ const catalogPartOne: Case[] = [
   },
 ]
 
+let merchandising: Merchandising
+
+/** A part 2 record's page, read from the ids `merchandising.ts` seeded. */
+const merchandisingPage = async (page: Page, path: string, heading: string) => {
+  await adminPage(page, path)
+  await expect(page.getByRole('heading', { name: heading, exact: true })).toBeVisible({
+    timeout: 20_000,
+  })
+  await page.waitForLoadState('networkidle')
+}
+const categoryRecord = (page: Page) =>
+  merchandisingPage(page, `/products/categories/${merchandising.ids.category}`, coffeeCategory)
+const collectionRecord = (key: 'manual' | 'automatic') => (page: Page) =>
+  merchandisingPage(
+    page,
+    `/products/collections/${merchandising.ids.collections[key]}`,
+    key === 'manual' ? 'Best Sellers' : merchandisingCollections.automatic,
+  )
+const catalogRecord = (key: keyof Merchandising['ids']['catalogs']) => (page: Page) =>
+  merchandisingPage(
+    page,
+    `/products/catalogs/${merchandising.ids.catalogs[key]}`,
+    merchandisingCatalogs[key],
+  )
+const priceListRecord = (key: keyof Merchandising['ids']['priceLists']) => (page: Page) =>
+  merchandisingPage(
+    page,
+    `/products/price-lists/${merchandising.ids.priceLists[key]}`,
+    merchandisingPriceLists[key],
+  )
+
+/** A part of a part 2 record's page, scrolled below the page's title. */
+const onRecord =
+  (open: (page: Page) => Promise<void>, part: (page: Page) => Locator) => async (page: Page) => {
+    await open(page)
+    const found = part(page)
+    await belowTitle(found)
+    await page.mouse.move(1270, 5)
+    return found
+  }
+/** A part 2 page with a sheet or dialog opened from it. */
+const openedOn =
+  (
+    open: (page: Page) => Promise<void>,
+    act: (page: Page) => Promise<void>,
+    part: (page: Page) => Locator,
+  ) =>
+  async (page: Page) => {
+    await open(page)
+    await act(page)
+    await page.waitForTimeout(600)
+    await page.mouse.move(1270, 5)
+    return part(page)
+  }
+
+const cardStartingWith = (page: Page, title: string) =>
+  page
+    .locator('[data-slot="card"]')
+    .filter({
+      has: page.locator('[data-slot="card-title"]', { hasText: new RegExp(`^${title}`) }),
+    })
+    .first()
+const sideCard = (title: string) => (page: Page) =>
+  page
+    .locator('[data-slot="card"]')
+    .filter({ has: page.getByText(title, { exact: true }) })
+    .last()
+// Storybook keeps a hidden arguments table in every story's page, so only visible tables count.
+const firstTable = (page: Page) => page.locator('table:visible').first()
+const modal = (page: Page) => page.getByRole('dialog').last()
+const tierEditor = (scope: Locator) =>
+  scope.getByText('From quantity', { exact: true }).first().locator('xpath=../../..')
+const productList = (page: Page) => page.getByRole('main').locator('table').first()
+
+const catalogPartTwo: Case[] = [
+  // Categories (DA-PRD-07, DA-PRD-09)
+  {
+    id: 'CMP-DA-G-03',
+    name: 'category-tree',
+    story: 'admin-dashboard-categories-category-tree--collapsed',
+    screen: async (page) => {
+      await adminPage(page, '/products/categories')
+      await expect(page.getByRole('button', { name: 'Kitchen', exact: true })).toBeVisible({
+        timeout: 20_000,
+      })
+      return firstTable(page)
+    },
+    inStory: firstTable,
+  },
+  {
+    id: 'CMP-DA-G-03',
+    name: 'category-list-matches',
+    story: 'admin-dashboard-categories-category-list--matches',
+    screen: async (page) => {
+      await adminPage(page, '/products/categories')
+      await page.getByPlaceholder(/^search categories…$/i).fill('Air')
+      await expect(page.getByRole('row', { name: /^Air & Climate .{1,2} Fans/ })).toBeVisible({
+        timeout: 20_000,
+      })
+      await page.mouse.move(1270, 5)
+      return firstTable(page)
+    },
+    inStory: firstTable,
+  },
+  {
+    id: 'CMP-DA-G-03',
+    name: 'category-form-main',
+    story: 'admin-dashboard-categories-category-form--main',
+    screen: onRecord(categoryRecord, generalCard),
+    inStory: generalCard,
+    window: tall,
+  },
+  {
+    id: 'CMP-DA-G-03',
+    name: 'category-form-navigation',
+    story: 'admin-dashboard-categories-category-form--sidebar-with-parent',
+    screen: onRecord(categoryRecord, cardOf('Navigation')),
+    inStory: cardOf('Navigation'),
+    window: tall,
+  },
+  {
+    id: 'CMP-DA-G-03',
+    name: 'category-products-card',
+    story: 'admin-dashboard-categories-category-products-card--members',
+    screen: onRecord(categoryRecord, (page) => cardStartingWith(page, 'Products')),
+    inStory: (page) => cardStartingWith(page, 'Products'),
+    window: tall,
+  },
+  {
+    id: 'CMP-DUI-C-35',
+    name: 'product-membership-list',
+    story: 'dashboard-ui-composed-product-membership-list--members',
+    screen: onRecord(categoryRecord, (page) => cardStartingWith(page, 'Products').locator('table')),
+    inStory: firstTable,
+    window: tall,
+  },
+  {
+    id: 'CMP-DUI-C-39',
+    name: 'resource-combobox-selected',
+    story: 'dashboard-ui-composed-resource-combobox--selected',
+    screen: onRecord(categoryRecord, (page) => cardOf('Navigation')(page).getByRole('combobox')),
+    inStory: (page) => page.getByRole('combobox').first(),
+    window: tall,
+  },
+  {
+    id: 'CMP-CORE-25',
+    name: 'resource-picker-sheet',
+    story: 'dashboard-core-resource-picker-sheet--results',
+    screen: openedOn(
+      categoryRecord,
+      (page) => page.getByRole('button', { name: /add products/i }).click(),
+      modal,
+    ),
+    inStory: modal,
+    viewport: true,
+  },
+
+  // Collections (DA-PRD-12)
+  {
+    id: 'CMP-DA-G-04',
+    name: 'collection-form-main',
+    story: 'admin-dashboard-collections-collection-form--curated',
+    screen: onRecord(collectionRecord('manual'), generalCard),
+    inStory: generalCard,
+    window: tall,
+  },
+  {
+    id: 'CMP-DA-G-04',
+    name: 'collection-rules-card',
+    story: 'admin-dashboard-collections-collection-rules-card--rules',
+    screen: onRecord(collectionRecord('automatic'), cardOf('Membership')),
+    inStory: cardOf('Membership'),
+    window: tall,
+  },
+  {
+    id: 'CMP-DA-G-04',
+    name: 'collection-products-card',
+    story: 'admin-dashboard-collections-collection-products-card--curated',
+    screen: onRecord(collectionRecord('manual'), (page) => cardStartingWith(page, 'Products')),
+    inStory: (page) => cardStartingWith(page, 'Products'),
+    window: tall,
+  },
+  {
+    id: 'CMP-DA-G-24',
+    name: 'deferred-product-membership-card-rules',
+    story: 'admin-dashboard-product-membership-deferred-product-membership-card--chosen-by-rules',
+    screen: onRecord(collectionRecord('automatic'), (page) => cardStartingWith(page, 'Products')),
+    inStory: (page) => cardStartingWith(page, 'Products'),
+    window: tall,
+  },
+
+  // Translations (DA-PRD-06)
+  {
+    id: 'CMP-CORE-28',
+    name: 'section-heading',
+    story: 'dashboard-core-section-heading--with-description',
+    screen: async (page) => {
+      await adminPage(page, '/products/translations')
+      // The page draws its title as plain text, not as a heading, so it is found by its words.
+      const description = page.getByText(/how much of your catalog is translated/)
+      await expect(description).toBeVisible({ timeout: 20_000 })
+      return description.locator('xpath=..')
+    },
+    inStory: (page) => page.getByText(/how much of your catalog is translated/).locator('xpath=..'),
+  },
+
+  // Catalogs (DA-PRD-13, DA-PRD-14)
+  {
+    id: 'CMP-DA-G-24',
+    name: 'catalog-audience-card',
+    story: 'admin-dashboard-catalogs-catalog-audience-card--assigned',
+    screen: onRecord(catalogRecord('percentage'), cardOf('Audiences')),
+    inStory: cardOf('Audiences'),
+    window: tall,
+  },
+  {
+    id: 'CMP-DA-G-24',
+    name: 'catalog-terms-card',
+    story: 'admin-dashboard-catalogs-catalog-terms-card--terms',
+    screen: onRecord(catalogRecord('percentage'), cardOf('Commercial terms')),
+    inStory: cardOf('Commercial terms'),
+    window: tall,
+  },
+  {
+    id: 'CMP-DA-G-24',
+    name: 'catalog-pricing-fields-percentage',
+    story: 'admin-dashboard-catalogs-catalog-pricing-fields--percentage',
+    screen: onRecord(catalogRecord('percentage'), sideCard('Pricing')),
+    inStory: sideCard('Pricing'),
+    window: tall,
+  },
+  {
+    id: 'CMP-DUI-C-37',
+    name: 'quantity-tier-editor',
+    story: 'dashboard-ui-composed-quantity-tier-editor--bands',
+    // The editor is drawn as rows of fields, not a table: its root is three levels above the column label.
+    screen: onRecord(catalogRecord('percentage'), (page) => tierEditor(sideCard('Pricing')(page))),
+    inStory: (page) => tierEditor(page.locator('body')),
+    window: tall,
+  },
+  {
+    id: 'CMP-DA-G-24',
+    name: 'catalog-price-columns-adjusted',
+    story: 'admin-dashboard-catalogs-catalog-price-columns--adjusted',
+    screen: onRecord(catalogRecord('percentage'), (page) => cardStartingWith(page, 'Products')),
+    inStory: (page) => cardStartingWith(page, 'Products'),
+    window: tall,
+  },
+  {
+    id: 'CMP-DA-G-24',
+    name: 'catalog-wizard-dialog-details',
+    story: 'admin-dashboard-catalogs-catalog-wizard-dialog--details',
+    screen: async (page) => {
+      await adminPage(page, '/products/catalogs')
+      await page.getByRole('button', { name: /^add catalog$/i }).click()
+      await expect(modal(page)).toBeVisible()
+      await page.waitForTimeout(600)
+      return modal(page)
+    },
+    inStory: modal,
+    viewport: true,
+  },
+
+  // Price lists (DA-PRD-15 to DA-PRD-17)
+  {
+    id: 'CMP-DA-G-13',
+    name: 'price-list-form-basics',
+    story: 'admin-dashboard-price-lists-price-list-form--editing',
+    screen: onRecord(priceListRecord('wholesale'), cardOf('Basics')),
+    inStory: cardOf('Basics'),
+    window: tall,
+  },
+  {
+    id: 'CMP-DA-G-13',
+    name: 'price-list-form-rules',
+    story: 'admin-dashboard-price-lists-price-list-form--editing',
+    screen: onRecord(priceListRecord('wholesale'), (page) => cardStartingWith(page, 'Rules')),
+    inStory: (page) => cardStartingWith(page, 'Rules'),
+    window: tall,
+  },
+  {
+    id: 'CMP-DA-G-13',
+    name: 'status-badge-active',
+    story: 'admin-dashboard-price-lists-status-badge--active',
+    screen: async (page) => {
+      await adminPage(page, '/products/price-lists')
+      const badge = page
+        .getByRole('row')
+        .filter({ hasText: 'Wholesale' })
+        .locator('[data-slot="status-badge"]')
+        .first()
+      await expect(badge).toBeVisible({ timeout: 20_000 })
+      return badge
+    },
+    inStory: (page) => page.locator('[data-slot="status-badge"]').first(),
+  },
+  {
+    id: 'CMP-DA-G-13',
+    name: 'volume-rule-editor',
+    story: 'admin-dashboard-price-lists-volume-rule-editor--saved',
+    screen: openedOn(
+      priceListRecord('wholesale'),
+      (page) => page.getByRole('button', { name: /^volume pricing/i }).click(),
+      modal,
+    ),
+    inStory: modal,
+    viewport: true,
+  },
+  {
+    id: 'CMP-DA-G-13',
+    name: 'customer-group-rule-editor',
+    story: 'admin-dashboard-price-lists-customer-group-rule-editor--saved',
+    screen: openedOn(
+      priceListRecord('wholesale'),
+      (page) => page.getByRole('button', { name: /^customer group/i }).click(),
+      modal,
+    ),
+    inStory: modal,
+    viewport: true,
+  },
+  {
+    id: 'CMP-DA-G-13',
+    name: 'market-rule-editor',
+    story: 'admin-dashboard-price-lists-market-rule-editor--saved',
+    screen: openedOn(
+      priceListRecord('scheduled'),
+      (page) => page.getByRole('button', { name: /^market/i }).click(),
+      modal,
+    ),
+    inStory: modal,
+    viewport: true,
+  },
+  {
+    id: 'CMP-DA-G-13',
+    name: 'type-picker-sheet',
+    story: 'admin-dashboard-price-lists-type-picker-sheet--kinds',
+    screen: openedOn(
+      priceListRecord('draft'),
+      (page) => page.getByRole('button', { name: 'Add rule' }).click(),
+      modal,
+    ),
+    inStory: modal,
+    viewport: true,
+  },
+  {
+    id: 'CMP-DA-G-02',
+    name: 'bulk-price-editor-dialog',
+    story: 'admin-dashboard-price-lists-bulk-price-editor-dialog--open',
+    screen: openedOn(
+      priceListRecord('wholesale'),
+      async (page) => {
+        await page.getByRole('button', { name: /^edit prices$/i }).click()
+        await expect(
+          modal(page)
+            .getByLabel(/^price for/i)
+            .first(),
+        ).toBeVisible({
+          timeout: 20_000,
+        })
+      },
+      modal,
+    ),
+    inStory: modal,
+    viewport: true,
+  },
+
+  // Imports and exports (DA-PRD-01's buttons, DA-OVL-05, DA-SET-31)
+  {
+    id: 'CMP-CORE-12',
+    name: 'import-button-sheet',
+    story: 'dashboard-core-import-button--sheet',
+    screen: async (page) => {
+      await adminPage(page, '/products')
+      await expect(productList(page)).toBeVisible({ timeout: 20_000 })
+      await page.getByRole('button', { name: /^import$/i }).click()
+      await expect(page.getByRole('heading', { name: /import from csv/i })).toBeVisible()
+      await page.waitForTimeout(600)
+      return modal(page)
+    },
+    inStory: modal,
+    viewport: true,
+  },
+  {
+    id: 'CMP-CORE-09',
+    name: 'export-button-dialog',
+    story: 'dashboard-core-export-button--no-filter',
+    screen: async (page) => {
+      await adminPage(page, '/products')
+      await expect(productList(page)).toBeVisible({ timeout: 20_000 })
+      await page.getByRole('button', { name: /^export$/i }).click()
+      await expect(modal(page)).toBeVisible()
+      await page.waitForTimeout(600)
+      return modal(page)
+    },
+    inStory: modal,
+    viewport: true,
+  },
+  {
+    id: 'CMP-DA-G-09',
+    name: 'import-wizard-dialog-mapping',
+    story: 'admin-dashboard-imports-import-wizard-dialog--mapping',
+    screen: async (page) => {
+      await adminPage(page, `/settings/imports?import=${merchandising.ids.mappingImport}`)
+      await expect(page.getByText('Map columns')).toBeVisible({ timeout: 20_000 })
+      await page.waitForTimeout(600)
+      return modal(page)
+    },
+    inStory: modal,
+    viewport: true,
+  },
+]
+
 const cases: Case[] = [
   ...pilotCases,
   ...primitivesBatchOne,
@@ -2956,6 +3376,7 @@ const cases: Case[] = [
   ...developerSettings,
   ...storeSettings,
   ...catalogPartOne,
+  ...catalogPartTwo,
 ]
 
 /** Every custom property the page's root element computes: the tokens, as the browser resolves them. */
@@ -2979,6 +3400,7 @@ test.beforeAll(async ({ baseURL: configured }) => {
   await seed(baseURL)
   developers = await seedDevelopers(baseURL)
   catalog = await seedCatalog(baseURL)
+  merchandising = await seedMerchandising(baseURL)
 })
 
 for (const theme of ['light', 'dark'] as const) {

@@ -1,0 +1,25 @@
+{
+  "screen": "DA-PRD-16",
+  "state": "empty",
+  "variant": "merchandiser",
+  "role": {
+    "name": "Merchandiser",
+    "permissions": [
+      "write_products",
+      "write_categories",
+      "write_collections",
+      "write_stock"
+    ]
+  },
+  "theme": "dark",
+  "revision": "36173fb5",
+  "path": "/<store>/products/price-lists/new",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": null,
+  "masked": null,
+  "settled": true,
+  "outside": []
+}
