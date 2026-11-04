@@ -1,0 +1,36 @@
+{
+  "screen": "DA-OVL-01",
+  "state": "second-store-import-after-switching",
+  "variant": "teammate",
+  "role": {
+    "Shop": "admin",
+    "Winkel": {
+      "name": "Support",
+      "permissions": [
+        "read_orders",
+        "read_customers",
+        "read_dashboard"
+      ]
+    }
+  },
+  "theme": "light",
+  "revision": "1320592d",
+  "path": "/<second-store>/products",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": null,
+  "settled": true,
+  "checked": "A product import tried from the products page the switch left reachable in Winkel. Message shown on choosing the file: Upload failed: Missing permission: write_products. Continue stayed disabled",
+  "navigation": null,
+  "answered": [
+    {
+      "method": "POST",
+      "path": "/api/v3/admin/files",
+      "status": 403,
+      "code": "access_denied"
+    }
+  ],
+  "outside": []
+}

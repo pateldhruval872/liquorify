@@ -145,3 +145,5 @@ The shopper accounts batch's comparisons need a signed-in test customer with ord
 `address-edit-modal-editing` and `alert-dialog-delete-address` are whole-window captures, in which the page behind the dialog, header included, is meant to show. The rest show nothing over the part.
 
 The five are tracked for follow-up as G-52 in [LIQ-004's register](../../../LIQ-004-foundation-backlog.md#deferred-gaps-and-the-owners-acceptance), at the owner's instruction of 2026-10-29.
+
+**Captured again on 2026-11-04.** The shopper accounts batch's 19 cases ran with the corrected script and a signed-in test customer with orders. The notes show the header over the part in these five and in no other, and the five committed comparisons were replaced ([record](../../2026-11-04-g-52-shopper-accounts-comparisons-recaptured.md)).

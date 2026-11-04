@@ -10,7 +10,7 @@ updated: 2026-11-04
 
 # SD-8 fix proposal: sample data for a store that does not sell in US dollars
 
-A bounded fix for [SD-8](../LIQ-004-foundation-backlog.md#existing-defects-found-by-the-baseline), prepared at the owner's request on 2026-11-03. **On 2026-11-04 the owner decided to fix SD-8 now** (decision 19 of the owner decision brief), in its own bounded pull request, after FB-03 takes the next free slot; with the demo price of §3 (decision 20); and with no report to Spree (decision 21). §6 records the answers. This proposal changes neither SD-8's status nor G-36's: closing either still needs the owner's acceptance of the resulting evidence.
+A bounded fix for [SD-8](../LIQ-004-foundation-backlog.md#existing-defects-found-by-the-baseline), prepared at the owner's request on 2026-11-03. **On 2026-11-04 the owner decided to fix SD-8 now** (decision 19 of the owner decision brief), in its own bounded pull request, after FB-03 takes the next free slot; with the demo price of §3 (decision 20); and with no report to Spree (decision 21). §6 records the answers. This proposal changes neither SD-8's status nor G-36's: closing either still needs the owner's acceptance of the resulting evidence. **The fix was built on 2026-11-04** in pull request #44, and every required check of §5 passed ([verification record](../verification/2026-11-04-sd-8-sample-data-currency-fix.md)); §8 gives the outcome.
 
 **Why it matters to the baseline.** G-36, first-run setup with sample data, is OPEN: on 2026-10-27 the owner kept it open until SD-8 is resolved and setup with sample data is verified in US dollars and in another currency. Until then CAP-03-03 stays PARTIAL, with a failing part. SD-8's follow-up said a fix would be decided after the baseline; the owner's answer of 2026-11-04 brings it forward, still in Spree's sample data and in its own pull request.
 
@@ -23,7 +23,7 @@ First-run setup's sample data stops at its wholesale step for a store that does 
 ## 2. Causes, read in the code at `5794da6a`
 
 1. **The quantity breaks are all in dollars.** `spree/core/db/sample_data/price_list_prices.csv` has 24 rows, every one in USD. The price list import refuses each row in a store that does not sell USD, and `wholesale.rb` raises when any row fails. That raise is deliberate: it catches the example file drifting apart from the sample products.
-2. **The sample products are priced in dollars and euros only.** `products.csv` gives each of its 87 priced variants a price in USD and in EUR. A store whose currency is neither gets no price, so its storefront lists nothing. This happens before the wholesale step and is not an error, so nothing reports it.
+2. **The sample products are priced in dollars and euros only.** `products.csv` prices 88 variants: 87 in USD and in EUR, and the Spree handbook in USD only. *Corrected on 2026-11-04: this said all 87 priced variants had both, and the fix's spec found the handbook.* A store whose currency is neither gets no price, so its storefront lists nothing. This happens before the wholesale step and is not an error, so nothing reports it.
 3. **The sample orders are fixed in dollars.** `orders.rb` creates its two orders with the currency `USD`. In a store that does not sell USD they would be in a currency the store does not sell. Not reached in the recorded runs, which stopped before it; read in the code only.
 
 The welcome screen saying the store is ready is a separate cause: the sample data loads in a background job after setup, and nothing reports its failure to the screen. It is outside this fix (§4).
@@ -32,7 +32,7 @@ The welcome screen saying the store is ready is a separate cause: the sample dat
 
 One backend pull request, separate from every baseline pull request, changing only Spree's sample data and its spec:
 
-1. **A demo price in the store's own currency.** After the product import, each sample variant that has no price in the store's default currency gets one, with the same number as its US dollar price in the sample file. It is a demo amount, not a conversion; no exchange rate is added. A store in dollars or euros is unaffected, because the file already prices every variant in both.
+1. **A demo price in the store's own currency.** After the product import, each sample variant that has no price in the store's default currency gets one, with the same number as its US dollar price in the sample file. It is a demo amount, not a conversion; no exchange rate is added. A store in dollars is unaffected. A store in euros keeps every euro price the file gives, and only the handbook, which the file prices in dollars only, gets a demo price. *Corrected on 2026-11-04: this said a store in euros was unaffected.*
 2. **Quantity breaks only in currencies the store sells.** The wholesale step imports the example file's rows in currencies the store sells and skips the rest, saying so in its output. A row that fails for any other reason still stops the step, so the drift check stays. A store that sells none of the file's currencies gets no quantity breaks, while its trade prices still come from step 1's prices.
 3. **Sample orders in the store's default currency,** instead of dollars.
 
@@ -73,3 +73,17 @@ Checks 1, 2, 2a, 3 and 4 are required; checks 3 and 4 cover first-run setup and 
 
 - **Risk.** Standard: Spree's sample data and its spec only. Sample data runs only when a merchant asks for it at setup, or from the sample data command.
 - **Release impact.** None. Nothing is deployed.
+
+## 8. Outcome, 2026-11-04
+
+The fix was built as §3 proposes, in pull request #44, and every required check of §5 passed at the final code revision ([verification record](../verification/2026-11-04-sd-8-sample-data-currency-fix.md)):
+
+- Spree's spec failed 6 of 29 examples before the fix and passes 29 of 29 after it, on PostgreSQL and on SQLite. The required euro check (2a) passes.
+- First-run setup with sample data, through the dashboard, loads all 38 products, both sample orders and an active wholesale price list in US dollars, Polish złoty and euros. The storefront built against each new store lists all 38 products, priced in the store's currency.
+- The sample orders' United States addresses worked in stores in Poland and Germany, so no address changed.
+- Two corrections to this work item, in §2 and §3: the Spree handbook is priced in dollars only, so a store in euros gets one demo price.
+- Found on the way and not fixed: a store whose language is German or French gets no sample orders, because the orders step finds its products by their English names (SD-13). The welcome screen's limitation of §4 is now tracked on its own, as SD-14, so it stays open when SD-8 closes.
+
+SD-8 and G-36 close only when the acceptance of this evidence is recorded with the merge, as delegated acceptance under the owner's delegation of 2026-11-04 ([record](../verification/2026-11-04-delegated-acceptance-and-merging.md)). This work item's status stays PROPOSED.
+
+**Merged and accepted, 2026-11-04.** #44 merged at `c283660`, and its evidence was accepted as delegated acceptance, not the owner's review. SD-8 and G-36 are closed; SD-13 and SD-14 stay open ([merge record](../verification/2026-11-04-sd-8-sample-data-currency-fix-merge.md)).

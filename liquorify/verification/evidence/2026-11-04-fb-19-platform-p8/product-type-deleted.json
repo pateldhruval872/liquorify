@@ -1,0 +1,21 @@
+{
+  "test": "product-type-deleted",
+  "revision": "f1e947a0",
+  "stamp": "mw1y3z4t",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "deleted P8 Unused type mw1y3z4t"
+    },
+    {
+      "step": "reloaded",
+      "listed": [
+        "Default",
+        "Digital",
+        "P8 Cordials mw1y3z4t",
+        "P8 Spirits mw1y3z4t"
+      ]
+    }
+  ],
+  "outside": []
+}

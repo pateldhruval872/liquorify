@@ -1,0 +1,17 @@
+{
+  "screen": "DA-SET-17",
+  "state": "pickup-not-offered",
+  "variant": "admin",
+  "role": null,
+  "theme": "dark",
+  "revision": "87a2ea80",
+  "path": "/<store>/settings/delivery-profiles/fp_UkLWZg9DAJ",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": null,
+  "masked": null,
+  "settled": true,
+  "outside": []
+}

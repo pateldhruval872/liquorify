@@ -1,0 +1,35 @@
+{
+  "screen": "DA-OVL-01",
+  "state": "first-store-after-switching-back",
+  "variant": "teammate",
+  "role": {
+    "Shop": "admin",
+    "Winkel": {
+      "name": "Support",
+      "permissions": [
+        "read_orders",
+        "read_customers",
+        "read_dashboard"
+      ]
+    }
+  },
+  "theme": "dark",
+  "revision": "1320592d",
+  "path": "/<store>",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": null,
+  "settled": true,
+  "checked": "Switched back to Shop from the switcher, without a reload. The navigation is recorded as shown",
+  "navigation": {
+    "afterSwitch": [
+      "Home",
+      "Orders",
+      "Customers"
+    ]
+  },
+  "answered": null,
+  "outside": []
+}

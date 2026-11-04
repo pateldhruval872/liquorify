@@ -1,0 +1,29 @@
+{
+  "screen": "DA-AUTH-04",
+  "state": "accepted-second-store",
+  "variant": "teammate",
+  "role": {
+    "Shop": "admin",
+    "Winkel": {
+      "name": "Support",
+      "permissions": [
+        "read_orders",
+        "read_customers",
+        "read_dashboard"
+      ]
+    }
+  },
+  "theme": "dark",
+  "revision": "1320592d",
+  "path": "/<store>",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": null,
+  "settled": true,
+  "checked": "Accepting signs the teammate in and opens Shop, the first of their stores by name, not Winkel, the store just joined",
+  "navigation": null,
+  "answered": null,
+  "outside": []
+}

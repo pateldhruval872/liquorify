@@ -1,0 +1,40 @@
+{
+  "test": "option-values-keyboard-one-place",
+  "revision": "f1e947a0",
+  "stamp": "mw1y58tv",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "opened the option type",
+      "order": [
+        "small",
+        "medium",
+        "large",
+        "xlarge"
+      ]
+    },
+    {
+      "step": "picked up the first value with Space, pressed ArrowDown once and dropped it with Space",
+      "placesAnnounced": 2,
+      "order": [
+        "medium",
+        "small",
+        "large",
+        "xlarge"
+      ]
+    },
+    {
+      "step": "saved"
+    },
+    {
+      "step": "reloaded and opened it again",
+      "order": [
+        "medium",
+        "small",
+        "large",
+        "xlarge"
+      ]
+    }
+  ],
+  "outside": []
+}

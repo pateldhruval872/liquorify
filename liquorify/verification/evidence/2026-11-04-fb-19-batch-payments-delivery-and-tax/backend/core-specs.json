@@ -1,0 +1,3594 @@
+{
+  "version": "3.13.6",
+  "seed": 52277,
+  "examples": [
+    {
+      "id": "./spec/models/spree/delivery_zone_spec.rb[1:1:1]",
+      "description": "takes its delivery methods with it",
+      "full_description": "Spree::DeliveryZone destroying a zone takes its delivery methods with it",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_zone_spec.rb",
+      "line_number": 13,
+      "run_time": 0.09116276,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_zone_spec.rb[1:2:4]",
+      "description": "is false for a zone without members",
+      "full_description": "Spree::DeliveryZone#include? is false for a zone without members",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_zone_spec.rb",
+      "line_number": 43,
+      "run_time": 0.109985093,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_zone_spec.rb[1:2:2]",
+      "description": "is false when no member matches",
+      "full_description": "Spree::DeliveryZone#include? is false when no member matches",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_zone_spec.rb",
+      "line_number": 35,
+      "run_time": 0.075041643,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_zone_spec.rb[1:2:3]",
+      "description": "is false for a nil address",
+      "full_description": "Spree::DeliveryZone#include? is false for a nil address",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_zone_spec.rb",
+      "line_number": 39,
+      "run_time": 0.012883491,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_zone_spec.rb[1:2:1]",
+      "description": "is true when any member matches the address",
+      "full_description": "Spree::DeliveryZone#include? is true when any member matches the address",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_zone_spec.rb",
+      "line_number": 29,
+      "run_time": 0.014023815,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method_spec.rb[1:16:1]",
+      "description": "is retried rather than settled on",
+      "full_description": "Spree::PaymentMethod a schema asked for before the database was up is retried rather than settled on",
+      "status": "passed",
+      "file_path": "./spec/models/spree/payment_method_spec.rb",
+      "line_number": 445,
+      "run_time": 0.024680517,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method_spec.rb[1:16:2]",
+      "description": "does not leave the derived lists empty either",
+      "full_description": "Spree::PaymentMethod a schema asked for before the database was up does not leave the derived lists empty either",
+      "status": "passed",
+      "file_path": "./spec/models/spree/payment_method_spec.rb",
+      "line_number": 458,
+      "run_time": 0.01009081,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method_spec.rb[1:1:4]",
+      "description": "no longer carries the split metadata columns",
+      "full_description": "Spree::PaymentMethod behaves like metadata no longer carries the split metadata columns",
+      "status": "passed",
+      "file_path": "./lib/spree/testing_support/metadata.rb",
+      "line_number": 10,
+      "run_time": 0.011214813,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method_spec.rb[1:1:3]",
+      "description": "is expected to eq ActiveSupport::HashWithIndifferentAccess",
+      "full_description": "Spree::PaymentMethod behaves like metadata is expected to eq ActiveSupport::HashWithIndifferentAccess",
+      "status": "passed",
+      "file_path": "./lib/spree/testing_support/metadata.rb",
+      "line_number": 8,
+      "run_time": 0.009518233,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method_spec.rb[1:1:8]",
+      "description": "can query records by metadata properties",
+      "full_description": "Spree::PaymentMethod behaves like metadata can query records by metadata properties",
+      "status": "passed",
+      "file_path": "./lib/spree/testing_support/metadata.rb",
+      "line_number": 57,
+      "run_time": 0.012696446,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method_spec.rb[1:1:6]",
+      "description": "reads data as not symbolized keys",
+      "full_description": "Spree::PaymentMethod behaves like metadata reads data as not symbolized keys",
+      "status": "passed",
+      "file_path": "./lib/spree/testing_support/metadata.rb",
+      "line_number": 29,
+      "run_time": 0.011034252,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method_spec.rb[1:1:2]",
+      "description": "is expected to eq {}",
+      "full_description": "Spree::PaymentMethod behaves like metadata is expected to eq {}",
+      "status": "passed",
+      "file_path": "./lib/spree/testing_support/metadata.rb",
+      "line_number": 6,
+      "run_time": 0.00967583,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method_spec.rb[1:1:7]",
+      "description": "can query records by metadata properties",
+      "full_description": "Spree::PaymentMethod behaves like metadata can query records by metadata properties",
+      "status": "pending",
+      "file_path": "./lib/spree/testing_support/metadata.rb",
+      "line_number": 43,
+      "run_time": 1.6947e-05,
+      "pending_message": "No reason given"
+    },
+    {
+      "id": "./spec/models/spree/payment_method_spec.rb[1:1:1]",
+      "description": "is expected to be truthy",
+      "full_description": "Spree::PaymentMethod behaves like metadata is expected to be truthy",
+      "status": "passed",
+      "file_path": "./lib/spree/testing_support/metadata.rb",
+      "line_number": 4,
+      "run_time": 0.009920714,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method_spec.rb[1:1:5]",
+      "description": "reads data as symbolized keys",
+      "full_description": "Spree::PaymentMethod behaves like metadata reads data as symbolized keys",
+      "status": "passed",
+      "file_path": "./lib/spree/testing_support/metadata.rb",
+      "line_number": 15,
+      "run_time": 0.010945154,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method_spec.rb[1:2:2]",
+      "description": "frees the name of a soft-deleted method",
+      "full_description": "Spree::PaymentMethod validations frees the name of a soft-deleted method",
+      "status": "passed",
+      "file_path": "./spec/models/spree/payment_method_spec.rb",
+      "line_number": 28,
+      "run_time": 0.09823943,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method_spec.rb[1:2:1]",
+      "description": "requires a name unique within the store",
+      "full_description": "Spree::PaymentMethod validations requires a name unique within the store",
+      "status": "passed",
+      "file_path": "./spec/models/spree/payment_method_spec.rb",
+      "line_number": 21,
+      "run_time": 0.112378878,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method_spec.rb[1:12:1]",
+      "description": "instruments provider-implemented session methods as gateway.spree_payments, once per call",
+      "full_description": "Spree::PaymentMethod payment session instrumentation instruments provider-implemented session methods as gateway.spree_payments, once per call",
+      "status": "passed",
+      "file_path": "./spec/models/spree/payment_method_spec.rb",
+      "line_number": 318,
+      "run_time": 0.015534896,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method_spec.rb[1:14:1]",
+      "description": "follows the order the preferences were declared in",
+      "full_description": "Spree::PaymentMethod preference order follows the order the preferences were declared in",
+      "status": "passed",
+      "file_path": "./spec/models/spree/payment_method_spec.rb",
+      "line_number": 399,
+      "run_time": 0.012064669,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method_spec.rb[1:15:2]",
+      "description": "reports which preferences are internal",
+      "full_description": "Spree::PaymentMethod internal preferences reports which preferences are internal",
+      "status": "passed",
+      "file_path": "./spec/models/spree/payment_method_spec.rb",
+      "line_number": 423,
+      "run_time": 0.010563778,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method_spec.rb[1:15:1]",
+      "description": "keeps them out of the schema, so no form offers them",
+      "full_description": "Spree::PaymentMethod internal preferences keeps them out of the schema, so no form offers them",
+      "status": "passed",
+      "file_path": "./spec/models/spree/payment_method_spec.rb",
+      "line_number": 416,
+      "run_time": 0.012895657,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method_spec.rb[1:5:1]",
+      "description": "hands a method that takes money amounts the amount with its currency",
+      "full_description": "Spree::PaymentMethod#gateway_amount hands a method that takes money amounts the amount with its currency",
+      "status": "passed",
+      "file_path": "./spec/models/spree/payment_method_spec.rb",
+      "line_number": 120,
+      "run_time": 0.012956605,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method_spec.rb[1:5:2]",
+      "description": "hands any other method hundredths, warning once that the bridge is going",
+      "full_description": "Spree::PaymentMethod#gateway_amount hands any other method hundredths, warning once that the bridge is going",
+      "status": "passed",
+      "file_path": "./spec/models/spree/payment_method_spec.rb",
+      "line_number": 126,
+      "run_time": 0.012306038,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method_spec.rb[1:5:3]",
+      "description": "refuses to hand an old method an amount below a hundredth",
+      "full_description": "Spree::PaymentMethod#gateway_amount refuses to hand an old method an amount below a hundredth",
+      "status": "passed",
+      "file_path": "./spec/models/spree/payment_method_spec.rb",
+      "line_number": 135,
+      "run_time": 0.011652741,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method_spec.rb[1:7:2]",
+      "description": "prefers its own value over the store",
+      "full_description": "Spree::PaymentMethod#resolved_capture_method prefers its own value over the store",
+      "status": "passed",
+      "file_path": "./spec/models/spree/payment_method_spec.rb",
+      "line_number": 216,
+      "run_time": 0.009687484,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method_spec.rb[1:7:5]",
+      "description": "stays out of the provider preference schema",
+      "full_description": "Spree::PaymentMethod#resolved_capture_method stays out of the provider preference schema",
+      "status": "passed",
+      "file_path": "./spec/models/spree/payment_method_spec.rb",
+      "line_number": 237,
+      "run_time": 0.008611388,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method_spec.rb[1:7:6]",
+      "description": "is queryable",
+      "full_description": "Spree::PaymentMethod#resolved_capture_method is queryable",
+      "status": "passed",
+      "file_path": "./spec/models/spree/payment_method_spec.rb",
+      "line_number": 242,
+      "run_time": 0.022502915,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method_spec.rb[1:7:3]",
+      "description": "treats a blank write as going back to inheriting",
+      "full_description": "Spree::PaymentMethod#resolved_capture_method treats a blank write as going back to inheriting",
+      "status": "passed",
+      "file_path": "./spec/models/spree/payment_method_spec.rb",
+      "line_number": 221,
+      "run_time": 0.012685706,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method_spec.rb[1:7:4]",
+      "description": "rejects a value outside the vocabulary",
+      "full_description": "Spree::PaymentMethod#resolved_capture_method rejects a value outside the vocabulary",
+      "status": "passed",
+      "file_path": "./spec/models/spree/payment_method_spec.rb",
+      "line_number": 228,
+      "run_time": 0.011406476,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method_spec.rb[1:7:1]",
+      "description": "inherits the store value when the method sets nothing",
+      "full_description": "Spree::PaymentMethod#resolved_capture_method inherits the store value when the method sets nothing",
+      "status": "passed",
+      "file_path": "./spec/models/spree/payment_method_spec.rb",
+      "line_number": 212,
+      "run_time": 0.011504278,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method_spec.rb[1:13:3]",
+      "description": "leaves an unconstrained preference without one",
+      "full_description": "Spree::PaymentMethod constrained preferences leaves an unconstrained preference without one",
+      "status": "passed",
+      "file_path": "./spec/models/spree/payment_method_spec.rb",
+      "line_number": 372,
+      "run_time": 0.010304747,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method_spec.rb[1:13:2]",
+      "description": "carries the set into the schema",
+      "full_description": "Spree::PaymentMethod constrained preferences carries the set into the schema",
+      "status": "passed",
+      "file_path": "./spec/models/spree/payment_method_spec.rb",
+      "line_number": 366,
+      "run_time": 0.009894805,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method_spec.rb[1:13:1]",
+      "description": "serves a decimal default as a decimal string",
+      "full_description": "Spree::PaymentMethod constrained preferences serves a decimal default as a decimal string",
+      "status": "passed",
+      "file_path": "./spec/models/spree/payment_method_spec.rb",
+      "line_number": 358,
+      "run_time": 0.009980612,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method_spec.rb[1:13:4]",
+      "description": "reports the set for a single preference",
+      "full_description": "Spree::PaymentMethod constrained preferences reports the set for a single preference",
+      "status": "passed",
+      "file_path": "./spec/models/spree/payment_method_spec.rb",
+      "line_number": 378,
+      "run_time": 0.014385794,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method_spec.rb[1:3:3:1]",
+      "description": "returns every active method regardless of storefront visibility",
+      "full_description": "Spree::PaymentMethod visibility scopes .available returns every active method regardless of storefront visibility",
+      "status": "passed",
+      "file_path": "./spec/models/spree/payment_method_spec.rb",
+      "line_number": 62,
+      "run_time": 0.028646311,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method_spec.rb[1:3:3:2]",
+      "description": "excludes inactive methods",
+      "full_description": "Spree::PaymentMethod visibility scopes .available excludes inactive methods",
+      "status": "passed",
+      "file_path": "./spec/models/spree/payment_method_spec.rb",
+      "line_number": 66,
+      "run_time": 0.019570854,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method_spec.rb[1:3:2:1]",
+      "description": "returns only backoffice methods",
+      "full_description": "Spree::PaymentMethod visibility scopes .admin_only returns only backoffice methods",
+      "status": "passed",
+      "file_path": "./spec/models/spree/payment_method_spec.rb",
+      "line_number": 56,
+      "run_time": 0.020309155,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method_spec.rb[1:3:4:1]",
+      "description": "excludes methods belonging to another store",
+      "full_description": "Spree::PaymentMethod visibility scopes .for_store excludes methods belonging to another store",
+      "status": "passed",
+      "file_path": "./spec/models/spree/payment_method_spec.rb",
+      "line_number": 73,
+      "run_time": 0.172717951,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method_spec.rb[1:3:1:1]",
+      "description": "returns only customer-facing methods",
+      "full_description": "Spree::PaymentMethod visibility scopes .storefront_visible returns only customer-facing methods",
+      "status": "passed",
+      "file_path": "./spec/models/spree/payment_method_spec.rb",
+      "line_number": 50,
+      "run_time": 0.019068314,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method_spec.rb[1:9:1]",
+      "description": "returns true when passed a nil value",
+      "full_description": "Spree::PaymentMethod#available_for_store? returns true when passed a nil value",
+      "status": "passed",
+      "file_path": "./spec/models/spree/payment_method_spec.rb",
+      "line_number": 276,
+      "run_time": 0.107529306,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method_spec.rb[1:9:3]",
+      "description": "returns true if currenct store id is included",
+      "full_description": "Spree::PaymentMethod#available_for_store? returns true if currenct store id is included",
+      "status": "passed",
+      "file_path": "./spec/models/spree/payment_method_spec.rb",
+      "line_number": 286,
+      "run_time": 0.09136235,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method_spec.rb[1:9:2]",
+      "description": "returns false if currenct store id is not included",
+      "full_description": "Spree::PaymentMethod#available_for_store? returns false if currenct store id is not included",
+      "status": "passed",
+      "file_path": "./spec/models/spree/payment_method_spec.rb",
+      "line_number": 281,
+      "run_time": 0.090121781,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method_spec.rb[1:8:1:1]",
+      "description": "is expected to equal true",
+      "full_description": "Spree::PaymentMethod#available_for_order? when the order is not covered by store credit is expected to equal true",
+      "status": "passed",
+      "file_path": "./spec/models/spree/payment_method_spec.rb",
+      "line_number": 256,
+      "run_time": 0.171267802,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method_spec.rb[1:8:3:1]",
+      "description": "is expected to equal false",
+      "full_description": "Spree::PaymentMethod#available_for_order? when the order is fully covered by store credit is expected to equal false",
+      "status": "passed",
+      "file_path": "./spec/models/spree/payment_method_spec.rb",
+      "line_number": 268,
+      "run_time": 0.212549277,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method_spec.rb[1:8:2:1]",
+      "description": "is expected to equal true",
+      "full_description": "Spree::PaymentMethod#available_for_order? when the order is partially covered by store credit is expected to equal true",
+      "status": "passed",
+      "file_path": "./spec/models/spree/payment_method_spec.rb",
+      "line_number": 262,
+      "run_time": 0.317431972,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method_spec.rb[1:10:1]",
+      "description": "destroys the payment method",
+      "full_description": "Spree::PaymentMethod when payment method is destroyed destroys the payment method",
+      "status": "passed",
+      "file_path": "./spec/models/spree/payment_method_spec.rb",
+      "line_number": 298,
+      "run_time": 0.192675185,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method_spec.rb[1:17:4]",
+      "description": "reads a secret assigned with the whole hash before the save moves it",
+      "full_description": "Spree::PaymentMethod secret preferences reads a secret assigned with the whole hash before the save moves it",
+      "status": "passed",
+      "file_path": "./spec/models/spree/payment_method_spec.rb",
+      "line_number": 500,
+      "run_time": 0.055063526,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method_spec.rb[1:17:6]",
+      "description": "hands the secrets to the gateway connection",
+      "full_description": "Spree::PaymentMethod secret preferences hands the secrets to the gateway connection",
+      "status": "passed",
+      "file_path": "./spec/models/spree/payment_method_spec.rb",
+      "line_number": 512,
+      "run_time": 0.014451079,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method_spec.rb[1:17:9]",
+      "description": "treats a secret a decorator adds to the parent class later as a secret",
+      "full_description": "Spree::PaymentMethod secret preferences treats a secret a decorator adds to the parent class later as a secret",
+      "status": "passed",
+      "file_path": "./spec/models/spree/payment_method_spec.rb",
+      "line_number": 535,
+      "run_time": 0.005070083,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method_spec.rb[1:17:10]",
+      "description": "refuses a :password preference on a model that cannot encrypt it",
+      "full_description": "Spree::PaymentMethod secret preferences refuses a :password preference on a model that cannot encrypt it",
+      "status": "passed",
+      "file_path": "./spec/models/spree/payment_method_spec.rb",
+      "line_number": 545,
+      "run_time": 0.003961502,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method_spec.rb[1:17:7]",
+      "description": "reports a secret change through the preference change methods",
+      "full_description": "Spree::PaymentMethod secret preferences reports a secret change through the preference change methods",
+      "status": "passed",
+      "file_path": "./spec/models/spree/payment_method_spec.rb",
+      "line_number": 518,
+      "run_time": 0.013066156,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method_spec.rb[1:17:3]",
+      "description": "moves a secret assigned in a plain hash with string keys, as JSON or form parameters arrive",
+      "full_description": "Spree::PaymentMethod secret preferences moves a secret assigned in a plain hash with string keys, as JSON or form parameters arrive",
+      "status": "passed",
+      "file_path": "./spec/models/spree/payment_method_spec.rb",
+      "line_number": 492,
+      "run_time": 0.016338182,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method_spec.rb[1:17:5]",
+      "description": "reads a secret's default without copying it into storage",
+      "full_description": "Spree::PaymentMethod secret preferences reads a secret's default without copying it into storage",
+      "status": "passed",
+      "file_path": "./spec/models/spree/payment_method_spec.rb",
+      "line_number": 507,
+      "run_time": 0.010419588,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method_spec.rb[1:17:2]",
+      "description": "moves a secret assigned with the whole preferences hash before saving",
+      "full_description": "Spree::PaymentMethod secret preferences moves a secret assigned with the whole preferences hash before saving",
+      "status": "passed",
+      "file_path": "./spec/models/spree/payment_method_spec.rb",
+      "line_number": 485,
+      "run_time": 0.01394196,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method_spec.rb[1:17:1]",
+      "description": "stores a :password preference only in the encrypted column",
+      "full_description": "Spree::PaymentMethod secret preferences stores a :password preference only in the encrypted column",
+      "status": "passed",
+      "file_path": "./spec/models/spree/payment_method_spec.rb",
+      "line_number": 476,
+      "run_time": 0.014613306,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method_spec.rb[1:17:8]",
+      "description": "does not mark a gateway without stored secrets as changed when one is read",
+      "full_description": "Spree::PaymentMethod secret preferences does not mark a gateway without stored secrets as changed when one is read",
+      "status": "passed",
+      "file_path": "./spec/models/spree/payment_method_spec.rb",
+      "line_number": 525,
+      "run_time": 0.011667947,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method_spec.rb[1:4:2]",
+      "description": "writes back_end as hidden and every other value as visible",
+      "full_description": "Spree::PaymentMethod legacy display_on bridge writes back_end as hidden and every other value as visible",
+      "status": "passed",
+      "file_path": "./spec/models/spree/payment_method_spec.rb",
+      "line_number": 100,
+      "run_time": 0.005726469,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method_spec.rb[1:4:1]",
+      "description": "reads the boolean back as the old tri-state value",
+      "full_description": "Spree::PaymentMethod legacy display_on bridge reads the boolean back as the old tri-state value",
+      "status": "passed",
+      "file_path": "./spec/models/spree/payment_method_spec.rb",
+      "line_number": 94,
+      "run_time": 0.008343954,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method_spec.rb[1:4:3]",
+      "description": "maps available_on_front_end? onto storefront visibility",
+      "full_description": "Spree::PaymentMethod legacy display_on bridge maps available_on_front_end? onto storefront visibility",
+      "status": "passed",
+      "file_path": "./spec/models/spree/payment_method_spec.rb",
+      "line_number": 113,
+      "run_time": 0.009211683,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method_spec.rb[1:6:2:2]",
+      "description": "is false when it charges manually",
+      "full_description": "Spree::PaymentMethod#auto_capture? when the method sets its own capture method is false when it charges manually",
+      "status": "passed",
+      "file_path": "./spec/models/spree/payment_method_spec.rb",
+      "line_number": 184,
+      "run_time": 0.013868169,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method_spec.rb[1:6:2:1]",
+      "description": "is true when it charges at checkout",
+      "full_description": "Spree::PaymentMethod#auto_capture? when the method sets its own capture method is true when it charges at checkout",
+      "status": "passed",
+      "file_path": "./spec/models/spree/payment_method_spec.rb",
+      "line_number": 179,
+      "run_time": 0.007923862,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method_spec.rb[1:6:1:1:1]",
+      "description": "is false",
+      "full_description": "Spree::PaymentMethod#auto_capture? when the method has no capture method of its own and the store charges on dispatch is false",
+      "status": "passed",
+      "file_path": "./spec/models/spree/payment_method_spec.rb",
+      "line_number": 160,
+      "run_time": 0.007629028,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method_spec.rb[1:6:1:2:1]",
+      "description": "is true",
+      "full_description": "Spree::PaymentMethod#auto_capture? when the method has no capture method of its own and the store charges at checkout is true",
+      "status": "passed",
+      "file_path": "./spec/models/spree/payment_method_spec.rb",
+      "line_number": 169,
+      "run_time": 0.008481303,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method_spec.rb[1:6:3:1]",
+      "description": "is true when the column is true",
+      "full_description": "Spree::PaymentMethod#auto_capture? when only the legacy auto_capture column is set is true when the column is true",
+      "status": "passed",
+      "file_path": "./spec/models/spree/payment_method_spec.rb",
+      "line_number": 193,
+      "run_time": 0.007236404,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method_spec.rb[1:6:3:2]",
+      "description": "defers to the store when the column is false",
+      "full_description": "Spree::PaymentMethod#auto_capture? when only the legacy auto_capture column is set defers to the store when the column is false",
+      "status": "passed",
+      "file_path": "./spec/models/spree/payment_method_spec.rb",
+      "line_number": 199,
+      "run_time": 0.008394316,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method_spec.rb[1:11:1]",
+      "description": "numbers positions per store, not across the whole table",
+      "full_description": "Spree::PaymentMethod position scoping numbers positions per store, not across the whole table",
+      "status": "passed",
+      "file_path": "./spec/models/spree/payment_method_spec.rb",
+      "line_number": 307,
+      "run_time": 0.098171824,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_rule_spec.rb[1:4:1]",
+      "description": "offers the method only on the listed channels",
+      "full_description": "Spree::DeliveryMethodRule Spree::DeliveryMethodRules::ChannelRule offers the method only on the listed channels",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_method_rule_spec.rb",
+      "line_number": 58,
+      "run_time": 0.596644274,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_rule_spec.rb[1:4:2]",
+      "description": "matches a cart-owned package by the cart channel",
+      "full_description": "Spree::DeliveryMethodRule Spree::DeliveryMethodRules::ChannelRule matches a cart-owned package by the cart channel",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_method_rule_spec.rb",
+      "line_number": 74,
+      "run_time": 0.210587054,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_rule_spec.rb[1:4:4]",
+      "description": "decodes prefixed ids and rejects channels of another store",
+      "full_description": "Spree::DeliveryMethodRule Spree::DeliveryMethodRules::ChannelRule decodes prefixed ids and rejects channels of another store",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_method_rule_spec.rb",
+      "line_number": 92,
+      "run_time": 0.18181865,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_rule_spec.rb[1:4:3]",
+      "description": "hides a channel-restricted method from carts with no channel",
+      "full_description": "Spree::DeliveryMethodRule Spree::DeliveryMethodRules::ChannelRule hides a channel-restricted method from carts with no channel",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_method_rule_spec.rb",
+      "line_number": 85,
+      "run_time": 0.353069206,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_rule_spec.rb[1:1:1:2]",
+      "description": "falls back to the humanized type for a kind without translations",
+      "full_description": "Spree::DeliveryMethodRule behaves like type labels type labels falls back to the humanized type for a kind without translations",
+      "status": "passed",
+      "file_path": "./spec/support/shared_examples/type_labels.rb",
+      "line_number": 15,
+      "run_time": 0.006547716,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_rule_spec.rb[1:1:1:1]",
+      "description": "reads the kind's name and description from the family's scope",
+      "full_description": "Spree::DeliveryMethodRule behaves like type labels type labels reads the kind's name and description from the family's scope",
+      "status": "passed",
+      "file_path": "./spec/support/shared_examples/type_labels.rb",
+      "line_number": 6,
+      "run_time": 0.009417973,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_rule_spec.rb[1:3:1]",
+      "description": "bounds by item total inclusively and fails open when unconfigured",
+      "full_description": "Spree::DeliveryMethodRule Spree::DeliveryMethodRules::ItemTotalRule bounds by item total inclusively and fails open when unconfigured",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_method_rule_spec.rb",
+      "line_number": 34,
+      "run_time": 0.357782849,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_rule_spec.rb[1:7:1]",
+      "description": "is for company orders by default",
+      "full_description": "Spree::DeliveryMethodRule Spree::DeliveryMethodRules::CompanyRule is for company orders by default",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_method_rule_spec.rb",
+      "line_number": 186,
+      "run_time": 0.669588632,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_rule_spec.rb[1:7:2]",
+      "description": "hides a parcel method from a company cart when turned off",
+      "full_description": "Spree::DeliveryMethodRule Spree::DeliveryMethodRules::CompanyRule hides a parcel method from a company cart when turned off",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_method_rule_spec.rb",
+      "line_number": 193,
+      "run_time": 0.448133547,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_rule_spec.rb[1:9:2]",
+      "description": "updates, adds and removes rules to match the payload",
+      "full_description": "Spree::DeliveryMethodRule Spree::DeliveryMethod#rules= updates, adds and removes rules to match the payload",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_method_rule_spec.rb",
+      "line_number": 228,
+      "run_time": 0.040439272,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_rule_spec.rb[1:9:3]",
+      "description": "assigns products on a brand-new association-backed rule",
+      "full_description": "Spree::DeliveryMethodRule Spree::DeliveryMethod#rules= assigns products on a brand-new association-backed rule",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_method_rule_spec.rb",
+      "line_number": 248,
+      "run_time": 0.104354875,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_rule_spec.rb[1:9:1]",
+      "description": "creates rules alongside a new method in one save",
+      "full_description": "Spree::DeliveryMethodRule Spree::DeliveryMethod#rules= creates rules alongside a new method in one save",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_method_rule_spec.rb",
+      "line_number": 220,
+      "run_time": 0.018481896,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_rule_spec.rb[1:8:1]",
+      "description": "blocks packages containing an excluded product and fails open without products",
+      "full_description": "Spree::DeliveryMethodRule Spree::DeliveryMethodRules::ExcludedProductsRule blocks packages containing an excluded product and fails open without products",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_method_rule_spec.rb",
+      "line_number": 202,
+      "run_time": 0.22501625,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_rule_spec.rb[1:8:2]",
+      "description": "passes packages containing none of the excluded products",
+      "full_description": "Spree::DeliveryMethodRule Spree::DeliveryMethodRules::ExcludedProductsRule passes packages containing none of the excluded products",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_method_rule_spec.rb",
+      "line_number": 210,
+      "run_time": 0.309078505,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_rule_spec.rb[1:10:1]",
+      "description": "drops ineligible methods from rate estimation",
+      "full_description": "Spree::DeliveryMethodRule Estimator enforcement drops ineligible methods from rate estimation",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_method_rule_spec.rb",
+      "line_number": 261,
+      "run_time": 0.254446123,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_rule_spec.rb[1:10:2]",
+      "description": "keeps methods whose rules pass",
+      "full_description": "Spree::DeliveryMethodRule Estimator enforcement keeps methods whose rules pass",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_method_rule_spec.rb",
+      "line_number": 277,
+      "run_time": 0.325940774,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_rule_spec.rb[1:10:3]",
+      "description": "ignores inactive rules",
+      "full_description": "Spree::DeliveryMethodRule Estimator enforcement ignores inactive rules",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_method_rule_spec.rb",
+      "line_number": 290,
+      "run_time": 0.301947224,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_rule_spec.rb[1:11:1]",
+      "description": "converts FlatRate bounds into rules and clears the preferences",
+      "full_description": "Spree::DeliveryMethodRule spree:migrate_calculator_bounds_to_delivery_method_rules converts FlatRate bounds into rules and clears the preferences",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_method_rule_spec.rb",
+      "line_number": 311,
+      "run_time": 0.031275501,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_rule_spec.rb[1:2:1]",
+      "description": "rejects unregistered types",
+      "full_description": "Spree::DeliveryMethodRule validations rejects unregistered types",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_method_rule_spec.rb",
+      "line_number": 15,
+      "run_time": 0.039738672,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_rule_spec.rb[1:2:2]",
+      "description": "allows one instance of each rule kind per method",
+      "full_description": "Spree::DeliveryMethodRule validations allows one instance of each rule kind per method",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_method_rule_spec.rb",
+      "line_number": 25,
+      "run_time": 0.028491827,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_rule_spec.rb[1:5:1]",
+      "description": "bounds by package weight",
+      "full_description": "Spree::DeliveryMethodRule Spree::DeliveryMethodRules::WeightRule bounds by package weight",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_method_rule_spec.rb",
+      "line_number": 103,
+      "run_time": 0.244702817,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_rule_spec.rb[1:6:1]",
+      "description": "offers the method when the goods were never measured",
+      "full_description": "Spree::DeliveryMethodRule Spree::DeliveryMethodRules::VolumeRule offers the method when the goods were never measured",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_method_rule_spec.rb",
+      "line_number": 128,
+      "run_time": 0.231358907,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_rule_spec.rb[1:6:2]",
+      "description": "offers the method when the measurement is only partial",
+      "full_description": "Spree::DeliveryMethodRule Spree::DeliveryMethodRules::VolumeRule offers the method when the measurement is only partial",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_method_rule_spec.rb",
+      "line_number": 142,
+      "run_time": 0.37409646,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_rule_spec.rb[1:6:3]",
+      "description": "bounds by the packed volume in cubic meters",
+      "full_description": "Spree::DeliveryMethodRule Spree::DeliveryMethodRules::VolumeRule bounds by the packed volume in cubic meters",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_method_rule_spec.rb",
+      "line_number": 156,
+      "run_time": 0.188867354,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_rate_provider/freight_spec.rb[1:1]",
+      "description": "quotes a rate with no price rather than a free one",
+      "full_description": "Spree::DeliveryRateProvider::Freight quotes a rate with no price rather than a free one",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_rate_provider/freight_spec.rb",
+      "line_number": 19,
+      "run_time": 0.229580179,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_rate_provider/freight_spec.rb[1:3]",
+      "description": "carries the freight summary the forwarder will quote against",
+      "full_description": "Spree::DeliveryRateProvider::Freight carries the freight summary the forwarder will quote against",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_rate_provider/freight_spec.rb",
+      "line_number": 31,
+      "run_time": 0.198606116,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_rate_provider/freight_spec.rb[1:2]",
+      "description": "names the rate after the method the merchant configured",
+      "full_description": "Spree::DeliveryRateProvider::Freight names the rate after the method the merchant configured",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_rate_provider/freight_spec.rb",
+      "line_number": 26,
+      "run_time": 0.191164884,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_rate_spec.rb[1:7:1:1]",
+      "description": "returns 0",
+      "full_description": "Spree::DeliveryRate#included_tax_total without tax rate returns 0",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_rate_spec.rb",
+      "line_number": 172,
+      "run_time": 0.066540974,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_rate_spec.rb[1:7:3:1]",
+      "description": "returns 0",
+      "full_description": "Spree::DeliveryRate#included_tax_total with tax additional to price returns 0",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_rate_spec.rb",
+      "line_number": 195,
+      "run_time": 0.134450343,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_rate_spec.rb[1:7:2:1]",
+      "description": "returns the tax amount",
+      "full_description": "Spree::DeliveryRate#included_tax_total with tax included in price returns the tax amount",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_rate_spec.rb",
+      "line_number": 185,
+      "run_time": 0.091032229,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_rate_spec.rb[1:9:1]",
+      "description": "returns the delivery range for the shipping method",
+      "full_description": "Spree::DeliveryRate#delivery_range returns the delivery range for the shipping method",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_rate_spec.rb",
+      "line_number": 235,
+      "run_time": 0.073822298,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_rate_spec.rb[1:3:4:1]",
+      "description": "shows no tax amount",
+      "full_description": "Spree::DeliveryRate#display_price when tax rate is not shown in label shows no tax amount",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_rate_spec.rb",
+      "line_number": 108,
+      "run_time": 0.091632177,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_rate_spec.rb[1:3:3:1]",
+      "description": "displays the price in yen",
+      "full_description": "Spree::DeliveryRate#display_price when the currency is JPY displays the price in yen",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_rate_spec.rb",
+      "line_number": 98,
+      "run_time": 0.008112917,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_rate_spec.rb[1:3:1:2:1]",
+      "description": "deducts the other country's VAT from the calculated shipping rate",
+      "full_description": "Spree::DeliveryRate#display_price when tax included in price when the rate taxes another country deducts the other country's VAT from the calculated shipping rate",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_rate_spec.rb",
+      "line_number": 75,
+      "run_time": 0.089003356,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_rate_spec.rb[1:3:1:1:1]",
+      "description": "shows correct tax amount",
+      "full_description": "Spree::DeliveryRate#display_price when tax included in price when the rate taxes the home country shows correct tax amount",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_rate_spec.rb",
+      "line_number": 49,
+      "run_time": 0.106433262,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_rate_spec.rb[1:3:1:1:2:1]",
+      "description": "shows no tax amount",
+      "full_description": "Spree::DeliveryRate#display_price when tax included in price when the rate taxes the home country when cost is zero shows no tax amount",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_rate_spec.rb",
+      "line_number": 59,
+      "run_time": 0.095416151,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_rate_spec.rb[1:3:2:1]",
+      "description": "shows correct tax amount",
+      "full_description": "Spree::DeliveryRate#display_price when tax is additional to price shows correct tax amount",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_rate_spec.rb",
+      "line_number": 87,
+      "run_time": 0.127896755,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_rate_spec.rb[1:4:1]",
+      "description": "can be retrieved even when deleted",
+      "full_description": "Spree::DeliveryRate#delivery_method can be retrieved even when deleted",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_rate_spec.rb",
+      "line_number": 116,
+      "run_time": 0.093697926,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_rate_spec.rb[1:8:4]",
+      "description": "does not return 0 when shipment is free because of selected shipping rate",
+      "full_description": "Spree::DeliveryRate#final_price does not return 0 when shipment is free because of selected shipping rate",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_rate_spec.rb",
+      "line_number": 222,
+      "run_time": 0.163407003,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_rate_spec.rb[1:8:2]",
+      "description": "returns 0 if cost is lesser than the discount amount",
+      "full_description": "Spree::DeliveryRate#final_price returns 0 if cost is lesser than the discount amount",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_rate_spec.rb",
+      "line_number": 212,
+      "run_time": 0.091586254,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_rate_spec.rb[1:8:3]",
+      "description": "returns cost minus discount amount",
+      "full_description": "Spree::DeliveryRate#final_price returns cost minus discount amount",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_rate_spec.rb",
+      "line_number": 217,
+      "run_time": 0.102690306,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_rate_spec.rb[1:8:1]",
+      "description": "returns 0 if free shipping promotion is applied",
+      "full_description": "Spree::DeliveryRate#final_price returns 0 if free shipping promotion is applied",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_rate_spec.rb",
+      "line_number": 205,
+      "run_time": 0.258691346,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_rate_spec.rb[1:2:1]",
+      "description": "follows the market of the fulfillment's cart or order",
+      "full_description": "Spree::DeliveryRate#tax_inclusive? follows the market of the fulfillment's cart or order",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_rate_spec.rb",
+      "line_number": 27,
+      "run_time": 0.081553323,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_rate_spec.rb[1:10:1]",
+      "description": "returns the display delivery range for the shipping method",
+      "full_description": "Spree::DeliveryRate#display_delivery_range returns the display delivery range for the shipping method",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_rate_spec.rb",
+      "line_number": 243,
+      "run_time": 0.083737925,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_rate_spec.rb[1:12:2]",
+      "description": "says so on the cost and the total alike",
+      "full_description": "Spree::DeliveryRate an unpriced rate says so on the cost and the total alike",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_rate_spec.rb",
+      "line_number": 293,
+      "run_time": 0.084230692,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_rate_spec.rb[1:12:1]",
+      "description": "is not free \u2014 nobody has priced it yet",
+      "full_description": "Spree::DeliveryRate an unpriced rate is not free \u2014 nobody has priced it yet",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_rate_spec.rb",
+      "line_number": 289,
+      "run_time": 0.084595038,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_rate_spec.rb[1:6:2:1]",
+      "description": "returns 0",
+      "full_description": "Spree::DeliveryRate#additional_tax_total with tax included in price returns 0",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_rate_spec.rb",
+      "line_number": 154,
+      "run_time": 0.091978202,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_rate_spec.rb[1:6:3:1]",
+      "description": "returns the tax amount",
+      "full_description": "Spree::DeliveryRate#additional_tax_total with tax additional to price returns the tax amount",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_rate_spec.rb",
+      "line_number": 164,
+      "run_time": 0.1149464,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_rate_spec.rb[1:6:1:1]",
+      "description": "returns 0",
+      "full_description": "Spree::DeliveryRate#additional_tax_total without tax rate returns 0",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_rate_spec.rb",
+      "line_number": 141,
+      "run_time": 0.087413207,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_rate_spec.rb[1:5:1]",
+      "description": "can be retrieved even when deleted",
+      "full_description": "Spree::DeliveryRate#tax_rate can be retrieved even when deleted",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_rate_spec.rb",
+      "line_number": 131,
+      "run_time": 0.120660861,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_rate_spec.rb[1:1:1]",
+      "description": "prefers the rate-level name set by the estimator",
+      "full_description": "Spree::DeliveryRate#name prefers the rate-level name set by the estimator",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_rate_spec.rb",
+      "line_number": 6,
+      "run_time": 0.021223007,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_rate_spec.rb[1:1:2]",
+      "description": "falls back to the delivery method name for calculator rates",
+      "full_description": "Spree::DeliveryRate#name falls back to the delivery method name for calculator rates",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_rate_spec.rb",
+      "line_number": 12,
+      "run_time": 0.021436434,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_rate_spec.rb[1:11:2:1]",
+      "description": "is expected to equal false",
+      "full_description": "Spree::DeliveryRate#free? when the shipping rate cost is not 0 is expected to equal false",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_rate_spec.rb",
+      "line_number": 263,
+      "run_time": 0.078817923,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_rate_spec.rb[1:11:2:3:1]",
+      "description": "is expected to equal true",
+      "full_description": "Spree::DeliveryRate#free? when the shipping rate cost is not 0 when the discount amount is equal to the cost is expected to equal true",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_rate_spec.rb",
+      "line_number": 281,
+      "run_time": 0.076187161,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_rate_spec.rb[1:11:2:2:1]",
+      "description": "is expected to equal true",
+      "full_description": "Spree::DeliveryRate#free? when the shipping rate cost is not 0 when the shipment has a free shipping promotion is expected to equal true",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_rate_spec.rb",
+      "line_number": 273,
+      "run_time": 0.179180273,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_rate_spec.rb[1:11:1:1]",
+      "description": "is expected to equal true",
+      "full_description": "Spree::DeliveryRate#free? when the shipping rate cost is 0 is expected to equal true",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_rate_spec.rb",
+      "line_number": 254,
+      "run_time": 0.086587036,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_rate_spec.rb[1:13:1]",
+      "description": "still renders its total as money, options and all",
+      "full_description": "Spree::DeliveryRate a priced rate still renders its total as money, options and all",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_rate_spec.rb",
+      "line_number": 302,
+      "run_time": 0.078338333,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_profile_spec.rb[1:1]",
+      "description": "gives every new store a default profile",
+      "full_description": "Spree::DeliveryProfile gives every new store a default profile",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_profile_spec.rb",
+      "line_number": 6,
+      "run_time": 0.135202754,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_profile_spec.rb[1:7:1]",
+      "description": "rejects digital methods on a physical profile",
+      "full_description": "Spree::DeliveryProfile composition guard rejects digital methods on a physical profile",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_profile_spec.rb",
+      "line_number": 165,
+      "run_time": 0.025748477,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_profile_spec.rb[1:7:2]",
+      "description": "rejects physical methods on a digital profile",
+      "full_description": "Spree::DeliveryProfile composition guard rejects physical methods on a digital profile",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_profile_spec.rb",
+      "line_number": 173,
+      "run_time": 0.020590729,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_profile_spec.rb[1:3:1]",
+      "description": "protects the default profile",
+      "full_description": "Spree::DeliveryProfile#can_be_deleted? protects the default profile",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_profile_spec.rb",
+      "line_number": 25,
+      "run_time": 0.004585313,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_profile_spec.rb[1:3:3]",
+      "description": "allows deleting an empty non-default profile",
+      "full_description": "Spree::DeliveryProfile#can_be_deleted? allows deleting an empty non-default profile",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_profile_spec.rb",
+      "line_number": 36,
+      "run_time": 0.010402582,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_profile_spec.rb[1:3:2]",
+      "description": "protects profiles with products",
+      "full_description": "Spree::DeliveryProfile#can_be_deleted? protects profiles with products",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_profile_spec.rb",
+      "line_number": 29,
+      "run_time": 0.077744877,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_profile_spec.rb[1:2:1]",
+      "description": "demotes the previous default when another is promoted",
+      "full_description": "Spree::DeliveryProfile default enforcement demotes the previous default when another is promoted",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_profile_spec.rb",
+      "line_number": 15,
+      "run_time": 0.013395948,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_profile_spec.rb[1:5:2]",
+      "description": "derives the address requirement from providers on physical profiles",
+      "full_description": "Spree::DeliveryProfile kind-declared capabilities derives the address requirement from providers on physical profiles",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_profile_spec.rb",
+      "line_number": 72,
+      "run_time": 0.034881422,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_profile_spec.rb[1:5:3]",
+      "description": "derives pickup and shipping capabilities from the method set",
+      "full_description": "Spree::DeliveryProfile kind-declared capabilities derives pickup and shipping capabilities from the method set",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_profile_spec.rb",
+      "line_number": 82,
+      "run_time": 0.035332309,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_profile_spec.rb[1:5:1]",
+      "description": "makes products digital through the Digital profile kind",
+      "full_description": "Spree::DeliveryProfile kind-declared capabilities makes products digital through the Digital profile kind",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_profile_spec.rb",
+      "line_number": 63,
+      "run_time": 0.115130672,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_profile_spec.rb[1:4:1]",
+      "description": "stamps the type template profile at creation",
+      "full_description": "Spree::DeliveryProfile product assignment stamps the type template profile at creation",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_profile_spec.rb",
+      "line_number": 42,
+      "run_time": 0.123277844,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_profile_spec.rb[1:4:2]",
+      "description": "falls back to the store default and never syncs from later type changes",
+      "full_description": "Spree::DeliveryProfile product assignment falls back to the store default and never syncs from later type changes",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_profile_spec.rb",
+      "line_number": 51,
+      "run_time": 0.100627493,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_profile_spec.rb[1:6:5]",
+      "description": "only offers a method from origins its group covers",
+      "full_description": "Spree::DeliveryProfile origin groups only offers a method from origins its group covers",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_profile_spec.rb",
+      "line_number": 140,
+      "run_time": 0.035552048,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_profile_spec.rb[1:6:1]",
+      "description": "gives every new profile a default nameless group covering all locations",
+      "full_description": "Spree::DeliveryProfile origin groups gives every new profile a default nameless group covering all locations",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_profile_spec.rb",
+      "line_number": 98,
+      "run_time": 0.015534567,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_profile_spec.rb[1:6:3]",
+      "description": "assigns zones and methods to the default group and keeps them consistent",
+      "full_description": "Spree::DeliveryProfile origin groups assigns zones and methods to the default group and keeps them consistent",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_profile_spec.rb",
+      "line_number": 120,
+      "run_time": 0.022563908,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_profile_spec.rb[1:6:2]",
+      "description": "narrows coverage to the union of group members",
+      "full_description": "Spree::DeliveryProfile origin groups narrows coverage to the union of group members",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_profile_spec.rb",
+      "line_number": 109,
+      "run_time": 0.024615267,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_profile_spec.rb[1:6:4]",
+      "description": "rejects a method whose zone lives in a different origin group",
+      "full_description": "Spree::DeliveryProfile origin groups rejects a method whose zone lives in a different origin group",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_profile_spec.rb",
+      "line_number": 129,
+      "run_time": 0.01979502,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_profile_spec.rb[1:6:6]",
+      "description": "protects the last origin group from deletion",
+      "full_description": "Spree::DeliveryProfile origin groups protects the last origin group from deletion",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_profile_spec.rb",
+      "line_number": 152,
+      "run_time": 0.014485061,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_rate_provider/base_spec.rb[1:3:1]",
+      "description": "registers the Internal provider",
+      "full_description": "Spree::DeliveryRateProvider::Base registry registers the Internal provider",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_rate_provider/base_spec.rb",
+      "line_number": 63,
+      "run_time": 0.003604459,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_rate_provider/base_spec.rb[1:2:2]",
+      "description": "ignores inactive integrations",
+      "full_description": "Spree::DeliveryRateProvider::Base credential resolution ignores inactive integrations",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_rate_provider/base_spec.rb",
+      "line_number": 36,
+      "run_time": 0.022863764,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_rate_provider/base_spec.rb[1:2:1]",
+      "description": "resolves the active integration from the method store",
+      "full_description": "Spree::DeliveryRateProvider::Base credential resolution resolves the active integration from the method store",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_rate_provider/base_spec.rb",
+      "line_number": 30,
+      "run_time": 0.017490809,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_rate_provider/base_spec.rb[1:2:3:1]",
+      "description": "follows the connected integration",
+      "full_description": "Spree::DeliveryRateProvider::Base credential resolution .available_for_store? follows the connected integration",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_rate_provider/base_spec.rb",
+      "line_number": 46,
+      "run_time": 0.013915814,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_rate_provider/base_spec.rb[1:2:3:2]",
+      "description": "ignores inactive integrations",
+      "full_description": "Spree::DeliveryRateProvider::Base credential resolution .available_for_store? ignores inactive integrations",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_rate_provider/base_spec.rb",
+      "line_number": 54,
+      "run_time": 0.009847944,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_rate_provider/base_spec.rb[1:1:2]",
+      "description": "needs no integration by default",
+      "full_description": "Spree::DeliveryRateProvider::Base the contract needs no integration by default",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_rate_provider/base_spec.rb",
+      "line_number": 12,
+      "run_time": 0.003413297,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_rate_provider/base_spec.rb[1:1:1]",
+      "description": "requires subclasses to implement estimate",
+      "full_description": "Spree::DeliveryRateProvider::Base the contract requires subclasses to implement estimate",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_rate_provider/base_spec.rb",
+      "line_number": 8,
+      "run_time": 0.013834225,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_spec.rb[1:2:4]",
+      "description": "no longer carries the split metadata columns",
+      "full_description": "Spree::DeliveryMethod behaves like metadata no longer carries the split metadata columns",
+      "status": "passed",
+      "file_path": "./lib/spree/testing_support/metadata.rb",
+      "line_number": 10,
+      "run_time": 0.015057569,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_spec.rb[1:2:7]",
+      "description": "can query records by metadata properties",
+      "full_description": "Spree::DeliveryMethod behaves like metadata can query records by metadata properties",
+      "status": "pending",
+      "file_path": "./lib/spree/testing_support/metadata.rb",
+      "line_number": 43,
+      "run_time": 6.653e-06,
+      "pending_message": "No reason given"
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_spec.rb[1:2:6]",
+      "description": "reads data as not symbolized keys",
+      "full_description": "Spree::DeliveryMethod behaves like metadata reads data as not symbolized keys",
+      "status": "passed",
+      "file_path": "./lib/spree/testing_support/metadata.rb",
+      "line_number": 29,
+      "run_time": 0.016425871,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_spec.rb[1:2:3]",
+      "description": "is expected to eq ActiveSupport::HashWithIndifferentAccess",
+      "full_description": "Spree::DeliveryMethod behaves like metadata is expected to eq ActiveSupport::HashWithIndifferentAccess",
+      "status": "passed",
+      "file_path": "./lib/spree/testing_support/metadata.rb",
+      "line_number": 8,
+      "run_time": 0.029988246,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_spec.rb[1:2:5]",
+      "description": "reads data as symbolized keys",
+      "full_description": "Spree::DeliveryMethod behaves like metadata reads data as symbolized keys",
+      "status": "passed",
+      "file_path": "./lib/spree/testing_support/metadata.rb",
+      "line_number": 15,
+      "run_time": 0.021888308,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_spec.rb[1:2:1]",
+      "description": "is expected to be truthy",
+      "full_description": "Spree::DeliveryMethod behaves like metadata is expected to be truthy",
+      "status": "passed",
+      "file_path": "./lib/spree/testing_support/metadata.rb",
+      "line_number": 4,
+      "run_time": 0.020311841,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_spec.rb[1:2:2]",
+      "description": "is expected to eq {}",
+      "full_description": "Spree::DeliveryMethod behaves like metadata is expected to eq {}",
+      "status": "passed",
+      "file_path": "./lib/spree/testing_support/metadata.rb",
+      "line_number": 6,
+      "run_time": 0.019937534,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_spec.rb[1:2:8]",
+      "description": "can query records by metadata properties",
+      "full_description": "Spree::DeliveryMethod behaves like metadata can query records by metadata properties",
+      "status": "passed",
+      "file_path": "./lib/spree/testing_support/metadata.rb",
+      "line_number": 57,
+      "run_time": 0.02402854,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_spec.rb[1:6:1]",
+      "description": "rejects calculators that don't inherit from Spree::ShippingCalculator",
+      "full_description": "Spree::DeliveryMethod calculators rejects calculators that don't inherit from Spree::ShippingCalculator",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_method_spec.rb",
+      "line_number": 135,
+      "run_time": 0.006986171,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_spec.rb[1:4:2]",
+      "description": "is decided by the fulfillment provider",
+      "full_description": "Spree::DeliveryMethod#requires_address? / #requires_zone_check? is decided by the fulfillment provider",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_method_spec.rb",
+      "line_number": 81,
+      "run_time": 0.034206328,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_spec.rb[1:4:1]",
+      "description": "is true for shipping methods",
+      "full_description": "Spree::DeliveryMethod#requires_address? / #requires_zone_check? is true for shipping methods",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_method_spec.rb",
+      "line_number": 76,
+      "run_time": 0.015778557,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_spec.rb[1:7:1]",
+      "description": "requires a name unique within the store and owner",
+      "full_description": "Spree::DeliveryMethod validations requires a name unique within the store and owner",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_method_spec.rb",
+      "line_number": 148,
+      "run_time": 0.147201935,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_spec.rb[1:7:2:1]",
+      "description": "uses tracking number gem to build tracking url",
+      "full_description": "Spree::DeliveryMethod validations shipping method does not have a tracking URL mask on file uses tracking number gem to build tracking url",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_method_spec.rb",
+      "line_number": 162,
+      "run_time": 0.004723471,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_spec.rb[1:5:1]",
+      "description": "is true for shipping methods regardless of location",
+      "full_description": "Spree::DeliveryMethod#serves_location? is true for shipping methods regardless of location",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_method_spec.rb",
+      "line_number": 93,
+      "run_time": 0.019584385,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_spec.rb[1:5:2:2]",
+      "description": "rejects a package sourced from a plain warehouse",
+      "full_description": "Spree::DeliveryMethod#serves_location? for a pickup method rejects a package sourced from a plain warehouse",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_method_spec.rb",
+      "line_number": 104,
+      "run_time": 0.022081608,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_spec.rb[1:5:2:6]",
+      "description": "ignores inactive counters",
+      "full_description": "Spree::DeliveryMethod#serves_location? for a pickup method ignores inactive counters",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_method_spec.rb",
+      "line_number": 126,
+      "run_time": 0.026156459,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_spec.rb[1:5:2:1]",
+      "description": "accepts a package sourced from a pickup-enabled location",
+      "full_description": "Spree::DeliveryMethod#serves_location? for a pickup method accepts a package sourced from a pickup-enabled location",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_method_spec.rb",
+      "line_number": 100,
+      "run_time": 0.02244158,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_spec.rb[1:5:2:4]",
+      "description": "respects the configured pickup-location set",
+      "full_description": "Spree::DeliveryMethod#serves_location? for a pickup method respects the configured pickup-location set",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_method_spec.rb",
+      "line_number": 112,
+      "run_time": 0.032911803,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_spec.rb[1:5:2:3]",
+      "description": "rejects a nil location",
+      "full_description": "Spree::DeliveryMethod#serves_location? for a pickup method rejects a nil location",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_method_spec.rb",
+      "line_number": 108,
+      "run_time": 0.015051076,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_spec.rb[1:5:2:5]",
+      "description": "accepts any source when an eligible counter takes remote stock (ship-to-store)",
+      "full_description": "Spree::DeliveryMethod#serves_location? for a pickup method accepts any source when an eligible counter takes remote stock (ship-to-store)",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_method_spec.rb",
+      "line_number": 120,
+      "run_time": 0.028770322,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_spec.rb[1:12:2:1]",
+      "description": "is expected to eq \"1-2\"",
+      "full_description": "Spree::DeliveryMethod#delivery_range with set estimated_transit_business_days_min and estimated_transit_business_days_max is expected to eq \"1-2\"",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_method_spec.rb",
+      "line_number": 339,
+      "run_time": 0.009466435,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_spec.rb[1:12:1:1]",
+      "description": "is expected to be nil",
+      "full_description": "Spree::DeliveryMethod#delivery_range without set estimated_transit_business_days_min and estimated_transit_business_days_max is expected to be nil",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_method_spec.rb",
+      "line_number": 333,
+      "run_time": 0.015180088,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_spec.rb[1:12:4:2:1]",
+      "description": "is expected to eq \"2\"",
+      "full_description": "Spree::DeliveryMethod#delivery_range when only one transit day value is set when only maximum day is set is expected to eq \"2\"",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_method_spec.rb",
+      "line_number": 358,
+      "run_time": 0.009532349,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_spec.rb[1:12:4:1:1]",
+      "description": "is expected to eq \"1\"",
+      "full_description": "Spree::DeliveryMethod#delivery_range when only one transit day value is set when only minimum day is set is expected to eq \"1\"",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_method_spec.rb",
+      "line_number": 352,
+      "run_time": 0.009111184,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_spec.rb[1:12:3:1]",
+      "description": "is expected to eq \"1\"",
+      "full_description": "Spree::DeliveryMethod#delivery_range when both are the same is expected to eq \"1\"",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_method_spec.rb",
+      "line_number": 345,
+      "run_time": 0.008902711,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_spec.rb[1:1:1:1]",
+      "description": "creates, updates by id, and destroys omitted rows from a flat payload",
+      "full_description": "Spree::DeliveryMethod carrier services #services= creates, updates by id, and destroys omitted rows from a flat payload",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_method_spec.rb",
+      "line_number": 12,
+      "run_time": 0.062309662,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_spec.rb[1:1:1:2]",
+      "description": "defers rows on a new record until the method is saved",
+      "full_description": "Spree::DeliveryMethod carrier services #services= defers rows on a new record until the method is saved",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_method_spec.rb",
+      "line_number": 27,
+      "run_time": 0.026611093,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_spec.rb[1:1:2:2]",
+      "description": "offers only listed services when rows exist",
+      "full_description": "Spree::DeliveryMethod carrier services #offers_service? offers only listed services when rows exist",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_method_spec.rb",
+      "line_number": 45,
+      "run_time": 0.022102034,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_spec.rb[1:1:2:1]",
+      "description": "offers everything when no rows exist",
+      "full_description": "Spree::DeliveryMethod carrier services #offers_service? offers everything when no rows exist",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_method_spec.rb",
+      "line_number": 41,
+      "run_time": 0.016489975,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_spec.rb[1:11:1]",
+      "description": "bridges the old tri-state API onto the boolean",
+      "full_description": "Spree::DeliveryMethod legacy display_on bridge bridges the old tri-state API onto the boolean",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_method_spec.rb",
+      "line_number": 306,
+      "run_time": 0.03375921,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_spec.rb[1:11:2]",
+      "description": "accepts the legacy integer filters in #available_to_display?",
+      "full_description": "Spree::DeliveryMethod legacy display_on bridge accepts the legacy integer filters in #available_to_display?",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_method_spec.rb",
+      "line_number": 318,
+      "run_time": 0.015953393,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_spec.rb[1:11:3]",
+      "description": "accepts the legacy integer filters in #available_to? as well",
+      "full_description": "Spree::DeliveryMethod legacy display_on bridge accepts the legacy integer filters in #available_to? as well",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_method_spec.rb",
+      "line_number": 324,
+      "run_time": 0.028829236,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_spec.rb[1:10:3]",
+      "description": "raises on an unknown audience rather than silently narrowing the offer",
+      "full_description": "Spree::DeliveryMethod#available_to? raises on an unknown audience rather than silently narrowing the offer",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_method_spec.rb",
+      "line_number": 298,
+      "run_time": 0.016326469,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_spec.rb[1:10:2:1]",
+      "description": "sees every method, visible or not",
+      "full_description": "Spree::DeliveryMethod#available_to? for the backoffice sees every method, visible or not",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_method_spec.rb",
+      "line_number": 292,
+      "run_time": 0.028568646,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_spec.rb[1:10:1:2]",
+      "description": "is expected to equal false",
+      "full_description": "Spree::DeliveryMethod#available_to? for the storefront is expected to equal false",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_method_spec.rb",
+      "line_number": 288,
+      "run_time": 0.016716335,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_spec.rb[1:10:1:1]",
+      "description": "is expected to equal true",
+      "full_description": "Spree::DeliveryMethod#available_to? for the storefront is expected to equal true",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_method_spec.rb",
+      "line_number": 287,
+      "run_time": 0.016159112,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_spec.rb[1:3:2:1]",
+      "description": "is expected to contain exactly #<Spree::DeliveryMethod id: 3, name: \"UPS Ground 134\", display_on: nil, deleted_at: nil, created_at: ...in_group_id: 1, delivery_zone_id: nil, seller_id: nil, available_to_sellers: false, preferences: {}> and #<Spree::DeliveryMethod id: 4, name: \"UPS Ground 135\", display_on: nil, deleted_at: nil, created_at: ...in_group_id: 1, delivery_zone_id: nil, seller_id: nil, available_to_sellers: false, preferences: {}>",
+      "full_description": "Spree::DeliveryMethod scopes .admin_only is expected to contain exactly #<Spree::DeliveryMethod id: 3, name: \"UPS Ground 134\", display_on: nil, deleted_at: nil, created_at: ...in_group_id: 1, delivery_zone_id: nil, seller_id: nil, available_to_sellers: false, preferences: {}> and #<Spree::DeliveryMethod id: 4, name: \"UPS Ground 135\", display_on: nil, deleted_at: nil, created_at: ...in_group_id: 1, delivery_zone_id: nil, seller_id: nil, available_to_sellers: false, preferences: {}>",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_method_spec.rb",
+      "line_number": 71,
+      "run_time": 0.053574083,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_spec.rb[1:3:1:1]",
+      "description": "is expected to contain exactly #<Spree::DeliveryMethod id: 1, name: \"UPS Ground 136\", display_on: nil, deleted_at: nil, created_at: ...in_group_id: 1, delivery_zone_id: nil, seller_id: nil, available_to_sellers: false, preferences: {}> and #<Spree::DeliveryMethod id: 2, name: \"UPS Ground 137\", display_on: nil, deleted_at: nil, created_at: ...in_group_id: 1, delivery_zone_id: nil, seller_id: nil, available_to_sellers: false, preferences: {}>",
+      "full_description": "Spree::DeliveryMethod scopes .storefront_visible is expected to contain exactly #<Spree::DeliveryMethod id: 1, name: \"UPS Ground 136\", display_on: nil, deleted_at: nil, created_at: ...in_group_id: 1, delivery_zone_id: nil, seller_id: nil, available_to_sellers: false, preferences: {}> and #<Spree::DeliveryMethod id: 2, name: \"UPS Ground 137\", display_on: nil, deleted_at: nil, created_at: ...in_group_id: 1, delivery_zone_id: nil, seller_id: nil, available_to_sellers: false, preferences: {}>",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_method_spec.rb",
+      "line_number": 65,
+      "run_time": 0.05326855,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_spec.rb[1:16:3]",
+      "description": "refuses a carrier rate provider on a seller\u2019s method",
+      "full_description": "Spree::DeliveryMethod seller ownership refuses a carrier rate provider on a seller\u2019s method",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_method_spec.rb",
+      "line_number": 432,
+      "run_time": 0.016206452,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_spec.rb[1:16:1]",
+      "description": "belongs to the marketplace when no seller is named",
+      "full_description": "Spree::DeliveryMethod seller ownership belongs to the marketplace when no seller is named",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_method_spec.rb",
+      "line_number": 420,
+      "run_time": 0.0142255,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_spec.rb[1:16:2]",
+      "description": "refuses a seller from another store",
+      "full_description": "Spree::DeliveryMethod seller ownership refuses a seller from another store",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_method_spec.rb",
+      "line_number": 424,
+      "run_time": 0.101401607,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_spec.rb[1:16:5]",
+      "description": "refuses to share a seller\u2019s own method with the rest of the marketplace",
+      "full_description": "Spree::DeliveryMethod seller ownership refuses to share a seller\u2019s own method with the rest of the marketplace",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_method_spec.rb",
+      "line_number": 456,
+      "run_time": 0.015800449,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_spec.rb[1:16:4]",
+      "description": "refuses a fulfillment provider other than manual on a seller\u2019s method",
+      "full_description": "Spree::DeliveryMethod seller ownership refuses a fulfillment provider other than manual on a seller\u2019s method",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_method_spec.rb",
+      "line_number": 448,
+      "run_time": 0.016507732,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_spec.rb[1:16:6]",
+      "description": "keeps a departed seller's methods pointed at them",
+      "full_description": "Spree::DeliveryMethod seller ownership keeps a departed seller's methods pointed at them",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_method_spec.rb",
+      "line_number": 466,
+      "run_time": 0.066814804,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_spec.rb[1:16:7:1]",
+      "description": "offers a seller their own methods and whatever the operator shares",
+      "full_description": "Spree::DeliveryMethod seller ownership .available_to_seller offers a seller their own methods and whatever the operator shares",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_method_spec.rb",
+      "line_number": 485,
+      "run_time": 0.065612453,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_spec.rb[1:16:7:2]",
+      "description": "offers a first-party package the marketplace methods only",
+      "full_description": "Spree::DeliveryMethod seller ownership .available_to_seller offers a first-party package the marketplace methods only",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_method_spec.rb",
+      "line_number": 489,
+      "run_time": 0.057863414,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_spec.rb[1:9:3]",
+      "description": "accepts any fulfillment provider for rate providers that do not quote shipments",
+      "full_description": "Spree::DeliveryMethod rate provider / fulfillment provider compatibility accepts any fulfillment provider for rate providers that do not quote shipments",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_method_spec.rb",
+      "line_number": 280,
+      "run_time": 0.013124499,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_spec.rb[1:9:1]",
+      "description": "rejects a shipment-quoting rate provider when the method does not ship to an address",
+      "full_description": "Spree::DeliveryMethod rate provider / fulfillment provider compatibility rejects a shipment-quoting rate provider when the method does not ship to an address",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_method_spec.rb",
+      "line_number": 263,
+      "run_time": 0.03029317,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_spec.rb[1:9:2]",
+      "description": "accepts a shipment-quoting rate provider on a shipping method",
+      "full_description": "Spree::DeliveryMethod rate provider / fulfillment provider compatibility accepts a shipment-quoting rate provider on a shipping method",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_method_spec.rb",
+      "line_number": 272,
+      "run_time": 0.01748316,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_spec.rb[1:13:1]",
+      "description": "is expected to eq \"Flat rate: $10.00\"",
+      "full_description": "Spree::DeliveryMethod#display_estimated_price is expected to eq \"Flat rate: $10.00\"",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_method_spec.rb",
+      "line_number": 364,
+      "run_time": 0.01673802,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_spec.rb[1:13:2:1]",
+      "description": "is expected to eq \"Flat rate: Free\"",
+      "full_description": "Spree::DeliveryMethod#display_estimated_price with the free rate is expected to eq \"Flat rate: Free\"",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_method_spec.rb",
+      "line_number": 369,
+      "run_time": 0.010831008,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_spec.rb[1:13:3:1]",
+      "description": "is expected to eq \"Flat Percent: 12.50%\"",
+      "full_description": "Spree::DeliveryMethod#display_estimated_price with a percentage of the item total is expected to eq \"Flat Percent: 12.50%\"",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_method_spec.rb",
+      "line_number": 377,
+      "run_time": 0.016929145,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_spec.rb[1:15:1]",
+      "description": "falls back to the method's own store's pickup counters, never another store's",
+      "full_description": "Spree::DeliveryMethod#available_pickup_locations falls back to the method's own store's pickup counters, never another store's",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_method_spec.rb",
+      "line_number": 409,
+      "run_time": 0.113916941,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_spec.rb[1:8:5]",
+      "description": "rejects an unregistered fulfillment provider",
+      "full_description": "Spree::DeliveryMethod#rate_provider_instance rejects an unregistered fulfillment provider",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_method_spec.rb",
+      "line_number": 205,
+      "run_time": 0.016190695,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_spec.rb[1:8:8]",
+      "description": "rejects a registered provider that is unavailable for the store",
+      "full_description": "Spree::DeliveryMethod#rate_provider_instance rejects a registered provider that is unavailable for the store",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_method_spec.rb",
+      "line_number": 228,
+      "run_time": 0.019251667,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_spec.rb[1:8:6]",
+      "description": "keeps rows loadable when a registered provider is later removed",
+      "full_description": "Spree::DeliveryMethod#rate_provider_instance keeps rows loadable when a registered provider is later removed",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_method_spec.rb",
+      "line_number": 212,
+      "run_time": 0.017548374,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_spec.rb[1:8:3]",
+      "description": "rejects a provider that is not registered",
+      "full_description": "Spree::DeliveryMethod#rate_provider_instance rejects a provider that is not registered",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_method_spec.rb",
+      "line_number": 191,
+      "run_time": 0.016786367,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_spec.rb[1:8:4]",
+      "description": "stores the class name of a provider named by its shorthand",
+      "full_description": "Spree::DeliveryMethod#rate_provider_instance stores the class name of a provider named by its shorthand",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_method_spec.rb",
+      "line_number": 198,
+      "run_time": 0.01722392,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_spec.rb[1:8:1]",
+      "description": "defaults to the Internal provider when unset",
+      "full_description": "Spree::DeliveryMethod#rate_provider_instance defaults to the Internal provider when unset",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_method_spec.rb",
+      "line_number": 171,
+      "run_time": 0.015476275,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_spec.rb[1:8:2]",
+      "description": "constantizes the configured provider and passes itself to it",
+      "full_description": "Spree::DeliveryMethod#rate_provider_instance constantizes the configured provider and passes itself to it",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_method_spec.rb",
+      "line_number": 176,
+      "run_time": 0.017238969,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_spec.rb[1:8:7]",
+      "description": "falls back to the default when the stored provider no longer resolves",
+      "full_description": "Spree::DeliveryMethod#rate_provider_instance falls back to the default when the stored provider no longer resolves",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_method_spec.rb",
+      "line_number": 220,
+      "run_time": 0.015151302,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_spec.rb[1:14:2]",
+      "description": "rejects and never instantiates an unregistered class",
+      "full_description": "Spree::DeliveryMethod#pickup_point_provider_instance rejects and never instantiates an unregistered class",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_method_spec.rb",
+      "line_number": 397,
+      "run_time": 0.031213624,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_method_spec.rb[1:14:1]",
+      "description": "resolves a registered provider named by its shorthand",
+      "full_description": "Spree::DeliveryMethod#pickup_point_provider_instance resolves a registered provider named by its shorthand",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_method_spec.rb",
+      "line_number": 386,
+      "run_time": 0.018919517,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/tax_rate_spec.rb[1:4:1]",
+      "description": "still answers the deprecated #amount_percentage, with a warning",
+      "full_description": "Spree::TaxRate percentage conversion still answers the deprecated #amount_percentage, with a warning",
+      "status": "passed",
+      "file_path": "./spec/models/spree/tax_rate_spec.rb",
+      "line_number": 245,
+      "run_time": 0.005479587,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/tax_rate_spec.rb[1:4:2:4]",
+      "description": "keeps every decimal the rate has",
+      "full_description": "Spree::TaxRate percentage conversion #rate_percent keeps every decimal the rate has",
+      "status": "passed",
+      "file_path": "./spec/models/spree/tax_rate_spec.rb",
+      "line_number": 266,
+      "run_time": 0.006056441,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/tax_rate_spec.rb[1:4:2:3]",
+      "description": "handles zero amount",
+      "full_description": "Spree::TaxRate percentage conversion #rate_percent handles zero amount",
+      "status": "passed",
+      "file_path": "./spec/models/spree/tax_rate_spec.rb",
+      "line_number": 261,
+      "run_time": 0.005818061,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/tax_rate_spec.rb[1:4:2:2]",
+      "description": "returns nil when amount is nil",
+      "full_description": "Spree::TaxRate percentage conversion #rate_percent returns nil when amount is nil",
+      "status": "passed",
+      "file_path": "./spec/models/spree/tax_rate_spec.rb",
+      "line_number": 256,
+      "run_time": 0.005923773,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/tax_rate_spec.rb[1:4:2:1]",
+      "description": "converts decimal amount to percentage",
+      "full_description": "Spree::TaxRate percentage conversion #rate_percent converts decimal amount to percentage",
+      "status": "passed",
+      "file_path": "./spec/models/spree/tax_rate_spec.rb",
+      "line_number": 251,
+      "run_time": 0.005728902,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/tax_rate_spec.rb[1:4:3:2]",
+      "description": "converts percentage to decimal amount",
+      "full_description": "Spree::TaxRate percentage conversion #rate_percent= converts percentage to decimal amount",
+      "status": "passed",
+      "file_path": "./spec/models/spree/tax_rate_spec.rb",
+      "line_number": 283,
+      "run_time": 0.004273962,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/tax_rate_spec.rb[1:4:3:3]",
+      "description": "sets amount to nil when percentage is nil",
+      "full_description": "Spree::TaxRate percentage conversion #rate_percent= sets amount to nil when percentage is nil",
+      "status": "passed",
+      "file_path": "./spec/models/spree/tax_rate_spec.rb",
+      "line_number": 289,
+      "run_time": 0.004832764,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/tax_rate_spec.rb[1:4:3:6]",
+      "description": "handles string percentage values",
+      "full_description": "Spree::TaxRate percentage conversion #rate_percent= handles string percentage values",
+      "status": "passed",
+      "file_path": "./spec/models/spree/tax_rate_spec.rb",
+      "line_number": 307,
+      "run_time": 0.005066135,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/tax_rate_spec.rb[1:4:3:1]",
+      "description": "refuses a percentage more precise than the column keeps",
+      "full_description": "Spree::TaxRate percentage conversion #rate_percent= refuses a percentage more precise than the column keeps",
+      "status": "passed",
+      "file_path": "./spec/models/spree/tax_rate_spec.rb",
+      "line_number": 275,
+      "run_time": 0.006655308,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/tax_rate_spec.rb[1:4:3:4]",
+      "description": "sets amount to nil when percentage is empty string",
+      "full_description": "Spree::TaxRate percentage conversion #rate_percent= sets amount to nil when percentage is empty string",
+      "status": "passed",
+      "file_path": "./spec/models/spree/tax_rate_spec.rb",
+      "line_number": 295,
+      "run_time": 0.00371754,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/tax_rate_spec.rb[1:4:3:5]",
+      "description": "handles zero percentage",
+      "full_description": "Spree::TaxRate percentage conversion #rate_percent= handles zero percentage",
+      "status": "passed",
+      "file_path": "./spec/models/spree/tax_rate_spec.rb",
+      "line_number": 301,
+      "run_time": 0.003837676,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/tax_rate_spec.rb[1:5:1]",
+      "description": "falls back to the current store",
+      "full_description": "Spree::TaxRate store binding falls back to the current store",
+      "status": "passed",
+      "file_path": "./spec/models/spree/tax_rate_spec.rb",
+      "line_number": 316,
+      "run_time": 0.011164807,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/tax_rate_spec.rb[1:5:2]",
+      "description": "keeps an explicitly assigned store",
+      "full_description": "Spree::TaxRate store binding keeps an explicitly assigned store",
+      "status": "passed",
+      "file_path": "./spec/models/spree/tax_rate_spec.rb",
+      "line_number": 320,
+      "run_time": 0.098742865,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/tax_rate_spec.rb[1:5:4]",
+      "description": "frees the name of a soft-deleted rate",
+      "full_description": "Spree::TaxRate store binding frees the name of a soft-deleted rate",
+      "status": "passed",
+      "file_path": "./spec/models/spree/tax_rate_spec.rb",
+      "line_number": 332,
+      "run_time": 0.017825983,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/tax_rate_spec.rb[1:5:5]",
+      "description": "only returns rates of the given store",
+      "full_description": "Spree::TaxRate store binding only returns rates of the given store",
+      "status": "passed",
+      "file_path": "./spec/models/spree/tax_rate_spec.rb",
+      "line_number": 338,
+      "run_time": 0.106939802,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/tax_rate_spec.rb[1:5:3]",
+      "description": "requires a name unique within the store",
+      "full_description": "Spree::TaxRate store binding requires a name unique within the store",
+      "status": "passed",
+      "file_path": "./spec/models/spree/tax_rate_spec.rb",
+      "line_number": 325,
+      "run_time": 0.101303566,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/tax_rate_spec.rb[1:2:2:1]",
+      "description": "keeps the tax line with snapshots when the rate is deleted",
+      "full_description": "Spree::TaxRate estimating through the tax provider tax line lifecycle around rate deletion keeps the tax line with snapshots when the rate is deleted",
+      "status": "passed",
+      "file_path": "./spec/models/spree/tax_rate_spec.rb",
+      "line_number": 210,
+      "run_time": 0.299839801,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/tax_rate_spec.rb[1:2:2:2]",
+      "description": "drops the line on the next estimate after the rate is gone",
+      "full_description": "Spree::TaxRate estimating through the tax provider tax line lifecycle around rate deletion drops the line on the next estimate after the rate is gone",
+      "status": "passed",
+      "file_path": "./spec/models/spree/tax_rate_spec.rb",
+      "line_number": 219,
+      "run_time": 0.23248431,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/tax_rate_spec.rb[1:2:1:2:2]",
+      "description": "to france costs 100 euros including tax",
+      "full_description": "Spree::TaxRate estimating through the tax provider for MOSS taxation in Europe a t-shirt to france costs 100 euros including tax",
+      "status": "passed",
+      "file_path": "./spec/models/spree/tax_rate_spec.rb",
+      "line_number": 181,
+      "run_time": 0.349283298,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/tax_rate_spec.rb[1:2:1:2:1]",
+      "description": "to germany costs 100 euros including tax",
+      "full_description": "Spree::TaxRate estimating through the tax provider for MOSS taxation in Europe a t-shirt to germany costs 100 euros including tax",
+      "status": "passed",
+      "file_path": "./spec/models/spree/tax_rate_spec.rb",
+      "line_number": 174,
+      "run_time": 0.262762184,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/tax_rate_spec.rb[1:2:1:2:3]",
+      "description": "to somewhere untaxed costs 100 euros with no tax",
+      "full_description": "Spree::TaxRate estimating through the tax provider for MOSS taxation in Europe a t-shirt to somewhere untaxed costs 100 euros with no tax",
+      "status": "passed",
+      "file_path": "./spec/models/spree/tax_rate_spec.rb",
+      "line_number": 189,
+      "run_time": 0.317386496,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/tax_rate_spec.rb[1:2:1:1:4]",
+      "description": "to somewhere untaxed costs 100 euros with no tax",
+      "full_description": "Spree::TaxRate estimating through the tax provider for MOSS taxation in Europe a download to somewhere untaxed costs 100 euros with no tax",
+      "status": "passed",
+      "file_path": "./spec/models/spree/tax_rate_spec.rb",
+      "line_number": 163,
+      "run_time": 0.306925732,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/tax_rate_spec.rb[1:2:1:1:3]",
+      "description": "to france costs 100 euros with French tax inside it",
+      "full_description": "Spree::TaxRate estimating through the tax provider for MOSS taxation in Europe a download to france costs 100 euros with French tax inside it",
+      "status": "passed",
+      "file_path": "./spec/models/spree/tax_rate_spec.rb",
+      "line_number": 155,
+      "run_time": 0.276268436,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/tax_rate_spec.rb[1:2:1:1:1]",
+      "description": "without an address costs 100 euros including tax",
+      "full_description": "Spree::TaxRate estimating through the tax provider for MOSS taxation in Europe a download without an address costs 100 euros including tax",
+      "status": "passed",
+      "file_path": "./spec/models/spree/tax_rate_spec.rb",
+      "line_number": 142,
+      "run_time": 0.269440386,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/tax_rate_spec.rb[1:2:1:1:2]",
+      "description": "to germany costs 100 euros including tax",
+      "full_description": "Spree::TaxRate estimating through the tax provider for MOSS taxation in Europe a download to germany costs 100 euros including tax",
+      "status": "passed",
+      "file_path": "./spec/models/spree/tax_rate_spec.rb",
+      "line_number": 148,
+      "run_time": 0.284426374,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/tax_rate_spec.rb[1:1:4]",
+      "description": "matches a rate that taxes every country",
+      "full_description": "Spree::TaxRate jurisdiction matching matches a rate that taxes every country",
+      "status": "passed",
+      "file_path": "./spec/models/spree/tax_rate_spec.rb",
+      "line_number": 38,
+      "run_time": 0.024071509,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/tax_rate_spec.rb[1:1:7]",
+      "description": "matches regardless of the case a code was entered in",
+      "full_description": "Spree::TaxRate jurisdiction matching matches regardless of the case a code was entered in",
+      "status": "passed",
+      "file_path": "./spec/models/spree/tax_rate_spec.rb",
+      "line_number": 78,
+      "run_time": 0.02767626,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/tax_rate_spec.rb[1:1:2]",
+      "description": "reads a jurisdiction off an address, or takes the pair directly",
+      "full_description": "Spree::TaxRate jurisdiction matching reads a jurisdiction off an address, or takes the pair directly",
+      "status": "passed",
+      "file_path": "./spec/models/spree/tax_rate_spec.rb",
+      "line_number": 23,
+      "run_time": 0.030200387,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/tax_rate_spec.rb[1:1:3]",
+      "description": "matches every rate configured for that country",
+      "full_description": "Spree::TaxRate jurisdiction matching matches every rate configured for that country",
+      "status": "passed",
+      "file_path": "./spec/models/spree/tax_rate_spec.rb",
+      "line_number": 31,
+      "run_time": 0.035719479,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/tax_rate_spec.rb[1:1:6]",
+      "description": "never matches when the state code belongs to another country",
+      "full_description": "Spree::TaxRate jurisdiction matching never matches when the state code belongs to another country",
+      "status": "passed",
+      "file_path": "./spec/models/spree/tax_rate_spec.rb",
+      "line_number": 71,
+      "run_time": 0.026389067,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/tax_rate_spec.rb[1:1:1]",
+      "description": "falls back to rates that tax everywhere when the jurisdiction is unknown",
+      "full_description": "Spree::TaxRate jurisdiction matching falls back to rates that tax everywhere when the jurisdiction is unknown",
+      "status": "passed",
+      "file_path": "./spec/models/spree/tax_rate_spec.rb",
+      "line_number": 14,
+      "run_time": 0.025045328,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/tax_rate_spec.rb[1:1:5:1]",
+      "description": "matches the state rate alongside the country rate",
+      "full_description": "Spree::TaxRate jurisdiction matching with state-level rates matches the state rate alongside the country rate",
+      "status": "passed",
+      "file_path": "./spec/models/spree/tax_rate_spec.rb",
+      "line_number": 47,
+      "run_time": 0.043577137,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/tax_rate_spec.rb[1:1:5:3]",
+      "description": "does not match a state rate for an address with no state",
+      "full_description": "Spree::TaxRate jurisdiction matching with state-level rates does not match a state rate for an address with no state",
+      "status": "passed",
+      "file_path": "./spec/models/spree/tax_rate_spec.rb",
+      "line_number": 61,
+      "run_time": 0.028844122,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/tax_rate_spec.rb[1:1:5:2]",
+      "description": "does not match another state rate",
+      "full_description": "Spree::TaxRate jurisdiction matching with state-level rates does not match another state rate",
+      "status": "passed",
+      "file_path": "./spec/models/spree/tax_rate_spec.rb",
+      "line_number": 54,
+      "run_time": 0.027926146,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/tax_rate_spec.rb[1:3:1]",
+      "description": "returns the name and amount for the tax rate",
+      "full_description": "Spree::TaxRate#adjustment_label returns the name and amount for the tax rate",
+      "status": "passed",
+      "file_path": "./spec/models/spree/tax_rate_spec.rb",
+      "line_number": 228,
+      "run_time": 0.006923758,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/tax_rate_spec.rb[1:3:3]",
+      "description": "says so when the tax is inside the price",
+      "full_description": "Spree::TaxRate#adjustment_label says so when the tax is inside the price",
+      "status": "passed",
+      "file_path": "./spec/models/spree/tax_rate_spec.rb",
+      "line_number": 238,
+      "run_time": 0.006297075,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/tax_rate_spec.rb[1:3:2]",
+      "description": "leaves the percentage out when the amount is 0",
+      "full_description": "Spree::TaxRate#adjustment_label leaves the percentage out when the amount is 0",
+      "status": "passed",
+      "file_path": "./spec/models/spree/tax_rate_spec.rb",
+      "line_number": 233,
+      "run_time": 0.004664751,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/gateway_spec.rb[1:6]",
+      "description": "returns public preferences",
+      "full_description": "Spree::Gateway returns public preferences",
+      "status": "passed",
+      "file_path": "./spec/models/spree/gateway_spec.rb",
+      "line_number": 89,
+      "run_time": 0.004978907,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/gateway_spec.rb[1:2]",
+      "description": "passes through all arguments on a method_missing call",
+      "full_description": "Spree::Gateway passes through all arguments on a method_missing call",
+      "status": "passed",
+      "file_path": "./spec/models/spree/gateway_spec.rb",
+      "line_number": 31,
+      "run_time": 0.004720866,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/gateway_spec.rb[1:1]",
+      "description": "hands the provider typed preference values",
+      "full_description": "Spree::Gateway hands the provider typed preference values",
+      "status": "passed",
+      "file_path": "./spec/models/spree/gateway_spec.rb",
+      "line_number": 27,
+      "run_time": 0.004457644,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/gateway_spec.rb[1:5]",
+      "description": "returns exchange multiplier for gateway",
+      "full_description": "Spree::Gateway returns exchange multiplier for gateway",
+      "status": "passed",
+      "file_path": "./spec/models/spree/gateway_spec.rb",
+      "line_number": 82,
+      "run_time": 0.004448831,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/gateway_spec.rb[1:8:1]",
+      "description": "returns nil",
+      "full_description": "Spree::Gateway#gateway_dashboard_payment_url returns nil",
+      "status": "passed",
+      "file_path": "./spec/models/spree/gateway_spec.rb",
+      "line_number": 149,
+      "run_time": 0.052799145,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/gateway_spec.rb[1:4:1]",
+      "description": "finds credit cards associated with a completed order",
+      "full_description": "Spree::Gateway fetching payment sources finds credit cards associated with a completed order",
+      "status": "passed",
+      "file_path": "./spec/models/spree/gateway_spec.rb",
+      "line_number": 66,
+      "run_time": 0.051237718,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/gateway_spec.rb[1:4:2]",
+      "description": "finds credit cards associated with the order user",
+      "full_description": "Spree::Gateway fetching payment sources finds credit cards associated with the order user",
+      "status": "passed",
+      "file_path": "./spec/models/spree/gateway_spec.rb",
+      "line_number": 73,
+      "run_time": 0.045946608,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/gateway_spec.rb[1:3:2]",
+      "description": "automatically sets the name",
+      "full_description": "Spree::Gateway Validations automatically sets the name",
+      "status": "passed",
+      "file_path": "./spec/models/spree/gateway_spec.rb",
+      "line_number": 46,
+      "run_time": 0.004671503,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/gateway_spec.rb[1:3:1]",
+      "description": "validates the type",
+      "full_description": "Spree::Gateway Validations validates the type",
+      "status": "passed",
+      "file_path": "./spec/models/spree/gateway_spec.rb",
+      "line_number": 42,
+      "run_time": 0.006048408,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/gateway_spec.rb[1:7:4]",
+      "description": "leaves subclasses nested under a Gateway module untouched",
+      "full_description": "Spree::Gateway.api_type leaves subclasses nested under a Gateway module untouched",
+      "status": "passed",
+      "file_path": "./spec/models/spree/gateway_spec.rb",
+      "line_number": 131,
+      "run_time": 0.005960142,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/gateway_spec.rb[1:7:5]",
+      "description": "produces unique values for every registered payment provider",
+      "full_description": "Spree::Gateway.api_type produces unique values for every registered payment provider",
+      "status": "passed",
+      "file_path": "./spec/models/spree/gateway_spec.rb",
+      "line_number": 138,
+      "run_time": 0.005470149,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/gateway_spec.rb[1:7:1]",
+      "description": "uses the outer module name for Spree-prefixed gateway gems",
+      "full_description": "Spree::Gateway.api_type uses the outer module name for Spree-prefixed gateway gems",
+      "status": "passed",
+      "file_path": "./spec/models/spree/gateway_spec.rb",
+      "line_number": 117,
+      "run_time": 0.005259815,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/gateway_spec.rb[1:7:3]",
+      "description": "falls back to \"gateway\" for the bare Spree::Gateway parent",
+      "full_description": "Spree::Gateway.api_type falls back to \"gateway\" for the bare Spree::Gateway parent",
+      "status": "passed",
+      "file_path": "./spec/models/spree/gateway_spec.rb",
+      "line_number": 127,
+      "run_time": 0.005039345,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/gateway_spec.rb[1:7:2]",
+      "description": "underscores a non-Spree outer module name",
+      "full_description": "Spree::Gateway.api_type underscores a non-Spree outer module name",
+      "status": "passed",
+      "file_path": "./spec/models/spree/gateway_spec.rb",
+      "line_number": 123,
+      "run_time": 0.005293317,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_zone_member_spec.rb[1:2:2]",
+      "description": "rejects a prefix combined with a range",
+      "full_description": "Spree::DeliveryZoneMember postal member validation rejects a prefix combined with a range",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_zone_member_spec.rb",
+      "line_number": 63,
+      "run_time": 0.012282691,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_zone_member_spec.rb[1:2:6]",
+      "description": "rejects an inverted range",
+      "full_description": "Spree::DeliveryZoneMember postal member validation rejects an inverted range",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_zone_member_spec.rb",
+      "line_number": 94,
+      "run_time": 0.010845695,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_zone_member_spec.rb[1:2:3]",
+      "description": "requires a prefix or a complete range",
+      "full_description": "Spree::DeliveryZoneMember postal member validation requires a prefix or a complete range",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_zone_member_spec.rb",
+      "line_number": 71,
+      "run_time": 0.010940458,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_zone_member_spec.rb[1:2:4]",
+      "description": "rejects ranges for countries outside the numeric-postal allowlist",
+      "full_description": "Spree::DeliveryZoneMember postal member validation rejects ranges for countries outside the numeric-postal allowlist",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_zone_member_spec.rb",
+      "line_number": 79,
+      "run_time": 0.011405974,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_zone_member_spec.rb[1:2:1]",
+      "description": "normalizes prefix and range bounds on save",
+      "full_description": "Spree::DeliveryZoneMember postal member validation normalizes prefix and range bounds on save",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_zone_member_spec.rb",
+      "line_number": 56,
+      "run_time": 0.013045252,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_zone_member_spec.rb[1:2:5]",
+      "description": "allows prefixes for any country",
+      "full_description": "Spree::DeliveryZoneMember postal member validation allows prefixes for any country",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_zone_member_spec.rb",
+      "line_number": 87,
+      "run_time": 0.010953508,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_zone_member_spec.rb[1:1:4:1]",
+      "description": "matches zipcodes inside the range, scoped to the country",
+      "full_description": "Spree::DeliveryZoneMember#match? postal range member matches zipcodes inside the range, scoped to the country",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_zone_member_spec.rb",
+      "line_number": 47,
+      "run_time": 0.013824387,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_zone_member_spec.rb[1:1:3:1]",
+      "description": "matches normalized zipcodes by prefix, scoped to the country",
+      "full_description": "Spree::DeliveryZoneMember#match? postal prefix member matches normalized zipcodes by prefix, scoped to the country",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_zone_member_spec.rb",
+      "line_number": 34,
+      "run_time": 0.233985729,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_zone_member_spec.rb[1:1:2:1]",
+      "description": "matches addresses in the state and rejects others",
+      "full_description": "Spree::DeliveryZoneMember#match? state member matches addresses in the state and rejects others",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_zone_member_spec.rb",
+      "line_number": 22,
+      "run_time": 0.049790353,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_zone_member_spec.rb[1:1:1:1]",
+      "description": "matches addresses in the country and rejects others",
+      "full_description": "Spree::DeliveryZoneMember#match? country member matches addresses in the country and rejects others",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_zone_member_spec.rb",
+      "line_number": 12,
+      "run_time": 0.050138449,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/gateway/bogus_spec.rb[1:1]",
+      "description": "disable recurring contract by destroying payment source",
+      "full_description": "Spree::Gateway::Bogus disable recurring contract by destroying payment source",
+      "status": "passed",
+      "file_path": "./spec/models/spree/gateway/bogus_spec.rb",
+      "line_number": 8,
+      "run_time": 0.046219905,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/gateway/bogus_spec.rb[1:2:2]",
+      "description": "returns nil before the payment is charged",
+      "full_description": "Spree::Gateway::Bogus#gateway_dashboard_payment_url returns nil before the payment is charged",
+      "status": "passed",
+      "file_path": "./spec/models/spree/gateway/bogus_spec.rb",
+      "line_number": 18,
+      "run_time": 0.105197015,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/gateway/bogus_spec.rb[1:2:1]",
+      "description": "links to the payment by its transaction id",
+      "full_description": "Spree::Gateway::Bogus#gateway_dashboard_payment_url links to the payment by its transaction id",
+      "status": "passed",
+      "file_path": "./spec/models/spree/gateway/bogus_spec.rb",
+      "line_number": 14,
+      "run_time": 0.062389407,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/tax_category_spec.rb[1:3:3]",
+      "description": "ignores soft-deleted rows when checking the name",
+      "full_description": "Spree::TaxCategory store binding ignores soft-deleted rows when checking the name",
+      "status": "passed",
+      "file_path": "./spec/models/spree/tax_category_spec.rb",
+      "line_number": 47,
+      "run_time": 0.015073874,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/tax_category_spec.rb[1:3:2]",
+      "description": "rejects a duplicate name within the same store, ignoring case, but allows it in another store",
+      "full_description": "Spree::TaxCategory store binding rejects a duplicate name within the same store, ignoring case, but allows it in another store",
+      "status": "passed",
+      "file_path": "./spec/models/spree/tax_category_spec.rb",
+      "line_number": 40,
+      "run_time": 0.099067329,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/tax_category_spec.rb[1:3:1]",
+      "description": "falls back to the current store",
+      "full_description": "Spree::TaxCategory store binding falls back to the current store",
+      "status": "passed",
+      "file_path": "./spec/models/spree/tax_category_spec.rb",
+      "line_number": 36,
+      "run_time": 0.007873463,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/tax_category_spec.rb[1:4:1]",
+      "description": "removes all tax rates",
+      "full_description": "Spree::TaxCategory#destroy removes all tax rates",
+      "status": "passed",
+      "file_path": "./spec/models/spree/tax_category_spec.rb",
+      "line_number": 60,
+      "run_time": 0.127483256,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/tax_category_spec.rb[1:4:2]",
+      "description": "nullifies all products and variants",
+      "full_description": "Spree::TaxCategory#destroy nullifies all products and variants",
+      "status": "passed",
+      "file_path": "./spec/models/spree/tax_category_spec.rb",
+      "line_number": 64,
+      "run_time": 0.134510331,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/tax_category_spec.rb[1:1:2]",
+      "description": "undefaults the previous default tax category except when updating the existing default tax category",
+      "full_description": "Spree::TaxCategory default tax category undefaults the previous default tax category except when updating the existing default tax category",
+      "status": "passed",
+      "file_path": "./spec/models/spree/tax_category_spec.rb",
+      "line_number": 20,
+      "run_time": 0.011538576,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/tax_category_spec.rb[1:1:1]",
+      "description": "undefaults the previous default tax category",
+      "full_description": "Spree::TaxCategory default tax category undefaults the previous default tax category",
+      "status": "passed",
+      "file_path": "./spec/models/spree/tax_category_spec.rb",
+      "line_number": 12,
+      "run_time": 0.016971746,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/tax_category_spec.rb[1:2:1]",
+      "description": "returns the default tax category",
+      "full_description": "Spree::TaxCategory.default returns the default tax category",
+      "status": "passed",
+      "file_path": "./spec/models/spree/tax_category_spec.rb",
+      "line_number": 29,
+      "run_time": 0.009657968,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_rate_provider/internal_spec.rb[1:1:2]",
+      "description": "returns nil when the calculator suppresses the method",
+      "full_description": "Spree::DeliveryRateProvider::Internal#estimate returns nil when the calculator suppresses the method",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_rate_provider/internal_spec.rb",
+      "line_number": 20,
+      "run_time": 0.217324743,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_rate_provider/internal_spec.rb[1:1:1]",
+      "description": "prices through the delivery method calculator",
+      "full_description": "Spree::DeliveryRateProvider::Internal#estimate prices through the delivery method calculator",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_rate_provider/internal_spec.rb",
+      "line_number": 12,
+      "run_time": 0.188291819,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_rate_provider/internal_spec.rb[1:1:3]",
+      "description": "carries no carrier metadata and no delivery date",
+      "full_description": "Spree::DeliveryRateProvider::Internal#estimate carries no carrier metadata and no delivery date",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_rate_provider/internal_spec.rb",
+      "line_number": 27,
+      "run_time": 0.17923839,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method/store_credit_spec.rb[1:4:1]",
+      "description": "declines a purchase if it can't find a pending credit for the correct amount",
+      "full_description": "Spree::PaymentMethod::StoreCredit#purchase declines a purchase if it can't find a pending credit for the correct amount",
+      "status": "passed",
+      "file_path": "./spec/models/spree/payment_method/store_credit_spec.rb",
+      "line_number": 177,
+      "run_time": 0.128699121,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method/store_credit_spec.rb[1:4:2]",
+      "description": "captures a purchase if it can find a pending credit for the correct amount",
+      "full_description": "Spree::PaymentMethod::StoreCredit#purchase captures a purchase if it can find a pending credit for the correct amount",
+      "status": "passed",
+      "file_path": "./spec/models/spree/payment_method/store_credit_spec.rb",
+      "line_number": 192,
+      "run_time": 0.139635266,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method/store_credit_spec.rb[1:6:2:1]",
+      "description": "returns an error response",
+      "full_description": "Spree::PaymentMethod::StoreCredit#cancel store credit event not found returns an error response",
+      "status": "passed",
+      "file_path": "./spec/models/spree/payment_method/store_credit_spec.rb",
+      "line_number": 291,
+      "run_time": 0.046984577,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method/store_credit_spec.rb[1:6:1:2]",
+      "description": "returns a valid store credit cancel request",
+      "full_description": "Spree::PaymentMethod::StoreCredit#cancel store credit event found returns a valid store credit cancel request",
+      "status": "passed",
+      "file_path": "./spec/models/spree/payment_method/store_credit_spec.rb",
+      "line_number": 279,
+      "run_time": 0.058392784,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method/store_credit_spec.rb[1:6:1:1]",
+      "description": "creates a store credit for the same amount that was captured",
+      "full_description": "Spree::PaymentMethod::StoreCredit#cancel store credit event found creates a store credit for the same amount that was captured",
+      "status": "passed",
+      "file_path": "./spec/models/spree/payment_method/store_credit_spec.rb",
+      "line_number": 273,
+      "run_time": 0.046073824,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method/store_credit_spec.rb[1:3:3]",
+      "description": "voids a valid store credit void request",
+      "full_description": "Spree::PaymentMethod::StoreCredit#void voids a valid store credit void request",
+      "status": "passed",
+      "file_path": "./spec/models/spree/payment_method/store_credit_spec.rb",
+      "line_number": 160,
+      "run_time": 0.112138503,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method/store_credit_spec.rb[1:3:4:1]",
+      "description": "passes the originator",
+      "full_description": "Spree::PaymentMethod::StoreCredit#void with an originator passes the originator",
+      "status": "passed",
+      "file_path": "./spec/models/spree/payment_method/store_credit_spec.rb",
+      "line_number": 169,
+      "run_time": 0.124592684,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method/store_credit_spec.rb[1:3:1:1]",
+      "description": "declines an unknown store credit",
+      "full_description": "Spree::PaymentMethod::StoreCredit#void with an invalid auth code declines an unknown store credit",
+      "status": "passed",
+      "file_path": "./spec/models/spree/payment_method/store_credit_spec.rb",
+      "line_number": 146,
+      "run_time": 0.081283939,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method/store_credit_spec.rb[1:3:2:1]",
+      "description": "returns an error response",
+      "full_description": "Spree::PaymentMethod::StoreCredit#void when the store credit is not voided successfully returns an error response",
+      "status": "passed",
+      "file_path": "./spec/models/spree/payment_method/store_credit_spec.rb",
+      "line_number": 155,
+      "run_time": 0.159220184,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method/store_credit_spec.rb[1:5:3:1]",
+      "description": "credits a valid store credit credit request",
+      "full_description": "Spree::PaymentMethod::StoreCredit#credit with a valid credit request credits a valid store credit credit request",
+      "status": "passed",
+      "file_path": "./spec/models/spree/payment_method/store_credit_spec.rb",
+      "line_number": 237,
+      "run_time": 0.10479404,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method/store_credit_spec.rb[1:5:4:1]",
+      "description": "passes the originator",
+      "full_description": "Spree::PaymentMethod::StoreCredit#credit with an originator passes the originator",
+      "status": "passed",
+      "file_path": "./spec/models/spree/payment_method/store_credit_spec.rb",
+      "line_number": 247,
+      "run_time": 0.09909145,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method/store_credit_spec.rb[1:5:2:1]",
+      "description": "returns an error response",
+      "full_description": "Spree::PaymentMethod::StoreCredit#credit when the store credit isn't credited successfully returns an error response",
+      "status": "passed",
+      "file_path": "./spec/models/spree/payment_method/store_credit_spec.rb",
+      "line_number": 229,
+      "run_time": 0.100007076,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method/store_credit_spec.rb[1:5:1:1]",
+      "description": "declines an unknown store credit",
+      "full_description": "Spree::PaymentMethod::StoreCredit#credit with an invalid auth code declines an unknown store credit",
+      "status": "passed",
+      "file_path": "./spec/models/spree/payment_method/store_credit_spec.rb",
+      "line_number": 220,
+      "run_time": 0.058247644,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method/store_credit_spec.rb[1:9:1]",
+      "description": "is expected to eq Spree::StoreCredit(id: integer, customer_id: integer, category_id: integer, created_by_id: integer, a... updated_at: datetime, store_id: integer, metadata: json, refunded_order_id: integer, preferences: )",
+      "full_description": "Spree::PaymentMethod::StoreCredit#payment_source_class is expected to eq Spree::StoreCredit(id: integer, customer_id: integer, category_id: integer, created_by_id: integer, a... updated_at: datetime, store_id: integer, metadata: json, refunded_order_id: integer, preferences: )",
+      "status": "passed",
+      "file_path": "./spec/models/spree/payment_method/store_credit_spec.rb",
+      "line_number": 333,
+      "run_time": 0.010711103,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method/store_credit_spec.rb[1:2:4:1]",
+      "description": "captures the store credit",
+      "full_description": "Spree::PaymentMethod::StoreCredit#capture with a valid request captures the store credit",
+      "status": "passed",
+      "file_path": "./spec/models/spree/payment_method/store_credit_spec.rb",
+      "line_number": 115,
+      "run_time": 0.099630286,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method/store_credit_spec.rb[1:2:4:2:1]",
+      "description": "passes the originator",
+      "full_description": "Spree::PaymentMethod::StoreCredit#capture with a valid request with an originator passes the originator",
+      "status": "passed",
+      "file_path": "./spec/models/spree/payment_method/store_credit_spec.rb",
+      "line_number": 124,
+      "run_time": 0.113299961,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method/store_credit_spec.rb[1:2:3:1]",
+      "description": "declines the credit",
+      "full_description": "Spree::PaymentMethod::StoreCredit#capture when the currency does not match the order currency declines the credit",
+      "status": "passed",
+      "file_path": "./spec/models/spree/payment_method/store_credit_spec.rb",
+      "line_number": 108,
+      "run_time": 0.112055999,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method/store_credit_spec.rb[1:2:1:1]",
+      "description": "declines an unknown store credit",
+      "full_description": "Spree::PaymentMethod::StoreCredit#capture with an invalid auth code declines an unknown store credit",
+      "status": "passed",
+      "file_path": "./spec/models/spree/payment_method/store_credit_spec.rb",
+      "line_number": 86,
+      "run_time": 0.060926304,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method/store_credit_spec.rb[1:2:2:1]",
+      "description": "declines a store credit",
+      "full_description": "Spree::PaymentMethod::StoreCredit#capture when unable to authorize the amount declines a store credit",
+      "status": "passed",
+      "file_path": "./spec/models/spree/payment_method/store_credit_spec.rb",
+      "line_number": 99,
+      "run_time": 0.098117052,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method/store_credit_spec.rb[1:8:1]",
+      "description": "is expected to equal true",
+      "full_description": "Spree::PaymentMethod::StoreCredit#source_required? is expected to equal true",
+      "status": "passed",
+      "file_path": "./spec/models/spree/payment_method/store_credit_spec.rb",
+      "line_number": 327,
+      "run_time": 0.011214404,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method/store_credit_spec.rb[1:7:1:1]",
+      "description": "is expected to equal true",
+      "full_description": "Spree::PaymentMethod::StoreCredit#available_for_order? when user have store credits is expected to equal true",
+      "status": "passed",
+      "file_path": "./spec/models/spree/payment_method/store_credit_spec.rb",
+      "line_number": 306,
+      "run_time": 0.066762364,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method/store_credit_spec.rb[1:7:3:1]",
+      "description": "is expected to equal true",
+      "full_description": "Spree::PaymentMethod::StoreCredit#available_for_order? when order has a gift card is expected to equal true",
+      "status": "passed",
+      "file_path": "./spec/models/spree/payment_method/store_credit_spec.rb",
+      "line_number": 320,
+      "run_time": 0.028960245,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method/store_credit_spec.rb[1:7:2:1]",
+      "description": "is expected to equal false",
+      "full_description": "Spree::PaymentMethod::StoreCredit#available_for_order? when user don't store credits is expected to equal false",
+      "status": "passed",
+      "file_path": "./spec/models/spree/payment_method/store_credit_spec.rb",
+      "line_number": 313,
+      "run_time": 0.048958085,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method/store_credit_spec.rb[1:1:4:1]",
+      "description": "authorizes a valid store credit",
+      "full_description": "Spree::PaymentMethod::StoreCredit#authorize with a valid request authorizes a valid store credit",
+      "status": "passed",
+      "file_path": "./spec/models/spree/payment_method/store_credit_spec.rb",
+      "line_number": 52,
+      "run_time": 0.102801651,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method/store_credit_spec.rb[1:1:4:2:1]",
+      "description": "passes the originator",
+      "full_description": "Spree::PaymentMethod::StoreCredit#authorize with a valid request with an originator passes the originator",
+      "status": "passed",
+      "file_path": "./spec/models/spree/payment_method/store_credit_spec.rb",
+      "line_number": 60,
+      "run_time": 0.098379619,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method/store_credit_spec.rb[1:1:1:1]",
+      "description": "declines an unknown store credit",
+      "full_description": "Spree::PaymentMethod::StoreCredit#authorize without an invalid store credit declines an unknown store credit",
+      "status": "passed",
+      "file_path": "./spec/models/spree/payment_method/store_credit_spec.rb",
+      "line_number": 27,
+      "run_time": 0.100818422,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method/store_credit_spec.rb[1:1:2:1]",
+      "description": "declines a store credit",
+      "full_description": "Spree::PaymentMethod::StoreCredit#authorize with insuffient funds declines a store credit",
+      "status": "passed",
+      "file_path": "./spec/models/spree/payment_method/store_credit_spec.rb",
+      "line_number": 36,
+      "run_time": 0.114415353,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/payment_method/store_credit_spec.rb[1:1:3:1]",
+      "description": "declines the credit",
+      "full_description": "Spree::PaymentMethod::StoreCredit#authorize when the currency does not match the order currency declines the credit",
+      "status": "passed",
+      "file_path": "./spec/models/spree/payment_method/store_credit_spec.rb",
+      "line_number": 45,
+      "run_time": 0.100182379,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/package_type_spec.rb[1:6:1]",
+      "description": "converts the sides",
+      "full_description": "Spree::PackageType reading geometry in another unit converts the sides",
+      "status": "passed",
+      "file_path": "./spec/models/spree/package_type_spec.rb",
+      "line_number": 171,
+      "run_time": 0.006466083,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/package_type_spec.rb[1:6:3]",
+      "description": "has no dimensions until every side is recorded",
+      "full_description": "Spree::PackageType reading geometry in another unit has no dimensions until every side is recorded",
+      "status": "passed",
+      "file_path": "./spec/models/spree/package_type_spec.rb",
+      "line_number": 179,
+      "run_time": 0.006955252,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/package_type_spec.rb[1:6:4]",
+      "description": "reads an unrecorded tare as nothing rather than nil",
+      "full_description": "Spree::PackageType reading geometry in another unit reads an unrecorded tare as nothing rather than nil",
+      "status": "passed",
+      "file_path": "./spec/models/spree/package_type_spec.rb",
+      "line_number": 185,
+      "run_time": 0.00608399,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/package_type_spec.rb[1:6:2]",
+      "description": "converts the tare",
+      "full_description": "Spree::PackageType reading geometry in another unit converts the tare",
+      "status": "passed",
+      "file_path": "./spec/models/spree/package_type_spec.rb",
+      "line_number": 175,
+      "run_time": 0.008450752,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/package_type_spec.rb[1:4:1]",
+      "description": "reports cubic meters from the recorded unit",
+      "full_description": "Spree::PackageType#volume reports cubic meters from the recorded unit",
+      "status": "passed",
+      "file_path": "./spec/models/spree/package_type_spec.rb",
+      "line_number": 140,
+      "run_time": 0.008129808,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/package_type_spec.rb[1:4:2]",
+      "description": "is nil until every side is measured",
+      "full_description": "Spree::PackageType#volume is nil until every side is measured",
+      "status": "passed",
+      "file_path": "./spec/models/spree/package_type_spec.rb",
+      "line_number": 146,
+      "run_time": 0.007720355,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/package_type_spec.rb[1:8:2]",
+      "description": "allows the change once nothing is packed into it",
+      "full_description": "Spree::PackageType changing kind allows the change once nothing is packed into it",
+      "status": "passed",
+      "file_path": "./spec/models/spree/package_type_spec.rb",
+      "line_number": 225,
+      "run_time": 0.011482359,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/package_type_spec.rb[1:8:1]",
+      "description": "refuses to stop being a carton while products are packed into it",
+      "full_description": "Spree::PackageType changing kind refuses to stop being a carton while products are packed into it",
+      "status": "passed",
+      "file_path": "./spec/models/spree/package_type_spec.rb",
+      "line_number": 216,
+      "run_time": 0.205083796,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/package_type_spec.rb[1:8:3]",
+      "description": "leaves other edits to a carton in use alone",
+      "full_description": "Spree::PackageType changing kind leaves other edits to a carton in use alone",
+      "status": "passed",
+      "file_path": "./spec/models/spree/package_type_spec.rb",
+      "line_number": 231,
+      "run_time": 0.15434895,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/package_type_spec.rb[1:2:6]",
+      "description": "keeps a departed seller\u2019s rows pointing at them",
+      "full_description": "Spree::PackageType ownership keeps a departed seller\u2019s rows pointing at them",
+      "status": "passed",
+      "file_path": "./spec/models/spree/package_type_spec.rb",
+      "line_number": 82,
+      "run_time": 0.037388169,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/package_type_spec.rb[1:2:4]",
+      "description": "offers a seller their own rows and the marketplace\u2019s",
+      "full_description": "Spree::PackageType ownership offers a seller their own rows and the marketplace\u2019s",
+      "status": "passed",
+      "file_path": "./spec/models/spree/package_type_spec.rb",
+      "line_number": 72,
+      "run_time": 0.021038311,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/package_type_spec.rb[1:2:2]",
+      "description": "reads one seller\u2019s rows",
+      "full_description": "Spree::PackageType ownership reads one seller\u2019s rows",
+      "status": "passed",
+      "file_path": "./spec/models/spree/package_type_spec.rb",
+      "line_number": 62,
+      "run_time": 0.037234196,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/package_type_spec.rb[1:2:3]",
+      "description": "takes an id as well as a record",
+      "full_description": "Spree::PackageType ownership takes an id as well as a record",
+      "status": "passed",
+      "file_path": "./spec/models/spree/package_type_spec.rb",
+      "line_number": 66,
+      "run_time": 0.029276308,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/package_type_spec.rb[1:2:5]",
+      "description": "offers the operator the marketplace\u2019s rows alone",
+      "full_description": "Spree::PackageType ownership offers the operator the marketplace\u2019s rows alone",
+      "status": "passed",
+      "file_path": "./spec/models/spree/package_type_spec.rb",
+      "line_number": 76,
+      "run_time": 0.024894902,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/package_type_spec.rb[1:2:1]",
+      "description": "reads the marketplace\u2019s own rows",
+      "full_description": "Spree::PackageType ownership reads the marketplace\u2019s own rows",
+      "status": "passed",
+      "file_path": "./spec/models/spree/package_type_spec.rb",
+      "line_number": 58,
+      "run_time": 0.026588469,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/package_type_spec.rb[1:1:5]",
+      "description": "refuses a duplicate name within one seller",
+      "full_description": "Spree::PackageType validations refuses a duplicate name within one seller",
+      "status": "passed",
+      "file_path": "./spec/models/spree/package_type_spec.rb",
+      "line_number": 38,
+      "run_time": 0.016433845,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/package_type_spec.rb[1:1:2]",
+      "description": "refuses a duplicate name within the store",
+      "full_description": "Spree::PackageType validations refuses a duplicate name within the store",
+      "status": "passed",
+      "file_path": "./spec/models/spree/package_type_spec.rb",
+      "line_number": 15,
+      "run_time": 0.008458558,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/package_type_spec.rb[1:1:6]",
+      "description": "allows two sellers the same name",
+      "full_description": "Spree::PackageType validations allows two sellers the same name",
+      "status": "passed",
+      "file_path": "./spec/models/spree/package_type_spec.rb",
+      "line_number": 45,
+      "run_time": 0.025733691,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/package_type_spec.rb[1:1:1]",
+      "description": "refuses a kind outside the vocabulary",
+      "full_description": "Spree::PackageType validations refuses a kind outside the vocabulary",
+      "status": "passed",
+      "file_path": "./spec/models/spree/package_type_spec.rb",
+      "line_number": 8,
+      "run_time": 0.010835507,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/package_type_spec.rb[1:1:3]",
+      "description": "allows the same name in a different store",
+      "full_description": "Spree::PackageType validations allows the same name in a different store",
+      "status": "passed",
+      "file_path": "./spec/models/spree/package_type_spec.rb",
+      "line_number": 22,
+      "run_time": 0.142916801,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/package_type_spec.rb[1:1:4]",
+      "description": "allows a seller the name the marketplace already uses",
+      "full_description": "Spree::PackageType validations allows a seller the name the marketplace already uses",
+      "status": "passed",
+      "file_path": "./spec/models/spree/package_type_spec.rb",
+      "line_number": 31,
+      "run_time": 0.013336588,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/package_type_spec.rb[1:9:3]",
+      "description": "refuses while a variant is packed into it",
+      "full_description": "Spree::PackageType deletion refuses while a variant is packed into it",
+      "status": "passed",
+      "file_path": "./spec/models/spree/package_type_spec.rb",
+      "line_number": 259,
+      "run_time": 0.13754155,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/package_type_spec.rb[1:9:1]",
+      "description": "refuses the store default",
+      "full_description": "Spree::PackageType deletion refuses the store default",
+      "status": "passed",
+      "file_path": "./spec/models/spree/package_type_spec.rb",
+      "line_number": 242,
+      "run_time": 0.011258487,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/package_type_spec.rb[1:9:2]",
+      "description": "goes with the store it belongs to",
+      "full_description": "Spree::PackageType deletion goes with the store it belongs to",
+      "status": "passed",
+      "file_path": "./spec/models/spree/package_type_spec.rb",
+      "line_number": 251,
+      "run_time": 0.257021631,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/package_type_spec.rb[1:7:2]",
+      "description": "refuses a seller\u2019s only default even when the marketplace has one",
+      "full_description": "Spree::PackageType giving up the default refuses a seller\u2019s only default even when the marketplace has one",
+      "status": "passed",
+      "file_path": "./spec/models/spree/package_type_spec.rb",
+      "line_number": 203,
+      "run_time": 0.024741865,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/package_type_spec.rb[1:7:1]",
+      "description": "refuses to turn the flag off on the only default",
+      "full_description": "Spree::PackageType giving up the default refuses to turn the flag off on the only default",
+      "status": "passed",
+      "file_path": "./spec/models/spree/package_type_spec.rb",
+      "line_number": 193,
+      "run_time": 0.012117794,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/package_type_spec.rb[1:5:1]",
+      "description": "reads centimeters on a metric store",
+      "full_description": "Spree::PackageType#dimensions_unit reads centimeters on a metric store",
+      "status": "passed",
+      "file_path": "./spec/models/spree/package_type_spec.rb",
+      "line_number": 152,
+      "run_time": 0.009489191,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/package_type_spec.rb[1:5:2]",
+      "description": "reads inches on an imperial store",
+      "full_description": "Spree::PackageType#dimensions_unit reads inches on an imperial store",
+      "status": "passed",
+      "file_path": "./spec/models/spree/package_type_spec.rb",
+      "line_number": 158,
+      "run_time": 0.009447456,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/package_type_spec.rb[1:3:2]",
+      "description": "leaves another store default alone",
+      "full_description": "Spree::PackageType the store default leaves another store default alone",
+      "status": "passed",
+      "file_path": "./spec/models/spree/package_type_spec.rb",
+      "line_number": 100,
+      "run_time": 0.105386543,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/package_type_spec.rb[1:3:1]",
+      "description": "demotes the previous default so only one survives",
+      "full_description": "Spree::PackageType the store default demotes the previous default so only one survives",
+      "status": "passed",
+      "file_path": "./spec/models/spree/package_type_spec.rb",
+      "line_number": 91,
+      "run_time": 0.013130033,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/package_type_spec.rb[1:3:4]",
+      "description": "demotes only the same seller\u2019s previous default",
+      "full_description": "Spree::PackageType the store default demotes only the same seller\u2019s previous default",
+      "status": "passed",
+      "file_path": "./spec/models/spree/package_type_spec.rb",
+      "line_number": 120,
+      "run_time": 0.024752395,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/package_type_spec.rb[1:3:3]",
+      "description": "leaves the marketplace default alone when a seller names theirs",
+      "full_description": "Spree::PackageType the store default leaves the marketplace default alone when a seller names theirs",
+      "status": "passed",
+      "file_path": "./spec/models/spree/package_type_spec.rb",
+      "line_number": 110,
+      "run_time": 0.020446176,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/package_type_spec.rb[1:3:5]",
+      "description": "reads the marketplace\u2019s box through the store, never a seller\u2019s",
+      "full_description": "Spree::PackageType the store default reads the marketplace\u2019s box through the store, never a seller\u2019s",
+      "status": "passed",
+      "file_path": "./spec/models/spree/package_type_spec.rb",
+      "line_number": 131,
+      "run_time": 0.015015955,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_origin_group_spec.rb[1:2:2]",
+      "description": "is true once the profile has another group",
+      "full_description": "Spree::DeliveryOriginGroup#can_be_deleted? is true once the profile has another group",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_origin_group_spec.rb",
+      "line_number": 58,
+      "run_time": 0.015879454,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_origin_group_spec.rb[1:2:1]",
+      "description": "is false for the only group in a profile",
+      "full_description": "Spree::DeliveryOriginGroup#can_be_deleted? is false for the only group in a profile",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_origin_group_spec.rb",
+      "line_number": 51,
+      "run_time": 0.012825243,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_origin_group_spec.rb[1:2:3]",
+      "description": "is true even while holding zones and methods",
+      "full_description": "Spree::DeliveryOriginGroup#can_be_deleted? is true even while holding zones and methods",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_origin_group_spec.rb",
+      "line_number": 66,
+      "run_time": 0.026332394,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_origin_group_spec.rb[1:3:1]",
+      "description": "covers every location when the operator narrowed nothing",
+      "full_description": "Spree::DeliveryOriginGroup#covers_location? covers every location when the operator narrowed nothing",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_origin_group_spec.rb",
+      "line_number": 78,
+      "run_time": 0.017948612,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_origin_group_spec.rb[1:3:2:1]",
+      "description": "covers the warehouse it names",
+      "full_description": "Spree::DeliveryOriginGroup#covers_location? when the operator narrowed the group to particular warehouses covers the warehouse it names",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_origin_group_spec.rb",
+      "line_number": 87,
+      "run_time": 0.019760686,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_origin_group_spec.rb[1:3:2:2]",
+      "description": "leaves out a warehouse it does not name",
+      "full_description": "Spree::DeliveryOriginGroup#covers_location? when the operator narrowed the group to particular warehouses leaves out a warehouse it does not name",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_origin_group_spec.rb",
+      "line_number": 91,
+      "run_time": 0.021805049,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_origin_group_spec.rb[1:3:2:3]",
+      "description": "still covers a seller's own warehouse",
+      "full_description": "Spree::DeliveryOriginGroup#covers_location? when the operator narrowed the group to particular warehouses still covers a seller's own warehouse",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_origin_group_spec.rb",
+      "line_number": 99,
+      "run_time": 0.025674189,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_origin_group_spec.rb[1:1:1]",
+      "description": "takes its zones with it",
+      "full_description": "Spree::DeliveryOriginGroup destroying a group takes its zones with it",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_origin_group_spec.rb",
+      "line_number": 14,
+      "run_time": 0.023372819,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_origin_group_spec.rb[1:1:3]",
+      "description": "takes methods held inside its zones",
+      "full_description": "Spree::DeliveryOriginGroup destroying a group takes methods held inside its zones",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_origin_group_spec.rb",
+      "line_number": 29,
+      "run_time": 0.037161806,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_origin_group_spec.rb[1:1:4]",
+      "description": "leaves other groups alone",
+      "full_description": "Spree::DeliveryOriginGroup destroying a group leaves other groups alone",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_origin_group_spec.rb",
+      "line_number": 40,
+      "run_time": 0.019613596,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/delivery_origin_group_spec.rb[1:1:2]",
+      "description": "takes its methods with it",
+      "full_description": "Spree::DeliveryOriginGroup destroying a group takes its methods with it",
+      "status": "passed",
+      "file_path": "./spec/models/spree/delivery_origin_group_spec.rb",
+      "line_number": 20,
+      "run_time": 0.05547684,
+      "pending_message": null
+    }
+  ],
+  "summary": {
+    "duration": 24.219906105,
+    "example_count": 358,
+    "failure_count": 0,
+    "pending_count": 2,
+    "errors_outside_of_examples_count": 0
+  },
+  "summary_line": "358 examples, 0 failures, 2 pending"
+}

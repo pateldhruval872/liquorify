@@ -1,0 +1,63 @@
+{
+  "country": "de",
+  "base": "http://localhost:3301/de/en",
+  "pages": {
+    "home": {
+      "url": "/de/en",
+      "status": 200,
+      "title": "Spree Store",
+      "h1": [
+        "Spree Store Storefront"
+      ],
+      "productHeadings": 8,
+      "noProductsFound": false,
+      "productCount": null,
+      "pricesShown": 8,
+      "priceExamples": [
+        "€819.99",
+        "€509.99",
+        "€84.99",
+        "€109.99",
+        "€169.99",
+        "€229.99"
+      ]
+    },
+    "products": {
+      "url": "/de/en/products",
+      "status": 200,
+      "title": "Products | Spree Store",
+      "h1": [
+        "All Products"
+      ],
+      "productHeadings": 12,
+      "noProductsFound": false,
+      "productCount": "38 products",
+      "pricesShown": 12,
+      "priceExamples": [
+        "€819.99",
+        "€509.99",
+        "€84.99",
+        "€109.99",
+        "€169.99",
+        "€229.99"
+      ]
+    },
+    "espresso-machine": {
+      "url": "/de/en/products/automatic-espresso-machine",
+      "status": 200,
+      "title": "Automatic Espresso Machine | Spree Commerce Demo | Spree Store",
+      "h1": [
+        "Automatic Espresso Machine"
+      ],
+      "productHeadings": 0,
+      "noProductsFound": false,
+      "productCount": null,
+      "pricesShown": 1,
+      "priceExamples": [
+        "€819.99"
+      ],
+      "addToCart": 1
+    }
+  },
+  "outsideBlocked": 0
+}

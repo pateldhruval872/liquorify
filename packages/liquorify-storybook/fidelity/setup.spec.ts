@@ -27,7 +27,11 @@ import {
  * same either way. The comparison then waits for the sample data's orders,
  * which load last, or for the counts to stop changing for two minutes without
  * them; it records what loaded and the imports' failed rows either way, and
- * fails if no orders loaded.
+ * fails if no orders loaded or the wholesale price list is not active.
+ * `FIDELITY_COUNTRY` sets the merchant's country: `PL`, Poland in Polish
+ * złoty, unless it is `US`, the United States in US dollars, or `DE`,
+ * Germany in euros (SD-8). Another country's results are saved under names
+ * that end in its code.
  *
  * The setup link's token is read from the file the server's setup writes and
  * only ever opened, never written down; the merchant's password is made up for
@@ -64,7 +68,17 @@ const merchant = {
   password: randomBytes(12).toString('hex'),
 }
 
-const country = { name: 'Poland', code: 'PL', currency: 'PLN', language: 'Polish' }
+const countries = {
+  PL: { name: 'Poland', code: 'PL', currency: 'PLN', language: 'Polish' },
+  US: { name: 'United States', code: 'US', currency: 'USD', language: 'English' },
+  DE: { name: 'Germany', code: 'DE', currency: 'EUR', language: 'German' },
+}
+const countryCode = (process.env.FIDELITY_COUNTRY ?? 'PL') as keyof typeof countries
+const country = countries[countryCode]
+if (!country)
+  throw new Error(`FIDELITY_COUNTRY must be one of ${Object.keys(countries).join(', ')}`)
+/** Empty for Poland, which earlier runs captured, so their names stay as they were. */
+const suffix = countryCode === 'PL' ? '' : `-${countryCode.toLowerCase()}`
 
 test.use({
   baseURL: `http://localhost:${FIRST_RUN_VITE_PORT}`,
@@ -122,12 +136,12 @@ async function save(
 async function chooseCountry(page: Page) {
   await page.getByLabel('Country').click()
   await page.getByPlaceholder('Search countries').fill(country.name)
-  await page.getByRole('option', { name: new RegExp(country.name) }).click()
+  await page.getByRole('option', { name: country.name, exact: true }).click()
   await expect(page.getByLabel('Currency')).toContainText(country.currency)
 }
 
 /**
- * Fills the form as a merchant in Poland who keeps the dashboard in English,
+ * Fills the form as a merchant in the chosen country who keeps the dashboard in English,
  * without sample data unless the run asks for it. `confirmation` differs from
  * the password only to show the form refusing it.
  */
@@ -200,8 +214,8 @@ const beforeSetup: Capture[] = [
     reach: async (page) => {
       await page.goto(setupPath())
       await page.getByLabel('Country').click()
-      await page.getByPlaceholder('Search countries').fill('Pol')
-      await expect(page.getByRole('option', { name: new RegExp(country.name) })).toBeVisible()
+      await page.getByPlaceholder('Search countries').fill(country.name.slice(0, 3))
+      await expect(page.getByRole('option', { name: country.name, exact: true })).toBeVisible()
     },
   },
   {
@@ -403,7 +417,7 @@ test.describe
       storeId = new URL(page.url()).pathname.split('/')[1]
       const welcome = {
         screen: 'DA-SETUP-01',
-        state: sampleData ? 'welcome-sample-data' : 'welcome',
+        state: `${sampleData ? 'welcome-sample-data' : 'welcome'}${suffix}`,
       }
       await save(page, welcome, 'light', outside)
       await page.emulateMedia({ colorScheme: 'dark', reducedMotion: 'reduce' })
@@ -452,7 +466,12 @@ test.describe
 
         const count = async (path: string) =>
           ((await read(`${path}?limit=1`)) as { meta: { count: number } }).meta.count
-        let loaded: { products: number; orders: number; imports: Row[] } | null = null
+        let loaded: {
+          products: number
+          orders: number
+          imports: Row[]
+          priceLists: Row[]
+        } | null = null
         if (sampleData) {
           // Its orders load last, so the job is done once they exist and the counts hold
           // still. A job that stopped early leaves the counts still without them.
@@ -476,7 +495,15 @@ test.describe
             rows: row.rows_count,
             failedRows: row.failed_rows_count,
           }))
-          loaded = { ...(JSON.parse(previous) as { products: number; orders: number }), imports }
+          const priceLists = (await list('price_lists')).map((row) => ({
+            name: row.name,
+            status: row.status,
+          }))
+          loaded = {
+            ...(JSON.parse(previous) as { products: number; orders: number }),
+            imports,
+            priceLists,
+          }
         }
 
         const store = (await read('store')) as Row
@@ -510,7 +537,7 @@ test.describe
         const checks = sampleData ? withSampleData(compared) : compared
         mkdirSync(`${results}provisioning/`, { recursive: true })
         writeFileSync(
-          `${results}provisioning/first-run${sampleData ? '-sample-data' : ''}.json`,
+          `${results}provisioning/first-run${sampleData ? '-sample-data' : ''}${suffix}.json`,
           JSON.stringify(
             {
               revision,
@@ -524,7 +551,13 @@ test.describe
           ),
         )
         assertProvisioned(checks)
-        if (loaded) expect(loaded.orders, 'sample orders loaded').toBeGreaterThan(0)
+        if (loaded) {
+          expect(loaded.orders, 'sample orders loaded').toBeGreaterThan(0)
+          expect(
+            loaded.priceLists.find((row) => row.name === 'Wholesale')?.status,
+            'the wholesale price list is active',
+          ).toBe('active')
+        }
       } finally {
         await api.dispose()
       }
@@ -548,7 +581,7 @@ test.describe
       })
       mkdirSync(`${results}provisioning/`, { recursive: true })
       writeFileSync(
-        `${results}provisioning/refusals.json`,
+        `${results}provisioning/refusals${suffix}.json`,
         JSON.stringify(
           {
             revision,

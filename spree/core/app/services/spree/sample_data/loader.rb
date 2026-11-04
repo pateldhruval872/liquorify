@@ -48,6 +48,9 @@ module Spree
         puts 'Loading sample products...'
         load_products
 
+        puts 'Adding demo prices in the store currency...'
+        load_ruby_file('demo_prices')
+
         puts 'Attaching the sample digital product file...'
         load_ruby_file('digital_products')
 

@@ -1,0 +1,505 @@
+{
+  "engine": "spree/core",
+  "spree_code_at": "68236c5",
+  "rspec": "3.13.6",
+  "database": "SQLite, the engine test app default",
+  "summary": {
+    "duration": 8.562776031,
+    "example_count": 70,
+    "failure_count": 0,
+    "pending_count": 0,
+    "errors_outside_of_examples_count": 0
+  },
+  "examples": [
+    {
+      "file": "spec/models/spree/role_user_spec.rb",
+      "line": 15,
+      "id": "spec/models/spree/role_user_spec.rb[1:1:1]",
+      "description": "Spree::RoleUser with different user types can associate with different user types",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/role_user_spec.rb",
+      "line": 38,
+      "id": "spec/models/spree/role_user_spec.rb[1:3:1]",
+      "description": "Spree::RoleUser uniqueness allows a user to hold a role once, but the same-named role of another resource too",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/role_user_spec.rb",
+      "line": 29,
+      "id": "spec/models/spree/role_user_spec.rb[1:2:1]",
+      "description": "Spree::RoleUser#resource comes from the role",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/ability_spec.rb",
+      "line": 335,
+      "id": "spec/models/spree/ability_spec.rb[1:4:2]",
+      "description": "Spree::Ability shared customer/admin user class resolves staff roles for persisted customers",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/ability_spec.rb",
+      "line": 327,
+      "id": "spec/models/spree/ability_spec.rb[1:4:1]",
+      "description": "Spree::Ability shared customer/admin user class grants nothing to customers holding no roles",
+      "status": "passed"
+    },
+    {
+      "file": "lib/spree/testing_support/ability_helpers.rb",
+      "line": 7,
+      "id": "spec/models/spree/ability_spec.rb[1:1:1:1:2]",
+      "description": "Spree::Ability for general resource with admin user behaves like access granted should allow create",
+      "status": "passed"
+    },
+    {
+      "file": "lib/spree/testing_support/ability_helpers.rb",
+      "line": 2,
+      "id": "spec/models/spree/ability_spec.rb[1:1:1:1:1]",
+      "description": "Spree::Ability for general resource with admin user behaves like access granted should allow show",
+      "status": "passed"
+    },
+    {
+      "file": "lib/spree/testing_support/ability_helpers.rb",
+      "line": 12,
+      "id": "spec/models/spree/ability_spec.rb[1:1:1:1:3]",
+      "description": "Spree::Ability for general resource with admin user behaves like access granted should allow update",
+      "status": "passed"
+    },
+    {
+      "file": "lib/spree/testing_support/ability_helpers.rb",
+      "line": 46,
+      "id": "spec/models/spree/ability_spec.rb[1:1:1:2:1]",
+      "description": "Spree::Ability for general resource with admin user behaves like index allowed should allow index",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/ability_spec.rb",
+      "line": 61,
+      "id": "spec/models/spree/ability_spec.rb[1:2:2:1]",
+      "description": "Spree::Ability for admin protected resources with customer is not able to admin even with an admin role assignment",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/ability_spec.rb",
+      "line": 32,
+      "id": "spec/models/spree/ability_spec.rb[1:2:1:1:1]",
+      "description": "Spree::Ability for admin protected resources with admin user admin user role is able to admin",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/ability_spec.rb",
+      "line": 51,
+      "id": "spec/models/spree/ability_spec.rb[1:2:1:2:1]",
+      "description": "Spree::Ability for admin protected resources with admin user admin user class with no role rows (spree_admin? fallback) is able to admin",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/ability_spec.rb",
+      "line": 174,
+      "id": "spec/models/spree/ability_spec.rb[1:3:7:1]",
+      "description": "Spree::Ability staff permissions from catalog keys with roles held on different stores activates only the current store assignments",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/ability_spec.rb",
+      "line": 180,
+      "id": "spec/models/spree/ability_spec.rb[1:3:7:2]",
+      "description": "Spree::Ability staff permissions from catalog keys with roles held on different stores flips with the store context",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/ability_spec.rb",
+      "line": 308,
+      "id": "spec/models/spree/ability_spec.rb[1:3:11:1]",
+      "description": "Spree::Ability staff permissions from catalog keys with stale keys the catalog no longer knows activates the known keys and drops the rest",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/ability_spec.rb",
+      "line": 258,
+      "id": "spec/models/spree/ability_spec.rb[1:3:9:1]",
+      "description": "Spree::Ability staff permissions from catalog keys as admin on one store and limited staff on another does not leak admin authority into the limited store",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/ability_spec.rb",
+      "line": 89,
+      "id": "spec/models/spree/ability_spec.rb[1:3:1:3]",
+      "description": "Spree::Ability staff permissions from catalog keys with a role granting a read key reports the expanded permission keys",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/ability_spec.rb",
+      "line": 79,
+      "id": "spec/models/spree/ability_spec.rb[1:3:1:1]",
+      "description": "Spree::Ability staff permissions from catalog keys with a role granting a read key grants read and admin on the resource subjects",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/ability_spec.rb",
+      "line": 85,
+      "id": "spec/models/spree/ability_spec.rb[1:3:1:2]",
+      "description": "Spree::Ability staff permissions from catalog keys with a role granting a read key does not grant other resources",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/ability_spec.rb",
+      "line": 160,
+      "id": "spec/models/spree/ability_spec.rb[1:3:6:1]",
+      "description": "Spree::Ability staff permissions from catalog keys with overlapping keys across roles deduplicates into one expanded key set",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/ability_spec.rb",
+      "line": 99,
+      "id": "spec/models/spree/ability_spec.rb[1:3:2:1]",
+      "description": "Spree::Ability staff permissions from catalog keys with a role granting a write key grants manage on the resource subjects",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/ability_spec.rb",
+      "line": 104,
+      "id": "spec/models/spree/ability_spec.rb[1:3:2:2]",
+      "description": "Spree::Ability staff permissions from catalog keys with a role granting a write key reports write and implied read keys",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/ability_spec.rb",
+      "line": 141,
+      "id": "spec/models/spree/ability_spec.rb[1:3:5:1]",
+      "description": "Spree::Ability staff permissions from catalog keys with the admin role grants everything and reports every key staff may hold",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/ability_spec.rb",
+      "line": 149,
+      "id": "spec/models/spree/ability_spec.rb[1:3:5:2]",
+      "description": "Spree::Ability staff permissions from catalog keys with the admin role leaves out the keys only another audience may hold",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/ability_spec.rb",
+      "line": 127,
+      "id": "spec/models/spree/ability_spec.rb[1:3:4:1]",
+      "description": "Spree::Ability staff permissions from catalog keys with a role granting no keys grants only the staff baseline",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/ability_spec.rb",
+      "line": 293,
+      "id": "spec/models/spree/ability_spec.rb[1:3:10:2]",
+      "description": "Spree::Ability staff permissions from catalog keys with an assignment scoped to a non-store resource does not confer full access through an admin-named role",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/ability_spec.rb",
+      "line": 283,
+      "id": "spec/models/spree/ability_spec.rb[1:3:10:1]",
+      "description": "Spree::Ability staff permissions from catalog keys with an assignment scoped to a non-store resource grants nothing in the store admin",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/ability_spec.rb",
+      "line": 115,
+      "id": "spec/models/spree/ability_spec.rb[1:3:3:1]",
+      "description": "Spree::Ability staff permissions from catalog keys with multiple roles combines keys from all roles",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/ability_spec.rb",
+      "line": 208,
+      "id": "spec/models/spree/ability_spec.rb[1:3:8:1]",
+      "description": "Spree::Ability staff permissions from catalog keys with a role held on a non-store resource is invisible to the store ability",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/ability_spec.rb",
+      "line": 223,
+      "id": "spec/models/spree/ability_spec.rb[1:3:8:3]",
+      "description": "Spree::Ability staff permissions from catalog keys with a role held on a non-store resource grants only keys the role's audience may hold",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/ability_spec.rb",
+      "line": 241,
+      "id": "spec/models/spree/ability_spec.rb[1:3:8:5]",
+      "description": "Spree::Ability staff permissions from catalog keys with a role held on a non-store resource does not carry the store admin role onto the resource",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/ability_spec.rb",
+      "line": 233,
+      "id": "spec/models/spree/ability_spec.rb[1:3:8:4]",
+      "description": "Spree::Ability staff permissions from catalog keys with a role held on a non-store resource reads only the store it operates under",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/ability_spec.rb",
+      "line": 216,
+      "id": "spec/models/spree/ability_spec.rb[1:3:8:2]",
+      "description": "Spree::Ability staff permissions from catalog keys with a role held on a non-store resource activates when the ability is built for that resource",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/ability_spec.rb",
+      "line": 347,
+      "id": "spec/models/spree/ability_spec.rb[1:5:1]",
+      "description": "Spree::Ability as a customer or guest principal has no rules at all \u2014 the Store API authorizes by ownership scoping",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/invitation_spec.rb",
+      "line": 15,
+      "id": "spec/models/spree/invitation_spec.rb[1:1:1:1]",
+      "description": "Spree::Invitation Validations when invitee is the same as inviter is invalid",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/invitation_spec.rb",
+      "line": 23,
+      "id": "spec/models/spree/invitation_spec.rb[1:1:2:1]",
+      "description": "Spree::Invitation Validations when invitee already exists in the store is invalid",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/invitation_spec.rb",
+      "line": 34,
+      "id": "spec/models/spree/invitation_spec.rb[1:2:1]",
+      "description": "Spree::Invitation Callbacks sets defaults on initialization",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/invitation_spec.rb",
+      "line": 58,
+      "id": "spec/models/spree/invitation_spec.rb[1:2:4]",
+      "description": "Spree::Invitation Callbacks follows an explicitly assigned resource",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/invitation_spec.rb",
+      "line": 41,
+      "id": "spec/models/spree/invitation_spec.rb[1:2:2]",
+      "description": "Spree::Invitation Callbacks defaults the resource before validation",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/invitation_spec.rb",
+      "line": 66,
+      "id": "spec/models/spree/invitation_spec.rb[1:2:5]",
+      "description": "Spree::Invitation Callbacks sets invitee from email before validation",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/invitation_spec.rb",
+      "line": 50,
+      "id": "spec/models/spree/invitation_spec.rb[1:2:3]",
+      "description": "Spree::Invitation Callbacks never defaults the role",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/invitation_spec.rb",
+      "line": 135,
+      "id": "spec/models/spree/invitation_spec.rb[1:6:1]",
+      "description": "Spree::Invitation#acceptance_url carries the invitation and its token",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/invitation_spec.rb",
+      "line": 78,
+      "id": "spec/models/spree/invitation_spec.rb[1:3:1:1]",
+      "description": "Spree::Invitation State Machine when accepting an invitation creates a resource user",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/invitation_spec.rb",
+      "line": 107,
+      "id": "spec/models/spree/invitation_spec.rb[1:5:2]",
+      "description": "Spree::Invitation#resend! does not publish event if invitation is expired",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/invitation_spec.rb",
+      "line": 113,
+      "id": "spec/models/spree/invitation_spec.rb[1:5:3]",
+      "description": "Spree::Invitation#resend! does not publish event if invitation is accepted",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/invitation_spec.rb",
+      "line": 123,
+      "id": "spec/models/spree/invitation_spec.rb[1:5:4]",
+      "description": "Spree::Invitation#resend! rotates the token",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/invitation_spec.rb",
+      "line": 127,
+      "id": "spec/models/spree/invitation_spec.rb[1:5:5]",
+      "description": "Spree::Invitation#resend! keeps the token of an expired invitation",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/invitation_spec.rb",
+      "line": 102,
+      "id": "spec/models/spree/invitation_spec.rb[1:5:1]",
+      "description": "Spree::Invitation#resend! publishes invitation.resent event if invitation is pending and not expired",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/invitation_spec.rb",
+      "line": 95,
+      "id": "spec/models/spree/invitation_spec.rb[1:4:2]",
+      "description": "Spree::Invitation#expired? returns false when expires_at is in the future",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/invitation_spec.rb",
+      "line": 90,
+      "id": "spec/models/spree/invitation_spec.rb[1:4:1]",
+      "description": "Spree::Invitation#expired? returns true when expires_at is in the past",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/concerns/user_management_spec.rb",
+      "line": 47,
+      "id": "spec/models/spree/concerns/user_management_spec.rb[1:1:3:1]",
+      "description": "Spree::UserManagement instance methods #default_user_role returns the store own admin role",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/concerns/user_management_spec.rb",
+      "line": 11,
+      "id": "spec/models/spree/concerns/user_management_spec.rb[1:1:1:1]",
+      "description": "Spree::UserManagement instance methods #add_user adds a user to the resource with the default role",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/concerns/user_management_spec.rb",
+      "line": 24,
+      "id": "spec/models/spree/concerns/user_management_spec.rb[1:1:1:3]",
+      "description": "Spree::UserManagement instance methods #add_user adds a user to the resource with a specified role",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/concerns/user_management_spec.rb",
+      "line": 18,
+      "id": "spec/models/spree/concerns/user_management_spec.rb[1:1:1:2]",
+      "description": "Spree::UserManagement instance methods #add_user refuses a role owned by another resource",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/concerns/user_management_spec.rb",
+      "line": 37,
+      "id": "spec/models/spree/concerns/user_management_spec.rb[1:1:2:1]",
+      "description": "Spree::UserManagement instance methods #remove_user removes a user from the resource",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/concerns/user_roles_spec.rb",
+      "line": 74,
+      "id": "spec/models/spree/concerns/user_roles_spec.rb[1:4:1]",
+      "description": "Spree::UserRoles#spree_admin? is expected to equal false",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/concerns/user_roles_spec.rb",
+      "line": 82,
+      "id": "spec/models/spree/concerns/user_roles_spec.rb[1:4:2:1]",
+      "description": "Spree::UserRoles#spree_admin? when a resource parameter is provided checks against the resource",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/concerns/user_roles_spec.rb",
+      "line": 45,
+      "id": "spec/models/spree/concerns/user_roles_spec.rb[1:3:1:1]",
+      "description": "Spree::UserRoles#has_spree_role? with a role is expected to be truthy",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/concerns/user_roles_spec.rb",
+      "line": 49,
+      "id": "spec/models/spree/concerns/user_roles_spec.rb[1:3:2:1]",
+      "description": "Spree::UserRoles#has_spree_role? without a role is expected to be falsy",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/concerns/user_roles_spec.rb",
+      "line": 60,
+      "id": "spec/models/spree/concerns/user_roles_spec.rb[1:3:3:1:1]",
+      "description": "Spree::UserRoles#has_spree_role? when a resource parameter is provided when the user has the role for the resource returns true",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/concerns/user_roles_spec.rb",
+      "line": 66,
+      "id": "spec/models/spree/concerns/user_roles_spec.rb[1:3:3:2:1]",
+      "description": "Spree::UserRoles#has_spree_role? when a resource parameter is provided when the user does not have the role for the resource returns false",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/concerns/user_roles_spec.rb",
+      "line": 17,
+      "id": "spec/models/spree/concerns/user_roles_spec.rb[1:2:1]",
+      "description": "Spree::UserRoles#remove_role removes a role from the user",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/concerns/user_roles_spec.rb",
+      "line": 31,
+      "id": "spec/models/spree/concerns/user_roles_spec.rb[1:2:2:1]",
+      "description": "Spree::UserRoles#remove_role when a resource parameter is provided removes a role from the user for the resource",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/concerns/user_roles_spec.rb",
+      "line": 9,
+      "id": "spec/models/spree/concerns/user_roles_spec.rb[1:1:1]",
+      "description": "Spree::UserRoles#add_role adds a role to the user",
+      "status": "passed"
+    },
+    {
+      "file": "spec/workflows/spree/invitations/accept_spec.rb",
+      "line": 9,
+      "id": "spec/workflows/spree/invitations/accept_spec.rb[1:1]",
+      "description": "Spree::Invitations::Accept marks the invitation accepted and stamps the time",
+      "status": "passed"
+    },
+    {
+      "file": "spec/workflows/spree/invitations/accept_spec.rb",
+      "line": 14,
+      "id": "spec/workflows/spree/invitations/accept_spec.rb[1:2]",
+      "description": "Spree::Invitations::Accept grants the invitee the role they were invited to",
+      "status": "passed"
+    },
+    {
+      "file": "spec/workflows/spree/invitations/accept_spec.rb",
+      "line": 21,
+      "id": "spec/workflows/spree/invitations/accept_spec.rb[1:3]",
+      "description": "Spree::Invitations::Accept publishes invitation.accepted",
+      "status": "passed"
+    },
+    {
+      "file": "spec/workflows/spree/invitations/accept_spec.rb",
+      "line": 31,
+      "id": "spec/workflows/spree/invitations/accept_spec.rb[1:4:1]",
+      "description": "Spree::Invitations::Accept when already accepted refuses",
+      "status": "passed"
+    },
+    {
+      "file": "spec/workflows/spree/invitations/accept_spec.rb",
+      "line": 50,
+      "id": "spec/workflows/spree/invitations/accept_spec.rb[1:6:1]",
+      "description": "Spree::Invitations::Accept without an invitee refuses",
+      "status": "passed"
+    },
+    {
+      "file": "spec/workflows/spree/invitations/accept_spec.rb",
+      "line": 40,
+      "id": "spec/workflows/spree/invitations/accept_spec.rb[1:5:1]",
+      "description": "Spree::Invitations::Accept when expired refuses and leaves the invitation pending",
+      "status": "passed"
+    }
+  ]
+}

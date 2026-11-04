@@ -1,0 +1,24 @@
+{
+  "screen": "DA-SET-12",
+  "state": "row-menu",
+  "variant": "deliveryViewer",
+  "role": {
+    "name": "Delivery settings viewer",
+    "permissions": [
+      "read_settings",
+      "read_delivery_methods",
+      "read_package_types"
+    ]
+  },
+  "theme": "light",
+  "revision": "87a2ea80",
+  "path": "/<store>/settings/payment-methods",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": null,
+  "masked": null,
+  "settled": true,
+  "outside": []
+}

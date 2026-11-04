@@ -31,18 +31,28 @@ import { defineConfig } from '@playwright/test'
  * `one-store-accounts.spec.ts` and `one-store-storefront.spec.ts` send requests
  * within one store as callers who may not make them, each beside an allowed
  * caller, and `one-store-checks.spec.ts` shows their judge (`one-store.ts`)
- * failing against a stand-in server (see each file). For batch 5 part 1,
+ * failing against a stand-in server (see each file). For step P8,
+ * `catalog-behaviours.spec.ts` drives the catalog behaviours that part 1 of the
+ * catalog and pricing batch captured but no browser test drives (see that
+ * file). For batch 5 part 1,
  * `fl-04-storefront.spec.ts` follows a product published in the dashboard to
  * the storefront, built against the same server (see that file). For part 2,
  * `fl-21.spec.ts` imports a product file and exports the catalog from the
  * product list, reading both staff emails, against a server started as for
- * `mail.spec.ts` (see that file).
+ * `mail.spec.ts` (see that file). Batch 7's captures and comparison keep their
+ * own files, `screens-batch-7.spec.ts` and `compare-batch-7.spec.ts`. For the
+ * multi-store administration batch, `multi-store.spec.ts` walks one teammate
+ * with different roles in two stores through its states (see that file).
+ * `FIDELITY_BASE_URL` points the scripts at a dashboard served on another
+ * port, beside a server started with `E2E_RAILS_PORT`.
  */
 export default defineConfig({
   testDir: '.',
   testMatch: [
     'compare.spec.ts',
     'screens.spec.ts',
+    'screens-batch-7.spec.ts',
+    'compare-batch-7.spec.ts',
     'setup.spec.ts',
     'refusals.spec.ts',
     'mail.spec.ts',
@@ -66,6 +76,8 @@ export default defineConfig({
     'one-store-accounts.spec.ts',
     'one-store-storefront.spec.ts',
     'one-store-checks.spec.ts',
+    'catalog-behaviours.spec.ts',
+    'multi-store.spec.ts',
   ],
   outputDir: './results/test-output',
   workers: 1,
@@ -73,7 +85,7 @@ export default defineConfig({
   reporter: 'list',
   use: {
     browserName: 'chromium',
-    baseURL: 'http://localhost:5174',
+    baseURL: process.env.FIDELITY_BASE_URL ?? 'http://localhost:5174',
     viewport: { width: 1280, height: 800 },
     deviceScaleFactor: 1,
     locale: 'en-US',

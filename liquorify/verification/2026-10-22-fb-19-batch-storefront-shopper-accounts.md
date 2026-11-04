@@ -259,6 +259,10 @@ Each was a defect in the story, fixed there; no storefront component changed. Th
 | 3 | The checkbox case compared no element, and the dialog case put the dialog's default header beside the address editor, which has none | Both are compared within the components that use them: the checkbox and the label within the consent and the field, the dialog's content within the address editor |
 | 4 | The native select was focused on the screen only | It is compared with the Focused story |
 
+### 4.4 Five comparisons captured again on 2026-11-04
+
+The storefront's sticky header was drawn over the part in five of the comparisons above: `account-shell` at 390 pixels, and `gift-card-list` and `order-detail-shipped` at both widths (G-52). On 2026-11-04 the 19 cases ran again with the corrected comparison script, and those five comparisons were replaced in the evidence. The differences found are the ones the table above explains. The other comparisons still match and are unchanged ([record](2026-11-04-g-52-shopper-accounts-comparisons-recaptured.md)).
+
 ## 5. The storefront's behaviour found, recorded and not changed
 
 Each is how the storefront and Spree work at `8153a6b` and `a4a1708`. The batch reproduces it and changes nothing.

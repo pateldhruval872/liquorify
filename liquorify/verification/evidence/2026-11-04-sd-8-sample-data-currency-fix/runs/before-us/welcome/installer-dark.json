@@ -1,0 +1,16 @@
+{
+  "screen": "DA-SETUP-01",
+  "state": "welcome-sample-data-us",
+  "variant": "installer",
+  "role": null,
+  "theme": "dark",
+  "revision": "before-us",
+  "path": "/store_UkLWZg9DAJ/getting-started",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": null,
+  "masked": null,
+  "outside": []
+}
