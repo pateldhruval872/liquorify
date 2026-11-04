@@ -1,0 +1,23 @@
+{
+  "test": "product-type-delete-refused",
+  "revision": "7ffc7755c8ae683af2c8f00efe543e1070cdbae0",
+  "stamp": "mw2917sl",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "confirmed deleting P8 Spirits mw2917sl, which two products use",
+      "serverStatus": 422,
+      "serverMessage": "Cannot delete record because dependent products exist"
+    },
+    {
+      "step": "looked for the refusal",
+      "shown": false,
+      "toasts": []
+    },
+    {
+      "step": "reloaded; the type is still listed",
+      "row": "P8 Spirits mw2917sl\n\t—\t2\t"
+    }
+  ],
+  "outside": []
+}

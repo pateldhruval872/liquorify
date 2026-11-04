@@ -1,0 +1,21 @@
+{
+  "test": "product-type-deleted",
+  "revision": "7ffc7755c8ae683af2c8f00efe543e1070cdbae0",
+  "stamp": "mw2917sl",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "deleted P8 Unused type mw2917sl"
+    },
+    {
+      "step": "reloaded",
+      "listed": [
+        "Default",
+        "Digital",
+        "P8 Cordials mw2917sl",
+        "P8 Spirits mw2917sl"
+      ]
+    }
+  ],
+  "outside": []
+}
