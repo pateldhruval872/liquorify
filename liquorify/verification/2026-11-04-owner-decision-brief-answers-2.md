@@ -1,7 +1,7 @@
 ---
 title: The owner's second set of answers to the owner decision brief
 record: owner decisions
-work_item: FB-05, FB-06, FB-11, FB-19 (catalog part 2, batch 9, P4, P8, P9, P10), SD-17, G-11, G-13, G-45, G-57 to G-59, G-61, G-65 to G-72
+work_item: FB-05, FB-06, FB-11, FB-19 (catalog part 2, batch 9, P4, P8, P9, P10), OA-6, SD-17, G-11, G-13, G-37, G-45, G-57 to G-59, G-61, G-65 to G-72
 date: 2026-11-04
 recorded_by: Claude (automated session); not independent review
 result: On 2026-11-04 the owner answered 19 rows of the owner decision brief, and the part of a 20th that concerns B17. Every other open decision stays pending, among them shopper-account ownership and the acceptance of FB-03's private report. No capability, gap or defect result changes to PASS because of these answers, tenant isolation stays NOT_RUN, and Liquorify-specific features stay deferred.
@@ -54,7 +54,7 @@ Two platform steps were added for the owner's condition, as P8 was added for G-5
 | G-45, G-70 | Function, refusals | P10, after catalog part 3 merges | P10's evidence passes for every request the gap names. A request answered that should have been refused is a defect and a security finding for the owner, and the gap stays open |
 | G-58, G-65 | Coverage, comparisons | The comparison follow-up in each later dashboard batch: catalog part 3, then batches 6, 8 and 10 to 13 | Every story the gap holds has been compared with a running screen in one of those batches' image review lists. A story no stock screen shows keeps its status, and the gap stays DEFERRED for it |
 | G-61, G-69, G-72 | Function, browser tests | P9, in parts as each batch merges | Each action the gap names has a browser test, run twice in a row at a recorded revision and shown to fail when its assertion does not hold, that passes or fails only on a recorded defect, whose failing result is kept. G-72's tests fail on SD-18 until it is fixed |
-| G-68 | Function, browser tests | G-37's, which is still pending; P9 is proposed to the owner for it | G-37's browser tests pass |
+| G-68 | Function, browser tests | G-37's, in P9 since the owner's answer to row F later the same day (§5) | G-37's browser tests pass, as §5 sets out |
 | G-71 | Function, where settings take effect | Batch 9 for checkout, batch 8 for orders, P4 for real providers | Each setting in batch 7's record §8 has passing evidence from the work it is handed to. Mocked provider forms do not count for the real-provider part |
 
 **Accepted, not deferred.** G-59 and G-66 are simulated interface-state coverage only: the states were reached by answering or holding a request in the browser, and the server's behaviour in them is not verified. G-67 is source-reviewed coverage only: no Stripe or EasyPost screen, call or integration is verified. None of the three is functional verification.
@@ -69,7 +69,7 @@ Two platform steps were added for the owner's condition, as P8 was added for G-5
 - **Rows 6 to 8:** the merchant lifecycle specification's preview (D8), FB-03's validation result, which stays private, and who owns a shopper account.
 - **Rows 26 to 29:** where P5 runs, FB-04's last step, decision 34 (a verified inbox for security reports) and the completion record.
 - **Owner actions OA-5 to OA-8:** none done yet.
-- **G-37,** with G-68 linked to it. Its batch reported on 2026-10-26 and its work item was not named; P9 is proposed to the owner for it.
+- **G-37,** with G-68 linked to it. Its batch reported on 2026-10-26 and its work item was not named; P9 was proposed to the owner for it as row F, which the owner answered later the same day (§5).
 - **The other open gaps,** answered when the batch that holds each one reports: G-02, G-14, G-26, G-38, G-39, G-44 with G-49, and G-11 with the gaps linked to it.
 
 ## 4. What these answers do not change
@@ -80,3 +80,16 @@ Two platform steps were added for the owner's condition, as P8 was added for G-5
 - **Criteria.** Only criterion 1.6 of P8 and criterion 15 of catalog part 2 change, by the owner's answers to rows E and A. Every other criterion and tolerance stays as it was.
 - **Hosting.** Rows C and D decide the storefront's test host only. Where the host application lives for development and hosting stays FB-05's open question.
 - **Liquorify-specific work** stays deferred until the baseline is complete, and the proposed entry criteria stay proposed.
+
+## 5. Later the same day
+
+On 2026-11-04 the owner sent three more answers and one report. Each is recorded against its own ID.
+
+| ID | The owner's answer, 2026-11-04 | Recorded in |
+|---|---|---|
+| Storefront #23, FB-06's step 2.2 | The CI workflow change in storefront #23 may merge under the delegation, with no further personal review by the owner. Before it merges, its technical review is completed, the branch is brought up to date with any conflicts resolved, and two passing browser-test runs are recorded on its final revision. Main is checked after the merge. It does not depend on OA-6 | [Foundation lane §3](../work-items/foundation-lane-security-audit-and-storefront-backend.md#3-risk-and-release-impact); [FB-06](../LIQ-004-foundation-backlog.md#backlog) |
+| Row F: G-37 with G-68 | G-37 and G-68 are added to the platform batch's step P9. The scope covers the store address dialog, saving the storefront address, following the payment method task's link, and Getting Started showing the tasks done after a reload. The tests, their expected results and the closure conditions are recorded before implementation, failures and defects stay visible, and these checks support no tenant-isolation claim | [P9, item 1.4](../work-items/fb-19-batch-platform.md#p9-untested-actions-in-settings-the-catalog-and-multi-store-administration); G-37; G-68 |
+| Catalog part 3 and batch 9 | Both continue. Their records keep local results apart from CI results. The next eligible approved work starts as capacity opens | Each batch's own record |
+| OA-6 | The owner reported the setting saved. FB-11's security audit repair continues, checks that the workflow can open its pull request, and records the result. It is not read from here, because this environment cannot read the repository's Actions settings | [OA-6](../LIQ-004-foundation-backlog.md#owner-actions); FB-11; [Foundation lane §5](../work-items/foundation-lane-security-audit-and-storefront-backend.md#5-questions-for-the-owner-and-the-owners-answers) |
+
+**What this does not change.** G-37 and G-68 stay open until P9's record meets their closure condition. P9's test of a value that is not an address fails on SD-7 until SD-7 is fixed, and that failing result is kept. Item 1.4 runs within one store and claims nothing about ISO-6 or any other isolation finding. Every other unanswered owner decision stays pending.
