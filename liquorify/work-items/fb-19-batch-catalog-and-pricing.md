@@ -5,14 +5,14 @@ work_item: FB-19
 status: PROPOSED
 owner: the owner reviews and accepts; an automated Claude session implements
 created: 2026-10-30
-updated: 2026-11-02
+updated: 2026-11-04
 ---
 
 # FB-19 batch 5: catalog and pricing
 
 The fourth backend batch organised by product area: the dashboard's side of [LIQ-006 §5](../LIQ-006-product-capability-baseline.md#5-catalog-and-pricing), where staff build and price what the store sells. It reproduces what Spree already has for products, variants and options, publishing, product types, the media library, categories and collections, catalogs, price lists, translations, imports and exports, promotions, gift cards and store credit. Nothing here changes Spree's code or the storefront's, or adds a Liquorify feature.
 
-**Status.** PROPOSED. It is batch 5 in [LIQ-004's proposed order](../LIQ-004-foundation-backlog.md#proposed-order-of-the-remaining-batches), which depends on batch 3, setup, accepted and merged on 2026-10-26. On 2026-10-30 the owner asked for this proposal under the existing batch rules and the Spree-first scope. It follows the batch rules of [LIQ-010 0.4](../LIQ-010-design-system-reproduction-architecture.md#121-each-batch) and has the same shape as [batch 3](fb-19-batch-setup-stores-and-settings.md). The batch is too large for one review, so it comes in three parts, as LIQ-004 proposed. Part 1 is described in full in §2 to §9. Parts 2 and 3 are outlined in §10, and each is described in full in its own pull request before its work starts. This work item was proposed in draft pull request [#33](https://github.com/pateldhruval872/liquorify/pull/33). On 2026-11-02 the owner approved the three recommended answers in §7: three parts, with part 1 in one implementation pull request; sellers' submitted products, their review controls and the seller filter deferred to batch 13; and FL-04 checked on the running storefront against the same pinned backend (criterion 15). The owner kept the existing gap and defect decisions, and tenant isolation NOT_RUN. Part 1 is built in its own pull request, [#34](https://github.com/pateldhruval872/liquorify/pull/34), and the corrections its running screens found are in §11. On 2026-11-02 the owner accepted part 1's reference images, screen evidence and fidelity, within the documented limits, and answered its gaps G-53 to G-57, before its merge ([record §11](../verification/2026-11-02-fb-19-batch-catalog-and-pricing-part-1.md#11-the-owners-review-2026-11-02)). The owner merged #34 on 2026-11-03, recorded apart ([merge record](../verification/2026-11-03-fb-19-batch-catalog-and-pricing-part-1-merge.md)). Parts 2 and 3 still need their detailed proposals before their work starts; the owner asked on 2026-11-02 that the next one be aligned with the project's baseline completion audit.
+**Status.** PROPOSED. It is batch 5 in [LIQ-004's proposed order](../LIQ-004-foundation-backlog.md#proposed-order-of-the-remaining-batches), which depends on batch 3, setup, accepted and merged on 2026-10-26. On 2026-10-30 the owner asked for this proposal under the existing batch rules and the Spree-first scope. It follows the batch rules of [LIQ-010 0.4](../LIQ-010-design-system-reproduction-architecture.md#121-each-batch) and has the same shape as [batch 3](fb-19-batch-setup-stores-and-settings.md). The batch is too large for one review, so it comes in three parts, as LIQ-004 proposed. Part 1 is described in full in §2 to §9, and part 2 in §10. Part 3 is outlined in §12, and is described in full in its own pull request before its work starts. This work item was proposed in draft pull request [#33](https://github.com/pateldhruval872/liquorify/pull/33). On 2026-11-02 the owner approved the three recommended answers in §7: three parts, with part 1 in one implementation pull request; sellers' submitted products, their review controls and the seller filter deferred to batch 13; and FL-04 checked on the running storefront against the same pinned backend (criterion 15). The owner kept the existing gap and defect decisions, and tenant isolation NOT_RUN. Part 1 is built in its own pull request, [#34](https://github.com/pateldhruval872/liquorify/pull/34), and the corrections its running screens found are in §11. On 2026-11-02 the owner accepted part 1's reference images, screen evidence and fidelity, within the documented limits, and answered its gaps G-53 to G-57, before its merge ([record §11](../verification/2026-11-02-fb-19-batch-catalog-and-pricing-part-1.md#11-the-owners-review-2026-11-02)). The owner merged #34 on 2026-11-03, recorded apart ([merge record](../verification/2026-11-03-fb-19-batch-catalog-and-pricing-part-1-merge.md)). Part 2's detailed proposal is §10, proposed in pull request [#36](https://github.com/pateldhruval872/liquorify/pull/36) on 2026-11-03 and aligned with the project's baseline completion audit, as the owner asked on 2026-11-02. On 2026-11-04 the owner answered its two questions as recommended, as decisions 2 and 3 of the owner decision brief: one implementation pull request, and the narrower roles' server refusals joining G-11, with the catalog's refusal checks consolidated after part 3, before Liquorify changes identity or access. The owner also strengthened FL-21's check to cover the imported products' saved values and representative exported rows (§10.9). Part 2's work starts on these answers, in its own pull request. Part 3 still needs its detailed proposal.
 
 **Reading of the instruction.** The owner's message of 2026-10-30 asked for the next batch's proposal: batch 5, catalog and pricing, following the existing batch rules and continuing the Spree-first scope. So this batch reproduces Spree's dashboard as it is at `main` `01a0365` and adds nothing of Liquorify's own. The storefront's side of §5, CAP-05-14, CAP-05-16 and CAP-05-17 and the shopper's side of CAP-05-01 and CAP-05-04, is batch 4's, accepted on 2026-10-29 and 2026-10-30; this batch maps those rows to batch 4's evidence and does not capture them again.
 
@@ -20,7 +20,7 @@ The fourth backend batch organised by product area: the dashboard's side of [LIQ
 
 Every catalog, pricing and loyalty screen in the dashboard has Storybook stories for the components it uses, captures of the running screen in each meaningful state and permission variant, and a step-by-step map of the flows it holds: FL-04, creating and publishing a product, in part 1; FL-21, importing from a CSV file, in part 2; and the dashboard's steps of FL-16 and FL-17, a promotion and a gift card, in part 3. The map links each capability to its evidence or to a named gap.
 
-- **Bounded, in three parts:** the 24 screens and one overlay of §5 use 98 components that have no stories yet, about three times batch 3's 27. Part 1 holds 6 screens, FL-04 and 40 of those components (§2, §3); part 2 holds 13 screens and the import overlay and about 41; part 3 holds 5 screens and 15 (§10). The other 2 go to batch 13 (§2.3).
+- **Bounded, in three parts:** the 24 screens and one overlay of §5 use 98 components that have no stories yet, about three times batch 3's 27. Part 1 holds 6 screens, FL-04 and 40 of those components (§2, §3); part 2 holds 13 screens and the import overlay and about 41; part 3 holds 5 screens and 15 (§10, §12). The other 2 go to batch 13 (§2.3).
 - **Same shape as batch 3:** screens, flows, permissions, meaningful states and running-screen evidence progress alongside component coverage, with what the interface shows kept apart from what the server enforces.
 - **Spree stays unchanged:** only Storybook files, mocks, scripts, evidence and records change.
 - **Function is recorded apart from coverage:** a capture shows one state of a screen, not that a flow works.
@@ -67,7 +67,7 @@ The catalog has several permission scopes ([LIQ-008 §2](../LIQ-008-spree-screen
 ### 2.3 Left out, and where it goes
 
 - **Part 2 (§10):** categories and collections (CAP-05-04), catalogs (CAP-05-05), translations (CAP-05-08's page, DA-PRD-06), price lists and price rules (CAP-05-10), and imports and exports (CAP-05-15) with the import wizard (DA-OVL-05), FL-21 and the two staff emails EM-S-05 and EM-S-06. `import-button`, `export-button`, `import-wizard-dialog` and `wizard` go there; part 1 captures the product list's import and export buttons as they render.
-- **Part 3 (§10):** promotions (CAP-05-12) and gift cards and store credit (CAP-05-13).
+- **Part 3 (§12):** promotions (CAP-05-12) and gift cards and store credit (CAP-05-13).
 - **A seller's product under review:** the review actions and the seller card on the product page (`product-review-actions`, `product-seller-card`) go to batch 13, the marketplace, where sellers and their submissions are set up, as the owner answered on 2026-11-02 (§7). The seller filter on the product list goes there too. Part 1 captures the product page and the product list for the store's own products.
 - **Stock:** the product page's stock per location and stock history are captured as they render; stock locations, transfers and receipts are batch 6's.
 - **The tax category:** captured as it renders, with `products-tax-category.spec.ts`; tax categories and rates are batch 7's.
@@ -175,28 +175,136 @@ Recorded now so none is lost. Part 1's record says which it closes.
 - **Release impact.** None. Nothing is deployed.
 - **Verification.** Each part's verification record in `liquorify/verification/`, with the published evidence.
 
-## 10. Parts 2 and 3, outlined
+## 10. Part 2: organising and pricing the catalog
 
-Each is described in full, with its states, permission variants, components, criteria and questions, in its own pull request before its work starts, as batch 4's part 2 was. Both follow part 1's acceptance, and use part 1's catalog data.
+Part 2 covers how staff organise and price what part 1 created: categories and collections, catalogs, the translations page, price lists and their rules, and imports and exports as CSV, with FL-21 and the two staff emails EM-S-05 and EM-S-06. It reproduces Spree's dashboard as `main` has it at `5794da6`, whose dashboard packages and SDKs are unchanged since `01a0365`, the revision part 1 pinned; `main` has changed only Spree's address and gift card models since, neither of which part 2's screens show. It builds on part 1's acceptance and merge (§11), uses part 1's catalog data, and follows the same batch rules. It was proposed on 2026-11-03, aligned with the project's baseline completion audit of 2026-11-02: part 2 is the next step on the dashboard's critical path, which runs through batch 5 to batches 6, 8, 10 and 12, and it stays in lane A, with its own checkout and data.
 
-**Part 2: organising and pricing the catalog.** About 41 new components.
+### 10.1 Capabilities, screens, flows and tests
 
-| Capability | Screens | Flow | Browser tests |
+| Capability (LIQ-006 §5) | Screens | Flow | Browser tests |
 |---|---|---|---|
-| CAP-05-04 Categories and collections, including rule-based collections | DA-PRD-07 to DA-PRD-12; the storefront's side is batch 4's | None | `categories.spec.ts` (4 tests), `collections.spec.ts` (7) |
-| CAP-05-05 Catalogs | DA-PRD-13, DA-PRD-14 | None | `catalogs.spec.ts` (12) |
-| CAP-05-08 Translations of catalog content | DA-PRD-06 | None | `products-translations.spec.ts` (5) |
-| CAP-05-10 Price lists and price rules | DA-PRD-15 to DA-PRD-17 | None | `price-lists.spec.ts` (13) |
-| CAP-05-15 Imports and exports as CSV | DA-OVL-05, DA-SET-31; the import and export buttons on the lists that have them; EM-S-05, EM-S-06 | FL-21 | `imports.spec.ts` (3) |
+| CAP-05-04 Categories and collections, including rule-based collections | DA-PRD-07 to DA-PRD-12; the storefront's side, SF-SHOP-03, is batch 4's | None | `categories.spec.ts` (4 tests), `collections.spec.ts` (7); a category's custom field in `custom-field-definitions.spec.ts` (1); the product list's category filter and adding to categories in bulk, part 1's, in `products-list.spec.ts` and `products-bulk.spec.ts` |
+| CAP-05-05 Catalogs | DA-PRD-13, DA-PRD-14 | None | `catalogs.spec.ts` (12); the catalog wizard's blank name in `validation-messages.spec.ts` (1) |
+| CAP-05-08 Translations of catalog content | DA-PRD-06; the translations card and dialog on the product page and an option type are part 1's | None | `products-translations.spec.ts` (5) |
+| CAP-05-10 Price lists and price rules | DA-PRD-15 to DA-PRD-17; the bulk price editor on the product page is part 1's | None | `price-lists.spec.ts` (14) |
+| CAP-05-15 Imports and exports as CSV | DA-OVL-05, DA-SET-31; the import and export buttons on the product list, the translations page, a catalog and a price list; EM-S-05, EM-S-06 | FL-21 | `imports.spec.ts` (3); the price list's import and export in `price-lists.spec.ts` (1) |
 
-Its components include the category tree and list, the collection rules, the catalog wizard and its audience, terms and pricing parts, the price list form with its five rule editors, the bulk price editor, the product membership panels and the resource picker sheet, and the import wizard.
+CAP-05-11, price history, keeps P1's result, as in part 1. With part 2, every capability of §5 but part 3's CAP-05-12 and CAP-05-13 has a map, some only in part, such as CAP-05-07, whose shopper downloads are batch 8's.
 
-**Part 3: promotions, gift cards and store credit.** 15 new components: the promotion form and its eight rule editors, its two action editors and match policy picker, the calculator summary, and the two store credit dialogs.
+### 10.2 Meaningful states to capture
 
-| Capability | Screens | Flow | Browser tests |
-|---|---|---|---|
-| CAP-05-12 Promotions and coupon codes | DA-PRM-01 to DA-PRM-03 | FL-16, its dashboard step; its cart, checkout and order steps are batches 8 and 9's | `promotions.spec.ts` (21 tests) |
-| CAP-05-13 Gift cards and store credit | DA-LOY-01, DA-LOY-02; the shopper's gift card list (SF-ACC-09) is the accounts batch's | FL-17, its dashboard step; redeeming at checkout is batch 9's | `gift-cards.spec.ts` (6), `store-credits.spec.ts` (5) |
+From LIQ-008, the screens' own messages and the browser tests, plus the shared list states that apply. Each state is captured in light and dark at 1280 pixels; the category list, a collection and a price list are also captured on a narrow screen.
+
+| Screen | States |
+|---|---|
+| DA-PRD-06 Translations | Coverage per language, with records fully, partly and not translated; no other language configured; each kind of record: products, categories, collections and option types; searched, and finding nothing; the translate dialog opened from a row, with a rich text description; the import and export buttons, and the import wizard for translations; the coverage failing to load |
+| DA-PRD-07 Categories | The tree, expanded and collapsed; the list view; searched, and finding nothing; no categories; a top-level category moved by dragging; the delete confirmation; the list failing to load |
+| DA-PRD-08 New category | The empty form; a parent chosen; an image added; products added before saving, with the resource picker; a category with no name refused |
+| DA-PRD-09 Category | Edited, with its image and description; its products, added and removed, staged until Save with the removal restorable in one click, and reordered by dragging, which takes effect at once; custom fields; unsaved changes; saved; a save refused with its errors; the `category.form_sidebar` slot, as it renders; the page failing to load |
+| DA-PRD-10 Collections | Listed, manual and automatic; filtered by kind; searched, and finding nothing; none; the delete confirmation |
+| DA-PRD-11 New collection | The empty form; manual, with products added before saving; automatic, with rules of each kind Spree registers and the match policy; a collection with no name refused |
+| DA-PRD-12 Collection | A manual collection: its name, image and default sorting, products added and removed, and several chosen for removal on Save, discardable until then; an automatic collection: its rules edited and its membership read-only; switching a manual collection to rules, which hides the curation before saving; unsaved changes; saved; the `collection.form_sidebar` slot, as it renders |
+| DA-PRD-13 Catalogs | Listed, active and inactive, with each pricing mode; searched; none; the wizard's five steps, details, audience, products, pricing and review, with a step that needs fixing, no audience and no products warned of, and a blank name refused; closing an untouched wizard, and the confirmation before a part-filled one is discarded; the delete confirmation |
+| DA-PRD-14 Catalog | Its settings, with the activate and deactivate confirmations; its audience of companies and customer groups, one added and one withdrawn with its undo; its terms, the minimum and multiple per product and the order minimums per currency, with their errors; its products, staged until Save, with the picker paging and choosing all matching results; its pricing, in each mode: normal prices, a percentage off base prices with its quantity tiers, and prices entered for the catalog, with the price columns and the bulk price editor; the import and export of its prices; staged changes; saved; the `catalog.form_sidebar` slot, as it renders; the page failing to load |
+| DA-PRD-15 Price lists | Listed, in each status: draft, active, inactive and scheduled; searched, and finding nothing; none; the delete confirmation |
+| DA-PRD-16 New price list | The empty form; its schedule; the rule type picker, without the superseded audience rules; a rule of each kind the picker offers: volume, market and channel, in its sheet; a price list with no name refused |
+| DA-PRD-17 Price list | Its rules, edited and one removed; a customer rule and a customer group rule, which Spree no longer offers for new price lists but keeps for existing ones, as they render; its products, paged without saving; its prices in the spreadsheet, with a quantity break added; the bulk editor in two currencies; the import and export of its prices; unsaved changes; saved; the `price_list.form_sidebar` slot, as it renders |
+| DA-OVL-05 Import wizard | Upload; a semicolon-separated file; mapping, with required fields not yet mapped and starting blocked; progress; results, with rows that failed and why; opened from the product list, the translations page, a catalog and a price list |
+| DA-SET-31 Imports | Imports in each status Spree has: pending, mapping, mapping completed, processing, completed and failed; an import's results; downloading the original file; the delete confirmation; none |
+| EM-S-05, EM-S-06 | Each rendered from Spree's own mailer preview, as the staff access batch rendered its emails, and each read as sent during the run (§10.6, criterion 15) |
+
+### 10.3 Permission variants
+
+Part 2's screens use three of the catalog's scopes ([LIQ-008 §2](../LIQ-008-spree-screen-inventory.md#2-who-may-open-what)): `categories`; `collections`; and `products`, which covers catalogs, their products and audiences, price lists, price rules, prices and imports. A record's translations need the scope of the record they translate, so a category's need `categories`. Spree gates importing products, their translations or a price list's prices on write on `products`, and exporting them on read. Four roles, as in part 1:
+
+- **Admin role:** every screen with every control.
+- **A role made from the merchandiser template,** which holds write on products, categories, collections and stock: every part 2 screen with its controls, recorded as each shows them.
+- **The catalog viewer, part 1's custom role with read on its five scopes, given read on `categories` and `collections` too, and write on nothing:** the same screens, with create, edit, delete, import and reorder controls recorded as each screen shows them. Part 1 found that some screens keep controls the server then refuses, and that a teammate who cannot read a related record sees it by its id or not at all (its record's B14 to B17), so each is recorded, not assumed.
+- **A role made from the order manager template, which holds none of these scopes:** the catalog entries hidden, and a direct visit to each screen recorded as it shows.
+
+What the server refuses to the narrower roles is recorded from Spree's own specs (criterion 12); what no spec sends joins G-11, as G-56 did, as the owner answered on 2026-11-04 ([§10.9](#109-questions-for-the-owner-and-the-owners-answers)).
+
+### 10.4 Left out, and where it goes
+
+- **Part 3 (§12):** promotions, gift cards and store credit. The promotion editors' `editor-shell` gets its stories here, because the price list's rule sheets use it; the promotion's own editors stay with part 3.
+- **Imports of customers and purchase orders:** the wizard is the same, and part 2 gives it its stories and captures it for products, translations, catalogs and price lists. Opening it from the customer list and the purchase orders list, and what those imports write, stay with batch 10, customers, and batch 6, inventory.
+- **Reports' exports and FL-22:** EM-S-05 also announces a finished report export. The reports and FL-22 stay with batch 11; part 2 reads EM-S-05 for a product export.
+- **A seller's imports:** the imports list's seller column and a seller's own imports are batch 13's, the marketplace, as part 1 left sellers' products there. Part 2 captures the store's own imports.
+- **Companies and customer groups:** their own screens are batch 10's and, for wholesale, batch 12's. Part 2 uses the ones Spree's sample data creates, an "Acme Industrial" company with its division and the wholesale customer group, as a catalog's and a price rule's audience, and captures them only as those screens show them.
+- **The storefront's side:** categories and collections on the storefront are batch 4's, accepted; a catalog's or a price list's prices for a signed-in buyer on the storefront are batch 12's, wholesale, with FL-10; translated content on the storefront follows the language decision in LIQ-006 §5.
+
+### 10.5 Components
+
+Part 2's screens use 41 components from [LIQ-009](../LIQ-009-spree-component-and-token-inventory.md) that have no stories yet, found as part 1's were: from what the screens import on `main`, followed through each file they import, after part 1's 40. The part's first step confirms the list against the running screens.
+
+| Layer | New in part 2 |
+|---|---|
+| Composed (CMP-DUI-C) | `product-membership-list` (35), `quantity-tier-editor` (37), `resource-combobox` (39), `wizard` (54) |
+| Framework (CMP-CORE) | `export-button` (09), `import-button` (12), `import-wizard-dialog` (13), `market-combobox` (15), `money` (18), `resource-picker-sheet` (25), `section-heading` (28) |
+| `bulk-price-editor/` (CMP-DA-G-02) | `bulk-price-editor`, `bulk-price-editor-dialog` |
+| `categories/` (CMP-DA-G-03) | `category-form`, `category-list`, `category-products-card`, `category-tree` |
+| `collections/` (CMP-DA-G-04) | `collection-form`, `collection-products-card`, `collection-rules-card` |
+| `imports/` (CMP-DA-G-09) | `import-wizard-dialog` |
+| `price-list-editors/` (CMP-DA-G-13) | `price-list-form`, `rule-channel`, `rule-customer`, `rule-customer-group`, `rule-market`, `rule-volume`, `status-badge` |
+| `promotion-editors/` (CMP-DA-G-15) | `editor-shell` |
+| Admin dashboard (CMP-DA-G-24, top level) | `catalog-audience`, `catalog-price-columns`, `catalog-pricing-fields`, `catalog-terms-card`, `catalog-wizard-dialog`, `company-combobox-option`, `deferred-product-membership-card`, `price-list-csv-buttons`, `product-membership-staging`, `resource-image-field`, `route-pending`, `type-picker-sheet` |
+
+`product-membership-staging` draws nothing of its own, so its story shows what it does, products staged for adding and removal on a category, as `product-custom-fields-provider`'s did in part 1. `route-pending` is the catalog page's loading state.
+
+**Already covered, reused here:** 67 components with stories from earlier batches and part 1, among them `resource-table`, `table-toolbar`, `bulk-action-bar`, `store-date-picker`, `page-header`, `can`, `slot`, `confirm-dialog`, `form-actions`, `drag-handle`, `media-picker-sheet`, `image-upload-field`, `file-upload-field`, `currency-select`, `country-combobox`, the data grid with its cells and fill handle, `bulk-price-table`, `resource-multi-autocomplete`, the translations card and dialog, `custom-fields-inline`, `metadata-card`, `rich-text-editor`, and the primitives.
+
+### 10.6 Delivery
+
+- **One backend pull request for part 2,** as the owner answered on 2026-11-04 ([§10.9](#109-questions-for-the-owner-and-the-owners-answers)): stories, fixtures and mocks, reference images, the capture scripts, the verification record, the image review list, the evidence index and LIQ-009's Storybook column. It builds on `main`.
+- **Running screens:** the dashboard built at the pull request's revision against Spree's browser-test server, as part 1 ran it, with Spree's sample catalog loaded into that server's own database. Spree's sample data already gives what most states need: categories, the "New Arrivals" and "On Sale" collections, product translations, a wholesale customer group, a "Wholesale" price list, two companies and the "Wholesale Assortment" catalog. What a state needs beyond it, such as a price list in each status, an automatic collection, an import in each status, a second language and the roles in §10.3, is added through the Admin API on that database only. A customer rule and a customer group rule are added the same way if Spree's API accepts them for an existing price list; if it does not, their stories are checked against their source and the record says so. Spree's code, tests and fixtures are not changed.
+- **Its own checkout and data,** under LIQ-004's lane rules, as part 1 ran.
+- **FL-21 and the emails on the running server (criterion 15):** a product CSV is imported through the wizard from the product list, and each imported product is read back through the Admin API and its saved values compared with the file's. The import's email, EM-S-06, is read from the folder the browser-test server writes its mail to, the method P1 established ([P1's mail record](../verification/2026-10-22-fb-19-platform-p1-mail.md)), and its link followed to DA-SET-31. An export is started from the product list, EM-S-05 is read the same way, and its download link is fetched: the file's header and row count are checked, and representative rows are compared with the products they describe, read through the Admin API. Nothing is sent outside the machine.
+- **Emails rendered:** EM-S-05 and EM-S-06 from Spree's own mailer previews, as the staff access batch rendered its emails, at 1280 pixels.
+
+**Size, estimated from part 1:** about 230 stories and 460 reference images, and about 170 running-screen captures with their computed styles. Part 1 came to 254 stories for 40 components and 140 captures for six screens; part 2 has 41 components and fourteen screens and overlays, most of them simpler than the product page.
+
+### 10.7 Acceptance criteria
+
+Part 1's criteria 1 to 14 apply to part 2, with its own screens, components, roles and flow: FL-21 in criterion 5 and the screens of §10.2 in criterion 3. Criterion 12 runs Spree's own specs for part 2's endpoints and models: the Admin API controller and integration specs for categories, collections and collection rules, catalogs and catalog assignments, price lists and prices, imports and import rows, exports, translations and translation coverage; and Spree core's category, collection, collection rule, catalog, catalog order minimum and quantity rule, price list, price rule, import, import mapping, import row, export and translation specs. Two criteria change:
+
+| # | Criterion | Evidence |
+|---|---|---|
+| 15 | FL-21 on the running server, strengthened by the owner on 2026-11-04. A product CSV imported through the wizard from the product list reaches its results, and each product it imported, read back through the Admin API, holds the file's value in every field the file maps; a value missing or different fails the check. EM-S-06 is read as sent and its link opens DA-SET-31 showing the import. An export started from the product list sends EM-S-05, whose link downloads a CSV whose header is Spree's product format and whose rows cover the store's products. Representative rows hold the values their products have on the server: at least a product without options, a product with variants, with its variants' rows, and a product the same run imported. A server error fails the check. Any delay, such as the time the background job takes, is recorded | The captures; the emails as read; each imported product's saved values beside the file's; the export's header and row count, and its representative rows beside their products' values; and each response's status |
+| 16 | EM-S-05 and EM-S-06 are rendered from Spree's previews, and the rendering is linked from the record | The rendered emails |
+
+### 10.8 FL-21 step by step
+
+| Step | Browser tests |
+|---|---|
+| DA-PRD-01: open the import wizard from the product list | `imports.spec.ts`: "imports products through the upload → mapping → progress → results wizard" |
+| DA-OVL-05: upload a CSV file, including a semicolon-separated one | The same test; "imports a semicolon-separated file" |
+| DA-OVL-05: map its columns; starting is blocked until the required fields are mapped | "blocks starting until required fields are mapped" |
+| DA-OVL-05: follow its progress and see its results | "imports products through the upload → mapping → progress → results wizard" |
+| The imported products, saved with the file's values | None: Spree's test checks the wizard's results; each product is read back through the Admin API and compared with the file instead (criterion 15) |
+| EM-S-06: the import's email | None: read from the server's mail folder instead (criterion 15) |
+| DA-SET-31: the import in the imports history | None found: captured, and opened from the email's link instead (criterion 15) |
+
+Part 2's other browser tests are in no flow: `categories.spec.ts`, `collections.spec.ts`, `catalogs.spec.ts`, `products-translations.spec.ts`, `price-lists.spec.ts`, the category test of `custom-field-definitions.spec.ts` and the catalog wizard's test of `validation-messages.spec.ts`.
+
+### 10.9 Questions for the owner, and the owner's answers
+
+1. **One pull request, or two?** Part 2 has fourteen screens and overlays and 41 new components, about part 1's size in components with more, simpler screens. Recommended: one implementation pull request, as part 1 was. The alternative is two, built one after the other: categories, collections, translations and imports with FL-21 first, then catalogs and price lists. The shared membership and picker components would then land in the first.
+   *The owner's answer, 2026-11-04 (decision 2 of the owner decision brief):* one implementation pull request.
+2. **Server refusals for the narrower roles: join G-11, or check them now?** Spree's specs exercise some of part 2's refusals; the rest would join G-11 beside G-45, G-50 and G-56, which the owner kept open for the catalog. Recommended: record what the specs exercise and add the rest to G-11, and check the catalog's refusals once, for parts 1 to 3 together, in a platform step like P7 after part 3, so one run covers the whole catalog. The alternative is a P7-style check of part 2's own requests within part 2.
+   *The owner's answer, 2026-11-04 (decision 3):* the refusals join G-11, and the catalog's refusal checks, for parts 1 to 3, are consolidated after part 3 under G-11, before Liquorify changes identity or access.
+
+The owner also strengthened FL-21: it verifies the imported products' saved field values and representative exported rows' values, alongside the export's header and row count (criterion 15 in §10.7, and §10.8). Part 2's work starts on these answers. The owner kept the existing acceptance, gap and defect decisions as they are, and tenant isolation stays NOT_RUN for part 2: FB-03's validation is separate, and part 2 claims nothing about it.
+
+### 10.10 Gaps known before the work starts
+
+| Gap | What would close it |
+|---|---|
+| States reached only by answering a request in the browser, such as a list or the coverage failing to load and a save refused | Recorded as simulated interface-state coverage, as G-54 was |
+| The superseded customer and customer group rules, if Spree's API refuses them for an existing price list | Their stories checked against their source, as G-55 was |
+| Whether a catalog's or a price list's prices reach a buyer on the storefront | Batch 12, wholesale, with FL-10 |
+| What the server refuses to a role that may not read or write these resources | Criterion 12 records what Spree's specs exercise; the rest joins G-11, as the owner answered on 2026-11-04, for one consolidated check of the catalog after part 3, before Liquorify changes identity or access ([§10.9](#109-questions-for-the-owner-and-the-owners-answers)) |
+| Imports opened from the customer and purchase order lists, and a seller's imports | Batches 10, 6 and 13 (§10.4) |
+| Tenant isolation (criterion 13) | FB-03's validation and the fixes for ISO-1 to ISO-7. None of them is about categories, collections, catalogs, price lists, translations or imports. The superseded customer rule picks shoppers from the customer list that ISO-1 concerns; part 2 captures it with the browser-test store's own shoppers and claims nothing about other stores. A new isolation defect is reported to the owner privately and is not published while it is open |
 
 ## 11. Corrections found during part 1
 
@@ -209,3 +317,13 @@ Part 1's running screens showed where this proposal did not match Spree at `01a0
 | §2.2 | The read-only role keeps some controls the server then refuses | The catalog viewer keeps Add product, a new product's form and the product page's Save, with every card's controls; the bulk action bar, Import, Upload files and the Add buttons of options and product types are hidden. A teammate who cannot read sales channels sees each channel by its id (B14), and one who cannot read product types or delivery profiles sees neither chosen (B15); a page the teammate cannot read shows its empty state, as if the store had none (B17) |
 | §4 | The size estimate: about 220 stories, 440 reference images and 200 captures | 254 stories and 508 reference images, 10.0 MB; 140 captures, 280 images, and evidence of 22 MB in all |
 
+## 12. Part 3, outlined
+
+Described in full, with its states, permission variants, components, criteria and questions, in its own pull request before its work starts, as part 2 is in §10. It follows part 2, and uses part 1's catalog data.
+
+**Part 3: promotions, gift cards and store credit.** 15 new components: the promotion form and its eight rule editors, its two action editors and match policy picker, the calculator summary, and the two store credit dialogs.
+
+| Capability | Screens | Flow | Browser tests |
+|---|---|---|---|
+| CAP-05-12 Promotions and coupon codes | DA-PRM-01 to DA-PRM-03 | FL-16, its dashboard step; its cart, checkout and order steps are batches 8 and 9's | `promotions.spec.ts` (21 tests) |
+| CAP-05-13 Gift cards and store credit | DA-LOY-01, DA-LOY-02; the shopper's gift card list (SF-ACC-09) is the accounts batch's | FL-17, its dashboard step; redeeming at checkout is batch 9's | `gift-cards.spec.ts` (6), `store-credits.spec.ts` (5) |
