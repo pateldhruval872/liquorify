@@ -446,7 +446,7 @@ test('search engine card: a new slug, meta title and meta description are kept a
     }),
   )
   const values = {
-    slug: `p8-ivy-${stamp}`,
+    slug: `p8-ivy-for-search-${stamp}`,
     title: `Ivy, poured by hand ${stamp}`,
     description: `A description for search engines, written in P8 run ${stamp}.`,
   }
@@ -456,6 +456,7 @@ test('search engine card: a new slug, meta title and meta description are kept a
   const title = page.locator('#product-meta-title')
   const description = page.locator('#product-meta-description')
   await expect(slug).toBeVisible({ timeout: 15_000 })
+  await expect(slug).not.toHaveValue(values.slug)
   const steps: Record<string, unknown>[] = [
     {
       step: 'opened the product',
@@ -578,8 +579,10 @@ test("product types: deleting one that products use is refused with Spree's mess
   page,
 }) => {
   const outside = await blockOutside(page)
-  // Sabotaged, the list after the reload leaves the type out, as if the delete had gone through.
+  // Sabotaged, the list after the delete leaves the type out, as if the delete had gone through.
+  let confirmed = false
   await sabotage(page, 'GET', /^\/api\/v3\/admin\/product_types$/, async (route) => {
+    if (!confirmed) return route.continue()
     const response = await route.fetch()
     const body = (await response.json()) as { data: { id: string }[]; meta?: object }
     await route.fulfill({
@@ -596,6 +599,7 @@ test("product types: deleting one that products use is refused with Spree's mess
       res.url().includes(`/product_types/${records.usedType}`),
   )
   await confirmDeleteType(page, names.usedType)
+  confirmed = true
   const server = await answer
   const steps: Record<string, unknown>[] = [
     {
@@ -826,11 +830,9 @@ test('library file in use: the library names where it is used, and the delete wa
   page,
 }) => {
   const outside = await blockOutside(page)
-  // Sabotaged, the library and the product answer as if the file had gone.
-  await sabotage(page, 'GET', /^\/api\/v3\/admin\/(media|products\/prod_[^/]+\/media)$/, (route) =>
-    route.fulfill({
-      json: { data: [], meta: { count: 0, page: 1, pages: 1, limit: 25, from: 0, to: 0 } },
-    }),
+  // Sabotaged, the library answers as if nothing used the file.
+  await sabotage(page, 'GET', /^\/api\/v3\/admin\/media\/[^/]+\/usage$/, (route) =>
+    route.fulfill({ json: { data: [] } }),
   )
   const { alt, filename } = records.keptFile
   await login(page)
