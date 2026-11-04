@@ -5,7 +5,7 @@ work_item: FB-19
 status: PROPOSED
 owner: the owner reviews and accepts; an automated Claude session implements
 created: 2026-10-22
-updated: 2026-10-26
+updated: 2026-11-04
 ---
 
 # FB-19 batch: the platform capabilities without screens
@@ -42,7 +42,7 @@ The capabilities with no screen in [LIQ-006](../LIQ-006-product-capability-basel
 | CAP-05-11 Price history | `Spree::PriceHistory` | None |
 | CAP-05-16 Slugs | The slug attributes | None |
 
-Left out: CAP-11-12, multi-store administration, which has screens (dashboard shell part 2 and batch 3) and, since 2026-11-03, its own proposed [work item](fb-19-batch-multi-store-administration.md), and the Enterprise and documentation-only features (LIQ-006 §12).
+Left out: CAP-11-12, multi-store administration, which has screens (dashboard shell part 2 and batch 3) and its own [work item](fb-19-batch-multi-store-administration.md), proposed on 2026-11-03 and built on 2026-11-04 in #49 ([record](../verification/2026-11-04-fb-19-batch-multi-store-administration.md)), and the Enterprise and documentation-only features (LIQ-006 §12). Its browser tests are G-72, which the multi-store record proposes to defer to this batch's browser-test work, with G-57 and P8, pending the owner's answer.
 
 Three steps also hold checks that area batches deferred here, although their capabilities have screens: P6, the dashboard shell's untested behaviours (G-22); P7, what the server refuses within one store (G-11, G-23, G-32 and G-40); and P8, the catalog's untested behaviours (G-57).
 

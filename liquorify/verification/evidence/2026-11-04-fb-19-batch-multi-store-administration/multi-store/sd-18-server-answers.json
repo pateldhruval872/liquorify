@@ -1,0 +1,208 @@
+{
+  "revision": "1320592d",
+  "requests": [
+    {
+      "method": "GET",
+      "path": "/api/v3/admin/products",
+      "status": 403,
+      "code": "access_denied"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v3/admin/custom_field_definitions",
+      "status": 403,
+      "code": "access_denied"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v3/admin/products",
+      "status": 403,
+      "code": "access_denied"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v3/admin/custom_field_definitions",
+      "status": 403,
+      "code": "access_denied"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v3/admin/option_types",
+      "status": 403,
+      "code": "access_denied"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v3/admin/stock_locations",
+      "status": 403,
+      "code": "access_denied"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v3/admin/custom_field_definitions",
+      "status": 403,
+      "code": "access_denied"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v3/admin/package_types",
+      "status": 403,
+      "code": "access_denied"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v3/admin/tax_categories",
+      "status": 403,
+      "code": "access_denied"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v3/admin/channels",
+      "status": 403,
+      "code": "access_denied"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v3/admin/tags",
+      "status": 403,
+      "code": "access_denied"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v3/admin/categories",
+      "status": 403,
+      "code": "access_denied"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v3/admin/collections",
+      "status": 403,
+      "code": "access_denied"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v3/admin/product_types",
+      "status": 403,
+      "code": "access_denied"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v3/admin/products",
+      "status": 403,
+      "code": "access_denied"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v3/admin/delivery_profiles",
+      "status": 403,
+      "code": "access_denied"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v3/admin/option_types",
+      "status": 403,
+      "code": "access_denied"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v3/admin/stock_locations",
+      "status": 403,
+      "code": "access_denied"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v3/admin/custom_field_definitions",
+      "status": 403,
+      "code": "access_denied"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v3/admin/package_types",
+      "status": 403,
+      "code": "access_denied"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v3/admin/tax_categories",
+      "status": 403,
+      "code": "access_denied"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v3/admin/channels",
+      "status": 403,
+      "code": "access_denied"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v3/admin/tags",
+      "status": 403,
+      "code": "access_denied"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v3/admin/categories",
+      "status": 403,
+      "code": "access_denied"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v3/admin/collections",
+      "status": 403,
+      "code": "access_denied"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v3/admin/product_types",
+      "status": 403,
+      "code": "access_denied"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v3/admin/delivery_profiles",
+      "status": 403,
+      "code": "access_denied"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v3/admin/countries",
+      "status": 200,
+      "code": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/v3/admin/products",
+      "status": 403,
+      "code": "access_denied"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v3/admin/custom_field_definitions",
+      "status": 403,
+      "code": "access_denied"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v3/admin/files",
+      "status": 403,
+      "code": "access_denied"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v3/admin/products",
+      "status": 403,
+      "code": "access_denied"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v3/admin/custom_field_definitions",
+      "status": 403,
+      "code": "access_denied"
+    }
+  ],
+  "afterwards": {
+    "products named \"Fidelity two-store attempt\"": 0,
+    "products named \"Fidelity two-store import\"": 0,
+    "imports": 0
+  }
+}
