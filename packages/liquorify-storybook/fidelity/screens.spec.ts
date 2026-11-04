@@ -1204,7 +1204,14 @@ const directVisit = (screen: string, path: string): Capture => ({
   screen,
   state: 'direct-visit',
   variant: 'orderManager',
-  reach: (page) => openStore(page, path),
+  reach: async (page) => {
+    await openStore(page, path)
+    // The dashboard retries a refused request once before it shows the refusal,
+    // so a page still reading "Loading…" is given time to reach what it settles on.
+    await expect(page.getByText(/^Loading…$/))
+      .toHaveCount(0, { timeout: 10_000 })
+      .catch(() => {})
+  },
 })
 
 const apiKeysPath = '/settings/api-keys'
