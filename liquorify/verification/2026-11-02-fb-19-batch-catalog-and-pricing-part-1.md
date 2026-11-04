@@ -453,7 +453,7 @@ The [evidence index](evidence/2026-11-02-fb-19-batch-catalog-and-pricing-part-1/
 
 ## 11. The owner's review, 2026-11-02
 
-On 2026-11-02 at 22:04 UTC the owner reviewed #34 at `5f1a7c21` and accepted part 1's reference images, its screen evidence and its diagnostic fidelity within the limits in §9. The [image review list](2026-11-02-fb-19-batch-catalog-and-pricing-part-1-image-review.md) records it for every image. The acceptance came before the merge, which is the owner's to make and is recorded apart.
+On 2026-11-02 at 22:04 UTC the owner reviewed #34 at `5f1a7c21` and accepted part 1's reference images, its screen evidence and its diagnostic fidelity within the limits in §9. The [image review list](2026-11-02-fb-19-batch-catalog-and-pricing-part-1-image-review.md) records it for every image. The acceptance came before the merge, which is the owner's to make and is recorded apart: the owner merged #34 on 2026-11-03 as `5794da6` ([merge record](2026-11-03-fb-19-batch-catalog-and-pricing-part-1-merge.md)).
 
 The acceptance changes no functional result. CAP-05-02 and CAP-05-09 pass for the dashboard within their limits, CAP-05-11 passed in P1, and CAP-05-01, CAP-05-03, CAP-05-06, CAP-05-07 and CAP-05-16 stay PARTIAL (§2).
 

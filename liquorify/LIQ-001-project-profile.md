@@ -1,7 +1,7 @@
 ---
 document_id: LIQ-001
 title: Liquorify Project Profile
-version: 0.3-draft
+version: 0.4-draft
 status: DRAFT
 owner: unassigned
 approved_by: null
