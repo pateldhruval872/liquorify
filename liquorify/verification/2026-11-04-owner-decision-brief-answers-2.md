@@ -1,7 +1,7 @@
 ---
 title: The owner's second set of answers to the owner decision brief
 record: owner decisions
-work_item: FB-05, FB-06, FB-11, FB-19 (catalog part 2, batch 9, P4, P8, P9, P10), OA-6, SD-17, G-11, G-13, G-37, G-45, G-57 to G-59, G-61, G-65 to G-72
+work_item: FB-05, FB-06, FB-11, FB-19 (catalog part 2, batch 9, P4, P8, P9, P10), FB-20, FB-21, OA-5, OA-6, SD-17, G-11, G-13, G-37, G-45, G-57 to G-59, G-61, G-65 to G-72
 date: 2026-11-04
 recorded_by: Claude (automated session); not independent review
 result: On 2026-11-04 the owner answered 19 rows of the owner decision brief, and the part of a 20th that concerns B17. Every other open decision stays pending, among them shopper-account ownership and the acceptance of FB-03's private report. No capability, gap or defect result changes to PASS because of these answers, tenant isolation stays NOT_RUN, and Liquorify-specific features stay deferred.
@@ -83,13 +83,14 @@ Two platform steps were added for the owner's condition, as P8 was added for G-5
 
 ## 5. Later the same day
 
-On 2026-11-04 the owner sent three more answers and one report. Each is recorded against its own ID.
+On 2026-11-04 the owner sent three more answers, one report and the plan for OA-5. Each is recorded against its own ID.
 
 | ID | The owner's answer, 2026-11-04 | Recorded in |
 |---|---|---|
 | Storefront #23, FB-06's step 2.2 | The CI workflow change in storefront #23 may merge under the delegation, with no further personal review by the owner. Before it merges, its technical review is completed, the branch is brought up to date with any conflicts resolved, and two passing browser-test runs are recorded on its final revision. Main is checked after the merge. It does not depend on OA-6 | [Foundation lane §3](../work-items/foundation-lane-security-audit-and-storefront-backend.md#3-risk-and-release-impact); [FB-06](../LIQ-004-foundation-backlog.md#backlog) |
 | Row F: G-37 with G-68 | G-37 and G-68 are added to the platform batch's step P9. The scope covers the store address dialog, saving the storefront address, following the payment method task's link, and Getting Started showing the tasks done after a reload. The tests, their expected results and the closure conditions are recorded before implementation, failures and defects stay visible, and these checks support no tenant-isolation claim | [P9, item 1.4](../work-items/fb-19-batch-platform.md#p9-untested-actions-in-settings-the-catalog-and-multi-store-administration); G-37; G-68 |
 | Catalog part 3 and batch 9 | Both continue. Their records keep local results apart from CI results. The next eligible approved work starts as capacity opens | Each batch's own record |
+| OA-5 | The Figma subscription is for OA-5 and the approved Spree baseline design work: FB-20's design libraries, then FB-21's screens and flows. Once the owner confirms the purchase, Figma is connected and the intended Liquorify team, account and editing permission are verified, and the connector is confirmed to create and edit the required designs; read access alone is not enough. OA-5 is marked done only after that access is verified. OA-7 and OA-8 stay separate, and Liquorify-specific design work stays deferred | [OA-5 and its steps](../LIQ-004-foundation-backlog.md#owner-action-steps) |
 | OA-6 | The owner reported the setting saved. FB-11's security audit repair continues, checks that the workflow can open its pull request, and records the result. It is not read from here, because this environment cannot read the repository's Actions settings | [OA-6](../LIQ-004-foundation-backlog.md#owner-actions); FB-11; [Foundation lane §5](../work-items/foundation-lane-security-audit-and-storefront-backend.md#5-questions-for-the-owner-and-the-owners-answers) |
 
 **What this does not change.** G-37 and G-68 stay open until P9's record meets their closure condition. P9's test of a value that is not an address fails on SD-7 until SD-7 is fixed, and that failing result is kept. Item 1.4 runs within one store and claims nothing about ISO-6 or any other isolation finding. Every other unanswered owner decision stays pending.
