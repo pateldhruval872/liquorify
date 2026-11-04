@@ -3,7 +3,7 @@ import { Button } from '@spree/dashboard-ui'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import { useQueryClient } from '@tanstack/react-query'
 import { useState } from 'react'
-import { expect, screen, userEvent, within } from 'storybook/test'
+import { expect, screen, userEvent, waitFor, within } from 'storybook/test'
 import { CategoryProductsCard } from '../../../../../dashboard/src/components/spree/categories/category-products-card'
 import { flushProductMembership } from '../../../../../dashboard/src/components/spree/product-membership-staging'
 import {
@@ -121,7 +121,7 @@ export const Discarded: Story = {
     await stageChanges()
     await userEvent.click(screen.getByRole('button', { name: 'Discard' }))
     await screen.findByText('All changes saved')
-    await expect(screen.queryByText('Linen apron')).toBeNull()
+    await waitFor(() => expect(screen.queryByText('Linen apron')).toBeNull())
   },
 }
 

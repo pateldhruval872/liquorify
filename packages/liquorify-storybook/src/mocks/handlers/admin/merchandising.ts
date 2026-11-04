@@ -4,6 +4,7 @@ import type {
   Export,
   Import,
   ImportRow,
+  Price,
   PriceList,
   Product,
 } from '@spree/admin-sdk'
@@ -11,6 +12,7 @@ import { delay, HttpResponse, http } from 'msw'
 import {
   categoryTree,
   collectionRuleTypes,
+  companies,
   customerGroups,
   failedImportRows,
   kitchenProducts,
@@ -19,6 +21,9 @@ import {
   priceRuleTypes,
   productExport,
   productExportCsv,
+  springCatalog,
+  tradeBreaks,
+  tradePrices,
 } from '../../../fixtures/admin/merchandising'
 import { channels, markets } from '../../../fixtures/admin/settings'
 import { searchCustomers } from '../../../fixtures/admin/shell'
@@ -314,8 +319,9 @@ export function searchList<T extends { id: string }>(
   })
 }
 
-/** What price rules and catalogs are aimed at: channels, markets, customer groups and customers. */
+/** What price rules and catalogs are aimed at: channels, markets, companies, customer groups and customers. */
 export const audienceLists = [
+  searchList('/api/v3/admin/companies', companies, (company) => company.name),
   searchList('/api/v3/admin/channels', channels, (channel) => channel.name),
   searchList('/api/v3/admin/markets', markets, (market) => market.name),
   searchList('/api/v3/admin/customer_groups', customerGroups, (group) => group.name),
@@ -376,5 +382,118 @@ export function priceListRequests(records: PriceList[] = priceLists) {
     http.delete('/api/v3/admin/price_lists/:id', () => new HttpResponse(null, { status: 204 })),
   ]
 }
+
+/** A catalog created from the wizard, named as the wizard sent it. */
+export const catalogCreated = [
+  http.post('/api/v3/admin/catalogs', async ({ request }) => {
+    await delay(200)
+    const { name, description } = (await request.json()) as { name: string; description?: string }
+    return HttpResponse.json(
+      { ...springCatalog, name, description: description ?? null },
+      { status: 201 },
+    )
+  }),
+]
+
+interface PriceRowParams {
+  variant_id: string
+  currency: string
+  price_list_id?: string
+  min_quantity?: number
+  amount: string | null
+  compare_at_amount?: string | null
+}
+
+/**
+ * The prices endpoint as the bulk price editor uses it: rows filtered by
+ * list, currency, quantity, variant and product, searched by product name,
+ * SKU or option from three characters, and a bulk save that writes each row
+ * by variant, currency, list and quantity, removing a row sent with no amount.
+ */
+export function priceRequests(rows: Price[] = [...tradePrices, ...tradeBreaks]) {
+  let stored = [...rows]
+  let nextId = 1
+  return [
+    http.get('/api/v3/admin/prices', ({ request }) => {
+      const params = new URL(request.url).searchParams
+      const filter = (name: string) => params.get(`q[${name}]`)
+      const list = filter('price_list_id_eq')
+      const quantity = filter('min_quantity_eq')
+      const above = filter('min_quantity_gt')
+      const variants = params.getAll('q[variant_id_in][]')
+      const excluded = params.getAll('q[variant_product_id_not_in][]')
+      const search = (filter('search') ?? '').toLowerCase()
+      const matches = stored.filter((row) => {
+        const variant = row.variant as unknown as Record<string, string | null>
+        const text = [variant.product_name, variant.sku, variant.options_text]
+          .join(' ')
+          .toLowerCase()
+        return (
+          (list ? row.price_list_id === list : row.price_list_id === null) &&
+          row.currency === (filter('currency_eq') ?? row.currency) &&
+          (quantity === null || row.min_quantity === Number(quantity)) &&
+          (above === null || row.min_quantity > Number(above)) &&
+          (variants.length === 0 || variants.includes(row.variant_id ?? '')) &&
+          !excluded.includes(variant.product_id ?? '') &&
+          (search.length < 3 || text.includes(search))
+        )
+      })
+      return HttpResponse.json(paged(matches, request))
+    }),
+    http.post('/api/v3/admin/prices/bulk_upsert', async ({ request }) => {
+      await delay(300)
+      const { prices } = (await request.json()) as { prices: PriceRowParams[] }
+      const sameKey = (row: Price, sent: PriceRowParams) =>
+        row.variant_id === sent.variant_id &&
+        row.currency === sent.currency &&
+        row.price_list_id === (sent.price_list_id ?? null) &&
+        row.min_quantity === (sent.min_quantity ?? 1)
+      for (const sent of prices) {
+        const existing = stored.find((row) => sameKey(row, sent))
+        if (sent.amount === null && (sent.min_quantity ?? 1) > 1) {
+          stored = stored.filter((row) => row !== existing)
+          continue
+        }
+        const template = existing ?? stored.find((row) => row.variant_id === sent.variant_id)
+        const next: Price = {
+          ...(template as Price),
+          id: existing?.id ?? `price_9Nw${nextId++}Sv`,
+          currency: sent.currency as Price['currency'],
+          price_list_id: sent.price_list_id ?? null,
+          min_quantity: sent.min_quantity ?? 1,
+          amount: sent.amount,
+          compare_at_amount: sent.compare_at_amount ?? existing?.compare_at_amount ?? null,
+        }
+        stored = existing ? stored.map((row) => (row === existing ? next : row)) : [...stored, next]
+      }
+      return HttpResponse.json({ price_count: prices.length })
+    }),
+  ]
+}
+
+/** A bulk price save Spree refuses, with the message it gives for a break dearer than the price below it. */
+export const priceSaveRefused = [
+  http.post('/api/v3/admin/prices/bulk_upsert', async () => {
+    await delay(200)
+    return HttpResponse.json(
+      {
+        error: {
+          code: 'price_rises_with_quantity',
+          message: 'A quantity break cannot cost more than the price a buyer pays below it',
+          details: { ladders: [{ variant_id: 'variant_3Mq7Lk2c' }] },
+        },
+      },
+      { status: 422 },
+    )
+  }),
+]
+
+/** A price list's prices still loading. */
+export const pricesHeld = [
+  http.get('/api/v3/admin/prices', async () => {
+    await delay('infinite')
+    return HttpResponse.json({})
+  }),
+]
 
 export { onePage }

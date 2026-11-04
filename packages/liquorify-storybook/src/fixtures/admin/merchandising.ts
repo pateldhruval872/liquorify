@@ -1,4 +1,7 @@
 import type {
+  Catalog,
+  CatalogPrice,
+  CatalogProduct,
   Category,
   Collection,
   Company,
@@ -7,12 +10,14 @@ import type {
   Export,
   Import,
   ImportRow,
+  Price,
   PriceList,
   PriceListProduct,
   PriceRule,
   Product,
   ResourceTranslations,
   ResourceTypeDefinition,
+  Variant,
 } from '@spree/admin-sdk'
 import { categories, category, collection, products } from './catalog'
 import { channels, definition, markets } from './settings'
@@ -781,5 +786,305 @@ export const tradeProducts: PriceListProduct[] = [
         tiers: [],
       },
     ],
+  },
+]
+
+function price(
+  id: string,
+  variant: { id: string; product: Product; sku: string; options_text: string | null },
+  amount: string | null,
+  fields: Partial<Price> = {},
+): Price {
+  return {
+    id,
+    currency: 'USD',
+    amount,
+    compare_at_amount: null,
+    price_list_id: tradeList.id,
+    min_quantity: 1,
+    variant_id: variant.id,
+    created_at: created,
+    updated_at: updated,
+    variant: {
+      id: variant.id,
+      product_id: variant.product.id,
+      product_name: variant.product.name,
+      sku: variant.sku,
+      options_text: variant.options_text,
+    } as unknown as Variant,
+    ...fields,
+  }
+}
+
+const mugVariant = { id: 'variant_3Mq7Lk2c', product: mug, sku: 'MUG-CLAY', options_text: null }
+const apronVariant = (suffix: string, options: string, sku: string) => ({
+  id: `variant_7Rt2Wn5${suffix}`,
+  product: apron,
+  sku,
+  options_text: options,
+})
+
+/**
+ * The trade list's prices as the bulk price editor reads them, one row per
+ * variant at a quantity of one, sorted by product name. The apron in slate,
+ * size L, has no list price yet, and only the mug has a price in euros.
+ */
+export const tradePrices: Price[] = [
+  price('price_6Mg2Cl3e', mugVariant, '15.00'),
+  price('price_5Ap1Om2a', apronVariant('a', 'Color: Olive, Size: M', 'APRON-OLV-M'), '34.00', {
+    compare_at_amount: '44.00',
+  }),
+  price('price_5Ap1Om2b', apronVariant('b', 'Color: Olive, Size: L', 'APRON-OLV-L'), '34.00', {
+    compare_at_amount: '44.00',
+  }),
+  price('price_5Ap1Om2c', apronVariant('c', 'Color: Slate, Size: M', 'APRON-SLT-M'), '34.00'),
+  price('price_5Ap1Om2d', apronVariant('d', 'Color: Slate, Size: L', 'APRON-SLT-L'), null),
+  price(
+    'price_7Cn3Dl4f',
+    { id: 'variant_4Gb1Ns3m', product: candle, sku: 'CANDLE-OLV', options_text: null },
+    '11.00',
+  ),
+  price('price_6Mg2Eu5k', mugVariant, '14.00', { currency: 'EUR' }),
+]
+
+/** The mug's quantity breaks on the trade list: 14.00 from 24, 13.00 from 48. */
+export const tradeBreaks: Price[] = [
+  price('price_8Mg4Br5g', mugVariant, '14.00', { min_quantity: 24 }),
+  price('price_8Mg4Br5h', mugVariant, '13.00', { min_quantity: 48 }),
+]
+
+const materials = ['Clay', 'Linen', 'Olive', 'Slate', 'Walnut']
+const goods = ['basket', 'bowl', 'candle', 'cap', 'mug', 'plate', 'throw', 'towel', 'tray', 'vase']
+
+/**
+ * A list as long as Spree's sample wholesale list, fifty products and more,
+ * one price each, so the editor pages through them fifty at a time.
+ */
+export const longPriceList: Price[] = materials
+  .flatMap((material) => goods.map((good) => `${material} ${good}`))
+  .concat(['Walnut board', 'Walnut spoon', 'Walnut stool', 'Walnut tray set', 'Walnut whisk'])
+  .sort()
+  .map((name, index) => {
+    const number = String(index + 1).padStart(2, '0')
+    return {
+      ...tradePrices[0],
+      id: `price_4Lg${number}Pr`,
+      amount: `${10 + index}.00`,
+      variant_id: `variant_4Lg${number}Vr`,
+      variant: {
+        id: `variant_4Lg${number}Vr`,
+        product_id: `prod_4Lg${number}Pd`,
+        product_name: name,
+        sku: name.toUpperCase().replace(/ /g, '-'),
+        options_text: null,
+      } as unknown as Variant,
+    }
+  })
+
+// ---------------------------------------------------------------------------
+// Catalogs (DA-PRD-13, DA-PRD-14)
+// ---------------------------------------------------------------------------
+
+const juniper = companies[3]
+
+function catalog(id: string, name: string, fields: Partial<Catalog> = {}): Catalog {
+  return {
+    id,
+    name,
+    description: null,
+    active: false,
+    position: 1,
+    metadata: {},
+    minimum_order_quantity: null,
+    order_multiple: null,
+    created_at: created,
+    updated_at: updated,
+    products_count: 0,
+    pricing_strategy: 'base',
+    order_minimums: [],
+    assignments: [],
+    ...fields,
+  }
+}
+
+function assignment(
+  catalogId: string,
+  id: string,
+  type: 'company' | 'customer_group',
+  record: { id: string; name: string },
+) {
+  return {
+    id,
+    created_at: created,
+    catalog_id: catalogId,
+    assignable_type: type,
+    assignable_id: record.id,
+    assignable_name: record.name,
+  }
+}
+
+/**
+ * The café catalog: Juniper Cafés and the wholesale group see the shop's
+ * prices less 15 percent from twelve units, 20 percent from 24 and 25 percent
+ * from 48, in cases of six, with an order of at least 150 dollars.
+ */
+export const cafeCatalog = catalog('cat_3Cf6Tr9A', 'Café trade', {
+  description: 'Agreed terms for café accounts.',
+  active: true,
+  minimum_order_quantity: 6,
+  order_multiple: 6,
+  products_count: 3,
+  pricing_strategy: 'automatic',
+  order_minimums: [
+    {
+      id: 'com_4Us7Mn1B',
+      currency: 'USD',
+      amount: '150.00',
+      created_at: created,
+      updated_at: updated,
+    },
+  ],
+  assignments: [
+    assignment('cat_3Cf6Tr9A', 'cas_5Jn8Cf2C', 'company', juniper),
+    assignment('cat_3Cf6Tr9A', 'cas_6Wh9Gr3D', 'customer_group', customerGroups[0]),
+  ],
+  price_list: priceList('pl_4Cf7Pl1E', 'Café trade', {
+    status: 'active',
+    currently_active: true,
+    price_adjustment_percentage: '-15.0',
+    automatic_pricing: true,
+    products_count: 3,
+    price_adjustment_tiers: [
+      { id: 'pat_1Tr4Qt7F', min_quantity: 24, percentage: '-20.0' },
+      { id: 'pat_2Tr5Qt8G', min_quantity: 48, percentage: '-25.0' },
+    ],
+    price_rules: [
+      priceRule(
+        'prule_7Cf1Vl4H',
+        'volume_rule',
+        { min_quantity: 12, max_quantity: null },
+        { price_list_id: 'pl_4Cf7Pl1E' },
+      ),
+    ],
+  }),
+})
+
+/** Harbor Hospitality's contract: prices entered by hand, the mug with its own breaks. */
+export const harborCatalog = catalog('cat_4Hb7Ct1J', 'Harbor contract', {
+  active: true,
+  products_count: 3,
+  pricing_strategy: 'fixed',
+  assignments: [assignment('cat_4Hb7Ct1J', 'cas_7Hb1Co4K', 'company', harbor)],
+  price_list: priceList('pl_5Hb8Ct2L', 'Harbor contract', {
+    status: 'active',
+    currently_active: true,
+    products_count: 3,
+    prices_count: 6,
+  }),
+})
+
+/** A catalog just begun: no audience, no products, the shop's own prices. */
+export const springCatalog = catalog('cat_5Sp9Ln3M', 'Spring samplers')
+
+function catalogPrice(
+  id: string,
+  sku: string,
+  amount: string,
+  source: CatalogPrice['source'],
+  fields: Partial<CatalogPrice> = {},
+): CatalogPrice {
+  return {
+    id,
+    label: null,
+    sku,
+    currency: 'USD',
+    source,
+    break_count: 0,
+    amount,
+    tiers: [],
+    ...fields,
+  }
+}
+
+const apronVariants = (amounts: [string, CatalogPrice['source']][]) =>
+  [
+    'Color: Olive, Size: M',
+    'Color: Olive, Size: L',
+    'Color: Slate, Size: M',
+    'Color: Slate, Size: L',
+  ].map((label, index) =>
+    catalogPrice(
+      `variant_7Rt2Wn5${'abcd'[index]}`,
+      `APRON-${label.includes('Olive') ? 'OLV' : 'SLT'}-${label.endsWith('M') ? 'M' : 'L'}`,
+      amounts[index][0],
+      amounts[index][1],
+      { label },
+    ),
+  )
+
+/** The café catalog's products: each variant at the shop price less 15 percent, the mug in cases of twelve. */
+export const cafeProducts: CatalogProduct[] = [
+  {
+    id: mug.id,
+    name: mug.name,
+    thumbnail_url: mug.thumbnail_url,
+    quantity_rule: {
+      id: 'cpt_1Mg4Cs7N',
+      product_id: mug.id,
+      product_name: mug.name,
+      minimum_order_quantity: 12,
+      order_multiple: 12,
+      mixed: false,
+    },
+    catalog_variants: [catalogPrice('variant_3Mq7Lk2c', 'MUG-CLAY', '15.30', 'automatic')],
+  },
+  {
+    id: apron.id,
+    name: apron.name,
+    thumbnail_url: apron.thumbnail_url,
+    quantity_rule: null,
+    catalog_variants: apronVariants([
+      ['35.70', 'automatic'],
+      ['35.70', 'automatic'],
+      ['35.70', 'automatic'],
+      ['37.40', 'automatic'],
+    ]),
+  },
+  {
+    id: candle.id,
+    name: candle.name,
+    thumbnail_url: candle.thumbnail_url,
+    quantity_rule: null,
+    catalog_variants: [catalogPrice('variant_4Gb1Ns3m', 'CANDLE-OLV', '11.90', 'automatic')],
+  },
+]
+
+/** Harbor's products: prices entered for the mug, with breaks, and most aprons; one apron at the shop price. */
+export const harborProducts: CatalogProduct[] = [
+  {
+    ...cafeProducts[0],
+    quantity_rule: null,
+    catalog_variants: [
+      catalogPrice('variant_3Mq7Lk2c', 'MUG-CLAY', '14.00', 'explicit', {
+        break_count: 2,
+        tiers: [
+          { min_quantity: 24, amount: '13.00' },
+          { min_quantity: 48, amount: '12.00' },
+        ],
+      }),
+    ],
+  },
+  {
+    ...cafeProducts[1],
+    catalog_variants: apronVariants([
+      ['32.00', 'explicit'],
+      ['32.00', 'explicit'],
+      ['32.00', 'explicit'],
+      ['44.00', 'base'],
+    ]),
+  },
+  {
+    ...cafeProducts[2],
+    catalog_variants: [catalogPrice('variant_4Gb1Ns3m', 'CANDLE-OLV', '10.00', 'explicit')],
   },
 ]

@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import { expect, screen, userEvent } from 'storybook/test'
 import { CollectionRulesCard } from '../../../../../dashboard/src/components/spree/collections/collection-rules-card'
+import { useCollectionRuleTypes } from '../../../../../dashboard/src/hooks/use-collections'
 import { withStore } from '../../../decorators/store'
 import { newArrivals, summerEdit } from '../../../fixtures/admin/merchandising'
 import { CollectionFormFor, collectionParameters } from './collection-form'
@@ -25,9 +26,24 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
+/**
+ * Marks when the rule kinds have loaded. A rule started before they arrive
+ * takes the form's blank kind, Tag, instead of the first kind Spree lists, so
+ * a story that turns rules on waits for this first.
+ */
+function RuleKindsLoaded() {
+  const { data } = useCollectionRuleTypes()
+  return data ? <span hidden data-testid="rule-kinds-loaded" /> : null
+}
+
 const byHand = () => (
   <CollectionFormFor collection={summerEdit}>
-    {(form) => <CollectionRulesCard form={form} />}
+    {(form) => (
+      <>
+        <CollectionRulesCard form={form} />
+        <RuleKindsLoaded />
+      </>
+    )}
   </CollectionFormFor>
 )
 
@@ -54,9 +70,11 @@ export const TurningOnRules: Story = {
   name: 'Turning on rules',
   render: byHand,
   play: async () => {
-    await userEvent.click(
-      await screen.findByRole('switch', { name: 'Set members automatically from rules' }),
-    )
+    const turnOn = await screen.findByRole('switch', {
+      name: 'Set members automatically from rules',
+    })
+    await screen.findByTestId('rule-kinds-loaded', undefined, { timeout: 5_000 })
+    await userEvent.click(turnOn)
     await screen.findByText('On sale')
     await screen.findByText('all conditions')
   },
