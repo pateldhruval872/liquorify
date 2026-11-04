@@ -5,14 +5,14 @@ work_item: FB-19
 status: PROPOSED
 owner: the owner reviews and accepts; an automated Claude session implements
 created: 2026-11-03
-updated: 2026-11-03
+updated: 2026-11-04
 ---
 
 # FB-19 batch: multi-store administration
 
 A small dashboard batch for one capability, CAP-11-12 in [LIQ-006 §11](../LIQ-006-product-capability-baseline.md#11-analytics-emails-platform-and-developer-surfaces): one staff account that holds a role in several stores. The baseline audit of 2026-11-02 found that no batch maps it (its finding A-2): the [platform batch](fb-19-batch-platform.md) leaves it out because it has screens, and the batches that captured those screens did not name it. This batch gives it a map, captures and Spree's own specs, so LIQ-006 §14's criterion 8 can hold for it. It reproduces what Spree already does. Nothing here changes Spree's code or the storefront's, or adds a Liquorify feature.
 
-**Status.** PROPOSED on 2026-11-03, at the owner's request to assign CAP-11-12 to a bounded baseline work item. It depends only on the staff access batch, accepted and merged on 2026-10-23, so it can take any lane that frees; §7 asks where. Whether one Liquorify login may be staff at two businesses is an open product decision (LIQ-006 §11); this batch records Spree's behaviour and decides nothing about it.
+**Status.** PROPOSED on 2026-11-03, at the owner's request to assign CAP-11-12 to a bounded baseline work item. It depends only on the staff access batch, accepted and merged on 2026-10-23. The owner answered §7 on 2026-11-04: lane C after batch 7, when a slot is available, with FB-03 taking the next free slot ahead of it, and the support template's role. Whether one Liquorify login may be staff at two businesses is an open product decision (LIQ-006 §11); this batch records Spree's behaviour and decides nothing about it.
 
 **Kept apart from tenant isolation.** This batch shows what one account sees in the stores it holds a role in. Whether one store's data can be reached from another is FB-03's validation, which stays NOT_RUN here. No check in this batch visits, reads or writes a store the account holds no role in, and nothing is probed across stores. A new isolation defect found on the way is reported to the owner privately and is not published while it is open.
 
@@ -85,10 +85,12 @@ One backend pull request with the capture script, the verification record, the e
 | Whether one store's data can be reached from another | FB-03's validation |
 | Whether one Liquorify login may be staff at two businesses | The owner's product decision, after the baseline |
 
-## 7. Questions for the owner
+## 7. Questions for the owner, and the owner's answers
 
 1. **Where does this batch run?** Recommended: in lane C, straight after batch 7, as a small pull request. The alternative is the first lane that frees, whichever it is.
+   *The owner's answer, 2026-11-04 (decision 7 of the owner decision brief):* as recommended, after batch 7, with one clarification: FB-03's validation takes the next free slot ahead of queued work, so this batch follows when a slot is available. At most three implementation lanes run at once.
 2. **Is the support template's role the right second role?** Recommended: yes, because it differs clearly from the admin's and is one of Spree's own templates. The alternative is the order manager template.
+   *The owner's answer, 2026-11-04 (decision 8):* yes, the support template.
 
 ## 8. Ownership, risk and release impact
 

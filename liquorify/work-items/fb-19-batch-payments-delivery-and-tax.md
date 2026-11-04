@@ -5,14 +5,14 @@ work_item: FB-19
 status: PROPOSED
 owner: the owner reviews and accepts; an automated Claude session implements
 created: 2026-11-03
-updated: 2026-11-03
+updated: 2026-11-04
 ---
 
 # FB-19 batch: payments, delivery and tax settings
 
 Batch 7 in [LIQ-004's proposed order](../LIQ-004-foundation-backlog.md#proposed-order-of-the-remaining-batches): the settings in [LIQ-006 §7](../LIQ-006-product-capability-baseline.md#7-payments-delivery-inventory-and-tax) that decide how a store is paid, how it ships and how it charges tax. It reproduces what Spree already has for payment methods, tax categories and rates, delivery profiles with their zones and methods, pickup, digital delivery and package types. Nothing here changes Spree's code or the storefront's, or adds a Liquorify feature.
 
-**Status.** PROPOSED on 2026-11-03, at the owner's request to prepare it beside part 2 of the catalog batch. It depends on the setup batch, which the owner accepted and merged on 2026-10-26, and LIQ-004 lists "test keys for the providers' states" beside it; question 2 in §7 asks whether the batch waits for them. It follows the batch rules of LIQ-010 0.4 and has the same shape as the [setup batch](fb-19-batch-setup-stores-and-settings.md). No work starts until the owner answers §7 and a lane is free (at most three implementation lanes run at once, as the owner asked on 2026-11-03).
+**Status.** PROPOSED on 2026-11-03, at the owner's request to prepare it beside part 2 of the catalog batch. It depends on the setup batch, which the owner accepted and merged on 2026-10-26, and LIQ-004 lists "test keys for the providers' states" beside it; question 2 in §7 asks whether the batch waits for them. It follows the batch rules of LIQ-010 0.4 and has the same shape as the [setup batch](fb-19-batch-setup-stores-and-settings.md). The owner answered §7 on 2026-11-04, approving all three recommended answers: one pull request, Spree's built-in test providers, and checkout and order effects left to batches 9 and 8. It runs in lane C, which the owner started with decision 1 the same day; at most three implementation lanes run at once, as the owner asked on 2026-11-03.
 
 ## 1. Outcome and summary
 
@@ -136,11 +136,14 @@ The setup batch's criteria applied to this batch, with criterion 14 covering a p
 
 The rest of the batch is in no flow. Its browser tests: `payment-methods.spec.ts` ("lists payment methods", "swaps the preferences editor when the provider changes", "edits a payment method", "deletes a payment method"); `tax-categories.spec.ts` (4 tests); `tax-rates.spec.ts` ("edits a rate", "keeps a rate with three decimals exactly", "refuses a fourth decimal and a blank rate without saving", "deletes a rate after confirming"); `taxes.spec.ts`, "opens on categories and switches between the tabs"; `delivery-settings.spec.ts` (10 tests); and `package-types.spec.ts` (3 tests). `products-tax-category.spec.ts` stays with part 1 of the catalog batch, which mapped it.
 
-## 7. Questions for the owner
+## 7. Questions for the owner, and the owner's answers
 
 1. **One pull request, or two parts?** The batch is smaller than the setup batch, which the owner kept to one pull request. Recommended: one pull request. The alternative is two: payments and taxes first, then delivery and package types.
+   *The owner's answer, 2026-11-04 (decision 4 of the owner decision brief):* one implementation pull request.
 2. **Does the batch wait for provider test keys?** Recommended: no. The batch runs with Spree's test gateway and its built-in rate providers, shows the Stripe and EasyPost settings only in stories from a mocked provider list, and leaves sandbox calls, G-26 and G-39 with P4, which waits for the keys. The alternative is to wait for backend sandbox keys and capture the real providers' sheets in this batch, which also needs both gems loaded on a server and keeps the batch blocked until the keys exist.
+   *The owner's answer, 2026-11-04 (decision 5):* proceed with Spree's built-in test providers. Real-provider verification stays with P4, with G-26 and G-39, and the backend sandbox keys are provided when P4 is scheduled (decision 31), which does not mean they exist yet.
 3. **Where is a setting's effect at checkout checked?** G-38 lists batch 7 among the batches that check where the setup batch's settings take effect, such as payment capture. That effect, like this batch's own delivery, tax and payment settings, shows only on a cart or an order. Recommended: batch 7 records where each setting is read and what Spree's specs exercise, and the check on a real cart or order moves to batch 9 for checkout and batch 8 for orders, with G-38 staying open until then. The alternative keeps it here, which needs carts and orders built through the Store API in this batch.
+   *The owner's answer, 2026-11-04 (decision 6):* as recommended. Checkout effects are checked in batch 9 and order effects in batch 8; G-38 stays open until then.
 
 ## 8. Gaps known before the work starts
 

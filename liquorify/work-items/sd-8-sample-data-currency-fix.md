@@ -5,14 +5,14 @@ work_item: SD-8 (defect), G-36 (gap)
 status: PROPOSED
 owner: the owner decides whether and when; an automated Claude session implements
 created: 2026-11-03
-updated: 2026-11-03
+updated: 2026-11-04
 ---
 
 # SD-8 fix proposal: sample data for a store that does not sell in US dollars
 
-A bounded fix for [SD-8](../LIQ-004-foundation-backlog.md#existing-defects-found-by-the-baseline), prepared at the owner's request on 2026-11-03 so it is ready whichever way the owner decides. **Whether SD-8 is fixed now or stays deferred until after the baseline is undecided.** This proposal does not decide it, and it changes neither SD-8's status nor G-36's.
+A bounded fix for [SD-8](../LIQ-004-foundation-backlog.md#existing-defects-found-by-the-baseline), prepared at the owner's request on 2026-11-03. **On 2026-11-04 the owner decided to fix SD-8 now** (decision 19 of the owner decision brief), in its own bounded pull request, after FB-03 takes the next free slot; with the demo price of §3 (decision 20); and with no report to Spree (decision 21). §6 records the answers. This proposal changes neither SD-8's status nor G-36's: closing either still needs the owner's acceptance of the resulting evidence.
 
-**Why it matters to the baseline.** G-36, first-run setup with sample data, is OPEN: on 2026-10-27 the owner kept it open until SD-8 is resolved and setup with sample data is verified in US dollars and in another currency. Until then CAP-03-03 stays PARTIAL, with a failing part. SD-8's follow-up says a fix is decided after the baseline, in Spree's sample data, in its own pull request, and that whether to report it to Spree is the owner's call. §6 sets out the choice.
+**Why it matters to the baseline.** G-36, first-run setup with sample data, is OPEN: on 2026-10-27 the owner kept it open until SD-8 is resolved and setup with sample data is verified in US dollars and in another currency. Until then CAP-03-03 stays PARTIAL, with a failing part. SD-8's follow-up said a fix would be decided after the baseline; the owner's answer of 2026-11-04 brings it forward, still in Spree's sample data and in its own pull request.
 
 ## 1. The defect, as recorded
 
@@ -40,10 +40,10 @@ One backend pull request, separate from every baseline pull request, changing on
 
 ## 4. Not included
 
-- **The welcome screen reporting a failed background load.** A change to setup or to the job, not to the sample data. If the owner wants it, it is a separate decision.
+- **The welcome screen reporting a failed background load.** A change to setup or to the job, not to the sample data. The owner asked on 2026-11-04 for this limitation to stay explicit: after the fix, a sample data load that fails for any other reason is still reported only in the job's output, and the welcome screen still says the store is ready. The verification record states it, and fixing it would be a separate decision.
 - **Real exchange rates, or more currencies in the sample files.**
 - **Hiding the sample data option from stores in other currencies.** A change to Spree's setup screen.
-- **Reporting the defect to Spree.** The owner's call, as SD-8's follow-up says.
+- **Reporting the defect to Spree.** The owner decided on 2026-11-04 not to report it (decision 21).
 
 ## 5. Verification, in US dollars and in another currency
 
@@ -51,21 +51,23 @@ One backend pull request, separate from every baseline pull request, changing on
 |---|---|---|
 | 1 | Spree's sample data spec passes unchanged for its store in US dollars | The spec run |
 | 2 | A new context in the same spec loads the sample data into a store that sells only Polish złoty and checks that the load finishes without raising; every priced sample variant has a złoty price; the wholesale price list is active with złoty trade prices; no quantity break is in a currency the store does not sell; and both sample orders exist in złoty with their items priced. It fails before the fix and passes after | The spec run, before and after |
+| 2a | **Required.** A context in the same spec loads the sample data into a store in euros and checks that every euro price the sample file gives is kept as the file gives it, and that no demo price replaces or is added beside it. The owner made this a required automated regression check on 2026-11-04 | The spec run |
 | 3 | First-run setup with sample data, through the dashboard, on a fresh first-run server in **US dollars** (United States): the check the storefront shop batch ran (`packages/liquorify-storybook/fidelity/setup.spec.ts`) passes "sample orders loaded" and finds the price list active, and the storefront built against the new store lists the sample products with dollar prices and opens the espresso machine's page | The check's output and captures, before and after the fix. The run before is the first in dollars, so it shows whether a store in dollars loads everything today |
 | 4 | The same in **Polish złoty** (Poland): the same results, with złoty prices on the storefront | The check's output and captures, before and after the fix |
-| 5 | Optional, in euros (Germany): the file's own euro prices are kept, not replaced | The check's output |
+| 5 | Optional, in euros (Germany), through the dashboard: the file's own euro prices show on the storefront. Check 2a is the required check for euro prices; this one only adds a browser view | The check's output |
 | 6 | The core test suite and the other checks pass in CI; the new context's added run time is recorded | CI runs |
 | 7 | No credential or machine path is committed; the sample data's demo passwords stay as Spree wrote them | A search of the pull request's files |
 
-The verification record states what it shows and what it does not. Changing SD-8's status, or closing G-36, stays with the owner.
+Checks 1, 2, 2a, 3 and 4 are required; checks 3 and 4 cover first-run setup and the storefront in US dollars and in Polish złoty, as the owner asked. The verification record states what it shows and what it does not, including the welcome screen's limitation of §4. Changing SD-8's status, or closing SD-8 or G-36, stays with the owner and needs the owner's acceptance of this evidence.
 
-## 6. What the owner decides
+## 6. What the owner decided
 
-1. **Fix now, or keep it deferred? Undecided.**
-   - **Fix now,** in its own pull request in the next lane that frees: G-36 can then be closed on checks 3 and 4, if the owner accepts them, and CAP-03-03 can move from PARTIAL. It is a divergence from Spree's code to carry until Spree fixes it or Liquorify moves to a release that does.
-   - **Keep it deferred until after the baseline,** as SD-8's follow-up now says: nothing changes in Spree's code; G-36 stays open, so the baseline's completion needs the owner to accept G-36 as open in the register, with CAP-03-03 PARTIAL and its failing part recorded.
-2. **The demo price.** Recommended: the same number as the dollar price, labelled a demo amount in the code. The alternative is to load no products in a store whose currency the files do not cover and say so in the job's output, which leaves that store's storefront empty.
-3. **Reporting to Spree.** The owner's call. The record of §1 is the evidence.
+1. **Fix now, or keep it deferred?** The options were to fix it now, in its own pull request, so G-36 could be closed on checks 3 and 4 if accepted; or to keep it deferred until after the baseline, leaving G-36 open in the register.
+   *The owner's answer, 2026-11-04 (decision 19 of the owner decision brief):* fix SD-8 now, in its own bounded pull request, after FB-03 takes its next available slot. Verify setup and the storefront in US dollars and in Polish złoty; make the preservation of existing euro prices a required automated regression check (check 2a); keep the welcome screen's limitation explicit (§4). Closing SD-8 or G-36 still needs the owner's acceptance of the resulting evidence. The fix is a divergence from Spree's code, carried until Spree fixes it or Liquorify moves to a release that does.
+2. **The demo price.** Recommended: the same number as the dollar price, labelled a demo amount in the code. The alternative was to load no products in a store whose currency the files do not cover.
+   *The owner's answer, 2026-11-04 (decision 20):* approved as recommended.
+3. **Reporting to Spree.**
+   *The owner's answer, 2026-11-04 (decision 21):* no report to Spree. The same instruction stands for the other defects in the register.
 
 ## 7. Risk and release impact
 

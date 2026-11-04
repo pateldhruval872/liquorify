@@ -5,14 +5,14 @@ work_item: FB-11, FB-06
 status: PROPOSED
 owner: the owner reviews and accepts; an automated Claude session implements
 created: 2026-11-03
-updated: 2026-11-03
+updated: 2026-11-04
 ---
 
 # Foundation lane: the weekly security audit, then the storefront's test backend
 
 One implementation lane for two foundation items, in the order the owner asked on 2026-11-03: first repair the backend's weekly security audit, which has failed both times it ran (part of FB-11), then complete FB-06, so that the storefront's browser tests run against a backend built from a recorded `liquorify` revision and use the matching SDK. Both were found by the baseline audit of 2026-11-02 (its findings A-1 and A-6). Neither changes Spree's application code or the storefront's pages, or adds a Liquorify feature.
 
-**Status.** PROPOSED. No step starts until the owner approves this lane and answers the questions in §5. At most three implementation lanes run at once; §4 shows where this one fits.
+**Status.** PROPOSED. On 2026-11-04 the owner approved the lane (decision 1 of the owner decision brief) and answered §5: question 1, the advisory, is **pending** until the owner chooses between the two ways in §1.1; questions 2 and 3 as recommended. Step 2's spike may start while question 1 is pending. At most three implementation lanes run at once; §4 shows where this one fits.
 
 ## 1. Step 1: repair the weekly security audit (FB-11)
 
@@ -35,6 +35,44 @@ The second cause has a precedent in the workspace's own settings: `braces` (GHSA
 **Checked so far.** On a scratch copy of `main` at `5794da6a`, with pnpm 11.1.1 and the entry added, the fix step proposed 8 overrides and no `deepmerge` pin, and the lockfile refresh completed. Nothing was committed or pushed.
 
 **Done when:** the run by hand and the next scheduled Monday run both pass; the pull request they open is reviewed under FB-11; and FB-11's text in LIQ-004 says what ran and what was decided.
+
+### 1.1 The `deepmerge` advisory: where it runs, and two ways to handle it
+
+Prepared on 2026-11-04 because the owner kept decision 9 pending until this was documented. No ignore entry is added before the owner decides.
+
+**Where `deepmerge` is used.** Version 4.3.1 is in the lockfile only through `shadcn` 4.22.0 and the `@shadcn/registry` 0.2.0 package it depends on. `shadcn` is a dependency of `@spree/dashboard-ui` and a development dependency of `@spree/dashboard`. Read in the published packages, `deepmerge` is called only by shadcn's command line tool, in four places:
+
+- `init` and `add`, merging the project's `components.json` with a registry's base configuration;
+- resolving registry items, merging each item's Tailwind settings, CSS variables, CSS, environment variables and dependency lists;
+- merging a theme into a Tailwind 3 configuration file;
+- writing an AI assistant's server configuration file, merged with the one already on disk.
+
+**Whether untrusted input reaches it.** In one place, yes. Registry items are JSON fetched over the network from the registries a developer names, and `packages/dashboard/components.json` lists shadcn's default registry and one other, `@mapcn` (`mapcn.dev`). A crafted item could add properties to the prototype of the merged object. The advisory rates this low (CVSS 5.3); GitHub lists no patched version, and npm's copy marks 4.2.0 to 4.3.1 as vulnerable, which is why pnpm asked for 4.3.2, a version that has never been published. The effect would stay in the developer's own command line process and in the files the tool writes into the project, such as `components.json` and the stylesheet, which the resulting pull request shows for review.
+
+**When it runs.**
+
+| Where | Does `deepmerge` run? | How this was checked |
+|---|---|---|
+| Developer tooling | Only when someone runs the shadcn command line tool by hand, for example to add a component to `@spree/dashboard-ui`, as Spree's development rules say | No package script, workflow or setup script calls it: the repository searched on 2026-11-04 |
+| Builds | No. `@spree/dashboard-ui` imports one file from the package, `shadcn/tailwind.css`, a stylesheet with no JavaScript, so no shadcn code runs while Vite and Tailwind build the dashboard | The source's imports read; a built bundle was not searched |
+| Application requests | No. No source file imports shadcn's JavaScript, so neither the dashboard's bundle nor the Rails application reaches it | The same reading. The repair pull request searches a built dashboard bundle for `deepmerge` to confirm it |
+
+**The two ways, compared.**
+
+| | A dated temporary exception | Skip fixes that are not published, and keep reporting |
+|---|---|---|
+| What changes | One entry in `auditConfig.ignoreGhsas` in `pnpm-workspace.yaml`, with a dated review note, as the `braces` entry has | The workflow's fix step: after `pnpm audit --fix=override`, each new override is checked against npm, and one whose version is not published is removed, with its release-age exclusion, before the lockfile refresh. The run lists it as unresolved, with no published fix |
+| Is the advisory still reported? | No. `pnpm audit` and the weekly run stop showing it until the entry is removed; only the review date brings it back | Yes, in every weekly run's report, until a fix is published or `shadcn` stops using it |
+| Does the weekly run pass? | Yes | Yes |
+| What it touches | Configuration only; Spree's workflow stays as it is | Spree's workflow, which Liquorify then carries as a change of its own until Spree changes it |
+| Size | One entry | A short shell step, about 20 lines |
+| The next advisory that names an unpublished fix | Needs another entry and another decision | Handled the same way, with no new decision |
+
+**Tried on 2026-11-04,** on a scratch copy of `main` at `5794da6a` with pnpm 11.1.1, nothing committed or pushed: with no ignore entry, the fix step proposed 9 overrides, `deepmerge` among them. A prototype of the second way removed only the `deepmerge` override and listed it as unresolved; the lockfile refresh completed with the other 8; and the audit afterwards reported exactly one advisory, this one.
+
+**Recommendation: the second way.** The exposure is developer tooling run by hand against registries the developer chooses, so the risk is low either way; what differs is whether the advisory stays visible. Skipping unpublished fixes keeps it in front of the owner every week without a review date to remember, and handles the next advisory of the same shape without another exception. The `braces` entry stays as the owner decided it; moving it to the same handling would be a separate decision. The repair pull request then has three parts: the workflow step, the owner's setting from question 2, and the run by hand, with the built bundle searched.
+
+**If the owner chooses the first way instead,** the entry is added as §1's first repair step describes, with a review date four weeks out.
 
 ## 2. Step 2: the storefront's browser tests against a pinned Liquorify backend (FB-06)
 
@@ -74,18 +112,21 @@ The second cause has a precedent in the workspace's own settings: `braces` (GHSA
 
 ## 4. Where this lane fits: at most three implementation lanes
 
-The owner asked on 2026-11-03 for at most three implementation lanes at once. Proposed:
+The owner asked on 2026-11-03 for at most three implementation lanes at once, and approved this plan on 2026-11-04 (decisions 1 and 18 of the owner decision brief), with the clarifications recorded below the table.
 
 | Lane | Now | Next, when it frees |
 |---|---|---|
-| A | Part 2 of the catalog batch, proposed in #36, once the owner answers its questions | Part 3 of the catalog batch |
-| B, foundation | Step 1 here, then step 2 | The storefront's Dependabot pull requests (FB-11); then SD-8's fix, if the owner chooses to fix it now |
-| C | Batch 7, once the owner answers its questions ([work item](fb-19-batch-payments-delivery-and-tax.md)) | Multi-store administration ([work item](fb-19-batch-multi-store-administration.md)), then batch 6 |
+| A | Part 2 of the catalog batch (#36), in one pull request (decision 2) | Part 3 of the catalog batch. After part 3, the catalog's refusal checks are consolidated under G-11 (decision 3), before Liquorify changes identity or access |
+| B, foundation | Step 2's spike, which may run while decision 9 is pending; step 1 once decision 9 is answered and OA-6 is done; then step 2's pull request | The storefront's Dependabot pull requests (FB-11) |
+| C | Batch 7 ([work item](fb-19-batch-payments-delivery-and-tax.md)), with Spree's built-in test providers (decision 5) | Multi-store administration ([work item](fb-19-batch-multi-store-administration.md)), when a slot is available; then batch 6 |
 
-FB-03's validation of tenant isolation is not in a lane: it waits for the owner's answers to N1 to N6, and would take the first lane that frees once they are given. Records-only pull requests, such as merge records, do not count as lanes. Every lane follows the rules of 2026-10-26: its own session, branch and test data; merges in the order the owner accepts; and after each merge, the other open pull requests are updated and their checks rerun.
+**Who takes a slot when one frees.** FB-03's validation of tenant isolation takes the next free slot, ahead of queued work (decision 18): a private validation in the cloud environment, on PostgreSQL and SQLite, covering both the store and the business ownership analysis. It authorizes validation only, not a final tenancy architecture or unreviewed fixes, and code reading is not runtime verification. SD-8's fix follows, in its own bounded pull request, after FB-03 takes that slot (decision 19). Multi-store administration and the lanes' other queued work follow when a slot is available. Records-only pull requests, such as merge records, do not count as lanes. Every lane follows the rules of 2026-10-26: its own session, branch and test data; merges in the order the owner accepts; and after each merge, the other open pull requests are updated and their checks rerun.
 
-## 5. Questions for the owner
+## 5. Questions for the owner, and the owner's answers
 
 1. **Accept GHSA-gcqx-w48m-w2h4 as unfixable for now?** Recommended: yes, with a review date four weeks out, as the `braces` entry has. The alternative is to leave the audit failing until `deepmerge` publishes a fix, or to remove `shadcn` from the dependencies, which changes Spree's dashboard tooling.
+   *The owner's answer, 2026-11-04 (decision 9):* pending. Before any ignore entry, the owner asked where `deepmerge` is used, whether untrusted input reaches it, and whether it runs during tooling, builds or application requests, and for a comparison of a dated exception with skipping unpublished fixes while still reporting the advisory. §1.1 answers and recommends the second way. FB-06's spike may proceed meanwhile.
 2. **Let the workflow open pull requests?** Recommended: tick the setting. The alternative is a workflow that only reports.
+   *The owner's answer, 2026-11-04 (decision 10):* yes. The setting is the owner's to change, and is tracked as owner action OA-6 in LIQ-004 until it is done; the answer does not mean it is set.
 3. **Which backend for the storefront's tests?** Recommended: option A, with the host application's home decided as part of it. Option B waits for hosting.
+   *The owner's answer, 2026-11-04 (decision 11):* option A, with the host application's home (FB-05) decided as part of it. The SDK stays on 2.0.0-rc.4, matching the backend, while the baseline stays on 6.0.0.rc4 (decision 32).
