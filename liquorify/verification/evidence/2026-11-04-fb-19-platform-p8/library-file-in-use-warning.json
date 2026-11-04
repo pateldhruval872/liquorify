@@ -1,0 +1,23 @@
+{
+  "test": "library-file-in-use-warning",
+  "revision": "f1e947a0",
+  "stamp": "mw1y5qjf",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "opened the file",
+      "usedIn": "P8 Kestrel mw1y5qjf"
+    },
+    {
+      "step": "asked to delete it",
+      "warning": "Deleting “P8 kept picture mw1y5qjf” removes it from your library and from the 1 place using it. Descriptions that embed it will lose the image."
+    },
+    {
+      "step": "cancelled"
+    },
+    {
+      "step": "reloaded the library and the product; the file is on both"
+    }
+  ],
+  "outside": []
+}
