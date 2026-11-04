@@ -1,0 +1,11 @@
+{
+  "screen": "SF-CHK-01",
+  "state": "no-payment-methods",
+  "variant": "guest",
+  "theme": "light",
+  "width": 390,
+  "revision": "storefront 8865498, backend 06ccfbce",
+  "path": "/us/en/checkout/cart_4y6Olu6p4z",
+  "observed": "Rates offered: Store Pickup $0.00; Standard $5.00; Express $15.00. The payment section read: \"Payment Method No payment methods available for this order.\". The order summary read: \"1 Drip Coffee Maker 1.5L Color: Black $89.99 Subtotal $89.99 Shipping $5.00 Total USD $94.99 Apply\".",
+  "note": "Spree's sample data hides both payment methods from the storefront, so checkout offers none."
+}

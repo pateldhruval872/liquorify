@@ -1,0 +1,11 @@
+{
+  "screen": "SF-CHK-01",
+  "state": "placing-the-order",
+  "variant": "guest",
+  "theme": "light",
+  "width": 390,
+  "revision": "storefront 8865498, backend 06ccfbce",
+  "path": "/us/en/checkout/cart_Z3AMUPd7wV",
+  "observed": null,
+  "note": "Check chosen, the policies agreed to, and \"Place Order\" pressed with the storefront's request left unanswered."
+}

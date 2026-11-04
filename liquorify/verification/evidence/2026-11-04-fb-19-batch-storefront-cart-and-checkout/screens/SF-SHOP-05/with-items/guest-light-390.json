@@ -1,0 +1,11 @@
+{
+  "screen": "SF-SHOP-05",
+  "state": "with-items",
+  "variant": "guest",
+  "theme": "light",
+  "width": 390,
+  "revision": "storefront 8865498, backend 06ccfbce",
+  "path": "/us/en/cart",
+  "observed": "The cart's totals read: \"Subtotal $139.98 Total $139.98\".",
+  "note": null
+}

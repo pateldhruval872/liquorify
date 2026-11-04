@@ -1,0 +1,29 @@
+{
+  "revision": "8865498",
+  "browser": "Playwright 1.60.0 image, Chromium",
+  "server": "the built storefront at 8865498; this lane's Spree browser-test server, Spree's code at main 06ccfbce, with Spree's sample catalog",
+  "started": "2026-11-04T15:02:16.133Z",
+  "expected": 2,
+  "unexpected": 0,
+  "flaky": 0,
+  "skipped": 0,
+  "tests": [
+    {
+      "file": "e2e/cart.spec.ts",
+      "line": 24,
+      "title": "cart page › a customer changes the quantity and removes the item",
+      "status": "passed",
+      "retries": 0,
+      "duration_ms": 2824
+    },
+    {
+      "file": "e2e/product.spec.ts",
+      "line": 23,
+      "title": "product page › adds the chosen quantity to the cart",
+      "status": "passed",
+      "retries": 0,
+      "duration_ms": 1246
+    }
+  ],
+  "note": "The two tests that failed, run again with one change to the browser tests' shared helper, which was not committed: e2e/support.ts line 133 looks for the last link named after the product in the cart drawer, `drawer.getByRole(\"link\", { name }).last()`, rather than requiring exactly one. The storefront's tests are unchanged."
+}

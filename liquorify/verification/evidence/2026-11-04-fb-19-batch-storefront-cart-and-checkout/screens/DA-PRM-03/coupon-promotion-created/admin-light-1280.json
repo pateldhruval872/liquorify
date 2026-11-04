@@ -1,0 +1,11 @@
+{
+  "screen": "DA-PRM-03",
+  "state": "coupon-promotion-created",
+  "variant": "admin",
+  "theme": "light",
+  "width": 1280,
+  "revision": "storefront 8865498, backend 06ccfbce",
+  "path": "/store_UkLWZg9DAJ/promotions/promo_gbHJdmfrXB",
+  "observed": "The screen said: \"Promotion created\".",
+  "note": "A promotion named \"Fidelity welcome coupon\" with the coupon code WELCOME10, taking 10.00 off the whole order, created on the new promotion page (DA-PRM-02), which then opened the promotion."
+}

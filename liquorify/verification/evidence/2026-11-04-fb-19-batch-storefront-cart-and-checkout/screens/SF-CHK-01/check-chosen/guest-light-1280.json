@@ -1,0 +1,11 @@
+{
+  "screen": "SF-CHK-01",
+  "state": "check-chosen",
+  "variant": "guest",
+  "theme": "light",
+  "width": 1280,
+  "revision": "storefront 8865498, backend 06ccfbce",
+  "path": "/us/en/checkout/cart_9LeFqgRua4",
+  "observed": "The payment section read: \"Payment Method All transactions are secure and encrypted. Credit Card Check Pay by check. You will receive payment instructions after placing your order. Same as shipping address\".",
+  "note": null
+}

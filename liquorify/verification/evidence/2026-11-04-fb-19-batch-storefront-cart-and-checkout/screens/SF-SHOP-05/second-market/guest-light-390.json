@@ -1,0 +1,11 @@
+{
+  "screen": "SF-SHOP-05",
+  "state": "second-market",
+  "variant": "guest",
+  "theme": "light",
+  "width": 390,
+  "revision": "storefront 8865498, backend 06ccfbce",
+  "path": "/es/en/cart",
+  "observed": "The cart's totals read: \"Subtotal €84.99 Total €84.99\".",
+  "note": "The product added on the Spain market's pages, in euros."
+}

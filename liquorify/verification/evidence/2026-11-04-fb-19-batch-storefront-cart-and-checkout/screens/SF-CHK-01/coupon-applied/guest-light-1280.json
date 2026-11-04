@@ -1,0 +1,11 @@
+{
+  "screen": "SF-CHK-01",
+  "state": "coupon-applied",
+  "variant": "guest",
+  "theme": "light",
+  "width": 1280,
+  "revision": "storefront 8865498, backend 06ccfbce",
+  "path": "/us/en/checkout/cart_rmeClYtECF",
+  "observed": "The order summary read: \"1 Drip Coffee Maker 1.5L Color: Black $79.99 Subtotal $89.99 Shipping $5.00 Discount -$10.00 Total USD $84.99 welcome10 -$10.00 Apply\". The page showed no alert or toast.",
+  "note": "The coupon WELCOME10 (10.00 off the order) entered in the order summary."
+}

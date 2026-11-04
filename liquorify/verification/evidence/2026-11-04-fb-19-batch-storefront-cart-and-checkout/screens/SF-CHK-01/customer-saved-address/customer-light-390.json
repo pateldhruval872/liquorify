@@ -1,0 +1,11 @@
+{
+  "screen": "SF-CHK-01",
+  "state": "customer-saved-address",
+  "variant": "customer",
+  "theme": "light",
+  "width": 390,
+  "revision": "storefront 8865498, backend 06ccfbce",
+  "path": "/us/en/checkout/cart_4aROlu6p4z",
+  "observed": "The first text field held \"\" and was disabled. Rates offered: none. The page showed no alert or toast.",
+  "note": "A signed-in customer with two saved addresses, arriving from the cart drawer. The email field is locked empty (SD-21)."
+}

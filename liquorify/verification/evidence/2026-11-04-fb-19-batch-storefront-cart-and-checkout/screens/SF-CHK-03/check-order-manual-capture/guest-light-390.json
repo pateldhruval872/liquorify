@@ -1,0 +1,11 @@
+{
+  "screen": "SF-CHK-03",
+  "state": "check-order-manual-capture",
+  "variant": "guest",
+  "theme": "light",
+  "width": 390,
+  "revision": "storefront 8865498, backend 06ccfbce",
+  "path": "/us/en/order-placed/cart_NJzXvxTk8u",
+  "observed": "The order's address named cart_NJzXvxTk8u. Its payment box read: \"Payment Check $94.99\".",
+  "note": "An order a guest placed with Check while the store's payment capture was set to manual. The payment's state is read from the server in the record."
+}

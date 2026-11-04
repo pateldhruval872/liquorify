@@ -1,0 +1,70 @@
+{
+  "revision": "8865498",
+  "browser": "Playwright 1.60.0 image, Chromium",
+  "server": "the built storefront at 8865498; this lane's Spree browser-test server, Spree's code at main 06ccfbce, with Spree's sample catalog",
+  "started": "2026-11-04T14:54:51.684Z",
+  "expected": 5,
+  "unexpected": 2,
+  "flaky": 0,
+  "skipped": 0,
+  "tests": [
+    {
+      "file": "e2e/cart.spec.ts",
+      "line": 10,
+      "title": "cart page › an empty cart points back to the catalog",
+      "status": "passed",
+      "retries": 0,
+      "duration_ms": 715
+    },
+    {
+      "file": "e2e/cart.spec.ts",
+      "line": 24,
+      "title": "cart page › a customer changes the quantity and removes the item",
+      "status": "failed",
+      "retries": 0,
+      "duration_ms": 2447,
+      "error": "Error: expect(locator).toBeVisible() failed Locator: getByRole('dialog', { name: /^cart/i }).getByRole('link', { name: 'Automatic Espresso Machine' }) Expected: visible Error: strict mode violation: getByRole('dialog', { name: /^cart/i }).getByRole('link', { name: 'Automatic Espresso Machine' }) resolved to 2 elements: 1) <a href=\"/us/en/products/automatic-espresso-machine\" class=\"relative w-24 h-24 bg-gray-100 rounded overflow-hidden flex-shrink-0\">…</a> aka getByRole('link', { name: 'Automatic Espresso Machine' }).first()"
+    },
+    {
+      "file": "e2e/product.spec.ts",
+      "line": 10,
+      "title": "product page › shows the product's price, availability and details",
+      "status": "passed",
+      "retries": 0,
+      "duration_ms": 755
+    },
+    {
+      "file": "e2e/product.spec.ts",
+      "line": 23,
+      "title": "product page › adds the chosen quantity to the cart",
+      "status": "failed",
+      "retries": 0,
+      "duration_ms": 1537,
+      "error": "Error: expect(locator).toBeVisible() failed Locator: getByRole('dialog', { name: /^cart/i }).getByRole('link', { name: 'Automatic Espresso Machine' }) Expected: visible Error: strict mode violation: getByRole('dialog', { name: /^cart/i }).getByRole('link', { name: 'Automatic Espresso Machine' }) resolved to 2 elements: 1) <a href=\"/us/en/products/automatic-espresso-machine\" class=\"relative w-24 h-24 bg-gray-100 rounded overflow-hidden flex-shrink-0\">…</a> aka getByRole('link', { name: 'Automatic Espresso Machine' }).first()"
+    },
+    {
+      "file": "e2e/product.spec.ts",
+      "line": 69,
+      "title": "product page with color and size options › picking a color and a size adds that combination to the cart",
+      "status": "passed",
+      "retries": 0,
+      "duration_ms": 1958
+    },
+    {
+      "file": "e2e/product.spec.ts",
+      "line": 90,
+      "title": "product page with color and size options › a discounted variant shows its sale price, and the cart charges it",
+      "status": "passed",
+      "retries": 0,
+      "duration_ms": 1783
+    },
+    {
+      "file": "e2e/product.spec.ts",
+      "line": 116,
+      "title": "product page with color and size options › a sold-out variant can be picked but not added to the cart",
+      "status": "passed",
+      "retries": 0,
+      "duration_ms": 721
+    }
+  ]
+}

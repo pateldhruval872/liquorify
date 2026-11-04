@@ -1,0 +1,11 @@
+{
+  "screen": "SF-CHK-03",
+  "state": "coupon-order",
+  "variant": "guest",
+  "theme": "light",
+  "width": 390,
+  "revision": "storefront 8865498, backend 06ccfbce",
+  "path": "/us/en/order-placed/cart_Ae5s1igzRC",
+  "observed": "Placed from cart cart_Ae5s1igzRC. The payment box read: \"Payment Check $84.99\".",
+  "note": "A guest's order with the coupon WELCOME10, placed with Check."
+}

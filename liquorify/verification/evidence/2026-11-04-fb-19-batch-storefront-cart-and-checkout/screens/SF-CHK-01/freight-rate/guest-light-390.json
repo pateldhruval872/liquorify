@@ -1,0 +1,11 @@
+{
+  "screen": "SF-CHK-01",
+  "state": "freight-rate",
+  "variant": "guest",
+  "theme": "light",
+  "width": 390,
+  "revision": "storefront 8865498, backend 06ccfbce",
+  "path": "/us/en/checkout/cart_NYyzXvxTk8",
+  "observed": "Rates offered: Store Pickup $0.00; Standard $5.00; Express $0.00.",
+  "note": "Express quoted by the freight rate provider, which prices nothing and leaves the price to a forwarder."
+}

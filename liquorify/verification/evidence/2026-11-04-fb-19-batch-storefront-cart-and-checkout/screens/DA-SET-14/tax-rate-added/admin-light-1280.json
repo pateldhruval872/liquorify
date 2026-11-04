@@ -1,0 +1,11 @@
+{
+  "screen": "DA-SET-14",
+  "state": "tax-rate-added",
+  "variant": "admin",
+  "theme": "light",
+  "width": 1280,
+  "revision": "storefront 8865498, backend 06ccfbce",
+  "path": "/store_UkLWZg9DAJ/settings/taxes/rates",
+  "observed": "The screen said: \"Tax rate created\".",
+  "note": "A 8% rate named \"Fidelity sales tax\" for the Default tax category in the United States, created from the rates tab."
+}

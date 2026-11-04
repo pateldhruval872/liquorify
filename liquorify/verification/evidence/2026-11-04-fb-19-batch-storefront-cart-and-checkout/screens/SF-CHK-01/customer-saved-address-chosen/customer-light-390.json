@@ -1,0 +1,11 @@
+{
+  "screen": "SF-CHK-01",
+  "state": "customer-saved-address-chosen",
+  "variant": "customer",
+  "theme": "light",
+  "width": 390,
+  "revision": "storefront 8865498, backend 06ccfbce",
+  "path": "/us/en/checkout/cart_4aROlu6p4z",
+  "observed": "Rates offered: none. The page showed no alert or toast.",
+  "note": "The second saved address chosen, then the shipping heading clicked so checkout tries to save it. The email field is locked empty (SD-21)."
+}

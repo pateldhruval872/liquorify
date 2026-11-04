@@ -1,0 +1,11 @@
+{
+  "screen": "SF-CHK-01",
+  "state": "gateway-inactive",
+  "variant": "guest",
+  "theme": "light",
+  "width": 1280,
+  "revision": "storefront 8865498, backend 06ccfbce",
+  "path": "/us/en/checkout/cart_JCXaEBgznC",
+  "observed": "The payment section read: \"Payment Method All transactions are secure and encrypted. Check Pay by check. You will receive payment instructions after placing your order. Same as shipping address\".",
+  "note": "After the test gateway was made inactive in the dashboard."
+}

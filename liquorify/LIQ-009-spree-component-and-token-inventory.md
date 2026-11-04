@@ -315,7 +315,7 @@ These are compositions bound to one application's data hooks and API. They are l
 | CMP-SF-P-15 | `popover` | Overlay | Radix | | |
 | CMP-SF-P-16 | `product-image` | Display | Next.js image | Storefront/UI/Product image | |
 | CMP-SF-P-17 | `quantity-picker` | Input | — | Storefront/UI/Quantity picker | |
-| CMP-SF-P-18 | `radio-group` | Input | Radix | | |
+| CMP-SF-P-18 | `radio-group` | Input | Radix | Storefront/UI/Radio group | |
 | CMP-SF-P-19 | `separator` | Layout | Radix | | |
 | CMP-SF-P-20 | `sheet` | Overlay | Radix | Storefront/UI/Sheet | |
 | CMP-SF-P-21 | `sonner` | Feedback | Sonner, next-themes | Storefront/UI/Toaster | |
@@ -330,7 +330,7 @@ These are compositions bound to one application's data hooks and API. They are l
 | CMP-SF-G-01 | `account/` | 6 | AccountShell, AuthenticatedAccountShell, CreditCardList, GiftCardList, OrderDetail, OrderList | SF-ACC | `AccountShell`: Storefront/Account/Account shell; `AuthenticatedAccountShell`: Storefront/Account/Authenticated account shell; `CreditCardList`: Storefront/Account/Credit card list; `GiftCardList`: Storefront/Account/Gift card list; `OrderDetail`: Storefront/Account/Order detail; `OrderList`: Storefront/Account/Order list | |
 | CMP-SF-G-02 | `addresses/` | 1 | AddressManagement | SF-ACC-07, SF-CHK-01 | `AddressManagement`: Storefront/Addresses/Address management | |
 | CMP-SF-G-03 | `cart/` | 2 | CartDrawer, QuantityPickerField | SF-OVL-02, SF-SHOP-05 | `CartDrawer`: Storefront/Cart/Cart drawer; `QuantityPickerField`: Storefront/Cart/Quantity picker field | |
-| CMP-SF-G-04 | `checkout/` | 12 | AddressEditModal, AddressFormFields, AddressSection, AddressSelector, AdyenPaymentForm, CouponCode, DeliveryMethodSection, ExpressCheckoutButton, PayPalPaymentForm, PaymentSection, StripePaymentForm, Summary | SF-CHK-01, SF-OVL-05 | `AddressEditModal`: Storefront/Checkout/Address edit modal; `AddressFormFields`: Storefront/Checkout/Address form fields | |
+| CMP-SF-G-04 | `checkout/` | 12 | AddressEditModal, AddressFormFields, AddressSection, AddressSelector, AdyenPaymentForm, CouponCode, DeliveryMethodSection, ExpressCheckoutButton, PayPalPaymentForm, PaymentSection, StripePaymentForm, Summary | SF-CHK-01, SF-OVL-05 | `AddressEditModal`: Storefront/Checkout/Address edit modal; `AddressFormFields`: Storefront/Checkout/Address form fields; `AddressSection`: Storefront/Checkout/Address section; `AddressSelector`: Storefront/Checkout/Address selector; `AdyenPaymentForm`: Storefront/Checkout/Adyen payment form; `CouponCode`: Storefront/Checkout/Coupon code; `DeliveryMethodSection`: Storefront/Checkout/Delivery method section; `ExpressCheckoutButton`: Storefront/Checkout/Express checkout button; `PayPalPaymentForm`: Storefront/Checkout/PayPal payment form; `PaymentSection`: Storefront/Checkout/Payment section; `StripePaymentForm`: Storefront/Checkout/Stripe payment form; `Summary`: Storefront/Checkout/Summary. The payment providers' stories are labelled mocked (FB-19 batch 9) | |
 | CMP-SF-G-05 | `home/` | 3 | FeaturedProductsSection, HeroSection, WholesaleSection | SF-SHOP-01 | `FeaturedProductsSection`: Storefront/Home/Featured products section; `HeroSection`: Storefront/Home/Hero section; `WholesaleSection`: Storefront/Home/Wholesale section | |
 | CMP-SF-G-06 | `layout/` | 8 | CartButton, CurrentYear, DocumentShell, Footer, Header, MobileMenu, RegionPreferences, SearchToggle | SF-OVL-01, SF-OVL-03, SF-OVL-04 | `CartButton`: Storefront/Layout/Cart button; `CurrentYear`: Storefront/Layout/Current year; `DocumentShell`: U5, it draws the page's `html` element, which a story cannot hold; Storybook's preview applies its font and body classes, and every running-screen capture shows it; `Footer`: Storefront/Layout/Footer; `Header`: Storefront/Layout/Header; `MobileMenu`: Storefront/Layout/Mobile menu; `RegionPreferences`: Storefront/Layout/Region preferences; `SearchToggle`: Storefront/Layout/Search toggle | |
 | CMP-SF-G-07 | `navigation/` | 1 | Breadcrumbs | SF-SHOP-03, SF-SHOP-04 | `Breadcrumbs`: Storefront/Navigation/Breadcrumbs | |
@@ -344,8 +344,8 @@ These are compositions bound to one application's data hooks and API. They are l
 
 | ID | Component | Where | Kind | Used on | Storybook | Figma |
 |---|---|---|---|---|---|---|
-| CMP-SF-PG-01 | CheckoutPageContent | `(checkout)/checkout/[id]/` | Layout | SF-CHK-01 | | |
-| CMP-SF-PG-02 | CheckoutSidebar | `(checkout)/checkout/[id]/` | Display | SF-CHK-01 | | |
+| CMP-SF-PG-01 | CheckoutPageContent | `(checkout)/checkout/[id]/` | Layout | SF-CHK-01 | Storefront/Pages/Checkout page content | |
+| CMP-SF-PG-02 | CheckoutSidebar | `(checkout)/checkout/[id]/` | Display | SF-CHK-01 | Storefront/Pages/Checkout sidebar | |
 | CMP-SF-PG-03 | CategoryBanner | `(storefront)/c/[...permalink]/` | Display | SF-SHOP-03 | Storefront/Pages/Category banner | |
 | CMP-SF-PG-04 | ProductDetails | `(storefront)/products/[slug]/` | Display | SF-SHOP-04 | Storefront/Pages/Product details | |
 | CMP-SF-PG-05 | WholesaleApplicationPending | `(wholesale)/wholesale/_components/` | Feedback | SF-WHL | | |
