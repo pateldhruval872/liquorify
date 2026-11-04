@@ -2,9 +2,18 @@
   "id": "CMP-SF-G-01",
   "story": "storefront-account-gift-card-list--every-state",
   "mode": "mobile",
-  "revision": "8153a6b1ffbcd8dfd0c435f6fc24f90ff32b9fff",
+  "revision": "88654985d6a9bcb2467ebcef000960f81343a01d",
   "screenWidth": 358,
   "storyWidth": 358,
+  "hiddenWhileCaptured": {
+    "screen": [
+      {
+        "element": "header",
+        "overPart": true
+      }
+    ],
+    "story": []
+  },
   "compared": 30,
   "onlyOnScreen": [
     "h1||text-2xl font-bold text-gray-900 mb-6",
