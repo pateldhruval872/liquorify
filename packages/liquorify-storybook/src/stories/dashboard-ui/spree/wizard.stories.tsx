@@ -4,7 +4,7 @@ import { Field, FieldGroup, FieldLabel } from '@spree/dashboard-ui/ui/field'
 import { Input } from '@spree/dashboard-ui/ui/input'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import { useState } from 'react'
-import { expect, fn, screen, userEvent } from 'storybook/test'
+import { expect, fn, screen, userEvent, waitFor } from 'storybook/test'
 
 /** The catalog wizard's steps (DA-PRD-13), which the import wizard's frame shares. */
 const steps: WizardStep[] = [
@@ -103,6 +103,14 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
+// The wizard moves focus into itself as it opens. A click made before that
+// loses its focus to the close button, which then shows its focus ring, so a
+// story clicks only once the wizard holds focus.
+async function opened() {
+  const wizard = await screen.findByRole('dialog', { name: 'New catalog' })
+  await waitFor(() => expect(wizard.contains(document.activeElement)).toBe(true))
+}
+
 export const FirstStep: Story = {
   name: 'First step',
   play: async () => {
@@ -126,7 +134,8 @@ export const JumpingBack: Story = {
   name: 'Jumping back to a finished step',
   args: { start: 'pricing' },
   play: async () => {
-    await userEvent.click(await screen.findByRole('button', { name: 'Audience' }))
+    await opened()
+    await userEvent.click(screen.getByRole('button', { name: 'Audience' }))
     await expect(screen.getByRole('button', { name: 'Audience' })).toHaveAttribute(
       'aria-current',
       'step',
@@ -138,7 +147,8 @@ export const LastStep: Story = {
   name: 'Last step',
   args: { start: 'review' },
   play: async ({ args }) => {
-    await userEvent.click(await screen.findByRole('button', { name: 'Create catalog' }))
+    await opened()
+    await userEvent.click(screen.getByRole('button', { name: 'Create catalog' }))
     await expect(args.onSubmit).toHaveBeenCalled()
   },
 }
@@ -148,7 +158,8 @@ export const DiscardingDraft: Story = {
   name: 'Discarding a draft',
   args: { start: 'audience', unsaved: true },
   play: async () => {
-    await userEvent.click(await screen.findByRole('button', { name: 'Close' }))
+    await opened()
+    await userEvent.click(screen.getByRole('button', { name: 'Close' }))
     await screen.findByRole('dialog', { name: 'Discard this draft?' })
   },
 }
