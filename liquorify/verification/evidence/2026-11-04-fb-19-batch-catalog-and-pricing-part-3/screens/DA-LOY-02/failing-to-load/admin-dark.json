@@ -1,0 +1,17 @@
+{
+  "screen": "DA-LOY-02",
+  "state": "failing-to-load",
+  "variant": "admin",
+  "role": null,
+  "theme": "dark",
+  "revision": "4a05d9c8",
+  "path": "/<store>/loyalty/store-credits",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": "The store credits request is answered with a server error",
+  "settled": true,
+  "outside": [],
+  "refused": []
+}

@@ -1,0 +1,11 @@
+{
+  "screen": "SF-CHK-01",
+  "state": "coupon-refused",
+  "variant": "guest",
+  "theme": "light",
+  "width": 1280,
+  "revision": "storefront 8865498, backend 06ccfbce",
+  "path": "/us/en/checkout/cart_h9zBvQ85Ws",
+  "observed": "The order summary read: \"1 Drip Coffee Maker 1.5L Color: Black $89.99 Subtotal $89.99 Shipping $5.00 Total USD $94.99 Apply The coupon code you entered doesn't exist. Please try again.\". The code field said: \"The coupon code you entered doesn't exist. Please try again.\". The page showed no alert or toast.",
+  "note": "A code no promotion or gift card has entered; the one field takes both."
+}

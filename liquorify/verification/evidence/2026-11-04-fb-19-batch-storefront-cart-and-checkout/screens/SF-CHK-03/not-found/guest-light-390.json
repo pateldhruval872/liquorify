@@ -1,0 +1,11 @@
+{
+  "screen": "SF-CHK-03",
+  "state": "not-found",
+  "variant": "guest",
+  "theme": "light",
+  "width": 390,
+  "revision": "storefront 8865498, backend 06ccfbce",
+  "path": "/us/en/order-placed/cart_fidelity_unknown",
+  "observed": "Opened /us/en/order-placed/cart_fidelity_unknown; arrived at /us/en/order-placed/cart_fidelity_unknown, answered with status 200.",
+  "note": "An address naming an order that does not exist."
+}

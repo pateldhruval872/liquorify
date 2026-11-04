@@ -1,0 +1,11 @@
+{
+  "screen": "DA-SET-17",
+  "state": "flat-rate-euro-amount",
+  "variant": "admin",
+  "theme": "light",
+  "width": 1280,
+  "revision": "storefront 8865498, backend 06ccfbce",
+  "path": "/store_UkLWZg9DAJ/settings/delivery-profiles/fp_UkLWZg9DAJ",
+  "observed": null,
+  "note": "International Shipping given 18.00 euros beside its US dollar amount and saved; the sheet reopened."
+}

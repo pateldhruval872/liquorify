@@ -1,0 +1,11 @@
+{
+  "screen": "DA-SET-11",
+  "state": "prices-include-tax",
+  "variant": "admin",
+  "theme": "light",
+  "width": 1280,
+  "revision": "storefront 8865498, backend 06ccfbce",
+  "path": "/store_UkLWZg9DAJ/settings/markets",
+  "observed": null,
+  "note": "The United States market opened from the markets list with \"Prices include tax\" switched on, before saving. Spree 6.0 sets whether prices include tax on the market, not on the tax rate."
+}

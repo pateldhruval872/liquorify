@@ -1,0 +1,51 @@
+{
+  "screen": "DA-PRM-03",
+  "state": "direct-visit",
+  "variant": "merchandiser",
+  "role": {
+    "name": "Merchandiser",
+    "permissions": [
+      "write_products",
+      "write_categories",
+      "write_collections",
+      "write_stock"
+    ]
+  },
+  "theme": "light",
+  "revision": "4a05d9c8",
+  "path": "/<store>/promotions/promo_VqXmZF31wY",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": null,
+  "settled": true,
+  "outside": [],
+  "refused": [
+    {
+      "method": "POST",
+      "path": "/api/v3/admin/reporting/query",
+      "status": 403
+    },
+    {
+      "method": "GET",
+      "path": "/api/v3/admin/promotions/promo_VqXmZF31wY",
+      "status": 404
+    },
+    {
+      "method": "GET",
+      "path": "/api/v3/admin/dashboard/counters",
+      "status": 403
+    },
+    {
+      "method": "GET",
+      "path": "/api/v3/admin/promotions/promo_VqXmZF31wY/promotion_actions?limit=100",
+      "status": 404
+    },
+    {
+      "method": "GET",
+      "path": "/api/v3/admin/promotions/promo_VqXmZF31wY/promotion_rules?limit=100",
+      "status": 404
+    }
+  ]
+}

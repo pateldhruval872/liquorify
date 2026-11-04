@@ -1,0 +1,11 @@
+{
+  "screen": "SF-OVL-05",
+  "state": "save-refused",
+  "variant": "customer",
+  "theme": "light",
+  "width": 1280,
+  "revision": "storefront 8865498, backend 06ccfbce",
+  "path": "/us/en/checkout/cart_yIyr3EWPH8",
+  "observed": "The page said: \"Failed to fetch\".",
+  "note": "Opened with a saved address's \"Edit\" at checkout and saved; the storefront's request failed on the way."
+}

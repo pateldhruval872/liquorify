@@ -1,0 +1,11 @@
+{
+  "screen": "SF-CHK-03",
+  "state": "gift-card-order",
+  "variant": "guest",
+  "theme": "light",
+  "width": 390,
+  "revision": "storefront 8865498, backend 06ccfbce",
+  "path": "/us/en/order-placed/cart_lNoiGAYKIU",
+  "observed": "Placed from cart cart_lNoiGAYKIU. The payment box read: \"Payment Gift card Applied $94.99 — $0.00 remaining\".",
+  "note": "A guest's order paid in full by the gift card FIDELITY-WHOLE-500."
+}

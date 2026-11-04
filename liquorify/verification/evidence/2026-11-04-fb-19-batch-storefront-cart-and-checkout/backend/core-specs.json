@@ -1,0 +1,3014 @@
+{
+  "version": "3.13.6",
+  "seed": 20635,
+  "examples": [
+    {
+      "id": "./spec/services/spree/carts/destroy_spec.rb[1:2:1]",
+      "description": "returns failure",
+      "full_description": "Spree::Carts::Destroy when nil is given returns failure",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/destroy_spec.rb",
+      "line_number": 163,
+      "run_time": 0.023963187,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/destroy_spec.rb[1:1:2:2:1]",
+      "description": "returns failure",
+      "full_description": "Spree::Carts::Destroy when a cart is given when it cannot be destroyed because a payment is completed returns failure",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/destroy_spec.rb",
+      "line_number": 150,
+      "run_time": 0.652660953,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/destroy_spec.rb[1:1:2:1:1]",
+      "description": "returns failure",
+      "full_description": "Spree::Carts::Destroy when a cart is given when it cannot be destroyed because the cart is completed returns failure",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/destroy_spec.rb",
+      "line_number": 140,
+      "run_time": 0.118769846,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/destroy_spec.rb[1:1:1:3]",
+      "description": "cancels unfulfilled fulfillments",
+      "full_description": "Spree::Carts::Destroy when a cart is given when it can be destroyed cancels unfulfilled fulfillments",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/destroy_spec.rb",
+      "line_number": 38,
+      "run_time": 0.519051442,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/destroy_spec.rb[1:1:1:5]",
+      "description": "destroys line_items, addresses, fulfillments and payments",
+      "full_description": "Spree::Carts::Destroy when a cart is given when it can be destroyed destroys line_items, addresses, fulfillments and payments",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/destroy_spec.rb",
+      "line_number": 59,
+      "run_time": 0.337336392,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/destroy_spec.rb[1:1:1:2]",
+      "description": "voids pending payments",
+      "full_description": "Spree::Carts::Destroy when a cart is given when it can be destroyed voids pending payments",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/destroy_spec.rb",
+      "line_number": 30,
+      "run_time": 0.295774402,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/destroy_spec.rb[1:1:1:4]",
+      "description": "destroys the cart",
+      "full_description": "Spree::Carts::Destroy when a cart is given when it can be destroyed destroys the cart",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/destroy_spec.rb",
+      "line_number": 51,
+      "run_time": 0.347796179,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/destroy_spec.rb[1:1:1:1]",
+      "description": "returns success",
+      "full_description": "Spree::Carts::Destroy when a cart is given when it can be destroyed returns success",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/destroy_spec.rb",
+      "line_number": 26,
+      "run_time": 0.290496062,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/destroy_spec.rb[1:1:1:8:1]",
+      "description": "releases the gift card balance before destroying the cart",
+      "full_description": "Spree::Carts::Destroy when a cart is given when it can be destroyed when a gift card is applied releases the gift card balance before destroying the cart",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/destroy_spec.rb",
+      "line_number": 125,
+      "run_time": 0.543557411,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/destroy_spec.rb[1:1:1:6:1]",
+      "description": "destroys the reservations via dependent: :destroy on the cart",
+      "full_description": "Spree::Carts::Destroy when a cart is given when it can be destroyed with stock reservations destroys the reservations via dependent: :destroy on the cart",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/destroy_spec.rb",
+      "line_number": 83,
+      "run_time": 0.42956964,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/destroy_spec.rb[1:1:1:7:2]",
+      "description": "destroys line_items, fulfillments and payments, but keeps addresses",
+      "full_description": "Spree::Carts::Destroy when a cart is given when it can be destroyed when addresses are assigned to other records destroys line_items, fulfillments and payments, but keeps addresses",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/destroy_spec.rb",
+      "line_number": 101,
+      "run_time": 0.767296696,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/destroy_spec.rb[1:1:1:7:1]",
+      "description": "destroys the cart",
+      "full_description": "Spree::Carts::Destroy when a cart is given when it can be destroyed when addresses are assigned to other records destroys the cart",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/destroy_spec.rb",
+      "line_number": 93,
+      "run_time": 0.782594846,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/stock_reservations/extend_spec.rb[1:2:1]",
+      "description": "leaves expires_at untouched",
+      "full_description": "Spree::StockReservations::Extend when stock_reservations_enabled is false leaves expires_at untouched",
+      "status": "passed",
+      "file_path": "./spec/services/spree/stock_reservations/extend_spec.rb",
+      "line_number": 32,
+      "run_time": 0.304400398,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/stock_reservations/extend_spec.rb[1:1:1]",
+      "description": "pushes expires_at out by the store TTL",
+      "full_description": "Spree::StockReservations::Extend when stock_reservations_enabled is true pushes expires_at out by the store TTL",
+      "status": "passed",
+      "file_path": "./spec/services/spree/stock_reservations/extend_spec.rb",
+      "line_number": 11,
+      "run_time": 0.332331474,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/stock_reservations/extend_spec.rb[1:1:2]",
+      "description": "updates only this order's reservations",
+      "full_description": "Spree::StockReservations::Extend when stock_reservations_enabled is true updates only this order's reservations",
+      "status": "passed",
+      "file_path": "./spec/services/spree/stock_reservations/extend_spec.rb",
+      "line_number": 18,
+      "run_time": 0.462251912,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/update_spec.rb[1:2:1]",
+      "description": "rolls the address change back rather than committing it unpriced",
+      "full_description": "Spree::Carts::Update when a strict store cannot confirm prices rolls the address change back rather than committing it unpriced",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/update_spec.rb",
+      "line_number": 1017,
+      "run_time": 0.28443921,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/update_spec.rb[1:3:1]",
+      "description": "reports a readable message instead of an exception class name",
+      "full_description": "Spree::Carts::Update a purchase order document whose upload never completed reports a readable message instead of an exception class name",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/update_spec.rb",
+      "line_number": 1043,
+      "run_time": 0.361595266,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/update_spec.rb[1:1:1]",
+      "description": "refuses an address change when the tax engine cannot be reached",
+      "full_description": "Spree::Carts::Update#call refuses an address change when the tax engine cannot be reached",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/update_spec.rb",
+      "line_number": 18,
+      "run_time": 0.273730429,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/update_spec.rb[1:1:10:3]",
+      "description": "does not copy when use_shipping is false",
+      "full_description": "Spree::Carts::Update#call use_shipping (billing same as shipping) does not copy when use_shipping is false",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/update_spec.rb",
+      "line_number": 636,
+      "run_time": 0.463131366,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/update_spec.rb[1:1:10:2]",
+      "description": "works when set alongside shipping address in the same request",
+      "full_description": "Spree::Carts::Update#call use_shipping (billing same as shipping) works when set alongside shipping address in the same request",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/update_spec.rb",
+      "line_number": 625,
+      "run_time": 0.47354845,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/update_spec.rb[1:1:10:1]",
+      "description": "copies shipping address to billing address",
+      "full_description": "Spree::Carts::Update#call use_shipping (billing same as shipping) copies shipping address to billing address",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/update_spec.rb",
+      "line_number": 609,
+      "run_time": 0.617998996,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/update_spec.rb[1:1:7:1:1:1]",
+      "description": "creates a new address",
+      "full_description": "Spree::Carts::Update#call updating addresses shipping_address with new address attributes creates a new address",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/update_spec.rb",
+      "line_number": 315,
+      "run_time": 0.329868729,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/update_spec.rb[1:1:7:1:1:2:1]",
+      "description": "does not auto-complete the cart",
+      "full_description": "Spree::Carts::Update#call updating addresses shipping_address with new address attributes when the cart is fully covered by store credit payment does not auto-complete the cart",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/update_spec.rb",
+      "line_number": 332,
+      "run_time": 0.521919639,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/update_spec.rb[1:1:7:1:4:1:1]",
+      "description": "rebuilds delivery proposals for the new address",
+      "full_description": "Spree::Carts::Update#call updating addresses shipping_address delivery proposals when the cart is already mid-checkout rebuilds delivery proposals for the new address",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/update_spec.rb",
+      "line_number": 378,
+      "run_time": 0.400698611,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/update_spec.rb[1:1:7:1:4:2:1]",
+      "description": "builds delivery proposals once the address arrives",
+      "full_description": "Spree::Carts::Update#call updating addresses shipping_address delivery proposals when the cart is still in the shopping phase builds delivery proposals once the address arrives",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/update_spec.rb",
+      "line_number": 385,
+      "run_time": 0.381089194,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/update_spec.rb[1:1:7:1:4:3:3:1]",
+      "description": "starts from the default rate",
+      "full_description": "Spree::Carts::Update#call updating addresses shipping_address delivery proposals when a guest who chose a rate edits the address with the street changed and an item added in the same request starts from the default rate",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/update_spec.rb",
+      "line_number": 450,
+      "run_time": 0.706529028,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/update_spec.rb[1:1:7:1:4:3:1:1]",
+      "description": "keeps the chosen rate",
+      "full_description": "Spree::Carts::Update#call updating addresses shipping_address delivery proposals when a guest who chose a rate edits the address with only the phone number corrected keeps the chosen rate",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/update_spec.rb",
+      "line_number": 415,
+      "run_time": 0.540782752,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/update_spec.rb[1:1:7:1:4:3:2:1]",
+      "description": "starts from the default rate",
+      "full_description": "Spree::Carts::Update#call updating addresses shipping_address delivery proposals when a guest who chose a rate edits the address with the street changed starts from the default rate",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/update_spec.rb",
+      "line_number": 430,
+      "run_time": 0.440613576,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/update_spec.rb[1:1:7:1:3:1]",
+      "description": "uses the existing address",
+      "full_description": "Spree::Carts::Update#call updating addresses shipping_address with top-level address_id parameter uses the existing address",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/update_spec.rb",
+      "line_number": 353,
+      "run_time": 0.361166219,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/update_spec.rb[1:1:7:1:5:1]",
+      "description": "recalculates when shipping address is picked by id",
+      "full_description": "Spree::Carts::Update#call updating addresses shipping_address with top-level shipping_address_id recalculates when shipping address is picked by id",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/update_spec.rb",
+      "line_number": 466,
+      "run_time": 0.273351451,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/update_spec.rb[1:1:7:1:2:1]",
+      "description": "uses the existing address",
+      "full_description": "Spree::Carts::Update#call updating addresses shipping_address with existing address by nested id uses the existing address",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/update_spec.rb",
+      "line_number": 343,
+      "run_time": 0.373124422,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/update_spec.rb[1:1:7:2:3:1]",
+      "description": "uses the existing address",
+      "full_description": "Spree::Carts::Update#call updating addresses billing_address with top-level address_id parameter uses the existing address",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/update_spec.rb",
+      "line_number": 353,
+      "run_time": 0.282136144,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/update_spec.rb[1:1:7:2:4:2:1]",
+      "description": "does not rebuild delivery proposals",
+      "full_description": "Spree::Carts::Update#call updating addresses billing_address with top-level billing_address_id when tax is computed from the shipping address does not rebuild delivery proposals",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/update_spec.rb",
+      "line_number": 507,
+      "run_time": 0.361201691,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/update_spec.rb[1:1:7:2:4:1:1]",
+      "description": "recalculates when the tax address is picked by id",
+      "full_description": "Spree::Carts::Update#call updating addresses billing_address with top-level billing_address_id when tax is computed from the billing address recalculates when the tax address is picked by id",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/update_spec.rb",
+      "line_number": 494,
+      "run_time": 0.282827471,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/update_spec.rb[1:1:7:2:2:1]",
+      "description": "uses the existing address",
+      "full_description": "Spree::Carts::Update#call updating addresses billing_address with existing address by nested id uses the existing address",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/update_spec.rb",
+      "line_number": 343,
+      "run_time": 0.250811288,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/update_spec.rb[1:1:7:2:1:1]",
+      "description": "creates a new address",
+      "full_description": "Spree::Carts::Update#call updating addresses billing_address with new address attributes creates a new address",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/update_spec.rb",
+      "line_number": 315,
+      "run_time": 0.319250222,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/update_spec.rb[1:1:7:2:1:2:1]",
+      "description": "does not auto-complete the cart",
+      "full_description": "Spree::Carts::Update#call updating addresses billing_address with new address attributes when the cart is fully covered by store credit payment does not auto-complete the cart",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/update_spec.rb",
+      "line_number": 332,
+      "run_time": 0.320718733,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/update_spec.rb[1:1:14:1:1]",
+      "description": "adds line items to the cart",
+      "full_description": "Spree::Carts::Update#call setting line items with new line_items adds line items to the cart",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/update_spec.rb",
+      "line_number": 755,
+      "run_time": 0.41172475,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/update_spec.rb[1:1:14:4:2]",
+      "description": "checks the items against a company named in the same request",
+      "full_description": "Spree::Carts::Update#call setting line items with a variant outside the buyer's catalogs checks the items against a company named in the same request",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/update_spec.rb",
+      "line_number": 822,
+      "run_time": 0.656819329,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/update_spec.rb[1:1:14:4:1]",
+      "description": "refuses the item and leaves the cart as it was",
+      "full_description": "Spree::Carts::Update#call setting line items with a variant outside the buyer's catalogs refuses the item and leaves the cart as it was",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/update_spec.rb",
+      "line_number": 817,
+      "run_time": 0.523717833,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/update_spec.rb[1:1:14:4:3]",
+      "description": "still applies a quantity edit to a line already in the cart",
+      "full_description": "Spree::Carts::Update#call setting line items with a variant outside the buyer's catalogs still applies a quantity edit to a line already in the cart",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/update_spec.rb",
+      "line_number": 833,
+      "run_time": 0.68147534,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/update_spec.rb[1:1:14:2:1]",
+      "description": "sets quantity instead of incrementing",
+      "full_description": "Spree::Carts::Update#call setting line items with existing line item (upsert) sets quantity instead of incrementing",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/update_spec.rb",
+      "line_number": 780,
+      "run_time": 0.515745398,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/update_spec.rb[1:1:14:3:1]",
+      "description": "raises RecordNotFound with variant details",
+      "full_description": "Spree::Carts::Update#call setting line items with invalid variant_id raises RecordNotFound with variant details",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/update_spec.rb",
+      "line_number": 795,
+      "run_time": 0.389918371,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/update_spec.rb[1:1:6:4:1]",
+      "description": "keeps the shipping address",
+      "full_description": "Spree::Carts::Update#call updating market when shipping address country is in the new market keeps the shipping address",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/update_spec.rb",
+      "line_number": 284,
+      "run_time": 0.383514044,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/update_spec.rb[1:1:6:3:2]",
+      "description": "drops delivery proposals built for the cleared address",
+      "full_description": "Spree::Carts::Update#call updating market when shipping address country is not in the new market drops delivery proposals built for the cleared address",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/update_spec.rb",
+      "line_number": 271,
+      "run_time": 0.357848368,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/update_spec.rb[1:1:6:3:1]",
+      "description": "clears the shipping address",
+      "full_description": "Spree::Carts::Update#call updating market when shipping address country is not in the new market clears the shipping address",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/update_spec.rb",
+      "line_number": 265,
+      "run_time": 0.32407034,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/update_spec.rb[1:1:6:2:1]",
+      "description": "raises RecordNotFound",
+      "full_description": "Spree::Carts::Update#call updating market with invalid market_id raises RecordNotFound",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/update_spec.rb",
+      "line_number": 254,
+      "run_time": 0.316081964,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/update_spec.rb[1:1:6:1:1]",
+      "description": "updates the market",
+      "full_description": "Spree::Carts::Update#call updating market with valid market_id updates the market",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/update_spec.rb",
+      "line_number": 245,
+      "run_time": 0.281203638,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/update_spec.rb[1:1:8:1]",
+      "description": "fills blank slots from the customer saved defaults once in checkout",
+      "full_description": "Spree::Carts::Update#call default address filling on checkout entry fills blank slots from the customer saved defaults once in checkout",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/update_spec.rb",
+      "line_number": 530,
+      "run_time": 0.373269746,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/update_spec.rb[1:1:8:4]",
+      "description": "does nothing for guest carts",
+      "full_description": "Spree::Carts::Update#call default address filling on checkout entry does nothing for guest carts",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/update_spec.rb",
+      "line_number": 552,
+      "run_time": 0.299900039,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/update_spec.rb[1:1:8:2]",
+      "description": "never fills before checkout begins",
+      "full_description": "Spree::Carts::Update#call default address filling on checkout entry never fills before checkout begins",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/update_spec.rb",
+      "line_number": 537,
+      "run_time": 0.353873416,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/update_spec.rb[1:1:8:3]",
+      "description": "does not overwrite an explicitly provided address",
+      "full_description": "Spree::Carts::Update#call default address filling on checkout entry does not overwrite an explicitly provided address",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/update_spec.rb",
+      "line_number": 544,
+      "run_time": 0.477707748,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/update_spec.rb[1:1:11:5:1]",
+      "description": "ignores address_id params and keeps existing address",
+      "full_description": "Spree::Carts::Update#call address ownership when the cart has no user (guest cart) ignores address_id params and keeps existing address",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/update_spec.rb",
+      "line_number": 682,
+      "run_time": 0.322247776,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/update_spec.rb[1:1:11:4:1]",
+      "description": "ignores the address and keeps original",
+      "full_description": "Spree::Carts::Update#call address ownership when using another user's address via billing_address_id ignores the address and keeps original",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/update_spec.rb",
+      "line_number": 666,
+      "run_time": 0.323289842,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/update_spec.rb[1:1:11:3:1]",
+      "description": "ignores the address and keeps original",
+      "full_description": "Spree::Carts::Update#call address ownership when using another user's address for billing_address ignores the address and keeps original",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/update_spec.rb",
+      "line_number": 655,
+      "run_time": 0.293036282,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/update_spec.rb[1:1:11:1:1]",
+      "description": "ignores the address and keeps original",
+      "full_description": "Spree::Carts::Update#call address ownership when using another user's address for shipping_address ignores the address and keeps original",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/update_spec.rb",
+      "line_number": 655,
+      "run_time": 0.28250092,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/update_spec.rb[1:1:11:2:1]",
+      "description": "ignores the address and keeps original",
+      "full_description": "Spree::Carts::Update#call address ownership when using another user's address via shipping_address_id ignores the address and keeps original",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/update_spec.rb",
+      "line_number": 666,
+      "run_time": 0.41416299,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/update_spec.rb[1:1:13:1]",
+      "description": "updates all fields in a single transaction",
+      "full_description": "Spree::Carts::Update#call updating multiple fields updates all fields in a single transaction",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/update_spec.rb",
+      "line_number": 730,
+      "run_time": 0.487437364,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/update_spec.rb[1:1:9:1]",
+      "description": "preserves existing delivery proposals",
+      "full_description": "Spree::Carts::Update#call billing address does not reset checkout state preserves existing delivery proposals",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/update_spec.rb",
+      "line_number": 581,
+      "run_time": 0.343485288,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/update_spec.rb[1:1:15:1:1]",
+      "description": "succeeds but does not change the address",
+      "full_description": "Spree::Carts::Update#call error handling with invalid address prefix_id succeeds but does not change the address",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/update_spec.rb",
+      "line_number": 849,
+      "run_time": 0.30560109,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/update_spec.rb[1:1:15:2:1]",
+      "description": "returns failure with error message",
+      "full_description": "Spree::Carts::Update#call error handling when the cart save fails returns failure with error message",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/update_spec.rb",
+      "line_number": 863,
+      "run_time": 0.256276783,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/update_spec.rb[1:1:12:1]",
+      "description": "merges metadata into the cart",
+      "full_description": "Spree::Carts::Update#call updating metadata merges metadata into the cart",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/update_spec.rb",
+      "line_number": 693,
+      "run_time": 0.329658252,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/update_spec.rb[1:1:12:2:1]",
+      "description": "merges without removing existing keys",
+      "full_description": "Spree::Carts::Update#call updating metadata with existing metadata merges without removing existing keys",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/update_spec.rb",
+      "line_number": 703,
+      "run_time": 0.253261431,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/update_spec.rb[1:1:16:1]",
+      "description": "handles string keys",
+      "full_description": "Spree::Carts::Update#call parameter normalization handles string keys",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/update_spec.rb",
+      "line_number": 872,
+      "run_time": 0.244368746,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/update_spec.rb[1:1:3:1]",
+      "description": "updates the customer note",
+      "full_description": "Spree::Carts::Update#call updating customer_note updates the customer note",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/update_spec.rb",
+      "line_number": 48,
+      "run_time": 0.289080521,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/update_spec.rb[1:1:3:2:1]",
+      "description": "clears with empty string",
+      "full_description": "Spree::Carts::Update#call updating customer_note when clearing customer_note clears with empty string",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/update_spec.rb",
+      "line_number": 56,
+      "run_time": 0.307271413,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/update_spec.rb[1:1:3:2:2]",
+      "description": "clears with nil",
+      "full_description": "Spree::Carts::Update#call updating customer_note when clearing customer_note clears with nil",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/update_spec.rb",
+      "line_number": 62,
+      "run_time": 0.272794049,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/update_spec.rb[1:1:18:2]",
+      "description": "keeps the delivery requirement unmet",
+      "full_description": "Spree::Carts::Update#call when the cart cannot be delivered keeps the delivery requirement unmet",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/update_spec.rb",
+      "line_number": 985,
+      "run_time": 0.417841717,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/update_spec.rb[1:1:18:1]",
+      "description": "leaves the cart with no fulfillments",
+      "full_description": "Spree::Carts::Update#call when the cart cannot be delivered leaves the cart with no fulfillments",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/update_spec.rb",
+      "line_number": 980,
+      "run_time": 0.417870248,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/update_spec.rb[1:1:4:2]",
+      "description": "accepts a raw id",
+      "full_description": "Spree::Carts::Update#call updating preferred_stock_location_id (pickup selection) accepts a raw id",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/update_spec.rb",
+      "line_number": 81,
+      "run_time": 0.334528413,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/update_spec.rb[1:1:4:6]",
+      "description": "rebuilds delivery proposals when the pickup intent changes",
+      "full_description": "Spree::Carts::Update#call updating preferred_stock_location_id (pickup selection) rebuilds delivery proposals when the pickup intent changes",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/update_spec.rb",
+      "line_number": 114,
+      "run_time": 0.31540839,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/update_spec.rb[1:1:4:3]",
+      "description": "clears the selection on blank",
+      "full_description": "Spree::Carts::Update#call updating preferred_stock_location_id (pickup selection) clears the selection on blank",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/update_spec.rb",
+      "line_number": 88,
+      "run_time": 0.342605357,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/update_spec.rb[1:1:4:9]",
+      "description": "does not rebuild proposals when the same location is sent again",
+      "full_description": "Spree::Carts::Update#call updating preferred_stock_location_id (pickup selection) does not rebuild proposals when the same location is sent again",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/update_spec.rb",
+      "line_number": 138,
+      "run_time": 0.332298664,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/update_spec.rb[1:1:4:8]",
+      "description": "rebuilds delivery proposals when the pickup intent is cleared",
+      "full_description": "Spree::Carts::Update#call updating preferred_stock_location_id (pickup selection) rebuilds delivery proposals when the pickup intent is cleared",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/update_spec.rb",
+      "line_number": 130,
+      "run_time": 0.293904755,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/update_spec.rb[1:1:4:10]",
+      "description": "builds collectable pickup proposals for a cart with no shipping address",
+      "full_description": "Spree::Carts::Update#call updating preferred_stock_location_id (pickup selection) builds collectable pickup proposals for a cart with no shipping address",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/update_spec.rb",
+      "line_number": 146,
+      "run_time": 0.393246605,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/update_spec.rb[1:1:4:4]",
+      "description": "rejects a location that is not pickup-enabled",
+      "full_description": "Spree::Carts::Update#call updating preferred_stock_location_id (pickup selection) rejects a location that is not pickup-enabled",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/update_spec.rb",
+      "line_number": 98,
+      "run_time": 0.211716449,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/update_spec.rb[1:1:4:1]",
+      "description": "resolves a prefixed id against the store pickup-enabled locations",
+      "full_description": "Spree::Carts::Update#call updating preferred_stock_location_id (pickup selection) resolves a prefixed id against the store pickup-enabled locations",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/update_spec.rb",
+      "line_number": 73,
+      "run_time": 0.398147258,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/update_spec.rb[1:1:4:5]",
+      "description": "rejects a pickup location belonging to another store",
+      "full_description": "Spree::Carts::Update#call updating preferred_stock_location_id (pickup selection) rejects a pickup location belonging to another store",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/update_spec.rb",
+      "line_number": 106,
+      "run_time": 0.383260384,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/update_spec.rb[1:1:4:7]",
+      "description": "rebuilds delivery proposals when the pickup intent arrives with items",
+      "full_description": "Spree::Carts::Update#call updating preferred_stock_location_id (pickup selection) rebuilds delivery proposals when the pickup intent arrives with items",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/update_spec.rb",
+      "line_number": 121,
+      "run_time": 0.442239902,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/update_spec.rb[1:1:5:2:2]",
+      "description": "does not change the currency",
+      "full_description": "Spree::Carts::Update#call updating currency with unsupported currency does not change the currency",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/update_spec.rb",
+      "line_number": 188,
+      "run_time": 0.247104894,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/update_spec.rb[1:1:5:2:1]",
+      "description": "returns failure",
+      "full_description": "Spree::Carts::Update#call updating currency with unsupported currency returns failure",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/update_spec.rb",
+      "line_number": 184,
+      "run_time": 0.215508197,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/update_spec.rb[1:1:5:1:2]",
+      "description": "is case-insensitive",
+      "full_description": "Spree::Carts::Update#call updating currency with supported currency is case-insensitive",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/update_spec.rb",
+      "line_number": 174,
+      "run_time": 0.296610786,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/update_spec.rb[1:1:5:1:1]",
+      "description": "updates the currency",
+      "full_description": "Spree::Carts::Update#call updating currency with supported currency updates the currency",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/update_spec.rb",
+      "line_number": 169,
+      "run_time": 0.349745304,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/update_spec.rb[1:1:5:3:4]",
+      "description": "keeps the current market when no market exists for the currency",
+      "full_description": "Spree::Carts::Update#call updating currency auto-switches market to match currency keeps the current market when no market exists for the currency",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/update_spec.rb",
+      "line_number": 223,
+      "run_time": 0.3007707,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/update_spec.rb[1:1:5:3:1]",
+      "description": "switches market when currency changes",
+      "full_description": "Spree::Carts::Update#call updating currency auto-switches market to match currency switches market when currency changes",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/update_spec.rb",
+      "line_number": 201,
+      "run_time": 0.376405572,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/update_spec.rb[1:1:5:3:3]",
+      "description": "does not switch market when market_id is explicitly provided",
+      "full_description": "Spree::Carts::Update#call updating currency auto-switches market to match currency does not switch market when market_id is explicitly provided",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/update_spec.rb",
+      "line_number": 216,
+      "run_time": 0.271684655,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/update_spec.rb[1:1:5:3:2]",
+      "description": "does not switch market when currency matches current market",
+      "full_description": "Spree::Carts::Update#call updating currency auto-switches market to match currency does not switch market when currency matches current market",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/update_spec.rb",
+      "line_number": 209,
+      "run_time": 0.279736569,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/update_spec.rb[1:1:2:1]",
+      "description": "updates the cart email",
+      "full_description": "Spree::Carts::Update#call updating email updates the cart email",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/update_spec.rb",
+      "line_number": 39,
+      "run_time": 0.287237765,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/update_spec.rb[1:1:17:1:1]",
+      "description": "creates reservations when entering checkout",
+      "full_description": "Spree::Carts::Update#call stock reservations cart → checkout transition creates reservations when entering checkout",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/update_spec.rb",
+      "line_number": 903,
+      "run_time": 0.357948805,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/update_spec.rb[1:1:17:3:1]",
+      "description": "returns failure and rolls back the cart update",
+      "full_description": "Spree::Carts::Update#call stock reservations when Reserve fails with insufficient stock returns failure and rolls back the cart update",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/update_spec.rb",
+      "line_number": 944,
+      "run_time": 0.369931747,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/update_spec.rb[1:1:17:2:1]",
+      "description": "extends existing reservations",
+      "full_description": "Spree::Carts::Update#call stock reservations in-checkout mutation extends existing reservations",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/update_spec.rb",
+      "line_number": 916,
+      "run_time": 0.448509596,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/jobs/spree/stock_reservations/expire_job_spec.rb[1:1]",
+      "description": "removes expired reservations and leaves active ones in place",
+      "full_description": "Spree::StockReservations::ExpireJob removes expired reservations and leaves active ones in place",
+      "status": "passed",
+      "file_path": "./spec/jobs/spree/stock_reservations/expire_job_spec.rb",
+      "line_number": 4,
+      "run_time": 0.663813779,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/jobs/spree/stock_reservations/expire_job_spec.rb[1:2]",
+      "description": "gives an expired reservation's units back to its level and leaves an active hold counted",
+      "full_description": "Spree::StockReservations::ExpireJob gives an expired reservation's units back to its level and leaves an active hold counted",
+      "status": "passed",
+      "file_path": "./spec/jobs/spree/stock_reservations/expire_job_spec.rb",
+      "line_number": 14,
+      "run_time": 0.416036348,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/orders/add_item_spec.rb[1:1:4]",
+      "description": "does not run a stock reservation pass on a placed order",
+      "full_description": "Spree::Orders::AddItem#call does not run a stock reservation pass on a placed order",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/orders/add_item_spec.rb",
+      "line_number": 43,
+      "run_time": 0.531630881,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/orders/add_item_spec.rb[1:1:1]",
+      "description": "adds a line item to the placed order and re-sums its totals",
+      "full_description": "Spree::Orders::AddItem#call adds a line item to the placed order and re-sums its totals",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/orders/add_item_spec.rb",
+      "line_number": 11,
+      "run_time": 0.436331368,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/orders/add_item_spec.rb[1:1:3]",
+      "description": "fails when the variant has insufficient stock",
+      "full_description": "Spree::Orders::AddItem#call fails when the variant has insufficient stock",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/orders/add_item_spec.rb",
+      "line_number": 34,
+      "run_time": 0.415842421,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/orders/add_item_spec.rb[1:1:2]",
+      "description": "increments an existing line item instead of adding a new one",
+      "full_description": "Spree::Orders::AddItem#call increments an existing line item instead of adding a new one",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/orders/add_item_spec.rb",
+      "line_number": 22,
+      "run_time": 0.552881194,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/orders/add_item_spec.rb[1:1:5:1]",
+      "description": "reads partially paid once the new item raises the total",
+      "full_description": "Spree::Orders::AddItem#call when the order has been paid in full reads partially paid once the new item raises the total",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/orders/add_item_spec.rb",
+      "line_number": 55,
+      "run_time": 0.468009585,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/add_item_spec.rb[1:7:5:1]",
+      "description": "fails without adding a line item",
+      "full_description": "Spree::Carts::AddItem pass invalid arguments variant does not have the desired quantity fails without adding a line item",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/add_item_spec.rb",
+      "line_number": 183,
+      "run_time": 0.24019838,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/add_item_spec.rb[1:7:6:1]",
+      "description": "fails without adding a line item",
+      "full_description": "Spree::Carts::AddItem pass invalid arguments variant has been discontinued fails without adding a line item",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/add_item_spec.rb",
+      "line_number": 194,
+      "run_time": 0.222548601,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/add_item_spec.rb[1:7:2:1]",
+      "description": "sets the default",
+      "full_description": "Spree::Carts::AddItem pass invalid arguments no quantity in argument nor in options sets the default",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/add_item_spec.rb",
+      "line_number": 147,
+      "run_time": 0.29266296,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/add_item_spec.rb[1:7:4:1]",
+      "description": "fails without adding a line item",
+      "full_description": "Spree::Carts::AddItem pass invalid arguments pass non-existing variant fails without adding a line item",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/add_item_spec.rb",
+      "line_number": 171,
+      "run_time": 0.301269815,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/add_item_spec.rb[1:7:1:1]",
+      "description": "takes the checked quantity, not the one in options",
+      "full_description": "Spree::Carts::AddItem pass invalid arguments different quantity in argument and in options takes the checked quantity, not the one in options",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/add_item_spec.rb",
+      "line_number": 136,
+      "run_time": 0.263077388,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/add_item_spec.rb[1:7:3:1]",
+      "description": "ignores the option",
+      "full_description": "Spree::Carts::AddItem pass invalid arguments not permitted option ignores the option",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/add_item_spec.rb",
+      "line_number": 158,
+      "run_time": 0.223760636,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/add_item_spec.rb[1:1:1]",
+      "description": "changes by one and recalculates totals",
+      "full_description": "Spree::Carts::AddItem add line item to cart changes by one and recalculates totals",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/add_item_spec.rb",
+      "line_number": 15,
+      "run_time": 0.34517982,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/add_item_spec.rb[1:9:1:1]",
+      "description": "stores metadata on the line item",
+      "full_description": "Spree::Carts::AddItem setting metadata via metadata param stores metadata on the line item",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/add_item_spec.rb",
+      "line_number": 259,
+      "run_time": 0.290254707,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/add_item_spec.rb[1:6:1]",
+      "description": "keeps the checked variant and its price",
+      "full_description": "Spree::Carts::AddItem options naming another variant keeps the checked variant and its price",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/add_item_spec.rb",
+      "line_number": 123,
+      "run_time": 0.405018879,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/add_item_spec.rb[1:8:2]",
+      "description": "caps the pre-order at the backorder_limit",
+      "full_description": "Spree::Carts::AddItem pre-order before the scheduled publish date caps the pre-order at the backorder_limit",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/add_item_spec.rb",
+      "line_number": 224,
+      "run_time": 0.256885855,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/add_item_spec.rb[1:8:1]",
+      "description": "adds the not-yet-published, preorderable item to the cart",
+      "full_description": "Spree::Carts::AddItem pre-order before the scheduled publish date adds the not-yet-published, preorderable item to the cart",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/add_item_spec.rb",
+      "line_number": 219,
+      "run_time": 0.378178987,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/add_item_spec.rb[1:8:4:1]",
+      "description": "is rejected because the product is not yet published",
+      "full_description": "Spree::Carts::AddItem pre-order before the scheduled publish date when the variant is not preorderable is rejected because the product is not yet published",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/add_item_spec.rb",
+      "line_number": 247,
+      "run_time": 0.266428198,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/add_item_spec.rb[1:8:3:1]",
+      "description": "accepts a pre-order beyond any stock count",
+      "full_description": "Spree::Carts::AddItem pre-order before the scheduled publish date with no backorder_limit (unlimited) accepts a pre-order beyond any stock count",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/add_item_spec.rb",
+      "line_number": 233,
+      "run_time": 0.291478142,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/add_item_spec.rb[1:3:1]",
+      "description": "ensures updated fulfillments",
+      "full_description": "Spree::Carts::AddItem not given a fulfillment ensures updated fulfillments",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/add_item_spec.rb",
+      "line_number": 35,
+      "run_time": 0.290576706,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/add_item_spec.rb[1:2:1]",
+      "description": "increments the existing line item instead of adding a new one",
+      "full_description": "Spree::Carts::AddItem with same line item increments the existing line item instead of adding a new one",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/add_item_spec.rb",
+      "line_number": 26,
+      "run_time": 0.342017165,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/add_item_spec.rb[1:4:1]",
+      "description": "invalidates the store credit payment",
+      "full_description": "Spree::Carts::AddItem with store_credits payment invalidates the store credit payment",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/add_item_spec.rb",
+      "line_number": 45,
+      "run_time": 0.450808842,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/add_item_spec.rb[1:12:1]",
+      "description": "asks the provider once per add, even when incrementing an existing line",
+      "full_description": "Spree::Carts::AddItem with an external pricing provider asks the provider once per add, even when incrementing an existing line",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/add_item_spec.rb",
+      "line_number": 368,
+      "run_time": 0.405803704,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/add_item_spec.rb[1:10:1]",
+      "description": "does not add the item and returns failure",
+      "full_description": "Spree::Carts::AddItem when variant has price in the cart currency, but with amount set to nil does not add the item and returns failure",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/add_item_spec.rb",
+      "line_number": 275,
+      "run_time": 0.167451086,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/add_item_spec.rb[1:11:1:2]",
+      "description": "fails when adding more than available and rolls back the line item",
+      "full_description": "Spree::Carts::AddItem stock reservations when the cart is mid-checkout fails when adding more than available and rolls back the line item",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/add_item_spec.rb",
+      "line_number": 297,
+      "run_time": 0.178157255,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/add_item_spec.rb[1:11:1:1]",
+      "description": "creates a reservation for the new line item",
+      "full_description": "Spree::Carts::AddItem stock reservations when the cart is mid-checkout creates a reservation for the new line item",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/add_item_spec.rb",
+      "line_number": 292,
+      "run_time": 0.270610926,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/add_item_spec.rb[1:11:3:1]",
+      "description": "does not create a reservation",
+      "full_description": "Spree::Carts::AddItem stock reservations when stock_reservations_enabled is false does not create a reservation",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/add_item_spec.rb",
+      "line_number": 321,
+      "run_time": 0.292246005,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/add_item_spec.rb[1:11:4:1]",
+      "description": "skips reservation and accepts quantities beyond on-hand stock",
+      "full_description": "Spree::Carts::AddItem stock reservations when the variant is a capped pre-order with partial stock skips reservation and accepts quantities beyond on-hand stock",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/add_item_spec.rb",
+      "line_number": 335,
+      "run_time": 0.347183761,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/add_item_spec.rb[1:11:2:1]",
+      "description": "does not create a reservation",
+      "full_description": "Spree::Carts::AddItem stock reservations when the cart is not yet in checkout does not create a reservation",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/add_item_spec.rb",
+      "line_number": 310,
+      "run_time": 0.291555382,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/add_item_spec.rb[1:5:3:2]",
+      "description": "updates included_tax_total after adding two line items",
+      "full_description": "Spree::Carts::AddItem running promotions VAT for variant with percent promotion updates included_tax_total after adding two line items",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/add_item_spec.rb",
+      "line_number": 106,
+      "run_time": 0.676708743,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/add_item_spec.rb[1:5:3:1]",
+      "description": "updates included_tax_total",
+      "full_description": "Spree::Carts::AddItem running promotions VAT for variant with percent promotion updates included_tax_total",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/add_item_spec.rb",
+      "line_number": 100,
+      "run_time": 0.343206411,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/add_item_spec.rb[1:5:1:1]",
+      "description": "creates valid discount on the cart",
+      "full_description": "Spree::Carts::AddItem running promotions one active order promotion creates valid discount on the cart",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/add_item_spec.rb",
+      "line_number": 62,
+      "run_time": 0.513714332,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/add_item_spec.rb[1:5:2:1]",
+      "description": "creates valid line item discount on the cart",
+      "full_description": "Spree::Carts::AddItem running promotions one active line item promotion creates valid line item discount on the cart",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/add_item_spec.rb",
+      "line_number": 77,
+      "run_time": 0.474116996,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_split_spec.rb[1:8:1]",
+      "description": "returns the same group rather than splitting twice",
+      "full_description": "Spree::Carts::Complete splitting by seller replay returns the same group rather than splitting twice",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_split_spec.rb",
+      "line_number": 680,
+      "run_time": 0.832894915,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_split_spec.rb[1:1:6]",
+      "description": "splits first-party items into their own order",
+      "full_description": "Spree::Carts::Complete splitting by seller the gate splits first-party items into their own order",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_split_spec.rb",
+      "line_number": 66,
+      "run_time": 0.806191039,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_split_spec.rb[1:1:5]",
+      "description": "splits a cart holding two sellers",
+      "full_description": "Spree::Carts::Complete splitting by seller the gate splits a cart holding two sellers",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_split_spec.rb",
+      "line_number": 57,
+      "run_time": 0.821774757,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_split_spec.rb[1:1:4]",
+      "description": "leaves an all-first-party order with no seller",
+      "full_description": "Spree::Carts::Complete splitting by seller the gate leaves an all-first-party order with no seller",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_split_spec.rb",
+      "line_number": 51,
+      "run_time": 0.543612885,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_split_spec.rb[1:1:2]",
+      "description": "leaves a single-seller cart as a bare order carrying the seller",
+      "full_description": "Spree::Carts::Complete splitting by seller the gate leaves a single-seller cart as a bare order carrying the seller",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_split_spec.rb",
+      "line_number": 34,
+      "run_time": 0.576891063,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_split_spec.rb[1:1:1]",
+      "description": "leaves an all-first-party cart as a bare order",
+      "full_description": "Spree::Carts::Complete splitting by seller the gate leaves an all-first-party cart as a bare order",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_split_spec.rb",
+      "line_number": 25,
+      "run_time": 0.615454727,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_split_spec.rb[1:1:3]",
+      "description": "stamps a single-seller order with its seller",
+      "full_description": "Spree::Carts::Complete splitting by seller the gate stamps a single-seller order with its seller",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_split_spec.rb",
+      "line_number": 44,
+      "run_time": 0.718537611,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_split_spec.rb[1:1:7]",
+      "description": "splits a basket of first-party plus two sellers three ways",
+      "full_description": "Spree::Carts::Complete splitting by seller the gate splits a basket of first-party plus two sellers three ways",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_split_spec.rb",
+      "line_number": 75,
+      "run_time": 1.021707932,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_split_spec.rb[1:6:1]",
+      "description": "places every child silently",
+      "full_description": "Spree::Carts::Complete splitting by seller the confirmation places every child silently",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_split_spec.rb",
+      "line_number": 621,
+      "run_time": 1.134140261,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_split_spec.rb[1:6:4]",
+      "description": "leaves a checkout that did not split to send its own",
+      "full_description": "Spree::Carts::Complete splitting by seller the confirmation leaves a checkout that did not split to send its own",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_split_spec.rb",
+      "line_number": 650,
+      "run_time": 0.798735237,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_split_spec.rb[1:6:3]",
+      "description": "announces the purchase once, whatever the children",
+      "full_description": "Spree::Carts::Complete splitting by seller the confirmation announces the purchase once, whatever the children",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_split_spec.rb",
+      "line_number": 641,
+      "run_time": 1.155930591,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_split_spec.rb[1:6:2]",
+      "description": "leaves no child claiming it confirmed the purchase",
+      "full_description": "Spree::Carts::Complete splitting by seller the confirmation leaves no child claiming it confirmed the purchase",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_split_spec.rb",
+      "line_number": 635,
+      "run_time": 1.160587402,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_split_spec.rb[1:3:2]",
+      "description": "divides the delivery charge rather than duplicating it",
+      "full_description": "Spree::Carts::Complete splitting by seller a parcel holding several sellers’ goods divides the delivery charge rather than duplicating it",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_split_spec.rb",
+      "line_number": 218,
+      "run_time": 1.18215954,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_split_spec.rb[1:3:5]",
+      "description": "leaves every moved row on the order that owns it",
+      "full_description": "Spree::Carts::Complete splitting by seller a parcel holding several sellers’ goods leaves every moved row on the order that owns it",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_split_spec.rb",
+      "line_number": 236,
+      "run_time": 1.008435395,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_split_spec.rb[1:3:1]",
+      "description": "gives each child its own parcel",
+      "full_description": "Spree::Carts::Complete splitting by seller a parcel holding several sellers’ goods gives each child its own parcel",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_split_spec.rb",
+      "line_number": 213,
+      "run_time": 1.031726435,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_split_spec.rb[1:3:6]",
+      "description": "leaves no line item stranded between owners",
+      "full_description": "Spree::Carts::Complete splitting by seller a parcel holding several sellers’ goods leaves no line item stranded between owners",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_split_spec.rb",
+      "line_number": 244,
+      "run_time": 0.004744865,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_split_spec.rb[1:3:9]",
+      "description": "survives a later amounts refresh without doubling the delivery charge",
+      "full_description": "Spree::Carts::Complete splitting by seller a parcel holding several sellers’ goods survives a later amounts refresh without doubling the delivery charge",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_split_spec.rb",
+      "line_number": 308,
+      "run_time": 1.215895145,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_split_spec.rb[1:3:3]",
+      "description": "keeps the customer’s total exactly what they paid",
+      "full_description": "Spree::Carts::Complete splitting by seller a parcel holding several sellers’ goods keeps the customer’s total exactly what they paid",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_split_spec.rb",
+      "line_number": 222,
+      "run_time": 1.231642428,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_split_spec.rb[1:3:4]",
+      "description": "carries the chosen delivery rate onto both parcels",
+      "full_description": "Spree::Carts::Complete splitting by seller a parcel holding several sellers’ goods carries the chosen delivery rate onto both parcels",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_split_spec.rb",
+      "line_number": 227,
+      "run_time": 0.994685396,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_split_spec.rb[1:3:7]",
+      "description": "writes the divided cost down onto the rate as well",
+      "full_description": "Spree::Carts::Complete splitting by seller a parcel holding several sellers’ goods writes the divided cost down onto the rate as well",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_split_spec.rb",
+      "line_number": 251,
+      "run_time": 1.476771453,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_split_spec.rb[1:3:10]",
+      "description": "moves each line item’s stock reservation to the order that keeps it",
+      "full_description": "Spree::Carts::Complete splitting by seller a parcel holding several sellers’ goods moves each line item’s stock reservation to the order that keeps it",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_split_spec.rb",
+      "line_number": 318,
+      "run_time": 1.020424577,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_split_spec.rb[1:3:8:2]",
+      "description": "divides the delivery tax rather than charging it on both halves",
+      "full_description": "Spree::Carts::Complete splitting by seller a parcel holding several sellers’ goods when the delivery was taxed divides the delivery tax rather than charging it on both halves",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_split_spec.rb",
+      "line_number": 290,
+      "run_time": 1.218950556,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_split_spec.rb[1:3:8:1]",
+      "description": "taxes the delivery in the first place",
+      "full_description": "Spree::Carts::Complete splitting by seller a parcel holding several sellers’ goods when the delivery was taxed taxes the delivery in the first place",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_split_spec.rb",
+      "line_number": 286,
+      "run_time": 0.618148052,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_split_spec.rb[1:3:8:3]",
+      "description": "leaves each parcel’s tax on the order that ships it",
+      "full_description": "Spree::Carts::Complete splitting by seller a parcel holding several sellers’ goods when the delivery was taxed leaves each parcel’s tax on the order that ships it",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_split_spec.rb",
+      "line_number": 299,
+      "run_time": 1.220248529,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_split_spec.rb[1:2:2]",
+      "description": "accounts for every line item exactly once",
+      "full_description": "Spree::Carts::Complete splitting by seller what each child order holds accounts for every line item exactly once",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_split_spec.rb",
+      "line_number": 95,
+      "run_time": 1.330611474,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_split_spec.rb[1:2:6]",
+      "description": "computes each child’s totals from its own rows",
+      "full_description": "Spree::Carts::Complete splitting by seller what each child order holds computes each child’s totals from its own rows",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_split_spec.rb",
+      "line_number": 182,
+      "run_time": 1.066029184,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_split_spec.rb[1:2:9]",
+      "description": "gives each child its own addresses rather than sharing rows",
+      "full_description": "Spree::Carts::Complete splitting by seller what each child order holds gives each child its own addresses rather than sharing rows",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_split_spec.rb",
+      "line_number": 199,
+      "run_time": 1.136402418,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_split_spec.rb[1:2:1]",
+      "description": "gives every child only its own seller’s items",
+      "full_description": "Spree::Carts::Complete splitting by seller what each child order holds gives every child only its own seller’s items",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_split_spec.rb",
+      "line_number": 88,
+      "run_time": 1.111265185,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_split_spec.rb[1:2:7]",
+      "description": "places every child",
+      "full_description": "Spree::Carts::Complete splitting by seller what each child order holds places every child",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_split_spec.rb",
+      "line_number": 189,
+      "run_time": 1.791683998,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_split_spec.rb[1:2:8]",
+      "description": "numbers the children off the group",
+      "full_description": "Spree::Carts::Complete splitting by seller what each child order holds numbers the children off the group",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_split_spec.rb",
+      "line_number": 193,
+      "run_time": 1.527027083,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_split_spec.rb[1:2:4:1]",
+      "description": "carries the reference and the document onto every child order",
+      "full_description": "Spree::Carts::Complete splitting by seller what each child order holds when the buyer supplied a purchase order carries the reference and the document onto every child order",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_split_spec.rb",
+      "line_number": 153,
+      "run_time": 1.367143032,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_split_spec.rb[1:2:4:2]",
+      "description": "shares one blob rather than duplicating the upload",
+      "full_description": "Spree::Carts::Complete splitting by seller what each child order holds when the buyer supplied a purchase order shares one blob rather than duplicating the upload",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_split_spec.rb",
+      "line_number": 160,
+      "run_time": 1.264908217,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_split_spec.rb[1:2:3:1]",
+      "description": "hands every child the claims the cart was priced with",
+      "full_description": "Spree::Carts::Complete splitting by seller what each child order holds when the sale was exempt for all but one line hands every child the claims the cart was priced with",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_split_spec.rb",
+      "line_number": 124,
+      "run_time": 1.227897936,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_split_spec.rb[1:2:3:2]",
+      "description": "leaves the carve-out naming a line its own order holds",
+      "full_description": "Spree::Carts::Complete splitting by seller what each child order holds when the sale was exempt for all but one line leaves the carve-out naming a line its own order holds",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_split_spec.rb",
+      "line_number": 130,
+      "run_time": 1.195590733,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_split_spec.rb[1:2:5:2]",
+      "description": "carries it onto the group",
+      "full_description": "Spree::Carts::Complete splitting by seller what each child order holds when the cart carries metadata carries it onto the group",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_split_spec.rb",
+      "line_number": 177,
+      "run_time": 1.100106047,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_split_spec.rb[1:2:5:1]",
+      "description": "carries it onto every child order",
+      "full_description": "Spree::Carts::Complete splitting by seller what each child order holds when the cart carries metadata carries it onto every child order",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_split_spec.rb",
+      "line_number": 170,
+      "run_time": 1.076831109,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_split_spec.rb[1:5:6]",
+      "description": "leaves each child reporting its share as paid",
+      "full_description": "Spree::Carts::Complete splitting by seller the payment leaves each child reporting its share as paid",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_split_spec.rb",
+      "line_number": 552,
+      "run_time": 0.915990451,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_split_spec.rb[1:5:2]",
+      "description": "records one share per child order",
+      "full_description": "Spree::Carts::Complete splitting by seller the payment records one share per child order",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_split_spec.rb",
+      "line_number": 522,
+      "run_time": 0.864172781,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_split_spec.rb[1:5:4]",
+      "description": "gives each child a share matching its own total",
+      "full_description": "Spree::Carts::Complete splitting by seller the payment gives each child a share matching its own total",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_split_spec.rb",
+      "line_number": 533,
+      "run_time": 0.743570989,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_split_spec.rb[1:5:1]",
+      "description": "moves onto the group rather than any one order",
+      "full_description": "Spree::Carts::Complete splitting by seller the payment moves onto the group rather than any one order",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_split_spec.rb",
+      "line_number": 517,
+      "run_time": 0.7904835,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_split_spec.rb[1:5:3]",
+      "description": "shares out exactly what was charged",
+      "full_description": "Spree::Carts::Complete splitting by seller the payment shares out exactly what was charged",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_split_spec.rb",
+      "line_number": 526,
+      "run_time": 0.840127447,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_split_spec.rb[1:5:5]",
+      "description": "records the share as captured when the payment already settled",
+      "full_description": "Spree::Carts::Complete splitting by seller the payment records the share as captured when the payment already settled",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_split_spec.rb",
+      "line_number": 543,
+      "run_time": 0.83785957,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_split_spec.rb[1:5:7:2]",
+      "description": "divides every payment across both children rather than one each",
+      "full_description": "Spree::Carts::Complete splitting by seller the payment when a gift card pays part of it divides every payment across both children rather than one each",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_split_spec.rb",
+      "line_number": 595,
+      "run_time": 1.084822391,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_split_spec.rb[1:5:7:1]",
+      "description": "takes both payments onto the group",
+      "full_description": "Spree::Carts::Complete splitting by seller the payment when a gift card pays part of it takes both payments onto the group",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_split_spec.rb",
+      "line_number": 590,
+      "run_time": 0.891762766,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_split_spec.rb[1:5:7:3]",
+      "description": "gives each child shares across all payments adding up to its own total",
+      "full_description": "Spree::Carts::Complete splitting by seller the payment when a gift card pays part of it gives each child shares across all payments adding up to its own total",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_split_spec.rb",
+      "line_number": 601,
+      "run_time": 1.040777815,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_split_spec.rb[1:5:7:4]",
+      "description": "shares out every penny the customer paid, by whatever means",
+      "full_description": "Spree::Carts::Complete splitting by seller the payment when a gift card pays part of it shares out every penny the customer paid, by whatever means",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_split_spec.rb",
+      "line_number": 607,
+      "run_time": 0.982021696,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_split_spec.rb[1:9:3]",
+      "description": "is the cart’s completion result",
+      "full_description": "Spree::Carts::Complete splitting by seller the group is the cart’s completion result",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_split_spec.rb",
+      "line_number": 701,
+      "run_time": 0.839065337,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_split_spec.rb[1:9:1]",
+      "description": "totals what the children came to",
+      "full_description": "Spree::Carts::Complete splitting by seller the group totals what the children came to",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_split_spec.rb",
+      "line_number": 693,
+      "run_time": 0.78997714,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_split_spec.rb[1:9:2]",
+      "description": "names the sellers it reached",
+      "full_description": "Spree::Carts::Complete splitting by seller the group names the sellers it reached",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_split_spec.rb",
+      "line_number": 697,
+      "run_time": 0.952699127,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_split_spec.rb[1:4:1]",
+      "description": "keeps an order-level discount instead of re-competing it per child",
+      "full_description": "Spree::Carts::Complete splitting by seller money the checkout already settled keeps an order-level discount instead of re-competing it per child",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_split_spec.rb",
+      "line_number": 348,
+      "run_time": 1.006747573,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_split_spec.rb[1:4:3:3]",
+      "description": "divides the fee’s tax rather than duplicating or dropping it",
+      "full_description": "Spree::Carts::Complete splitting by seller money the checkout already settled when an order-level fee was taxed divides the fee’s tax rather than duplicating or dropping it",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_split_spec.rb",
+      "line_number": 423,
+      "run_time": 1.248436847,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_split_spec.rb[1:4:3:1]",
+      "description": "taxes the fee in the first place",
+      "full_description": "Spree::Carts::Complete splitting by seller money the checkout already settled when an order-level fee was taxed taxes the fee in the first place",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_split_spec.rb",
+      "line_number": 407,
+      "run_time": 0.616067922,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_split_spec.rb[1:4:3:2]",
+      "description": "sends each share of the tax to the order holding the fee it was charged on",
+      "full_description": "Spree::Carts::Complete splitting by seller money the checkout already settled when an order-level fee was taxed sends each share of the tax to the order holding the fee it was charged on",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_split_spec.rb",
+      "line_number": 413,
+      "run_time": 1.365123651,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_split_spec.rb[1:4:2:1]",
+      "description": "shares it out across the children rather than charging it once",
+      "full_description": "Spree::Carts::Complete splitting by seller money the checkout already settled with an order-level fee shares it out across the children rather than charging it once",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_split_spec.rb",
+      "line_number": 369,
+      "run_time": 1.112350901,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_split_spec.rb[1:4:2:2]",
+      "description": "gives every child a share of it",
+      "full_description": "Spree::Carts::Complete splitting by seller money the checkout already settled with an order-level fee gives every child a share of it",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_split_spec.rb",
+      "line_number": 375,
+      "run_time": 1.203388778,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_split_spec.rb[1:4:2:3]",
+      "description": "keeps the customer’s total exactly what they paid",
+      "full_description": "Spree::Carts::Complete splitting by seller money the checkout already settled with an order-level fee keeps the customer’s total exactly what they paid",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_split_spec.rb",
+      "line_number": 383,
+      "run_time": 1.267764876,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_split_spec.rb[1:4:5:1]",
+      "description": "divides the fee across both halves",
+      "full_description": "Spree::Carts::Complete splitting by seller money the checkout already settled when a fee on a shared parcel was taxed divides the fee across both halves",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_split_spec.rb",
+      "line_number": 485,
+      "run_time": 0.970119411,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_split_spec.rb[1:4:5:2]",
+      "description": "divides the fee’s tax alongside the fee rather than leaving it whole",
+      "full_description": "Spree::Carts::Complete splitting by seller money the checkout already settled when a fee on a shared parcel was taxed divides the fee’s tax alongside the fee rather than leaving it whole",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_split_spec.rb",
+      "line_number": 493,
+      "run_time": 1.338936671,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_split_spec.rb[1:4:5:3]",
+      "description": "keeps each child’s fee tax proportional to the fee it holds",
+      "full_description": "Spree::Carts::Complete splitting by seller money the checkout already settled when a fee on a shared parcel was taxed keeps each child’s fee tax proportional to the fee it holds",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_split_spec.rb",
+      "line_number": 500,
+      "run_time": 1.140177098,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_split_spec.rb[1:4:4:2]",
+      "description": "leaves the tax on the child holding the item it was charged for",
+      "full_description": "Spree::Carts::Complete splitting by seller money the checkout already settled when a fee on one seller’s item was taxed leaves the tax on the child holding the item it was charged for",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_split_spec.rb",
+      "line_number": 459,
+      "run_time": 1.011703534,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_split_spec.rb[1:4:4:1]",
+      "description": "moves the fee’s tax onto the order that took the fee",
+      "full_description": "Spree::Carts::Complete splitting by seller money the checkout already settled when a fee on one seller’s item was taxed moves the fee’s tax onto the order that took the fee",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_split_spec.rb",
+      "line_number": 449,
+      "run_time": 0.951720644,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_split_spec.rb[1:7:1]",
+      "description": "charges the seller’s order and leaves first-party alone",
+      "full_description": "Spree::Carts::Complete splitting by seller commission charges the seller’s order and leaves first-party alone",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_split_spec.rb",
+      "line_number": 666,
+      "run_time": 0.968943291,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/remove_line_item_spec.rb[1:1]",
+      "description": "warns that it is deprecated",
+      "full_description": "Spree::Carts::RemoveLineItem warns that it is deprecated",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/remove_line_item_spec.rb",
+      "line_number": 18,
+      "run_time": 0.295963821,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/remove_line_item_spec.rb[1:4:2:1]",
+      "description": "does not run a reservation pass",
+      "full_description": "Spree::Carts::RemoveLineItem stock reservations when the cart is not yet in checkout does not run a reservation pass",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/remove_line_item_spec.rb",
+      "line_number": 132,
+      "run_time": 0.35469204,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/remove_line_item_spec.rb[1:4:1:2]",
+      "description": "remaining line items get a fresh reservation pass",
+      "full_description": "Spree::Carts::RemoveLineItem stock reservations when the cart is mid-checkout remaining line items get a fresh reservation pass",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/remove_line_item_spec.rb",
+      "line_number": 86,
+      "run_time": 0.439721545,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/remove_line_item_spec.rb[1:4:1:4]",
+      "description": "returns failure and rolls back the destroy when re-reservation fails",
+      "full_description": "Spree::Carts::RemoveLineItem stock reservations when the cart is mid-checkout returns failure and rolls back the destroy when re-reservation fails",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/remove_line_item_spec.rb",
+      "line_number": 115,
+      "run_time": 0.369479619,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/remove_line_item_spec.rb[1:4:1:3]",
+      "description": "leaves no orphaned reservations after removing every line item",
+      "full_description": "Spree::Carts::RemoveLineItem stock reservations when the cart is mid-checkout leaves no orphaned reservations after removing every line item",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/remove_line_item_spec.rb",
+      "line_number": 105,
+      "run_time": 0.512849612,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/remove_line_item_spec.rb[1:4:1:1]",
+      "description": "reservation for the removed line item is destroyed via dependent: :destroy",
+      "full_description": "Spree::Carts::RemoveLineItem stock reservations when the cart is mid-checkout reservation for the removed line item is destroyed via dependent: :destroy",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/remove_line_item_spec.rb",
+      "line_number": 71,
+      "run_time": 0.430115797,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/remove_line_item_spec.rb[1:2:1:1]",
+      "description": "removes the whole line item",
+      "full_description": "Spree::Carts::RemoveLineItem remove line item with any quantity removes the whole line item",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/remove_line_item_spec.rb",
+      "line_number": 25,
+      "run_time": 0.248904883,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/remove_line_item_spec.rb[1:2:2:1]",
+      "description": "removes only the given line item",
+      "full_description": "Spree::Carts::RemoveLineItem remove line item with many unique items removes only the given line item",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/remove_line_item_spec.rb",
+      "line_number": 38,
+      "run_time": 0.330511667,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/remove_line_item_spec.rb[1:3:1]",
+      "description": "ensures updated fulfillments",
+      "full_description": "Spree::Carts::RemoveLineItem not given a fulfillment ensures updated fulfillments",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/remove_line_item_spec.rb",
+      "line_number": 50,
+      "run_time": 0.306692511,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/stock_reservations/release_spec.rb[1:3]",
+      "description": "returns success even when no reservations exist",
+      "full_description": "Spree::StockReservations::Release returns success even when no reservations exist",
+      "status": "passed",
+      "file_path": "./spec/services/spree/stock_reservations/release_spec.rb",
+      "line_number": 28,
+      "run_time": 0.041227301,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/stock_reservations/release_spec.rb[1:1]",
+      "description": "deletes every reservation belonging to the order",
+      "full_description": "Spree::StockReservations::Release deletes every reservation belonging to the order",
+      "status": "passed",
+      "file_path": "./spec/services/spree/stock_reservations/release_spec.rb",
+      "line_number": 6,
+      "run_time": 0.318003091,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/stock_reservations/release_spec.rb[1:2]",
+      "description": "gives the held units back to the level",
+      "full_description": "Spree::StockReservations::Release gives the held units back to the level",
+      "status": "passed",
+      "file_path": "./spec/services/spree/stock_reservations/release_spec.rb",
+      "line_number": 18,
+      "run_time": 0.177931811,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_spec.rb[1:13:2]",
+      "description": "completes without capturing when the payment is authorized but pending",
+      "full_description": "Spree::Carts::Complete net-terms completion (payment_pending) completes without capturing when the payment is authorized but pending",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_spec.rb",
+      "line_number": 691,
+      "run_time": 0.463850775,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_spec.rb[1:13:1]",
+      "description": "does not waive the payment requirement on carts — net terms is a draft-order flow",
+      "full_description": "Spree::Carts::Complete net-terms completion (payment_pending) does not waive the payment requirement on carts — net terms is a draft-order flow",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_spec.rb",
+      "line_number": 683,
+      "run_time": 0.285161125,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_spec.rb[1:5:2]",
+      "description": "carries a node the buyer resolved to without naming it",
+      "full_description": "Spree::Carts::Complete business customer carries a node the buyer resolved to without naming it",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_spec.rb",
+      "line_number": 364,
+      "run_time": 0.515766199,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_spec.rb[1:5:3]",
+      "description": "leaves a consumer order with no company",
+      "full_description": "Spree::Carts::Complete business customer leaves a consumer order with no company",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_spec.rb",
+      "line_number": 372,
+      "run_time": 0.493503242,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_spec.rb[1:5:1]",
+      "description": "carries the node onto the order",
+      "full_description": "Spree::Carts::Complete business customer carries the node onto the order",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_spec.rb",
+      "line_number": 355,
+      "run_time": 0.502667744,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_spec.rb[1:14:2]",
+      "description": "returns a canceled order from a previous completion without re-finalizing",
+      "full_description": "Spree::Carts::Complete crash-window replay returns a canceled order from a previous completion without re-finalizing",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_spec.rb",
+      "line_number": 719,
+      "run_time": 0.469583112,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_spec.rb[1:14:1]",
+      "description": "heals a completion that died between the order commit and the cart stamp",
+      "full_description": "Spree::Carts::Complete crash-window replay heals a completion that died between the order commit and the cart stamp",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_spec.rb",
+      "line_number": 703,
+      "run_time": 0.521577863,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_spec.rb[1:12:1]",
+      "description": "rolls the draft order back and re-points money records to the cart",
+      "full_description": "Spree::Carts::Complete payment failure compensation rolls the draft order back and re-points money records to the cart",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_spec.rb",
+      "line_number": 662,
+      "run_time": 0.425689871,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_spec.rb[1:9:1]",
+      "description": "fails when the channel forbids guest checkout and the cart has no customer",
+      "full_description": "Spree::Carts::Complete guest checkout policy fails when the channel forbids guest checkout and the cart has no customer",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_spec.rb",
+      "line_number": 622,
+      "run_time": 0.380503447,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_spec.rb[1:16:1]",
+      "description": "re-points an applied cart coupon code to the order and marks it used",
+      "full_description": "Spree::Carts::Complete coupon codes re-points an applied cart coupon code to the order and marks it used",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_spec.rb",
+      "line_number": 746,
+      "run_time": 0.591013895,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_spec.rb[1:16:2]",
+      "description": "detaches codes whose promotion did not apply",
+      "full_description": "Spree::Carts::Complete coupon codes detaches codes whose promotion did not apply",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_spec.rb",
+      "line_number": 760,
+      "run_time": 0.592207411,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_spec.rb[1:16:4]",
+      "description": "refuses a cart showing a code it gave up, rather than naming it on the order",
+      "full_description": "Spree::Carts::Complete coupon codes refuses a cart showing a code it gave up, rather than naming it on the order",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_spec.rb",
+      "line_number": 787,
+      "run_time": 0.326052708,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_spec.rb[1:16:3]",
+      "description": "refuses a cart discounted by a code another cart has since taken",
+      "full_description": "Spree::Carts::Complete coupon codes refuses a cart discounted by a code another cart has since taken",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_spec.rb",
+      "line_number": 771,
+      "run_time": 0.45414906,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_spec.rb[1:6:9]",
+      "description": "records a checkout override as such",
+      "full_description": "Spree::Carts::Complete tax identifier snapshot records a checkout override as such",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_spec.rb",
+      "line_number": 512,
+      "run_time": 0.62306464,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_spec.rb[1:6:5]",
+      "description": "files each order of a draft divided between sellers",
+      "full_description": "Spree::Carts::Complete tax identifier snapshot files each order of a draft divided between sellers",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_spec.rb",
+      "line_number": 439,
+      "run_time": 1.82718507,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_spec.rb[1:6:6]",
+      "description": "freezes an empty list when the sale claimed no exemption",
+      "full_description": "Spree::Carts::Complete tax identifier snapshot freezes an empty list when the sale claimed no exemption",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_spec.rb",
+      "line_number": 462,
+      "run_time": 0.485309572,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_spec.rb[1:6:4]",
+      "description": "files a draft order with the tax engine",
+      "full_description": "Spree::Carts::Complete tax identifier snapshot files a draft order with the tax engine",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_spec.rb",
+      "line_number": 429,
+      "run_time": 0.588557608,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_spec.rb[1:6:3]",
+      "description": "freezes the exemptions the sale was priced with onto the order",
+      "full_description": "Spree::Carts::Complete tax identifier snapshot freezes the exemptions the sale was priced with onto the order",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_spec.rb",
+      "line_number": 413,
+      "run_time": 0.579668288,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_spec.rb[1:6:11]",
+      "description": "copies nothing for a consumer sale",
+      "full_description": "Spree::Carts::Complete tax identifier snapshot copies nothing for a consumer sale",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_spec.rb",
+      "line_number": 536,
+      "run_time": 0.478247258,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_spec.rb[1:6:8]",
+      "description": "reports a carve-out naming something the sale never had",
+      "full_description": "Spree::Carts::Complete tax identifier snapshot reports a carve-out naming something the sale never had",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_spec.rb",
+      "line_number": 493,
+      "run_time": 0.49442223,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_spec.rb[1:6:7]",
+      "description": "renames a per-item carve-out onto the line the order now owns",
+      "full_description": "Spree::Carts::Complete tax identifier snapshot renames a per-item carve-out onto the line the order now owns",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_spec.rb",
+      "line_number": 470,
+      "run_time": 0.70235761,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_spec.rb[1:6:2]",
+      "description": "completes even when the stored number would no longer be accepted",
+      "full_description": "Spree::Carts::Complete tax identifier snapshot completes even when the stored number would no longer be accepted",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_spec.rb",
+      "line_number": 400,
+      "run_time": 0.481372382,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_spec.rb[1:6:10]",
+      "description": "stamps a company registration as such",
+      "full_description": "Spree::Carts::Complete tax identifier snapshot stamps a company registration as such",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_spec.rb",
+      "line_number": 522,
+      "run_time": 0.519060802,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_spec.rb[1:6:1]",
+      "description": "freezes the customer registration onto the order",
+      "full_description": "Spree::Carts::Complete tax identifier snapshot freezes the customer registration onto the order",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_spec.rb",
+      "line_number": 387,
+      "run_time": 0.691166126,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_spec.rb[1:1:2]",
+      "description": "leaves first-party lines without a seller",
+      "full_description": "Spree::Carts::Complete the seller snapshot leaves first-party lines without a seller",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_spec.rb",
+      "line_number": 28,
+      "run_time": 0.628707085,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_spec.rb[1:1:1]",
+      "description": "carries onto the order lines",
+      "full_description": "Spree::Carts::Complete the seller snapshot carries onto the order lines",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_spec.rb",
+      "line_number": 16,
+      "run_time": 0.642710455,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_spec.rb[1:8:1]",
+      "description": "carries the reference onto the order",
+      "full_description": "Spree::Carts::Complete the buyer purchase order carries the reference onto the order",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_spec.rb",
+      "line_number": 569,
+      "run_time": 0.527997472,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_spec.rb[1:8:3]",
+      "description": "attaches the same document to the order",
+      "full_description": "Spree::Carts::Complete the buyer purchase order attaches the same document to the order",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_spec.rb",
+      "line_number": 585,
+      "run_time": 0.492146635,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_spec.rb[1:8:2]",
+      "description": "leaves the reference empty when the buyer gave none",
+      "full_description": "Spree::Carts::Complete the buyer purchase order leaves the reference empty when the buyer gave none",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_spec.rb",
+      "line_number": 577,
+      "run_time": 0.47168097,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_spec.rb[1:8:5]",
+      "description": "fails the completion rather than silently placing the order without the document",
+      "full_description": "Spree::Carts::Complete the buyer purchase order fails the completion rather than silently placing the order without the document",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_spec.rb",
+      "line_number": 609,
+      "run_time": 0.377807852,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_spec.rb[1:8:4]",
+      "description": "attaches nothing when the buyer uploaded nothing",
+      "full_description": "Spree::Carts::Complete the buyer purchase order attaches nothing when the buyer uploaded nothing",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_spec.rb",
+      "line_number": 599,
+      "run_time": 0.489633194,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_spec.rb[1:15:1]",
+      "description": "dispatches with the workflow instance before the order places",
+      "full_description": "Spree::Carts::Complete before_finalize hook dispatches with the workflow instance before the order places",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_spec.rb",
+      "line_number": 733,
+      "run_time": 0.490250331,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_spec.rb[1:4:1]",
+      "description": "tells the tax engine the sale is final",
+      "full_description": "Spree::Carts::Complete tax lifecycle tells the tax engine the sale is final",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_spec.rb",
+      "line_number": 184,
+      "run_time": 0.501300998,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_spec.rb[1:4:5]",
+      "description": "does not re-estimate while copying the cart onto the order",
+      "full_description": "Spree::Carts::Complete tax lifecycle does not re-estimate while copying the cart onto the order",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_spec.rb",
+      "line_number": 249,
+      "run_time": 0.46829532,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_spec.rb[1:4:3]",
+      "description": "passes on what the engine said when it refuses the calculation",
+      "full_description": "Spree::Carts::Complete tax lifecycle passes on what the engine said when it refuses the calculation",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_spec.rb",
+      "line_number": 217,
+      "run_time": 0.264786535,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_spec.rb[1:4:4]",
+      "description": "still places the order when filing the sale fails",
+      "full_description": "Spree::Carts::Complete tax lifecycle still places the order when filing the sale fails",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_spec.rb",
+      "line_number": 235,
+      "run_time": 0.499668442,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_spec.rb[1:4:2]",
+      "description": "refuses the sale when the tax engine cannot be reached",
+      "full_description": "Spree::Carts::Complete tax lifecycle refuses the sale when the tax engine cannot be reached",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_spec.rb",
+      "line_number": 197,
+      "run_time": 0.245329201,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_spec.rb[1:4:6:2]",
+      "description": "keeps the summed rows equal to the order additional tax total",
+      "full_description": "Spree::Carts::Complete tax lifecycle when the cart carries tax rows keeps the summed rows equal to the order additional tax total",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_spec.rb",
+      "line_number": 307,
+      "run_time": 0.719829175,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_spec.rb[1:4:6:1]",
+      "description": "gives the order exactly one tax row per taxed line item",
+      "full_description": "Spree::Carts::Complete tax lifecycle when the cart carries tax rows gives the order exactly one tax row per taxed line item",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_spec.rb",
+      "line_number": 293,
+      "run_time": 0.578513463,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_spec.rb[1:4:6:3:1]",
+      "description": "points the fee’s tax at the order’s own fee",
+      "full_description": "Spree::Carts::Complete tax lifecycle when the cart carries tax rows when an order-level fee was taxed points the fee’s tax at the order’s own fee",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_spec.rb",
+      "line_number": 331,
+      "run_time": 0.602136412,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_spec.rb[1:10:1]",
+      "description": "releases reservations on successful completion",
+      "full_description": "Spree::Carts::Complete stock reservations releases reservations on successful completion",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_spec.rb",
+      "line_number": 632,
+      "run_time": 0.529302622,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_spec.rb[1:7:2]",
+      "description": "gives the order its own copy rather than sharing the cart hash",
+      "full_description": "Spree::Carts::Complete cart metadata gives the order its own copy rather than sharing the cart hash",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_spec.rb",
+      "line_number": 552,
+      "run_time": 0.553322455,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_spec.rb[1:7:3]",
+      "description": "leaves the order metadata empty when the cart has none",
+      "full_description": "Spree::Carts::Complete cart metadata leaves the order metadata empty when the cart has none",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_spec.rb",
+      "line_number": 561,
+      "run_time": 0.561910446,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_spec.rb[1:7:1]",
+      "description": "carries the cart metadata onto the order",
+      "full_description": "Spree::Carts::Complete cart metadata carries the cart metadata onto the order",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_spec.rb",
+      "line_number": 544,
+      "run_time": 0.530164282,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_spec.rb[1:3:2:1]",
+      "description": "marks the gift card partially redeemed",
+      "full_description": "Spree::Carts::Complete gift card when the gift card covers only part of the total marks the gift card partially redeemed",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_spec.rb",
+      "line_number": 170,
+      "run_time": 0.585830428,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_spec.rb[1:3:1:1]",
+      "description": "carries the gift card onto the completed order",
+      "full_description": "Spree::Carts::Complete gift card when the gift card fully covers the order carries the gift card onto the completed order",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_spec.rb",
+      "line_number": 146,
+      "run_time": 0.592954713,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_spec.rb[1:3:1:2]",
+      "description": "redeems the gift card when the order is placed",
+      "full_description": "Spree::Carts::Complete gift card when the gift card fully covers the order redeems the gift card when the order is placed",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_spec.rb",
+      "line_number": 154,
+      "run_time": 0.602608545,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_spec.rb[1:11:2]",
+      "description": "refuses a canceled draft order",
+      "full_description": "Spree::Carts::Complete admin/B2B order path refuses a canceled draft order",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_spec.rb",
+      "line_number": 652,
+      "run_time": 0.195743254,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_spec.rb[1:11:1]",
+      "description": "finalizes a draft order through the same service",
+      "full_description": "Spree::Carts::Complete admin/B2B order path finalizes a draft order through the same service",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_spec.rb",
+      "line_number": 644,
+      "run_time": 0.275775769,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_spec.rb[1:2:2]",
+      "description": "copies line items, fulfillments and addresses — never sharing rows",
+      "full_description": "Spree::Carts::Complete the three-phase pipeline copies line items, fulfillments and addresses — never sharing rows",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_spec.rb",
+      "line_number": 51,
+      "run_time": 0.540831144,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_spec.rb[1:2:9]",
+      "description": "rejects a variant discontinued after it entered the cart",
+      "full_description": "Spree::Carts::Complete the three-phase pipeline rejects a variant discontinued after it entered the cart",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_spec.rb",
+      "line_number": 119,
+      "run_time": 0.30749584,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_spec.rb[1:2:3]",
+      "description": "leaves the addresses it copies out of the buyer's address book",
+      "full_description": "Spree::Carts::Complete the three-phase pipeline leaves the addresses it copies out of the buyer's address book",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_spec.rb",
+      "line_number": 65,
+      "run_time": 0.551583631,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_spec.rb[1:2:5]",
+      "description": "rejects a concurrent completion in flight",
+      "full_description": "Spree::Carts::Complete the three-phase pipeline rejects a concurrent completion in flight",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_spec.rb",
+      "line_number": 88,
+      "run_time": 0.265637187,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_spec.rb[1:2:4]",
+      "description": "is idempotent — replay returns the same order",
+      "full_description": "Spree::Carts::Complete the three-phase pipeline is idempotent — replay returns the same order",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_spec.rb",
+      "line_number": 79,
+      "run_time": 0.405678525,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_spec.rb[1:2:7]",
+      "description": "returns cart_changed on expected_total drift",
+      "full_description": "Spree::Carts::Complete the three-phase pipeline returns cart_changed on expected_total drift",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_spec.rb",
+      "line_number": 102,
+      "run_time": 0.262194199,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_spec.rb[1:2:8]",
+      "description": "returns structured validation errors when requirements are unmet",
+      "full_description": "Spree::Carts::Complete the three-phase pipeline returns structured validation errors when requirements are unmet",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_spec.rb",
+      "line_number": 110,
+      "run_time": 0.248712765,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_spec.rb[1:2:6]",
+      "description": "takes over a stale completion lock",
+      "full_description": "Spree::Carts::Complete the three-phase pipeline takes over a stale completion lock",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_spec.rb",
+      "line_number": 96,
+      "run_time": 0.425525984,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/workflows/spree/carts/complete_spec.rb[1:2:1]",
+      "description": "completes the cart into a placed order",
+      "full_description": "Spree::Carts::Complete the three-phase pipeline completes the cart into a placed order",
+      "status": "passed",
+      "file_path": "./spec/workflows/spree/carts/complete_spec.rb",
+      "line_number": 38,
+      "run_time": 0.410010013,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/set_quantity_spec.rb[1:1]",
+      "description": "warns that it is deprecated",
+      "full_description": "Spree::Carts::SetQuantity warns that it is deprecated",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/set_quantity_spec.rb",
+      "line_number": 13,
+      "run_time": 0.215952426,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/set_quantity_spec.rb[1:6:1]",
+      "description": "returns a failure",
+      "full_description": "Spree::Carts::SetQuantity a rejected quantity change returns a failure",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/set_quantity_spec.rb",
+      "line_number": 121,
+      "run_time": 0.182510153,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/set_quantity_spec.rb[1:5:1]",
+      "description": "removes the line item and still returns a result",
+      "full_description": "Spree::Carts::SetQuantity a zero quantity removes the line item and still returns a result",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/set_quantity_spec.rb",
+      "line_number": 105,
+      "run_time": 0.173085214,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/set_quantity_spec.rb[1:4:1:1]",
+      "description": "reserves the new quantity",
+      "full_description": "Spree::Carts::SetQuantity stock reservations when the cart is mid-checkout reserves the new quantity",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/set_quantity_spec.rb",
+      "line_number": 64,
+      "run_time": 0.326202836,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/set_quantity_spec.rb[1:4:1:2]",
+      "description": "updates an existing reservation in place rather than duplicating",
+      "full_description": "Spree::Carts::SetQuantity stock reservations when the cart is mid-checkout updates an existing reservation in place rather than duplicating",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/set_quantity_spec.rb",
+      "line_number": 72,
+      "run_time": 0.439758645,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/set_quantity_spec.rb[1:4:1:3]",
+      "description": "fails when the new quantity exceeds available stock and rolls back",
+      "full_description": "Spree::Carts::SetQuantity stock reservations when the cart is mid-checkout fails when the new quantity exceeds available stock and rolls back",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/set_quantity_spec.rb",
+      "line_number": 81,
+      "run_time": 0.408227837,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/set_quantity_spec.rb[1:4:2:1]",
+      "description": "does not create a reservation",
+      "full_description": "Spree::Carts::SetQuantity stock reservations when the cart is not yet in checkout does not create a reservation",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/set_quantity_spec.rb",
+      "line_number": 93,
+      "run_time": 0.242652508,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/set_quantity_spec.rb[1:3:1]",
+      "description": "returns successful result",
+      "full_description": "Spree::Carts::SetQuantity with backorderable item returns successful result",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/set_quantity_spec.rb",
+      "line_number": 46,
+      "run_time": 0.230937203,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/set_quantity_spec.rb[1:2:1:1]",
+      "description": "returns successful result",
+      "full_description": "Spree::Carts::SetQuantity with non-backorderable item with sufficient stock quantity returns successful result",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/set_quantity_spec.rb",
+      "line_number": 25,
+      "run_time": 0.341743793,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/set_quantity_spec.rb[1:2:2:1]",
+      "description": "returns result with success equal false",
+      "full_description": "Spree::Carts::SetQuantity with non-backorderable item with insufficient stock quantity returns result with success equal false",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/set_quantity_spec.rb",
+      "line_number": 35,
+      "run_time": 0.254841713,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/stock_reservation_spec.rb[1:2:1:1]",
+      "description": "returns only reservations with future expires_at",
+      "full_description": "Spree::StockReservation scopes .active returns only reservations with future expires_at",
+      "status": "passed",
+      "file_path": "./spec/models/spree/stock_reservation_spec.rb",
+      "line_number": 47,
+      "run_time": 0.466019089,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/stock_reservation_spec.rb[1:2:2:1]",
+      "description": "returns only reservations with past expires_at",
+      "full_description": "Spree::StockReservation scopes .expired returns only reservations with past expires_at",
+      "status": "passed",
+      "file_path": "./spec/models/spree/stock_reservation_spec.rb",
+      "line_number": 54,
+      "run_time": 0.441440303,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/stock_reservation_spec.rb[1:2:3:1]",
+      "description": "returns reservations for the given order",
+      "full_description": "Spree::StockReservation scopes .for_order returns reservations for the given order",
+      "status": "passed",
+      "file_path": "./spec/models/spree/stock_reservation_spec.rb",
+      "line_number": 61,
+      "run_time": 0.435252669,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/stock_reservation_spec.rb[1:3:1:2]",
+      "description": "is false once expires_at passes",
+      "full_description": "Spree::StockReservation lifecycle helpers #active? is false once expires_at passes",
+      "status": "passed",
+      "file_path": "./spec/models/spree/stock_reservation_spec.rb",
+      "line_number": 74,
+      "run_time": 0.236177952,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/stock_reservation_spec.rb[1:3:1:1]",
+      "description": "is expected to be active",
+      "full_description": "Spree::StockReservation lifecycle helpers #active? is expected to be active",
+      "status": "passed",
+      "file_path": "./spec/models/spree/stock_reservation_spec.rb",
+      "line_number": 72,
+      "run_time": 0.223720046,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/stock_reservation_spec.rb[1:1:3]",
+      "description": "refuses to move a saved hold to another stock level",
+      "full_description": "Spree::StockReservation validations refuses to move a saved hold to another stock level",
+      "status": "passed",
+      "file_path": "./spec/models/spree/stock_reservation_spec.rb",
+      "line_number": 33,
+      "run_time": 0.479277675,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/stock_reservation_spec.rb[1:1:1]",
+      "description": "requires positive integer quantity",
+      "full_description": "Spree::StockReservation validations requires positive integer quantity",
+      "status": "passed",
+      "file_path": "./spec/models/spree/stock_reservation_spec.rb",
+      "line_number": 7,
+      "run_time": 0.20910325,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/stock_reservation_spec.rb[1:1:2]",
+      "description": "enforces uniqueness of line_item per stock_level",
+      "full_description": "Spree::StockReservation validations enforces uniqueness of line_item per stock_level",
+      "status": "passed",
+      "file_path": "./spec/models/spree/stock_reservation_spec.rb",
+      "line_number": 19,
+      "run_time": 0.342519957,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/stock_reservation_spec.rb[1:5:1]",
+      "description": "follows the row through its life",
+      "full_description": "Spree::StockReservation the reserved counter follows the row through its life",
+      "status": "passed",
+      "file_path": "./spec/models/spree/stock_reservation_spec.rb",
+      "line_number": 100,
+      "run_time": 0.327654346,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/stock_reservation_spec.rb[1:5:2]",
+      "description": "is given back when the line item is removed underneath it",
+      "full_description": "Spree::StockReservation the reserved counter is given back when the line item is removed underneath it",
+      "status": "passed",
+      "file_path": "./spec/models/spree/stock_reservation_spec.rb",
+      "line_number": 110,
+      "run_time": 0.215115003,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/stock_reservation_spec.rb[1:4:1]",
+      "description": "reads the order store preference when set",
+      "full_description": "Spree::StockReservation.ttl_for reads the order store preference when set",
+      "status": "passed",
+      "file_path": "./spec/models/spree/stock_reservation_spec.rb",
+      "line_number": 82,
+      "run_time": 0.052784699,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/models/spree/stock_reservation_spec.rb[1:4:2]",
+      "description": "falls back to ten minutes without a store to ask",
+      "full_description": "Spree::StockReservation.ttl_for falls back to ten minutes without a store to ask",
+      "status": "passed",
+      "file_path": "./spec/models/spree/stock_reservation_spec.rb",
+      "line_number": 88,
+      "run_time": 0.00465611,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/stock_reservations/reserve_spec.rb[1:2:1]",
+      "description": "is a no-op",
+      "full_description": "Spree::StockReservations::Reserve when stock_reservations_enabled is false is a no-op",
+      "status": "passed",
+      "file_path": "./spec/services/spree/stock_reservations/reserve_spec.rb",
+      "line_number": 110,
+      "run_time": 0.324621689,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/stock_reservations/reserve_spec.rb[1:1:1]",
+      "description": "creates a reservation for each tracked line item",
+      "full_description": "Spree::StockReservations::Reserve when stock_reservations_enabled is true creates a reservation for each tracked line item",
+      "status": "passed",
+      "file_path": "./spec/services/spree/stock_reservations/reserve_spec.rb",
+      "line_number": 16,
+      "run_time": 0.39007176,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/stock_reservations/reserve_spec.rb[1:1:6]",
+      "description": "fails when stock is insufficient and rolls back",
+      "full_description": "Spree::StockReservations::Reserve when stock_reservations_enabled is true fails when stock is insufficient and rolls back",
+      "status": "passed",
+      "file_path": "./spec/services/spree/stock_reservations/reserve_spec.rb",
+      "line_number": 60,
+      "run_time": 0.41291699,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/stock_reservations/reserve_spec.rb[1:1:9]",
+      "description": "skips backorderable stock items",
+      "full_description": "Spree::StockReservations::Reserve when stock_reservations_enabled is true skips backorderable stock items",
+      "status": "passed",
+      "file_path": "./spec/services/spree/stock_reservations/reserve_spec.rb",
+      "line_number": 94,
+      "run_time": 0.345272783,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/stock_reservations/reserve_spec.rb[1:1:7]",
+      "description": "subtracts other orders' reservations when checking availability",
+      "full_description": "Spree::StockReservations::Reserve when stock_reservations_enabled is true subtracts other orders' reservations when checking availability",
+      "status": "passed",
+      "file_path": "./spec/services/spree/stock_reservations/reserve_spec.rb",
+      "line_number": 68,
+      "run_time": 0.527455311,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/stock_reservations/reserve_spec.rb[1:1:8]",
+      "description": "accumulates per stock_level across line items so the same SKU twice cannot oversell",
+      "full_description": "Spree::StockReservations::Reserve when stock_reservations_enabled is true accumulates per stock_level across line items so the same SKU twice cannot oversell",
+      "status": "passed",
+      "file_path": "./spec/services/spree/stock_reservations/reserve_spec.rb",
+      "line_number": 85,
+      "run_time": 0.652542008,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/stock_reservations/reserve_spec.rb[1:1:5]",
+      "description": "keeps an expired reservation it revives counted",
+      "full_description": "Spree::StockReservations::Reserve when stock_reservations_enabled is true keeps an expired reservation it revives counted",
+      "status": "passed",
+      "file_path": "./spec/services/spree/stock_reservations/reserve_spec.rb",
+      "line_number": 50,
+      "run_time": 1.373713593,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/stock_reservations/reserve_spec.rb[1:1:2]",
+      "description": "sets expires_at according to the store TTL",
+      "full_description": "Spree::StockReservations::Reserve when stock_reservations_enabled is true sets expires_at according to the store TTL",
+      "status": "passed",
+      "file_path": "./spec/services/spree/stock_reservations/reserve_spec.rb",
+      "line_number": 27,
+      "run_time": 1.166294509,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/stock_reservations/reserve_spec.rb[1:1:10]",
+      "description": "skips variants that do not track inventory",
+      "full_description": "Spree::StockReservations::Reserve when stock_reservations_enabled is true skips variants that do not track inventory",
+      "status": "passed",
+      "file_path": "./spec/services/spree/stock_reservations/reserve_spec.rb",
+      "line_number": 100,
+      "run_time": 1.044279099,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/stock_reservations/reserve_spec.rb[1:1:3]",
+      "description": "is idempotent — calling twice updates the same reservation, not creating a new one",
+      "full_description": "Spree::StockReservations::Reserve when stock_reservations_enabled is true is idempotent — calling twice updates the same reservation, not creating a new one",
+      "status": "passed",
+      "file_path": "./spec/services/spree/stock_reservations/reserve_spec.rb",
+      "line_number": 35,
+      "run_time": 0.646657861,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/stock_reservations/reserve_spec.rb[1:1:4]",
+      "description": "holds the units on the level, and re-holding moves the figure by the difference",
+      "full_description": "Spree::StockReservations::Reserve when stock_reservations_enabled is true holds the units on the level, and re-holding moves the figure by the difference",
+      "status": "passed",
+      "file_path": "./spec/services/spree/stock_reservations/reserve_spec.rb",
+      "line_number": 40,
+      "run_time": 0.993167778,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/remove_out_of_stock_items_spec.rb[1:1]",
+      "description": "evaluate service to success",
+      "full_description": "Spree::Carts::RemoveOutOfStockItems evaluate service to success",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/remove_out_of_stock_items_spec.rb",
+      "line_number": 13,
+      "run_time": 0.565673963,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/remove_out_of_stock_items_spec.rb[1:2]",
+      "description": "returns empty messages and warnings when cart is valid",
+      "full_description": "Spree::Carts::RemoveOutOfStockItems returns empty messages and warnings when cart is valid",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/remove_out_of_stock_items_spec.rb",
+      "line_number": 17,
+      "run_time": 0.452070898,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/remove_out_of_stock_items_spec.rb[1:6:1]",
+      "description": "removes line item and returns discontinued message",
+      "full_description": "Spree::Carts::RemoveOutOfStockItems when product is discontinued removes line item and returns discontinued message",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/remove_out_of_stock_items_spec.rb",
+      "line_number": 66,
+      "run_time": 0.621117789,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/remove_out_of_stock_items_spec.rb[1:3:2]",
+      "description": "returns structured warning with line_item_removed code",
+      "full_description": "Spree::Carts::RemoveOutOfStockItems when product is archived returns structured warning with line_item_removed code",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/remove_out_of_stock_items_spec.rb",
+      "line_number": 31,
+      "run_time": 0.485264728,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/remove_out_of_stock_items_spec.rb[1:3:1]",
+      "description": "removes line item and returns discontinued message",
+      "full_description": "Spree::Carts::RemoveOutOfStockItems when product is archived removes line item and returns discontinued message",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/remove_out_of_stock_items_spec.rb",
+      "line_number": 26,
+      "run_time": 0.527281542,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/remove_out_of_stock_items_spec.rb[1:4:1]",
+      "description": "removes line item and returns out of stock message",
+      "full_description": "Spree::Carts::RemoveOutOfStockItems when product is out of stock removes line item and returns out of stock message",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/remove_out_of_stock_items_spec.rb",
+      "line_number": 42,
+      "run_time": 0.294020714,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/remove_out_of_stock_items_spec.rb[1:4:2]",
+      "description": "returns structured warning with line_item_removed code",
+      "full_description": "Spree::Carts::RemoveOutOfStockItems when product is out of stock returns structured warning with line_item_removed code",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/remove_out_of_stock_items_spec.rb",
+      "line_number": 47,
+      "run_time": 0.306895873,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/remove_out_of_stock_items_spec.rb[1:8:1]",
+      "description": "keeps the line item in the cart",
+      "full_description": "Spree::Carts::RemoveOutOfStockItems when the cart holds its own stock reservation for the last unit keeps the line item in the cart",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/remove_out_of_stock_items_spec.rb",
+      "line_number": 100,
+      "run_time": 0.266073085,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/remove_out_of_stock_items_spec.rb[1:7:1]",
+      "description": "removes line item and returns discontinued message",
+      "full_description": "Spree::Carts::RemoveOutOfStockItems when variant is discontinued removes line item and returns discontinued message",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/remove_out_of_stock_items_spec.rb",
+      "line_number": 75,
+      "run_time": 0.270724457,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/services/spree/carts/remove_out_of_stock_items_spec.rb[1:5:1]",
+      "description": "removes line item and returns discontinued message",
+      "full_description": "Spree::Carts::RemoveOutOfStockItems when product is deleted removes line item and returns discontinued message",
+      "status": "passed",
+      "file_path": "./spec/services/spree/carts/remove_out_of_stock_items_spec.rb",
+      "line_number": 57,
+      "run_time": 0.277038367,
+      "pending_message": null
+    }
+  ],
+  "summary": {
+    "duration": 161.75618781,
+    "example_count": 300,
+    "failure_count": 0,
+    "pending_count": 0,
+    "errors_outside_of_examples_count": 0
+  },
+  "summary_line": "300 examples, 0 failures"
+}

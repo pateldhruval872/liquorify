@@ -1,0 +1,11 @@
+{
+  "screen": "DA-SET-17",
+  "state": "express-item-total-condition",
+  "variant": "admin",
+  "theme": "light",
+  "width": 1280,
+  "revision": "storefront 8865498, backend 06ccfbce",
+  "path": "/store_UkLWZg9DAJ/settings/delivery-profiles/fp_UkLWZg9DAJ",
+  "observed": null,
+  "note": "An item total condition with a minimum of 200.00 US dollars added to Express and saved; the sheet reopened."
+}

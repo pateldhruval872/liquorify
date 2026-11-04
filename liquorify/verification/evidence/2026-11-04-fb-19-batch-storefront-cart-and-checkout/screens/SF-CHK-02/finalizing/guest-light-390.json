@@ -1,0 +1,11 @@
+{
+  "screen": "SF-CHK-02",
+  "state": "finalizing",
+  "variant": "guest",
+  "theme": "light",
+  "width": 390,
+  "revision": "storefront 8865498, backend 06ccfbce",
+  "path": "/us/en/confirm-payment/cart_KsG5Q8YFGz",
+  "observed": null,
+  "note": "Opened as a payment provider would return the shopper, with the storefront's request to confirm the payment left unanswered."
+}

@@ -1,0 +1,11 @@
+{
+  "screen": "SF-CHK-01",
+  "state": "nothing-to-pay",
+  "variant": "guest",
+  "theme": "light",
+  "width": 390,
+  "revision": "storefront 8865498, backend 06ccfbce",
+  "path": "/us/en/checkout/cart_pAVklVeMgb",
+  "observed": "Rates offered: Store Pickup $0.00; Standard $5.00; Express $15.00. The payment section read: \"Payment Method No payment required — your order is fully covered. Same as shipping address\". The order summary read: \"1 Drip Coffee Maker 1.5L Color: Black $89.99 Subtotal $89.99 Shipping $5.00 Total USD $94.99 Gift card -$94.99 Gift card FIDELITY-WHOLE-500 -$94.99 Apply\". The page showed no alert or toast.",
+  "note": "The 500.00 gift card FIDELITY-WHOLE-500 applied, which covers the whole total."
+}
