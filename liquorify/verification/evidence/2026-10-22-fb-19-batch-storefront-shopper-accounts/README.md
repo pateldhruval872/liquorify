@@ -27,6 +27,8 @@ The captures, comparisons, emails and results behind the [verification record](.
 
 ## Comparison with running screens, at 390 and 1280 pixels
 
+Five of these comparisons were replaced on 2026-11-04, captured again with the header hidden: `account-shell` at 390 pixels, and `gift-card-list` and `order-detail-shipped` at both widths. They come from the storefront at `8865498` and the backend at `68236c5` ([record](../../2026-11-04-g-52-shopper-accounts-comparisons-recaptured.md)). Every other file here is as first committed.
+
 "ID" is the LIQ-009 inventory ID. Every element differs in its font list, which the record §4 explains (the pilot's D6); the last column lists the other computed properties that differ on an element found on both sides, and the record §4 explains each one. The stories show invented data, so text and counts differ on purpose.
 
 | ID | Story | Running screen | Images | Styles | Styles that differ, besides the font list |
