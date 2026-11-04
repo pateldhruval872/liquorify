@@ -226,13 +226,27 @@ async function shownToast(page: Page) {
   }
 }
 
-/** The names of the main navigation's links, in order. */
+/**
+ * The names of the main navigation's links, in order, once two readings half
+ * a second apart agree: some links, such as Getting Started, appear only when
+ * their own request has answered.
+ */
 async function navigation(page: Page) {
   await expect(page.locator('[data-sidebar="content"] [data-slot="skeleton"]')).toHaveCount(0, {
     timeout: 15_000,
   })
-  const names = await page.locator('[data-sidebar="content"] a').allInnerTexts()
-  return names.map((name) => name.split('\n')[0].trim())
+  const read = async () =>
+    (await page.locator('[data-sidebar="content"] a').allInnerTexts()).map((name) =>
+      name.split('\n')[0].trim(),
+    )
+  let previous = await read()
+  for (let attempt = 0; attempt < 20; attempt++) {
+    await page.waitForTimeout(500)
+    const next = await read()
+    if (next.join('|') === previous.join('|')) return next
+    previous = next
+  }
+  return previous
 }
 
 /** What each role's navigation holds when its store is opened fresh, as the staff access batch saw them. */
@@ -482,7 +496,7 @@ test('the store switcher lists both stores, and what each store shows after a sw
 }) => {
   const outside = await blockOutside(page)
   await signInTeammate(page)
-  expect(await navigation(page)).toEqual(adminNavigation)
+  await expect.poll(() => navigation(page), { timeout: 15_000 }).toEqual(adminNavigation)
 
   await switcher(page).click()
   const menu = page.getByRole('menu')
@@ -625,7 +639,7 @@ test('the store switcher lists both stores, and what each store shows after a sw
   await expect(switcher(page)).toContainText(stores.second.name)
   await expect(ordersLink(page)).toBeVisible()
   await expect(productsLink(page)).toHaveCount(0)
-  expect(await navigation(page)).toEqual(supportNavigation)
+  await expect.poll(() => navigation(page), { timeout: 15_000 }).toEqual(supportNavigation)
   await capture(
     page,
     'DA-OVL-01',
@@ -669,7 +683,7 @@ test('the store switcher lists both stores, and what each store shows after a sw
   await page.reload()
   await page.waitForLoadState('networkidle')
   await expect(productsLink(page)).toBeVisible()
-  expect(await navigation(page)).toEqual(adminNavigation)
+  await expect.poll(() => navigation(page), { timeout: 15_000 }).toEqual(adminNavigation)
   await capture(
     page,
     'DA-OVL-01',
