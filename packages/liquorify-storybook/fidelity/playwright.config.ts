@@ -33,13 +33,19 @@ import { defineConfig } from '@playwright/test'
  * caller, and `one-store-checks.spec.ts` shows their judge (`one-store.ts`)
  * failing against a stand-in server (see each file). For batch 5 part 1,
  * `fl-04-storefront.spec.ts` follows a product published in the dashboard to
- * the storefront, built against the same server (see that file).
+ * the storefront, built against the same server (see that file). Batch 7's
+ * captures and comparison keep their own files, `screens-batch-7.spec.ts` and
+ * `compare-batch-7.spec.ts`. `FIDELITY_DASHBOARD_URL` sets where the built
+ * dashboard is served, port 5174 by default, so a second checkout can serve
+ * its own elsewhere.
  */
 export default defineConfig({
   testDir: '.',
   testMatch: [
     'compare.spec.ts',
     'screens.spec.ts',
+    'screens-batch-7.spec.ts',
+    'compare-batch-7.spec.ts',
     'setup.spec.ts',
     'refusals.spec.ts',
     'mail.spec.ts',
@@ -69,7 +75,7 @@ export default defineConfig({
   reporter: 'list',
   use: {
     browserName: 'chromium',
-    baseURL: 'http://localhost:5174',
+    baseURL: process.env.FIDELITY_DASHBOARD_URL ?? 'http://localhost:5174',
     viewport: { width: 1280, height: 800 },
     deviceScaleFactor: 1,
     locale: 'en-US',
