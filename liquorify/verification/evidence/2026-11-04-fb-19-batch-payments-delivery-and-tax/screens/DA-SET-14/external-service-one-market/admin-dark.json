@@ -1,0 +1,17 @@
+{
+  "screen": "DA-SET-14",
+  "state": "external-service-one-market",
+  "variant": "admin",
+  "role": null,
+  "theme": "dark",
+  "revision": "87a2ea80",
+  "path": "/<store>/settings/taxes/rates",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": "The tax providers answer adds an engine, and the markets answer puts the euro market on it; the browser-test server registers Spree's own rates only",
+  "masked": null,
+  "settled": true,
+  "outside": []
+}
