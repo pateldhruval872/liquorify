@@ -14,6 +14,8 @@ A small dashboard batch for one capability, CAP-11-12 in [LIQ-006 §11](../LIQ-0
 
 **Status.** PROPOSED on 2026-11-03, at the owner's request to assign CAP-11-12 to a bounded baseline work item. It depends only on the staff access batch, accepted and merged on 2026-10-23. The owner answered §7 on 2026-11-04: lane C after batch 7, when a slot is available, with FB-03 taking the next free slot ahead of it, and the support template's role. Whether one Liquorify login may be staff at two businesses is an open product decision (LIQ-006 §11); this batch records Spree's behaviour and decides nothing about it. **Built on 2026-11-04** in #49, after the SD-8 fix freed a slot ([record](../verification/2026-11-04-fb-19-batch-multi-store-administration.md)). Every listed state is captured; no component lacked a story. It found SD-18: after a store switch, the dashboard keeps the previous store's permissions until a reload, while the server answers each store by its own roles. The record's §6 corrects three points below: the support role's navigation shows only once the store is opened by its address or reloaded; a phone draws no switcher, so the switcher is captured at 768 pixels; and criterion 9's acceptance is delegated acceptance since the owner's delegation of 2026-11-04.
 
+**Merged and accepted, 2026-11-04.** #49 merged at `ddc7d91f`, and its evidence was accepted as delegated acceptance, not the owner's review. It closes nothing: SD-18 stays open, G-72 waits for the owner's answer, and CAP-11-12 stays PARTIAL ([merge record](../verification/2026-11-04-fb-19-batch-multi-store-administration-merge.md)). This work item's status stays PROPOSED.
+
 **Kept apart from tenant isolation.** This batch shows what one account sees in the stores it holds a role in. Whether one store's data can be reached from another is FB-03's validation, which stays NOT_RUN here. No check in this batch visits, reads or writes a store the account holds no role in, and nothing is probed across stores. A new isolation defect found on the way is reported to the owner privately and is not published while it is open.
 
 ## 1. Outcome and summary
@@ -74,7 +76,7 @@ One backend pull request with the capture script, the verification record, the e
 | 6 | The server's side is recorded from Spree's own specs, run at the batch's revision: the current admin's specs for a staff member with different roles in two stores and for one with no role, the invitation and invitation acceptance specs with an existing account, and the role assignment specs. What no spec exercises is NOT_RUN | The spec run |
 | 7 | Tenant isolation is NOT_RUN, with links to the open isolation findings; no check touches a store the teammate holds no role in | The record's isolation section |
 | 8 | No invitation link, token or password appears in any committed file | A search of the pull request's files before each push |
-| 9 | The owner accepts the screen evidence. Since the owner's delegation of 2026-11-04, this is delegated acceptance, recorded with the merge and never as the owner's review; gap answers stay with the owner | The merge record |
+| 9 | The owner accepts the screen evidence. Since the owner's delegation of 2026-11-04, this is delegated acceptance, recorded with the merge and never as the owner's review; gap answers stay with the owner | The [merge record](../verification/2026-11-04-fb-19-batch-multi-store-administration-merge.md) |
 
 ## 6. Gaps known before the work starts
 
