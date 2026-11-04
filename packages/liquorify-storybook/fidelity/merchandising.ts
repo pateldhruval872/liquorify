@@ -62,7 +62,7 @@ async function json<T>(response: Response) {
   return (await response.json()) as T
 }
 
-async function list<T extends { name?: string }>(
+async function list<T extends { id: string }>(
   api: APIRequestContext,
   headers: Headers,
   path: string,
