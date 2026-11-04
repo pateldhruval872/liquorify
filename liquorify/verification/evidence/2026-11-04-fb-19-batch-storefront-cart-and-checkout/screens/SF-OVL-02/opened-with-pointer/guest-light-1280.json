@@ -1,0 +1,11 @@
+{
+  "screen": "SF-OVL-02",
+  "state": "opened-with-pointer",
+  "variant": "guest",
+  "theme": "light",
+  "width": 1280,
+  "revision": "storefront 8865498, backend 06ccfbce",
+  "path": "/us/en/products/drip-coffee-maker",
+  "observed": null,
+  "note": "Closed after adding the product, then opened with the header's \"Open cart\" button."
+}

@@ -1,0 +1,11 @@
+{
+  "screen": "SF-CHK-03",
+  "state": "guest-check-order",
+  "variant": "guest",
+  "theme": "light",
+  "width": 1280,
+  "revision": "storefront 8865498, backend 06ccfbce",
+  "path": "/us/en/order-placed/cart_6X8gxZbenF",
+  "observed": "Placed from cart cart_6X8gxZbenF. The page's heading read: \"Thanks for your order, Jordan!\". The payment box read: \"Payment Check $94.99\".",
+  "note": "A guest's order placed with Check."
+}

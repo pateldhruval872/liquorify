@@ -1,0 +1,11 @@
+{
+  "screen": "SF-CHK-01",
+  "state": "policy-consent-required",
+  "variant": "guest",
+  "theme": "light",
+  "width": 390,
+  "revision": "storefront 8865498, backend 06ccfbce",
+  "path": "/us/en/checkout/cart_58aQZnCRf8",
+  "observed": "The page said: \"You must agree to the store policies before placing your order\".",
+  "note": "Check chosen and \"Place Order\" pressed without agreeing to the policies."
+}

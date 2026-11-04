@@ -1,0 +1,11 @@
+{
+  "screen": "SF-OVL-02",
+  "state": "item-removed",
+  "variant": "guest",
+  "theme": "light",
+  "width": 390,
+  "revision": "storefront 8865498, backend 06ccfbce",
+  "path": "/us/en/products/personal-blender",
+  "observed": null,
+  "note": "Two products added, then the first removed with its remove button."
+}

@@ -1,0 +1,11 @@
+{
+  "screen": "SF-CHK-01",
+  "state": "gift-card-refused",
+  "variant": "guest",
+  "theme": "light",
+  "width": 1280,
+  "revision": "storefront 8865498, backend 06ccfbce",
+  "path": "/es/en/checkout/cart_6bRgxZbenF",
+  "observed": "The order summary read: \"1 Drip Coffee Maker 1.5L Color: Black €84.99 Subtotal €84.99 Shipping Enter shipping address Total EUR €84.99 Apply gift_card_mismatched_currency\". The code field said: \"gift_card_mismatched_currency\". The page showed no alert or toast.",
+  "note": "The dollar gift card FIDELITY-PART-25 entered on the Spain market's checkout, in euros."
+}

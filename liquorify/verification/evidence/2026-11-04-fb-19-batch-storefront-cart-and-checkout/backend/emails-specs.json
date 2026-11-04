@@ -1,0 +1,594 @@
+{
+  "version": "3.13.6",
+  "seed": 5001,
+  "examples": [
+    {
+      "id": "./spec/subscribers/spree/order_email_subscriber_spec.rb[1:1:4]",
+      "description": "marks store owner notification as delivered",
+      "full_description": "Spree::OrderEmailSubscriber order.completed event marks store owner notification as delivered",
+      "status": "passed",
+      "file_path": "./spec/subscribers/spree/order_email_subscriber_spec.rb",
+      "line_number": 40,
+      "run_time": 0.856298481,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/subscribers/spree/order_email_subscriber_spec.rb[1:1:3]",
+      "description": "sends store owner notification email",
+      "full_description": "Spree::OrderEmailSubscriber order.completed event sends store owner notification email",
+      "status": "passed",
+      "file_path": "./spec/subscribers/spree/order_email_subscriber_spec.rb",
+      "line_number": 33,
+      "run_time": 0.366867212,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/subscribers/spree/order_email_subscriber_spec.rb[1:1:1]",
+      "description": "sends confirmation email",
+      "full_description": "Spree::OrderEmailSubscriber order.completed event sends confirmation email",
+      "status": "passed",
+      "file_path": "./spec/subscribers/spree/order_email_subscriber_spec.rb",
+      "line_number": 19,
+      "run_time": 0.350487166,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/subscribers/spree/order_email_subscriber_spec.rb[1:1:2]",
+      "description": "marks confirmation as delivered",
+      "full_description": "Spree::OrderEmailSubscriber order.completed event marks confirmation as delivered",
+      "status": "passed",
+      "file_path": "./spec/subscribers/spree/order_email_subscriber_spec.rb",
+      "line_number": 26,
+      "run_time": 0.417114925,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/subscribers/spree/order_email_subscriber_spec.rb[1:1:9:2]",
+      "description": "still sends store owner notification email",
+      "full_description": "Spree::OrderEmailSubscriber order.completed event when notify_customer is false in metadata still sends store owner notification email",
+      "status": "passed",
+      "file_path": "./spec/subscribers/spree/order_email_subscriber_spec.rb",
+      "line_number": 105,
+      "run_time": 0.409287987,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/subscribers/spree/order_email_subscriber_spec.rb[1:1:9:1]",
+      "description": "does not send confirmation email",
+      "full_description": "Spree::OrderEmailSubscriber order.completed event when notify_customer is false in metadata does not send confirmation email",
+      "status": "passed",
+      "file_path": "./spec/subscribers/spree/order_email_subscriber_spec.rb",
+      "line_number": 99,
+      "run_time": 0.572381995,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/subscribers/spree/order_email_subscriber_spec.rb[1:1:9:3]",
+      "description": "does not mark confirmation as delivered",
+      "full_description": "Spree::OrderEmailSubscriber order.completed event when notify_customer is false in metadata does not mark confirmation as delivered",
+      "status": "passed",
+      "file_path": "./spec/subscribers/spree/order_email_subscriber_spec.rb",
+      "line_number": 111,
+      "run_time": 0.308443564,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/subscribers/spree/order_email_subscriber_spec.rb[1:1:5:1]",
+      "description": "does not send confirmation email again",
+      "full_description": "Spree::OrderEmailSubscriber order.completed event when confirmation already delivered does not send confirmation email again",
+      "status": "passed",
+      "file_path": "./spec/subscribers/spree/order_email_subscriber_spec.rb",
+      "line_number": 51,
+      "run_time": 0.345601548,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/subscribers/spree/order_email_subscriber_spec.rb[1:1:8:1]",
+      "description": "does not raise an error",
+      "full_description": "Spree::OrderEmailSubscriber order.completed event when order not found does not raise an error",
+      "status": "passed",
+      "file_path": "./spec/subscribers/spree/order_email_subscriber_spec.rb",
+      "line_number": 89,
+      "run_time": 0.388682835,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/subscribers/spree/order_email_subscriber_spec.rb[1:1:6:1]",
+      "description": "does not send confirmation email",
+      "full_description": "Spree::OrderEmailSubscriber order.completed event when store does not prefer transactional emails does not send confirmation email",
+      "status": "passed",
+      "file_path": "./spec/subscribers/spree/order_email_subscriber_spec.rb",
+      "line_number": 63,
+      "run_time": 0.305504878,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/subscribers/spree/order_email_subscriber_spec.rb[1:1:6:2]",
+      "description": "still sends store owner notification email",
+      "full_description": "Spree::OrderEmailSubscriber order.completed event when store does not prefer transactional emails still sends store owner notification email",
+      "status": "passed",
+      "file_path": "./spec/subscribers/spree/order_email_subscriber_spec.rb",
+      "line_number": 70,
+      "run_time": 0.362427494,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/subscribers/spree/order_email_subscriber_spec.rb[1:1:7:1]",
+      "description": "does not send store owner notification email",
+      "full_description": "Spree::OrderEmailSubscriber order.completed event when store owner notification email is blank does not send store owner notification email",
+      "status": "passed",
+      "file_path": "./spec/subscribers/spree/order_email_subscriber_spec.rb",
+      "line_number": 80,
+      "run_time": 0.27652469,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/subscribers/spree/order_email_subscriber_spec.rb[1:1:10:1]",
+      "description": "sends confirmation email",
+      "full_description": "Spree::OrderEmailSubscriber order.completed event when notify_customer is true in metadata sends confirmation email",
+      "status": "passed",
+      "file_path": "./spec/subscribers/spree/order_email_subscriber_spec.rb",
+      "line_number": 119,
+      "run_time": 0.377056865,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/subscribers/spree/order_email_subscriber_spec.rb[1:1:11:1]",
+      "description": "sends confirmation email (default behavior)",
+      "full_description": "Spree::OrderEmailSubscriber order.completed event when notify_customer is absent from metadata sends confirmation email (default behavior)",
+      "status": "passed",
+      "file_path": "./spec/subscribers/spree/order_email_subscriber_spec.rb",
+      "line_number": 128,
+      "run_time": 0.313530723,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/subscribers/spree/order_email_subscriber_spec.rb[1:3:1]",
+      "description": "sends the order confirmation again, marked as a re-send",
+      "full_description": "Spree::OrderEmailSubscriber order.resend_confirmation_email event sends the order confirmation again, marked as a re-send",
+      "status": "passed",
+      "file_path": "./spec/subscribers/spree/order_email_subscriber_spec.rb",
+      "line_number": 154,
+      "run_time": 0.38705262,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/subscribers/spree/order_email_subscriber_spec.rb[1:3:2:1]",
+      "description": "hands the re-send to the purchase",
+      "full_description": "Spree::OrderEmailSubscriber order.resend_confirmation_email event when the order came out of a split checkout hands the re-send to the purchase",
+      "status": "passed",
+      "file_path": "./spec/subscribers/spree/order_email_subscriber_spec.rb",
+      "line_number": 168,
+      "run_time": 0.334174639,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/subscribers/spree/order_email_subscriber_spec.rb[1:4:1]",
+      "description": "sends cancel email",
+      "full_description": "Spree::OrderEmailSubscriber order.canceled event sends cancel email",
+      "status": "passed",
+      "file_path": "./spec/subscribers/spree/order_email_subscriber_spec.rb",
+      "line_number": 179,
+      "run_time": 0.598434453,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/subscribers/spree/order_email_subscriber_spec.rb[1:4:2:1]",
+      "description": "does not send cancel email",
+      "full_description": "Spree::OrderEmailSubscriber order.canceled event when store does not prefer transactional emails does not send cancel email",
+      "status": "passed",
+      "file_path": "./spec/subscribers/spree/order_email_subscriber_spec.rb",
+      "line_number": 190,
+      "run_time": 0.338205077,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/subscribers/spree/order_email_subscriber_spec.rb[1:4:2:2]",
+      "description": "does not send cancel email even when notify_customer is true in metadata",
+      "full_description": "Spree::OrderEmailSubscriber order.canceled event when store does not prefer transactional emails does not send cancel email even when notify_customer is true in metadata",
+      "status": "passed",
+      "file_path": "./spec/subscribers/spree/order_email_subscriber_spec.rb",
+      "line_number": 196,
+      "run_time": 0.324486293,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/subscribers/spree/order_email_subscriber_spec.rb[1:4:3:1]",
+      "description": "does not raise an error",
+      "full_description": "Spree::OrderEmailSubscriber order.canceled event when order not found does not raise an error",
+      "status": "passed",
+      "file_path": "./spec/subscribers/spree/order_email_subscriber_spec.rb",
+      "line_number": 204,
+      "run_time": 0.397337312,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/subscribers/spree/order_email_subscriber_spec.rb[1:4:5:1]",
+      "description": "sends cancel email",
+      "full_description": "Spree::OrderEmailSubscriber order.canceled event when notify_customer is true in metadata sends cancel email",
+      "status": "passed",
+      "file_path": "./spec/subscribers/spree/order_email_subscriber_spec.rb",
+      "line_number": 220,
+      "run_time": 0.351133439,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/subscribers/spree/order_email_subscriber_spec.rb[1:4:4:1]",
+      "description": "does not send cancel email",
+      "full_description": "Spree::OrderEmailSubscriber order.canceled event when notify_customer is false in metadata does not send cancel email",
+      "status": "passed",
+      "file_path": "./spec/subscribers/spree/order_email_subscriber_spec.rb",
+      "line_number": 212,
+      "run_time": 0.341700957,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/subscribers/spree/order_email_subscriber_spec.rb[1:2:1]",
+      "description": "is left to the group rather than told per child",
+      "full_description": "Spree::OrderEmailSubscriber the store owner on a divided checkout is left to the group rather than told per child",
+      "status": "passed",
+      "file_path": "./spec/subscribers/spree/order_email_subscriber_spec.rb",
+      "line_number": 144,
+      "run_time": 0.407797438,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/mailers/spree/order_mailer_spec.rb[1:3]",
+      "description": "doesn't aggressively escape double quotes in confirmation body",
+      "full_description": "Spree::OrderMailer doesn't aggressively escape double quotes in confirmation body",
+      "status": "passed",
+      "file_path": "./spec/mailers/spree/order_mailer_spec.rb",
+      "line_number": 52,
+      "run_time": 0.858933537,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/mailers/spree/order_mailer_spec.rb[1:5]",
+      "description": "says nothing about a purchase order when the buyer gave none",
+      "full_description": "Spree::OrderMailer says nothing about a purchase order when the buyer gave none",
+      "status": "passed",
+      "file_path": "./spec/mailers/spree/order_mailer_spec.rb",
+      "line_number": 77,
+      "run_time": 0.74708164,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/mailers/spree/order_mailer_spec.rb[1:6]",
+      "description": "confirm_email accepts an order id as an alternative to an Order object",
+      "full_description": "Spree::OrderMailer confirm_email accepts an order id as an alternative to an Order object",
+      "status": "passed",
+      "file_path": "./spec/mailers/spree/order_mailer_spec.rb",
+      "line_number": 84,
+      "run_time": 1.193540779,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/mailers/spree/order_mailer_spec.rb[1:7]",
+      "description": "cancel_email accepts an order id as an alternative to an Order object",
+      "full_description": "Spree::OrderMailer cancel_email accepts an order id as an alternative to an Order object",
+      "status": "passed",
+      "file_path": "./spec/mailers/spree/order_mailer_spec.rb",
+      "line_number": 91,
+      "run_time": 1.145128944,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/mailers/spree/order_mailer_spec.rb[1:13:2]",
+      "description": "is expected not to have body including \"5.00\"",
+      "full_description": "Spree::OrderMailer displays unit costs from line item is expected not to have body including \"5.00\"",
+      "status": "passed",
+      "file_path": "./spec/mailers/spree/order_mailer_spec.rb",
+      "line_number": 200,
+      "run_time": 0.681372859,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/mailers/spree/order_mailer_spec.rb[1:13:1]",
+      "description": "is expected not to have body including \"5.00\"",
+      "full_description": "Spree::OrderMailer displays unit costs from line item is expected not to have body including \"5.00\"",
+      "status": "passed",
+      "file_path": "./spec/mailers/spree/order_mailer_spec.rb",
+      "line_number": 193,
+      "run_time": 0.481920987,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/mailers/spree/order_mailer_spec.rb[1:18:1]",
+      "description": "shows proper host url in email content",
+      "full_description": "Spree::OrderMailer emails contain only urls of the store where the order was made shows proper host url in email content",
+      "status": "passed",
+      "file_path": "./spec/mailers/spree/order_mailer_spec.rb",
+      "line_number": 359,
+      "run_time": 0.952854434,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/mailers/spree/order_mailer_spec.rb[1:18:2]",
+      "description": "shows proper host url in email content #2",
+      "full_description": "Spree::OrderMailer emails contain only urls of the store where the order was made shows proper host url in email content #2",
+      "status": "passed",
+      "file_path": "./spec/mailers/spree/order_mailer_spec.rb",
+      "line_number": 365,
+      "run_time": 1.824598364,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/mailers/spree/order_mailer_spec.rb[1:16:1]",
+      "description": "restores the previous I18n.locale",
+      "full_description": "Spree::OrderMailer locale is not leaked after sending restores the previous I18n.locale",
+      "status": "passed",
+      "file_path": "./spec/mailers/spree/order_mailer_spec.rb",
+      "line_number": 338,
+      "run_time": 1.753356698,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/mailers/spree/order_mailer_spec.rb[1:4:1]",
+      "description": "renders it in both parts of the confirmation",
+      "full_description": "Spree::OrderMailer when the buyer supplied a purchase order number renders it in both parts of the confirmation",
+      "status": "passed",
+      "file_path": "./spec/mailers/spree/order_mailer_spec.rb",
+      "line_number": 62,
+      "run_time": 1.14504276,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/mailers/spree/order_mailer_spec.rb[1:4:2]",
+      "description": "renders it on the cancellation too",
+      "full_description": "Spree::OrderMailer when the buyer supplied a purchase order number renders it on the cancellation too",
+      "status": "passed",
+      "file_path": "./spec/mailers/spree/order_mailer_spec.rb",
+      "line_number": 69,
+      "run_time": 0.587868383,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/mailers/spree/order_mailer_spec.rb[1:1:1]",
+      "description": "uses store mail from address",
+      "full_description": "Spree::OrderMailer :from not set explicitly uses store mail from address",
+      "status": "passed",
+      "file_path": "./spec/mailers/spree/order_mailer_spec.rb",
+      "line_number": 35,
+      "run_time": 1.061527023,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/mailers/spree/order_mailer_spec.rb[1:19:1]",
+      "description": "sends an email with the cart checkout payment link",
+      "full_description": "Spree::OrderMailer#payment_link_email sends an email with the cart checkout payment link",
+      "status": "passed",
+      "file_path": "./spec/mailers/spree/order_mailer_spec.rb",
+      "line_number": 378,
+      "run_time": 0.976688786,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/mailers/spree/order_mailer_spec.rb[1:17:2]",
+      "description": "shows order store data #2",
+      "full_description": "Spree::OrderMailer confirm_email comes with data of the store where order was made shows order store data #2",
+      "status": "passed",
+      "file_path": "./spec/mailers/spree/order_mailer_spec.rb",
+      "line_number": 351,
+      "run_time": 1.053500242,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/mailers/spree/order_mailer_spec.rb[1:17:1]",
+      "description": "shows order store data",
+      "full_description": "Spree::OrderMailer confirm_email comes with data of the store where order was made shows order store data",
+      "status": "passed",
+      "file_path": "./spec/mailers/spree/order_mailer_spec.rb",
+      "line_number": 345,
+      "run_time": 0.622493397,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/mailers/spree/order_mailer_spec.rb[1:12:1]",
+      "description": "shows the shipping cost before the discount, so the lines add up to the total",
+      "full_description": "Spree::OrderMailer when a promotion makes shipping free shows the shipping cost before the discount, so the lines add up to the total",
+      "status": "passed",
+      "file_path": "./spec/mailers/spree/order_mailer_spec.rb",
+      "line_number": 180,
+      "run_time": 1.279328038,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/mailers/spree/order_mailer_spec.rb[1:10:2]",
+      "description": "shows order's user name in cancel_email body",
+      "full_description": "Spree::OrderMailer when order has customer's name shows order's user name in cancel_email body",
+      "status": "passed",
+      "file_path": "./spec/mailers/spree/order_mailer_spec.rb",
+      "line_number": 147,
+      "run_time": 1.459177655,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/mailers/spree/order_mailer_spec.rb[1:10:1]",
+      "description": "shows order's user name in confirm_email body",
+      "full_description": "Spree::OrderMailer when order has customer's name shows order's user name in confirm_email body",
+      "status": "passed",
+      "file_path": "./spec/mailers/spree/order_mailer_spec.rb",
+      "line_number": 142,
+      "run_time": 1.306802706,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/mailers/spree/order_mailer_spec.rb[1:9:2]",
+      "description": "shows Hey Customer in cancel_email body",
+      "full_description": "Spree::OrderMailer when order does not have customer's name shows Hey Customer in cancel_email body",
+      "status": "passed",
+      "file_path": "./spec/mailers/spree/order_mailer_spec.rb",
+      "line_number": 133,
+      "run_time": 0.53427729,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/mailers/spree/order_mailer_spec.rb[1:9:1]",
+      "description": "shows Hey Customer in confirm_email body",
+      "full_description": "Spree::OrderMailer when order does not have customer's name shows Hey Customer in confirm_email body",
+      "status": "passed",
+      "file_path": "./spec/mailers/spree/order_mailer_spec.rb",
+      "line_number": 128,
+      "run_time": 0.868504244,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/mailers/spree/order_mailer_spec.rb[1:15:2]",
+      "description": "sends cancel_email in order locale",
+      "full_description": "Spree::OrderMailer uses order locale for emails sends cancel_email in order locale",
+      "status": "passed",
+      "file_path": "./spec/mailers/spree/order_mailer_spec.rb",
+      "line_number": 316,
+      "run_time": 0.637030383,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/mailers/spree/order_mailer_spec.rb[1:15:3]",
+      "description": "translates the subject in the order locale",
+      "full_description": "Spree::OrderMailer uses order locale for emails translates the subject in the order locale",
+      "status": "passed",
+      "file_path": "./spec/mailers/spree/order_mailer_spec.rb",
+      "line_number": 321,
+      "run_time": 0.522881688,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/mailers/spree/order_mailer_spec.rb[1:15:1]",
+      "description": "sends confirm_email in order locale",
+      "full_description": "Spree::OrderMailer uses order locale for emails sends confirm_email in order locale",
+      "status": "passed",
+      "file_path": "./spec/mailers/spree/order_mailer_spec.rb",
+      "line_number": 311,
+      "run_time": 0.486618285,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/mailers/spree/order_mailer_spec.rb[1:14:1:2:1:2:1]",
+      "description": "is expected to have body including \"Resumo da Pedido [CANCELADA]\"",
+      "full_description": "Spree::OrderMailer emails must be translatable pt-BR locale via Store locale behaves like translates emails cancel_email is expected to have body including \"Resumo da Pedido [CANCELADA]\"",
+      "status": "passed",
+      "file_path": "./spec/mailers/spree/order_mailer_spec.rb",
+      "line_number": 240,
+      "run_time": 0.577062473,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/mailers/spree/order_mailer_spec.rb[1:14:1:2:1:1:1]",
+      "description": "is expected to have body including \"Caro Cliente,\"",
+      "full_description": "Spree::OrderMailer emails must be translatable pt-BR locale via Store locale behaves like translates emails confirm_email is expected to have body including \"Caro Cliente,\"",
+      "status": "passed",
+      "file_path": "./spec/mailers/spree/order_mailer_spec.rb",
+      "line_number": 233,
+      "run_time": 0.555535952,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/mailers/spree/order_mailer_spec.rb[1:14:1:1:1:2:1]",
+      "description": "is expected to have body including \"Resumo da Pedido [CANCELADA]\"",
+      "full_description": "Spree::OrderMailer emails must be translatable pt-BR locale via I18n behaves like translates emails cancel_email is expected to have body including \"Resumo da Pedido [CANCELADA]\"",
+      "status": "passed",
+      "file_path": "./spec/mailers/spree/order_mailer_spec.rb",
+      "line_number": 240,
+      "run_time": 0.553466873,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/mailers/spree/order_mailer_spec.rb[1:14:1:1:1:1:1]",
+      "description": "is expected to have body including \"Caro Cliente,\"",
+      "full_description": "Spree::OrderMailer emails must be translatable pt-BR locale via I18n behaves like translates emails confirm_email is expected to have body including \"Caro Cliente,\"",
+      "status": "passed",
+      "file_path": "./spec/mailers/spree/order_mailer_spec.rb",
+      "line_number": 233,
+      "run_time": 0.616570105,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/mailers/spree/order_mailer_spec.rb[1:8:5]",
+      "description": "shows order details in email body",
+      "full_description": "Spree::OrderMailer store_owner_notification_email shows order details in email body",
+      "status": "passed",
+      "file_path": "./spec/mailers/spree/order_mailer_spec.rb",
+      "line_number": 120,
+      "run_time": 0.669700809,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/mailers/spree/order_mailer_spec.rb[1:8:4]",
+      "description": "shows the correct heading in email body",
+      "full_description": "Spree::OrderMailer store_owner_notification_email shows the correct heading in email body",
+      "status": "passed",
+      "file_path": "./spec/mailers/spree/order_mailer_spec.rb",
+      "line_number": 116,
+      "run_time": 0.460467537,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/mailers/spree/order_mailer_spec.rb[1:8:2]",
+      "description": "has correct email recipient",
+      "full_description": "Spree::OrderMailer store_owner_notification_email has correct email recipient",
+      "status": "passed",
+      "file_path": "./spec/mailers/spree/order_mailer_spec.rb",
+      "line_number": 108,
+      "run_time": 0.489455467,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/mailers/spree/order_mailer_spec.rb[1:8:1]",
+      "description": "accepts an order id as an alternative to an Order object",
+      "full_description": "Spree::OrderMailer store_owner_notification_email accepts an order id as an alternative to an Order object",
+      "status": "passed",
+      "file_path": "./spec/mailers/spree/order_mailer_spec.rb",
+      "line_number": 101,
+      "run_time": 0.456434319,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/mailers/spree/order_mailer_spec.rb[1:8:3]",
+      "description": "has correct subject line",
+      "full_description": "Spree::OrderMailer store_owner_notification_email has correct subject line",
+      "status": "passed",
+      "file_path": "./spec/mailers/spree/order_mailer_spec.rb",
+      "line_number": 112,
+      "run_time": 0.436932215,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/mailers/spree/order_mailer_spec.rb[1:2:1]",
+      "description": "uses store customer support email",
+      "full_description": "Spree::OrderMailer :reply_to not set explicitly uses store customer support email",
+      "status": "passed",
+      "file_path": "./spec/mailers/spree/order_mailer_spec.rb",
+      "line_number": 44,
+      "run_time": 0.534591442,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/mailers/spree/order_mailer_spec.rb[1:11:1]",
+      "description": "is expected to have body including \"Handling Fee\"",
+      "full_description": "Spree::OrderMailer shows manual discounts and fees in emails is expected to have body including \"Handling Fee\"",
+      "status": "passed",
+      "file_path": "./spec/mailers/spree/order_mailer_spec.rb",
+      "line_number": 163,
+      "run_time": 0.503586179,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/mailers/spree/order_mailer_spec.rb[1:11:2]",
+      "description": "is expected to have body including \"Loyal Customer Discount\"",
+      "full_description": "Spree::OrderMailer shows manual discounts and fees in emails is expected to have body including \"Loyal Customer Discount\"",
+      "status": "passed",
+      "file_path": "./spec/mailers/spree/order_mailer_spec.rb",
+      "line_number": 168,
+      "run_time": 0.582789895,
+      "pending_message": null
+    }
+  ],
+  "summary": {
+    "duration": 38.345314167,
+    "example_count": 58,
+    "failure_count": 0,
+    "pending_count": 0,
+    "errors_outside_of_examples_count": 0
+  },
+  "summary_line": "58 examples, 0 failures"
+}

@@ -1,0 +1,11 @@
+{
+  "screen": "SF-CHK-01",
+  "state": "tax-added",
+  "variant": "guest",
+  "theme": "light",
+  "width": 1280,
+  "revision": "storefront 8865498, backend 06ccfbce",
+  "path": "/us/en/checkout/cart_8DR0I7fEbw",
+  "observed": "The order summary read: \"1 Drip Coffee Maker 1.5L Color: Black $97.19 Subtotal $89.99 Shipping $5.00 Tax $7.60 Total USD $102.59 Apply\".",
+  "note": "With the 8% rate and the United States market's prices not including tax."
+}

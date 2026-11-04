@@ -1,0 +1,11 @@
+{
+  "screen": "SF-OVL-02",
+  "state": "opened-with-keyboard",
+  "variant": "guest",
+  "theme": "light",
+  "width": 390,
+  "revision": "storefront 8865498, backend 06ccfbce",
+  "path": "/us/en/products/drip-coffee-maker",
+  "observed": "Focus after opening: a button element named \"Close cart\".",
+  "note": "Focus moved to the header's \"Open cart\" button and Enter pressed."
+}

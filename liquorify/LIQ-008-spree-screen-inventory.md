@@ -287,7 +287,7 @@ Layouts without a screen ID: SR/`__root.tsx`, SR/`_authenticated.tsx`, SR/`_auth
 | SF-SHOP-02 | Products and search, `/products` | Anyone | Search, filter by price, availability and options, sort, load more (`catalog.spec.ts`) | Loading skeleton; no products found; no more products | F/`(storefront)/products/page.tsx`; `components/products/` |
 | SF-SHOP-03 | Category, `/c/[...permalink]` | Anyone | Category banner, subcategories narrow the list, sort (`catalog.spec.ts`) | As SF-SHOP-02; category not found | F/`(storefront)/c/[...permalink]/page.tsx`, `CategoryBanner.tsx` |
 | SF-SHOP-04 | Product, `/products/[slug]` | Anyone | Gallery and lightbox, pick colour and size, quantity, add to cart, custom fields (`product.spec.ts`) | Sale price; sold-out variant can be picked but not added; price hidden on a gated channel; product not found | F/`(storefront)/products/[slug]/page.tsx`, `ProductDetails.tsx` |
-| SF-SHOP-05 | Cart, `/cart` | Anyone | Change quantity, remove, coupon and gift card, proceed to checkout (`cart.spec.ts`) | Empty cart points back to the catalog; update failed | F/`(storefront)/cart/page.tsx` |
+| SF-SHOP-05 | Cart, `/cart` | Anyone | Change quantity, remove, see a gift card or store credit already applied in the totals with the amount due, proceed to checkout (`cart.spec.ts`). Codes are entered only at checkout (FB-19 batch 9, B6) | Empty cart points back to the catalog; update failed | F/`(storefront)/cart/page.tsx` |
 | SF-SHOP-06 | Policy, `/policies/[slug]` | Anyone | Read a store policy | Not found; no content | F/`(storefront)/policies/[slug]/page.tsx` |
 
 ### Account

@@ -1,0 +1,11 @@
+{
+  "screen": "SF-CHK-01",
+  "state": "gateway-unsupported",
+  "variant": "guest",
+  "theme": "light",
+  "width": 1280,
+  "revision": "storefront 8865498, backend 06ccfbce",
+  "path": "/us/en/checkout/cart_HZaVtlDrOm",
+  "observed": "The payment section read: \"Payment Method All transactions are secure and encrypted. Credit Card This payment method is not yet supported in the storefront. Check Same as shipping address\".",
+  "note": "Spree's test gateway (Credit Card) chosen; the storefront has no form for it."
+}

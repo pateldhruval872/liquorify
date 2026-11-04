@@ -1,0 +1,11 @@
+{
+  "screen": "SF-CHK-01",
+  "state": "billing-different",
+  "variant": "guest",
+  "theme": "light",
+  "width": 1280,
+  "revision": "storefront 8865498, backend 06ccfbce",
+  "path": "/us/en/checkout/cart_IxJvBlcSU2",
+  "observed": "The page showed no alert or toast.",
+  "note": "\"Same as shipping address\" unticked and a billing address entered."
+}

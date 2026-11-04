@@ -1,0 +1,34 @@
+{
+  "revision": "storefront 8865498, backend 06ccfbce",
+  "emails": [
+    {
+      "email": "EM-C-01",
+      "what": "Spree's order confirmation, Spree::OrderMailer#confirm_email, rendered from Spree's mailer preview Spree::OrderPreview#confirm_email in the browser-test app's test environment with the emails gem loaded, against a copy of this lane's database, inside a transaction that was rolled back",
+      "subject": "Shop Order Confirmation #R1007",
+      "order": "R1007",
+      "parts": [
+        "text/plain; charset=UTF-8",
+        "text/html; charset=UTF-8"
+      ],
+      "captures": [
+        "EM-C-01-390.webp",
+        "EM-C-01-1280.webp"
+      ],
+      "sent": false,
+      "why_not_sent": "The browser-test server does not load Spree's emails gem, so it sends no customer email for orders placed on it (record \u00a77, G-77)"
+    },
+    {
+      "email": "EM-SF-01",
+      "what": "The storefront's order confirmation, src/lib/emails/order-confirmation.tsx, written by handleOrderPlaced when Spree delivered its signed order.placed webhook for R1011",
+      "subject": "Spree Store Order Confirmation #R1011",
+      "order": "R1011",
+      "to": "jordan.ellis@example.com",
+      "captures": [
+        "EM-SF-01-390.webp",
+        "EM-SF-01-1280.webp"
+      ],
+      "sent": false,
+      "why_not_sent": "The storefront had no mail service key, so it wrote the email to a file instead of sending it; the file is not committed (record \u00a77, G-77)"
+    }
+  ]
+}

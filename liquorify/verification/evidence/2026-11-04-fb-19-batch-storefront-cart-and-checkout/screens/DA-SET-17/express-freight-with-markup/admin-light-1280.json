@@ -1,0 +1,11 @@
+{
+  "screen": "DA-SET-17",
+  "state": "express-freight-with-markup",
+  "variant": "admin",
+  "theme": "light",
+  "width": 1280,
+  "revision": "storefront 8865498, backend 06ccfbce",
+  "path": "/store_UkLWZg9DAJ/settings/delivery-profiles/fp_UkLWZg9DAJ",
+  "observed": null,
+  "note": "Express given the freight rate provider and a 10% markup, saved; the sheet reopened."
+}

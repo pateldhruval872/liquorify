@@ -1,0 +1,11 @@
+{
+  "screen": "SF-OVL-05",
+  "state": "adding",
+  "variant": "customer",
+  "theme": "light",
+  "width": 390,
+  "revision": "storefront 8865498, backend 06ccfbce",
+  "path": "/us/en/account/addresses",
+  "observed": null,
+  "note": "Opened with \"Add Address\" in the account's address book, and filled in."
+}

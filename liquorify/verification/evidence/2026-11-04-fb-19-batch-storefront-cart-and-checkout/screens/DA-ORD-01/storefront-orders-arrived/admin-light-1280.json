@@ -1,0 +1,11 @@
+{
+  "screen": "DA-ORD-01",
+  "state": "storefront-orders-arrived",
+  "variant": "admin",
+  "theme": "light",
+  "width": 1280,
+  "revision": "storefront 8865498, backend 06ccfbce",
+  "path": "/store_UkLWZg9DAJ/orders",
+  "observed": null,
+  "note": "The order list after the storefront's orders were placed, opened once to record that they arrived; the order screens are batch 8's."
+}

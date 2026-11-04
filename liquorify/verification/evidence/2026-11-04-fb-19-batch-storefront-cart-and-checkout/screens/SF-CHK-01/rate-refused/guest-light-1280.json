@@ -1,0 +1,11 @@
+{
+  "screen": "SF-CHK-01",
+  "state": "rate-refused",
+  "variant": "guest",
+  "theme": "light",
+  "width": 1280,
+  "revision": "storefront 8865498, backend 06ccfbce",
+  "path": "/us/en/checkout/cart_A6Ms1igzRC",
+  "observed": "The page said: \"An error occurred. Please try again.\".",
+  "note": "Another rate chosen, and the storefront's request to save it failed on the way."
+}

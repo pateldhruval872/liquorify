@@ -1,0 +1,11 @@
+{
+  "screen": "DA-SET-02",
+  "state": "payment-capture-manual",
+  "variant": "admin",
+  "theme": "light",
+  "width": 1280,
+  "revision": "storefront 8865498, backend 06ccfbce",
+  "path": "/store_UkLWZg9DAJ/settings/store",
+  "observed": null,
+  "note": "The store's \"When to charge customers\" set to Manually and saved."
+}
