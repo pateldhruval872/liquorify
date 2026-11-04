@@ -140,10 +140,15 @@ async function blockOutside(page: Page): Promise<string[]> {
   return outside
 }
 
-async function save(page: Page, name: string, steps: Record<string, unknown>[], outside: string[]) {
+/** A screenshot once the screen has settled, for a moment a test passes through. */
+async function snap(page: Page, name: string) {
   mkdirSync(results, { recursive: true })
   await animationsFinished(page)
   await page.screenshot({ path: `${results}${name}.png` })
+}
+
+async function save(page: Page, name: string, steps: Record<string, unknown>[], outside: string[]) {
+  await snap(page, name)
   writeFileSync(
     `${results}${name}.json`,
     `${JSON.stringify({ test: name, revision, stamp, sabotaged, steps, outside }, null, 2)}\n`,
@@ -245,6 +250,7 @@ async function filterAndClear(
   })
   await expect.poll(async () => (await listed(page)).sort()).toEqual([...matching].sort())
   steps.push({ step: 'reloaded; still filtered', listed: await listed(page) })
+  await snap(page, `${name}-filtered`)
 
   await remove.click()
   await expect(remove).toHaveCount(0)
@@ -426,6 +432,7 @@ test('bulk actions: products chosen on the list are added to a collection, and s
     step: 'opened the collection and reloaded it',
     products: await products.getByRole('link').allInnerTexts(),
   })
+  await products.getByRole('link', { name: names.products.chosenSecond }).scrollIntoViewIfNeeded()
 
   await save(page, 'bulk-add-to-collection', steps, outside)
 })
@@ -618,9 +625,7 @@ test("product types: deleting one that products use is refused with Spree's mess
     shown: await page.getByText(productTypeInUse).isVisible(),
     toasts: await page.locator('[role="status"][data-type]').allInnerTexts(),
   })
-  await animationsFinished(page)
-  mkdirSync(results, { recursive: true })
-  await page.screenshot({ path: `${results}product-type-delete-refused-after-confirming.png` })
+  await snap(page, 'product-type-delete-refused-after-confirming')
 
   await reload(page)
   await expect(typeRow(page, names.usedType)).toBeVisible({ timeout: 15_000 })
@@ -807,6 +812,12 @@ async function openLibraryFile(page: Page, filename: string, alt: string) {
   return sheet
 }
 
+/** The product page's media card, where a library file used on the product shows. */
+const mediaCard = (page: Page) =>
+  page
+    .locator('[data-slot="card"]')
+    .filter({ has: page.locator('[data-slot="card-title"]', { hasText: /^\s*Media\s*$/ }) })
+
 /** Closes the file's panel and asks to delete it from its tile's menu, the library's only delete. */
 async function askToDelete(page: Page, alt: string) {
   await page
@@ -847,9 +858,7 @@ test('library file in use: the library names where it is used, and the delete wa
   const warning = confirm.getByText(/removes it from your library and from the 1 place using it/)
   await expect(warning).toBeVisible()
   steps.push({ step: 'asked to delete it', warning: await warning.innerText() })
-  await animationsFinished(page)
-  mkdirSync(results, { recursive: true })
-  await page.screenshot({ path: `${results}library-file-in-use-warning.png` })
+  await snap(page, 'library-file-in-use-delete-warning')
   await confirm.getByRole('button', { name: /^cancel$/i }).click()
   await expect(confirm).toBeHidden()
   steps.push({ step: 'cancelled' })
@@ -862,6 +871,7 @@ test('library file in use: the library names where it is used, and the delete wa
   await reload(page)
   await expect(page.getByRole('img', { name: alt })).toBeVisible({ timeout: 15_000 })
   steps.push({ step: 'reloaded the library and the product; the file is on both' })
+  await mediaCard(page).scrollIntoViewIfNeeded()
 
   await save(page, 'library-file-in-use-warning', steps, outside)
 })
@@ -909,6 +919,7 @@ test('library file in use: confirming the delete removes it from the library and
   await expect(page.locator('#product-slug')).toBeVisible({ timeout: 15_000 })
   await expect(page.getByRole('img', { name: names.libraryAlt })).toHaveCount(0)
   steps.push({ step: 'reloaded the library and the product; the file is on neither' })
+  await mediaCard(page).scrollIntoViewIfNeeded()
 
   await save(page, 'library-file-in-use-deleted', steps, outside)
 })
