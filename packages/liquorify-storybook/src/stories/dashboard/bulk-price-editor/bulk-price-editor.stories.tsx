@@ -86,7 +86,9 @@ export const Euros: Story = {
   args: { currency: 'EUR' },
   play: async () => {
     await screen.findByText('1 price in EUR')
-    await expect(screen.getByLabelText('Price for Default')).toHaveValue('14.00')
+    // Spree sends an empty options text for a product without options, so the
+    // mug's price field is named "Price for" and nothing more.
+    await expect(screen.getByLabelText('Price for')).toHaveValue('14.00')
   },
 }
 

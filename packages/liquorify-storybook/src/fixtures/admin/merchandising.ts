@@ -789,13 +789,82 @@ export const tradeProducts: PriceListProduct[] = [
   },
 ]
 
-function price(
+interface ListedVariant {
+  id: string
+  productId: string
+  productName: string
+  sku: string
+  /** Spree sends an empty string for a variant without options, never null. */
+  optionsText: string
+}
+
+/**
+ * The variant a price row embeds when the editor asks for `expand=variant`:
+ * Spree's whole admin variant, of which the editor reads the product's id and
+ * name, the SKU and the options.
+ */
+function listedVariant(spec: ListedVariant, shopPrice: Price): Variant {
+  return {
+    id: spec.id,
+    product_id: spec.productId,
+    sku: spec.sku,
+    options_text: spec.optionsText,
+    track_inventory: true,
+    media_count: 0,
+    preorder_ships_at: null,
+    thumbnail_url: null,
+    purchasable: true,
+    in_stock: true,
+    backorderable: false,
+    preorder: false,
+    weight: null,
+    height: null,
+    width: null,
+    depth: null,
+    weight_unit: 'kg',
+    dimensions_unit: 'cm',
+    minimum_order_quantity: null,
+    order_multiple: null,
+    purchase_unit: null,
+    units_per_carton: null,
+    price: shopPrice,
+    original_price: null,
+    seller_id: null,
+    option_values: [],
+    external_references: {},
+    metadata: {},
+    position: 1,
+    cost_currency: null,
+    barcode: null,
+    backorder_limit: null,
+    hs_code: null,
+    country_of_origin: null,
+    customs_description: null,
+    carton_weight: null,
+    cartons_per_pallet: null,
+    deleted_at: null,
+    created_at: created,
+    updated_at: updated,
+    cost_price: null,
+    preorderable: false,
+    tax_category_id: null,
+    carton_package_type_id: null,
+    units_per_pallet: null,
+    available_stock: 10,
+    reserved_quantity: 0,
+    total_on_hand: 10,
+    product_name: spec.productName,
+    delivery_profile_id: null,
+  }
+}
+
+function priceRow(
   id: string,
-  variant: { id: string; product: Product; sku: string; options_text: string | null },
+  variant: ListedVariant,
   amount: string | null,
   fields: Partial<Price> = {},
 ): Price {
-  return {
+  const row: Price = {
     id,
     currency: 'USD',
     amount,
@@ -805,18 +874,33 @@ function price(
     variant_id: variant.id,
     created_at: created,
     updated_at: updated,
-    variant: {
-      id: variant.id,
-      product_id: variant.product.id,
-      product_name: variant.product.name,
-      sku: variant.sku,
-      options_text: variant.options_text,
-    } as unknown as Variant,
     ...fields,
   }
+  const shopPrice = { ...row, id: `${id}s`, price_list_id: null, amount: amount ?? '0.00' }
+  return { ...row, variant: listedVariant(variant, shopPrice) }
 }
 
-const mugVariant = { id: 'variant_3Mq7Lk2c', product: mug, sku: 'MUG-CLAY', options_text: null }
+function price(
+  id: string,
+  variant: { id: string; product: Product; sku: string; options_text: string },
+  amount: string | null,
+  fields: Partial<Price> = {},
+): Price {
+  return priceRow(
+    id,
+    {
+      id: variant.id,
+      productId: variant.product.id,
+      productName: variant.product.name,
+      sku: variant.sku,
+      optionsText: variant.options_text,
+    },
+    amount,
+    fields,
+  )
+}
+
+const mugVariant = { id: 'variant_3Mq7Lk2c', product: mug, sku: 'MUG-CLAY', options_text: '' }
 const apronVariant = (suffix: string, options: string, sku: string) => ({
   id: `variant_7Rt2Wn5${suffix}`,
   product: apron,
@@ -841,7 +925,7 @@ export const tradePrices: Price[] = [
   price('price_5Ap1Om2d', apronVariant('d', 'Color: Slate, Size: L', 'APRON-SLT-L'), null),
   price(
     'price_7Cn3Dl4f',
-    { id: 'variant_4Gb1Ns3m', product: candle, sku: 'CANDLE-OLV', options_text: null },
+    { id: 'variant_4Gb1Ns3m', product: candle, sku: 'CANDLE-OLV', options_text: '' },
     '11.00',
   ),
   price('price_6Mg2Eu5k', mugVariant, '14.00', { currency: 'EUR' }),
@@ -866,19 +950,17 @@ export const longPriceList: Price[] = materials
   .sort()
   .map((name, index) => {
     const number = String(index + 1).padStart(2, '0')
-    return {
-      ...tradePrices[0],
-      id: `price_4Lg${number}Pr`,
-      amount: `${10 + index}.00`,
-      variant_id: `variant_4Lg${number}Vr`,
-      variant: {
+    return priceRow(
+      `price_4Lg${number}Pr`,
+      {
         id: `variant_4Lg${number}Vr`,
-        product_id: `prod_4Lg${number}Pd`,
-        product_name: name,
+        productId: `prod_4Lg${number}Pd`,
+        productName: name,
         sku: name.toUpperCase().replace(/ /g, '-'),
-        options_text: null,
-      } as unknown as Variant,
-    }
+        optionsText: '',
+      },
+      `${10 + index}.00`,
+    )
   })
 
 // ---------------------------------------------------------------------------
