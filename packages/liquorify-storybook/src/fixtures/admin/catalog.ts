@@ -110,7 +110,7 @@ const [, medium, large] = sizeOption.option_values as OptionValue[]
 // Organisation: categories, collections, product types, tax, delivery
 // ---------------------------------------------------------------------------
 
-function category(
+export function category(
   id: string,
   name: string,
   permalink: string,
@@ -166,7 +166,7 @@ export const categories: Category[] = [
 
 const [, mugs, , aprons, guides] = categories
 
-function collection(id: string, name: string, fields: Partial<Collection> = {}): Collection {
+export function collection(id: string, name: string, fields: Partial<Collection> = {}): Collection {
   return {
     id,
     name,

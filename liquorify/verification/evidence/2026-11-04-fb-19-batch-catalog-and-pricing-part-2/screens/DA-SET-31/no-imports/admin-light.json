@@ -1,0 +1,17 @@
+{
+  "screen": "DA-SET-31",
+  "state": "no-imports",
+  "variant": "admin",
+  "role": null,
+  "theme": "light",
+  "revision": "36173fb5",
+  "path": "/<store>/settings/imports",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": "The import list is answered with no imports",
+  "masked": null,
+  "settled": true,
+  "outside": []
+}

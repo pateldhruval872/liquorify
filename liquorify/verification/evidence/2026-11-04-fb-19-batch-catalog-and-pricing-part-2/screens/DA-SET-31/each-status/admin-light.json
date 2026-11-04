@@ -1,0 +1,17 @@
+{
+  "screen": "DA-SET-31",
+  "state": "each-status",
+  "variant": "admin",
+  "role": null,
+  "theme": "light",
+  "revision": "36173fb5",
+  "path": "/<store>/settings/imports",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": "The list is answered with four imports given the statuses no import on this server is left in: pending, queued (mapping completed), processing and failed",
+  "masked": null,
+  "settled": true,
+  "outside": []
+}

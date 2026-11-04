@@ -1,0 +1,17 @@
+{
+  "screen": "DA-PRD-14",
+  "state": "failed",
+  "variant": "admin",
+  "role": null,
+  "theme": "dark",
+  "revision": "36173fb5",
+  "path": "/<store>/products/catalogs/cat_gbHJdmfrXB",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": "The catalog request is answered with a server error",
+  "masked": null,
+  "settled": true,
+  "outside": []
+}

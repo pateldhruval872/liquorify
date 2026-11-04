@@ -47,7 +47,10 @@ export const roles = {
   },
   /** Read on `settings`, the scope of batch 3's screens, and write on nothing. */
   settingsViewer: { name: 'Settings viewer', permissions: ['read_settings'] },
-  /** Read on the five scopes of batch 5 part 1's screens, and write on none. */
+  /**
+   * Read on the five scopes of batch 5 part 1's screens and the two more part
+   * 2's need, `categories` and `collections`, and write on none.
+   */
   catalogViewer: {
     name: 'Catalog viewer',
     permissions: [
@@ -56,6 +59,8 @@ export const roles = {
       'read_media',
       'read_product_types',
       'read_stock',
+      'read_categories',
+      'read_collections',
     ],
   },
   /** Read on the three scopes of batch 7's screens, and write on none. */
@@ -282,6 +287,12 @@ export async function seed(baseURL: string): Promise<Seeded> {
       const found = existing.find((item) => item.name === role.name)
       if (found) {
         roleIds[key] = found.id
+        // A database seeded by an earlier batch keeps the role's permissions then.
+        const updated = await api.patch(`/api/v3/admin/roles/${found.id}`, {
+          headers,
+          data: { permissions: role.permissions },
+        })
+        expect(updated.ok(), await updated.text()).toBeTruthy()
         continue
       }
       const created = await api.post('/api/v3/admin/roles', {

@@ -1,0 +1,17 @@
+{
+  "screen": "DA-PRD-17",
+  "state": "products-narrow",
+  "variant": "admin",
+  "role": null,
+  "theme": "light",
+  "revision": "36173fb5",
+  "path": "/<store>/products/price-lists/pl_UkLWZg9DAJ",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "intercepted": null,
+  "masked": null,
+  "settled": true,
+  "outside": []
+}

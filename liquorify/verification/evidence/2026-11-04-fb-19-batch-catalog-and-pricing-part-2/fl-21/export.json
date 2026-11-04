@@ -1,0 +1,1311 @@
+{
+  "export": {
+    "number": "EF1010"
+  },
+  "seconds_to_download": 3,
+  "seconds_to_email": 3,
+  "file": "products-shop-20261104033742.csv",
+  "EM-S-05": {
+    "subject": "Your export EF1010 was successfully processed!",
+    "link": "<a local address>/<store>/products?page=…&filters=…",
+    "link_opens": {
+      "status": 200,
+      "page": "/<store>/products",
+      "downloads": false
+    }
+  },
+  "header": {
+    "product_columns": 41,
+    "others": [
+      "custom_field.custom.capacity",
+      "custom_field.custom.care_instructions",
+      "custom_field.custom.connectivity",
+      "custom_field.custom.material",
+      "custom_field.custom.noise_level",
+      "custom_field.custom.release_year",
+      "custom_field.custom.room_coverage",
+      "custom_field.custom.runtime",
+      "custom_field.custom.voltage",
+      "custom_field.custom.warranty",
+      "custom_field.custom.wattage"
+    ]
+  },
+  "rows": 201,
+  "products": 61,
+  "other_currencies": [
+    "EUR"
+  ],
+  "coverage": {
+    "variant": {
+      "file": 112,
+      "server": 112,
+      "missing_from_file": [],
+      "not_on_server": []
+    },
+    "price": {
+      "file": 87,
+      "server": 87,
+      "missing_from_file": [],
+      "not_on_server": []
+    },
+    "stock": {
+      "file": 2,
+      "server": 2,
+      "missing_from_file": [],
+      "not_on_server": []
+    }
+  },
+  "not_compared": {
+    "product_id": "the database's own number; the Admin API gives only prefixed ids",
+    "labels": "the Admin API product response has no labels",
+    "available_on": "read from the product's publication on the default channel, which the product response does not carry",
+    "discontinue_on": "read from the product's publication on the default channel, which the product response does not carry",
+    "image1_src": "image addresses are signed for each response, so two reads differ",
+    "image2_src": "image addresses are signed for each response, so two reads differ",
+    "image3_src": "image addresses are signed for each response, so two reads differ"
+  },
+  "representative": {
+    "without_options": "E2E Promo Product",
+    "with_variants": "Drip Coffee Maker 1.5L",
+    "imported": [
+      "fidelity-fl21-tray-1793763455244",
+      "fidelity-fl21-jug-1793763455244"
+    ]
+  },
+  "compared": {
+    "e2e-promo-product E2E-PROMO": [
+      {
+        "field": "sku",
+        "file": "E2E-PROMO",
+        "server": "E2E-PROMO",
+        "same": true
+      },
+      {
+        "field": "slug",
+        "file": "e2e-promo-product",
+        "server": "e2e-promo-product",
+        "same": true
+      },
+      {
+        "field": "name",
+        "file": "E2E Promo Product",
+        "server": "E2E Promo Product",
+        "same": true
+      },
+      {
+        "field": "status",
+        "file": "active",
+        "server": "active",
+        "same": true
+      },
+      {
+        "field": "seller_name",
+        "file": "",
+        "server": "",
+        "same": true
+      },
+      {
+        "field": "description",
+        "file": "",
+        "server": "",
+        "same": true
+      },
+      {
+        "field": "meta_title",
+        "file": "",
+        "server": "",
+        "same": true
+      },
+      {
+        "field": "meta_description",
+        "file": "",
+        "server": "",
+        "same": true
+      },
+      {
+        "field": "meta_keywords",
+        "file": "",
+        "server": "",
+        "same": true
+      },
+      {
+        "field": "tags",
+        "file": "",
+        "server": "",
+        "same": true
+      },
+      {
+        "field": "price",
+        "file": "19.99",
+        "server": "19.99",
+        "same": true
+      },
+      {
+        "field": "compare_at_price",
+        "file": "0.00",
+        "server": "",
+        "same": true
+      },
+      {
+        "field": "currency",
+        "file": "USD",
+        "server": "USD",
+        "same": true
+      },
+      {
+        "field": "width",
+        "file": "",
+        "server": "",
+        "same": true
+      },
+      {
+        "field": "height",
+        "file": "",
+        "server": "",
+        "same": true
+      },
+      {
+        "field": "depth",
+        "file": "",
+        "server": "",
+        "same": true
+      },
+      {
+        "field": "weight",
+        "file": "0",
+        "server": "0",
+        "same": true
+      },
+      {
+        "field": "dimensions_unit",
+        "file": "",
+        "server": "in",
+        "same": false,
+        "explained": "Blank in the file: the variant has no unit of its own, and the Admin API answers the store's"
+      },
+      {
+        "field": "weight_unit",
+        "file": "",
+        "server": "lb",
+        "same": false,
+        "explained": "Blank in the file: the variant has no unit of its own, and the Admin API answers the store's"
+      },
+      {
+        "field": "track_inventory",
+        "file": "true",
+        "server": "true",
+        "same": true
+      },
+      {
+        "field": "inventory_count",
+        "file": "100",
+        "server": "100",
+        "same": true
+      },
+      {
+        "field": "inventory_backorderable",
+        "file": "true",
+        "server": "true",
+        "same": true
+      },
+      {
+        "field": "stock_location",
+        "file": "",
+        "server": "",
+        "same": true
+      },
+      {
+        "field": "tax_category",
+        "file": "Default",
+        "server": "Default",
+        "same": true
+      },
+      {
+        "field": "product_type",
+        "file": "",
+        "server": "",
+        "same": true
+      },
+      {
+        "field": "option1_name and value",
+        "file": "",
+        "server": "",
+        "same": true
+      },
+      {
+        "field": "option2_name and value",
+        "file": "",
+        "server": "",
+        "same": true
+      },
+      {
+        "field": "option3_name and value",
+        "file": "",
+        "server": "",
+        "same": true
+      },
+      {
+        "field": "category1 to category3",
+        "file": "E2E Promo Category",
+        "server": "E2E Promo Category",
+        "same": true
+      }
+    ],
+    "drip-coffee-maker DRIP-COFFEE-MAKER-BLACK": [
+      {
+        "field": "sku",
+        "file": "DRIP-COFFEE-MAKER-BLACK",
+        "server": "DRIP-COFFEE-MAKER-BLACK",
+        "same": true
+      },
+      {
+        "field": "slug",
+        "file": "drip-coffee-maker",
+        "server": "drip-coffee-maker",
+        "same": true
+      },
+      {
+        "field": "name",
+        "file": "Drip Coffee Maker 1.5L",
+        "server": "Drip Coffee Maker 1.5L",
+        "same": true
+      },
+      {
+        "field": "status",
+        "file": "active",
+        "server": "active",
+        "same": true
+      },
+      {
+        "field": "seller_name",
+        "file": "",
+        "server": "",
+        "same": true
+      },
+      {
+        "field": "description",
+        "file": "Programmable drip coffee maker with thermal carafe, adjustable brew strength, and 24-hour timer. Brews up to 12 cups.",
+        "server": "Programmable drip coffee maker with thermal carafe, adjustable brew strength, and 24-hour timer. Brews up to 12 cups.",
+        "same": true
+      },
+      {
+        "field": "meta_title",
+        "file": "Drip Coffee Maker 1.5L | Spree Commerce Demo",
+        "server": "Drip Coffee Maker 1.5L | Spree Commerce Demo",
+        "same": true
+      },
+      {
+        "field": "meta_description",
+        "file": "Explore the Drip Coffee Maker 1.5L on the Spree Commerce demo store. Programmable, thermal carafe, brew strength control & 24-hour timer for up to 12 cups.",
+        "server": "Explore the Drip Coffee Maker 1.5L on the Spree Commerce demo store. Programmable, thermal carafe, brew strength control & 24-hour timer for up to 12 cups.",
+        "same": true
+      },
+      {
+        "field": "meta_keywords",
+        "file": "drip coffee maker, programmable coffee maker, thermal carafe coffee machine, spree commerce, spree demo store, open source ecommerce",
+        "server": "drip coffee maker, programmable coffee maker, thermal carafe coffee machine, spree commerce, spree demo store, open source ecommerce",
+        "same": true
+      },
+      {
+        "field": "tags",
+        "file": "coffee, drip coffee, kitchen, coffee machines, programmable, 12-cup",
+        "server": "coffee, drip coffee, kitchen, coffee machines, programmable, 12-cup",
+        "same": true
+      },
+      {
+        "field": "price",
+        "file": "89.99",
+        "server": "89.99",
+        "same": true
+      },
+      {
+        "field": "compare_at_price",
+        "file": "0.00",
+        "server": "0.00",
+        "same": true
+      },
+      {
+        "field": "currency",
+        "file": "USD",
+        "server": "USD",
+        "same": true
+      },
+      {
+        "field": "width",
+        "file": "7.9",
+        "server": "7.9",
+        "same": true
+      },
+      {
+        "field": "height",
+        "file": "14.6",
+        "server": "14.6",
+        "same": true
+      },
+      {
+        "field": "depth",
+        "file": "9.1",
+        "server": "9.1",
+        "same": true
+      },
+      {
+        "field": "weight",
+        "file": "4.4",
+        "server": "4.4",
+        "same": true
+      },
+      {
+        "field": "dimensions_unit",
+        "file": "in",
+        "server": "in",
+        "same": true
+      },
+      {
+        "field": "weight_unit",
+        "file": "lb",
+        "server": "lb",
+        "same": true
+      },
+      {
+        "field": "track_inventory",
+        "file": "true",
+        "server": "true",
+        "same": true
+      },
+      {
+        "field": "inventory_count",
+        "file": "5000",
+        "server": "5000",
+        "same": true
+      },
+      {
+        "field": "inventory_backorderable",
+        "file": "false",
+        "server": "false",
+        "same": true
+      },
+      {
+        "field": "stock_location",
+        "file": "",
+        "server": "",
+        "same": true
+      },
+      {
+        "field": "tax_category",
+        "file": "Default",
+        "server": "Default",
+        "same": true
+      },
+      {
+        "field": "product_type",
+        "file": "Kitchen Appliance",
+        "server": "Kitchen Appliance",
+        "same": true
+      },
+      {
+        "field": "option1_name and value",
+        "file": "Color: Black",
+        "server": "Color: Black",
+        "same": true
+      },
+      {
+        "field": "option2_name and value",
+        "file": "",
+        "server": "",
+        "same": true
+      },
+      {
+        "field": "option3_name and value",
+        "file": "",
+        "server": "",
+        "same": true
+      },
+      {
+        "field": "category1 to category3",
+        "file": "Kitchen -> Coffee Machines | Kitchen -> Fidelity coffee corner",
+        "server": "Kitchen -> Coffee Machines | Kitchen -> Fidelity coffee corner",
+        "same": true
+      }
+    ],
+    "drip-coffee-maker DRIP-COFFEE-MAKER-WHITE": [
+      {
+        "field": "sku",
+        "file": "DRIP-COFFEE-MAKER-WHITE",
+        "server": "DRIP-COFFEE-MAKER-WHITE",
+        "same": true
+      },
+      {
+        "field": "slug",
+        "file": "drip-coffee-maker",
+        "server": "drip-coffee-maker",
+        "same": true
+      },
+      {
+        "field": "name",
+        "file": "",
+        "server": "",
+        "same": true
+      },
+      {
+        "field": "status",
+        "file": "",
+        "server": "",
+        "same": true
+      },
+      {
+        "field": "seller_name",
+        "file": "",
+        "server": "",
+        "same": true
+      },
+      {
+        "field": "description",
+        "file": "",
+        "server": "",
+        "same": true
+      },
+      {
+        "field": "meta_title",
+        "file": "",
+        "server": "",
+        "same": true
+      },
+      {
+        "field": "meta_description",
+        "file": "",
+        "server": "",
+        "same": true
+      },
+      {
+        "field": "meta_keywords",
+        "file": "",
+        "server": "",
+        "same": true
+      },
+      {
+        "field": "tags",
+        "file": "",
+        "server": "",
+        "same": true
+      },
+      {
+        "field": "price",
+        "file": "89.99",
+        "server": "89.99",
+        "same": true
+      },
+      {
+        "field": "compare_at_price",
+        "file": "0.00",
+        "server": "0.00",
+        "same": true
+      },
+      {
+        "field": "currency",
+        "file": "USD",
+        "server": "USD",
+        "same": true
+      },
+      {
+        "field": "width",
+        "file": "7.9",
+        "server": "7.9",
+        "same": true
+      },
+      {
+        "field": "height",
+        "file": "14.6",
+        "server": "14.6",
+        "same": true
+      },
+      {
+        "field": "depth",
+        "file": "9.1",
+        "server": "9.1",
+        "same": true
+      },
+      {
+        "field": "weight",
+        "file": "4.4",
+        "server": "4.4",
+        "same": true
+      },
+      {
+        "field": "dimensions_unit",
+        "file": "in",
+        "server": "in",
+        "same": true
+      },
+      {
+        "field": "weight_unit",
+        "file": "lb",
+        "server": "lb",
+        "same": true
+      },
+      {
+        "field": "track_inventory",
+        "file": "true",
+        "server": "true",
+        "same": true
+      },
+      {
+        "field": "inventory_count",
+        "file": "5000",
+        "server": "5000",
+        "same": true
+      },
+      {
+        "field": "inventory_backorderable",
+        "file": "false",
+        "server": "false",
+        "same": true
+      },
+      {
+        "field": "stock_location",
+        "file": "",
+        "server": "",
+        "same": true
+      },
+      {
+        "field": "tax_category",
+        "file": "Default",
+        "server": "Default",
+        "same": true
+      },
+      {
+        "field": "product_type",
+        "file": "Kitchen Appliance",
+        "server": "Kitchen Appliance",
+        "same": true
+      },
+      {
+        "field": "option1_name and value",
+        "file": "Color: White",
+        "server": "Color: White",
+        "same": true
+      },
+      {
+        "field": "option2_name and value",
+        "file": "",
+        "server": "",
+        "same": true
+      },
+      {
+        "field": "option3_name and value",
+        "file": "",
+        "server": "",
+        "same": true
+      },
+      {
+        "field": "category1 to category3",
+        "file": "",
+        "server": "",
+        "same": true
+      }
+    ],
+    "drip-coffee-maker DRIP-COFFEE-MAKER-STEEL-GREY": [
+      {
+        "field": "sku",
+        "file": "DRIP-COFFEE-MAKER-STEEL-GREY",
+        "server": "DRIP-COFFEE-MAKER-STEEL-GREY",
+        "same": true
+      },
+      {
+        "field": "slug",
+        "file": "drip-coffee-maker",
+        "server": "drip-coffee-maker",
+        "same": true
+      },
+      {
+        "field": "name",
+        "file": "",
+        "server": "",
+        "same": true
+      },
+      {
+        "field": "status",
+        "file": "",
+        "server": "",
+        "same": true
+      },
+      {
+        "field": "seller_name",
+        "file": "",
+        "server": "",
+        "same": true
+      },
+      {
+        "field": "description",
+        "file": "",
+        "server": "",
+        "same": true
+      },
+      {
+        "field": "meta_title",
+        "file": "",
+        "server": "",
+        "same": true
+      },
+      {
+        "field": "meta_description",
+        "file": "",
+        "server": "",
+        "same": true
+      },
+      {
+        "field": "meta_keywords",
+        "file": "",
+        "server": "",
+        "same": true
+      },
+      {
+        "field": "tags",
+        "file": "",
+        "server": "",
+        "same": true
+      },
+      {
+        "field": "price",
+        "file": "89.99",
+        "server": "89.99",
+        "same": true
+      },
+      {
+        "field": "compare_at_price",
+        "file": "0.00",
+        "server": "0.00",
+        "same": true
+      },
+      {
+        "field": "currency",
+        "file": "USD",
+        "server": "USD",
+        "same": true
+      },
+      {
+        "field": "width",
+        "file": "7.9",
+        "server": "7.9",
+        "same": true
+      },
+      {
+        "field": "height",
+        "file": "14.6",
+        "server": "14.6",
+        "same": true
+      },
+      {
+        "field": "depth",
+        "file": "9.1",
+        "server": "9.1",
+        "same": true
+      },
+      {
+        "field": "weight",
+        "file": "4.4",
+        "server": "4.4",
+        "same": true
+      },
+      {
+        "field": "dimensions_unit",
+        "file": "in",
+        "server": "in",
+        "same": true
+      },
+      {
+        "field": "weight_unit",
+        "file": "lb",
+        "server": "lb",
+        "same": true
+      },
+      {
+        "field": "track_inventory",
+        "file": "true",
+        "server": "true",
+        "same": true
+      },
+      {
+        "field": "inventory_count",
+        "file": "5000",
+        "server": "5000",
+        "same": true
+      },
+      {
+        "field": "inventory_backorderable",
+        "file": "false",
+        "server": "false",
+        "same": true
+      },
+      {
+        "field": "stock_location",
+        "file": "",
+        "server": "",
+        "same": true
+      },
+      {
+        "field": "tax_category",
+        "file": "Default",
+        "server": "Default",
+        "same": true
+      },
+      {
+        "field": "product_type",
+        "file": "Kitchen Appliance",
+        "server": "Kitchen Appliance",
+        "same": true
+      },
+      {
+        "field": "option1_name and value",
+        "file": "Color: Steel Grey",
+        "server": "Color: Steel Grey",
+        "same": true
+      },
+      {
+        "field": "option2_name and value",
+        "file": "",
+        "server": "",
+        "same": true
+      },
+      {
+        "field": "option3_name and value",
+        "file": "",
+        "server": "",
+        "same": true
+      },
+      {
+        "field": "category1 to category3",
+        "file": "",
+        "server": "",
+        "same": true
+      }
+    ],
+    "fidelity-fl21-tray-1793763455244 FL21-TRAY-1793763455244": [
+      {
+        "field": "sku",
+        "file": "FL21-TRAY-1793763455244",
+        "server": "FL21-TRAY-1793763455244",
+        "same": true
+      },
+      {
+        "field": "slug",
+        "file": "fidelity-fl21-tray-1793763455244",
+        "server": "fidelity-fl21-tray-1793763455244",
+        "same": true
+      },
+      {
+        "field": "name",
+        "file": "Fidelity FL-21 serving tray 1793763455244",
+        "server": "Fidelity FL-21 serving tray 1793763455244",
+        "same": true
+      },
+      {
+        "field": "status",
+        "file": "active",
+        "server": "active",
+        "same": true
+      },
+      {
+        "field": "seller_name",
+        "file": "",
+        "server": "",
+        "same": true
+      },
+      {
+        "field": "description",
+        "file": "An oak serving tray, sized for breakfast in bed.",
+        "server": "An oak serving tray, sized for breakfast in bed.",
+        "same": true
+      },
+      {
+        "field": "meta_title",
+        "file": "Oak serving tray",
+        "server": "Oak serving tray",
+        "same": true
+      },
+      {
+        "field": "meta_description",
+        "file": "A serving tray made of oiled oak.",
+        "server": "A serving tray made of oiled oak.",
+        "same": true
+      },
+      {
+        "field": "meta_keywords",
+        "file": "",
+        "server": "",
+        "same": true
+      },
+      {
+        "field": "tags",
+        "file": "fl21, tray",
+        "server": "fl21, tray",
+        "same": true
+      },
+      {
+        "field": "price",
+        "file": "24.50",
+        "server": "24.50",
+        "same": true
+      },
+      {
+        "field": "compare_at_price",
+        "file": "29.00",
+        "server": "29.00",
+        "same": true
+      },
+      {
+        "field": "currency",
+        "file": "USD",
+        "server": "USD",
+        "same": true
+      },
+      {
+        "field": "width",
+        "file": "40",
+        "server": "40",
+        "same": true
+      },
+      {
+        "field": "height",
+        "file": "3",
+        "server": "3",
+        "same": true
+      },
+      {
+        "field": "depth",
+        "file": "28",
+        "server": "28",
+        "same": true
+      },
+      {
+        "field": "weight",
+        "file": "0.8",
+        "server": "0.8",
+        "same": true
+      },
+      {
+        "field": "dimensions_unit",
+        "file": "cm",
+        "server": "cm",
+        "same": true
+      },
+      {
+        "field": "weight_unit",
+        "file": "kg",
+        "server": "kg",
+        "same": true
+      },
+      {
+        "field": "track_inventory",
+        "file": "true",
+        "server": "true",
+        "same": true
+      },
+      {
+        "field": "inventory_count",
+        "file": "12",
+        "server": "12",
+        "same": true
+      },
+      {
+        "field": "inventory_backorderable",
+        "file": "false",
+        "server": "false",
+        "same": true
+      },
+      {
+        "field": "stock_location",
+        "file": "",
+        "server": "",
+        "same": true
+      },
+      {
+        "field": "tax_category",
+        "file": "Default",
+        "server": "Default",
+        "same": true
+      },
+      {
+        "field": "product_type",
+        "file": "",
+        "server": "",
+        "same": true
+      },
+      {
+        "field": "option1_name and value",
+        "file": "",
+        "server": "",
+        "same": true
+      },
+      {
+        "field": "option2_name and value",
+        "file": "",
+        "server": "",
+        "same": true
+      },
+      {
+        "field": "option3_name and value",
+        "file": "",
+        "server": "",
+        "same": true
+      },
+      {
+        "field": "category1 to category3",
+        "file": "Kitchen -> Coffee Machines",
+        "server": "Kitchen -> Coffee Machines",
+        "same": true
+      }
+    ],
+    "fidelity-fl21-jug-1793763455244 FL21-JUG-SM-1793763455244": [
+      {
+        "field": "sku",
+        "file": "FL21-JUG-SM-1793763455244",
+        "server": "FL21-JUG-SM-1793763455244",
+        "same": true
+      },
+      {
+        "field": "slug",
+        "file": "fidelity-fl21-jug-1793763455244",
+        "server": "fidelity-fl21-jug-1793763455244",
+        "same": true
+      },
+      {
+        "field": "name",
+        "file": "Fidelity FL-21 water jug 1793763455244",
+        "server": "Fidelity FL-21 water jug 1793763455244",
+        "same": true
+      },
+      {
+        "field": "status",
+        "file": "draft",
+        "server": "draft",
+        "same": true
+      },
+      {
+        "field": "seller_name",
+        "file": "",
+        "server": "",
+        "same": true
+      },
+      {
+        "field": "description",
+        "file": "A glass water jug with a beech lid.",
+        "server": "A glass water jug with a beech lid.",
+        "same": true
+      },
+      {
+        "field": "meta_title",
+        "file": "Glass water jug",
+        "server": "Glass water jug",
+        "same": true
+      },
+      {
+        "field": "meta_description",
+        "file": "A glass jug for water, with a beech lid.",
+        "server": "A glass jug for water, with a beech lid.",
+        "same": true
+      },
+      {
+        "field": "meta_keywords",
+        "file": "",
+        "server": "",
+        "same": true
+      },
+      {
+        "field": "tags",
+        "file": "fl21, jug",
+        "server": "fl21, jug",
+        "same": true
+      },
+      {
+        "field": "price",
+        "file": "18.00",
+        "server": "18.00",
+        "same": true
+      },
+      {
+        "field": "compare_at_price",
+        "file": "21.00",
+        "server": "21.00",
+        "same": true
+      },
+      {
+        "field": "currency",
+        "file": "USD",
+        "server": "USD",
+        "same": true
+      },
+      {
+        "field": "width",
+        "file": "10",
+        "server": "10",
+        "same": true
+      },
+      {
+        "field": "height",
+        "file": "24",
+        "server": "24",
+        "same": true
+      },
+      {
+        "field": "depth",
+        "file": "10",
+        "server": "10",
+        "same": true
+      },
+      {
+        "field": "weight",
+        "file": "0.5",
+        "server": "0.5",
+        "same": true
+      },
+      {
+        "field": "dimensions_unit",
+        "file": "cm",
+        "server": "cm",
+        "same": true
+      },
+      {
+        "field": "weight_unit",
+        "file": "kg",
+        "server": "kg",
+        "same": true
+      },
+      {
+        "field": "track_inventory",
+        "file": "true",
+        "server": "true",
+        "same": true
+      },
+      {
+        "field": "inventory_count",
+        "file": "5",
+        "server": "5",
+        "same": true
+      },
+      {
+        "field": "inventory_backorderable",
+        "file": "false",
+        "server": "false",
+        "same": true
+      },
+      {
+        "field": "stock_location",
+        "file": "",
+        "server": "",
+        "same": true
+      },
+      {
+        "field": "tax_category",
+        "file": "Default",
+        "server": "Default",
+        "same": true
+      },
+      {
+        "field": "product_type",
+        "file": "",
+        "server": "",
+        "same": true
+      },
+      {
+        "field": "option1_name and value",
+        "file": "Size: Small",
+        "server": "Size: Small",
+        "same": true
+      },
+      {
+        "field": "option2_name and value",
+        "file": "",
+        "server": "",
+        "same": true
+      },
+      {
+        "field": "option3_name and value",
+        "file": "",
+        "server": "",
+        "same": true
+      },
+      {
+        "field": "category1 to category3",
+        "file": "Kitchen -> Coffee Machines",
+        "server": "Kitchen -> Coffee Machines",
+        "same": true
+      }
+    ],
+    "fidelity-fl21-jug-1793763455244 FL21-JUG-LG-1793763455244": [
+      {
+        "field": "sku",
+        "file": "FL21-JUG-LG-1793763455244",
+        "server": "FL21-JUG-LG-1793763455244",
+        "same": true
+      },
+      {
+        "field": "slug",
+        "file": "fidelity-fl21-jug-1793763455244",
+        "server": "fidelity-fl21-jug-1793763455244",
+        "same": true
+      },
+      {
+        "field": "name",
+        "file": "",
+        "server": "",
+        "same": true
+      },
+      {
+        "field": "status",
+        "file": "",
+        "server": "",
+        "same": true
+      },
+      {
+        "field": "seller_name",
+        "file": "",
+        "server": "",
+        "same": true
+      },
+      {
+        "field": "description",
+        "file": "",
+        "server": "",
+        "same": true
+      },
+      {
+        "field": "meta_title",
+        "file": "",
+        "server": "",
+        "same": true
+      },
+      {
+        "field": "meta_description",
+        "file": "",
+        "server": "",
+        "same": true
+      },
+      {
+        "field": "meta_keywords",
+        "file": "",
+        "server": "",
+        "same": true
+      },
+      {
+        "field": "tags",
+        "file": "",
+        "server": "",
+        "same": true
+      },
+      {
+        "field": "price",
+        "file": "22.00",
+        "server": "22.00",
+        "same": true
+      },
+      {
+        "field": "compare_at_price",
+        "file": "25.00",
+        "server": "25.00",
+        "same": true
+      },
+      {
+        "field": "currency",
+        "file": "USD",
+        "server": "USD",
+        "same": true
+      },
+      {
+        "field": "width",
+        "file": "12",
+        "server": "12",
+        "same": true
+      },
+      {
+        "field": "height",
+        "file": "28",
+        "server": "28",
+        "same": true
+      },
+      {
+        "field": "depth",
+        "file": "12",
+        "server": "12",
+        "same": true
+      },
+      {
+        "field": "weight",
+        "file": "0.7",
+        "server": "0.7",
+        "same": true
+      },
+      {
+        "field": "dimensions_unit",
+        "file": "cm",
+        "server": "cm",
+        "same": true
+      },
+      {
+        "field": "weight_unit",
+        "file": "kg",
+        "server": "kg",
+        "same": true
+      },
+      {
+        "field": "track_inventory",
+        "file": "true",
+        "server": "true",
+        "same": true
+      },
+      {
+        "field": "inventory_count",
+        "file": "7",
+        "server": "7",
+        "same": true
+      },
+      {
+        "field": "inventory_backorderable",
+        "file": "false",
+        "server": "false",
+        "same": true
+      },
+      {
+        "field": "stock_location",
+        "file": "",
+        "server": "",
+        "same": true
+      },
+      {
+        "field": "tax_category",
+        "file": "Default",
+        "server": "Default",
+        "same": true
+      },
+      {
+        "field": "product_type",
+        "file": "",
+        "server": "",
+        "same": true
+      },
+      {
+        "field": "option1_name and value",
+        "file": "Size: Large",
+        "server": "Size: Large",
+        "same": true
+      },
+      {
+        "field": "option2_name and value",
+        "file": "",
+        "server": "",
+        "same": true
+      },
+      {
+        "field": "option3_name and value",
+        "file": "",
+        "server": "",
+        "same": true
+      },
+      {
+        "field": "category1 to category3",
+        "file": "",
+        "server": "",
+        "same": true
+      }
+    ]
+  }
+}

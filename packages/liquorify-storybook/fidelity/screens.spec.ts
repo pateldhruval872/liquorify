@@ -42,6 +42,18 @@ import {
   setGateway,
   setRelay,
 } from './developers'
+import {
+  category as coffeeCategory,
+  createPriceList,
+  deletePriceListsNamed,
+  emptyPriceList,
+  type Merchandising,
+  catalogs as merchandisingCatalogs,
+  collections as merchandisingCollections,
+  priceLists as merchandisingPriceLists,
+  seedMerchandising,
+  updateRecord,
+} from './merchandising'
 import { inactiveChannel, retiredExemptionReason, seedSettings, setStoreName } from './settings'
 import {
   admin,
@@ -85,6 +97,7 @@ let baseURL: string
 let orderId: string
 let developers: Developers
 let catalog: Catalog
+let merchandising: Merchandising
 
 /** Signs in through the API, as the dashboard's browser tests do, and opens the store. */
 async function signIn(page: Page, variant: Variant) {
@@ -1187,11 +1200,18 @@ async function interrupt(page: Page, method: string, path: RegExp, how: 'hold' |
   )
 }
 
-const directVisit = (screen: string, path: string): Capture => ({
+const directVisit = (screen: string, path: string | (() => string)): Capture => ({
   screen,
   state: 'direct-visit',
   variant: 'orderManager',
-  reach: (page) => openStore(page, path),
+  reach: async (page) => {
+    await openStore(page, typeof path === 'string' ? path : path())
+    // The dashboard retries a refused request once before it shows the refusal,
+    // so a page still reading "Loading…" is given time to reach what it settles on.
+    await expect(page.getByText(/^Loading…$/))
+      .toHaveCount(0, { timeout: 10_000 })
+      .catch(() => {})
+  },
 })
 
 const apiKeysPath = '/settings/api-keys'
@@ -4566,6 +4586,1864 @@ const libraryCaptures: Capture[] = [
   },
 ]
 
+// Batch 5 part 2: organising and pricing the catalog (work item §10).
+
+/** Every part 2 screen in the three roles that may open it, and a direct visit by a role that may not. */
+const forRoles = (
+  screen: string,
+  state: string,
+  path: string | (() => string),
+  reach: Capture['reach'],
+): Capture[] => [
+  ...catalogVariants.map((variant): Capture => ({ screen, state, variant, reach })),
+  directVisit(screen, path),
+]
+
+/** A record's page whose request is answered with a server error, after the dashboard asks again. */
+const recordFails =
+  (path: RegExp, open: string): Capture['reach'] =>
+  async (page) => {
+    await listFails(path)(page)
+    await page.goto(`/${seeded.storeId}${open}`)
+    await page.waitForTimeout(12_000)
+  }
+
+/** Picks up a row by its drag handle with the keyboard and moves it down one place, without dropping it. */
+const liftRow = async (page: Page, handle: ReturnType<Page['locator']>) => {
+  await handle.focus()
+  await page.keyboard.press('Space')
+  await page.keyboard.press('ArrowDown')
+  await page.waitForTimeout(400)
+}
+
+const translationsPath = '/products/translations'
+const openTranslations = async (page: Page) => {
+  await openStore(page, translationsPath)
+  await expect(page.getByText('Translation coverage', { exact: true })).toBeVisible({
+    timeout: 15_000,
+  })
+  await expect(page.getByRole('button', { name: 'E2E Promo Product' })).toBeVisible({
+    timeout: 15_000,
+  })
+}
+/** The kettle's translations, opened from its row: its description is rich text. */
+const openKettleTranslations = async (page: Page) => {
+  await openTranslations(page)
+  await page.getByPlaceholder(/^search…$/i).fill('Kettle')
+  await page.getByRole('button', { name: kettle }).click()
+  await expect(page.getByRole('dialog')).toBeVisible()
+  await page.waitForTimeout(1_000)
+}
+const translationKind = async (page: Page, kind: string, shows: string) => {
+  await openTranslations(page)
+  await page.getByRole('combobox').filter({ hasText: 'Products' }).click()
+  await page.getByRole('option', { name: kind, exact: true }).click()
+  await expect(page.getByRole('button', { name: shows }).first()).toBeVisible({ timeout: 15_000 })
+}
+
+const categoriesPath = '/products/categories'
+const categoryNode = (page: Page, name: string) => page.getByRole('button', { name, exact: true })
+const openCategories = async (page: Page) => {
+  await openStore(page, categoriesPath)
+  await expect(categoryNode(page, 'Kitchen')).toBeVisible({ timeout: 15_000 })
+}
+const searchCategories = async (page: Page, text: string) => {
+  await openCategories(page)
+  await searchList(page, /^search categories…$/i, text)
+}
+const newCategoryPath = `${categoriesPath}/new`
+const openNewCategory = async (page: Page) => {
+  await openStore(page, newCategoryPath)
+  await expect(page.getByRole('heading', { name: 'New category' })).toBeVisible()
+}
+const categoryPath = () => `${categoriesPath}/${merchandising.ids.category}`
+const openCategory = async (page: Page) => {
+  await openStore(page, categoryPath())
+  await expect(page.getByRole('heading', { name: coffeeCategory })).toBeVisible({
+    timeout: 15_000,
+  })
+  await expect(page.getByText('Automatic Espresso Machine', { exact: true })).toBeVisible()
+}
+const categoryProduct = (page: Page, name: string) =>
+  page.getByRole('row').filter({ hasText: name })
+const saveButton = (page: Page) => page.getByRole('main').getByRole('button', { name: /^save$/i })
+
+/** Opens the products picker from a record's products card and chooses products by name. */
+const pickProducts = async (page: Page, ...names: string[]) => {
+  await page.getByRole('button', { name: /add products/i }).click()
+  const picker = page.getByRole('dialog')
+  await expect(picker.getByRole('searchbox')).toBeVisible()
+  for (const name of names) {
+    await picker.getByRole('searchbox').fill(name)
+    await picker
+      .getByRole('button', { name: new RegExp(`^${name}`) })
+      .first()
+      .click()
+  }
+  return picker
+}
+
+const organisingCaptures: Capture[] = [
+  // DA-PRD-06 Translations
+  ...forRoles('DA-PRD-06', 'coverage', translationsPath, openTranslations),
+  {
+    screen: 'DA-PRD-06',
+    state: 'loading',
+    variant: 'admin',
+    intercepted: 'The coverage request is held open',
+    loading: true,
+    reach: async (page) => {
+      await interrupt(page, 'GET', /^\/api\/v3\/admin\/translations$/, 'hold')
+      await page.goto(`/${seeded.storeId}${translationsPath}`)
+      await page.waitForTimeout(1_500)
+    },
+  },
+  {
+    screen: 'DA-PRD-06',
+    state: 'no-other-language',
+    variant: 'admin',
+    intercepted: 'The translation coverage is answered with no language besides the default',
+    reach: async (page) => {
+      await page.route(
+        (url) => url.pathname === '/api/v3/admin/translations',
+        async (route) => {
+          const response = await route.fetch()
+          const body = (await response.json()) as {
+            data: { records: { locales: Record<string, number> }[] }
+          }
+          await route.fulfill({
+            response,
+            json: {
+              ...body,
+              data: {
+                ...body.data,
+                locales: [],
+                coverage: [],
+                records: body.data.records.map((record) => ({ ...record, locales: {} })),
+              },
+            },
+          })
+        },
+      )
+      await openStore(page, translationsPath)
+      await page.waitForTimeout(1_500)
+    },
+  },
+  {
+    screen: 'DA-PRD-06',
+    state: 'categories',
+    variant: 'admin',
+    reach: (page) => translationKind(page, 'Categories', 'Kitchen'),
+  },
+  {
+    screen: 'DA-PRD-06',
+    state: 'collections',
+    variant: 'admin',
+    reach: (page) => translationKind(page, 'Collections', 'Best Sellers'),
+  },
+  {
+    screen: 'DA-PRD-06',
+    state: 'option-types',
+    variant: 'admin',
+    reach: (page) => translationKind(page, 'Option types', 'Color'),
+  },
+  {
+    screen: 'DA-PRD-06',
+    state: 'searched',
+    variant: 'admin',
+    reach: async (page) => {
+      await openTranslations(page)
+      await page.getByPlaceholder(/^search…$/i).fill('Kettle')
+      await expect(page.getByRole('button', { name: kettle })).toBeVisible({ timeout: 15_000 })
+    },
+  },
+  {
+    screen: 'DA-PRD-06',
+    state: 'search-found-nothing',
+    variant: 'admin',
+    reach: async (page) => {
+      await openTranslations(page)
+      await page.getByPlaceholder(/^search…$/i).fill('no record has this name')
+      await expect(page.getByRole('button', { name: 'E2E Promo Product' })).toBeHidden({
+        timeout: 15_000,
+      })
+    },
+  },
+  ...catalogVariants.map(
+    (variant): Capture => ({
+      screen: 'DA-PRD-06',
+      state: 'translate-dialog',
+      variant,
+      reach: openKettleTranslations,
+    }),
+  ),
+  {
+    screen: 'DA-PRD-06',
+    state: 'import-wizard',
+    variant: 'admin',
+    reach: async (page) => {
+      await openTranslations(page)
+      await page.getByRole('button', { name: /^import$/i }).click()
+      await expect(page.getByRole('heading', { name: /import from csv/i })).toBeVisible()
+    },
+  },
+  {
+    screen: 'DA-PRD-06',
+    state: 'export',
+    variant: 'admin',
+    reach: async (page) => {
+      await openTranslations(page)
+      await page.getByRole('button', { name: /^export$/i }).click()
+      await page.waitForTimeout(1_000)
+    },
+  },
+  {
+    screen: 'DA-PRD-06',
+    state: 'failed',
+    variant: 'admin',
+    intercepted: 'The coverage request is answered with a server error',
+    reach: recordFails(/^\/api\/v3\/admin\/translations$/, translationsPath),
+  },
+
+  // DA-PRD-07 Categories
+  ...forRoles('DA-PRD-07', 'tree', categoriesPath, openCategories),
+  {
+    screen: 'DA-PRD-07',
+    state: 'tree-narrow',
+    variant: 'admin',
+    phone: true,
+    reach: openCategories,
+  },
+  {
+    screen: 'DA-PRD-07',
+    state: 'expanded',
+    variant: 'admin',
+    reach: async (page) => {
+      await openCategories(page)
+      await page.getByRole('button', { name: 'Expand' }).first().click()
+      await expect(categoryNode(page, 'Coffee Machines')).toBeVisible()
+    },
+  },
+  {
+    screen: 'DA-PRD-07',
+    state: 'searched-list',
+    variant: 'admin',
+    reach: async (page) => {
+      await searchCategories(page, 'Air')
+      await expect(page.getByText('Air Fryers').first()).toBeVisible({ timeout: 15_000 })
+    },
+  },
+  {
+    screen: 'DA-PRD-07',
+    state: 'search-found-nothing',
+    variant: 'admin',
+    reach: async (page) => {
+      await searchCategories(page, 'no category has this name')
+      await page.waitForTimeout(1_500)
+    },
+  },
+  {
+    screen: 'DA-PRD-07',
+    state: 'no-categories',
+    variant: 'admin',
+    intercepted: 'The category list is answered with no categories',
+    reach: async (page) => {
+      await emptied(page, 'categories')
+      await openStore(page, categoriesPath)
+      await page.waitForTimeout(1_500)
+    },
+  },
+  {
+    screen: 'DA-PRD-07',
+    state: 'dragging',
+    variant: 'admin',
+    reach: async (page) => {
+      await openCategories(page)
+      await liftRow(page, page.getByRole('button', { name: 'Drag to reorder' }).nth(2))
+    },
+  },
+  {
+    screen: 'DA-PRD-07',
+    state: 'delete-confirmation',
+    variant: 'admin',
+    reach: async (page) => {
+      await openCategories(page)
+      await page.getByRole('button', { name: 'Open actions' }).nth(2).click()
+      await page.getByRole('menuitem', { name: /delete/i }).click()
+      await page.waitForTimeout(500)
+    },
+  },
+  {
+    screen: 'DA-PRD-07',
+    state: 'failed',
+    variant: 'admin',
+    intercepted: 'The category list request is answered with a server error',
+    reach: recordFails(/^\/api\/v3\/admin\/categories$/, categoriesPath),
+  },
+
+  // DA-PRD-08 New category
+  ...(['admin', 'merchandiser'] as const).map(
+    (variant): Capture => ({
+      screen: 'DA-PRD-08',
+      state: 'empty',
+      variant,
+      reach: openNewCategory,
+    }),
+  ),
+  { ...directVisit('DA-PRD-08', newCategoryPath), variant: 'catalogViewer' },
+  directVisit('DA-PRD-08', newCategoryPath),
+  {
+    screen: 'DA-PRD-08',
+    state: 'parent-chosen',
+    variant: 'admin',
+    reach: async (page) => {
+      await openNewCategory(page)
+      await page.getByLabel('Name', { exact: true }).fill('Fidelity tea corner')
+      await page.getByRole('combobox', { name: 'Top level' }).click()
+      await page.getByRole('combobox', { name: 'Top level' }).fill('Kitchen')
+      await page.getByRole('option', { name: 'Kitchen', exact: true }).click()
+      await rest(page)
+    },
+  },
+  {
+    screen: 'DA-PRD-08',
+    state: 'image-added',
+    variant: 'admin',
+    reach: async (page) => {
+      await openNewCategory(page)
+      await page.getByLabel('Name', { exact: true }).fill('Fidelity tea corner')
+      await page
+        .locator('input[type="file"]')
+        .first()
+        .setInputFiles({
+          name: 'fidelity-tea-corner.png',
+          mimeType: 'image/png',
+          buffer: fixture('product-olive.png'),
+        })
+      await page.waitForTimeout(1_500)
+      await rest(page)
+    },
+  },
+  {
+    screen: 'DA-PRD-08',
+    state: 'no-name',
+    variant: 'admin',
+    reach: async (page) => {
+      await openNewCategory(page)
+      await page.getByLabel('Meta title').fill('Fidelity tea corner')
+      await saveButton(page).click()
+      await page.waitForTimeout(800)
+    },
+  },
+
+  // DA-PRD-09 Category
+  ...forRoles('DA-PRD-09', 'edited', categoryPath, openCategory),
+  {
+    screen: 'DA-PRD-09',
+    state: 'loading',
+    variant: 'admin',
+    intercepted: 'The category request is held open',
+    loading: true,
+    reach: async (page) => {
+      await interrupt(page, 'GET', /^\/api\/v3\/admin\/categories\/ctg_[A-Za-z0-9]+$/, 'hold')
+      await page.goto(`/${seeded.storeId}${categoryPath()}`)
+      await page.waitForTimeout(1_500)
+    },
+  },
+  {
+    screen: 'DA-PRD-09',
+    state: 'products-picker',
+    variant: 'admin',
+    reach: async (page) => {
+      await openCategory(page)
+      await pickProducts(page, 'Electric Kettle 1.7L')
+      await rest(page)
+    },
+  },
+  {
+    screen: 'DA-PRD-09',
+    state: 'products-staged',
+    variant: 'admin',
+    reach: async (page) => {
+      await openCategory(page)
+      const picker = await pickProducts(page, 'Electric Kettle 1.7L')
+      await picker.getByRole('button', { name: /^add 1$/i }).click()
+      await categoryProduct(page, 'Drip Coffee Maker 1.5L')
+        .getByRole('button', { name: /remove from category/i })
+        .click()
+      await expect(page.getByRole('button', { name: /restore/i })).toBeVisible()
+      await rest(page)
+    },
+  },
+  {
+    screen: 'DA-PRD-09',
+    state: 'products-dragging',
+    variant: 'admin',
+    reach: async (page) => {
+      await openCategory(page)
+      await liftRow(
+        page,
+        page
+          .getByRole('row', { name: /Drag to reorder Automatic Espresso Machine/ })
+          .getByRole('button', { name: 'Drag to reorder' }),
+      )
+    },
+  },
+  {
+    screen: 'DA-PRD-09',
+    state: 'custom-fields',
+    variant: 'admin',
+    reach: async (page) => {
+      await openCategory(page)
+      await toCard(page, 'Custom fields')
+    },
+  },
+  {
+    screen: 'DA-PRD-09',
+    state: 'unsaved-changes',
+    variant: 'admin',
+    reach: async (page) => {
+      await openCategory(page)
+      await page.getByLabel('Meta title').fill('Coffee corner')
+      await rest(page)
+    },
+  },
+  {
+    screen: 'DA-PRD-09',
+    state: 'saved',
+    variant: 'admin',
+    reach: async (page) => {
+      await openCategory(page)
+      await page.getByLabel('Meta title').fill(`Coffee corner ${Date.now()}`)
+      await saveButton(page).click()
+      await expect(
+        page.getByRole('region', { name: 'Notifications' }).getByRole('status').first(),
+      ).toBeVisible()
+      await rest(page)
+    },
+    after: () =>
+      updateRecord(baseURL, 'categories', merchandising.ids.category, { meta_title: null }),
+  },
+  {
+    screen: 'DA-PRD-09',
+    state: 'save-refused',
+    variant: 'admin',
+    reach: async (page) => {
+      await openCategory(page)
+      const slug = page.getByLabel('Slug')
+      await slug.scrollIntoViewIfNeeded()
+      await slug.fill('kitchen/coffee-machines')
+      await saveButton(page).click()
+      await page.waitForTimeout(1_500)
+      await rest(page)
+    },
+  },
+  {
+    screen: 'DA-PRD-09',
+    state: 'sidebar-slot',
+    variant: 'admin',
+    reach: async (page) => {
+      await openCategory(page)
+      await page
+        .getByText('Search engine optimization', { exact: true })
+        .evaluate((element) => element.scrollIntoView({ block: 'start' }))
+    },
+  },
+  {
+    screen: 'DA-PRD-09',
+    state: 'failed',
+    variant: 'admin',
+    intercepted: 'The category request is answered with a server error',
+    reach: async (page) => {
+      await listFails(/^\/api\/v3\/admin\/categories\/ctg_[A-Za-z0-9]+$/)(page)
+      await page.goto(`/${seeded.storeId}${categoryPath()}`)
+      await page.waitForTimeout(12_000)
+    },
+  },
+]
+
+const collectionsPath = '/products/collections'
+const collectionRow = (page: Page, name: string) =>
+  page.getByRole('row').filter({ has: page.getByRole('button', { name: new RegExp(`^${name}`) }) })
+const openCollections = async (page: Page) => {
+  await openStore(page, collectionsPath)
+  await expect(collectionRow(page, 'Best Sellers')).toBeVisible({ timeout: 15_000 })
+}
+const newCollectionPath = `${collectionsPath}/new`
+const openNewCollection = async (page: Page) => {
+  await openStore(page, newCollectionPath)
+  await expect(page.getByRole('heading', { name: 'New collection' })).toBeVisible()
+}
+const collectionPath = (key: 'manual' | 'automatic') => () =>
+  `${collectionsPath}/${merchandising.ids.collections[key]}`
+const openCollection = (key: 'manual' | 'automatic') => async (page: Page) => {
+  await openStore(page, collectionPath(key)())
+  await expect(
+    page.getByRole('heading', {
+      name: key === 'manual' ? 'Best Sellers' : merchandisingCollections.automatic,
+    }),
+  ).toBeVisible({ timeout: 15_000 })
+  await expect(page.getByRole('row').nth(2)).toBeVisible({ timeout: 15_000 })
+}
+const membershipCard = (page: Page) =>
+  page.locator('[data-slot="card"]').filter({ hasText: 'Membership' })
+/** Adds a rule row and sets its kind, condition and value. */
+const addCollectionRule = async (
+  page: Page,
+  index: number,
+  kind: string,
+  condition: string,
+  value?: string,
+) => {
+  // Turning rules on starts the first rule, so only later ones need adding.
+  const rules = membershipCard(page).getByRole('combobox', { name: 'Rule' })
+  if ((await rules.count()) <= index) {
+    await membershipCard(page).getByRole('button', { name: 'Add rule' }).click()
+  }
+  await rules.nth(index).click()
+  await page.getByRole('option', { name: kind, exact: true }).click()
+  await membershipCard(page).getByRole('combobox', { name: 'Condition' }).nth(index).click()
+  await page.getByRole('option', { name: condition, exact: true }).click()
+  if (value !== undefined) {
+    await membershipCard(page).getByRole('textbox', { name: 'Value' }).nth(index).fill(value)
+  }
+}
+
+const collectionCaptures: Capture[] = [
+  // DA-PRD-10 Collections
+  ...forRoles('DA-PRD-10', 'listed', collectionsPath, openCollections),
+  {
+    screen: 'DA-PRD-10',
+    state: 'filtered-automatic',
+    variant: 'admin',
+    reach: async (page) => {
+      await openCollections(page)
+      await narrowQuickFilter(page, /^kind/i, /^automatic$/i)
+      await expect(collectionRow(page, 'Best Sellers')).toBeHidden({ timeout: 15_000 })
+    },
+  },
+  {
+    screen: 'DA-PRD-10',
+    state: 'searched',
+    variant: 'admin',
+    reach: async (page) => {
+      await openCollections(page)
+      await searchList(page, /^search collections…$/i, 'New')
+      await expect(collectionRow(page, 'Best Sellers')).toBeHidden({ timeout: 15_000 })
+    },
+  },
+  {
+    screen: 'DA-PRD-10',
+    state: 'search-found-nothing',
+    variant: 'admin',
+    reach: async (page) => {
+      await openCollections(page)
+      await searchList(page, /^search collections…$/i, 'no collection has this name')
+      await expect(page.getByText(/try adjusting your search/i)).toBeVisible({ timeout: 15_000 })
+    },
+  },
+  {
+    screen: 'DA-PRD-10',
+    state: 'no-collections',
+    variant: 'admin',
+    intercepted: 'The collection list is answered with no collections',
+    reach: async (page) => {
+      await emptied(page, 'collections')
+      await openStore(page, collectionsPath)
+      await page.waitForTimeout(1_500)
+    },
+  },
+  {
+    screen: 'DA-PRD-10',
+    state: 'delete-confirmation',
+    variant: 'admin',
+    reach: async (page) => {
+      await openCollections(page)
+      await openRowMenu(page, 'Best Sellers')
+      await page.getByRole('menuitem', { name: /delete/i }).click()
+      await expect(confirmation(page)).toBeVisible()
+    },
+  },
+
+  // DA-PRD-11 New collection
+  ...(['admin', 'merchandiser'] as const).map(
+    (variant): Capture => ({
+      screen: 'DA-PRD-11',
+      state: 'empty',
+      variant,
+      reach: openNewCollection,
+    }),
+  ),
+  { ...directVisit('DA-PRD-11', newCollectionPath), variant: 'catalogViewer' },
+  directVisit('DA-PRD-11', newCollectionPath),
+  {
+    screen: 'DA-PRD-11',
+    state: 'manual',
+    variant: 'admin',
+    reach: async (page) => {
+      await openNewCollection(page)
+      await page.getByLabel('Name', { exact: true }).fill('Fidelity desk picks')
+      await page.getByRole('combobox', { name: 'Default sorting' }).click()
+      await page.getByRole('option', { name: 'Name: A–Z' }).click()
+      await rest(page)
+    },
+  },
+  {
+    screen: 'DA-PRD-11',
+    state: 'automatic-rules',
+    variant: 'admin',
+    reach: async (page) => {
+      await openNewCollection(page)
+      await page.getByLabel('Name', { exact: true }).fill('Fidelity new and compact')
+      await page.getByRole('switch', { name: 'Set members automatically from rules' }).click()
+      await addCollectionRule(page, 0, 'Tag', 'contains', 'compact')
+      await addCollectionRule(page, 1, 'On sale', 'is equal to')
+      await addCollectionRule(page, 2, 'Recently published', 'is equal to', '30')
+      await membershipCard(page).getByRole('combobox').filter({ hasText: 'all conditions' }).click()
+      await page.getByRole('option', { name: 'any condition' }).click()
+      await membershipCard(page).evaluate((element) => element.scrollIntoView({ block: 'start' }))
+      await rest(page)
+    },
+  },
+  {
+    screen: 'DA-PRD-11',
+    state: 'no-name',
+    variant: 'admin',
+    reach: async (page) => {
+      await openNewCollection(page)
+      await page.getByLabel('Meta title').fill('Fidelity gifts')
+      await saveButton(page).click()
+      await page.waitForTimeout(800)
+    },
+  },
+
+  // DA-PRD-12 Collection
+  ...forRoles('DA-PRD-12', 'manual', collectionPath('manual'), openCollection('manual')),
+  {
+    screen: 'DA-PRD-12',
+    state: 'manual-narrow',
+    variant: 'admin',
+    phone: true,
+    reach: openCollection('manual'),
+  },
+  {
+    screen: 'DA-PRD-12',
+    state: 'products-staged',
+    variant: 'admin',
+    reach: async (page) => {
+      await openCollection('manual')(page)
+      const picker = await pickProducts(page, 'Electric Kettle 1.7L')
+      await picker.getByRole('button', { name: /^add 1$/i }).click()
+      await page
+        .getByRole('row')
+        .filter({ hasText: 'E2E Bulk Product A' })
+        .getByRole('button', { name: /remove from collection/i })
+        .click()
+      await rest(page)
+    },
+  },
+  {
+    screen: 'DA-PRD-12',
+    state: 'several-chosen-for-removal',
+    variant: 'admin',
+    reach: async (page) => {
+      await openCollection('manual')(page)
+      const rows = page.getByRole('checkbox', { name: 'Select product' })
+      for (const index of [0, 1, 2]) await rows.nth(index).check()
+      await rest(page)
+    },
+  },
+  {
+    screen: 'DA-PRD-12',
+    state: 'several-removed-before-save',
+    variant: 'admin',
+    reach: async (page) => {
+      await openCollection('manual')(page)
+      const rows = page.getByRole('checkbox', { name: 'Select product' })
+      for (const index of [0, 1, 2]) await rows.nth(index).check()
+      await page.getByRole('button', { name: /^remove$/i }).click()
+      await rest(page)
+    },
+  },
+  ...forRoles(
+    'DA-PRD-12',
+    'automatic',
+    collectionPath('automatic'),
+    openCollection('automatic'),
+  ).filter((item) => item.variant !== 'orderManager'),
+  {
+    screen: 'DA-PRD-12',
+    state: 'automatic-rule-edited',
+    variant: 'admin',
+    reach: async (page) => {
+      await openCollection('automatic')(page)
+      await membershipCard(page).getByRole('textbox', { name: 'Value' }).first().fill('travel')
+      await rest(page)
+    },
+  },
+  {
+    screen: 'DA-PRD-12',
+    state: 'switched-to-rules',
+    variant: 'admin',
+    reach: async (page) => {
+      await openCollection('manual')(page)
+      await page.getByRole('switch', { name: 'Set members automatically from rules' }).click()
+      await membershipCard(page).evaluate((element) => element.scrollIntoView({ block: 'start' }))
+      await rest(page)
+    },
+  },
+  {
+    screen: 'DA-PRD-12',
+    state: 'unsaved-changes',
+    variant: 'admin',
+    reach: async (page) => {
+      await openCollection('manual')(page)
+      await page.getByLabel('Meta title').fill('Our best sellers')
+      await rest(page)
+    },
+  },
+  {
+    screen: 'DA-PRD-12',
+    state: 'saved',
+    variant: 'admin',
+    reach: async (page) => {
+      await openCollection('manual')(page)
+      await page.getByLabel('Meta title').fill(`Our best sellers ${Date.now()}`)
+      await saveButton(page).click()
+      await expect(
+        page.getByRole('region', { name: 'Notifications' }).getByRole('status').first(),
+      ).toBeVisible()
+      await rest(page)
+    },
+    after: () =>
+      updateRecord(baseURL, 'collections', merchandising.ids.collections.manual, {
+        meta_title: null,
+      }),
+  },
+  {
+    screen: 'DA-PRD-12',
+    state: 'sidebar-slot',
+    variant: 'admin',
+    reach: async (page) => {
+      await openCollection('manual')(page)
+      await page
+        .getByText('Search engine optimization', { exact: true })
+        .evaluate((element) => element.scrollIntoView({ block: 'start' }))
+    },
+  },
+]
+
+const catalogsPath = '/products/catalogs'
+const catalogRow = (page: Page, name: string) =>
+  page.getByRole('row').filter({ has: page.getByRole('button', { name: new RegExp(`^${name}`) }) })
+const openCatalogs = async (page: Page) => {
+  await openStore(page, catalogsPath)
+  await expect(catalogRow(page, merchandisingCatalogs.percentage)).toBeVisible({ timeout: 15_000 })
+}
+const wizard = (page: Page) =>
+  page.getByRole('dialog').filter({ has: page.getByRole('heading', { name: 'New catalog' }) })
+const onWizardStep = (page: Page, step: string) =>
+  expect(wizard(page).getByRole('button', { name: step, exact: true })).toHaveAttribute(
+    'aria-current',
+    'step',
+  )
+const openWizard = async (page: Page) => {
+  await openCatalogs(page)
+  await page.getByRole('button', { name: /add catalog/i }).click()
+  await onWizardStep(page, 'Details')
+}
+const wizardSteps = ['Details', 'Audience', 'Products', 'Pricing', 'Review']
+/** The wizard on a later step: named, then moved on with Next to the step. */
+const wizardAt = (step: string) => async (page: Page) => {
+  await openWizard(page)
+  await wizard(page).locator('#catalog-name').fill('Fidelity bakery trade')
+  for (const next of wizardSteps.slice(1, wizardSteps.indexOf(step) + 1)) {
+    await wizard(page)
+      .getByRole('button', { name: /^next$/i })
+      .click()
+    await onWizardStep(page, next)
+  }
+  await rest(page)
+}
+const catalogPath = (key: keyof Merchandising['ids']['catalogs']) => () =>
+  `${catalogsPath}/${merchandising.ids.catalogs[key]}`
+const openCatalog = (key: keyof Merchandising['ids']['catalogs']) => async (page: Page) => {
+  await openStore(page, catalogPath(key)())
+  await expect(page.getByRole('heading', { name: merchandisingCatalogs[key] })).toBeVisible({
+    timeout: 15_000,
+  })
+  await settle(page)
+}
+const sidebarCard = (page: Page, title: string) =>
+  page
+    .locator('[data-slot="card"]')
+    .filter({ has: page.getByText(title, { exact: true }) })
+    .last()
+const toSidebarCard = async (page: Page, title: string) => {
+  await sidebarCard(page, title).evaluate((element) => element.scrollIntoView({ block: 'start' }))
+  await rest(page)
+}
+const choosePricing = async (page: Page, option: RegExp) => {
+  await page.getByRole('combobox', { name: 'Pricing' }).click()
+  await page.getByRole('option', { name: option }).click()
+}
+
+const catalogCaptures: Capture[] = [
+  // DA-PRD-13 Catalogs
+  ...forRoles('DA-PRD-13', 'listed', catalogsPath, openCatalogs),
+  {
+    screen: 'DA-PRD-13',
+    state: 'filtered-inactive',
+    variant: 'admin',
+    reach: async (page) => {
+      await openCatalogs(page)
+      await narrowQuickFilter(page, /^status/i, /^inactive$/i)
+      await expect(catalogRow(page, merchandisingCatalogs.percentage)).toBeHidden({
+        timeout: 15_000,
+      })
+    },
+  },
+  {
+    screen: 'DA-PRD-13',
+    state: 'searched',
+    variant: 'admin',
+    reach: async (page) => {
+      await openCatalogs(page)
+      await searchList(page, /^search catalogs/i, 'hotel')
+      await expect(catalogRow(page, merchandisingCatalogs.percentage)).toBeHidden({
+        timeout: 15_000,
+      })
+    },
+  },
+  {
+    screen: 'DA-PRD-13',
+    state: 'no-catalogs',
+    variant: 'admin',
+    intercepted: 'The catalog list is answered with no catalogs',
+    reach: async (page) => {
+      await emptied(page, 'catalogs')
+      await openStore(page, catalogsPath)
+      await page.waitForTimeout(1_500)
+    },
+  },
+  {
+    screen: 'DA-PRD-13',
+    state: 'delete-confirmation',
+    variant: 'admin',
+    reach: async (page) => {
+      await openCatalogs(page)
+      await openRowMenu(page, merchandisingCatalogs.empty)
+      await page.getByRole('menuitem', { name: /delete/i }).click()
+      await expect(confirmation(page)).toBeVisible()
+    },
+  },
+  { screen: 'DA-PRD-13', state: 'wizard-details', variant: 'admin', reach: openWizard },
+  {
+    screen: 'DA-PRD-13',
+    state: 'wizard-details',
+    variant: 'merchandiser',
+    reach: openWizard,
+  },
+  {
+    screen: 'DA-PRD-13',
+    state: 'wizard-blank-name',
+    variant: 'admin',
+    reach: async (page) => {
+      await openWizard(page)
+      await wizard(page)
+        .getByRole('button', { name: /^next$/i })
+        .click()
+      await expect(
+        wizard(page).getByText('Fix the highlighted field before continuing.'),
+      ).toBeVisible()
+      await rest(page)
+    },
+  },
+  {
+    screen: 'DA-PRD-13',
+    state: 'wizard-audience-none',
+    variant: 'admin',
+    reach: wizardAt('Audience'),
+  },
+  {
+    screen: 'DA-PRD-13',
+    state: 'wizard-audience-assigned',
+    variant: 'admin',
+    reach: async (page) => {
+      await wizardAt('Audience')(page)
+      await wizard(page).getByRole('button', { name: 'Assign' }).click()
+      const audience = page.getByRole('combobox', { name: /^search companies/i })
+      await audience.click()
+      await audience.fill('Acme')
+      await page.getByRole('option', { name: /Acme EMEA/ }).click()
+      await wizard(page).getByRole('button', { name: /^add$/i }).click()
+      await rest(page)
+    },
+  },
+  {
+    screen: 'DA-PRD-13',
+    state: 'wizard-products-none',
+    variant: 'admin',
+    reach: wizardAt('Products'),
+  },
+  {
+    screen: 'DA-PRD-13',
+    state: 'wizard-products-chosen',
+    variant: 'admin',
+    reach: async (page) => {
+      await wizardAt('Products')(page)
+      for (const name of ['2-Slice Toaster', '4-Slice Toaster']) {
+        await wizard(page).getByRole('searchbox').fill(name)
+        await wizard(page)
+          .getByRole('button', { name: `Add ${name}` })
+          .click()
+      }
+      await rest(page)
+    },
+  },
+  {
+    screen: 'DA-PRD-13',
+    state: 'wizard-pricing',
+    variant: 'admin',
+    reach: async (page) => {
+      await wizardAt('Pricing')(page)
+      await wizard(page).getByRole('combobox', { name: 'Pricing' }).click()
+      await page.getByRole('option', { name: /percentage off/i }).click()
+      await rest(page)
+    },
+  },
+  {
+    screen: 'DA-PRD-13',
+    state: 'wizard-pricing-needs-fixing',
+    variant: 'admin',
+    reach: async (page) => {
+      await wizardAt('Pricing')(page)
+      await wizard(page).getByRole('combobox', { name: 'Pricing' }).click()
+      await page.getByRole('option', { name: /percentage off/i }).click()
+      await wizard(page)
+        .getByRole('button', { name: /^next$/i })
+        .click()
+      await expect(
+        wizard(page).getByText('Fix the highlighted field before continuing.'),
+      ).toBeVisible()
+      await rest(page)
+    },
+  },
+  { screen: 'DA-PRD-13', state: 'wizard-review', variant: 'admin', reach: wizardAt('Review') },
+  {
+    screen: 'DA-PRD-13',
+    state: 'wizard-closed-untouched',
+    variant: 'admin',
+    reach: async (page) => {
+      await openWizard(page)
+      await page.keyboard.press('Escape')
+      await expect(wizard(page)).toBeHidden()
+    },
+  },
+  {
+    screen: 'DA-PRD-13',
+    state: 'wizard-discard-confirmation',
+    variant: 'admin',
+    reach: async (page) => {
+      await openWizard(page)
+      await wizard(page).locator('#catalog-name').fill('Fidelity bakery trade')
+      await page.keyboard.press('Escape')
+      await expect(page.getByRole('heading', { name: /discard this draft/i })).toBeVisible()
+    },
+  },
+
+  // DA-PRD-14 Catalog
+  ...forRoles('DA-PRD-14', 'settings', catalogPath('percentage'), openCatalog('percentage')),
+  {
+    screen: 'DA-PRD-14',
+    state: 'loading',
+    variant: 'admin',
+    intercepted: 'The catalog request is held open',
+    loading: true,
+    reach: async (page) => {
+      await interrupt(page, 'GET', /^\/api\/v3\/admin\/catalogs\/cat_[A-Za-z0-9]+$/, 'hold')
+      await page.goto(`/${seeded.storeId}${catalogPath('percentage')()}`)
+      await page.waitForTimeout(1_500)
+    },
+  },
+  {
+    screen: 'DA-PRD-14',
+    state: 'deactivate-confirmation',
+    variant: 'admin',
+    reach: async (page) => {
+      await openCatalog('percentage')(page)
+      await page.getByRole('button', { name: /^deactivate$/i }).click()
+      await expect(confirmation(page)).toBeVisible()
+    },
+  },
+  {
+    screen: 'DA-PRD-14',
+    state: 'activate-confirmation',
+    variant: 'admin',
+    reach: async (page) => {
+      await openCatalog('empty')(page)
+      await page.getByRole('button', { name: /^activate$/i }).click()
+      await expect(confirmation(page)).toBeVisible()
+    },
+  },
+  ...catalogVariants.map(
+    (variant): Capture => ({
+      screen: 'DA-PRD-14',
+      state: 'audience',
+      variant,
+      reach: async (page) => {
+        await openCatalog('percentage')(page)
+        await toSidebarCard(page, 'Audiences')
+      },
+    }),
+  ),
+  {
+    screen: 'DA-PRD-14',
+    state: 'audience-adding',
+    variant: 'admin',
+    reach: async (page) => {
+      await openCatalog('percentage')(page)
+      await toSidebarCard(page, 'Audiences')
+      await sidebarCard(page, 'Audiences').getByRole('button', { name: 'Assign' }).click()
+      const audience = page.getByRole('combobox', { name: /^search companies/i })
+      await audience.click()
+      await audience.fill('Acme')
+      await rest(page)
+    },
+  },
+  {
+    screen: 'DA-PRD-14',
+    state: 'audience-withdrawn',
+    variant: 'admin',
+    reach: async (page) => {
+      await openCatalog('percentage')(page)
+      await toSidebarCard(page, 'Audiences')
+      await sidebarCard(page, 'Audiences')
+        .getByRole('button', { name: 'Remove', exact: true })
+        .first()
+        .click()
+      await rest(page)
+    },
+  },
+  ...catalogVariants.map(
+    (variant): Capture => ({
+      screen: 'DA-PRD-14',
+      state: 'terms',
+      variant,
+      reach: async (page) => {
+        await openCatalog('percentage')(page)
+        await toSidebarCard(page, 'Order minimums')
+      },
+    }),
+  ),
+  {
+    screen: 'DA-PRD-14',
+    state: 'terms-errors',
+    variant: 'admin',
+    reach: async (page) => {
+      await openCatalog('percentage')(page)
+      await page
+        .getByRole('spinbutton', { name: /^Order multiple/ })
+        .last()
+        .fill('2.5')
+      await page.getByRole('spinbutton', { name: 'Minimum amount' }).fill('-5')
+      await saveButton(page).click()
+      await toSidebarCard(page, 'Order minimums')
+    },
+  },
+  {
+    screen: 'DA-PRD-14',
+    state: 'products-staged',
+    variant: 'admin',
+    reach: async (page) => {
+      await openCatalog('percentage')(page)
+      const picker = await pickProducts(page, 'Electric Kettle 1.7L')
+      await picker.getByRole('button', { name: /^add 1$/i }).click()
+      await page
+        .getByRole('row')
+        .filter({ hasText: 'Drip Coffee' })
+        .getByRole('button', { name: /remove from catalog/i })
+        .click()
+      await rest(page)
+    },
+  },
+  {
+    screen: 'DA-PRD-14',
+    state: 'products-picker-paged',
+    variant: 'admin',
+    reach: async (page) => {
+      await openCatalog('percentage')(page)
+      await page.getByRole('button', { name: /add products/i }).click()
+      const picker = page.getByRole('dialog')
+      await expect(picker.getByRole('searchbox')).toBeVisible()
+      // The picker pages by loading more below the first 25, not by page numbers.
+      await picker.getByRole('button', { name: /^load more$/i }).click()
+      await expect(picker.getByRole('button', { name: /^load more$/i })).toBeEnabled()
+      await picker.getByRole('button', { name: /^load more$/i }).scrollIntoViewIfNeeded()
+      await rest(page)
+    },
+  },
+  {
+    screen: 'DA-PRD-14',
+    state: 'products-picker-all-matching',
+    variant: 'admin',
+    reach: async (page) => {
+      await openCatalog('percentage')(page)
+      await page.getByRole('button', { name: /add products/i }).click()
+      const picker = page.getByRole('dialog')
+      await picker.getByRole('searchbox').fill('a')
+      await picker.getByRole('button', { name: /^select all \d+ match/i }).click()
+      await expect(picker.getByText(/^\d+ selected$/)).toBeVisible()
+      await rest(page)
+    },
+  },
+  {
+    screen: 'DA-PRD-14',
+    state: 'pricing-normal',
+    variant: 'admin',
+    reach: async (page) => {
+      await openCatalog('sample')(page)
+      await toSidebarCard(page, 'Pricing')
+    },
+  },
+  ...catalogVariants.map(
+    (variant): Capture => ({
+      screen: 'DA-PRD-14',
+      state: 'pricing-percentage',
+      variant,
+      reach: async (page) => {
+        await openCatalog('percentage')(page)
+        await toSidebarCard(page, 'Pricing')
+      },
+    }),
+  ),
+  {
+    screen: 'DA-PRD-14',
+    state: 'pricing-tier-preview',
+    variant: 'admin',
+    reach: async (page) => {
+      await openCatalog('percentage')(page)
+      // The ladder is a tooltip, so it opens on hover rather than on a click.
+      await page.getByRole('button', { name: '+2 tiers' }).first().hover()
+      await expect(page.locator('[data-slot="tooltip-content"]').first()).toBeVisible()
+    },
+  },
+  ...catalogVariants.map(
+    (variant): Capture => ({
+      screen: 'DA-PRD-14',
+      state: 'pricing-entered',
+      variant,
+      reach: openCatalog('entered'),
+    }),
+  ),
+  {
+    screen: 'DA-PRD-14',
+    state: 'pricing-entered-editor',
+    variant: 'admin',
+    reach: async (page) => {
+      await openCatalog('entered')(page)
+      await page
+        .getByRole('button', { name: /^enter prices$/i })
+        .first()
+        .click()
+      await expect(
+        page
+          .getByRole('dialog')
+          .getByLabel(/^price for/i)
+          .first(),
+      ).toBeVisible({
+        timeout: 15_000,
+      })
+      await rest(page)
+    },
+  },
+  {
+    screen: 'DA-PRD-14',
+    state: 'pricing-switched-to-percentage',
+    variant: 'admin',
+    reach: async (page) => {
+      await openCatalog('entered')(page)
+      await choosePricing(page, /percentage off/i)
+      await toSidebarCard(page, 'Pricing')
+    },
+  },
+  {
+    screen: 'DA-PRD-14',
+    state: 'prices-import',
+    variant: 'admin',
+    reach: async (page) => {
+      await openCatalog('entered')(page)
+      await toSidebarCard(page, 'Pricing')
+      await sidebarCard(page, 'Pricing')
+        .getByRole('button', { name: /^import$/i })
+        .click()
+      await expect(page.getByRole('heading', { name: /import from csv/i })).toBeVisible()
+    },
+  },
+  {
+    screen: 'DA-PRD-14',
+    state: 'prices-export',
+    variant: 'admin',
+    reach: async (page) => {
+      await openCatalog('entered')(page)
+      await toSidebarCard(page, 'Pricing')
+      await sidebarCard(page, 'Pricing')
+        .getByRole('button', { name: /^export$/i })
+        .click()
+      await page.waitForTimeout(1_000)
+    },
+  },
+  {
+    screen: 'DA-PRD-14',
+    state: 'staged-changes',
+    variant: 'admin',
+    reach: async (page) => {
+      await openCatalog('percentage')(page)
+      await page.getByLabel('Name', { exact: true }).fill('Fidelity café and bakery trade')
+      await rest(page)
+    },
+  },
+  {
+    screen: 'DA-PRD-14',
+    state: 'saved',
+    variant: 'admin',
+    reach: async (page) => {
+      await openCatalog('percentage')(page)
+      await page.getByLabel('Description', { exact: true }).fill(`Agreed terms ${Date.now()}`)
+      await saveButton(page).click()
+      await expect(
+        page.getByRole('region', { name: 'Notifications' }).getByRole('status').first(),
+      ).toBeVisible()
+      await rest(page)
+    },
+    after: () =>
+      updateRecord(baseURL, 'catalogs', merchandising.ids.catalogs.percentage, {
+        description: 'Agreed terms for café accounts.',
+      }),
+  },
+  {
+    screen: 'DA-PRD-14',
+    state: 'sidebar-slot',
+    variant: 'admin',
+    reach: async (page) => {
+      await openCatalog('percentage')(page)
+      await toSidebarCard(page, 'Audiences')
+      await page.mouse.wheel(0, 2_000)
+    },
+  },
+  {
+    screen: 'DA-PRD-14',
+    state: 'failed',
+    variant: 'admin',
+    intercepted: 'The catalog request is answered with a server error',
+    reach: async (page) => {
+      await listFails(/^\/api\/v3\/admin\/catalogs\/cat_[A-Za-z0-9]+$/)(page)
+      await page.goto(`/${seeded.storeId}${catalogPath('percentage')()}`)
+      await page.waitForTimeout(12_000)
+    },
+  },
+]
+
+const priceListsPath = '/products/price-lists'
+const priceListRow = (page: Page, name: string) =>
+  page.getByRole('row').filter({ has: page.getByRole('button', { name: new RegExp(`^${name}`) }) })
+const openPriceLists = async (page: Page) => {
+  await openStore(page, priceListsPath)
+  await expect(priceListRow(page, 'Wholesale')).toBeVisible({ timeout: 15_000 })
+}
+const newPriceListPath = `${priceListsPath}/new`
+const openNewPriceList = async (page: Page) => {
+  await openStore(page, newPriceListPath)
+  await expect(page.getByRole('button', { name: 'Add rule' })).toBeVisible({ timeout: 15_000 })
+}
+const priceListPath = (key: keyof Merchandising['ids']['priceLists']) => () =>
+  `${priceListsPath}/${merchandising.ids.priceLists[key]}`
+const openPriceList = (key: keyof Merchandising['ids']['priceLists']) => async (page: Page) => {
+  await openStore(page, priceListPath(key)())
+  await expect(page.getByRole('heading', { name: merchandisingPriceLists[key] })).toBeVisible({
+    timeout: 15_000,
+  })
+  await settle(page)
+}
+/** Opens the rule type picker and picks a kind, which opens that rule's sheet. */
+const pickRuleType = async (page: Page, kind: RegExp) => {
+  await page.getByRole('button', { name: 'Add rule' }).click()
+  await expect(sheet(page)).toBeVisible()
+  if (kind.source !== '^$') {
+    await sheet(page).getByRole('button', { name: kind }).first().click()
+    await page.waitForTimeout(800)
+  }
+  await rest(page)
+}
+const openPriceEditor = async (page: Page) => {
+  await page.getByRole('button', { name: /^edit prices$/i }).click()
+  await expect(
+    page
+      .getByRole('dialog')
+      .getByLabel(/^price for/i)
+      .first(),
+  ).toBeVisible({
+    timeout: 15_000,
+  })
+}
+
+const priceListCaptures: Capture[] = [
+  // DA-PRD-15 Price lists
+  ...forRoles('DA-PRD-15', 'listed', priceListsPath, openPriceLists),
+  ...['draft', 'active', 'inactive', 'scheduled'].map(
+    (status): Capture => ({
+      screen: 'DA-PRD-15',
+      state: `filtered-${status}`,
+      variant: 'admin',
+      reach: async (page) => {
+        await openPriceLists(page)
+        await narrowQuickFilter(page, /^status/i, new RegExp(`^${status}$`, 'i'))
+        await page.waitForTimeout(1_500)
+      },
+    }),
+  ),
+  {
+    screen: 'DA-PRD-15',
+    state: 'searched',
+    variant: 'admin',
+    reach: async (page) => {
+      await openPriceLists(page)
+      await searchList(page, /^search…$/i, 'Fidelity')
+      await expect(priceListRow(page, 'Wholesale')).toBeHidden({ timeout: 15_000 })
+    },
+  },
+  {
+    screen: 'DA-PRD-15',
+    state: 'search-found-nothing',
+    variant: 'admin',
+    reach: async (page) => {
+      await openPriceLists(page)
+      await searchList(page, /^search…$/i, 'no price list has this name')
+      await expect(page.getByText(/^no results$|try adjusting your search/i).first()).toBeVisible({
+        timeout: 15_000,
+      })
+    },
+  },
+  {
+    screen: 'DA-PRD-15',
+    state: 'no-price-lists',
+    variant: 'admin',
+    intercepted: 'The price list list is answered with no price lists',
+    reach: async (page) => {
+      await emptied(page, 'price_lists')
+      await openStore(page, priceListsPath)
+      await page.waitForTimeout(1_500)
+    },
+  },
+  {
+    screen: 'DA-PRD-15',
+    state: 'delete-confirmation',
+    variant: 'admin',
+    reach: async (page) => {
+      await openPriceLists(page)
+      await openRowMenu(page, merchandisingPriceLists.draft)
+      await page.getByRole('menuitem', { name: /delete/i }).click()
+      await expect(confirmation(page)).toBeVisible()
+    },
+  },
+
+  // DA-PRD-16 New price list
+  ...(['admin', 'merchandiser'] as const).map(
+    (variant): Capture => ({
+      screen: 'DA-PRD-16',
+      state: 'empty',
+      variant,
+      reach: openNewPriceList,
+    }),
+  ),
+  { ...directVisit('DA-PRD-16', newPriceListPath), variant: 'catalogViewer' },
+  directVisit('DA-PRD-16', newPriceListPath),
+  {
+    screen: 'DA-PRD-16',
+    state: 'schedule',
+    variant: 'admin',
+    reach: async (page) => {
+      await openNewPriceList(page)
+      await page.getByLabel('Name', { exact: true }).fill('Fidelity autumn trade')
+      await page.getByRole('button', { name: 'Immediately' }).click()
+      await page.waitForTimeout(800)
+    },
+  },
+  {
+    screen: 'DA-PRD-16',
+    state: 'rule-type-picker',
+    variant: 'admin',
+    reach: async (page) => {
+      await openNewPriceList(page)
+      await pickRuleType(page, /^$/)
+    },
+  },
+  ...(
+    [
+      ['volume', /volume/i],
+      ['market', /market/i],
+      ['channel', /channel/i],
+    ] as const
+  ).map(
+    ([kind, name]): Capture => ({
+      screen: 'DA-PRD-16',
+      state: `rule-${kind}`,
+      variant: 'admin',
+      reach: async (page) => {
+        await openNewPriceList(page)
+        await pickRuleType(page, name)
+      },
+    }),
+  ),
+  {
+    screen: 'DA-PRD-16',
+    state: 'no-name',
+    variant: 'admin',
+    reach: async (page) => {
+      await openNewPriceList(page)
+      await page.getByRole('button', { name: /^create$/i }).click()
+      await page.waitForTimeout(800)
+    },
+  },
+
+  // DA-PRD-17 Price list
+  ...forRoles(
+    'DA-PRD-17',
+    'rules-and-products',
+    priceListPath('wholesale'),
+    openPriceList('wholesale'),
+  ),
+  {
+    screen: 'DA-PRD-17',
+    state: 'loading',
+    variant: 'admin',
+    intercepted: 'The price list request is held open',
+    loading: true,
+    reach: async (page) => {
+      await interrupt(page, 'GET', /^\/api\/v3\/admin\/price_lists\/pl_[A-Za-z0-9]+$/, 'hold')
+      await page.goto(`/${seeded.storeId}${priceListPath('wholesale')()}`)
+      await page.waitForTimeout(1_500)
+    },
+  },
+  {
+    screen: 'DA-PRD-17',
+    state: 'rule-edited',
+    variant: 'admin',
+    reach: async (page) => {
+      await openPriceList('wholesale')(page)
+      await page.getByRole('button', { name: /^volume pricing/i }).click()
+      await expect(sheet(page)).toBeVisible()
+      await page.waitForTimeout(800)
+      await rest(page)
+    },
+  },
+  {
+    screen: 'DA-PRD-17',
+    state: 'rule-remove-confirmation',
+    variant: 'admin',
+    reach: async (page) => {
+      await openPriceList('wholesale')(page)
+      await page.getByRole('button', { name: 'Remove rule' }).last().click()
+      await expect(confirmation(page)).toBeVisible()
+    },
+  },
+  {
+    screen: 'DA-PRD-17',
+    state: 'rule-removed',
+    variant: 'admin',
+    reach: async (page) => {
+      await openPriceList('wholesale')(page)
+      await page.getByRole('button', { name: 'Remove rule' }).last().click()
+      await confirmation(page)
+        .getByRole('button', { name: /^remove/i })
+        .click()
+      await rest(page)
+    },
+  },
+  ...catalogVariants.map(
+    (variant): Capture => ({
+      screen: 'DA-PRD-17',
+      state: 'superseded-audience-rules',
+      variant,
+      reach: openPriceList('audience'),
+    }),
+  ),
+  {
+    screen: 'DA-PRD-17',
+    state: 'products-page-2',
+    variant: 'admin',
+    reach: async (page) => {
+      await openPriceList('wholesale')(page)
+      await page.getByRole('button', { name: 'Go to next page' }).click()
+      await page.waitForTimeout(1_500)
+      await page.getByRole('button', { name: 'Go to previous page' }).scrollIntoViewIfNeeded()
+    },
+  },
+  {
+    screen: 'DA-PRD-17',
+    state: 'products-narrow',
+    variant: 'admin',
+    phone: true,
+    // On a phone the header squeezes the list's name to no width, so the page is
+    // known to be open by its rules card instead.
+    reach: async (page) => {
+      await openStore(page, priceListPath('wholesale')())
+      await expect(page.getByRole('button', { name: 'Add rule' })).toBeVisible({ timeout: 15_000 })
+      await settle(page)
+    },
+  },
+  ...catalogVariants.map(
+    (variant): Capture => ({
+      screen: 'DA-PRD-17',
+      state: 'prices-spreadsheet',
+      variant,
+      reach: async (page) => {
+        await openPriceList('wholesale')(page)
+        if (variant === 'catalogViewer') return
+        await openPriceEditor(page)
+        await rest(page)
+      },
+    }),
+  ),
+  {
+    screen: 'DA-PRD-17',
+    state: 'prices-break-added',
+    variant: 'admin',
+    reach: async (page) => {
+      await openPriceList('wholesale')(page)
+      await openPriceEditor(page)
+      const editor = page.getByRole('dialog')
+      await editor
+        .getByRole('button', { name: /^add quantity break$/i })
+        .first()
+        .click()
+      await page.waitForTimeout(800)
+      await rest(page)
+    },
+  },
+  {
+    screen: 'DA-PRD-17',
+    state: 'prices-euros',
+    variant: 'admin',
+    reach: async (page) => {
+      await openPriceList('wholesale')(page)
+      await openPriceEditor(page)
+      const editor = page.getByRole('dialog')
+      await editor.getByRole('combobox').filter({ hasText: 'USD' }).first().click()
+      await page.getByRole('option', { name: /EUR/ }).click()
+      await page.waitForTimeout(1_500)
+      await rest(page)
+    },
+  },
+  {
+    screen: 'DA-PRD-17',
+    state: 'prices-import',
+    variant: 'admin',
+    reach: async (page) => {
+      await openPriceList('wholesale')(page)
+      await page.getByRole('button', { name: /^import$/i }).click()
+      await expect(page.getByRole('heading', { name: /import from csv/i })).toBeVisible()
+    },
+  },
+  {
+    screen: 'DA-PRD-17',
+    state: 'prices-export',
+    variant: 'admin',
+    reach: async (page) => {
+      await openPriceList('wholesale')(page)
+      await page.getByRole('button', { name: /^export$/i }).click()
+      await page.waitForTimeout(1_000)
+    },
+  },
+  {
+    screen: 'DA-PRD-17',
+    state: 'unsaved-changes',
+    variant: 'admin',
+    reach: async (page) => {
+      await openPriceList('draft')(page)
+      await page
+        .getByLabel('Description', { exact: true })
+        .fill('Introductory prices, first week only.')
+      await rest(page)
+    },
+  },
+  {
+    screen: 'DA-PRD-17',
+    state: 'saved',
+    variant: 'admin',
+    reach: async (page) => {
+      await openPriceList('draft')(page)
+      await page
+        .getByLabel('Description', { exact: true })
+        .fill(`Introductory prices ${Date.now()}`)
+      await saveButton(page).click()
+      await expect(
+        page.getByRole('region', { name: 'Notifications' }).getByRole('status').first(),
+      ).toBeVisible()
+      await rest(page)
+    },
+    after: () =>
+      updateRecord(baseURL, 'price_lists', merchandising.ids.priceLists.draft, {
+        description: 'Introductory prices for the spring kitchen range.',
+      }),
+  },
+  {
+    screen: 'DA-PRD-17',
+    state: 'activate-refused',
+    variant: 'admin',
+    reach: async (page) => {
+      const id = await createPriceList(baseURL, emptyPriceList)
+      await openStore(page, `${priceListsPath}/${id}`)
+      await expect(page.getByRole('heading', { name: emptyPriceList })).toBeVisible({
+        timeout: 15_000,
+      })
+      await page.getByRole('button', { name: /^activate$/i }).click()
+      const confirm = confirmation(page).getByRole('button', { name: /^activate$/i })
+      if (await confirm.isVisible()) await confirm.click()
+      await page.waitForTimeout(1_500)
+      await rest(page)
+    },
+    after: () => deletePriceListsNamed(baseURL, emptyPriceList),
+  },
+  {
+    screen: 'DA-PRD-17',
+    state: 'sidebar-slot',
+    variant: 'admin',
+    reach: async (page) => {
+      await openPriceList('wholesale')(page)
+      await page
+        .getByText('Schedule', { exact: true })
+        .evaluate((element) => element.scrollIntoView({ block: 'start' }))
+    },
+  },
+]
+
+const importsPath = '/settings/imports'
+const importRow = (page: Page, number: string) =>
+  page.getByRole('row').filter({ has: page.getByRole('button', { name: number, exact: true }) })
+const openImports = async (page: Page) => {
+  await openStore(page, importsPath)
+  // A role that may not list imports is shown the empty list instead.
+  await expect(
+    importRow(page, 'IM1001').or(page.getByRole('cell', { name: 'No imports yet' })),
+  ).toBeVisible({ timeout: 15_000 })
+}
+/** The product list's import wizard, open at its upload step. */
+const openProductImport = async (page: Page) => {
+  await openProducts(page)
+  await page.getByRole('button', { name: /^import$/i }).click()
+  await expect(page.getByRole('heading', { name: /import from csv/i })).toBeVisible()
+}
+const csv = (name: string, lines: string[]) => ({
+  name,
+  mimeType: 'text/csv',
+  buffer: Buffer.from(`${lines.join('\n')}\n`),
+})
+/** Uploads a file in the open wizard and continues to its mapping step. */
+const uploadToMapping = async (page: Page, file: ReturnType<typeof csv>) => {
+  await page.getByRole('dialog').locator('input[type="file"]').setInputFiles(file)
+  await page.getByRole('button', { name: /^continue$/i }).click()
+  await expect(page.getByText('Map columns')).toBeVisible({ timeout: 15_000 })
+}
+const wizardImport = 'Fidelity wizard jug'
+const wizardFile = csv('fidelity-wizard-products.csv', [
+  'slug,sku,name,price',
+  `fidelity-wizard-jug,FID-WIZ-JUG,${wizardImport},21.00`,
+  'fidelity-wizard-bad-1,FID-WIZ-BAD-1,,',
+  'fidelity-wizard-bad-2,FID-WIZ-BAD-2,,',
+])
+
+const importCaptures: Capture[] = [
+  // DA-OVL-05 Import wizard
+  ...(['admin', 'merchandiser'] as const).map(
+    (variant): Capture => ({
+      screen: 'DA-OVL-05',
+      state: 'upload',
+      variant,
+      reach: openProductImport,
+    }),
+  ),
+  {
+    screen: 'DA-OVL-05',
+    state: 'semicolon-mapping',
+    variant: 'admin',
+    reach: async (page) => {
+      await openProductImport(page)
+      await page
+        .getByRole('dialog')
+        .locator('[data-slot="field"]')
+        .filter({ hasText: /^column separator/i })
+        .getByRole('combobox')
+        .click()
+      await page.getByRole('option', { name: /^semicolon/i }).click()
+      await uploadToMapping(
+        page,
+        csv('fidelity-semicolon-products.csv', [
+          'slug;sku;name;price',
+          'fidelity-semicolon-cup;FID-SEMI-CUP;Fidelity semicolon cup;7.50',
+        ]),
+      )
+      await rest(page)
+    },
+  },
+  {
+    screen: 'DA-OVL-05',
+    state: 'mapping-required-unmapped',
+    variant: 'admin',
+    reach: async (page) => {
+      await openProductImport(page)
+      await uploadToMapping(
+        page,
+        csv('fidelity-unpriced-products.csv', [
+          'slug,sku,name',
+          'fidelity-unpriced-bowl,FID-UNPRICED,Fidelity unpriced bowl',
+        ]),
+      )
+      await expect(page.getByRole('button', { name: /start import/i })).toBeDisabled()
+      await rest(page)
+    },
+  },
+  {
+    screen: 'DA-OVL-05',
+    state: 'progress',
+    variant: 'admin',
+    intercepted:
+      "The import's status requests are held open once it starts, so the wizard stays on its progress step",
+    loading: true,
+    reach: async (page) => {
+      await openProductImport(page)
+      await uploadToMapping(
+        page,
+        csv('fidelity-progress-products.csv', [
+          'slug,sku,name,price',
+          'fidelity-progress-plate,FID-PROGRESS,Fidelity progress plate,9.00',
+        ]),
+      )
+      await interrupt(page, 'GET', /^\/api\/v3\/admin\/imports\/imp_[A-Za-z0-9]+$/, 'hold')
+      await page.getByRole('button', { name: /start import/i }).click()
+      await expect(page.getByText('Processing rows', { exact: true }).first()).toBeVisible({
+        timeout: 15_000,
+      })
+      await page.waitForTimeout(1_000)
+    },
+    // The import goes on in the background after the capture, so its product is
+    // removed once the job has had time to write it.
+    after: async () => {
+      await new Promise((resolve) => setTimeout(resolve, 10_000))
+      await removeProducts('Fidelity progress plate')
+    },
+  },
+  {
+    screen: 'DA-OVL-05',
+    state: 'results-with-failed-rows',
+    variant: 'admin',
+    reach: async (page) => {
+      await openProductImport(page)
+      await uploadToMapping(page, wizardFile)
+      await page.getByRole('button', { name: /start import/i }).click()
+      await expect(page.getByText(/import completed/i)).toBeVisible({ timeout: 120_000 })
+      await page
+        .getByRole('button', { name: /view row data/i })
+        .first()
+        .click()
+      await rest(page)
+    },
+    after: () => removeProducts(wizardImport),
+  },
+
+  // DA-SET-31 Imports
+  ...forRoles('DA-SET-31', 'listed', importsPath, openImports),
+  {
+    screen: 'DA-SET-31',
+    state: 'each-status',
+    variant: 'admin',
+    intercepted:
+      'The list is answered with four imports given the statuses no import on this server is left in: pending, queued (mapping completed), processing and failed',
+    reach: async (page) => {
+      await page.route(
+        (url) => url.pathname === '/api/v3/admin/imports',
+        async (route) => {
+          if (route.request().method() !== 'GET') return route.fallback()
+          const response = await route.fetch()
+          const body = (await response.json()) as { data: { number: string; status: string }[] }
+          const statuses: Record<string, string> = {
+            IM1001: 'failed',
+            IM1002: 'processing',
+            IM1003: 'completed_mapping',
+            IM1004: 'pending',
+          }
+          await route.fulfill({
+            response,
+            json: {
+              ...body,
+              data: body.data.map((item) => ({
+                ...item,
+                status: statuses[item.number] ?? item.status,
+              })),
+            },
+          })
+        },
+      )
+      await openStore(page, importsPath)
+      await expect(importRow(page, 'IM1001')).toBeVisible({ timeout: 15_000 })
+    },
+  },
+  {
+    screen: 'DA-SET-31',
+    state: 'results',
+    variant: 'admin',
+    reach: async (page) => {
+      await openImports(page)
+      await page.getByRole('button', { name: 'IM1001', exact: true }).click()
+      await expect(page.getByText(/import completed/i)).toBeVisible({ timeout: 15_000 })
+      await rest(page)
+    },
+  },
+  {
+    screen: 'DA-SET-31',
+    state: 'mapping-reopened',
+    variant: 'admin',
+    reach: async (page) => {
+      await openImports(page)
+      await page.getByRole('button', { name: 'IM1005', exact: true }).click()
+      await expect(page.getByText('Map columns')).toBeVisible({ timeout: 15_000 })
+      await rest(page)
+    },
+  },
+  {
+    screen: 'DA-SET-31',
+    state: 'row-actions',
+    variant: 'admin',
+    reach: async (page) => {
+      await openImports(page)
+      await openRowMenu(page, 'IM1001')
+      await expect(page.getByRole('menuitem').first()).toBeVisible()
+    },
+  },
+  {
+    screen: 'DA-SET-31',
+    state: 'delete-confirmation',
+    variant: 'admin',
+    reach: async (page) => {
+      await openImports(page)
+      await openRowMenu(page, 'IM1005')
+      await page.getByRole('menuitem', { name: /delete/i }).click()
+      await expect(confirmation(page)).toBeVisible()
+    },
+  },
+  {
+    screen: 'DA-SET-31',
+    state: 'no-imports',
+    variant: 'admin',
+    intercepted: 'The import list is answered with no imports',
+    reach: async (page) => {
+      await emptied(page, 'imports')
+      await openStore(page, importsPath)
+      await page.waitForTimeout(1_500)
+    },
+  },
+]
+
 const removeProducts = (name: string) => deleteProductsNamed(baseURL, name)
 
 test.beforeAll(async ({ baseURL: configured }) => {
@@ -4574,6 +6452,7 @@ test.beforeAll(async ({ baseURL: configured }) => {
   developers = await seedDevelopers(baseURL)
   await seedSettings(baseURL)
   catalog = await seedCatalog(baseURL)
+  merchandising = await seedMerchandising(baseURL)
   const api = await request.newContext({ baseURL })
   try {
     const { headers } = await admin(api)
@@ -4622,6 +6501,8 @@ async function save(
   /** Requests blocked because they would have left the local servers. */
   outside: string[],
   masked?: Capture['masked'],
+  /** The messages of the browser's own dialogs the screen opened, which a screenshot cannot show. */
+  dialogs: string[] = [],
 ) {
   const folder = `${results}${item.screen}/${item.state}/`
   mkdirSync(folder, { recursive: true })
@@ -4648,6 +6529,7 @@ async function save(
         masked: masked?.what ?? null,
         settled,
         outside,
+        ...(dialogs.length > 0 && { dialogs }),
       },
       null,
       2,
@@ -4664,18 +6546,33 @@ for (const theme of ['light', 'dark'] as const) {
     ...newProductCaptures,
     ...productPageCaptures,
     ...libraryCaptures,
+    ...organisingCaptures,
+    ...collectionCaptures,
+    ...catalogCaptures,
+    ...priceListCaptures,
+    ...importCaptures,
   ]) {
     test(`${item.screen} ${item.state} ${item.variant} ${theme}`, async ({ page }) => {
       if (item.phone) await page.setViewportSize(phone)
       await page.emulateMedia({ colorScheme: theme, reducedMotion: 'reduce' })
       const outside = await blockOutside(page)
+      // Dismissed as the browser would without a listener; their messages are recorded.
+      const dialogs: string[] = []
+      page.on('dialog', (dialog) => {
+        dialogs.push(dialog.message())
+        void dialog.dismiss()
+      })
       await signIn(page, item.variant)
-      await item.reach(page)
-      const settled = item.loading ? null : await settle(page)
-      await page.waitForTimeout(400)
-      const role = item.variant in teammates ? roles[teammates[item.variant].role] : null
-      await save(page, item, theme, settled, role, outside, item.masked)
-      await item.after?.()
+      // The clean-up runs whatever happens, so a failed capture leaves no record changed.
+      try {
+        await item.reach(page)
+        const settled = item.loading ? null : await settle(page)
+        await page.waitForTimeout(400)
+        const role = item.variant in teammates ? roles[teammates[item.variant].role] : null
+        await save(page, item, theme, settled, role, outside, item.masked, dialogs)
+      } finally {
+        await item.after?.()
+      }
     })
   }
 }

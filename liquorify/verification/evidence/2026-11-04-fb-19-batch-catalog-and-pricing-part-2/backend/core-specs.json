@@ -1,0 +1,2573 @@
+{
+  "engine": "spree/core",
+  "spree_code_at": "5794da6",
+  "database": "SQLite",
+  "rspec": "3.13.6",
+  "seed": 6666,
+  "summary": {
+    "example_count": 426,
+    "failure_count": 0,
+    "pending_count": 2,
+    "errors_outside_of_examples_count": 0
+  },
+  "examples": [
+    {
+      "file": "spec/models/spree/collection_rules/available_on_spec.rb",
+      "line": 13,
+      "description": "Spree::CollectionRules::AvailableOn#apply matches products created or available within the window",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/collection_rules/available_on_spec.rb",
+      "line": 22,
+      "description": "Spree::CollectionRules::AvailableOn#apply returns the scope unchanged for an unhandled match policy",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/catalog_quantity_rule_spec.rb",
+      "line": 38,
+      "description": "Spree::CatalogQuantityRule enforces the uniqueness in the database as well",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/catalog_quantity_rule_spec.rb",
+      "line": 66,
+      "description": "Spree::CatalogQuantityRule refuses a zero or negative quantity",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/catalog_quantity_rule_spec.rb",
+      "line": 49,
+      "description": "Spree::CatalogQuantityRule is removed when its product leaves the assortment",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/catalog_quantity_rule_spec.rb",
+      "line": 16,
+      "description": "Spree::CatalogQuantityRule accepts a row stating only one field",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/catalog_quantity_rule_spec.rb",
+      "line": 23,
+      "description": "Spree::CatalogQuantityRule refuses a variant belonging to another store",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/catalog_quantity_rule_spec.rb",
+      "line": 8,
+      "description": "Spree::CatalogQuantityRule refuses a row that states neither field",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/catalog_quantity_rule_spec.rb",
+      "line": 31,
+      "description": "Spree::CatalogQuantityRule allows only one row per catalog and variant",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/catalog_quantity_rule_spec.rb",
+      "line": 58,
+      "description": "Spree::CatalogQuantityRule is removed with the variant it names",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_rules/customer_group_rule_spec.rb",
+      "line": 44,
+      "description": "Spree::PriceRules::CustomerGroupRule#applicable? when customer_group_ids preference is set returns true when context user is in the customer group",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_rules/customer_group_rule_spec.rb",
+      "line": 50,
+      "description": "Spree::PriceRules::CustomerGroupRule#applicable? when customer_group_ids preference is set returns false when context user is not in the customer group",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_rules/customer_group_rule_spec.rb",
+      "line": 56,
+      "description": "Spree::PriceRules::CustomerGroupRule#applicable? when customer_group_ids preference is set returns false when context has no user",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_rules/customer_group_rule_spec.rb",
+      "line": 65,
+      "description": "Spree::PriceRules::CustomerGroupRule#applicable? when customer_group_ids preference contains strings returns true when context user is in the customer group",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_rules/customer_group_rule_spec.rb",
+      "line": 35,
+      "description": "Spree::PriceRules::CustomerGroupRule#applicable? when customer_group_ids preference is empty returns false when user is not present",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_rules/customer_group_rule_spec.rb",
+      "line": 30,
+      "description": "Spree::PriceRules::CustomerGroupRule#applicable? when customer_group_ids preference is empty returns true when user is present",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_rules/customer_group_rule_spec.rb",
+      "line": 75,
+      "description": "Spree::PriceRules::CustomerGroupRule#applicable? with multiple customer groups configured returns true when context user is in any of the customer groups",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_rules/customer_group_rule_spec.rb",
+      "line": 81,
+      "description": "Spree::PriceRules::CustomerGroupRule#applicable? with multiple customer groups configured returns false when context user is not in any of the customer groups",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_rules/customer_group_rule_spec.rb",
+      "line": 112,
+      "description": "Spree::PriceRules::CustomerGroupRule#customer_groups returns an empty relation when no groups are set",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_rules/customer_group_rule_spec.rb",
+      "line": 107,
+      "description": "Spree::PriceRules::CustomerGroupRule#customer_groups returns the customer groups matching the preferred IDs",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_rules/customer_group_rule_spec.rb",
+      "line": 100,
+      "description": "Spree::PriceRules::CustomerGroupRule#preferred_customer_group_ids= accepts a mix of prefixed and raw IDs",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_rules/customer_group_rule_spec.rb",
+      "line": 95,
+      "description": "Spree::PriceRules::CustomerGroupRule#preferred_customer_group_ids= decodes prefixed customer group IDs to raw IDs",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_rules/customer_group_rule_spec.rb",
+      "line": 15,
+      "description": "Spree::PriceRules::CustomerGroupRule supersession is flagged superseded yet still matches its audience",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_rules/customer_group_rule_spec.rb",
+      "line": 89,
+      "description": "Spree::PriceRules::CustomerGroupRule.description returns the translated description",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_rules/channel_rule_spec.rb",
+      "line": 55,
+      "description": "Spree::PriceRules::ChannelRule#preferred_channel_ids= rejects a channel that belongs to another store",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_rules/channel_rule_spec.rb",
+      "line": 37,
+      "description": "Spree::PriceRules::ChannelRule#applicable? when channel_ids preference is set returns false when context channel does not match",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_rules/channel_rule_spec.rb",
+      "line": 43,
+      "description": "Spree::PriceRules::ChannelRule#applicable? when channel_ids preference is set returns false when context has no channel",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_rules/channel_rule_spec.rb",
+      "line": 32,
+      "description": "Spree::PriceRules::ChannelRule#applicable? when channel_ids preference is set returns true when context channel matches",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_rules/channel_rule_spec.rb",
+      "line": 20,
+      "description": "Spree::PriceRules::ChannelRule#applicable? when channel_ids preference is empty returns true even when the context has no channel",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_rules/channel_rule_spec.rb",
+      "line": 15,
+      "description": "Spree::PriceRules::ChannelRule#applicable? when channel_ids preference is empty returns true for any channel",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_rules/channel_rule_spec.rb",
+      "line": 72,
+      "description": "Spree::PriceRules::ChannelRule#channels returns empty when no channels are set",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_rules/channel_rule_spec.rb",
+      "line": 67,
+      "description": "Spree::PriceRules::ChannelRule#channels returns the channels matching the preferred IDs",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/import_spec.rb",
+      "line": 276,
+      "description": "Spree::Import.type_for_model returns the import type for a given model",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/import_spec.rb",
+      "line": 290,
+      "description": "Spree::Import#template_csv names the file after the type",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/import_spec.rb",
+      "line": 296,
+      "description": "Spree::Import#template_csv resolves from the type column on a base instance",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/import_spec.rb",
+      "line": 283,
+      "description": "Spree::Import#template_csv is the schema header row",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/import_spec.rb",
+      "line": 78,
+      "description": "Spree::Import#display_name returns the correct display name",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/import_spec.rb",
+      "line": 69,
+      "description": "Spree::Import#import_schema returns the correct schema class",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/import_spec.rb",
+      "line": 47,
+      "description": "Spree::Import status starts in pending status",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/import_spec.rb",
+      "line": 32,
+      "description": "Spree::Import Validations attachment validation validates attachment content type",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/import_spec.rb",
+      "line": 25,
+      "description": "Spree::Import Validations type validation allows valid types",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/import_spec.rb",
+      "line": 19,
+      "description": "Spree::Import Validations type validation validates type is whitelisted",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/import_spec.rb",
+      "line": 84,
+      "description": "Spree::Import#csv_headers returns the CSV headers",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/import_spec.rb",
+      "line": 139,
+      "description": "Spree::Import#csv_headers with custom delimiter parses headers with custom delimiter",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/import_spec.rb",
+      "line": 313,
+      "description": "Spree::Import.sample_csv_url points at the example CSV for the type",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/import_spec.rb",
+      "line": 321,
+      "description": "Spree::Import.sample_csv_url pins the URL to the installed Spree version",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/import_spec.rb",
+      "line": 327,
+      "description": "Spree::Import.sample_csv_url is nil on the base class",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/import_spec.rb",
+      "line": 333,
+      "description": "Spree::Import.sample_csv_url is nil for a type with no example file",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/import_spec.rb",
+      "line": 212,
+      "description": "Spree::Import#schema_fields when model supports custom_fields but has no custom_field definitions returns only base fields",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/import_spec.rb",
+      "line": 175,
+      "description": "Spree::Import#schema_fields when model supports custom_fields includes custom_field fields",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/import_spec.rb",
+      "line": 166,
+      "description": "Spree::Import#schema_fields when model supports custom_fields returns base fields from schema",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/import_spec.rb",
+      "line": 183,
+      "description": "Spree::Import#schema_fields when model supports custom_fields combines base fields and custom_field fields",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/import_spec.rb",
+      "line": 199,
+      "description": "Spree::Import#schema_fields when model does not support custom_fields returns only base fields from schema",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/import_spec.rb",
+      "line": 305,
+      "description": "Spree::Import#sample_csv_url resolves from the type column on a base instance",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/import_spec.rb",
+      "line": 241,
+      "description": "Spree::Import#unmapped_file_columns returns columns that are not mapped",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/import_spec.rb",
+      "line": 257,
+      "description": "Spree::Import#mapping_done? when all required fields are mapped returns true",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/import_spec.rb",
+      "line": 263,
+      "description": "Spree::Import#mapping_done? when not all required fields are mapped returns false",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/import_spec.rb",
+      "line": 54,
+      "description": "Spree::Import#model_class for Products import returns Spree::Product",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/import_spec.rb",
+      "line": 61,
+      "description": "Spree::Import#model_class for Customers import returns the user class",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/import_spec.rb",
+      "line": 270,
+      "description": "Spree::Import.available_models returns model classes for available types",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/import_spec.rb",
+      "line": null,
+      "description": "Spree::Import behaves like lifecycle events lifecycle events import.created publishes created event when record is created",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/import_spec.rb",
+      "line": null,
+      "description": "Spree::Import behaves like lifecycle events lifecycle events import.deleted publishes deleted event when record is deleted",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/import_spec.rb",
+      "line": null,
+      "description": "Spree::Import behaves like lifecycle events lifecycle events import.updated publishes updated event when record is updated",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/import_spec.rb",
+      "line": null,
+      "description": "Spree::Import behaves like lifecycle events lifecycle events import.updated does not publish updated event on a bare touch",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/import_spec.rb",
+      "line": 226,
+      "description": "Spree::Import mapping creation auto-assigns file columns when possible",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/import_spec.rb",
+      "line": 222,
+      "description": "Spree::Import mapping creation creates mappings for schema fields",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/import_spec.rb",
+      "line": 353,
+      "description": "Spree::Import custom events import.completed publishes import.completed event when completed",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/import_row_spec.rb",
+      "line": 77,
+      "description": "Spree::ImportRow#to_schema_hash returns attributes mapped to schema fields",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/import_row_spec.rb",
+      "line": 66,
+      "description": "Spree::ImportRow#data_json with invalid JSON data returns empty hash",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/import_row_spec.rb",
+      "line": 47,
+      "description": "Spree::ImportRow#data_json with valid JSON data returns parsed JSON",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/import_row_spec.rb",
+      "line": 55,
+      "description": "Spree::ImportRow#data_json with valid JSON data memoizes the result",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/import_row_spec.rb",
+      "line": 38,
+      "description": "Spree::ImportRow Scopes .processed returns completed and failed rows",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/import_row_spec.rb",
+      "line": 31,
+      "description": "Spree::ImportRow Scopes .pending_and_failed returns pending and failed rows",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/import_row_spec.rb",
+      "line": 89,
+      "description": "Spree::ImportRow#attribute_by_schema_field returns the mapped attribute value",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/import_row_spec.rb",
+      "line": 126,
+      "description": "Spree::ImportRow#process! when processing fails transitions to failed",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/import_row_spec.rb",
+      "line": 137,
+      "description": "Spree::ImportRow#process! when processing fails sets validation errors",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/import_row_spec.rb",
+      "line": 142,
+      "description": "Spree::ImportRow#process! when processing fails reports the error to Rails.error",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/import_row_spec.rb",
+      "line": 130,
+      "description": "Spree::ImportRow#process! when processing fails publishes import_row.failed",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/import_row_spec.rb",
+      "line": 113,
+      "description": "Spree::ImportRow#process! when processing succeeds sets the item",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/import_row_spec.rb",
+      "line": 109,
+      "description": "Spree::ImportRow#process! when processing succeeds transitions to processing then completed",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/import_row_spec.rb",
+      "line": 18,
+      "description": "Spree::ImportRow status rejects an unknown status",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/collection_rules/sale_spec.rb",
+      "line": 15,
+      "description": "Spree::CollectionRules::Sale#apply returns the scope unchanged for an unknown match policy",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/collection_spec.rb",
+      "line": 64,
+      "description": "Spree::Collection#manual? / #manual_sort_order? is expected to equal false",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/collection_spec.rb",
+      "line": 66,
+      "description": "Spree::Collection#manual? / #manual_sort_order? is expected to equal false",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/collection_spec.rb",
+      "line": 65,
+      "description": "Spree::Collection#manual? / #manual_sort_order? is expected to equal true",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/collection_spec.rb",
+      "line": 63,
+      "description": "Spree::Collection#manual? / #manual_sort_order? is expected to equal true",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/collection_spec.rb",
+      "line": 21,
+      "description": "Spree::Collection permalink uniqueness + slug history (FriendlyId) allows the same permalink in different stores",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/collection_spec.rb",
+      "line": 36,
+      "description": "Spree::Collection permalink uniqueness + slug history (FriendlyId) keeps an old permalink resolving after a rename (use: :history)",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/collection_spec.rb",
+      "line": 28,
+      "description": "Spree::Collection permalink uniqueness + slug history (FriendlyId) rejects a duplicate permalink within the same store (errors, does not auto-suffix)",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/collection_spec.rb",
+      "line": 54,
+      "description": "Spree::Collection validations rejects an unknown rules_match_policy",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/collection_spec.rb",
+      "line": 47,
+      "description": "Spree::Collection validations rejects an unknown sort_order",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/collection_spec.rb",
+      "line": 89,
+      "description": "Spree::Collection description sanitizes on write",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/collection_spec.rb",
+      "line": 82,
+      "description": "Spree::Collection description round-trips rich text",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/collection_spec.rb",
+      "line": 73,
+      "description": "Spree::Collection scopes partitions manual and automatic collections",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/collection_spec.rb",
+      "line": 15,
+      "description": "Spree::Collection permalink generation supports non-latin characters",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/collection_spec.rb",
+      "line": 11,
+      "description": "Spree::Collection permalink generation keeps an explicit permalink",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/collection_spec.rb",
+      "line": 7,
+      "description": "Spree::Collection permalink generation derives a url-safe permalink from the name",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/collection_spec.rb",
+      "line": 183,
+      "description": "Spree::Collection#products_matching_rules when the collection has a sale rule treats does_not_contain like is_not_equal_to (not on sale)",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/collection_spec.rb",
+      "line": 171,
+      "description": "Spree::Collection#products_matching_rules when the collection has a sale rule matches products on sale in the store currency",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/collection_spec.rb",
+      "line": 177,
+      "description": "Spree::Collection#products_matching_rules when the collection has a sale rule treats contains like is_equal_to (on sale)",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/collection_spec.rb",
+      "line": 125,
+      "description": "Spree::Collection#products_matching_rules when the collection is automatic with no rules returns nothing",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/collection_spec.rb",
+      "line": 117,
+      "description": "Spree::Collection#products_matching_rules when the collection is manual returns nothing",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/collection_spec.rb",
+      "line": 155,
+      "description": "Spree::Collection#products_matching_rules when the collection has tag rules with the \"any\" match policy matches products carrying any tag",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/collection_spec.rb",
+      "line": 144,
+      "description": "Spree::Collection#products_matching_rules when the collection has tag rules with the \"all\" match policy matches products carrying every tag",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/collection_spec.rb",
+      "line": 196,
+      "description": "Spree::Collection#slug / #slug= writes through to the permalink",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/collection_spec.rb",
+      "line": 192,
+      "description": "Spree::Collection#slug / #slug= reads the permalink",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/collection_spec.rb",
+      "line": 219,
+      "description": "Spree::Collection#regenerate_products rebuilds the materialized membership from the rules",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/collection_spec.rb",
+      "line": 225,
+      "description": "Spree::Collection#regenerate_products clears the flag and no-ops on a second only_once call",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/collection_spec.rb",
+      "line": 237,
+      "description": "Spree::Collection#regenerate_products does nothing when not marked for regeneration",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/collection_spec.rb",
+      "line": 105,
+      "description": "Spree::Collection automatic regeneration callback does not regenerate a manual collection on an unrelated change",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/collection_spec.rb",
+      "line": 99,
+      "description": "Spree::Collection automatic regeneration callback regenerates products when the match policy changes",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/collection_spec.rb",
+      "line": 292,
+      "description": "Spree::Collection#rules= (sync setter) falls back to the association writer when given CollectionRule records",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/collection_spec.rb",
+      "line": 286,
+      "description": "Spree::Collection#rules= (sync setter) raises RecordNotFound for an unknown rule id",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/collection_spec.rb",
+      "line": 265,
+      "description": "Spree::Collection#rules= (sync setter) updates an existing rule matched by its prefixed id",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/collection_spec.rb",
+      "line": 254,
+      "description": "Spree::Collection#rules= (sync setter) builds new rules from attribute hashes, selecting the STI subclass by type",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/collection_spec.rb",
+      "line": 275,
+      "description": "Spree::Collection#rules= (sync setter) destroys rules omitted from the payload",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/export_spec.rb",
+      "line": 45,
+      "description": "Spree::Export#generate generates the export",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/export_spec.rb",
+      "line": 52,
+      "description": "Spree::Export#generate sends the export done email",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/export_spec.rb",
+      "line": 65,
+      "description": "Spree::Export#generate when the export has no user (created via secret API key) does not enqueue the export done email",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/export_spec.rb",
+      "line": 60,
+      "description": "Spree::Export#generate when the export has no user (created via secret API key) still generates and attaches the CSV",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/export_spec.rb",
+      "line": 74,
+      "description": "Spree::Export#generate when the export type is Spree::Exports::Customers writes a row for a customer with addresses",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/export_spec.rb",
+      "line": 115,
+      "description": "Spree::Export#generate custom field columns lines each value up under its own header",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/export_spec.rb",
+      "line": 108,
+      "description": "Spree::Export#generate custom field columns names only the exporting store definitions in the header",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/export_spec.rb",
+      "line": 39,
+      "description": "Spree::Export#export_file_name returns the correct file name",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/export_spec.rb",
+      "line": 356,
+      "description": "Spree::Export CSV formula injection prefixes cells starting with formula triggers when the export runs",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/export_spec.rb",
+      "line": 210,
+      "description": "Spree::Export a seller export of orders leaves the buyer email out of the headers",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/export_spec.rb",
+      "line": 230,
+      "description": "Spree::Export a seller export of orders still gives the seller the addresses they ship and invoice against",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/export_spec.rb",
+      "line": 222,
+      "description": "Spree::Export a seller export of orders keeps the remaining columns aligned with their headers",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/export_spec.rb",
+      "line": 240,
+      "description": "Spree::Export a seller export of orders ignores a condition on the buyer's email",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/export_spec.rb",
+      "line": 247,
+      "description": "Spree::Export a seller export of orders leaves the operator's own export untouched",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/export_spec.rb",
+      "line": 214,
+      "description": "Spree::Export a seller export of orders does not write the buyer's email anywhere in the file",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/export_spec.rb",
+      "line": 258,
+      "description": "Spree::Export#records_to_export without search params returns all products",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/export_spec.rb",
+      "line": 266,
+      "description": "Spree::Export#records_to_export with search params returns matching products",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/export_spec.rb",
+      "line": 276,
+      "description": "Spree::Export#records_to_export with a prefixed-id filter decodes prefixed IDs before handing to Ransack",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/export_spec.rb",
+      "line": 302,
+      "description": "Spree::Export#records_to_export with a free-text search param exports a searched product list",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/export_spec.rb",
+      "line": 293,
+      "description": "Spree::Export#records_to_export with a free-text search param exports a searched customer list",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/export_spec.rb",
+      "line": 311,
+      "description": "Spree::Export#records_to_export with a free-text search param names the exporting store while it runs",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/export_spec.rb",
+      "line": 340,
+      "description": "Spree::Export#records_to_export with a custom field filter applies the custom field predicate",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/export_spec.rb",
+      "line": 285,
+      "description": "Spree::Export#records_to_export with a prefixed-id array filter decodes each value",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/export_spec.rb",
+      "line": null,
+      "description": "Spree::Export behaves like lifecycle events lifecycle events export.created publishes created event when record is created",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/export_spec.rb",
+      "line": null,
+      "description": "Spree::Export behaves like lifecycle events lifecycle events export.updated publishes updated event when record is updated",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/export_spec.rb",
+      "line": null,
+      "description": "Spree::Export behaves like lifecycle events lifecycle events export.updated does not publish updated event on a bare touch",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/export_spec.rb",
+      "line": null,
+      "description": "Spree::Export behaves like lifecycle events lifecycle events export.deleted publishes deleted event when record is deleted",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/export_spec.rb",
+      "line": 157,
+      "description": "Spree::Export#scope when the export belongs to a seller is refused before it can be queued",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/export_spec.rb",
+      "line": 136,
+      "description": "Spree::Export#scope when the export belongs to a seller narrows to that seller's own records",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/export_spec.rb",
+      "line": 149,
+      "description": "Spree::Export#scope when the export belongs to a seller refuses a model it cannot narrow",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/export_spec.rb",
+      "line": 171,
+      "description": "Spree::Export#scope when the export belongs to a seller is refused when a seller is assigned to an existing export",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/export_spec.rb",
+      "line": 141,
+      "description": "Spree::Export#scope when the export belongs to a seller leaves out drafts",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/export_spec.rb",
+      "line": 164,
+      "description": "Spree::Export#scope when the export belongs to a seller allows a model it can narrow",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/export_spec.rb",
+      "line": 184,
+      "description": "Spree::Export#scope when the export has no seller spans the store",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/export_spec.rb",
+      "line": 188,
+      "description": "Spree::Export#scope when the export has no seller leaves out drafts",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/export_spec.rb",
+      "line": 380,
+      "description": "Spree::Export#normalize_search_params with empty search_params does nothing",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/export_spec.rb",
+      "line": 405,
+      "description": "Spree::Export#normalize_search_params with Ruby hash input converts to JSON string",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/export_spec.rb",
+      "line": 389,
+      "description": "Spree::Export#normalize_search_params with valid JSON string maintains the same content",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/export_spec.rb",
+      "line": 413,
+      "description": "Spree::Export#normalize_search_params with pre-normalized params does not double-process",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/export_spec.rb",
+      "line": 373,
+      "description": "Spree::Export#normalize_search_params with nil search_params does nothing",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/export_spec.rb",
+      "line": 397,
+      "description": "Spree::Export#normalize_search_params with invalid JSON string preserves the original string",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/export_spec.rb",
+      "line": 25,
+      "description": "Spree::Export.required_scope honors subclass overrides where the data is gated by a different scope",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/export_spec.rb",
+      "line": 31,
+      "description": "Spree::Export.required_scope returns nil on the base class (fail closed \u2014 *_all keys only)",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/export_spec.rb",
+      "line": 19,
+      "description": "Spree::Export.required_scope derives the scope family from the class name",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/export_spec.rb",
+      "line": 13,
+      "description": "Spree::Export#model_class returns the correct record class",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_list_spec.rb",
+      "line": 513,
+      "description": "Spree::PriceList#remove_products handles empty product_ids",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_list_spec.rb",
+      "line": 519,
+      "description": "Spree::PriceList#remove_products handles nil product_ids",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_list_spec.rb",
+      "line": 501,
+      "description": "Spree::PriceList#remove_products removes all prices for the given products",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_list_spec.rb",
+      "line": 539,
+      "description": "Spree::PriceList#remove_products touches the price list to bust cache",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_list_spec.rb",
+      "line": 531,
+      "description": "Spree::PriceList#remove_products enqueues a job to touch variants that lose an amount",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_list_spec.rb",
+      "line": 525,
+      "description": "Spree::PriceList#remove_products removes prices for multiple products at once",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_list_spec.rb",
+      "line": 507,
+      "description": "Spree::PriceList#remove_products does not remove prices for other products",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_list_spec.rb",
+      "line": 546,
+      "description": "Spree::PriceList#remove_products when re-adding a previously removed product allows re-adding a product that had prices with amounts set",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_list_spec.rb",
+      "line": 249,
+      "description": "Spree::PriceList catalog ownership allows one live list per catalog, releasing the slot on soft delete",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_list_spec.rb",
+      "line": 272,
+      "description": "Spree::PriceList catalog ownership keeps an owned list out of .for_context whatever the owning catalog status",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_list_spec.rb",
+      "line": 258,
+      "description": "Spree::PriceList catalog ownership refuses a catalog from another store",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_list_spec.rb",
+      "line": 264,
+      "description": "Spree::PriceList catalog ownership scopes standalone lists to the ones without an owner",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_list_spec.rb",
+      "line": 102,
+      "description": "Spree::PriceList quantity bands turns the band into the factor a base price is multiplied by",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_list_spec.rb",
+      "line": 179,
+      "description": "Spree::PriceList quantity bands is only valid on a list a catalog owns",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_list_spec.rb",
+      "line": 89,
+      "description": "Spree::PriceList quantity bands answers the deepest band a quantity reaches",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_list_spec.rb",
+      "line": 97,
+      "description": "Spree::PriceList quantity bands reads the column when asked without a quantity",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_list_spec.rb",
+      "line": 169,
+      "description": "Spree::PriceList quantity bands writing the ladder from a flat payload falls through to the standard writer for model instances",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_list_spec.rb",
+      "line": 151,
+      "description": "Spree::PriceList quantity bands writing the ladder from a flat payload clears the ladder on an empty payload",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_list_spec.rb",
+      "line": 159,
+      "description": "Spree::PriceList quantity bands writing the ladder from a flat payload refuses a malformed quantity rather than clearing the ladder",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_list_spec.rb",
+      "line": 145,
+      "description": "Spree::PriceList quantity bands writing the ladder from a flat payload removes a band the payload leaves out",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_list_spec.rb",
+      "line": 126,
+      "description": "Spree::PriceList quantity bands writing the ladder from a flat payload creates the bands it names",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_list_spec.rb",
+      "line": 138,
+      "description": "Spree::PriceList quantity bands writing the ladder from a flat payload updates a band the payload names again rather than duplicating it",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_list_spec.rb",
+      "line": 115,
+      "description": "Spree::PriceList quantity bands with bands but no percentage of its own adjusts nothing below the first band",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_list_spec.rb",
+      "line": 111,
+      "description": "Spree::PriceList quantity bands with bands but no percentage of its own still prices automatically",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_list_spec.rb",
+      "line": 334,
+      "description": "Spree::PriceList#applicable? when price list is inactive returns false",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_list_spec.rb",
+      "line": 374,
+      "description": "Spree::PriceList#applicable? with rules and match_policy = any returns true if any rule passes",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_list_spec.rb",
+      "line": 342,
+      "description": "Spree::PriceList#applicable? when price list is outside date range returns false",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_list_spec.rb",
+      "line": 358,
+      "description": "Spree::PriceList#applicable? with rules and match_policy = all returns false if any rule fails",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_list_spec.rb",
+      "line": 203,
+      "description": "Spree::PriceList#contextual_rules_applicable? asks a volume rule about the quantity being bought",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_list_spec.rb",
+      "line": 199,
+      "description": "Spree::PriceList#contextual_rules_applicable? applies when the list carries no rules at all",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_list_spec.rb",
+      "line": 221,
+      "description": "Spree::PriceList#contextual_rules_applicable? honours the match policy across contextual rules only",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_list_spec.rb",
+      "line": 213,
+      "description": "Spree::PriceList#contextual_rules_applicable? ignores audience rules entirely",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_list_spec.rb",
+      "line": 234,
+      "description": "Spree::PriceList.contextual? is true for the volume rule and false for the audience kinds",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_list_spec.rb",
+      "line": 303,
+      "description": "Spree::PriceList scopes .for_store returns only price lists for the specified store",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_list_spec.rb",
+      "line": 291,
+      "description": "Spree::PriceList scopes .by_position returns price lists ordered by position ascending",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_list_spec.rb",
+      "line": 314,
+      "description": "Spree::PriceList scopes .current returns only price lists within date range",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_list_spec.rb",
+      "line": 319,
+      "description": "Spree::PriceList scopes .current accepts a timezone parameter",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_list_spec.rb",
+      "line": 25,
+      "description": "Spree::PriceList automatic pricing is off unless a percentage is set",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_list_spec.rb",
+      "line": 54,
+      "description": "Spree::PriceList automatic pricing refuses a discount of 100% or deeper",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_list_spec.rb",
+      "line": 38,
+      "description": "Spree::PriceList automatic pricing refuses a markup the column cannot hold",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_list_spec.rb",
+      "line": 67,
+      "description": "Spree::PriceList automatic pricing is only valid on a list a catalog owns",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_list_spec.rb",
+      "line": 32,
+      "description": "Spree::PriceList automatic pricing treats a zero percentage as no adjustment at all",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_list_spec.rb",
+      "line": 46,
+      "description": "Spree::PriceList automatic pricing turns the percentage into the factor a base price is multiplied by",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_list_spec.rb",
+      "line": 399,
+      "description": "Spree::PriceList#add_products creates prices with nil amount",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_list_spec.rb",
+      "line": 413,
+      "description": "Spree::PriceList#add_products touches the price list to bust cache",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_list_spec.rb",
+      "line": 405,
+      "description": "Spree::PriceList#add_products does not create duplicate prices for existing variants",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_list_spec.rb",
+      "line": 425,
+      "description": "Spree::PriceList#add_products handles nil product_ids",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_list_spec.rb",
+      "line": 392,
+      "description": "Spree::PriceList#add_products creates prices for all supported currencies",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_list_spec.rb",
+      "line": 386,
+      "description": "Spree::PriceList#add_products creates prices for all variants of the given products",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_list_spec.rb",
+      "line": 419,
+      "description": "Spree::PriceList#add_products handles empty product_ids",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_list_spec.rb",
+      "line": 479,
+      "description": "Spree::PriceList#add_products with deleted variants only creates prices for non-deleted variants",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_list_spec.rb",
+      "line": 464,
+      "description": "Spree::PriceList#add_products when price already has amount set does not overwrite existing price with amount",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_list_spec.rb",
+      "line": 452,
+      "description": "Spree::PriceList#add_products with non-existent product IDs creates prices only for existing products",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_list_spec.rb",
+      "line": 446,
+      "description": "Spree::PriceList#add_products with non-existent product IDs handles gracefully without error",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_list_spec.rb",
+      "line": 436,
+      "description": "Spree::PriceList#add_products with products having multiple variants creates prices for all eligible variants",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_list_spec.rb",
+      "line": 5,
+      "description": "Spree::PriceList Validations requires a name unique within the store",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_list_spec.rb",
+      "line": 15,
+      "description": "Spree::PriceList Validations date range validation validates starts_at is before ends_at",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_list_spec.rb",
+      "line": 656,
+      "description": "Spree::PriceList#bulk_update_prices skips entries without id",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_list_spec.rb",
+      "line": 651,
+      "description": "Spree::PriceList#bulk_update_prices returns true for empty attributes",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_list_spec.rb",
+      "line": 573,
+      "description": "Spree::PriceList#bulk_update_prices updates prices in bulk using upsert_all",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_list_spec.rb",
+      "line": 589,
+      "description": "Spree::PriceList#bulk_update_prices clears compare_at_amount when it equals amount",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_list_spec.rb",
+      "line": 614,
+      "description": "Spree::PriceList#bulk_update_prices skips prices where nothing changed",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_list_spec.rb",
+      "line": 641,
+      "description": "Spree::PriceList#bulk_update_prices enqueues a job to touch affected variants",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_list_spec.rb",
+      "line": 627,
+      "description": "Spree::PriceList#bulk_update_prices updates when only compare_at_amount changed",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_list_spec.rb",
+      "line": 601,
+      "description": "Spree::PriceList#bulk_update_prices clears amount when user removes existing value",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/imports/price_list_prices_spec.rb",
+      "line": 8,
+      "description": "Spree::Imports::PriceListPrices processes rows with the price-list row processor, grouped by SKU",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/imports/price_list_prices_spec.rb",
+      "line": 25,
+      "description": "Spree::Imports::PriceListPrices#price_list is required to create the import, and only then",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/imports/price_list_prices_spec.rb",
+      "line": 17,
+      "description": "Spree::Imports::PriceListPrices#price_list reads the list through the store",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/collection_rule_spec.rb",
+      "line": 11,
+      "description": "Spree::CollectionRule validations rejects an unknown match_policy",
+      "status": "passed"
+    },
+    {
+      "file": "spec/support/shared_examples/type_labels.rb",
+      "line": 6,
+      "description": "Spree::CollectionRule behaves like type labels type labels reads the kind's name and description from the family's scope",
+      "status": "passed"
+    },
+    {
+      "file": "spec/support/shared_examples/type_labels.rb",
+      "line": 15,
+      "description": "Spree::CollectionRule behaves like type labels type labels falls back to the humanized type for a kind without translations",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/collection_rule_spec.rb",
+      "line": 37,
+      "description": "Spree::CollectionRule regeneration callback regenerates when the rule is destroyed",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/collection_rule_spec.rb",
+      "line": 30,
+      "description": "Spree::CollectionRule regeneration callback regenerates when the value changes",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/collection_rule_spec.rb",
+      "line": 24,
+      "description": "Spree::CollectionRule regeneration callback regenerates the collection products when a rule is created",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_rules/user_rule_spec.rb",
+      "line": 12,
+      "description": "Spree::PriceRules::UserRule supersession is flagged superseded yet still matches its buyer",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_rules/user_rule_spec.rb",
+      "line": 35,
+      "description": "Spree::PriceRules::UserRule#applicable? when user_ids preference is set returns true when context user matches",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_rules/user_rule_spec.rb",
+      "line": 46,
+      "description": "Spree::PriceRules::UserRule#applicable? when user_ids preference is set returns false when context has no user",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_rules/user_rule_spec.rb",
+      "line": 40,
+      "description": "Spree::PriceRules::UserRule#applicable? when user_ids preference is set returns false when context user does not match",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_rules/user_rule_spec.rb",
+      "line": 26,
+      "description": "Spree::PriceRules::UserRule#applicable? when user_ids preference is empty returns true when user is present",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_rules/user_rule_spec.rb",
+      "line": 60,
+      "description": "Spree::PriceRules::UserRule#applicable? when user_ids preference contains strings returns false when context user does not match",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_rules/user_rule_spec.rb",
+      "line": 55,
+      "description": "Spree::PriceRules::UserRule#applicable? when user_ids preference contains strings returns true when context user matches",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_rules/user_rule_spec.rb",
+      "line": 74,
+      "description": "Spree::PriceRules::UserRule#preferred_user_ids= accepts a mix of prefixed and raw IDs",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_rules/user_rule_spec.rb",
+      "line": 69,
+      "description": "Spree::PriceRules::UserRule#preferred_user_ids= decodes prefixed user IDs to raw IDs",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_rules/user_rule_spec.rb",
+      "line": 84,
+      "description": "Spree::PriceRules::UserRule#users returns the users matching the preferred IDs",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_rules/user_rule_spec.rb",
+      "line": 89,
+      "description": "Spree::PriceRules::UserRule#users returns an empty relation when no users are set",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/exports/products_spec.rb",
+      "line": 39,
+      "description": "Spree::Exports::Products#generate writes only a seller's own stock on the seller's export",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/exports/products_spec.rb",
+      "line": 105,
+      "description": "Spree::Exports::Products#csv_headers when custom_fields exist includes custom_field headers",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/exports/products_spec.rb",
+      "line": 97,
+      "description": "Spree::Exports::Products#csv_headers when no custom_fields returns product variant headers without properties",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/exports/products_spec.rb",
+      "line": 12,
+      "description": "Spree::Exports::Products#scope when search_params is nil excludes archived products",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/exports/products_spec.rb",
+      "line": 21,
+      "description": "Spree::Exports::Products#scope when search_params is present includes all products",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/catalog_order_minimum_spec.rb",
+      "line": 33,
+      "description": "Spree::CatalogOrderMinimum refuses a zero amount",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/catalog_order_minimum_spec.rb",
+      "line": 13,
+      "description": "Spree::CatalogOrderMinimum refuses a second row for the same currency",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/catalog_order_minimum_spec.rb",
+      "line": 7,
+      "description": "Spree::CatalogOrderMinimum upcases the currency it is given",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/catalog_order_minimum_spec.rb",
+      "line": 27,
+      "description": "Spree::CatalogOrderMinimum allows the same catalog a row in another currency",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/catalog_order_minimum_spec.rb",
+      "line": 19,
+      "description": "Spree::CatalogOrderMinimum enforces the per-currency uniqueness in the database as well",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/translations/batch_spec.rb",
+      "line": 49,
+      "description": "Spree::Translations::Batch#process! raises EntryError with the index for an unknown resource type",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/translations/batch_spec.rb",
+      "line": 36,
+      "description": "Spree::Translations::Batch#process! is atomic: an invalid entry rolls back earlier writes",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/translations/batch_spec.rb",
+      "line": 63,
+      "description": "Spree::Translations::Batch#process! raises EntryError for another store's store or option value",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/translations/batch_spec.rb",
+      "line": 77,
+      "description": "Spree::Translations::Batch#process! yields each resolved record before writing so the caller can authorize",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/translations/batch_spec.rb",
+      "line": 73,
+      "description": "Spree::Translations::Batch#process! raises EmptyError when there are no entries",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/translations/batch_spec.rb",
+      "line": 55,
+      "description": "Spree::Translations::Batch#process! raises EntryError for a record missing in the current store",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/translations/batch_spec.rb",
+      "line": 21,
+      "description": "Spree::Translations::Batch#process! upserts every entry and returns the written records",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/translations/batch_spec.rb",
+      "line": 89,
+      "description": "Spree::Translations::Batch#required_scopes returns the permission each resource actually declares",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/translations/batch_spec.rb",
+      "line": 99,
+      "description": "Spree::Translations::Batch#required_scopes names a permission the catalog knows, for every translatable resource",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/category_spec.rb",
+      "line": 616,
+      "description": "Spree::Category#pretty_name top level is just the category name",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/category_spec.rb",
+      "line": 113,
+      "description": "Spree::Category products_count on destroy keeps a product still reachable through a surviving sibling (dedup)",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/category_spec.rb",
+      "line": 101,
+      "description": "Spree::Category products_count on destroy decrements every ancestor level when a mid-tree node is destroyed",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/category_spec.rb",
+      "line": 77,
+      "description": "Spree::Category products_count on destroy decrements ancestors when a subcategory is destroyed",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/category_spec.rb",
+      "line": 88,
+      "description": "Spree::Category products_count on destroy keeps the count from surviving siblings",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/category_spec.rb",
+      "line": 9,
+      "description": "Spree::Category permalink uniqueness allows the same permalink in different stores",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/category_spec.rb",
+      "line": 40,
+      "description": "Spree::Category permalink uniqueness rejects a permalink that differs only by case",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/category_spec.rb",
+      "line": 48,
+      "description": "Spree::Category permalink uniqueness generates lowercase permalinks, so mixed-case names cannot collide by case alone",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/category_spec.rb",
+      "line": 26,
+      "description": "Spree::Category permalink uniqueness allows the same name under different parents, since the paths differ",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/category_spec.rb",
+      "line": 19,
+      "description": "Spree::Category permalink uniqueness enforces it at the database level, including for top-level categories",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/category_spec.rb",
+      "line": 52,
+      "description": "Spree::Category permalink uniqueness rejects two categories sharing a parent and a name, whose paths collide",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/category_spec.rb",
+      "line": 392,
+      "description": "Spree::Category permalink uniqueness after normalization returns a validation error instead of raising RecordNotUnique when normalized permalink conflicts",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/category_spec.rb",
+      "line": 402,
+      "description": "Spree::Category permalink uniqueness after normalization normalizes permalink before validation on update",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/category_spec.rb",
+      "line": 495,
+      "description": "Spree::Category#localized_slugs_for_store when setting the slugs in category under taxomony with different parent slug sets the slug in valid format",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/category_spec.rb",
+      "line": 478,
+      "description": "Spree::Category#localized_slugs_for_store when setting the slug translations for the parent sets the slugs in slug format",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/category_spec.rb",
+      "line": 447,
+      "description": "Spree::Category#localized_slugs_for_store when there are slugs in locales not supported by the store returns only slugs in locales supported by the store",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/category_spec.rb",
+      "line": 461,
+      "description": "Spree::Category#localized_slugs_for_store when one of the supported locales does not have a translation falls back to store's default locale",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/category_spec.rb",
+      "line": 129,
+      "description": "Spree::Category creation without a taxonomy creates a parentless, store-owned top-level category",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/category_spec.rb",
+      "line": 324,
+      "description": "Spree::Category when using another locale translates category fields",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/category_spec.rb",
+      "line": 179,
+      "description": "Spree::Category.for_store / .for_stores finds categories across multiple stores",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/category_spec.rb",
+      "line": 169,
+      "description": "Spree::Category.for_store / .for_stores excludes categories owned by another store",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/category_spec.rb",
+      "line": 258,
+      "description": "Spree::Category#to_param is the permalink, so category URLs use the full path",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/category_spec.rb",
+      "line": 272,
+      "description": "Spree::Category Scopes .with_matching_name returns the category with the matching name",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/category_spec.rb",
+      "line": 290,
+      "description": "Spree::Category Scopes .with_matching_name with translations returns the category with the matching name",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/category_spec.rb",
+      "line": 628,
+      "description": "Spree::Category#active_products_with_descendants when category has products returns true",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/category_spec.rb",
+      "line": 650,
+      "description": "Spree::Category#active_products_with_descendants when category has no products returns false",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/category_spec.rb",
+      "line": 675,
+      "description": "Spree::Category#active_products_with_descendants when children categories also have no products returns false",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/category_spec.rb",
+      "line": 660,
+      "description": "Spree::Category#active_products_with_descendants when category has products but children categories have no products returns true",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/category_spec.rb",
+      "line": 664,
+      "description": "Spree::Category#active_products_with_descendants when category has products but children categories have no products returns false when products aren't active",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/category_spec.rb",
+      "line": 638,
+      "description": "Spree::Category#active_products_with_descendants when only children categories have products returns true",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/category_spec.rb",
+      "line": 642,
+      "description": "Spree::Category#active_products_with_descendants when only children categories have products returns false when products aren't active",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/category_spec.rb",
+      "line": 415,
+      "description": "Spree::Category creating a child node using first_or_create does not error out",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/category_spec.rb",
+      "line": 222,
+      "description": "Spree::Category products_count (descendant-inclusive) decrements ancestors when a product is removed",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/category_spec.rb",
+      "line": 233,
+      "description": "Spree::Category products_count (descendant-inclusive) maintains the count on a direct Classification create/destroy",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/category_spec.rb",
+      "line": 204,
+      "description": "Spree::Category products_count (descendant-inclusive) rolls subcategory products up to ancestors",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/category_spec.rb",
+      "line": 214,
+      "description": "Spree::Category products_count (descendant-inclusive) de-duplicates a product reachable through several nodes",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/category_spec.rb",
+      "line": 197,
+      "description": "Spree::Category products_count (descendant-inclusive) counts a directly-assigned product on the category",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/category_spec.rb",
+      "line": 242,
+      "description": "Spree::Category products_count (descendant-inclusive) updates both ancestor chains when a subtree moves",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/category_spec.rb",
+      "line": 157,
+      "description": "Spree::Category store auto-resolution (#ensure_store) prefers the parent store over the current store",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/category_spec.rb",
+      "line": 141,
+      "description": "Spree::Category store auto-resolution (#ensure_store) falls back to the current store when none is given",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/category_spec.rb",
+      "line": 148,
+      "description": "Spree::Category store auto-resolution (#ensure_store) prefers an explicit store over the current store",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/category_spec.rb",
+      "line": 505,
+      "description": "Spree::Category#regenerate_pretty_name_and_permalink regenerates pretty name and permalink",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/category_spec.rb",
+      "line": 515,
+      "description": "Spree::Category#regenerate_pretty_name_and_permalink when parent's permalink is changed updates the pretty name and permalink",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/category_spec.rb",
+      "line": 596,
+      "description": "Spree::Category#regenerate_pretty_name_and_permalink when category is moved updates the pretty name and permalink when move is done inside different locales",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/category_spec.rb",
+      "line": 584,
+      "description": "Spree::Category#regenerate_pretty_name_and_permalink when category is moved updates the pretty name and permalink",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/category_spec.rb",
+      "line": 542,
+      "description": "Spree::Category#regenerate_pretty_name_and_permalink with translations updates the pretty name and permalink for translations as well",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/category_spec.rb",
+      "line": 526,
+      "description": "Spree::Category#regenerate_pretty_name_and_permalink when parent name is changed updates the pretty name and permalink",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/category_spec.rb",
+      "line": null,
+      "description": "Spree::Category behaves like metadata is expected to be truthy",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/category_spec.rb",
+      "line": null,
+      "description": "Spree::Category behaves like metadata is expected to eq ActiveSupport::HashWithIndifferentAccess",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/category_spec.rb",
+      "line": null,
+      "description": "Spree::Category behaves like metadata can query records by metadata properties",
+      "status": "pending",
+      "pending": "skipped by Spree on this database"
+    },
+    {
+      "file": "spec/models/spree/category_spec.rb",
+      "line": null,
+      "description": "Spree::Category behaves like metadata is expected to eq {}",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/category_spec.rb",
+      "line": null,
+      "description": "Spree::Category behaves like metadata reads data as symbolized keys",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/category_spec.rb",
+      "line": null,
+      "description": "Spree::Category behaves like metadata can query records by metadata properties",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/category_spec.rb",
+      "line": null,
+      "description": "Spree::Category behaves like metadata no longer carries the split metadata columns",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/category_spec.rb",
+      "line": null,
+      "description": "Spree::Category behaves like metadata reads data as not symbolized keys",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/category_spec.rb",
+      "line": 61,
+      "description": "Spree::Category parent store boundary rejects a parent owned by another store",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/category_spec.rb",
+      "line": 69,
+      "description": "Spree::Category parent store boundary accepts a parent in the same store",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/category_spec.rb",
+      "line": 336,
+      "description": "Spree::Category set_permalink sets permalink correctly when no parent present",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/category_spec.rb",
+      "line": 341,
+      "description": "Spree::Category set_permalink supports Chinese characters",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/category_spec.rb",
+      "line": 357,
+      "description": "Spree::Category set_permalink with parent category sets permalink correctly with existing permalink present",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/category_spec.rb",
+      "line": 363,
+      "description": "Spree::Category set_permalink with parent category supports Chinese characters",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/category_spec.rb",
+      "line": 352,
+      "description": "Spree::Category set_permalink with parent category sets permalink correctly when category has parent",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/category_spec.rb",
+      "line": 378,
+      "description": "Spree::Category set_permalink with parent category setting a new node sibling position via :child_index= category is not new passes the desired index move_to_child_with_index of :parent ",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/category_spec.rb",
+      "line": 706,
+      "description": "Spree::Category per-store nested set keeps subtree reads inside the owning store",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/category_spec.rb",
+      "line": 686,
+      "description": "Spree::Category per-store nested set numbers each store from the start instead of continuing the previous one",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/category_spec.rb",
+      "line": 693,
+      "description": "Spree::Category per-store nested set leaves another store untouched when a tree is reordered",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/category_spec.rb",
+      "line": 422,
+      "description": "Spree::Category ransackable_associations is expected not to include \"taxonomy\"",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/category_spec.rb",
+      "line": 421,
+      "description": "Spree::Category ransackable_associations is expected to include \"parent\"",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_rule_spec.rb",
+      "line": 20,
+      "description": "Spree::PriceRule uniqueness of type per price_list allows the same rule type on a different list",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_rule_spec.rb",
+      "line": 7,
+      "description": "Spree::PriceRule uniqueness of type per price_list allows two rules of different types on the same list",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_rule_spec.rb",
+      "line": 13,
+      "description": "Spree::PriceRule uniqueness of type per price_list rejects a second rule of the same type on the same list",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_rule_spec.rb",
+      "line": 32,
+      "description": "Spree::PriceRule.subclasses_with_preference_schema flags only the superseded audience kinds",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/import_mapping_spec.rb",
+      "line": 54,
+      "description": "Spree::ImportMapping#try_to_auto_assign_file_column when exact match exists assigns the matching file column",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/import_mapping_spec.rb",
+      "line": 73,
+      "description": "Spree::ImportMapping#try_to_auto_assign_file_column when parameterized match exists assigns the matching file column",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/import_mapping_spec.rb",
+      "line": 63,
+      "description": "Spree::ImportMapping#try_to_auto_assign_file_column when case-insensitive match exists assigns the matching file column",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/import_mapping_spec.rb",
+      "line": 82,
+      "description": "Spree::ImportMapping#try_to_auto_assign_file_column when no match exists does not assign a file column",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/import_mapping_spec.rb",
+      "line": 92,
+      "description": "Spree::ImportMapping#try_to_auto_assign_file_column when file_column is already set overwrites with matching column",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/import_mapping_spec.rb",
+      "line": 38,
+      "description": "Spree::ImportMapping#mapped? when file_column is blank returns false",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/import_mapping_spec.rb",
+      "line": 42,
+      "description": "Spree::ImportMapping#mapped? when file_column is blank returns false when file_column is empty string",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/import_mapping_spec.rb",
+      "line": 30,
+      "description": "Spree::ImportMapping#mapped? when file_column is present returns true",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/import_mapping_spec.rb",
+      "line": 20,
+      "description": "Spree::ImportMapping#required? when schema_field is not a required field returns false",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/import_mapping_spec.rb",
+      "line": 12,
+      "description": "Spree::ImportMapping#required? when schema_field is a required field returns true",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/import_mapping_spec.rb",
+      "line": 122,
+      "description": "Spree::ImportMapping#schema_field_label when schema_field is a custom_field returns the custom_field definition name",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/import_mapping_spec.rb",
+      "line": 103,
+      "description": "Spree::ImportMapping#schema_field_label when schema_field exists in import schema returns the label for the schema field",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/import_mapping_spec.rb",
+      "line": 130,
+      "description": "Spree::ImportMapping#schema_field_label when schema_field does not exist in import schema returns nil",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/exports/price_list_prices_spec.rb",
+      "line": 57,
+      "description": "Spree::Exports::PriceListPrices is gated by the products scope, like the price-list endpoints",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/exports/price_list_prices_spec.rb",
+      "line": 41,
+      "description": "Spree::Exports::PriceListPrices#generate_csv writes the selected list's priced rungs, ladders in quantity order",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/exports/price_list_prices_spec.rb",
+      "line": 14,
+      "description": "Spree::Exports::PriceListPrices validation needs a price list of the store",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/catalog_spec.rb",
+      "line": 13,
+      "description": "Spree::Catalog refuses a price list from another store",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/catalog_spec.rb",
+      "line": 8,
+      "description": "Spree::Catalog requires a name and binds to a store",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/catalog_spec.rb",
+      "line": 268,
+      "description": "Spree::Catalog keeps the catalog when its price list is deleted",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/catalog_spec.rb",
+      "line": 210,
+      "description": "Spree::Catalog store scoping in resolution ignores an assignment pointing at another store catalog",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/catalog_spec.rb",
+      "line": 229,
+      "description": "Spree::Catalog store scoping in resolution resolves against the receiving store rather than the company own store",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/catalog_spec.rb",
+      "line": 218,
+      "description": "Spree::Catalog store scoping in resolution ignores a foreign catalog assigned to a customer group",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/catalog_spec.rb",
+      "line": 57,
+      "description": "Spree::Catalog#add_products appends to the existing assortment in one statement",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/catalog_spec.rb",
+      "line": 35,
+      "description": "Spree::Catalog#add_products gives an owned price list rows for the products it adds",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/catalog_spec.rb",
+      "line": 22,
+      "description": "Spree::Catalog#add_products adds store products once, skipping duplicates and foreign rows",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/catalog_spec.rb",
+      "line": 44,
+      "description": "Spree::Catalog#add_products drops those rows again when the product leaves the assortment",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/catalog_spec.rb",
+      "line": 499,
+      "description": "Spree::Catalog#pricing_strategy reads automatic for a percentage list",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/catalog_spec.rb",
+      "line": 506,
+      "description": "Spree::Catalog#pricing_strategy reads fixed for a list holding entered amounts",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/catalog_spec.rb",
+      "line": 495,
+      "description": "Spree::Catalog#pricing_strategy reads base when the catalog owns no list",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/catalog_spec.rb",
+      "line": 120,
+      "description": "Spree::Catalog.for_context falls back to the channel default catalog when nothing narrower applies",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/catalog_spec.rb",
+      "line": 112,
+      "description": "Spree::Catalog.for_context returns company catalogs and ignores ones that do not apply",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/catalog_spec.rb",
+      "line": 158,
+      "description": "Spree::Catalog.for_context company and customer group together consults the group when no company catalog applies",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/catalog_spec.rb",
+      "line": 165,
+      "description": "Spree::Catalog.for_context company and customer group together unions the subtree, nearest node first, when the tier is a company assignment",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/catalog_spec.rb",
+      "line": 153,
+      "description": "Spree::Catalog.for_context company and customer group together leaves the group out once the company subtree carries a catalog",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/catalog_spec.rb",
+      "line": 73,
+      "description": "Spree::Catalog.for_company is empty with no node",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/catalog_spec.rb",
+      "line": 88,
+      "description": "Spree::Catalog.for_company ignores inactive catalogs and sibling assignments",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/catalog_spec.rb",
+      "line": 77,
+      "description": "Spree::Catalog.for_company collects assignments up the ancestor chain, nearest node first",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/catalog_spec.rb",
+      "line": 97,
+      "description": "Spree::Catalog.for_company orders several catalogs on one node by position",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/catalog_spec.rb",
+      "line": 263,
+      "description": "Spree::Catalog#import_products_from_price_list answers zero without a price list",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/catalog_spec.rb",
+      "line": 255,
+      "description": "Spree::Catalog#import_products_from_price_list does not run on price list selection",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/catalog_spec.rb",
+      "line": 246,
+      "description": "Spree::Catalog#import_products_from_price_list copies the list products into the assortment",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/catalog_spec.rb",
+      "line": 391,
+      "description": "Spree::Catalog price list ownership bumps the catalog timestamp when its pricing changes",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/catalog_spec.rb",
+      "line": 336,
+      "description": "Spree::Catalog price list ownership raises rather than stealing a list claimed between validation and write",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/catalog_spec.rb",
+      "line": 380,
+      "description": "Spree::Catalog price list ownership reports why an invalid new list was rejected",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/catalog_spec.rb",
+      "line": 397,
+      "description": "Spree::Catalog price list ownership refuses a list belonging to another store",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/catalog_spec.rb",
+      "line": 282,
+      "description": "Spree::Catalog price list ownership claims the list through its foreign key",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/catalog_spec.rb",
+      "line": 322,
+      "description": "Spree::Catalog price list ownership refuses a list claimed concurrently before this save ran",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/catalog_spec.rb",
+      "line": 366,
+      "description": "Spree::Catalog price list ownership leaves the attached list agreeing with its row",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/catalog_spec.rb",
+      "line": 465,
+      "description": "Spree::Catalog price list ownership does not release a list that another catalog has already claimed",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/catalog_spec.rb",
+      "line": 301,
+      "description": "Spree::Catalog price list ownership refuses a list another catalog already owns",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/catalog_spec.rb",
+      "line": 354,
+      "description": "Spree::Catalog price list ownership takes the list with it when the catalog is destroyed",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/catalog_spec.rb",
+      "line": 289,
+      "description": "Spree::Catalog price list ownership attaches and detaches through the association writer",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/catalog_spec.rb",
+      "line": 482,
+      "description": "Spree::Catalog price list ownership refuses a foreign-store list as a validation error",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/catalog_spec.rb",
+      "line": 310,
+      "description": "Spree::Catalog price list ownership accepts the list once its previous owner lets go",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/catalog_spec.rb",
+      "line": 443,
+      "description": "Spree::Catalog price list ownership an unsaved price list is persisted and bound when the catalog is new",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/catalog_spec.rb",
+      "line": 453,
+      "description": "Spree::Catalog price list ownership an unsaved price list is persisted and bound on a catalog that already exists",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/catalog_spec.rb",
+      "line": 412,
+      "description": "Spree::Catalog price list ownership a rejected save attaches nothing",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/catalog_spec.rb",
+      "line": 430,
+      "description": "Spree::Catalog price list ownership a rejected save reads back the binding the caller asked for, so a form round-trips",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/catalog_spec.rb",
+      "line": 421,
+      "description": "Spree::Catalog price list ownership a rejected save detaches nothing",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/catalog_spec.rb",
+      "line": 177,
+      "description": "Spree::Catalog assignments accepts the buyer-audience assignable types",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/catalog_spec.rb",
+      "line": 187,
+      "description": "Spree::Catalog assignments refuses anything else, the retired channel and market types included",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/catalog_spec.rb",
+      "line": 198,
+      "description": "Spree::Catalog assignments is unique per catalog and assignable",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/catalog_spec.rb",
+      "line": 193,
+      "description": "Spree::Catalog assignments refuses a cross-store assignment",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/catalog_spec.rb",
+      "line": null,
+      "description": "Spree::Catalog behaves like metadata reads data as symbolized keys",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/catalog_spec.rb",
+      "line": null,
+      "description": "Spree::Catalog behaves like metadata is expected to eq ActiveSupport::HashWithIndifferentAccess",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/catalog_spec.rb",
+      "line": null,
+      "description": "Spree::Catalog behaves like metadata can query records by metadata properties",
+      "status": "pending",
+      "pending": "skipped by Spree on this database"
+    },
+    {
+      "file": "spec/models/spree/catalog_spec.rb",
+      "line": null,
+      "description": "Spree::Catalog behaves like metadata is expected to be truthy",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/catalog_spec.rb",
+      "line": null,
+      "description": "Spree::Catalog behaves like metadata no longer carries the split metadata columns",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/catalog_spec.rb",
+      "line": null,
+      "description": "Spree::Catalog behaves like metadata is expected to eq {}",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/catalog_spec.rb",
+      "line": null,
+      "description": "Spree::Catalog behaves like metadata reads data as not symbolized keys",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/catalog_spec.rb",
+      "line": null,
+      "description": "Spree::Catalog behaves like metadata can query records by metadata properties",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/collection_rules/tag_spec.rb",
+      "line": 27,
+      "description": "Spree::CollectionRules::Tag#apply contains matches products carrying any of the tag",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/collection_rules/tag_spec.rb",
+      "line": 31,
+      "description": "Spree::CollectionRules::Tag#apply does_not_contain excludes products carrying any of the tag",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/collection_rules/tag_spec.rb",
+      "line": 23,
+      "description": "Spree::CollectionRules::Tag#apply is_not_equal_to excludes products carrying the tag",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/collection_rules/tag_spec.rb",
+      "line": 35,
+      "description": "Spree::CollectionRules::Tag#apply returns the scope unchanged for an unknown match policy",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/collection_rules/tag_spec.rb",
+      "line": 19,
+      "description": "Spree::CollectionRules::Tag#apply is_equal_to matches products carrying the tag",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_rules/market_rule_spec.rb",
+      "line": 64,
+      "description": "Spree::PriceRules::MarketRule#markets returns empty when no markets are set",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_rules/market_rule_spec.rb",
+      "line": 59,
+      "description": "Spree::PriceRules::MarketRule#markets returns the markets matching the preferred IDs",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_rules/market_rule_spec.rb",
+      "line": 47,
+      "description": "Spree::PriceRules::MarketRule#preferred_market_ids= rejects a market that belongs to another store",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_rules/market_rule_spec.rb",
+      "line": 29,
+      "description": "Spree::PriceRules::MarketRule#applicable? when market_ids preference is set returns false when context market does not match",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_rules/market_rule_spec.rb",
+      "line": 35,
+      "description": "Spree::PriceRules::MarketRule#applicable? when market_ids preference is set returns false when context has no market",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_rules/market_rule_spec.rb",
+      "line": 24,
+      "description": "Spree::PriceRules::MarketRule#applicable? when market_ids preference is set returns true when context market matches",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_rules/market_rule_spec.rb",
+      "line": 15,
+      "description": "Spree::PriceRules::MarketRule#applicable? when market_ids preference is empty returns true for any market",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_rules/volume_rule_spec.rb",
+      "line": 9,
+      "description": "Spree::PriceRules::VolumeRule max_quantity preference stores nil when set to empty string",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_rules/volume_rule_spec.rb",
+      "line": 22,
+      "description": "Spree::PriceRules::VolumeRule#applicable? returns false when quantity is below minimum",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_rules/volume_rule_spec.rb",
+      "line": 17,
+      "description": "Spree::PriceRules::VolumeRule#applicable? returns true when quantity meets minimum",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_rules/volume_rule_spec.rb",
+      "line": 41,
+      "description": "Spree::PriceRules::VolumeRule#applicable? returns false when quantity is nil",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_rules/volume_rule_spec.rb",
+      "line": 30,
+      "description": "Spree::PriceRules::VolumeRule#applicable? with max_quantity set returns true when quantity is within range",
+      "status": "passed"
+    },
+    {
+      "file": "spec/models/spree/price_rules/volume_rule_spec.rb",
+      "line": 35,
+      "description": "Spree::PriceRules::VolumeRule#applicable? with max_quantity set returns false when quantity exceeds maximum",
+      "status": "passed"
+    }
+  ]
+}
