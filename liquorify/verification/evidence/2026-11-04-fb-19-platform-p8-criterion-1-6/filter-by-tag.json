@@ -1,0 +1,33 @@
+{
+  "test": "filter-by-tag",
+  "revision": "7ffc7755c8ae683af2c8f00efe543e1070cdbae0",
+  "stamp": "mw2917sl",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "opened the product list",
+      "range": "1–25 of 29"
+    },
+    {
+      "step": "filtered by p8-tag-mw2917sl",
+      "chip": "Tags is any of p8-tag-mw2917sl",
+      "range": "1–2 of 2",
+      "listed": [
+        "P8 Dune mw2917sl",
+        "P8 Amber mw2917sl"
+      ]
+    },
+    {
+      "step": "reloaded; still filtered",
+      "listed": [
+        "P8 Dune mw2917sl",
+        "P8 Amber mw2917sl"
+      ]
+    },
+    {
+      "step": "cleared the filter, then reloaded",
+      "range": "1–25 of 29"
+    }
+  ],
+  "outside": []
+}

@@ -1,0 +1,39 @@
+{
+  "test": "option-values-pointer",
+  "revision": "7ffc7755c8ae683af2c8f00efe543e1070cdbae0",
+  "stamp": "mw292g4e",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "opened the option type",
+      "order": [
+        "small",
+        "medium",
+        "large",
+        "xlarge"
+      ]
+    },
+    {
+      "step": "dragged the first value below the third",
+      "order": [
+        "medium",
+        "large",
+        "small",
+        "xlarge"
+      ]
+    },
+    {
+      "step": "saved"
+    },
+    {
+      "step": "reloaded and opened it again",
+      "order": [
+        "medium",
+        "large",
+        "small",
+        "xlarge"
+      ]
+    }
+  ],
+  "outside": []
+}

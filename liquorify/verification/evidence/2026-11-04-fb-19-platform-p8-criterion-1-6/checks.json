@@ -1,0 +1,166 @@
+{
+  "check": "catalog-behaviours.spec.ts with CATALOG_SABOTAGE=1",
+  "date": "2026-11-04",
+  "allFailedAsExpected": true,
+  "tests": [
+    {
+      "test": "filters: a channel lists only its products, and clearing lists them all again",
+      "expected": "failed",
+      "outcome": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(locator).toHaveText(expected) failed / Locator:  getByText(/^\\d+–\\d+ of \\d+$/)",
+          "line": 237
+        }
+      ]
+    },
+    {
+      "test": "filters: a product type lists only its products, and clearing lists them all again",
+      "expected": "failed",
+      "outcome": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(locator).toHaveText(expected) failed / Locator:  getByText(/^\\d+–\\d+ of \\d+$/)",
+          "line": 237
+        }
+      ]
+    },
+    {
+      "test": "filters: a tag lists only its products, and clearing lists them all again",
+      "expected": "failed",
+      "outcome": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(locator).toHaveText(expected) failed / Locator:  getByText(/^\\d+–\\d+ of \\d+$/)",
+          "line": 237
+        }
+      ]
+    },
+    {
+      "test": "bulk actions: products chosen on the list are added to a collection, and stay in it",
+      "expected": "failed",
+      "outcome": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(locator).toBeVisible() failed / Locator: getByRole('link', { name: 'P8 Gorse mw28rl8e', exact: true })",
+          "line": 436
+        }
+      ]
+    },
+    {
+      "test": "search engine card: a new slug, meta title and meta description are kept after a reload",
+      "expected": "failed",
+      "outcome": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(locator).toHaveValue(expected) failed / Locator:  locator('#product-slug')",
+          "line": 493
+        }
+      ]
+    },
+    {
+      "test": "product types: renaming one keeps the new name after a reload",
+      "expected": "failed",
+      "outcome": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(locator).toBeVisible() failed / Locator: locator('tbody tr').filter({ hasText: 'P8 Cordials mw28rl8e' })",
+          "line": 554
+        }
+      ]
+    },
+    {
+      "test": "product types: deleting one that no product uses removes it",
+      "expected": "failed",
+      "outcome": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(locator).toHaveCount(expected) failed / Locator:  locator('tbody tr').filter({ hasText: 'P8 Unused type mw28rl8e' })",
+          "line": 585
+        }
+      ]
+    },
+    {
+      "test": "product types: deleting one that products use is refused with Spree's message, and it stays",
+      "expected": "failed",
+      "outcome": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: Spree's refusal is shown / expect(locator).toBeVisible() failed",
+          "line": 631
+        },
+        {
+          "assertion": "Error: expect(locator).toBeVisible() failed / Locator: locator('tbody tr').filter({ hasText: 'P8 Spirits mw28rl8e' })",
+          "line": 640
+        }
+      ]
+    },
+    {
+      "test": "option values: an order made with the pointer is kept after a reload",
+      "expected": "failed",
+      "outcome": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(received).toEqual(expected) // deep equality / - Expected  - 1",
+          "line": 710
+        }
+      ]
+    },
+    {
+      "test": "option values: a value moved one place with the keyboard keeps it after a reload",
+      "expected": "failed",
+      "outcome": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(received).toEqual(expected) // deep equality / - Expected  - 1",
+          "line": 768
+        }
+      ]
+    },
+    {
+      "test": "option values: a value moved three places in one keyboard pick-up keeps them after a reload",
+      "expected": "failed",
+      "outcome": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: three presses of ArrowUp take the last value to the top / expect(received).toEqual(expected) // deep equality",
+          "line": 796
+        }
+      ]
+    },
+    {
+      "test": "library file in use: the library names where it is used, and the delete warns before anything goes",
+      "expected": "failed",
+      "outcome": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(locator).toBeVisible() failed / Locator: getByRole('dialog').getByRole('link', { name: 'P8 Kestrel mw28rl8e' })",
+          "line": 861
+        }
+      ]
+    },
+    {
+      "test": "library file in use: confirming the delete removes it from the library and from the product",
+      "expected": "failed",
+      "outcome": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(locator).toBeVisible() failed / Locator: getByText('No files match your filters.')",
+          "line": 912
+        }
+      ]
+    },
+    {
+      "test": "library file in use: cancelling the warning keeps the file in the library and on the product",
+      "expected": "failed",
+      "outcome": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(locator).toBeVisible() failed / Locator: getByRole('listitem').filter({ hasText: 'P8 cancel picture mw28rl8e' })",
+          "line": 975
+        }
+      ]
+    }
+  ],
+  "revision": "7ffc7755"
+}

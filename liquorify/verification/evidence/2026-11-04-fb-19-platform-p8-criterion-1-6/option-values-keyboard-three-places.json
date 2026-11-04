@@ -1,0 +1,31 @@
+{
+  "test": "option-values-keyboard-three-places",
+  "revision": "7ffc7755c8ae683af2c8f00efe543e1070cdbae0",
+  "stamp": "mw292g4e",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "opened the option type",
+      "order": [
+        "small",
+        "medium",
+        "large",
+        "xlarge"
+      ]
+    },
+    {
+      "step": "picked up the last value with Space, pressed ArrowUp three times and dropped it with Space",
+      "placesAnnounced": 1,
+      "order": [
+        "small",
+        "medium",
+        "large",
+        "xlarge"
+      ]
+    },
+    {
+      "step": "nothing moved, so there was nothing to save"
+    }
+  ],
+  "outside": []
+}
