@@ -12,7 +12,7 @@ updated: 2026-11-04
 
 The fourth backend batch organised by product area: the dashboard's side of [LIQ-006 §5](../LIQ-006-product-capability-baseline.md#5-catalog-and-pricing), where staff build and price what the store sells. It reproduces what Spree already has for products, variants and options, publishing, product types, the media library, categories and collections, catalogs, price lists, translations, imports and exports, promotions, gift cards and store credit. Nothing here changes Spree's code or the storefront's, or adds a Liquorify feature.
 
-**Status.** PROPOSED. It is batch 5 in [LIQ-004's proposed order](../LIQ-004-foundation-backlog.md#proposed-order-of-the-remaining-batches), which depends on batch 3, setup, accepted and merged on 2026-10-26. On 2026-10-30 the owner asked for this proposal under the existing batch rules and the Spree-first scope. It follows the batch rules of [LIQ-010 0.4](../LIQ-010-design-system-reproduction-architecture.md#121-each-batch) and has the same shape as [batch 3](fb-19-batch-setup-stores-and-settings.md). The batch is too large for one review, so it comes in three parts, as LIQ-004 proposed. Part 1 is described in full in §2 to §9, and part 2 in §10. Part 3 is outlined in §12, and is described in full in its own pull request before its work starts. This work item was proposed in draft pull request [#33](https://github.com/pateldhruval872/liquorify/pull/33). On 2026-11-02 the owner approved the three recommended answers in §7: three parts, with part 1 in one implementation pull request; sellers' submitted products, their review controls and the seller filter deferred to batch 13; and FL-04 checked on the running storefront against the same pinned backend (criterion 15). The owner kept the existing gap and defect decisions, and tenant isolation NOT_RUN. Part 1 is built in its own pull request, [#34](https://github.com/pateldhruval872/liquorify/pull/34), and the corrections its running screens found are in §11. On 2026-11-02 the owner accepted part 1's reference images, screen evidence and fidelity, within the documented limits, and answered its gaps G-53 to G-57, before its merge ([record §11](../verification/2026-11-02-fb-19-batch-catalog-and-pricing-part-1.md#11-the-owners-review-2026-11-02)). The owner merged #34 on 2026-11-03, recorded apart ([merge record](../verification/2026-11-03-fb-19-batch-catalog-and-pricing-part-1-merge.md)). Part 2's detailed proposal is §10, proposed in pull request [#36](https://github.com/pateldhruval872/liquorify/pull/36) on 2026-11-03 and aligned with the project's baseline completion audit, as the owner asked on 2026-11-02. On 2026-11-04 the owner answered its two questions as recommended, as decisions 2 and 3 of the owner decision brief: one implementation pull request, and the narrower roles' server refusals joining G-11, with the catalog's refusal checks consolidated after part 3, before Liquorify changes identity or access. The owner also strengthened FL-21's check to cover the imported products' saved values and representative exported rows (§10.9). Part 2's work starts on these answers, in its own pull request. Part 3 still needs its detailed proposal.
+**Status.** PROPOSED. It is batch 5 in [LIQ-004's proposed order](../LIQ-004-foundation-backlog.md#proposed-order-of-the-remaining-batches), which depends on batch 3, setup, accepted and merged on 2026-10-26. On 2026-10-30 the owner asked for this proposal under the existing batch rules and the Spree-first scope. It follows the batch rules of [LIQ-010 0.4](../LIQ-010-design-system-reproduction-architecture.md#121-each-batch) and has the same shape as [batch 3](fb-19-batch-setup-stores-and-settings.md). The batch is too large for one review, so it comes in three parts, as LIQ-004 proposed. Part 1 is described in full in §2 to §9, part 2 in §10 and part 3 in §12. This work item was proposed in draft pull request [#33](https://github.com/pateldhruval872/liquorify/pull/33). On 2026-11-02 the owner approved the three recommended answers in §7: three parts, with part 1 in one implementation pull request; sellers' submitted products, their review controls and the seller filter deferred to batch 13; and FL-04 checked on the running storefront against the same pinned backend (criterion 15). The owner kept the existing gap and defect decisions, and tenant isolation NOT_RUN. Part 1 is built in its own pull request, [#34](https://github.com/pateldhruval872/liquorify/pull/34), and the corrections its running screens found are in §11. On 2026-11-02 the owner accepted part 1's reference images, screen evidence and fidelity, within the documented limits, and answered its gaps G-53 to G-57, before its merge ([record §11](../verification/2026-11-02-fb-19-batch-catalog-and-pricing-part-1.md#11-the-owners-review-2026-11-02)). The owner merged #34 on 2026-11-03, recorded apart ([merge record](../verification/2026-11-03-fb-19-batch-catalog-and-pricing-part-1-merge.md)). Part 2's detailed proposal is §10, proposed in pull request [#36](https://github.com/pateldhruval872/liquorify/pull/36) on 2026-11-03 and aligned with the project's baseline completion audit, as the owner asked on 2026-11-02. On 2026-11-04 the owner answered its two questions as recommended, as decisions 2 and 3 of the owner decision brief: one implementation pull request, and the narrower roles' server refusals joining G-11, with the catalog's refusal checks consolidated after part 3, before Liquorify changes identity or access. The owner also strengthened FL-21's check to cover the imported products' saved values and representative exported rows (§10.9). Part 2's work starts on these answers, in its own pull request. Part 3's detailed proposal is §12, proposed on 2026-11-04 in its own records pull request, [#43](https://github.com/pateldhruval872/liquorify/pull/43), under the owner's delegation of that day ([record](../verification/2026-11-04-delegated-acceptance-and-merging.md)). It has no question that needs the owner: its four choices are planning within this batch's approved scope, recorded as decided under the delegation (§12.9). Its work starts after part 2's merge, when lane A frees.
 
 **Reading of the instruction.** The owner's message of 2026-10-30 asked for the next batch's proposal: batch 5, catalog and pricing, following the existing batch rules and continuing the Spree-first scope. So this batch reproduces Spree's dashboard as it is at `main` `01a0365` and adds nothing of Liquorify's own. The storefront's side of §5, CAP-05-14, CAP-05-16 and CAP-05-17 and the shopper's side of CAP-05-01 and CAP-05-04, is batch 4's, accepted on 2026-10-29 and 2026-10-30; this batch maps those rows to batch 4's evidence and does not capture them again.
 
@@ -20,7 +20,7 @@ The fourth backend batch organised by product area: the dashboard's side of [LIQ
 
 Every catalog, pricing and loyalty screen in the dashboard has Storybook stories for the components it uses, captures of the running screen in each meaningful state and permission variant, and a step-by-step map of the flows it holds: FL-04, creating and publishing a product, in part 1; FL-21, importing from a CSV file, in part 2; and the dashboard's steps of FL-16 and FL-17, a promotion and a gift card, in part 3. The map links each capability to its evidence or to a named gap.
 
-- **Bounded, in three parts:** the 24 screens and one overlay of §5 use 98 components that have no stories yet, about three times batch 3's 27. Part 1 holds 6 screens, FL-04 and 40 of those components (§2, §3); part 2 holds 13 screens and the import overlay and about 41; part 3 holds 5 screens and 15 (§10, §12). The other 2 go to batch 13 (§2.3).
+- **Bounded, in three parts:** the 24 screens and one overlay of §5 use 98 components that have no stories yet, about three times batch 3's 27. Part 1 holds 6 screens, FL-04 and 40 of those components (§2, §3); part 2 holds 13 screens and the import overlay and about 41 (§10); part 3 holds 5 screens and 15 (§12). The other 2 go to batch 13 (§2.3).
 - **Same shape as batch 3:** screens, flows, permissions, meaningful states and running-screen evidence progress alongside component coverage, with what the interface shows kept apart from what the server enforces.
 - **Spree stays unchanged:** only Storybook files, mocks, scripts, evidence and records change.
 - **Function is recorded apart from coverage:** a capture shows one state of a screen, not that a flow works.
@@ -67,7 +67,7 @@ The catalog has several permission scopes ([LIQ-008 §2](../LIQ-008-spree-screen
 ### 2.3 Left out, and where it goes
 
 - **Part 2 (§10):** categories and collections (CAP-05-04), catalogs (CAP-05-05), translations (CAP-05-08's page, DA-PRD-06), price lists and price rules (CAP-05-10), and imports and exports (CAP-05-15) with the import wizard (DA-OVL-05), FL-21 and the two staff emails EM-S-05 and EM-S-06. `import-button`, `export-button`, `import-wizard-dialog` and `wizard` go there; part 1 captures the product list's import and export buttons as they render.
-- **Part 3 (§12):** promotions (CAP-05-12) and gift cards and store credit (CAP-05-13).
+- **Part 3 (§12):** promotions (CAP-05-12) and gift cards and store credit (CAP-05-13), proposed in full on 2026-11-04.
 - **A seller's product under review:** the review actions and the seller card on the product page (`product-review-actions`, `product-seller-card`) go to batch 13, the marketplace, where sellers and their submissions are set up, as the owner answered on 2026-11-02 (§7). The seller filter on the product list goes there too. Part 1 captures the product page and the product list for the store's own products.
 - **Stock:** the product page's stock per location and stock history are captured as they render; stock locations, transfers and receipts are batch 6's.
 - **The tax category:** captured as it renders, with `products-tax-category.spec.ts`; tax categories and rates are batch 7's.
@@ -317,13 +317,136 @@ Part 1's running screens showed where this proposal did not match Spree at `01a0
 | §2.2 | The read-only role keeps some controls the server then refuses | The catalog viewer keeps Add product, a new product's form and the product page's Save, with every card's controls; the bulk action bar, Import, Upload files and the Add buttons of options and product types are hidden. A teammate who cannot read sales channels sees each channel by its id (B14), and one who cannot read product types or delivery profiles sees neither chosen (B15); a page the teammate cannot read shows its empty state, as if the store had none (B17) |
 | §4 | The size estimate: about 220 stories, 440 reference images and 200 captures | 254 stories and 508 reference images, 10.0 MB; 140 captures, 280 images, and evidence of 22 MB in all |
 
-## 12. Part 3, outlined
+## 12. Part 3: promotions, gift cards and store credit
 
-Described in full, with its states, permission variants, components, criteria and questions, in its own pull request before its work starts, as part 2 is in §10. It follows part 2, and uses part 1's catalog data.
+Part 3 covers how staff reward and credit shoppers: promotions with their rules, actions and coupon codes (CAP-05-12), and gift cards and store credit (CAP-05-13), with the dashboard's steps of FL-16 and FL-17. It reproduces Spree's dashboard as `main` has it at `87a2ea8`, whose dashboard packages and SDKs are unchanged since `01a0365`, the revision part 1 pinned. Since then `main` has changed Spree's address models and how a gift card is applied to an order and released (#30, merged on 2026-11-02). Applying a gift card to an order belongs to checkout, batch 9, and part 3 claims nothing about it.
 
-**Part 3: promotions, gift cards and store credit.** 15 new components: the promotion form and its eight rule editors, its two action editors and match policy picker, the calculator summary, and the two store credit dialogs.
+Part 3 builds on part 2's merge, because it reuses six components that part 2 gives stories to (§12.5). It uses the catalog data of parts 1 and 2, and follows the same batch rules. It was proposed on 2026-11-04, under the owner's delegation of that day ([record](../verification/2026-11-04-delegated-acceptance-and-merging.md)), and aligned with the project's baseline completion audit: it completes batch 5, which batch 6 depends on, and it stays in lane A, with its own checkout and data. After it, lane A runs the catalog's consolidated refusal check under G-11 (decision 3), which is proposed separately.
 
-| Capability | Screens | Flow | Browser tests |
+### 12.1 Capabilities, screens, flows and tests
+
+| Capability (LIQ-006 §5) | Screens | Flow | Browser tests |
 |---|---|---|---|
-| CAP-05-12 Promotions and coupon codes | DA-PRM-01 to DA-PRM-03 | FL-16, its dashboard step; its cart, checkout and order steps are batches 8 and 9's | `promotions.spec.ts` (21 tests) |
-| CAP-05-13 Gift cards and store credit | DA-LOY-01, DA-LOY-02; the shopper's gift card list (SF-ACC-09) is the accounts batch's | FL-17, its dashboard step; redeeming at checkout is batch 9's | `gift-cards.spec.ts` (6), `store-credits.spec.ts` (5) |
+| CAP-05-12 Promotions and coupon codes | DA-PRM-01 to DA-PRM-03. The coupon field on the cart and at checkout (SF-SHOP-05, SF-CHK-01) is batch 9's, and an order's discounts (DA-ORD-04) are batch 8's | FL-16, its dashboard step | `promotions.spec.ts` (21 tests) |
+| CAP-05-13 Gift cards and store credit | DA-LOY-01, DA-LOY-02. The shopper's gift card list (SF-ACC-09) is the accounts batch's, accepted; a customer's store credit card on DA-CUS-02 is batch 10's | FL-17, its dashboard step; redeeming at checkout is batch 9's | `gift-cards.spec.ts` (6), `store-credits.spec.ts` (5); the store credit dialogs opened from the customer page in `customers.spec.ts` (5) |
+
+With part 3, every capability of §5 has a map, some only in part. CAP-05-11, price history, keeps P1's result, as in parts 1 and 2. LIQ-006 notes that it is not known whether promotions on alcohol are restricted where Liquorify trades. That is a Liquorify question, deferred until the baseline is complete, and part 3 does not answer it.
+
+### 12.2 Meaningful states to capture
+
+From LIQ-008, the screens' own messages and the browser tests, plus the shared list states that apply. Each state is captured in light and dark at 1280 pixels; the promotion page and both loyalty lists are also captured on a narrow screen.
+
+| Screen | States |
+|---|---|
+| DA-PRM-01 Promotions | Listed, automatic and with a coupon code, by their start and expiry dates: not yet started, running and expired; searched, and finding nothing; filtered by start and expiry date; sorted; none; the delete confirmation; the list failing to load |
+| DA-PRM-02 New promotion | The empty form, with a coupon code, which Spree chooses by default; automatic; one code typed, and one generated; many codes, with a prefix and their number; a usage limit; its schedule; the rule picker, with every rule Spree registers; each rule's editor: the eight that have their own editor (product, category, customer, customer group, country, channel, market and option value) and the generic editor that the currency, item total, first order, signed-in and one-use-per-customer rules use; the match policy, all or any; the action picker; each action: an order adjustment with each of its five calculators and item adjustments with each of their three, each with the calculator's summary, then free line items and free shipping; tiers, with a tier above 100 percent refused; an editor cancelled, which adds nothing; field errors; saving |
+| DA-PRM-03 Promotion | Its rules and actions with their summaries; a rule and an action removed, each with its confirmation; tiers edited and removed; the settings that cannot change after creation, with their explanation; the codes sheet, with used, partly used and unused codes, paged, and the export of its codes; unsaved changes; saved; a save refused with its errors; the `promotion.form_sidebar` slot, as it renders; the page failing to load |
+| DA-LOY-01 Gift cards | Listed in each status a running screen can reach: active, partly redeemed, redeemed and expired; with and without a customer; issued in a batch; searched, and finding nothing; filtered by status, currency, batch and customer; none; the create sheet, with an amount, a generated or typed code, a currency, an expiry date and a customer; a quantity above one, which issues a batch; the edit sheet, with what has been used and who issued it; the delete confirmation; the old promotions address opening the list; the list failing to load |
+| DA-LOY-02 Store credits | What the store still owes, with what it issued and what was used, per currency; listed, outstanding and spent, issued from a gift card and not, and by who issued it; searched; filtered by customer, standing, currency, origin and who issued it; none; issuing to a customer picked on the page, including one created after the picker last searched; a credit's sheet with its history, an empty history, and the history failing to load; following a credit to its customer; editing and deleting a credit; a credit of a customer whose data was erased, as the list shows it; the list failing to load |
+
+**A cancelled gift card.** Spree can cancel a gift card through its own workflow, but no staff screen or API request cancels one at `87a2ea8`, read in the code. DA-LOY-01's "canceled" status and its filter option are therefore checked against their source, as SF-ACC-09's were (G-14). Part 3's record confirms on the running screen that no staff control cancels a gift card. That is the evidence G-14's proposed answer waits for; answering G-14 stays with the owner.
+
+### 12.3 Permission variants
+
+Part 3's screens use three scopes ([LIQ-008 §2](../LIQ-008-spree-screen-inventory.md#2-who-may-open-what)): `promotions`, which no role template covers, and `gift_cards` and `store_credits`, which the order manager template holds. Picking a customer for a gift card or a credit needs read on `customers`. A promotion's rules pick from products, categories, customers, customer groups, channels and markets, each under its own scope. Five roles:
+
+- **Admin role:** every screen with every control.
+- **A role made from the order manager template,** which holds write on gift cards and store credits and read on customers, and nothing on promotions: both loyalty screens with their controls; the promotions entry hidden, and a direct visit to each promotion screen recorded as it shows.
+- **The marketer, a custom role with write on `promotions` and nothing else.** No template covers promotions, so this is the role a store would make for the person who runs them. The promotion screens, with each rule editor's picker recorded as it shows to a teammate who cannot read what it picks from. Part 1 found that such a teammate sees a related record by its id or not at all (its record's B14 to B17), so each picker is recorded, not assumed.
+- **The loyalty viewer, a custom role with read on `promotions`, `gift_cards`, `store_credits` and `customers` and write on nothing:** the same screens, with create, edit and delete controls recorded as each screen shows them.
+- **A role made from the merchandiser template, which holds none of part 3's scopes:** the promotion and loyalty entries hidden, and a direct visit to each screen recorded as it shows.
+
+What the server refuses to the narrower roles is recorded from Spree's own specs (criterion 12). What no spec sends joins G-11, for the catalog's consolidated refusal check after part 3, as the owner answered on 2026-11-04 (decision 3, [§10.9](#109-questions-for-the-owner-and-the-owners-answers)).
+
+### 12.4 Left out, and where it goes
+
+- **Using a promotion:** a coupon entered on the cart or at checkout, and an automatic promotion applied to a cart, are batch 9's, with FL-16's later steps; an order's discounts are batch 8's.
+- **Redeeming a gift card or store credit at checkout:** batch 9's, with FL-17's later steps. Part 3 reaches used gift cards, credits and codes through the Admin API (§12.6) only so that their states can be captured, and claims nothing about checkout.
+- **A customer's store credit card on DA-CUS-02:** batch 10's, with the customer page. The issue and edit dialogs get their stories here, and their tests from the customer page are listed, because the same dialogs open there.
+- **Refunds to store credit:** batch 8's, with returns.
+- **The shopper's gift cards (SF-ACC-09):** the accounts batch's, accepted.
+- **The files that gift card and coupon code exports write:** the coupon code export is captured as it starts from the codes sheet, and Spree's export specs cover the files (criterion 12). The running check of an export's file is part 2's, for products (FL-21).
+- **Whether promotions on alcohol are restricted:** a Liquorify question (§12.1).
+
+### 12.5 Components
+
+Part 3's screens use 15 components from [LIQ-009](../LIQ-009-spree-component-and-token-inventory.md) that have no stories yet. They were found as parts 1 and 2 found theirs: from what the screens and their table definitions import on `main`, followed through each file they import, after parts 1 and 2. The part's first step confirms the list against the running screens.
+
+| Layer | New in part 3 |
+|---|---|
+| Composed (CMP-DUI-C) | `calculator-summary` (07) |
+| `promotion-editors/` (CMP-DA-G-15) | `promotion-form`, `match-policy-picker`, `action-adjustment`, `action-create-line-items`, `rule-category`, `rule-channel`, `rule-country`, `rule-customer-group`, `rule-market`, `rule-option-value`, `rule-product`, `rule-user` |
+| `store-credits/` (CMP-DA-G-21) | `edit-store-credit-dialog`, `issue-store-credit-dialog` |
+
+`promotion-form` holds the promotion page's cards, the rule and action pickers and the codes sheet, and each gets its own stories. The rules and actions that have no editor of their own use `preferences-form`, already covered. The gift card screen builds its sheets from primitives, with no component of its own, so its states are the screen's captures. `calendar` and `date-picker` are reached only through `store-date-picker`, whose stories part 1 made, as in parts 1 and 2.
+
+**From part 2, so part 3 builds after part 2's merge:** `editor-shell`, `export-button`, `market-combobox`, `money`, `resource-combobox` and `type-picker-sheet`.
+
+**Already covered, reused here:** 55 components with stories from earlier batches and part 1, among them `resource-table`, `table-toolbar`, `bulk-action-bar`, `store-date-picker`, `page-header`, `can`, `slot`, `preferences-form`, `confirm-dialog`, `country-combobox`, `currency-select`, `resource-multi-autocomplete`, `choice-card-picker`, `json-preview-drawer`, `relative-time`, and the primitives.
+
+### 12.6 Delivery
+
+- **One backend pull request for part 3:** stories, fixtures and mocks, reference images, the capture scripts, the verification record, the image review list, the evidence index and LIQ-009's Storybook column. It builds on `main` after part 2's merge.
+- **Running screens:** the dashboard built at the pull request's revision against Spree's browser-test server, as parts 1 and 2 ran it, with Spree's sample catalog loaded into that server's own database. Spree's sample data gives one promotion, "Free Shipping", with the code FREESHIP. What a state needs beyond it is added through the Admin API on that database only: promotions with each rule and action, one with many codes, gift cards in a batch and with a customer, store credits in two currencies, and the roles in §12.3. States that need an order (a gift card partly and fully redeemed, a credit partly used, a coupon code used) are reached by applying them to orders that staff create and complete through the Admin API on that database, if Spree's API completes such an order with its test payment method. An expired gift card is made the same way, if Spree's API accepts an expiry date in the past. Any state the API cannot reach is checked against its source, and the record says so. Spree's code, tests and fixtures are not changed.
+- **Its own checkout and data,** under LIQ-004's lane rules, as parts 1 and 2 ran.
+- **Emails:** none. Part 3's screens send no email of their own; the coupon code export sends EM-S-05, which part 2 renders and reads for a product export.
+
+**Size, estimated from part 1:** about 100 stories and 200 reference images, and about 90 running-screen captures with their computed styles. Part 1 came to 254 stories for 40 components; part 3 has 15, but the promotion form alone has many cards, pickers and editors.
+
+### 12.7 Acceptance criteria
+
+Part 1's criteria 1 to 14 apply to part 3, with its own screens, components, roles and flows: the dashboard steps of FL-16 and FL-17 in criterion 5, and the screens of §12.2 in criterion 3. Criterion 12 runs Spree's own specs for part 3's endpoints and models: the Admin API controller and integration specs for promotions, promotion actions and rules, coupon codes, gift cards and gift card batches, store credits and their history, a customer's store credits, and an order's gift cards and store credits; and Spree core's specs for promotions, their actions, rules and calculators, coupon codes, gift cards, gift card batches, store credits and their history, and the gift card workflows. Two criteria change, and one is added:
+
+| # | Criterion | Evidence |
+|---|---|---|
+| 11 | The reference images, the screen evidence and fidelity are accepted under D5. Under the owner's delegation of 2026-11-04 this is a delegated acceptance, recorded as such and never as the owner's review. The gaps part 3 leaves stay for the owner's answers | The acceptance record |
+| 15 | Each part 3 behaviour that no browser test drives is listed, with the check made instead, as part 1 listed its own under G-57. A behaviour is not counted as tested because a capture shows it | The record's gap list |
+| 16 | The record states whether any staff control cancels a gift card on the running screen, for G-14 (§12.2). Answering G-14 stays with the owner | The record's G-14 section, with its captures |
+
+### 12.8 FL-16 and FL-17, their dashboard steps
+
+**FL-16, run a promotion:**
+
+| Step | Browser tests |
+|---|---|
+| DA-PRM-02: create an automatic promotion with a rule and an action | `promotions.spec.ts`: "creates an automatic promotion with a rule and an action" |
+| DA-PRM-02: its rules | "creates a promotion with a Country rule", "… with Channel and Market rules", "… with a Product rule", "… with a Category rule", "… with a Customer rule", "… with a Customer Group rule", "… with a Currency rule defaulting to store currency" |
+| DA-PRM-02: its actions and their calculators | "creates a promotion with a Create Adjustment action", "reopens a Create Adjustment action on the configured calculator", "keeps a flat rate amount and an item total minimum exactly", "keeps a flat percent discount exactly", "saves the tiers of a tiered calculator, lowest threshold first", "refuses a tier discount above 100 percent", "creates a promotion with a Create Item Adjustments action", "creates a promotion with a Create Line Items action" |
+| DA-PRM-02: a promotion with a coupon code, one or many | None found: the tests switch to an automatic promotion. Captured, and listed under criterion 15 |
+| DA-PRM-03: edit it | "removes a rule and an action while editing", "edits and removes tiers on a saved promotion" |
+| SF-SHOP-05 or SF-CHK-01: the coupon entered | Batch 9 |
+| DA-ORD-04: the order's discounts | Batch 8 |
+
+**FL-17, issue and redeem a gift card:**
+
+| Step | Browser tests |
+|---|---|
+| DA-LOY-01: issue a gift card, with a generated or a typed code | `gift-cards.spec.ts`: "creates a gift card with an auto-generated code", "creates a gift card with a custom code and edits it" |
+| DA-LOY-01: issue a batch | "bulk-issues a batch when quantity > 1" |
+| SF-CHK-01: redeem it at checkout | Batch 9 |
+| SF-ACC-09: the shopper's gift cards | The accounts batch's, accepted |
+
+Part 3's other browser tests are in no flow: "lists promotions", "cancelling a rule or action editor does not add a row" and "deletes a promotion"; "lists gift cards", "deletes a gift card" and "the old promotions address opens the gift cards list"; the five tests of `store-credits.spec.ts`; and the five store credit tests of `customers.spec.ts`.
+
+### 12.9 Choices made under the owner's delegation
+
+Part 3 has no question that needs the owner. Its choices are planning within batch 5's approved scope, which the owner's delegation of 2026-11-04 lets the coordinating session decide. Each is recorded as decided under that delegation, never as the owner's answer, and the owner may change any of them.
+
+1. **One implementation pull request.** Part 3 has five screens and 15 new components, about a third of part 2. The alternative, promotions first and then gift cards and store credit, would add a pull request and a review without reducing risk.
+2. **Part 3 builds after part 2's merge,** because it reuses six components that part 2 gives stories to. Starting earlier would make it write stories that part 2 also writes.
+3. **States that need an order are reached through the Admin API,** on the browser-test database only (§12.6). This follows the rule every batch has used. It reaches no checkout screen, and redeeming at checkout stays batch 9's.
+4. **A fifth role, the marketer,** with write on promotions only (§12.3), because no role template covers promotions and its pickers read scopes it may not have.
+
+What stays with the owner: G-14's answer, the answers to the gaps part 3's record lists, and anything the record finds that would change scope, a defect or a criterion. Tenant isolation stays NOT_RUN for part 3: FB-03's validation is separate, and part 3 claims nothing about it.
+
+### 12.10 Gaps known before the work starts
+
+| Gap | What would close it |
+|---|---|
+| A cancelled gift card: no staff screen or API request cancels one at `87a2ea8`, read in the code | G-14, pending with the owner. Part 3's record confirms it on the running screen (criterion 16); the owner's answer decides |
+| States that need an order or a past date, if Spree's API cannot reach them (§12.6) | Checked against their source, and recorded as coverage gaps |
+| States reached only by answering a request in the browser, such as a list, a credit's history or the page failing to load, and a save refused | Recorded as simulated interface-state coverage, as G-54 was |
+| Behaviours no browser test drives. Read in the tests so far: a promotion with a coupon code, one or many; the usage limit; the option value, signed-in and one-use-per-customer rules; the codes sheet and its export; the gift card list's filters and an expired gift card; the store credit list's filters and a credit's history | Listed in the record (criterion 15) for the owner's answer, as G-57 was |
+| What the server refuses to a role that may not read or write these resources | Criterion 12 records what Spree's specs exercise; the rest joins G-11, for the catalog's consolidated refusal check after part 3, before Liquorify changes identity or access (decision 3) |
+| Using a promotion, a gift card or store credit at checkout | Batch 9, with FL-16's and FL-17's later steps |
+| Tenant isolation (criterion 13) | FB-03's validation and the fixes for ISO-1 to ISO-7. The customer rule and the gift card and store credit pickers choose shoppers from the customer list that ISO-1 concerns; part 3 captures them with the browser-test store's own shoppers and claims nothing about other stores. A new isolation defect is reported to the owner privately and is not published while it is open |

@@ -1,0 +1,47 @@
+{
+  "country": "pl",
+  "base": "http://localhost:3301/pl/en",
+  "pages": {
+    "home": {
+      "url": "/pl/en",
+      "status": 200,
+      "title": "Spree Store",
+      "h1": [
+        "Spree Store Storefront"
+      ],
+      "productHeadings": 0,
+      "noProductsFound": true,
+      "productCount": null,
+      "pricesShown": 0,
+      "priceExamples": []
+    },
+    "products": {
+      "url": "/pl/en/products",
+      "status": 200,
+      "title": "Products | Spree Store",
+      "h1": [
+        "All Products"
+      ],
+      "productHeadings": 1,
+      "noProductsFound": true,
+      "productCount": "0 products",
+      "pricesShown": 0,
+      "priceExamples": []
+    },
+    "espresso-machine": {
+      "url": "/pl/en/products/automatic-espresso-machine",
+      "status": 200,
+      "title": "Product Not Found | Spree Store",
+      "h1": [
+        "404"
+      ],
+      "productHeadings": 0,
+      "noProductsFound": false,
+      "productCount": null,
+      "pricesShown": 0,
+      "priceExamples": [],
+      "addToCart": 0
+    }
+  },
+  "outsideBlocked": 0
+}
