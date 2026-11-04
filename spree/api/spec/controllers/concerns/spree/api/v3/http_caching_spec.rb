@@ -56,10 +56,16 @@ RSpec.describe Spree::Api::V3::Store::ProductsController, type: :controller do
           expect(response.headers['Cache-Control']).to include('no-store')
         end
 
-        it 'does not set Vary header' do
+        # Rails varies every rendered response on the headers it negotiates the
+        # format from (Accept, X-Requested-With), so only Spree's own guest
+        # cache dimensions must stay out of a private response.
+        it 'does not add the guest cache headers to Vary' do
           get :index
 
-          expect(response.headers['Vary']).to be_nil
+          vary = response.headers['Vary'].to_s.split(',').map { |h| h.strip.downcase }
+          expect(vary).not_to include(
+            *%w[x-spree-api-key authorization x-spree-country x-spree-currency x-spree-locale x-spree-channel]
+          )
         end
       end
     end
