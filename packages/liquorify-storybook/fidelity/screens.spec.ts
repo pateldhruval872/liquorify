@@ -6317,7 +6317,12 @@ const importCaptures: Capture[] = [
       })
       await page.waitForTimeout(1_000)
     },
-    after: () => removeProducts('Fidelity progress plate'),
+    // The import goes on in the background after the capture, so its product is
+    // removed once the job has had time to write it.
+    after: async () => {
+      await new Promise((resolve) => setTimeout(resolve, 10_000))
+      await removeProducts('Fidelity progress plate')
+    },
   },
   {
     screen: 'DA-OVL-05',
