@@ -137,15 +137,18 @@ export const Creating: Story = {
   },
 }
 
-// Continue hands the created import on, for the page to open the wizard.
+// Continue hands the created import on, for the page to open the wizard,
+// once the server has answered.
 export const Created: Story = {
   parameters: { liquorify: sheet },
   play: async ({ args }) => {
     await openSheet()
     await pickFile()
     await userEvent.click(screen.getByRole('button', { name: 'Continue' }))
-    await expect(args.onCreated).toHaveBeenCalledWith(
-      expect.objectContaining({ id: mappingImport.id }),
+    await waitFor(() =>
+      expect(args.onCreated).toHaveBeenCalledWith(
+        expect.objectContaining({ id: mappingImport.id }),
+      ),
     )
   },
 }
