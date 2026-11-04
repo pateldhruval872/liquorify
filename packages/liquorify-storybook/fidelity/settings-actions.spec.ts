@@ -308,6 +308,9 @@ test.describe('payment, delivery and tax actions (P9, G-69)', () => {
         .getByText(/countries, .* states/)
         .innerText(),
     })
+    await sheet(page)
+      .getByRole('checkbox', { name: 'Colorado', exact: true })
+      .scrollIntoViewIfNeeded()
     await save(page, 'zone-states-added', steps, outside)
   })
 

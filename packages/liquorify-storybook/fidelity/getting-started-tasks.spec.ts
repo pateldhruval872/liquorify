@@ -276,7 +276,7 @@ test.describe('Getting Started tasks (P9 item 1.4)', () => {
       shown: await dialog(page).locator('[data-slot="field-error"]').allInnerTexts(),
       dialogOpen: await dialog(page).isVisible(),
     })
-    await snap(page, 'store-address-refused')
+    await snap(page, 'store-address-refused-message')
     // Sabotaged: the address is saved all the same, as a dialog that ignored its refusal would.
     if (sabotaged) await addressSavedAnyway(baseURL ?? '')
 
