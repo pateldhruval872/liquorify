@@ -32,12 +32,12 @@ import { admin } from './staff'
  * Each test blocks every request that would leave the local servers and
  * records it.
  *
- * With `CATALOG_SABOTAGE=1`, each test first makes the browser undo, in the
- * request it sends, the change the test then looks for: a filter dropped from
- * the list request, a product left out of the bulk request, a field or an order
- * left out of a save, a delete never sent. Each test is then expected to fail,
- * and the run passes only if every one does, which shows each assertion fails
- * when what it checks does not happen.
+ * With `CATALOG_SABOTAGE=1`, each test first makes the browser undo the
+ * change the test then looks for: a filter dropped from the list request, a
+ * product left out of the bulk request, a field or an order left out of a save,
+ * a delete never sent, or a Cancel button that deletes. Each test is then
+ * expected to fail, and the run passes only if every one does, which shows each
+ * assertion fails when what it checks does not happen.
  *
  * Results go to `results/catalog-behaviours/` (or `catalog-behaviours-checks/`
  * when sabotaged): one JSON file and one screenshot for each test, with what
@@ -84,6 +84,7 @@ const names = {
     search: named('Ivy'),
     usesFile: named('Juniper'),
     keepsFile: named('Kestrel'),
+    cancelKeeps: named('Larch'),
   },
 }
 
@@ -98,6 +99,7 @@ interface Records {
   collection: string
   products: Record<keyof typeof names.products, string>
   keptFile: { alt: string; filename: string }
+  cancelFile: { alt: string; filename: string }
 }
 
 let records: Records
@@ -308,6 +310,8 @@ test.beforeAll(async ({ baseURL }) => {
 
     const keptAlt = named('kept picture')
     const keptFilename = `p8-kept-${stamp}.png`
+    const cancelAlt = named('cancel picture')
+    const cancelFilename = `p8-cancel-${stamp}.png`
     records = {
       storeId: getCredentials().store_id,
       channel: channel.id,
@@ -330,8 +334,13 @@ test.beforeAll(async ({ baseURL }) => {
           await picture(names.libraryFile, names.libraryAlt),
         ),
         keepsFile: await product(names.products.keepsFile, await picture(keptFilename, keptAlt)),
+        cancelKeeps: await product(
+          names.products.cancelKeeps,
+          await picture(cancelFilename, cancelAlt),
+        ),
       },
       keptFile: { alt: keptAlt, filename: keptFilename },
+      cancelFile: { alt: cancelAlt, filename: cancelFilename },
     }
   } finally {
     await api.dispose()
@@ -863,16 +872,6 @@ test('library file in use: the library names where it is used, and the delete wa
   await expect(confirm).toBeHidden()
   steps.push({ step: 'cancelled' })
 
-  await openStore(page, '/products/media')
-  await reload(page)
-  await page.getByRole('searchbox').fill(filename)
-  await expect(page.getByRole('listitem').filter({ hasText: alt })).toBeVisible({ timeout: 15_000 })
-  await openStore(page, `/products/${records.products.keepsFile}`)
-  await reload(page)
-  await expect(page.getByRole('img', { name: alt })).toBeVisible({ timeout: 15_000 })
-  steps.push({ step: 'reloaded the library and the product; the file is on both' })
-  await mediaCard(page).scrollIntoViewIfNeeded()
-
   await save(page, 'library-file-in-use-warning', steps, outside)
 })
 
@@ -922,4 +921,67 @@ test('library file in use: confirming the delete removes it from the library and
   await mediaCard(page).scrollIntoViewIfNeeded()
 
   await save(page, 'library-file-in-use-deleted', steps, outside)
+})
+
+test('library file in use: cancelling the warning keeps the file in the library and on the product', async ({
+  page,
+}) => {
+  const outside = await blockOutside(page)
+  test.fail(sabotaged, 'Sabotaged: the change this test looks for is undone in the browser')
+  const deletes: string[] = []
+  page.on('request', (req) => {
+    if (req.method() === 'DELETE' && /\/api\/v3\/admin\/media\//.test(req.url()))
+      deletes.push(new URL(req.url()).pathname)
+  })
+  const { alt, filename } = records.cancelFile
+  await login(page)
+  const sheet = await openLibraryFile(page, filename, alt)
+  const usedIn = sheet.getByRole('link', { name: names.products.cancelKeeps })
+  await expect(usedIn).toBeVisible({ timeout: 15_000 })
+  const steps: Record<string, unknown>[] = [
+    { step: 'opened the file', usedIn: await usedIn.innerText() },
+  ]
+
+  const confirm = await askToDelete(page, alt)
+  const warning = confirm.getByText(/removes it from your library and from the 1 place using it/)
+  await expect(warning).toBeVisible()
+  steps.push({ step: 'asked to delete it', warning: await warning.innerText() })
+  const cancel = confirm.getByRole('button', { name: /^cancel$/i })
+  // Sabotaged, the warning's Cancel button deletes the file, as its Delete button does.
+  if (sabotaged)
+    await cancel.evaluate((button) => {
+      const dialog = button.closest('[role="alertdialog"], [role="dialog"]')
+      const remove = [...(dialog?.querySelectorAll('button') ?? [])].find((other) =>
+        /^delete$/i.test(other.textContent?.trim() ?? ''),
+      )
+      button.addEventListener(
+        'click',
+        (event) => {
+          event.preventDefault()
+          event.stopImmediatePropagation()
+          remove?.click()
+        },
+        { capture: true },
+      )
+    })
+  await cancel.click()
+  await expect(confirm).toBeHidden()
+  await page.waitForLoadState('networkidle')
+  steps.push({ step: 'cancelled' })
+
+  await openStore(page, '/products/media')
+  await reload(page)
+  await page.getByRole('searchbox').fill(filename)
+  await expect(page.getByRole('listitem').filter({ hasText: alt })).toBeVisible({ timeout: 15_000 })
+  await openStore(page, `/products/${records.products.cancelKeeps}`)
+  await reload(page)
+  await expect(page.getByRole('img', { name: alt })).toBeVisible({ timeout: 15_000 })
+  expect(deletes).toEqual([])
+  steps.push({
+    step: 'reloaded the library and the product; the file is on both',
+    deletesSent: deletes.length,
+  })
+  await mediaCard(page).scrollIntoViewIfNeeded()
+
+  await save(page, 'library-file-in-use-cancelled', steps, outside)
 })

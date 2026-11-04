@@ -1,0 +1,18 @@
+{
+  "test": "product-type-renamed",
+  "revision": "7ffc7755c8ae683af2c8f00efe543e1070cdbae0",
+  "stamp": "mw2917sl",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "renamed it and saved",
+      "from": "P8 Liqueurs mw2917sl",
+      "to": "P8 Cordials mw2917sl"
+    },
+    {
+      "step": "reloaded the list and opened it again",
+      "name": "P8 Cordials mw2917sl"
+    }
+  ],
+  "outside": []
+}

@@ -1,0 +1,27 @@
+{
+  "test": "search-engine-card",
+  "revision": "7ffc7755c8ae683af2c8f00efe543e1070cdbae0",
+  "stamp": "mw2917sl",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "opened the product",
+      "slug": "p8-ivy-mw2917sl",
+      "metaTitle": "",
+      "metaDescription": ""
+    },
+    {
+      "step": "changed all three and saved",
+      "slug": "p8-ivy-for-search-mw2917sl",
+      "title": "Ivy, poured by hand mw2917sl",
+      "description": "A description for search engines, written in P8 run mw2917sl."
+    },
+    {
+      "step": "reloaded",
+      "slug": "p8-ivy-for-search-mw2917sl",
+      "metaTitle": "Ivy, poured by hand mw2917sl",
+      "metaDescription": "A description for search engines, written in P8 run mw2917sl."
+    }
+  ],
+  "outside": []
+}

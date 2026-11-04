@@ -1,0 +1,24 @@
+{
+  "test": "library-file-in-use-cancelled",
+  "revision": "7ffc7755c8ae683af2c8f00efe543e1070cdbae0",
+  "stamp": "mw292xfr",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "opened the file",
+      "usedIn": "P8 Larch mw292xfr"
+    },
+    {
+      "step": "asked to delete it",
+      "warning": "Deleting “P8 cancel picture mw292xfr” removes it from your library and from the 1 place using it. Descriptions that embed it will lose the image."
+    },
+    {
+      "step": "cancelled"
+    },
+    {
+      "step": "reloaded the library and the product; the file is on both",
+      "deletesSent": 0
+    }
+  ],
+  "outside": []
+}
