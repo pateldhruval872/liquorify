@@ -5,7 +5,7 @@ work_item: FB-19
 status: PROPOSED
 owner: the owner reviews and accepts; an automated Claude session implements
 created: 2026-10-22
-updated: 2026-11-04
+updated: 2026-11-05
 ---
 
 # FB-19 batch: the platform capabilities without screens
@@ -129,7 +129,7 @@ The inventory came first, as the owner asked. Each check runs once what it needs
 | P7 | Requests that no Spree spec sends, each sent within one store as a caller who may not make it and checked for its exact refusal, with the same request from a caller who may make it as a control: G-11 (staff access and the shopper accounts, the storefront's own server code included), G-23 (the command palette's searches) and G-32 (batch 2's narrower roles). Added on 2026-10-26, when the owner brought G-11 forward to it. Its completion criteria are below | Staff access parts 1 and 2, the shopper accounts batch and batch 2, all accepted; in its own pull request, beside batch 3. G-40, batch 3's narrower roles, joins from 2026-10-26, when the owner accepted batch 3 and #19 merged. Run on 2026-10-26 in #22 for G-11, G-23 and G-32, and again after #19's merge with G-40, every request passing twice in a row each time ([record](../verification/2026-10-26-fb-19-platform-p7.md)). Merged and accepted on 2026-10-27 ([merge record](../verification/2026-10-27-fb-19-platform-p7-merge.md)) |
 | P8 | Browser tests for the catalog behaviours that part 1 of the catalog and pricing batch captured but no test drives (G-57): the product list's channel, product type and tag filters, adding to collections in bulk, the search engine card, editing and deleting product types, reordering option values and deleting a library file in use. Added on 2026-11-02, when the owner deferred G-57 to the platform's browser-test work. Its completion criteria are below | Part 1's merge (#34); in its own pull request |
 | P9 | Browser tests for the settings, catalog and multi-store actions that batch 7, part 2 of the catalog and pricing batch and batch 15 captured but no test drives (G-69, G-61 and G-72), Getting Started's store address dialog, storefront address, payment method task and task completion (G-37 with G-68), and the storefront checkout actions of batch 9 and the promotion, gift card and store credit behaviours of catalog part 3 (G-75 and G-84). Added on 2026-11-04, when the owner deferred those gaps to the platform's browser-test work: G-37 with G-68 the same day (row F), and G-75 and G-84 later that day (rows 31 and 35). Its completion criteria are below | The merges of #19, #41, #42, #49, #55 and #61, all done; in its own pull request, in parts if one batch merges later, with G-75's tests in the storefront's repository |
-| P10 | The refusals within one store that G-11 still holds after P7: the requests of G-45, G-50, G-56, G-60, G-70 and G-79, and part 3's (G-83, with three of G-84's behaviours), checked as P7 checked its own. Added on 2026-11-04 as the consolidated check of decision 3, when the owner linked G-45 and G-70 to G-11. Its completion criteria are below | Part 3 of the catalog and pricing batch, merged; in its own pull request, before Liquorify changes identity or access |
+| P10 | The refusals within one store that G-11 still holds after P7: the requests of G-45, G-50, G-56, G-60, G-70 and G-79, part 3's (G-83, with three of G-84's behaviours) and batch 6's, checked as P7 checked its own. Added on 2026-11-04 as the consolidated check of decision 3, when the owner linked G-45 and G-70 to G-11. Its completion criteria are below, and its requests, expected answers and closing conditions were recorded before implementation on 2026-11-05 | Part 3 of the catalog and pricing batch, merged; in its own pull request, before Liquorify changes identity or access |
 | — | The update check against a stand-in server | FB-09 |
 
 ### P2: keys, OAuth clients, the agent server and webhooks, used from outside
@@ -246,10 +246,174 @@ P7 sent the requests that G-11, G-23, G-32 and G-40 named in October. The reques
 2. **G-56, G-60 and part 3's (G-83, with behaviours 11, 12 and 22 of G-84):** the catalog's requests for the narrower roles of parts 1, 2 and 3 of the catalog and pricing batch ([part 1's record §3.1](../verification/2026-11-02-fb-19-batch-catalog-and-pricing-part-1.md#31-what-the-interface-shows-each-role), and parts 2 and 3's records).
 3. **G-70:** batch 7's payment, tax, delivery and package type requests for its narrower roles ([batch 7's record §3.1](../verification/2026-11-04-fb-19-batch-payments-delivery-and-tax.md#31-what-the-interface-shows-each-role)).
 4. **G-79:** batch 9's requests to the cart, checkout and order endpoints that no Spree spec sends, such as another guest's cart token or another customer's address on a cart ([batch 9's record §3.2](../verification/2026-11-04-fb-19-batch-storefront-cart-and-checkout.md#32-what-the-server-refuses)). Added by the owner on 2026-11-04 (row 31 of the owner decision brief, [record](../verification/2026-11-04-owner-decision-brief-answers-3.md)), with G-84's three behaviours that need a narrower role (row 35).
+5. **Batch 6, inventory:** the requests no Spree spec sends for batch 6's narrower roles ([batch 6's record §3.2](../verification/2026-11-04-fb-19-batch-inventory.md#32-what-the-server-refuses)): the writes its roles were shown controls for and the reads they make. Batch 6's record joined them to G-11 for P10 under the owner's answer to row 31 for the applicable refusals, with no new gap number, and LIQ-004's G-11 row holds them, so G-11 cannot close without them. Added to this list on 2026-11-05, when P10's checks were recorded below.
 
 P10 is complete when P7's criteria 2 to 10 hold for these requests: exact refusals written before the run, an allowed control for each, nothing exposed, nothing changed, the checks shown to fail against a stand-in server, two runs in a row on freshly started servers, results from the evidence, nothing leaked, and a record. Like P7, it claims nothing about tenant isolation, which stays FB-03's validation, NOT_RUN, with ISO-1 to ISO-7 open, and nothing about requests or roles it did not send.
 
 **Closing.** G-11 and each gap linked to it close only on P10's passing evidence for every request they name, as delegated acceptance. A request answered when it should have been refused is recorded as a defect with its severity and brought to the owner as a security finding, and the gap it belongs to stays open.
+
+#### P10's checks, recorded before implementation
+
+Recorded on 2026-11-05, before any of P10's scripts was written, as the coordinator asked for the approved Spree-first work: the requests, who sends them, the answer each must get, the control beside it, and how each gap closes. The expected answers are written from Spree's code as on `main` at `e66b331c`, the storefront's code at its `main`, `ba6ddcd` (after SD-21's fix, storefront #26), and the source records named in items 1 to 5. Nothing here has been sent yet.
+
+**How the checks run.** As P7's did: Liquorify's own scripts in `packages/liquorify-storybook/fidelity/`, with P7's judge (`one-store.ts`), against Spree's browser-test server started freshly with its own fixtures (`stack.spec.ts`), and, for items 1 and 4, the storefront at `ba6ddcd` built and started against the same server. Every request stays in the default store. Each run adds its own records, named with the run's stamp. Spree's code, tests and workflows, and the storefront, are not changed.
+
+**The callers.** The teammates `staff.ts` already adds, each holding one role, with the permission keys `/me` reports recorded beside each answer:
+
+| Caller | Role's keys, as created | Used in |
+|---|---|---|
+| Catalog viewer | `read_products`, `read_publishing`, `read_media`, `read_product_types`, `read_stock`, `read_categories`, `read_collections` | Item 2 (parts 1 and 2) |
+| Order manager | `write_orders`, `write_payments`, `write_fulfillments`, `write_refunds`, `write_gift_cards`, `write_store_credits`, `read_customers` | Items 2 and 5 |
+| Merchandiser | `write_products`, `write_categories`, `write_collections`, `write_stock` | Items 2 and 5 |
+| Marketer | `write_promotions` | Item 2 (part 3) |
+| Loyalty viewer | `read_promotions`, `read_gift_cards`, `read_store_credits`, `read_customers` | Item 2 (part 3) |
+| Delivery settings viewer | `read_settings`, `read_delivery_methods`, `read_package_types` | Item 3 |
+| Delivery methods editor | `read_settings`, `write_delivery_methods`, `write_package_types` | Item 3 |
+| Stock viewer | `read_stock`, `read_purchasing`, `read_products` | Item 5 |
+| Purchaser | `write_purchasing`, `read_stock`, `read_products` | Item 5 |
+| Store settings, settings viewer, support, admin | As P7 recorded | Controls |
+
+Shoppers, each added by the run: guest A, with a cart holding an item, an address and a chosen delivery rate; guest B, with a cart of their own; customer C, signed in, with a cart and no saved address; and customer D, signed in, with a saved address and a cart. Through the storefront, each visitor is a cookie jar, and the two customers sign in through the storefront's own sign-in action, as in P7.
+
+**How each expected answer is written.** From Spree's code, by these rules. Where an endpoint departs from them, its row says why.
+
+- **A1. A list, a collection action or a create, by a role without the key:** 403 `access_denied` naming the missing key. Spree's key gate (`ScopedAuthorization`) answers before the action runs. Example: the order manager creating a category is refused naming `write_categories`.
+- **A2. Reading, changing or deleting one record the role may not, for that action:** 404 `record_not_found`. Spree looks the record up among those the caller may read (for a read) or change (for a change or a delete) before the key gate runs, as P7 found for a policy, a channel and a market. A nested record whose parent is looked up among those the caller may change answers the same, as part 3 recorded for a promotion's rules and actions.
+- **A3. A nested write whose parent lookup ignores the role:** 403 naming the write key. A stock receipt finds its transfer or purchase order among the store's, and an origin group finds its delivery profile among those the caller may read, so the key gate answers.
+- **A4. A change Spree gates on another key than the record's own:** a stock location is changed only with `write_settings` (`StockLocationsController#scoped_resource_name`), so a merchandiser, whose `write_stock` lets it find the location, is refused with 403 naming `write_settings`.
+- **S1. A cart named by its id with another shopper's cart token, or as another customer:** 403 `access_denied`, from Spree's storefront access policy (`CartResolvable#find_cart` and `#find_cart!`), with no permission named.
+- **S2. A line item or delivery choice of one cart, sent on another cart's path:** 404 `record_not_found`, because Spree looks it up within the cart named in the path.
+- **S3. A placed order named by its id with another shopper's token, or as another customer:** 404 `order_not_found`, as P7 observed for the order endpoint.
+- **S4. A saved address of another customer named on a cart:** not a refusal. Spree looks the id up among the cart's own customer's addresses and ignores it when it is not one (`Spree::Carts::Update#resolve_address_id`), so the answer is 200 and the cart carries none of that address's values.
+- **F1. A storefront action that reads one record** answers `null` when the Store API refuses (`withFallback`); **F2. one that changes a record** answers `{ success: false }` with the Store API's message (`actionResult`); **F3. one that takes a cart id as an argument but acts on the caller's own cart** (`requireCartId` reads the cart from the caller's cookie) answers for the caller's own cart, and the named cart stays as it was; **F4. a product page for a product Spree will not serve** shows the storefront's not-found page (`notFound()` in the product page). Shop part 2 saw that page answered with HTTP 200 and a bare "404" on the running storefront ([its §3.1](../verification/2026-10-26-fb-19-batch-storefront-shop-part-2.md#31-what-the-interface-shows-each-visitor)), so the expected answer is 200, showing "404" and none of the product's values.
+
+A **control** is the same request from a caller who may make it, in the same run, and must succeed with the status written for it. For a read, its answer must carry the values the refused answers are searched for. For a write, the read-back must see the change. Where no shopper may make a request (a draft product, a field hidden from the storefront), the row names what stands as the control.
+
+**Corrections before the first recorded run.** A development trial may show an answer these rules did not predict. An expectation may then be corrected only between two refusals (for example 403 to 404) and only where Spree's or the storefront's code gives the reason, before the first recorded run, and the verification record lists each correction with that reason, as P7's §1.1 did. An answer that lets a caller read or change what it may not is never corrected into an expectation: it is a defect under the closing rule above.
+
+##### Item 1: G-45 and G-50, the shop batch's endpoints through the storefront's own server code
+
+Spree's Store API specs send these endpoints directly, so P10 sends them through the storefront, as a guest and as customer C, beside the shopper or state that may.
+
+| # | Request through the storefront | Refused callers and expected answer | Control | Gap |
+|---|---|---|---|---|
+| 1.1 | Open a draft product's page, `/us/en/products/<slug>` | Guest, customer C: the not-found page, carrying none of the product's name or price (F4) | The same page, by the guest, after the admin makes the product active and publishes it on the storefront's channel: 200, carrying its name | G-45 |
+| 1.2 | Search the catalog for the run's term with the product list action (`getProducts`) | Guest, customer C: 200, a list that carries the run's active product and not its draft product | The same answer must carry the active product, which every shopper may see | G-45, G-50 |
+| 1.3 | Open a product page whose product has a custom field hidden from the storefront | Guest, customer C: 200, carrying none of the hidden field's value | The same page must carry the product's custom field shown on the storefront | G-50 |
+| 1.4 | Open a product page with the store's channel set to hide prices from guests | Guest: 200, carrying no price for the product | Customer C on the same page: 200, carrying the price, as Spree's storefront access specs give an authenticated customer. **Expected to fail on SD-9**, which is open: the storefront sends no customer token with product requests. A failing control fails the request, so G-50 stays open on it | G-50 |
+| 1.5 | Open a product page with the store's channel set to require sign-in | Guest: the not-found page part 2 captured for this setting, carrying none of the product's values (F4) | Customer C on the same page: 200, carrying its name. **Expected to fail on SD-9**, as 1.4 | G-50 |
+| 1.6 | Read guest A's cart through the cart action, naming A's cart id (`getCart`) | Guest B, customer C: `null` (F1, S1) | Guest A: A's cart, carrying A's item | G-45 |
+| 1.7 | Switch currency on guest A's cart through the region switch's action, naming A's cart id (`updateCartMarket`) | Guest B: success for B's own cart, and A's cart unchanged (F3) | Guest A: A's cart in the new currency | G-45 |
+
+Each storefront setting 1.4 and 1.5 change is put back after its row, and each uses a product of its own that no earlier request in the run has read, so the storefront's cached catalog answers cannot stand in for the server's.
+
+##### Item 2: G-56, G-60 and G-83, with behaviours 11, 12 and 22 of G-84, the catalog's requests for its narrower roles
+
+| # | Request | Refused callers and expected answer | Control | Gap |
+|---|---|---|---|---|
+| 2.1 | Save a product: `PATCH /api/v3/admin/products/<id>` | Catalog viewer: 404 `record_not_found` (A2) | Merchandiser: 200, changed | G-56 |
+| 2.2 | Create a product: `POST /api/v3/admin/products` | Catalog viewer, order manager: 403 `access_denied` `write_products` (A1) | Merchandiser: 201, created | G-56 |
+| 2.3 | Save an option type: `PATCH /api/v3/admin/option_types/<id>` | Catalog viewer: 404 (A2) | Merchandiser: 200, changed | G-56 |
+| 2.4 | Save a product type: `PATCH /api/v3/admin/product_types/<id>` | Catalog viewer: 404 (A2) | Admin: 200, changed. No template role holds `write_product_types` | G-56 |
+| 2.5 | Save a category: `PATCH /api/v3/admin/categories/<id>` | Catalog viewer: 404 (A2) | Merchandiser: 200, changed | G-60 |
+| 2.6 | Save a collection: `PATCH /api/v3/admin/collections/<id>` | Catalog viewer: 404 (A2) | Merchandiser: 200, changed | G-60 |
+| 2.7 | Save a price list: `PATCH /api/v3/admin/price_lists/<id>` | Catalog viewer: 404 (A2) | Merchandiser: 200, changed | G-60 |
+| 2.8 | Create a category: `POST /api/v3/admin/categories` | Order manager: 403 `write_categories` (A1) | Merchandiser: 201, created | G-60 |
+| 2.9 | Create a collection: `POST /api/v3/admin/collections` | Order manager: 403 `write_collections` (A1) | Merchandiser: 201, created | G-60 |
+| 2.10 | Create a price list: `POST /api/v3/admin/price_lists` | Order manager: 403 `write_products`, the key Spree gates price lists on (A1) | Merchandiser: 201, created | G-60 |
+| 2.11 | Save a gift card from its sheet: `PATCH /api/v3/admin/gift_cards/<id>` | Loyalty viewer: 404 (A2) | Order manager: 200, changed | G-83, behaviour 22 |
+| 2.12 | Delete a gift card from its row menu: `DELETE /api/v3/admin/gift_cards/<id>` | Loyalty viewer: 404 (A2) | Order manager: 204, deleted | G-83, behaviour 22 |
+| 2.13 | Delete a promotion from its row menu: `DELETE /api/v3/admin/promotions/<id>` | Loyalty viewer: 404 (A2) | Marketer: 204, deleted | G-83, behaviour 22 |
+| 2.14 | Create a promotion from the new promotion page: `POST /api/v3/admin/promotions` | Loyalty viewer, order manager, merchandiser: 403 `write_promotions` (A1) | Marketer: 201, created | G-83 |
+| 2.15 | Issue, edit and delete a store credit: `POST`, `PATCH` and `DELETE` on `/api/v3/admin/customers/<id>/store_credits` | Loyalty viewer: 404 for each, because Spree looks the customer up among those the caller may change (A2) | Admin: 201, 200 and 204, each seen by the read-back. The screens hide these controls from the loyalty viewer (behaviour 22) | G-83, behaviour 22 |
+| 2.16 | The rule pickers' reads: products by name and by saved ids, categories by name, customers by search and by saved ids, customer groups, channels, markets, option types with their values | Marketer: 403 naming `read_products`, `read_categories`, `read_customers` or `read_settings`, the key each needs (A1) | The teammate who holds that key (merchandiser, support, settings viewer, catalog viewer): 200, carrying the run's record | G-83, behaviour 11 |
+| 2.17 | The loyalty lists: `GET /api/v3/admin/gift_cards` and `GET /api/v3/admin/store_credits`, as the screens send them | Marketer, merchandiser: 403 `read_gift_cards` or `read_store_credits` (A1) | Loyalty viewer: 200, carrying the run's card or credit | G-83 |
+| 2.18 | The promotions list, and the new promotion page's rule and action types: `GET /api/v3/admin/promotions`, `GET …/promotion_rules/types`, `GET …/promotion_actions/types` | Order manager, merchandiser: 403 `read_promotions` (A1) | Loyalty viewer for the list, marketer for the types: 200 | G-83 |
+| 2.19 | A promotion's page: `GET /api/v3/admin/promotions/<id>` | Order manager, merchandiser: 404 (A2) | Loyalty viewer: 200, carrying its name | G-83 |
+| 2.20 | A promotion's rules and actions: `GET …/promotions/<id>/promotion_rules` and `…/promotion_actions` | Order manager, merchandiser, and the loyalty viewer, who may read promotions but not change them: 404, because Spree finds the promotion among those the caller may change (A2; part 3's B1) | Marketer: 200, carrying the rule or action | G-83, behaviour 12 |
+| 2.21 | The channels list, as the loyalty screens send it: `GET /api/v3/admin/channels?page=1&limit=100` | Order manager, loyalty viewer: 403 `read_settings` (A1) | Settings viewer: 200, carrying the run's channel | G-83 |
+| 2.22 | The sales query the promotion pages send: `POST /api/v3/admin/reporting/query` | Marketer, merchandiser: 403 `read_reports` (A1) | Admin: 200 | G-83 |
+| 2.23 | The navigation's counters: `GET /api/v3/admin/dashboard/counters` | Marketer, loyalty viewer, order manager, merchandiser: 403 `read_dashboard` (A1) | Support: 200 | G-83 |
+
+##### Item 3: G-70, batch 7's payment, tax, delivery and package type requests
+
+| # | Request | Refused callers and expected answer | Control | Gap |
+|---|---|---|---|---|
+| 3.1 | Save a payment method from its sheet: `PATCH /api/v3/admin/payment_methods/<id>` | Delivery settings viewer: 404 (A2) | Store settings: 200, changed | G-70 |
+| 3.2 | Save a tax category: `PATCH /api/v3/admin/tax_categories/<id>` | Delivery settings viewer: 404 (A2) | Store settings: 200, changed | G-70 |
+| 3.3 | Save a tax rate: `PATCH /api/v3/admin/tax_rates/<id>` | Delivery settings viewer: 404 (A2) | Store settings: 200, changed | G-70 |
+| 3.4 | Save a delivery zone from its sheet: `PATCH /api/v3/admin/delivery_zones/<id>` | Delivery settings viewer, delivery methods editor: 404 (A2) | Store settings: 200, changed | G-70 |
+| 3.5 | Add a delivery zone: `POST /api/v3/admin/delivery_zones` | Delivery methods editor: 403 `write_settings` (A1) | Store settings: 201, created | G-70 |
+| 3.6 | Add an origin group to a profile: `POST /api/v3/admin/delivery_profiles/<id>/origin_groups` | Delivery methods editor: 403 `write_settings` (A3) | Store settings: 201, created | G-70 |
+| 3.7 | Save a delivery method: `PATCH /api/v3/admin/delivery_methods/<id>` | Delivery settings viewer: 404 (A2) | Delivery methods editor: 200, changed | G-70 |
+| 3.8 | Add a delivery method: `POST /api/v3/admin/delivery_methods` | Delivery settings viewer: 403 `write_delivery_methods` (A1) | Delivery methods editor: 201, created | G-70 |
+| 3.9 | Save a package type from its sheet: `PATCH /api/v3/admin/package_types/<id>` | Delivery settings viewer: 404 (A2) | Delivery methods editor: 200, changed | G-70 |
+| 3.10 | Add a package type: `POST /api/v3/admin/package_types` | Delivery settings viewer: 403 `write_package_types` (A1) | Delivery methods editor: 201, created | G-70 |
+
+The editor's allowed writes to methods and package types, which batch 7 named beside its refused ones, are the controls of 3.7 to 3.10.
+
+##### Item 4: G-79, batch 9's cart, checkout and order requests
+
+Through the Store API, with each shopper's own publishable key, cart token and sign-in, then through the storefront's checkout actions.
+
+| # | Request | Refused callers and expected answer | Control | Gap |
+|---|---|---|---|---|
+| 4.1 | Read guest A's cart: `GET /api/v3/store/carts/<A>` | Guest B with B's own cart token, customer C: 403 `access_denied` (S1) | Guest A: 200, carrying A's email and item | G-79 |
+| 4.2 | Change A's cart's email: `PATCH /api/v3/store/carts/<A>` | Guest B, customer C: 403 (S1) | Guest A: 200, changed | G-79 |
+| 4.3 | Add an item to A's cart: `POST /api/v3/store/carts/<A>/items` | Guest B, customer C: 403 (S1) | Guest A: 201, the item added | G-79 |
+| 4.4 | Change the quantity of A's item on A's cart: `PATCH /api/v3/store/carts/<A>/items/<line>` | Guest B, customer C: 403 (S1) | Guest A: 200, changed | G-79 |
+| 4.5 | Change and remove A's item on B's own cart: `PATCH` and `DELETE /api/v3/store/carts/<B>/items/<A's line>` | Guest B: 404 `record_not_found` for each (S2), and A's item unchanged | Guest A on A's own cart: 200, changed | G-79 |
+| 4.6 | Choose a delivery rate on A's cart: `PATCH /api/v3/store/carts/<A>/fulfillments/<id>` | Guest B, customer C: 403 (S1) | Guest A: 200, the rate chosen | G-79 |
+| 4.7 | Apply a discount code to A's cart: `POST /api/v3/store/carts/<A>/discount_codes` | Guest B, customer C: 403 (S1) | Guest A: 200, the code applied | G-79 |
+| 4.8 | Add a payment to A's cart: `POST /api/v3/store/carts/<A>/payments` | Guest B, customer C: 403 (S1) | Guest A: 201, the payment added | G-79 |
+| 4.9 | Place A's order: `POST /api/v3/store/carts/<A>/complete` | Guest B, customer C: 403 (S1), and A's cart still a cart | Guest A: 200, the order placed | G-79 |
+| 4.10 | Read A's placed order: `GET /api/v3/store/orders/<A>` | Guest B with B's own token, customer C: 404 `order_not_found` (S3) | Guest A with A's token: 200, carrying its number | G-79 |
+| 4.11 | Name customer D's saved address as the shipping and billing address of another cart: `PATCH /api/v3/store/carts/<C>` | Customer C: 200, the cart carrying none of D's address values and its addresses unchanged (S4) | Customer D, naming the same address on D's own cart: 200, carrying it | G-79 |
+| 4.12 | Read A's checkout through the checkout action, naming A's cart id (`getCheckoutOrder`) | Guest B, customer C: `null` (F1) | Guest A: A's cart | G-79 |
+| 4.13 | Open A's checkout page, `/us/en/checkout/<A>` | Guest B, customer C: 200, carrying none of A's email, address or item | Guest A: 200, carrying them | G-79 |
+| 4.14 | Change the addresses and apply a code through the checkout actions, naming A's cart id (`updateOrderAddresses`, `applyCode`) | Guest B: success for B's own cart, and A's cart unchanged (F3) | Guest A: A's cart changed | G-79 |
+| 4.15 | Choose A's delivery rate, change and remove A's item, through the actions (`selectDeliveryRate`, `updateCartItem`, `removeCartItem`) | Guest B: `{ success: false }` with the Store API's message (F2, S2), and A's cart unchanged | Guest A: success, A's cart changed | G-79 |
+| 4.16 | Name customer D's address through the checkout action (`updateOrderAddresses`) | Customer C: success for C's own cart, carrying none of D's address values (F3, S4) | Customer D: D's cart carrying it | G-79 |
+| 4.17 | Read A's placed order through the order placed page's action (`getCompletedOrder`) | Guest B, customer C: `null` (F1) | Guest A: the order, carrying its number | G-79 |
+
+##### Item 5: batch 6's requests for its narrower roles, under G-11
+
+| # | Request | Refused callers and expected answer | Control | Gap |
+|---|---|---|---|---|
+| 5.1 | Save a stock location from its sheet: `PATCH /api/v3/admin/stock_locations/<id>` | Stock viewer, purchaser: 404 (A2). Merchandiser: 403 `write_settings` (A4) | Store settings: 200, changed | G-11, batch 6 |
+| 5.2 | Save a location's stock levels: `POST /api/v3/admin/stock_levels/bulk_upsert` | Stock viewer, purchaser: 403 `write_stock` (A1) | Merchandiser: 200, changed | G-11, batch 6 |
+| 5.3 | Save a supplier from its sheet: `PATCH /api/v3/admin/suppliers/<id>` | Stock viewer: 404 (A2) | Purchaser: 200, changed | G-11, batch 6 |
+| 5.4 | Receive a delivery on a transfer in transit: `POST /api/v3/admin/stock_transfers/<id>/stock_receipts` | Stock viewer, purchaser: 403 `write_stock` (A3) | Merchandiser: 201, received | G-11, batch 6 |
+| 5.5 | Receive a delivery on an ordered purchase order: `POST /api/v3/admin/purchase_orders/<id>/stock_receipts` | Stock viewer: 403 `write_purchasing` (A3) | Purchaser: 201, received | G-11, batch 6 |
+| 5.6 | Create a transfer from the new transfer page: `POST /api/v3/admin/stock_transfers` | Stock viewer, purchaser: 403 `write_stock` (A1) | Merchandiser: 201, created | G-11, batch 6 |
+| 5.7 | Create a purchase order from the new purchase order page: `POST /api/v3/admin/purchase_orders` | Stock viewer, merchandiser: 403 `write_purchasing` (A1) | Purchaser: 201, created | G-11, batch 6 |
+| 5.8 | List purchase orders and suppliers: `GET /api/v3/admin/purchase_orders`, `GET /api/v3/admin/suppliers` | Merchandiser, order manager: 403 `read_purchasing` (A1) | Stock viewer: 200, carrying the run's records | G-11, batch 6 |
+| 5.9 | Export purchase orders: `POST /api/v3/admin/exports` with type `purchase_orders` | Merchandiser, order manager: 403 `read_purchasing`, the scope Spree's export gate reads from the type (A1) | Stock viewer: 201, the export created | G-11, batch 6 |
+| 5.10 | The inventory lists: stock levels, locations, movements, reservations and transfers | Order manager: 403 `read_stock` (A1) | Stock viewer: 200, carrying the run's records | G-11, batch 6 |
+| 5.11 | A transfer's and a purchase order's page: `GET …/stock_transfers/<id>`, `GET …/purchase_orders/<id>` | Order manager: 404 (A2) | Stock viewer: 200, carrying their numbers | G-11, batch 6 |
+
+##### The stand-in checks, the runs and the record
+
+- **The judge fails when it should (P7's criterion 6).** P7's stand-in cases run again, with cases added for each kind of answer P10 adds: a list that carries the protected record beside the allowed one, a page that shows a not-found text with the wrong status, an action that acts on the named cart instead of the caller's own, a setting not put back, and a control that fails as a defect would make it fail.
+- **The runs (criterion 7).** One development trial on a freshly started server, whose answers are not evidence. Then two recorded runs in a row, each on a freshly started server and, for items 1 and 4, a storefront built afresh against it, at a recorded revision of the scripts, Spree's code and the storefront. Evidence is saved as JSON results with statuses, codes and the checks' outcomes only, and any run log as a `.txt` file, because the root `.gitignore` drops `*.log`. Local runs and CI are reported apart: these scripts are not part of any workflow, so CI's checks on the pull request cover the repository's own suites and the scripts' type check and lint, not these requests.
+- **The record (criterion 10).** A verification record in `liquorify/verification/` gives the revisions and, for each request, its callers, the expected and actual answers, the control's result and the exposure and change checks, then each gap's result. Corrections made after the development trial are listed there with their reasons.
+
+**What P10 does not send.** Reads and writes the source records do not name: the order manager's reads of batch 7's pages (B13), the catalog viewer's deletes and reorders from the row menus and drag handles parts 1 and 2 kept, a catalog's controls, and the seller panel. Requests across stores, which are tenant isolation and stay FB-03's validation, NOT_RUN, with ISO-1 to ISO-7 open. Secret API keys and their scopes, which Spree's specs and P2 cover. Real payment providers, which stay P4's.
+
+**How each gap closes.** Under the owner's delegation of 2026-11-04, as delegated acceptance, not the owner's review:
+
+| Gap | Closes when | Stays open when |
+|---|---|---|
+| G-45 | Rows 1.1, 1.2, 1.6 and 1.7 pass in both recorded runs | Any of them fails |
+| G-50 | Rows 1.2 to 1.5 pass in both recorded runs | Any of them fails. Rows 1.4 and 1.5 are expected to fail on SD-9 until it is fixed, so G-50 is expected to stay open, linked to SD-9 |
+| G-56 | Rows 2.1 to 2.4 pass | Any of them fails |
+| G-60 | Rows 2.5 to 2.10 pass | Any of them fails |
+| G-83 | Rows 2.11 to 2.23 pass. Behaviours 11, 12 and 22 of G-84 are met by rows 2.16, 2.20, and 2.11 to 2.13 with 2.15 | Any of them fails. G-84 itself stays with P9 for its other 19 behaviours |
+| G-70 | Rows 3.1 to 3.10 pass | Any of them fails |
+| G-79 | Rows 4.1 to 4.17 pass | Any of them fails |
+| G-11 | Every row of items 1 to 5 passes, so every gap above closes and batch 6's requests pass. P7's staff, shopper account, search and settings requests were accepted on 2026-10-27 | Any row fails, or any gap above stays open. With SD-9 open, G-11 is expected to stay open through G-50 |
+
+A refused caller answered with a success, or with an answer that carries the protected record's values, is recorded in LIQ-004 as a defect with its severity, brought to the owner as a security finding, and keeps its gap and G-11 open. A control that fails keeps its row failing, and the record names the defect or cause. No result is described as passing that did not pass in both recorded runs. Closing any of these gaps claims nothing about tenant isolation.
 
 ## 6. Acceptance criteria
 
