@@ -1,0 +1,21 @@
+{
+  "test": "zone-states-added",
+  "revision": "231b2176",
+  "stamp": "mw2sa505",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "opened the zone",
+      "zone": "P9 zone for states mw2sa505"
+    },
+    {
+      "step": "ticked Colorado and Utah under the United States and saved"
+    },
+    {
+      "step": "reloaded; the card names both states, and the zone opens with them ticked",
+      "card": "P9 zone for states mw2sa505 Canada, Colorado, Utah Add method No delivery methods here yet.",
+      "summary": "1 countries, 2 states, 0 postal code rules"
+    }
+  ],
+  "outside": []
+}

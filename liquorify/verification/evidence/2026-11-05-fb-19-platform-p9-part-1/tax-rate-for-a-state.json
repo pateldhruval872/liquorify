@@ -1,0 +1,20 @@
+{
+  "test": "tax-rate-for-a-state",
+  "revision": "231b2176",
+  "stamp": "mw2sa505",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "created a rate of 6.25% for Texas, United States",
+      "name": "P9 Texas sales tax mw2sa505"
+    },
+    {
+      "step": "reloaded; the list shows it",
+      "listed": "P9 Texas sales tax mw2sa505 6.25% United States — TX Default "
+    },
+    {
+      "step": "opened it; its state is Texas"
+    }
+  ],
+  "outside": []
+}

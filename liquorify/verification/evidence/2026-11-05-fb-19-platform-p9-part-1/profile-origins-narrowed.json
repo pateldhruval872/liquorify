@@ -1,0 +1,24 @@
+{
+  "test": "profile-origins-narrowed",
+  "revision": "231b2176",
+  "stamp": "mw2sa505",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "opened the profile; it ships from all locations"
+    },
+    {
+      "step": "chose Selected locations, ticked one and saved",
+      "location": "Shop location"
+    },
+    {
+      "step": "reloaded; the card shows the one location ticked and the others not",
+      "ticked": "Shop location",
+      "notTicked": [
+        "E2E Destination Warehouse",
+        "E2E Source Warehouse"
+      ]
+    }
+  ],
+  "outside": []
+}

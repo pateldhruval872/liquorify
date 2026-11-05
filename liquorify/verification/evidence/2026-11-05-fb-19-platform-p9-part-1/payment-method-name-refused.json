@@ -1,0 +1,19 @@
+{
+  "test": "payment-method-name-refused",
+  "revision": "231b2176",
+  "stamp": "mw2sa505",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "opened payment methods; one is named Store Credit"
+    },
+    {
+      "step": "chose Check, named it Store Credit and created",
+      "shown": "has already been taken"
+    },
+    {
+      "step": "closed the sheet and reloaded; still one Store Credit and no cheque"
+    }
+  ],
+  "outside": []
+}
