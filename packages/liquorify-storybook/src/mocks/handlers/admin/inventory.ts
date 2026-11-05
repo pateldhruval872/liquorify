@@ -100,7 +100,7 @@ export function supplierRequests(records: Supplier[] = suppliers) {
 export function variantList(records: Variant[] = pickerVariants) {
   return [
     http.get(`${admin}/variants`, ({ request }) => {
-      const query = new URL(request.url).searchParams.get('search')
+      const query = new URL(request.url).searchParams.get('q[search]')
       const listed = query
         ? records.filter((variant) => matches(query, variant.product_name, variant.sku))
         : records

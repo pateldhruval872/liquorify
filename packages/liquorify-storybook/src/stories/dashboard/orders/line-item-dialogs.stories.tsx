@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
-import { fn, screen, userEvent, within } from 'storybook/test'
+import { expect, fn, screen, userEvent, within } from 'storybook/test'
 import { AddLineItemDialog } from '../../../../../dashboard/src/components/spree/orders/line-item-dialogs'
 import { withStore } from '../../../decorators/store'
 import { orderParameters, orderRoutes } from './order-page'
@@ -38,6 +38,7 @@ export const Results: Story = {
   play: async () => {
     const sheet = await search('apron')
     await within(sheet).findAllByText(/Linen apron/)
+    await expect(within(sheet).queryByText('Clay mug')).toBeNull()
   },
 }
 
