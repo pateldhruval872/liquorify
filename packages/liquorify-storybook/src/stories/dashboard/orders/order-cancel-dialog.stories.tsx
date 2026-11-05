@@ -113,5 +113,7 @@ export const Refused: Story = {
     const dialog = await screen.findByRole('dialog')
     await userEvent.click(within(dialog).getByRole('button', { name: 'Cancel order' }))
     await within(dialog).findByRole('alert')
+    // Where focus lands after the refusal depends on how fast it came back.
+    ;(document.activeElement as HTMLElement | null)?.blur()
   },
 }
