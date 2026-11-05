@@ -4,12 +4,12 @@ record: review list
 work_item: FB-19
 date: 2026-11-04
 prepared_by: Claude (automated session)
-status: Accepted by delegated acceptance (Claude, under the owner's delegation of 2026-11-04), at #64's final commit once its required checks pass; not the owner's review
+status: Accepted by delegated acceptance (Claude, under the owner's delegation of 2026-11-04), at #64's final commit, `62cb2fe3`, merged on 2026-11-05 as `273e0be8`; not the owner's review
 ---
 
 # FB-19 batch 6, inventory, reference images for review
 
-This list holds every reference image batch 6 commits, by inventory ID ([LIQ-009](../LIQ-009-spree-component-and-token-inventory.md)), so each can be accepted or rejected, and the earlier batches' stories that batch 6's running screens compare. Batch 6 is accepted by delegated acceptance, under the owner's delegation of 2026-11-04 ([record](2026-11-04-delegated-acceptance-and-merging.md)), at #64's final commit, by Claude in the thread "Build dashboard inventory (batch 6)" ([verification record §12](2026-11-04-fb-19-batch-inventory.md#12-delegated-acceptance)). The owner did not review these images. The Acceptance column reads DELEGATED ACCEPTANCE for each.
+This list holds every reference image batch 6 commits, by inventory ID ([LIQ-009](../LIQ-009-spree-component-and-token-inventory.md)), so each can be accepted or rejected, and the earlier batches' stories that batch 6's running screens compare. Batch 6 is accepted by delegated acceptance, under the owner's delegation of 2026-11-04 ([record](2026-11-04-delegated-acceptance-and-merging.md)), at #64's final commit, `62cb2fe3`, by Claude in the thread "Build dashboard inventory (batch 6)" ([verification record §12](2026-11-04-fb-19-batch-inventory.md#12-delegated-acceptance)), and #64 merged on 2026-11-05 ([merge record](2026-11-05-fb-19-batch-inventory-merge.md)). The owner did not review these images. The Acceptance column reads DELEGATED ACCEPTANCE for each.
 
 **What to look at.** Each link opens the image beside this list, in the revision being read, and the pull request's file list shows the same images. Every image was looked at in light and dark before it was committed, and the two receipts card images made again in `bb83f4b1` were looked at beside the images they replaced (verification record §4.2). Stories use invented warehouses, suppliers, products and references; the running screens show the browser tests' data and the records batch 6 added through the Admin API.
 
