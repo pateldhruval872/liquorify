@@ -65,8 +65,23 @@ export interface Sent extends Answer {
   text: string
 }
 
+/** The gaps of LIQ-004 that P7's and P10's checks close, and the stand-in server's own. */
+export type Gap =
+  | 'G-11'
+  | 'G-23'
+  | 'G-32'
+  | 'G-40'
+  | 'G-45'
+  | 'G-50'
+  | 'G-56'
+  | 'G-60'
+  | 'G-70'
+  | 'G-79'
+  | 'G-83'
+  | 'stand-in'
+
 export interface Case {
-  gap: 'G-11' | 'G-23' | 'G-32' | 'G-40' | 'stand-in'
+  gap: Gap
   area: string
   /** What the case asks, in words, for the record. */
   title: string
@@ -325,17 +340,27 @@ export interface StorefrontProbe {
 /** What a storefront answer must be: an action's exact result, a redirect, or a page showing these texts. */
 export type StorefrontExpected =
   | { result: unknown }
+  /** An action's result holding every key named here, such as the caller's own cart's id. */
+  | { partly: unknown }
   | { redirectTo: string }
   | { page: number; shows: string[] }
   /** A request that names no record, answered for the caller's own. */
   | { ownResult: true }
 
 export interface StorefrontCase {
-  gap: 'G-11' | 'stand-in'
+  gap: Gap
   title: string
   attempts: { caller: string; probe: StorefrontProbe; expected: StorefrontExpected }[]
   control: { caller: string; probe: StorefrontProbe; expected: StorefrontExpected }
   protectedValues: string[]
+  /**
+   * What the allowed answer must carry, where it differs from
+   * `protectedValues`: a value no visitor may see is looked for in the refused
+   * answers, and one every visitor may see in the allowed one.
+   */
+  controlCarries?: string[]
+  /** A change made just before the allowed request, such as a draft product published. */
+  beforeControl?: { what: string; run: () => Promise<void> }
   /** The record's state, read through the Store API as its own customer. */
   state?: () => Promise<unknown>
 }
@@ -406,18 +431,24 @@ export function storefrontAsExpected(
     )
   if ('ownResult' in expected)
     return sent.status === 200 && sent.result !== undefined && sent.result !== null
+  if ('partly' in expected)
+    return (
+      sent.status === 200 && sent.result !== undefined && partlyEqual(sent.result, expected.partly)
+    )
   if (sent.status !== 200 || sent.result === undefined) return false
   return partly
     ? partlyEqual(sent.result, expected.result)
     : isDeepStrictEqual(sent.result, expected.result)
 }
 
-const describeSent = (sent: StorefrontSent) =>
+const describeSent = (sent: StorefrontSent, expected: StorefrontExpected) =>
   sent.status === 307
     ? `a redirect to ${sent.location}`
-    : sent.result === undefined
-      ? `${sent.status} with no action result`
-      : `${sent.status} with ${JSON.stringify(sent.result)?.slice(0, 120)}`
+    : 'page' in expected
+      ? `a ${sent.status} page showing ${carried(sent.text, expected.shows).length} of the ${expected.shows.length} texts it should`
+      : sent.result === undefined
+        ? `${sent.status} with no action result`
+        : `${sent.status} with ${JSON.stringify(sent.result)?.slice(0, 120)}`
 
 /**
  * Judges a storefront case as `runCase` judges an API one. A refused attempt
@@ -436,7 +467,8 @@ export async function runStorefrontCase(
     const asExpected = storefrontAsExpected(sent, attempt.expected)
     const exposed = carried(sent.text, item.protectedValues).map(describe)
     const unchanged = item.state ? isDeepStrictEqual(before, await item.state()) : null
-    if (!asExpected) failures.push(`${attempt.caller}: answered ${describeSent(sent)}`)
+    if (!asExpected)
+      failures.push(`${attempt.caller}: answered ${describeSent(sent, attempt.expected)}`)
     if (exposed.length > 0)
       failures.push(`${attempt.caller}: the answer carried ${exposed.join(', ')}`)
     if (unchanged === false) failures.push(`${attempt.caller}: the record changed`)
@@ -444,8 +476,18 @@ export async function runStorefrontCase(
       caller: attempt.caller,
       page: maskIds(attempt.probe.page),
       action: attempt.probe.action ? 'server action' : null,
-      expected: 'result' in attempt.expected ? 'an exact action result' : attempt.expected,
-      expectedResult: 'result' in attempt.expected ? attempt.expected.result : undefined,
+      expected:
+        'result' in attempt.expected
+          ? 'an exact action result'
+          : 'partly' in attempt.expected
+            ? 'an action result holding these values'
+            : attempt.expected,
+      expectedResult:
+        'result' in attempt.expected
+          ? attempt.expected.result
+          : 'partly' in attempt.expected
+            ? attempt.expected.partly
+            : undefined,
       status: sent.status,
       redirectedTo: sent.location ? maskIds(sent.location) : null,
       asExpected,
@@ -454,19 +496,24 @@ export async function runStorefrontCase(
       unchanged,
     })
   }
+  if (item.beforeControl) await item.beforeControl.run()
   const before = item.state ? await item.state() : null
   const sent = await sendStorefront(contexts[item.control.caller], item.control.probe)
   const succeeded = storefrontAsExpected(sent, item.control.expected, true)
   if (!succeeded)
-    failures.push(`the allowed caller ${item.control.caller} got ${describeSent(sent)}`)
+    failures.push(
+      `the allowed caller ${item.control.caller} got ${describeSent(sent, item.control.expected)}`,
+    )
   let changed: boolean | null = null
   let carriedAll: boolean | null = null
   if (item.state) {
     changed = !isDeepStrictEqual(before, await item.state())
     if (!changed)
       failures.push('the allowed write left the record as it was, so the read-back saw no change')
-  } else {
-    carriedAll = carried(sent.text, item.protectedValues).length === item.protectedValues.length
+  }
+  if (!item.state || item.controlCarries) {
+    const wanted = item.controlCarries ?? item.protectedValues
+    carriedAll = carried(sent.text, wanted).length === wanted.length
     if (!carriedAll)
       failures.push('the allowed answer did not carry the values the check looks for')
   }
@@ -478,6 +525,7 @@ export async function runStorefrontCase(
     control: {
       caller: item.control.caller,
       page: maskIds(item.control.probe.page),
+      after: item.beforeControl?.what ?? null,
       status: sent.status,
       succeeded,
       carried: carriedAll,
@@ -485,6 +533,36 @@ export async function runStorefrontCase(
     },
     failures,
     result: failures.length === 0 ? 'PASS' : 'FAIL',
+  }
+}
+
+/** A store setting a run changes for some of its cases: how to read it and how to write it. */
+export interface Setting {
+  name: string
+  read: () => Promise<unknown>
+  write: (value: unknown) => Promise<unknown>
+}
+
+export interface PutBack {
+  setting: string
+  restored: boolean
+}
+
+/**
+ * Changes a setting and answers how to put it back. Putting it back writes
+ * the value read before the change, then reads the setting again: the result
+ * says whether it reads as it did. Only the first call writes; later calls
+ * answer the same result, so a `finally` may call it again safely.
+ */
+export async function changeSetting(setting: Setting, value: unknown) {
+  const before = await setting.read()
+  await setting.write(value)
+  let done: PutBack | null = null
+  return async (): Promise<PutBack> => {
+    if (done) return done
+    await setting.write(before)
+    done = { setting: setting.name, restored: isDeepStrictEqual(before, await setting.read()) }
+    return done
   }
 }
 
@@ -505,3 +583,36 @@ export async function adminCaller(
   const body = (await me.json()) as { permission_keys: string[] }
   return { name, headers, keys: body.permission_keys }
 }
+
+export type Json = Record<string, unknown>
+export type Admin = (
+  method: 'GET' | 'POST' | 'PATCH' | 'DELETE',
+  path: string,
+  data?: Json,
+) => Promise<Json>
+
+/** An Admin API caller for setting up a run's records, failing the run on any refusal. */
+export function adminCall(api: APIRequestContext, caller: Caller): Admin {
+  return async (method, path, data) => {
+    const res = await api.fetch(`/api/v3/admin/${path}`, { method, headers: caller.headers, data })
+    // Only the status and the message, which never carries a credential.
+    const body = res.status() === 204 ? {} : ((await res.json()) as Json)
+    expect(
+      res.ok(),
+      `${method} ${path}: ${res.status()} ${(body.error as Json)?.message ?? ''}`,
+    ).toBeTruthy()
+    return body
+  }
+}
+
+export const rows = (body: unknown) => ((body as { data?: Json[] }).data ?? []) as Json[]
+export const named = (field: string, value: string) => (sent: { body: unknown }) =>
+  rows(sent.body).filter((item) => item[field] === value)
+
+/** A read-back of a record's status and these fields. */
+export const fields =
+  (...keys: string[]) =>
+  (sent: { status: number; body: unknown }) => [
+    sent.status,
+    ...keys.map((key) => (sent.body as Json)[key]),
+  ]

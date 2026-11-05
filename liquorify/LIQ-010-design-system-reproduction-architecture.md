@@ -6,7 +6,7 @@ status: DRAFT
 owner: unassigned
 approved_by: null
 approved_at: null
-updated: 2026-10-22
+updated: 2026-11-05
 ---
 
 # Design System Reproduction Architecture
@@ -353,10 +353,12 @@ CI never writes, accepts or commits a reference image. Its configuration makes a
 ### 11.5 CI workflow and artifacts
 
 - **One workflow per repository,** `.github/workflows/storybook.yml`. It runs on pull requests that change stories, mocks, the visual check, Storybook configuration, the components or stylesheets they cover, or the lockfile, and on request.
-- **Steps:** install (and, in the backend, build the two SDKs the stories import from their built files), build Storybook, run the token check and the coverage report, then run the Playwright comparisons in the pinned image. Both workflows use Node 22, the version the backend's workflows use; the storefront's own CI stays on Node 20.
+- **Steps:** install (and, in the backend, build the two SDKs the stories import from their built files), build Storybook, run the token check and the coverage report, then run the Playwright comparisons in the pinned image. Both workflows use Node 22, the version the backend's workflows use; the storefront's own CI stays on Node 20. Since 2026-11-05 the backend compares in four parts side by side, each on its own runner, because one job took 41 to 51 minutes for 3,008 comparisons, close to its 60-minute limit. Playwright splits the stories evenly between the parts, the first part also runs the token check and the coverage report, and a final job reports one result under the check's usual name, "Storybook & visual check".
 - **Artifacts:**
   - the HTML comparison report, from every run, kept 14 days;
   - the failure images (reference, actual and difference), only when a comparison fails, kept 14 days.
+
+  In the backend each part uploads its own, numbered by part: `visual-report-1` to `visual-report-4`, and `visual-failures-<part>` for a part that fails.
 
   Fourteen days covers a pull request's review and keeps storage small. Both repositories are public, so these artifacts are public too, and they show only invented data.
 - **Security.** The workflow reads the repository and nothing else: no secrets, and actions pinned to full commit identifiers, as the backend's security audit workflow already does.

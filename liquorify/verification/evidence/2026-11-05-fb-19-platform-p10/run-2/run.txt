@@ -1,0 +1,10 @@
+run 2: scripts and Spree at d12407b2, storefront at ba6ddcd
+started 2026-11-05T06:10:53Z
+test server answered 404
+storefront build exited 0
+storefront answered 200
+one-store-checks exited 0
+p10-admin exited 1
+p10-shoppers exited 1
+test server stopped, exit 0
+finished 2026-11-05T06:13:06Z
