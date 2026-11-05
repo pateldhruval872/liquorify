@@ -15,7 +15,7 @@ result: PARTIAL with a failing part, FL-08's payment steps, which SD-32 blocks. 
 
 | What | Revision |
 |---|---|
-| Stories, scripts and records | Pull request ⟨TBD PR⟩, branch `claude/project-thread-fjhoj0`. It started from `main` at `46c99cb7`, #79's merge, and holds the work item's proposal, written at `08bca2e2`, then the stories, fixtures, mocks, reference images, scripts, evidence and records. ⟨TBD later merges⟩ |
+| Stories, scripts and records | Pull request [#80](https://github.com/pateldhruval872/liquorify/pull/80), branch `claude/project-thread-fjhoj0`. It started from `main` at `46c99cb7`, #79's merge, and holds the work item's proposal, written at `08bca2e2`, then the stories, fixtures, mocks, reference images, scripts, evidence and records. Every later commit changes Liquorify's records only, or brings in `main`; the merge record names the final commit |
 | Spree's code: the dashboard, its packages, the SDKs and the gems | The same at `08bca2e2`, the revision the work item names, and at `46c99cb7`: `git diff` between them over `spree/`, `packages/dashboard`, `packages/dashboard-core`, `packages/dashboard-ui`, `packages/sdk` and `packages/admin-sdk` is empty. The branch changes none of it, nor any workflow or lockfile |
 | Running screens | The built admin dashboard against the dashboard browser tests' own Rails server and fixtures, at that code, in the pinned Playwright 1.64.1 image. Captures are 1280 by 960 pixels, and 390 by 844 for the one phone capture; an order page captured whole grows the window to the page's height. Comparisons are 1280 by 800, or taller where a case names it. The captures, the comparison, the settings check and the email captures ran from the branch's working tree on `08bca2e2`, and their notes name it |
 | The storefront | `ba6ddcd`, its `main`, built for production and run against the same browser-test server, for the payment link (§5.2) and EM-SF-02 (§9). It was not changed |
@@ -270,7 +270,7 @@ The proposal read in the code that nothing sends EM-C-03 and that its link might
 - **Nothing sends it.** A draft's page offers Complete and Delete in its menu, and no way to send a link (DA-ORD-04 draft, menu-draft). No Admin API endpoint, event subscriber or job calls `Spree::OrderMailer#payment_link_email`, and the admin SDK has no call for it; a search of `spree/` and `packages/` finds only the mailer's own specs and the rendered-emails spec. The email is registered among the customer emails a merchant may edit in the dashboard (`spree/emails/lib/spree/emails/engine.rb`), so its template can be changed for an email nothing sends.
 - **Its link does not open checkout.** Rendered directly for a draft (§9), the email links to `<storefront>/checkout/<order token>/payment`. The running storefront redirects that address to `/us/en/checkout/<order token>/payment`, which answers 404, "This page could not be found." The storefront's own checkout page, `/us/en/checkout/<id>`, given the same draft's token or its id, reads "Order not found or you don't have access to it." ([answers](evidence/2026-11-05-fb-19-batch-orders-returns-and-fulfilment-part-1/payment-link/answers.json), [the three pages](evidence/2026-11-05-fb-19-batch-orders-returns-and-fulfilment-part-1/payment-link/)).
 
-Proposed severity High: staff cannot send a customer a link to pay for a draft order, and a link sent by any other means cannot be paid through. It changes what FL-08 can show, so it was brought to the owner before it is settled, as the work item asked, with the audit thread's number SD-32: as an existing defect, or as a correction to LIQ-008's FL-08 and EM-C-03 if the flow is not Spree's. The owner's answer is awaited (owner brief row 39); until then SD-32 is held in the audit thread's register and not in LIQ-004's existing defects. ⟨TBD SD-32 owner answer⟩ It is not a security or tenant-isolation finding.
+Proposed severity High: staff cannot send a customer a link to pay for a draft order, and a link sent by any other means cannot be paid through. It changes what FL-08 can show, so it was brought to the owner before it is settled, as the work item asked, with the audit thread's number SD-32: as an existing defect, or as a correction to LIQ-008's FL-08 and EM-C-03 if the flow is not Spree's. The owner's answer is awaited (owner brief row 39); until then SD-32 is held in the audit thread's register and not in LIQ-004's existing defects. It is not a security or tenant-isolation finding.
 
 ### 5.3 SD-33: the logistics card's weight is not rounded
 
@@ -332,7 +332,11 @@ Every Spree email has a plain-text and an HTML part. EM-C-03's subject does not 
 
 ## 10. CI runs and local checks
 
-⟨TBD CI⟩
+**CI.** The runs on the final commit, the visual check twice, once from the pull request and once started by hand, each in its four parts, with Tests and Packages, are named in the merge record, as criterion 8 asks. If any of them fails, nothing is merged. Runs on earlier commits of #80 are not counted.
+
+The visual check stays advisory: it runs on every pull request, and nothing approves a changed screenshot automatically. CI does not run the capture, comparison, settings, digital delivery, SD-31, payment link or email scripts, which were run locally (§2, §4, §5, §8, §9).
+
+**Local checks, in this session.** At `23501755`, whose Storybook package no later commit changes, lint (Biome, 425 files), the package's type check, the 70 fixture tests and the token check passed. The Storybook built, with 1,649 stories in all. In the pinned image, the visual check wrote part 1's 290 reference images in update mode; the pull request adds those 290 and changes no earlier image. After the two fixture corrections (§4.3), the six order header images were written again, and a run of the visual check over the order stories then passed all 268 images it compared, in 5.6 minutes. Every new image was looked at in both themes ([image review list](2026-11-05-fb-19-batch-orders-returns-and-fulfilment-part-1-image-review.md)). Every evidence image was converted to lossless WebP and checked equal to its capture, pixel for pixel. Criterion 14's search, before each push: every line the pull request adds, in its 421 text files, was searched for the shapes of keys, tokens, passwords and machine paths and compared with the local values this part used, the browser tests' admin password, the order and download tokens, the publishable key, the webhook signing secret and the test app's secret. Nothing matched but one example's description in `backend/core-specs.json`, which quotes the start of the spec's own admin user record, with a cut-off password digest made by that test run; it is not a credential. The link check found none of the 1,788 relative links in the pull request's seven Markdown files broken.
 
 ## 11. Limitations
 
@@ -350,4 +354,13 @@ The [evidence index](evidence/2026-11-05-fb-19-batch-orders-returns-and-fulfilme
 
 ## 13. Delegated acceptance
 
-⟨TBD acceptance⟩
+| What | Detail |
+|---|---|
+| Kind | **Delegated acceptance, under the owner's delegation of 2026-11-04** ([record](2026-11-04-delegated-acceptance-and-merging.md)). The owner did not review this work |
+| Date | 2026-11-05 |
+| Accepted by | Claude, in the thread "Build dashboard batch 8" |
+| Revision | #80's final commit, which the merge record names. Its stories, fixtures, reference images and scripts are those of `23501755`; every later commit changes Liquorify's records only, or brings in `main` |
+| Scope | Criterion 11: the 290 reference images of the [image review list](2026-11-05-fb-19-batch-orders-returns-and-fulfilment-part-1-image-review.md), each looked at in light and dark (§10); the running-screen evidence of §2 and §3.1; and fidelity, judged from the comparison of §4, 46 cases and 6 earlier stories with every difference explained. Technical acceptance of criteria 1 to 10 and 12 to 17 as this record gives them, criterion 5 as PARTIAL with its failing part. Criterion 8 counts the two full visual runs on the final revision, which the merge record names; if either fails, or Tests or Packages fails, nothing is merged |
+| Not accepted here | Any answer to a gap, any exception or security risk, and any change of status the owner has not decided. G-88 to G-91 stay OPEN for the owner's answers, with their handling proposed, not decided; the narrower roles' requests join G-11 for P10, as the owner answered, and G-11 stays open. SD-32 stays with the owner, whose answer decides whether it is an existing defect, a correction to LIQ-008's FL-08 and EM-C-03, or a fix in batch 8; until then FL-08's payment steps stay unshown. SD-31, SD-33 and SD-34 stay open with their proposed severities. B1 to B21 stay recorded as Spree's and the storefront's behaviour, and whether to track any other of them as a defect is the owner's. Tenant isolation stays NOT_RUN (§3.3), ISO-1 to ISO-7 stay open, and FB-03's result stays with the owner. The work item stays PROPOSED and LIQ-004 DRAFT |
+
+What the checks did not show stays as §11 states it. In lane C, part 2, fulfilment and what happens after the sale, follows this part.
