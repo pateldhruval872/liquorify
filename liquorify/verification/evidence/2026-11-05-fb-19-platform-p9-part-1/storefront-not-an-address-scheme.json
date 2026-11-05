@@ -1,0 +1,26 @@
+{
+  "test": "storefront-not-an-address-scheme",
+  "revision": "231b2176",
+  "stamp": "mw2s9hx4",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "opened Getting Started in Winkel"
+    },
+    {
+      "step": "entered \"https://\" and saved",
+      "shown": {
+        "refusalInThePage": 1,
+        "refusalAboveTheSheet": false,
+        "savedNotice": null
+      }
+    },
+    {
+      "step": "closed the sheet and reloaded",
+      "requestsSavingAnAddress": [],
+      "task": "not done",
+      "field": ""
+    }
+  ],
+  "outside": []
+}

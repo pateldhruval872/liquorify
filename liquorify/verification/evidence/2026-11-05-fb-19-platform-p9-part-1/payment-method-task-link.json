@@ -1,0 +1,17 @@
+{
+  "test": "payment-method-task-link",
+  "revision": "231b2176",
+  "stamp": "mw2sa505",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "opened the payment method task",
+      "link": "Set up payment methods"
+    },
+    {
+      "step": "followed the link",
+      "path": "/<Winkel>/settings/payment-methods"
+    }
+  ],
+  "outside": []
+}

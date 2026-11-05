@@ -1,0 +1,39 @@
+{
+  "test": "store-address-saved",
+  "revision": "231b2176",
+  "stamp": "mw2s9hx4",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "opened Getting Started in Winkel",
+      "tasks": {
+        "address": "not done",
+        "payment": "not done",
+        "products": "not done",
+        "supportEmail": "not done",
+        "taxes": "not done",
+        "storefront": "not done"
+      }
+    },
+    {
+      "step": "filled every required field and saved; the dialog closed"
+    },
+    {
+      "step": "the task after saving",
+      "progress": "1 of 6 completed"
+    },
+    {
+      "step": "reloaded; the task is done, and the dialog opens with the saved address",
+      "shown": "Your shipping and returns address. Carriers use it to calculate delivery rates, and it is where customer returns are sent. P9 Winkel mw2s9hx4 Keizersgracht 123 Amsterdam, 1015 CJ Netherlands Save address",
+      "tasks": {
+        "address": "done",
+        "payment": "not done",
+        "products": "not done",
+        "supportEmail": "not done",
+        "taxes": "not done",
+        "storefront": "not done"
+      }
+    }
+  ],
+  "outside": []
+}
