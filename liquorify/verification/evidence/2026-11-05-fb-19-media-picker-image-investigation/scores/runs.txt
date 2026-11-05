@@ -1,0 +1,1102 @@
+One line per local run: group, run, then for each image captured the pixels counted at the threshold of 0.005,
+the pixels changed at all, and the largest change in one channel. Every run used the pinned Playwright image.
+The JSON files beside this one hold the same numbers. The visual check runs are at the end.
+
+## u: unchanged, both modes two at a time as CI runs them, against the references (40 runs)
+u-1  light 0 counted, 12 changed, largest 2 | dark 2 counted, 68 changed, largest 27
+u-2  light 0 counted, 10 changed, largest 2 | dark 2 counted, 68 changed, largest 27
+u-3  light 0 counted, 10 changed, largest 2 | dark 2 counted, 68 changed, largest 27
+u-4  light 0 counted, 10 changed, largest 2 | dark 2 counted, 68 changed, largest 27
+u-5  light 34 counted, 80 changed, largest 34 | dark 2 counted, 68 changed, largest 27
+u-6  light 0 counted, 9 changed, largest 1 | dark 2 counted, 68 changed, largest 27
+u-7  light 0 counted, 10 changed, largest 2 | dark 2 counted, 68 changed, largest 27
+u-8  light 0 counted, 10 changed, largest 2 | dark 2 counted, 68 changed, largest 27
+u-9  light 0 counted, 3 changed, largest 1 | dark 2 counted, 68 changed, largest 27
+u-10  light 0 counted, 7 changed, largest 2 | dark 2 counted, 68 changed, largest 27
+u-11  light 32 counted, 77 changed, largest 34 | dark 2 counted, 68 changed, largest 27
+u-12  light 0 counted, 3 changed, largest 1 | dark 2 counted, 68 changed, largest 27
+u-13  light 0 counted, 29 changed, largest 3 | dark 2 counted, 44 changed, largest 27
+u-14  light 0 counted, 22 changed, largest 3 | dark 2 counted, 68 changed, largest 27
+u-15  light 0 counted, 10 changed, largest 2 | dark 2 counted, 68 changed, largest 27
+u-16  light 0 counted, 3 changed, largest 1 | dark 2 counted, 68 changed, largest 27
+u-17  light 0 counted, 3 changed, largest 1 | dark 2 counted, 68 changed, largest 27
+u-18  light 0 counted, 7 changed, largest 2 | dark 2 counted, 68 changed, largest 27
+u-19  light 0 counted, 3 changed, largest 1 | dark 2 counted, 68 changed, largest 27
+u-20  light 20 counted, 34 changed, largest 34 | dark 2 counted, 44 changed, largest 27
+u-21  light 0 counted, 3 changed, largest 1 | dark 4 counted, 72 changed, largest 27
+u-22  light 0 counted, 7 changed, largest 2 | dark 2 counted, 68 changed, largest 27
+u-23  light 0 counted, 9 changed, largest 1 | dark 2 counted, 68 changed, largest 27
+u-24  light 0 counted, 7 changed, largest 2 | dark 2 counted, 68 changed, largest 27
+u-25  light 0 counted, 7 changed, largest 2 | dark 2 counted, 68 changed, largest 27
+u-26  light 20 counted, 34 changed, largest 34 | dark 2 counted, 68 changed, largest 27
+u-27  light 0 counted, 9 changed, largest 1 | dark 2 counted, 68 changed, largest 27
+u-28  light 0 counted, 10 changed, largest 2 | dark 2 counted, 68 changed, largest 27
+u-29  light 0 counted, 3 changed, largest 1 | dark 2 counted, 68 changed, largest 27
+u-30  light 0 counted, 0 changed, largest 0 | dark 2 counted, 68 changed, largest 27
+u-31  light 0 counted, 0 changed, largest 0 | dark 2 counted, 68 changed, largest 27
+u-32  light 0 counted, 3 changed, largest 1 | dark 2 counted, 68 changed, largest 27
+u-33  light 0 counted, 10 changed, largest 2 | dark 2 counted, 68 changed, largest 27
+u-34  light 0 counted, 31 changed, largest 3 | dark 2 counted, 68 changed, largest 27
+u-35  light 2 counted, 32 changed, largest 3 | dark 2 counted, 68 changed, largest 27
+u-36  light 0 counted, 10 changed, largest 2 | dark 2 counted, 44 changed, largest 27
+u-37  light 0 counted, 10 changed, largest 2 | dark 2 counted, 68 changed, largest 27
+u-38  light 0 counted, 10 changed, largest 2 | dark 2 counted, 68 changed, largest 27
+u-39  light 0 counted, 7 changed, largest 2 | dark 2 counted, 68 changed, largest 27
+u-40  light 0 counted, 9 changed, largest 1 | dark 2 counted, 68 changed, largest 27
+
+## smoke: the first unchanged run, both modes, which tried the capture setup (1 run)
+smoke-1  light 0 counted, 3 changed, largest 1 | dark 15 counted, 90 changed, largest 27
+
+## e-none: unchanged, light only, one at a time (60 runs)
+e-none-1  light 0 counted, 10 changed, largest 2
+e-none-2  light 0 counted, 6 changed, largest 1
+e-none-3  light 0 counted, 7 changed, largest 2
+e-none-4  light 0 counted, 10 changed, largest 2
+e-none-5  light 0 counted, 3 changed, largest 1
+e-none-6  light 0 counted, 6 changed, largest 1
+e-none-7  light 0 counted, 9 changed, largest 1
+e-none-8  light 0 counted, 9 changed, largest 1
+e-none-9  light 0 counted, 3 changed, largest 1
+e-none-10  light 0 counted, 9 changed, largest 1
+e-none-11  light 0 counted, 10 changed, largest 2
+e-none-12  light 0 counted, 3 changed, largest 1
+e-none-13  light 20 counted, 34 changed, largest 34
+e-none-14  light 0 counted, 10 changed, largest 2
+e-none-15  light 0 counted, 10 changed, largest 2
+e-none-16  light 0 counted, 3 changed, largest 1
+e-none-17  light 0 counted, 6 changed, largest 1
+e-none-18  light 0 counted, 9 changed, largest 1
+e-none-19  light 0 counted, 3 changed, largest 1
+e-none-20  light 0 counted, 10 changed, largest 2
+e-none-21  light 0 counted, 3 changed, largest 1
+e-none-22  light 0 counted, 0 changed, largest 0
+e-none-23  light 0 counted, 3 changed, largest 1
+e-none-24  light 0 counted, 10 changed, largest 2
+e-none-25  light 0 counted, 7 changed, largest 2
+e-none-26  light 0 counted, 9 changed, largest 1
+e-none-27  light 0 counted, 16 changed, largest 2
+e-none-28  light 0 counted, 9 changed, largest 1
+e-none-29  light 0 counted, 3 changed, largest 1
+e-none-30  light 0 counted, 10 changed, largest 2
+e-none-31  light 0 counted, 10 changed, largest 2
+e-none-32  light 0 counted, 9 changed, largest 1
+e-none-33  light 0 counted, 3 changed, largest 1
+e-none-34  light 0 counted, 3 changed, largest 1
+e-none-35  light 0 counted, 28 changed, largest 3
+e-none-36  light 0 counted, 7 changed, largest 2
+e-none-37  light 0 counted, 10 changed, largest 2
+e-none-38  light 20 counted, 33 changed, largest 34
+e-none-39  light 0 counted, 0 changed, largest 0
+e-none-40  light 0 counted, 10 changed, largest 2
+e-none-41  light 0 counted, 0 changed, largest 0
+e-none-42  light 0 counted, 6 changed, largest 1
+e-none-43  light 0 counted, 3 changed, largest 1
+e-none-44  light 20 counted, 33 changed, largest 34
+e-none-45  light 0 counted, 10 changed, largest 2
+e-none-46  light 0 counted, 3 changed, largest 1
+e-none-47  light 0 counted, 10 changed, largest 2
+e-none-48  light 0 counted, 3 changed, largest 1
+e-none-49  light 0 counted, 22 changed, largest 3
+e-none-50  light 0 counted, 3 changed, largest 1
+e-none-51  light 0 counted, 9 changed, largest 1
+e-none-52  light 0 counted, 7 changed, largest 2
+e-none-53  light 0 counted, 3 changed, largest 1
+e-none-54  light 0 counted, 10 changed, largest 2
+e-none-55  light 0 counted, 9 changed, largest 1
+e-none-56  light 0 counted, 10 changed, largest 2
+e-none-57  light 14 counted, 56 changed, largest 7
+e-none-58  light 0 counted, 10 changed, largest 2
+e-none-59  light 0 counted, 3 changed, largest 1
+e-none-60  light 0 counted, 10 changed, largest 2
+
+## e-log-images: unchanged, light only, images' sizes logged before the capture (60 runs)
+e-log-images-1  light 0 counted, 9 changed, largest 1
+e-log-images-2  light 0 counted, 10 changed, largest 2
+e-log-images-3  light 0 counted, 9 changed, largest 1
+e-log-images-4  light 12 counted, 56 changed, largest 7
+e-log-images-5  light 0 counted, 9 changed, largest 1
+e-log-images-6  light 0 counted, 3 changed, largest 1
+e-log-images-7  light 0 counted, 9 changed, largest 1
+e-log-images-8  light 0 counted, 6 changed, largest 1
+e-log-images-9  light 0 counted, 3 changed, largest 1
+e-log-images-10  light 0 counted, 3 changed, largest 1
+e-log-images-11  light 0 counted, 10 changed, largest 2
+e-log-images-12  light 0 counted, 10 changed, largest 2
+e-log-images-13  light 0 counted, 10 changed, largest 2
+e-log-images-14  light 0 counted, 6 changed, largest 1
+e-log-images-15  light 0 counted, 9 changed, largest 1
+e-log-images-16  light 0 counted, 10 changed, largest 2
+e-log-images-17  light 0 counted, 3 changed, largest 1
+e-log-images-18  light 0 counted, 3 changed, largest 1
+e-log-images-19  light 0 counted, 3 changed, largest 1
+e-log-images-20  light 0 counted, 3 changed, largest 1
+e-log-images-21  light 0 counted, 7 changed, largest 2
+e-log-images-22  light 20 counted, 27 changed, largest 34
+e-log-images-23  light 0 counted, 9 changed, largest 1
+e-log-images-24  light 0 counted, 10 changed, largest 2
+e-log-images-25  light 0 counted, 10 changed, largest 2
+e-log-images-26  light 0 counted, 7 changed, largest 2
+e-log-images-27  light 0 counted, 3 changed, largest 1
+e-log-images-28  light 0 counted, 10 changed, largest 2
+e-log-images-29  light 0 counted, 7 changed, largest 2
+e-log-images-30  light 0 counted, 0 changed, largest 0
+e-log-images-31  light 0 counted, 9 changed, largest 1
+e-log-images-32  light 0 counted, 9 changed, largest 1
+e-log-images-33  light 12 counted, 34 changed, largest 7
+e-log-images-34  light 0 counted, 10 changed, largest 2
+e-log-images-35  light 0 counted, 7 changed, largest 2
+e-log-images-36  light 0 counted, 3 changed, largest 1
+e-log-images-37  light 0 counted, 3 changed, largest 1
+e-log-images-38  light 0 counted, 9 changed, largest 1
+e-log-images-39  light 0 counted, 9 changed, largest 1
+e-log-images-40  light 0 counted, 10 changed, largest 2
+e-log-images-41  light 0 counted, 9 changed, largest 1
+e-log-images-42  light 0 counted, 10 changed, largest 2
+e-log-images-43  light 0 counted, 10 changed, largest 2
+e-log-images-44  light 0 counted, 10 changed, largest 2
+e-log-images-45  light 0 counted, 9 changed, largest 1
+e-log-images-46  light 0 counted, 16 changed, largest 2
+e-log-images-47  light 0 counted, 3 changed, largest 1
+e-log-images-48  light 0 counted, 3 changed, largest 1
+e-log-images-49  light 0 counted, 10 changed, largest 2
+e-log-images-50  light 0 counted, 10 changed, largest 2
+e-log-images-51  light 0 counted, 3 changed, largest 1
+e-log-images-52  light 0 counted, 10 changed, largest 2
+e-log-images-53  light 0 counted, 6 changed, largest 1
+e-log-images-54  light 0 counted, 28 changed, largest 3
+e-log-images-55  light 0 counted, 10 changed, largest 2
+e-log-images-56  light 0 counted, 10 changed, largest 2
+e-log-images-57  light 0 counted, 3 changed, largest 1
+e-log-images-58  light 0 counted, 9 changed, largest 1
+e-log-images-59  light 0 counted, 9 changed, largest 1
+e-log-images-60  light 0 counted, 6 changed, largest 1
+
+## d-log-images: unchanged, light only, images' sizes logged before the capture (earlier batch) (30 runs)
+d-log-images-1  light 0 counted, 6 changed, largest 1
+d-log-images-2  light 0 counted, 9 changed, largest 1
+d-log-images-3  light 0 counted, 7 changed, largest 2
+d-log-images-4  light 0 counted, 0 changed, largest 0
+d-log-images-5  light 0 counted, 9 changed, largest 1
+d-log-images-6  light 0 counted, 9 changed, largest 1
+d-log-images-7  light 0 counted, 3 changed, largest 1
+d-log-images-8  light 0 counted, 10 changed, largest 2
+d-log-images-9  light 0 counted, 3 changed, largest 1
+d-log-images-10  light 0 counted, 10 changed, largest 2
+d-log-images-11  light 0 counted, 6 changed, largest 1
+d-log-images-12  light 0 counted, 10 changed, largest 2
+d-log-images-13  light 0 counted, 7 changed, largest 2
+d-log-images-14  light 0 counted, 7 changed, largest 2
+d-log-images-15  light 0 counted, 9 changed, largest 1
+d-log-images-16  light 0 counted, 36 changed, largest 3
+d-log-images-17  light 0 counted, 10 changed, largest 2
+d-log-images-18  light 0 counted, 3 changed, largest 1
+d-log-images-19  light 0 counted, 10 changed, largest 2
+d-log-images-20  light 0 counted, 9 changed, largest 1
+d-log-images-21  light 0 counted, 10 changed, largest 2
+d-log-images-22  light 0 counted, 3 changed, largest 1
+d-log-images-23  light 0 counted, 9 changed, largest 1
+d-log-images-24  light 0 counted, 9 changed, largest 1
+d-log-images-25  light 0 counted, 10 changed, largest 2
+d-log-images-26  light 0 counted, 10 changed, largest 2
+d-log-images-27  light 0 counted, 10 changed, largest 2
+d-log-images-28  light 0 counted, 10 changed, largest 2
+d-log-images-29  light 0 counted, 10 changed, largest 2
+d-log-images-30  light 0 counted, 9 changed, largest 1
+
+## d-decode: unchanged, light only, after waiting for every photo to decode (30 runs)
+d-decode-1  light 0 counted, 9 changed, largest 1
+d-decode-2  light 0 counted, 6 changed, largest 1
+d-decode-3  light 0 counted, 3 changed, largest 1
+d-decode-4  light 0 counted, 7 changed, largest 2
+d-decode-5  light 20 counted, 33 changed, largest 34
+d-decode-6  light 0 counted, 0 changed, largest 0
+d-decode-7  light 0 counted, 10 changed, largest 2
+d-decode-8  light 0 counted, 3 changed, largest 1
+d-decode-9  light 0 counted, 9 changed, largest 1
+d-decode-10  light 0 counted, 9 changed, largest 1
+d-decode-11  light 0 counted, 3 changed, largest 1
+d-decode-12  light 0 counted, 3 changed, largest 1
+d-decode-13  light 0 counted, 3 changed, largest 1
+d-decode-14  light 0 counted, 10 changed, largest 2
+d-decode-15  light 0 counted, 0 changed, largest 0
+d-decode-16  light 0 counted, 9 changed, largest 1
+d-decode-17  light 0 counted, 9 changed, largest 1
+d-decode-18  light 0 counted, 10 changed, largest 2
+d-decode-19  light 20 counted, 53 changed, largest 34
+d-decode-20  light 0 counted, 10 changed, largest 2
+d-decode-21  light 0 counted, 10 changed, largest 2
+d-decode-22  light 0 counted, 9 changed, largest 1
+d-decode-23  light 0 counted, 9 changed, largest 1
+d-decode-24  light 0 counted, 10 changed, largest 2
+d-decode-25  light 0 counted, 9 changed, largest 1
+d-decode-26  light 0 counted, 28 changed, largest 3
+d-decode-27  light 0 counted, 29 changed, largest 3
+d-decode-28  light 0 counted, 22 changed, largest 3
+d-decode-29  light 32 counted, 77 changed, largest 34
+d-decode-30  light 0 counted, 3 changed, largest 1
+
+## d-wait: unchanged, light only, after waiting one more second (30 runs)
+d-wait-1  light 0 counted, 10 changed, largest 2
+d-wait-2  light 0 counted, 9 changed, largest 1
+d-wait-3  light 0 counted, 3 changed, largest 1
+d-wait-4  light 34 counted, 106 changed, largest 34
+d-wait-5  light 0 counted, 9 changed, largest 1
+d-wait-6  light 0 counted, 9 changed, largest 1
+d-wait-7  light 0 counted, 10 changed, largest 2
+d-wait-8  light 0 counted, 7 changed, largest 2
+d-wait-9  light 0 counted, 10 changed, largest 2
+d-wait-10  light 0 counted, 10 changed, largest 2
+d-wait-11  light 0 counted, 3 changed, largest 1
+d-wait-12  light 0 counted, 29 changed, largest 3
+d-wait-13  light 0 counted, 7 changed, largest 2
+d-wait-14  light 0 counted, 10 changed, largest 2
+d-wait-15  light 0 counted, 7 changed, largest 2
+d-wait-16  light 0 counted, 9 changed, largest 1
+d-wait-17  light 0 counted, 10 changed, largest 2
+d-wait-18  light 0 counted, 10 changed, largest 2
+d-wait-19  light 0 counted, 9 changed, largest 1
+d-wait-20  light 0 counted, 10 changed, largest 2
+d-wait-21  light 32 counted, 58 changed, largest 34
+d-wait-22  light 0 counted, 10 changed, largest 2
+d-wait-23  light 0 counted, 3 changed, largest 1
+d-wait-24  light 0 counted, 9 changed, largest 1
+d-wait-25  light 0 counted, 10 changed, largest 2
+d-wait-26  light 0 counted, 3 changed, largest 1
+d-wait-27  light 0 counted, 29 changed, largest 3
+d-wait-28  light 0 counted, 10 changed, largest 2
+d-wait-29  light 0 counted, 10 changed, largest 2
+d-wait-30  light 0 counted, 9 changed, largest 1
+
+## e-repaint: unchanged, light only, a repaint forced after the story drew (60 runs)
+e-repaint-1  light 34 counted, 99 changed, largest 34
+e-repaint-2  light 34 counted, 99 changed, largest 34
+e-repaint-3  light 34 counted, 99 changed, largest 34
+e-repaint-4  light 34 counted, 99 changed, largest 34
+e-repaint-5  light 34 counted, 99 changed, largest 34
+e-repaint-6  light 34 counted, 99 changed, largest 34
+e-repaint-7  light 34 counted, 99 changed, largest 34
+e-repaint-8  light 34 counted, 99 changed, largest 34
+e-repaint-9  light 34 counted, 99 changed, largest 34
+e-repaint-10  light 34 counted, 99 changed, largest 34
+e-repaint-11  light 34 counted, 99 changed, largest 34
+e-repaint-12  light 34 counted, 99 changed, largest 34
+e-repaint-13  light 34 counted, 99 changed, largest 34
+e-repaint-14  light 34 counted, 99 changed, largest 34
+e-repaint-15  light 34 counted, 99 changed, largest 34
+e-repaint-16  light 34 counted, 99 changed, largest 34
+e-repaint-17  light 34 counted, 99 changed, largest 34
+e-repaint-18  light 34 counted, 99 changed, largest 34
+e-repaint-19  light 34 counted, 99 changed, largest 34
+e-repaint-20  light 34 counted, 99 changed, largest 34
+e-repaint-21  light 34 counted, 99 changed, largest 34
+e-repaint-22  light 34 counted, 99 changed, largest 34
+e-repaint-23  light 34 counted, 99 changed, largest 34
+e-repaint-24  light 34 counted, 99 changed, largest 34
+e-repaint-25  light 34 counted, 99 changed, largest 34
+e-repaint-26  light 34 counted, 99 changed, largest 34
+e-repaint-27  light 34 counted, 99 changed, largest 34
+e-repaint-28  light 34 counted, 99 changed, largest 34
+e-repaint-29  light 34 counted, 99 changed, largest 34
+e-repaint-30  light 34 counted, 99 changed, largest 34
+e-repaint-31  light 34 counted, 99 changed, largest 34
+e-repaint-32  light 34 counted, 99 changed, largest 34
+e-repaint-33  light 34 counted, 99 changed, largest 34
+e-repaint-34  light 34 counted, 99 changed, largest 34
+e-repaint-35  light 34 counted, 99 changed, largest 34
+e-repaint-36  light 34 counted, 99 changed, largest 34
+e-repaint-37  light 34 counted, 99 changed, largest 34
+e-repaint-38  light 34 counted, 99 changed, largest 34
+e-repaint-39  light 34 counted, 99 changed, largest 34
+e-repaint-40  light 34 counted, 99 changed, largest 34
+e-repaint-41  light 34 counted, 99 changed, largest 34
+e-repaint-42  light 34 counted, 99 changed, largest 34
+e-repaint-43  light 34 counted, 99 changed, largest 34
+e-repaint-44  light 34 counted, 99 changed, largest 34
+e-repaint-45  light 34 counted, 99 changed, largest 34
+e-repaint-46  light 34 counted, 99 changed, largest 34
+e-repaint-47  light 34 counted, 99 changed, largest 34
+e-repaint-48  light 34 counted, 99 changed, largest 34
+e-repaint-49  light 34 counted, 99 changed, largest 34
+e-repaint-50  light 34 counted, 99 changed, largest 34
+e-repaint-51  light 34 counted, 99 changed, largest 34
+e-repaint-52  light 34 counted, 99 changed, largest 34
+e-repaint-53  light 34 counted, 99 changed, largest 34
+e-repaint-54  light 34 counted, 99 changed, largest 34
+e-repaint-55  light 34 counted, 99 changed, largest 34
+e-repaint-56  light 34 counted, 99 changed, largest 34
+e-repaint-57  light 34 counted, 99 changed, largest 34
+e-repaint-58  light 34 counted, 99 changed, largest 34
+e-repaint-59  light 34 counted, 99 changed, largest 34
+e-repaint-60  light 34 counted, 99 changed, largest 34
+
+## e-repaint-among: the same runs against run 1 of them (60 runs)
+e-repaint-1  light 0 counted, 0 changed, largest 0
+e-repaint-2  light 0 counted, 0 changed, largest 0
+e-repaint-3  light 0 counted, 0 changed, largest 0
+e-repaint-4  light 0 counted, 0 changed, largest 0
+e-repaint-5  light 0 counted, 0 changed, largest 0
+e-repaint-6  light 0 counted, 0 changed, largest 0
+e-repaint-7  light 0 counted, 0 changed, largest 0
+e-repaint-8  light 0 counted, 0 changed, largest 0
+e-repaint-9  light 0 counted, 0 changed, largest 0
+e-repaint-10  light 0 counted, 0 changed, largest 0
+e-repaint-11  light 0 counted, 0 changed, largest 0
+e-repaint-12  light 0 counted, 0 changed, largest 0
+e-repaint-13  light 0 counted, 0 changed, largest 0
+e-repaint-14  light 0 counted, 0 changed, largest 0
+e-repaint-15  light 0 counted, 0 changed, largest 0
+e-repaint-16  light 0 counted, 0 changed, largest 0
+e-repaint-17  light 0 counted, 0 changed, largest 0
+e-repaint-18  light 0 counted, 0 changed, largest 0
+e-repaint-19  light 0 counted, 0 changed, largest 0
+e-repaint-20  light 0 counted, 0 changed, largest 0
+e-repaint-21  light 0 counted, 0 changed, largest 0
+e-repaint-22  light 0 counted, 0 changed, largest 0
+e-repaint-23  light 0 counted, 0 changed, largest 0
+e-repaint-24  light 0 counted, 0 changed, largest 0
+e-repaint-25  light 0 counted, 0 changed, largest 0
+e-repaint-26  light 0 counted, 0 changed, largest 0
+e-repaint-27  light 0 counted, 0 changed, largest 0
+e-repaint-28  light 0 counted, 0 changed, largest 0
+e-repaint-29  light 0 counted, 0 changed, largest 0
+e-repaint-30  light 0 counted, 0 changed, largest 0
+e-repaint-31  light 0 counted, 0 changed, largest 0
+e-repaint-32  light 0 counted, 0 changed, largest 0
+e-repaint-33  light 0 counted, 0 changed, largest 0
+e-repaint-34  light 0 counted, 0 changed, largest 0
+e-repaint-35  light 0 counted, 0 changed, largest 0
+e-repaint-36  light 0 counted, 0 changed, largest 0
+e-repaint-37  light 0 counted, 0 changed, largest 0
+e-repaint-38  light 0 counted, 0 changed, largest 0
+e-repaint-39  light 0 counted, 0 changed, largest 0
+e-repaint-40  light 0 counted, 0 changed, largest 0
+e-repaint-41  light 0 counted, 0 changed, largest 0
+e-repaint-42  light 0 counted, 0 changed, largest 0
+e-repaint-43  light 0 counted, 0 changed, largest 0
+e-repaint-44  light 0 counted, 0 changed, largest 0
+e-repaint-45  light 0 counted, 0 changed, largest 0
+e-repaint-46  light 0 counted, 0 changed, largest 0
+e-repaint-47  light 0 counted, 0 changed, largest 0
+e-repaint-48  light 0 counted, 0 changed, largest 0
+e-repaint-49  light 0 counted, 0 changed, largest 0
+e-repaint-50  light 0 counted, 0 changed, largest 0
+e-repaint-51  light 0 counted, 0 changed, largest 0
+e-repaint-52  light 0 counted, 0 changed, largest 0
+e-repaint-53  light 0 counted, 0 changed, largest 0
+e-repaint-54  light 0 counted, 0 changed, largest 0
+e-repaint-55  light 0 counted, 0 changed, largest 0
+e-repaint-56  light 0 counted, 0 changed, largest 0
+e-repaint-57  light 0 counted, 0 changed, largest 0
+e-repaint-58  light 0 counted, 0 changed, largest 0
+e-repaint-59  light 0 counted, 0 changed, largest 0
+e-repaint-60  light 0 counted, 0 changed, largest 0
+
+## e-repaint-both: unchanged, both modes, a repaint forced after the story drew (40 runs)
+e-repaint-both-1  light 34 counted, 99 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+e-repaint-both-2  light 34 counted, 99 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+e-repaint-both-3  light 34 counted, 99 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+e-repaint-both-4  light 34 counted, 99 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+e-repaint-both-5  light 34 counted, 99 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+e-repaint-both-6  light 34 counted, 99 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+e-repaint-both-7  light 34 counted, 99 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+e-repaint-both-8  light 34 counted, 99 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+e-repaint-both-9  light 34 counted, 99 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+e-repaint-both-10  light 34 counted, 99 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+e-repaint-both-11  light 34 counted, 99 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+e-repaint-both-12  light 34 counted, 99 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+e-repaint-both-13  light 34 counted, 99 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+e-repaint-both-14  light 34 counted, 99 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+e-repaint-both-15  light 34 counted, 99 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+e-repaint-both-16  light 34 counted, 99 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+e-repaint-both-17  light 34 counted, 99 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+e-repaint-both-18  light 34 counted, 99 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+e-repaint-both-19  light 34 counted, 99 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+e-repaint-both-20  light 34 counted, 99 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+e-repaint-both-21  light 34 counted, 99 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+e-repaint-both-22  light 34 counted, 99 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+e-repaint-both-23  light 34 counted, 99 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+e-repaint-both-24  light 34 counted, 99 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+e-repaint-both-25  light 34 counted, 99 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+e-repaint-both-26  light 34 counted, 99 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+e-repaint-both-27  light 34 counted, 99 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+e-repaint-both-28  light 34 counted, 99 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+e-repaint-both-29  light 34 counted, 99 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+e-repaint-both-30  light 34 counted, 99 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+e-repaint-both-31  light 34 counted, 99 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+e-repaint-both-32  light 34 counted, 99 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+e-repaint-both-33  light 34 counted, 99 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+e-repaint-both-34  light 34 counted, 99 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+e-repaint-both-35  light 34 counted, 99 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+e-repaint-both-36  light 34 counted, 99 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+e-repaint-both-37  light 34 counted, 99 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+e-repaint-both-38  light 34 counted, 99 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+e-repaint-both-39  light 34 counted, 99 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+e-repaint-both-40  light 34 counted, 99 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+
+## e-repaint-both-among: the same runs against run 1 of them (40 runs)
+e-repaint-both-1  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+e-repaint-both-2  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+e-repaint-both-3  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+e-repaint-both-4  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+e-repaint-both-5  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+e-repaint-both-6  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+e-repaint-both-7  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+e-repaint-both-8  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+e-repaint-both-9  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+e-repaint-both-10  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+e-repaint-both-11  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+e-repaint-both-12  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+e-repaint-both-13  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+e-repaint-both-14  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+e-repaint-both-15  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+e-repaint-both-16  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+e-repaint-both-17  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+e-repaint-both-18  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+e-repaint-both-19  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+e-repaint-both-20  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+e-repaint-both-21  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+e-repaint-both-22  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+e-repaint-both-23  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+e-repaint-both-24  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+e-repaint-both-25  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+e-repaint-both-26  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+e-repaint-both-27  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+e-repaint-both-28  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+e-repaint-both-29  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+e-repaint-both-30  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+e-repaint-both-31  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+e-repaint-both-32  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+e-repaint-both-33  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+e-repaint-both-34  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+e-repaint-both-35  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+e-repaint-both-36  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+e-repaint-both-37  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+e-repaint-both-38  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+e-repaint-both-39  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+e-repaint-both-40  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+
+## d-hide-images-among: photos hidden, light only, against run 1 of them (30 runs)
+d-hide-images-1  light 0 counted, 0 changed, largest 0
+d-hide-images-2  light 0 counted, 13 changed, largest 2
+d-hide-images-3  light 0 counted, 10 changed, largest 2
+d-hide-images-4  light 0 counted, 10 changed, largest 2
+d-hide-images-5  light 0 counted, 11 changed, largest 2
+d-hide-images-6  light 0 counted, 10 changed, largest 2
+d-hide-images-7  light 0 counted, 11 changed, largest 2
+d-hide-images-8  light 0 counted, 10 changed, largest 2
+d-hide-images-9  light 0 counted, 0 changed, largest 0
+d-hide-images-10  light 0 counted, 0 changed, largest 0
+d-hide-images-11  light 0 counted, 10 changed, largest 2
+d-hide-images-12  light 0 counted, 10 changed, largest 2
+d-hide-images-13  light 0 counted, 10 changed, largest 2
+d-hide-images-14  light 0 counted, 10 changed, largest 2
+d-hide-images-15  light 0 counted, 10 changed, largest 2
+d-hide-images-16  light 0 counted, 11 changed, largest 2
+d-hide-images-17  light 0 counted, 17 changed, largest 2
+d-hide-images-18  light 0 counted, 10 changed, largest 2
+d-hide-images-19  light 0 counted, 10 changed, largest 2
+d-hide-images-20  light 0 counted, 11 changed, largest 2
+d-hide-images-21  light 0 counted, 1 changed, largest 1
+d-hide-images-22  light 0 counted, 10 changed, largest 2
+d-hide-images-23  light 0 counted, 10 changed, largest 2
+d-hide-images-24  light 0 counted, 10 changed, largest 2
+d-hide-images-25  light 0 counted, 10 changed, largest 2
+d-hide-images-26  light 0 counted, 10 changed, largest 2
+d-hide-images-27  light 0 counted, 1 changed, largest 1
+d-hide-images-28  light 0 counted, 10 changed, largest 2
+d-hide-images-29  light 0 counted, 11 changed, largest 2
+d-hide-images-30  light 0 counted, 10 changed, largest 2
+
+## p-whole-y: diagnostic: tiles moved onto a whole pixel vertically, against the references (40 runs)
+p-whole-y-1  light 2750 counted, 4977 changed, largest 246 | dark 2871 counted, 5093 changed, largest 222
+p-whole-y-2  light 2750 counted, 4977 changed, largest 246 | dark 2871 counted, 5093 changed, largest 222
+p-whole-y-3  light 2750 counted, 4977 changed, largest 246 | dark 2871 counted, 5093 changed, largest 222
+p-whole-y-4  light 2750 counted, 4977 changed, largest 246 | dark 2871 counted, 5093 changed, largest 222
+p-whole-y-5  light 2750 counted, 4977 changed, largest 246 | dark 2871 counted, 5093 changed, largest 222
+p-whole-y-6  light 2750 counted, 4977 changed, largest 246 | dark 2871 counted, 5093 changed, largest 222
+p-whole-y-7  light 2750 counted, 4977 changed, largest 246 | dark 2871 counted, 5093 changed, largest 222
+p-whole-y-8  light 2750 counted, 4977 changed, largest 246 | dark 2871 counted, 5093 changed, largest 222
+p-whole-y-9  light 2750 counted, 4977 changed, largest 246 | dark 2871 counted, 5093 changed, largest 222
+p-whole-y-10  light 2750 counted, 4977 changed, largest 246 | dark 2871 counted, 5093 changed, largest 222
+p-whole-y-11  light 2750 counted, 4977 changed, largest 246 | dark 2871 counted, 5093 changed, largest 222
+p-whole-y-12  light 2750 counted, 4977 changed, largest 246 | dark 2871 counted, 5093 changed, largest 222
+p-whole-y-13  light 2750 counted, 4977 changed, largest 246 | dark 2871 counted, 5093 changed, largest 222
+p-whole-y-14  light 2750 counted, 4977 changed, largest 246 | dark 2871 counted, 5093 changed, largest 222
+p-whole-y-15  light 2750 counted, 4977 changed, largest 246 | dark 2871 counted, 5093 changed, largest 222
+p-whole-y-16  light 2750 counted, 4977 changed, largest 246 | dark 2871 counted, 5093 changed, largest 222
+p-whole-y-17  light 2751 counted, 4977 changed, largest 246 | dark 2871 counted, 5093 changed, largest 222
+p-whole-y-18  light 2750 counted, 4977 changed, largest 246 | dark 2871 counted, 5093 changed, largest 222
+p-whole-y-19  light 2750 counted, 4977 changed, largest 246 | dark 2871 counted, 5093 changed, largest 222
+p-whole-y-20  light 2750 counted, 4977 changed, largest 246 | dark 2871 counted, 5093 changed, largest 222
+p-whole-y-21  light 2750 counted, 4977 changed, largest 246 | dark 2871 counted, 5093 changed, largest 222
+p-whole-y-22  light 2750 counted, 4977 changed, largest 246 | dark 2871 counted, 5093 changed, largest 222
+p-whole-y-23  light 2750 counted, 4977 changed, largest 246 | dark 2871 counted, 5093 changed, largest 222
+p-whole-y-24  light 2750 counted, 4977 changed, largest 246 | dark 2871 counted, 5093 changed, largest 222
+p-whole-y-25  light 2750 counted, 4977 changed, largest 246 | dark 2871 counted, 5093 changed, largest 222
+p-whole-y-26  light 2750 counted, 4977 changed, largest 246 | dark 2871 counted, 5093 changed, largest 222
+p-whole-y-27  light 2750 counted, 4977 changed, largest 246 | dark 2871 counted, 5093 changed, largest 222
+p-whole-y-28  light 2750 counted, 4977 changed, largest 246 | dark 2871 counted, 5093 changed, largest 222
+p-whole-y-29  light 2750 counted, 4977 changed, largest 246 | dark 2871 counted, 5093 changed, largest 222
+p-whole-y-30  light 2750 counted, 4977 changed, largest 246 | dark 2871 counted, 5093 changed, largest 222
+p-whole-y-31  light 2750 counted, 4977 changed, largest 246 | dark 2871 counted, 5093 changed, largest 222
+p-whole-y-32  light 2750 counted, 4977 changed, largest 246 | dark 2871 counted, 5093 changed, largest 222
+p-whole-y-33  light 2751 counted, 4977 changed, largest 246 | dark 2871 counted, 5093 changed, largest 222
+p-whole-y-34  light 2751 counted, 4977 changed, largest 246 | dark 2871 counted, 5093 changed, largest 222
+p-whole-y-35  light 2750 counted, 4977 changed, largest 246 | dark 2871 counted, 5093 changed, largest 222
+p-whole-y-36  light 2750 counted, 4977 changed, largest 246 | dark 2871 counted, 5093 changed, largest 222
+p-whole-y-37  light 2750 counted, 4977 changed, largest 246 | dark 2871 counted, 5093 changed, largest 222
+p-whole-y-38  light 2750 counted, 4977 changed, largest 246 | dark 2871 counted, 5093 changed, largest 222
+p-whole-y-39  light 2750 counted, 4977 changed, largest 246 | dark 2871 counted, 5093 changed, largest 222
+p-whole-y-40  light 2750 counted, 4977 changed, largest 246 | dark 2871 counted, 5093 changed, largest 222
+
+## p-whole-xy: diagnostic: tiles on whole pixels both ways, against the references (40 runs)
+p-whole-xy-1  light 4035 counted, 6603 changed, largest 246 | dark 3676 counted, 6750 changed, largest 231
+p-whole-xy-2  light 4035 counted, 6603 changed, largest 246 | dark 3676 counted, 6750 changed, largest 231
+p-whole-xy-3  light 4035 counted, 6603 changed, largest 246 | dark 3676 counted, 6750 changed, largest 231
+p-whole-xy-4  light 4035 counted, 6603 changed, largest 246 | dark 3676 counted, 6750 changed, largest 231
+p-whole-xy-5  light 4035 counted, 6603 changed, largest 246 | dark 3676 counted, 6750 changed, largest 231
+p-whole-xy-6  light 4035 counted, 6603 changed, largest 246 | dark 3676 counted, 6750 changed, largest 231
+p-whole-xy-7  light 4035 counted, 6603 changed, largest 246 | dark 3676 counted, 6750 changed, largest 231
+p-whole-xy-8  light 4035 counted, 6603 changed, largest 246 | dark 3676 counted, 6750 changed, largest 231
+p-whole-xy-9  light 4035 counted, 6603 changed, largest 246 | dark 3676 counted, 6750 changed, largest 231
+p-whole-xy-10  light 4035 counted, 6603 changed, largest 246 | dark 3676 counted, 6750 changed, largest 231
+p-whole-xy-11  light 4035 counted, 6603 changed, largest 246 | dark 3676 counted, 6750 changed, largest 231
+p-whole-xy-12  light 4035 counted, 6603 changed, largest 246 | dark 3676 counted, 6750 changed, largest 231
+p-whole-xy-13  light 4035 counted, 6603 changed, largest 246 | dark 3676 counted, 6750 changed, largest 231
+p-whole-xy-14  light 4035 counted, 6603 changed, largest 246 | dark 3676 counted, 6750 changed, largest 231
+p-whole-xy-15  light 4035 counted, 6603 changed, largest 246 | dark 3676 counted, 6750 changed, largest 231
+p-whole-xy-16  light 4035 counted, 6603 changed, largest 246 | dark 3676 counted, 6750 changed, largest 231
+p-whole-xy-17  light 4035 counted, 6603 changed, largest 246 | dark 3676 counted, 6750 changed, largest 231
+p-whole-xy-18  light 4035 counted, 6603 changed, largest 246 | dark 3676 counted, 6750 changed, largest 231
+p-whole-xy-19  light 4035 counted, 6603 changed, largest 246 | dark 3676 counted, 6750 changed, largest 231
+p-whole-xy-20  light 4035 counted, 6603 changed, largest 246 | dark 3676 counted, 6750 changed, largest 231
+p-whole-xy-21  light 4035 counted, 6603 changed, largest 246 | dark 3676 counted, 6750 changed, largest 231
+p-whole-xy-22  light 4035 counted, 6603 changed, largest 246 | dark 3676 counted, 6750 changed, largest 231
+p-whole-xy-23  light 4035 counted, 6606 changed, largest 246 | dark 3676 counted, 6750 changed, largest 231
+p-whole-xy-24  light 4035 counted, 6603 changed, largest 246 | dark 3676 counted, 6750 changed, largest 231
+p-whole-xy-25  light 4035 counted, 6603 changed, largest 246 | dark 3676 counted, 6750 changed, largest 231
+p-whole-xy-26  light 4035 counted, 6603 changed, largest 246 | dark 3676 counted, 6750 changed, largest 231
+p-whole-xy-27  light 4035 counted, 6603 changed, largest 246 | dark 3676 counted, 6750 changed, largest 231
+p-whole-xy-28  light 4035 counted, 6603 changed, largest 246 | dark 3676 counted, 6750 changed, largest 231
+p-whole-xy-29  light 4035 counted, 6603 changed, largest 246 | dark 3676 counted, 6750 changed, largest 231
+p-whole-xy-30  light 4035 counted, 6606 changed, largest 246 | dark 3676 counted, 6750 changed, largest 231
+p-whole-xy-31  light 4035 counted, 6603 changed, largest 246 | dark 3676 counted, 6750 changed, largest 231
+p-whole-xy-32  light 4035 counted, 6603 changed, largest 246 | dark 3676 counted, 6750 changed, largest 231
+p-whole-xy-33  light 4035 counted, 6603 changed, largest 246 | dark 3676 counted, 6750 changed, largest 231
+p-whole-xy-34  light 4035 counted, 6603 changed, largest 246 | dark 3676 counted, 6750 changed, largest 231
+p-whole-xy-35  light 4035 counted, 6603 changed, largest 246 | dark 3676 counted, 6750 changed, largest 231
+p-whole-xy-36  light 4035 counted, 6603 changed, largest 246 | dark 3676 counted, 6750 changed, largest 231
+p-whole-xy-37  light 4035 counted, 6603 changed, largest 246 | dark 3676 counted, 6750 changed, largest 231
+p-whole-xy-38  light 4035 counted, 6603 changed, largest 246 | dark 3676 counted, 6750 changed, largest 231
+p-whole-xy-39  light 4035 counted, 6603 changed, largest 246 | dark 3676 counted, 6750 changed, largest 231
+p-whole-xy-40  light 4035 counted, 6603 changed, largest 246 | dark 3676 counted, 6750 changed, largest 231
+
+## p-fractional-more: diagnostic: tiles a further quarter pixel down, against the references (40 runs)
+p-fractional-more-1  light 34 counted, 108 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+p-fractional-more-2  light 34 counted, 108 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+p-fractional-more-3  light 34 counted, 108 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+p-fractional-more-4  light 34 counted, 111 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+p-fractional-more-5  light 34 counted, 108 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+p-fractional-more-6  light 34 counted, 108 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+p-fractional-more-7  light 34 counted, 108 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+p-fractional-more-8  light 34 counted, 108 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+p-fractional-more-9  light 34 counted, 108 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+p-fractional-more-10  light 34 counted, 108 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+p-fractional-more-11  light 34 counted, 108 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+p-fractional-more-12  light 34 counted, 111 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+p-fractional-more-13  light 34 counted, 108 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+p-fractional-more-14  light 34 counted, 108 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+p-fractional-more-15  light 34 counted, 108 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+p-fractional-more-16  light 34 counted, 108 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+p-fractional-more-17  light 34 counted, 111 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+p-fractional-more-18  light 34 counted, 108 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+p-fractional-more-19  light 34 counted, 109 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+p-fractional-more-20  light 34 counted, 108 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+p-fractional-more-21  light 34 counted, 108 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+p-fractional-more-22  light 34 counted, 108 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+p-fractional-more-23  light 34 counted, 108 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+p-fractional-more-24  light 34 counted, 108 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+p-fractional-more-25  light 34 counted, 108 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+p-fractional-more-26  light 34 counted, 108 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+p-fractional-more-27  light 34 counted, 108 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+p-fractional-more-28  light 34 counted, 108 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+p-fractional-more-29  light 34 counted, 108 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+p-fractional-more-30  light 34 counted, 108 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+p-fractional-more-31  light 34 counted, 108 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+p-fractional-more-32  light 34 counted, 108 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+p-fractional-more-33  light 34 counted, 108 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+p-fractional-more-34  light 34 counted, 112 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+p-fractional-more-35  light 34 counted, 108 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+p-fractional-more-36  light 34 counted, 111 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+p-fractional-more-37  light 34 counted, 108 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+p-fractional-more-38  light 34 counted, 111 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+p-fractional-more-39  light 34 counted, 108 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+p-fractional-more-40  light 34 counted, 108 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+
+## p-whole-y-among: the whole-y diagnostic against run 1 of it (39 runs)
+p-whole-y-2  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-whole-y-3  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-whole-y-4  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-whole-y-5  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-whole-y-6  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-whole-y-7  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-whole-y-8  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-whole-y-9  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-whole-y-10  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-whole-y-11  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-whole-y-12  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-whole-y-13  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-whole-y-14  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-whole-y-15  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-whole-y-16  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-whole-y-17  light 0 counted, 8 changed, largest 1 | dark 0 counted, 0 changed, largest 0
+p-whole-y-18  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-whole-y-19  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-whole-y-20  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-whole-y-21  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-whole-y-22  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-whole-y-23  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-whole-y-24  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-whole-y-25  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-whole-y-26  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-whole-y-27  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-whole-y-28  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-whole-y-29  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-whole-y-30  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-whole-y-31  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-whole-y-32  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-whole-y-33  light 0 counted, 8 changed, largest 1 | dark 0 counted, 0 changed, largest 0
+p-whole-y-34  light 0 counted, 8 changed, largest 1 | dark 0 counted, 0 changed, largest 0
+p-whole-y-35  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-whole-y-36  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-whole-y-37  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-whole-y-38  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-whole-y-39  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-whole-y-40  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+
+## p-whole-xy-among: the whole-xy diagnostic against run 1 of it (39 runs)
+p-whole-xy-2  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-whole-xy-3  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-whole-xy-4  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-whole-xy-5  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-whole-xy-6  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-whole-xy-7  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-whole-xy-8  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-whole-xy-9  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-whole-xy-10  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-whole-xy-11  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-whole-xy-12  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-whole-xy-13  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-whole-xy-14  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-whole-xy-15  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-whole-xy-16  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-whole-xy-17  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-whole-xy-18  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-whole-xy-19  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-whole-xy-20  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-whole-xy-21  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-whole-xy-22  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-whole-xy-23  light 0 counted, 3 changed, largest 1 | dark 0 counted, 0 changed, largest 0
+p-whole-xy-24  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-whole-xy-25  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-whole-xy-26  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-whole-xy-27  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-whole-xy-28  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-whole-xy-29  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-whole-xy-30  light 0 counted, 3 changed, largest 1 | dark 0 counted, 0 changed, largest 0
+p-whole-xy-31  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-whole-xy-32  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-whole-xy-33  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-whole-xy-34  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-whole-xy-35  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-whole-xy-36  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-whole-xy-37  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-whole-xy-38  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-whole-xy-39  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-whole-xy-40  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+
+## p-fractional-more-among: the fractional-more diagnostic against run 1 of it (39 runs)
+p-fractional-more-2  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-fractional-more-3  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-fractional-more-4  light 0 counted, 3 changed, largest 1 | dark 0 counted, 0 changed, largest 0
+p-fractional-more-5  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-fractional-more-6  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-fractional-more-7  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-fractional-more-8  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-fractional-more-9  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-fractional-more-10  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-fractional-more-11  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-fractional-more-12  light 0 counted, 3 changed, largest 1 | dark 0 counted, 0 changed, largest 0
+p-fractional-more-13  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-fractional-more-14  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-fractional-more-15  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-fractional-more-16  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-fractional-more-17  light 0 counted, 3 changed, largest 1 | dark 0 counted, 0 changed, largest 0
+p-fractional-more-18  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-fractional-more-19  light 0 counted, 4 changed, largest 1 | dark 0 counted, 0 changed, largest 0
+p-fractional-more-20  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-fractional-more-21  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-fractional-more-22  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-fractional-more-23  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-fractional-more-24  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-fractional-more-25  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-fractional-more-26  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-fractional-more-27  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-fractional-more-28  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-fractional-more-29  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-fractional-more-30  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-fractional-more-31  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-fractional-more-32  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-fractional-more-33  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-fractional-more-34  light 0 counted, 7 changed, largest 1 | dark 0 counted, 0 changed, largest 0
+p-fractional-more-35  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-fractional-more-36  light 0 counted, 3 changed, largest 1 | dark 0 counted, 0 changed, largest 0
+p-fractional-more-37  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-fractional-more-38  light 0 counted, 3 changed, largest 1 | dark 0 counted, 0 changed, largest 0
+p-fractional-more-39  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+p-fractional-more-40  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+
+## s1: trial story (photos decoded before the clicks), both modes, against the references (40 runs)
+s1-1  light 20 counted, 49 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+s1-2  light 0 counted, 9 changed, largest 1 | dark 2 counted, 85 changed, largest 27
+s1-3  light 0 counted, 0 changed, largest 0 | dark 2 counted, 68 changed, largest 27
+s1-4  light 34 counted, 102 changed, largest 34 | dark 15 counted, 83 changed, largest 27
+s1-5  light 34 counted, 102 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+s1-6  light 34 counted, 101 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+s1-7  light 20 counted, 56 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+s1-8  light 34 counted, 98 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+s1-9  light 34 counted, 101 changed, largest 34 | dark 12 counted, 92 changed, largest 32
+s1-10  light 34 counted, 102 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+s1-11  light 14 counted, 55 changed, largest 7 | dark 2 counted, 68 changed, largest 27
+s1-12  light 34 counted, 80 changed, largest 34 | dark 2 counted, 44 changed, largest 27
+s1-13  light 14 counted, 53 changed, largest 7 | dark 25 counted, 107 changed, largest 32
+s1-14  light 34 counted, 99 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+s1-15  light 0 counted, 10 changed, largest 2 | dark 25 counted, 90 changed, largest 32
+s1-16  light 32 counted, 80 changed, largest 34 | dark 25 counted, 90 changed, largest 32
+s1-17  light 34 counted, 80 changed, largest 34 | dark 2 counted, 85 changed, largest 27
+s1-18  light 34 counted, 95 changed, largest 34 | dark 25 counted, 90 changed, largest 32
+s1-19  light 34 counted, 99 changed, largest 34 | dark 2 counted, 68 changed, largest 27
+s1-20  light 34 counted, 99 changed, largest 34 | dark 25 counted, 131 changed, largest 32
+s1-21  light 0 counted, 10 changed, largest 2 | dark 2 counted, 68 changed, largest 27
+s1-22  light 0 counted, 10 changed, largest 2 | dark 12 counted, 68 changed, largest 32
+s1-23  light 0 counted, 10 changed, largest 2 | dark 2 counted, 44 changed, largest 27
+s1-24  light 0 counted, 32 changed, largest 3 | dark 2 counted, 44 changed, largest 27
+s1-25  light 0 counted, 10 changed, largest 2 | dark 15 counted, 107 changed, largest 27
+s1-26  light 0 counted, 7 changed, largest 2 | dark 25 counted, 90 changed, largest 32
+s1-27  light 34 counted, 102 changed, largest 34 | dark 2 counted, 85 changed, largest 27
+s1-28  light 2 counted, 54 changed, largest 3 | dark 2 counted, 44 changed, largest 27
+s1-29  light 34 counted, 79 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+s1-30  light 0 counted, 3 changed, largest 1 | dark 15 counted, 83 changed, largest 27
+s1-31  light 34 counted, 99 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+s1-32  light 0 counted, 32 changed, largest 3 | dark 15 counted, 107 changed, largest 27
+s1-33  light 34 counted, 80 changed, largest 34 | dark 25 counted, 107 changed, largest 32
+s1-34  light 32 counted, 58 changed, largest 34 | dark 25 counted, 90 changed, largest 32
+s1-35  light 14 counted, 56 changed, largest 7 | dark 12 counted, 68 changed, largest 32
+s1-36  light 0 counted, 10 changed, largest 2 | dark 2 counted, 44 changed, largest 27
+s1-37  light 34 counted, 99 changed, largest 34 | dark 2 counted, 68 changed, largest 27
+s1-38  light 34 counted, 92 changed, largest 34 | dark 12 counted, 85 changed, largest 32
+s1-39  light 34 counted, 102 changed, largest 34 | dark 25 counted, 131 changed, largest 32
+s1-40  light 34 counted, 102 changed, largest 34 | dark 15 counted, 83 changed, largest 27
+
+## s1-among: the same runs against run 1 of them (40 runs)
+s1-1  light 0 counted, 0 changed, largest 0 | dark 0 counted, 0 changed, largest 0
+s1-2  light 20 counted, 52 changed, largest 34 | dark 23 counted, 70 changed, largest 32
+s1-3  light 20 counted, 49 changed, largest 34 | dark 23 counted, 94 changed, largest 32
+s1-4  light 14 counted, 53 changed, largest 7 | dark 10 counted, 24 changed, largest 32
+s1-5  light 14 counted, 53 changed, largest 7 | dark 0 counted, 0 changed, largest 0
+s1-6  light 14 counted, 52 changed, largest 7 | dark 0 counted, 0 changed, largest 0
+s1-7  light 0 counted, 7 changed, largest 2 | dark 0 counted, 0 changed, largest 0
+s1-8  light 14 counted, 55 changed, largest 7 | dark 0 counted, 0 changed, largest 0
+s1-9  light 14 counted, 52 changed, largest 7 | dark 13 counted, 70 changed, largest 9
+s1-10  light 14 counted, 53 changed, largest 7 | dark 0 counted, 0 changed, largest 0
+s1-11  light 34 counted, 98 changed, largest 34 | dark 23 counted, 94 changed, largest 32
+s1-12  light 14 counted, 75 changed, largest 7 | dark 23 counted, 70 changed, largest 32
+s1-13  light 34 counted, 102 changed, largest 34 | dark 0 counted, 0 changed, largest 0
+s1-14  light 14 counted, 56 changed, largest 7 | dark 0 counted, 0 changed, largest 0
+s1-15  light 20 counted, 53 changed, largest 34 | dark 0 counted, 24 changed, largest 9
+s1-16  light 12 counted, 31 changed, largest 7 | dark 0 counted, 24 changed, largest 9
+s1-17  light 14 counted, 75 changed, largest 7 | dark 23 counted, 70 changed, largest 32
+s1-18  light 14 counted, 46 changed, largest 7 | dark 0 counted, 24 changed, largest 9
+s1-19  light 14 counted, 56 changed, largest 7 | dark 23 counted, 94 changed, largest 32
+s1-20  light 14 counted, 56 changed, largest 7 | dark 0 counted, 24 changed, largest 9
+s1-21  light 20 counted, 53 changed, largest 34 | dark 23 counted, 94 changed, largest 32
+s1-22  light 20 counted, 53 changed, largest 34 | dark 13 counted, 46 changed, largest 9
+s1-23  light 20 counted, 53 changed, largest 34 | dark 23 counted, 70 changed, largest 32
+s1-24  light 20 counted, 31 changed, largest 34 | dark 23 counted, 70 changed, largest 32
+s1-25  light 20 counted, 53 changed, largest 34 | dark 10 counted, 48 changed, largest 32
+s1-26  light 20 counted, 56 changed, largest 34 | dark 0 counted, 24 changed, largest 9
+s1-27  light 14 counted, 53 changed, largest 7 | dark 23 counted, 70 changed, largest 32
+s1-28  light 22 counted, 53 changed, largest 34 | dark 23 counted, 70 changed, largest 32
+s1-29  light 14 counted, 74 changed, largest 7 | dark 0 counted, 0 changed, largest 0
+s1-30  light 20 counted, 46 changed, largest 34 | dark 10 counted, 24 changed, largest 32
+s1-31  light 14 counted, 56 changed, largest 7 | dark 0 counted, 0 changed, largest 0
+s1-32  light 20 counted, 31 changed, largest 34 | dark 10 counted, 48 changed, largest 32
+s1-33  light 14 counted, 75 changed, largest 7 | dark 0 counted, 0 changed, largest 0
+s1-34  light 12 counted, 53 changed, largest 7 | dark 0 counted, 24 changed, largest 9
+s1-35  light 34 counted, 99 changed, largest 34 | dark 13 counted, 46 changed, largest 9
+s1-36  light 20 counted, 53 changed, largest 34 | dark 23 counted, 70 changed, largest 32
+s1-37  light 14 counted, 56 changed, largest 7 | dark 23 counted, 94 changed, largest 32
+s1-38  light 14 counted, 49 changed, largest 7 | dark 13 counted, 22 changed, largest 7
+s1-39  light 14 counted, 53 changed, largest 7 | dark 0 counted, 24 changed, largest 9
+s1-40  light 14 counted, 53 changed, largest 7 | dark 10 counted, 24 changed, largest 32
+
+## c01-picked-border-colour: added to the page, against the references (3 runs)
+k-c01-picked-border-colour-1  light 55 counted, 642 changed, largest 29 | dark 2 counted, 68 changed, largest 27
+k-c01-picked-border-colour-2  light 55 counted, 643 changed, largest 29 | dark 2 counted, 68 changed, largest 27
+k-c01-picked-border-colour-3  light 55 counted, 643 changed, largest 29 | dark 2 counted, 68 changed, largest 27
+
+## c01-picked-border-colour: added, then a repaint forced, against the references (2 runs)
+r-c01-picked-border-colour-1  light 70 counted, 700 changed, largest 29
+r-c01-picked-border-colour-2  light 70 counted, 700 changed, largest 29
+
+## c01-picked-border-colour: added, then a repaint forced, against an unchanged repainted run (2 runs)
+r-c01-picked-border-colour-1  light 61 counted, 635 changed, largest 29
+r-c01-picked-border-colour-2  light 61 counted, 635 changed, largest 29
+
+## c02-picked-ring-1px: added to the page, against the references (3 runs)
+k-c02-picked-ring-1px-1  light 1144 counted, 1292 changed, largest 246 | dark 2 counted, 68 changed, largest 27
+k-c02-picked-ring-1px-2  light 1144 counted, 1296 changed, largest 246 | dark 12 counted, 68 changed, largest 32
+k-c02-picked-ring-1px-3  light 1164 counted, 1342 changed, largest 246 | dark 2 counted, 68 changed, largest 27
+
+## c02-picked-ring-1px: added, then a repaint forced, against the references (2 runs)
+r-c02-picked-ring-1px-1  light 1178 counted, 1388 changed, largest 246
+r-c02-picked-ring-1px-2  light 1178 counted, 1388 changed, largest 246
+
+## c02-picked-ring-1px: added, then a repaint forced, against an unchanged repainted run (2 runs)
+r-c02-picked-ring-1px-1  light 1144 counted, 1289 changed, largest 246
+r-c02-picked-ring-1px-2  light 1144 counted, 1289 changed, largest 246
+
+## c03-picked-ring-removed: added to the page, against the references (3 runs)
+k-c03-picked-ring-removed-1  light 1704 counted, 1864 changed, largest 246 | dark 2 counted, 68 changed, largest 27
+k-c03-picked-ring-removed-2  light 1704 counted, 1883 changed, largest 246 | dark 2 counted, 68 changed, largest 27
+k-c03-picked-ring-removed-3  light 1724 counted, 1881 changed, largest 246 | dark 2 counted, 68 changed, largest 27
+
+## c03-picked-ring-removed: added, then a repaint forced, against the references (2 runs)
+r-c03-picked-ring-removed-1  light 1738 counted, 1953 changed, largest 246
+r-c03-picked-ring-removed-2  light 1738 counted, 1953 changed, largest 246
+
+## c03-picked-ring-removed: added, then a repaint forced, against an unchanged repainted run (2 runs)
+r-c03-picked-ring-removed-1  light 1704 counted, 1854 changed, largest 246
+r-c03-picked-ring-removed-2  light 1704 counted, 1854 changed, largest 246
+
+## c04-picked-radius-6: added to the page, against the references (3 runs)
+k-c04-picked-radius-6-1  light 285 counted, 515 changed, largest 226 | dark 2 counted, 68 changed, largest 27
+k-c04-picked-radius-6-2  light 285 counted, 522 changed, largest 226 | dark 2 counted, 68 changed, largest 27
+k-c04-picked-radius-6-3  light 286 counted, 544 changed, largest 226 | dark 2 counted, 68 changed, largest 27
+
+## c04-picked-radius-6: added, then a repaint forced, against the references (2 runs)
+r-c04-picked-radius-6-1  light 286 counted, 563 changed, largest 226
+r-c04-picked-radius-6-2  light 286 counted, 563 changed, largest 226
+
+## c04-picked-radius-6: added, then a repaint forced, against an unchanged repainted run (2 runs)
+r-c04-picked-radius-6-1  light 280 counted, 512 changed, largest 226
+r-c04-picked-radius-6-2  light 280 counted, 512 changed, largest 226
+
+## c05-picked-radius-9: added to the page, against the references (3 runs)
+k-c05-picked-radius-9-1  light 253 counted, 538 changed, largest 118 | dark 2 counted, 68 changed, largest 27
+k-c05-picked-radius-9-2  light 253 counted, 535 changed, largest 118 | dark 2 counted, 44 changed, largest 27
+k-c05-picked-radius-9-3  light 237 counted, 557 changed, largest 121 | dark 2 counted, 68 changed, largest 27
+
+## c05-picked-radius-9: added, then a repaint forced, against the references (2 runs)
+r-c05-picked-radius-9-1  light 237 counted, 579 changed, largest 121
+r-c05-picked-radius-9-2  light 237 counted, 579 changed, largest 121
+
+## c05-picked-radius-9: added, then a repaint forced, against an unchanged repainted run (2 runs)
+r-c05-picked-radius-9-1  light 235 counted, 528 changed, largest 118
+r-c05-picked-radius-9-2  light 235 counted, 528 changed, largest 118
+
+## c06-one-tile-radius-9: added to the page, against the references (3 runs)
+k-c06-one-tile-radius-9-1  light 66 counted, 215 changed, largest 118 | dark 2 counted, 68 changed, largest 27
+k-c06-one-tile-radius-9-2  light 66 counted, 227 changed, largest 118 | dark 2 counted, 68 changed, largest 27
+k-c06-one-tile-radius-9-3  light 66 counted, 208 changed, largest 118 | dark 2 counted, 68 changed, largest 27
+
+## c06-one-tile-radius-9: added, then a repaint forced, against the references (2 runs)
+r-c06-one-tile-radius-9-1  light 63 counted, 280 changed, largest 121
+r-c06-one-tile-radius-9-2  light 63 counted, 280 changed, largest 121
+
+## c06-one-tile-radius-9: added, then a repaint forced, against an unchanged repainted run (2 runs)
+r-c06-one-tile-radius-9-1  light 49 counted, 205 changed, largest 118
+r-c06-one-tile-radius-9-2  light 49 counted, 205 changed, largest 118
+
+## c07-check-badge-down-1px: added to the page, against the references (3 runs)
+k-c07-check-badge-down-1px-1  light 22 counted, 272 changed, largest 246 | dark 2 counted, 44 changed, largest 27
+k-c07-check-badge-down-1px-2  light 22 counted, 287 changed, largest 246 | dark 2 counted, 68 changed, largest 27
+k-c07-check-badge-down-1px-3  light 22 counted, 265 changed, largest 246 | dark 2 counted, 68 changed, largest 27
+
+## c07-check-badge-down-1px: added, then a repaint forced, against the references (2 runs)
+r-c07-check-badge-down-1px-1  light 56 counted, 361 changed, largest 246
+r-c07-check-badge-down-1px-2  light 56 counted, 361 changed, largest 246
+
+## c07-check-badge-down-1px: added, then a repaint forced, against an unchanged repainted run (2 runs)
+r-c07-check-badge-down-1px-1  light 22 counted, 262 changed, largest 246
+r-c07-check-badge-down-1px-2  light 22 counted, 262 changed, largest 246
+
+## c08-check-badge-colour: added to the page, against the references (3 runs)
+k-c08-check-badge-colour-1  light 506 counted, 664 changed, largest 29 | dark 2 counted, 68 changed, largest 27
+k-c08-check-badge-colour-2  light 506 counted, 664 changed, largest 29 | dark 2 counted, 68 changed, largest 27
+k-c08-check-badge-colour-3  light 506 counted, 664 changed, largest 29 | dark 2 counted, 68 changed, largest 27
+
+## c08-check-badge-colour: added, then a repaint forced, against the references (2 runs)
+r-c08-check-badge-colour-1  light 540 counted, 753 changed, largest 34
+r-c08-check-badge-colour-2  light 540 counted, 753 changed, largest 34
+
+## c08-check-badge-colour: added, then a repaint forced, against an unchanged repainted run (2 runs)
+r-c08-check-badge-colour-1  light 506 counted, 654 changed, largest 29
+r-c08-check-badge-colour-2  light 506 counted, 654 changed, largest 29
+
+## c09-focus-outline-removed: added to the page, against the references (3 runs)
+k-c09-focus-outline-removed-1  light 1705 counted, 1779 changed, largest 246 | dark 2 counted, 68 changed, largest 27
+k-c09-focus-outline-removed-2  light 1705 counted, 1779 changed, largest 246 | dark 2 counted, 68 changed, largest 27
+k-c09-focus-outline-removed-3  light 1705 counted, 1779 changed, largest 246 | dark 2 counted, 68 changed, largest 27
+
+## c09-focus-outline-removed: added, then a repaint forced, against the references (2 runs)
+r-c09-focus-outline-removed-1  light 1727 counted, 1845 changed, largest 246
+r-c09-focus-outline-removed-2  light 1727 counted, 1845 changed, largest 246
+
+## c09-focus-outline-removed: added, then a repaint forced, against an unchanged repainted run (2 runs)
+r-c09-focus-outline-removed-1  light 1704 counted, 1770 changed, largest 246
+r-c09-focus-outline-removed-2  light 1704 counted, 1770 changed, largest 246
+
+## c10-unpicked-border-colour: added to the page, against the references (3 runs)
+k-c10-unpicked-border-colour-1  light 576 counted, 1209 changed, largest 69 | dark 2 counted, 68 changed, largest 27
+k-c10-unpicked-border-colour-2  light 576 counted, 1209 changed, largest 69 | dark 2 counted, 68 changed, largest 27
+k-c10-unpicked-border-colour-3  light 576 counted, 1209 changed, largest 69 | dark 15 counted, 90 changed, largest 27
+
+## c10-unpicked-border-colour: added, then a repaint forced, against the references (2 runs)
+r-c10-unpicked-border-colour-1  light 608 counted, 1258 changed, largest 45
+r-c10-unpicked-border-colour-2  light 608 counted, 1258 changed, largest 45
+
+## c10-unpicked-border-colour: added, then a repaint forced, against an unchanged repainted run (2 runs)
+r-c10-unpicked-border-colour-1  light 580 counted, 1206 changed, largest 45
+r-c10-unpicked-border-colour-2  light 580 counted, 1206 changed, largest 45
+
+## c11-picked-label-colour: added to the page, against the references (3 runs)
+k-c11-picked-label-colour-1  light 215 counted, 558 changed, largest 40 | dark 2 counted, 68 changed, largest 27
+k-c11-picked-label-colour-2  light 215 counted, 560 changed, largest 40 | dark 25 counted, 114 changed, largest 32
+k-c11-picked-label-colour-3  light 215 counted, 561 changed, largest 40 | dark 2 counted, 68 changed, largest 27
+
+## c11-picked-label-colour: added, then a repaint forced, against the references (2 runs)
+r-c11-picked-label-colour-1  light 245 counted, 640 changed, largest 40
+r-c11-picked-label-colour-2  light 245 counted, 640 changed, largest 40
+
+## c11-picked-label-colour: added, then a repaint forced, against an unchanged repainted run (2 runs)
+r-c11-picked-label-colour-1  light 211 counted, 541 changed, largest 40
+r-c11-picked-label-colour-2  light 211 counted, 541 changed, largest 40
+
+## c12-tile-gap-13: added to the page, against the references (3 runs)
+k-c12-tile-gap-13-1  light 4359 counted, 7260 changed, largest 246 | dark 2 counted, 68 changed, largest 27
+k-c12-tile-gap-13-2  light 4359 counted, 7260 changed, largest 246 | dark 14 counted, 72 changed, largest 32
+k-c12-tile-gap-13-3  light 4359 counted, 7260 changed, largest 246 | dark 12 counted, 68 changed, largest 32
+
+## c12-tile-gap-13: added, then a repaint forced, against the references (2 runs)
+r-c12-tile-gap-13-1  light 4359 counted, 7250 changed, largest 246
+r-c12-tile-gap-13-2  light 4359 counted, 7250 changed, largest 246
+
+## c12-tile-gap-13: added, then a repaint forced, against an unchanged repainted run (2 runs)
+r-c12-tile-gap-13-1  light 4337 counted, 7193 changed, largest 246
+r-c12-tile-gap-13-2  light 4337 counted, 7193 changed, largest 246
+
+## c13-picked-ring-colour: added to the page, against the references (3 runs)
+k-c13-picked-ring-colour-1  light 1697 counted, 1851 changed, largest 29 | dark 2 counted, 68 changed, largest 27
+k-c13-picked-ring-colour-2  light 1697 counted, 1841 changed, largest 29 | dark 12 counted, 68 changed, largest 32
+k-c13-picked-ring-colour-3  light 1697 counted, 1844 changed, largest 29 | dark 14 counted, 72 changed, largest 32
+
+## c13-picked-ring-colour: added, then a repaint forced, against the references (2 runs)
+r-c13-picked-ring-colour-1  light 1731 counted, 1940 changed, largest 34
+r-c13-picked-ring-colour-2  light 1731 counted, 1940 changed, largest 34
+
+## c13-picked-ring-colour: added, then a repaint forced, against an unchanged repainted run (2 runs)
+r-c13-picked-ring-colour-1  light 1697 counted, 1841 changed, largest 29
+r-c13-picked-ring-colour-2  light 1697 counted, 1841 changed, largest 29
+
+## c14-picked-border-colour-30: added to the page, against the references (3 runs)
+k-c14-picked-border-colour-30-1  light 72 counted, 646 changed, largest 62 | dark 2 counted, 68 changed, largest 27
+k-c14-picked-border-colour-30-2  light 72 counted, 647 changed, largest 62 | dark 2 counted, 68 changed, largest 27
+k-c14-picked-border-colour-30-3  light 72 counted, 646 changed, largest 62 | dark 2 counted, 68 changed, largest 27
+
+## c14-picked-border-colour-30: added, then a repaint forced, against the references (2 runs)
+r-c14-picked-border-colour-30-1  light 74 counted, 701 changed, largest 62
+r-c14-picked-border-colour-30-2  light 74 counted, 701 changed, largest 62
+
+## c14-picked-border-colour-30: added, then a repaint forced, against an unchanged repainted run (2 runs)
+r-c14-picked-border-colour-30-1  light 76 counted, 643 changed, largest 62
+r-c14-picked-border-colour-30-2  light 76 counted, 643 changed, largest 62
+
+## c15-picked-border-colour-5: added to the page, against the references (3 runs)
+k-c15-picked-border-colour-5-1  light 32 counted, 631 changed, largest 9 | dark 2 counted, 68 changed, largest 27
+k-c15-picked-border-colour-5-2  light 32 counted, 632 changed, largest 9 | dark 2 counted, 68 changed, largest 27
+k-c15-picked-border-colour-5-3  light 32 counted, 629 changed, largest 9 | dark 2 counted, 68 changed, largest 27
+
+## c15-picked-border-colour-5: added, then a repaint forced, against the references (2 runs)
+r-c15-picked-border-colour-5-1  light 56 counted, 692 changed, largest 29
+r-c15-picked-border-colour-5-2  light 56 counted, 692 changed, largest 29
+
+## c15-picked-border-colour-5: added, then a repaint forced, against an unchanged repainted run (2 runs)
+r-c15-picked-border-colour-5-1  light 34 counted, 621 changed, largest 9
+r-c15-picked-border-colour-5-2  light 34 counted, 621 changed, largest 9
+
+## c16-one-tile-border-colour: added to the page, against the references (3 runs)
+k-c16-one-tile-border-colour-1  light 32 counted, 603 changed, largest 29 | dark 2 counted, 68 changed, largest 27
+k-c16-one-tile-border-colour-2  light 32 counted, 607 changed, largest 29 | dark 2 counted, 68 changed, largest 27
+k-c16-one-tile-border-colour-3  light 32 counted, 607 changed, largest 29 | dark 12 counted, 92 changed, largest 32
+
+## c16-one-tile-border-colour: added, then a repaint forced, against the references (2 runs)
+r-c16-one-tile-border-colour-1  light 54 counted, 680 changed, largest 29
+r-c16-one-tile-border-colour-2  light 54 counted, 680 changed, largest 29
+
+## c16-one-tile-border-colour: added, then a repaint forced, against an unchanged repainted run (2 runs)
+r-c16-one-tile-border-colour-1  light 36 counted, 599 changed, largest 29
+r-c16-one-tile-border-colour-2  light 36 counted, 599 changed, largest 29
+
+## The visual check itself (diagnostic copy of its spec, against the references; both modes; DIAG_ALLOWANCE=60 adds the allowance for the light image only)
+check-unchanged-at-60-1 exit 0 2 passed (3.1s) counted none
+check-unchanged-at-60-2 exit 0 2 passed (3.1s) counted none
+check-unchanged-at-60-3 exit 0 2 passed (3.4s) counted none
+check-unchanged-at-60-4 exit 0 2 passed (3.3s) counted none
+check-unchanged-at-60-5 exit 0 2 passed (3.1s) counted none
+check-unchanged-at-60-6 exit 0 2 passed (3.1s) counted none
+check-unchanged-at-60-7 exit 0 2 passed (3.2s) counted none
+check-unchanged-at-60-8 exit 0 2 passed (3.1s) counted none
+check-unchanged-at-60-9 exit 0 2 passed (3.0s) counted none
+check-unchanged-at-60-10 exit 0 2 passed (3.0s) counted none
+check-unchanged-at-25-1 exit 0 2 passed (3.2s) counted none
+check-unchanged-at-25-2 exit 0 2 passed (3.2s) counted none
+check-unchanged-at-25-3 exit 0 2 passed (3.1s) counted none
+check-unchanged-at-25-4 exit 1 1 failed 1 passed (3.5s) counted 27
+check-unchanged-at-25-5 exit 0 2 passed (3.0s) counted none
+check-unchanged-at-25-6 exit 0 2 passed (3.0s) counted none
+check-unchanged-at-25-7 exit 0 2 passed (3.0s) counted none
+check-unchanged-at-25-8 exit 0 2 passed (3.2s) counted none
+check-unchanged-at-25-9 exit 0 2 passed (3.2s) counted none
+check-unchanged-at-25-10 exit 0 2 passed (3.0s) counted none
+check-all-four-flipped-at-60-1 exit 0 2 passed (3.6s) counted none
+check-all-four-flipped-at-60-2 exit 0 2 passed (3.6s) counted none
+check-all-four-flipped-at-60-3 exit 0 2 passed (3.5s) counted none
+check-all-four-flipped-at-25-1 exit 1 1 failed 1 passed (4.0s) counted 34
+check-all-four-flipped-at-25-2 exit 1 1 failed 1 passed (3.9s) counted 34
+check-all-four-flipped-at-25-3 exit 1 1 failed 1 passed (4.0s) counted 34
+check-c01-picked-border-colour-at-60-1 exit 0 2 passed (3.7s) counted none
+check-c01-picked-border-colour-at-60-2 exit 0 2 passed (3.5s) counted none
+check-c01-picked-border-colour-at-25-1 exit 1 1 failed 1 passed (4.2s) counted 55
+check-c16-one-tile-border-colour-at-60-1 exit 0 2 passed (3.6s) counted none
+check-c16-one-tile-border-colour-at-60-2 exit 0 2 passed (3.4s) counted none
+check-c16-one-tile-border-colour-at-25-1 exit 1 1 failed 1 passed (4.1s) counted 32
+check-c15-picked-border-colour-5-at-60-1 exit 0 2 passed (3.6s) counted none
+check-c15-picked-border-colour-5-at-60-2 exit 0 2 passed (3.4s) counted none
+check-c15-picked-border-colour-5-at-25-1 exit 1 1 failed 1 passed (3.9s) counted 46
+check-c06-one-tile-radius-9-at-60-1 exit 1 1 failed 1 passed (3.9s) counted 66
+check-c06-one-tile-radius-9-at-60-2 exit 1 1 failed 1 passed (3.8s) counted 66
+check-c06-one-tile-radius-9-at-25-1 exit 1 1 failed 1 passed (4.1s) counted 61
+check-c07-check-badge-down-1px-at-60-1 exit 0 2 passed (3.6s) counted none
+check-c07-check-badge-down-1px-at-60-2 exit 0 2 passed (3.5s) counted none
+check-c07-check-badge-down-1px-at-25-1 exit 0 2 passed (3.5s) counted none
+check-c14-picked-border-colour-30-at-60-1 exit 1 1 failed 1 passed (3.9s) counted 72
+check-c14-picked-border-colour-30-at-60-2 exit 1 1 failed 1 passed (3.8s) counted 74
+check-c14-picked-border-colour-30-at-25-1 exit 1 1 failed 1 passed (4.1s) counted 72
+check-unchanged-at-25-4: the failed image was dark (27 counted against its 25); its light image passed.
+check-all-four-flipped-*: a repaint forced before the comparison (DIAG=repaint), which draws all four tiles' top corners in the second shading.
+check-c*: the change's rule added to the page before the comparison (DIAG_CSS); "-at-60" runs add the allowance, "-at-25" runs do not.
+
+The check's own description of check-unchanged-at-25-4's dark difference:
+The images differ, on Intel(R) Xeon(R) Processor @ 2.30GHz: 1280 by 800; 94 pixels changed, by up to 32 of 255, between x 690 to 1253 and y 103 to 748
+busiest squares, x 920, y 160: 22; x 960, y 160: 21; x 1080, y 160: 11; x 800, y 160: 10; x 1240, y 120: 8; x 1240, y 80: 7

@@ -1,0 +1,2 @@
+/* c10: the unpicked tiles' border colour darkened: border token mixed 85 % with black */
+html:not(.dark) button[aria-pressed="false"] { border-color: color-mix(in oklab, var(--border) 85%, black) !important; }

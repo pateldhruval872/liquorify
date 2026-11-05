@@ -1,0 +1,2 @@
+/* Diagnostic, not a change under test: the tile grid moved 0.4375 pixels down, so the tiles' top edges sit on a whole pixel (170.5625 to 171) */
+ul.grid { margin-top: 0.4375px !important; }

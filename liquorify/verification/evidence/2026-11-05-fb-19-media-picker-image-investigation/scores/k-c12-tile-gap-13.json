@@ -1,0 +1,56 @@
+{
+ "k-c12-tile-gap-13-1": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 4359,
+   "changed": 7260,
+   "largest": 246,
+   "failsAt25": true,
+   "failsAt60": true
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": false,
+   "counted": 2,
+   "changed": 68,
+   "largest": 27,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "k-c12-tile-gap-13-2": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 4359,
+   "changed": 7260,
+   "largest": 246,
+   "failsAt25": true,
+   "failsAt60": true
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": false,
+   "counted": 14,
+   "changed": 72,
+   "largest": 32,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "k-c12-tile-gap-13-3": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 4359,
+   "changed": 7260,
+   "largest": 246,
+   "failsAt25": true,
+   "failsAt60": true
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": false,
+   "counted": 12,
+   "changed": 68,
+   "largest": 32,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ }
+}

@@ -1,0 +1,56 @@
+{
+ "k-c13-picked-ring-colour-1": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 1697,
+   "changed": 1851,
+   "largest": 29,
+   "failsAt25": true,
+   "failsAt60": true
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": false,
+   "counted": 2,
+   "changed": 68,
+   "largest": 27,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "k-c13-picked-ring-colour-2": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 1697,
+   "changed": 1841,
+   "largest": 29,
+   "failsAt25": true,
+   "failsAt60": true
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": false,
+   "counted": 12,
+   "changed": 68,
+   "largest": 32,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "k-c13-picked-ring-colour-3": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 1697,
+   "changed": 1844,
+   "largest": 29,
+   "failsAt25": true,
+   "failsAt60": true
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": false,
+   "counted": 14,
+   "changed": 72,
+   "largest": 32,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ }
+}
