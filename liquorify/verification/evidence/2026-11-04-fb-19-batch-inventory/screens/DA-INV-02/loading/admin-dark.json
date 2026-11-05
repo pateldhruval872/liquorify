@@ -1,0 +1,16 @@
+{
+  "screen": "DA-INV-02",
+  "state": "loading",
+  "variant": "admin",
+  "role": null,
+  "theme": "dark",
+  "revision": "5b23b5af",
+  "path": "/<store>/transfers",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": "The transfers request is held open",
+  "settled": null,
+  "outside": []
+}

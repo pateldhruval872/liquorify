@@ -1,0 +1,16 @@
+{
+  "screen": "DA-INV-01",
+  "state": "column-explanation",
+  "variant": "admin",
+  "role": null,
+  "theme": "light",
+  "revision": "5b23b5af",
+  "path": "/<store>/inventory",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": null,
+  "settled": true,
+  "outside": []
+}

@@ -1,0 +1,16 @@
+{
+  "screen": "DA-INV-04",
+  "state": "deliveries",
+  "variant": "admin",
+  "role": null,
+  "theme": "dark",
+  "revision": "5b23b5af",
+  "path": "/<store>/transfers/st_uw2YK1rnl0",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": null,
+  "settled": true,
+  "outside": []
+}

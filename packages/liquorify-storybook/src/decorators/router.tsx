@@ -58,16 +58,35 @@ export const routerLoader: Loader = async (context) => {
   const layoutRoute = underLayout
     ? createRoute({ getParentRoute: () => rootRoute, id: '_authenticated', component: Outlet })
     : null
-  const storyRoute = layoutRoute
+  // A component can also read the store's own route, `/_authenticated/$storeId`,
+  // from deeper down, so a page under a store gets that route above it too.
+  const storePrefix = `${layoutPrefix}$storeId/`
+  const storeRoute =
+    layoutRoute && route.pattern.startsWith(storePrefix)
+      ? createRoute({ getParentRoute: () => layoutRoute, path: '$storeId', component: Outlet })
+      : null
+  const storyRoute = storeRoute
     ? createRoute({
-        getParentRoute: () => layoutRoute,
-        path: route.pattern.slice(layoutPrefix.length - 1),
+        getParentRoute: () => storeRoute,
+        path: route.pattern.slice(storePrefix.length - 1),
         component: StoryAtRoute,
       })
-    : createRoute({ getParentRoute: () => rootRoute, path: route.pattern, component: StoryAtRoute })
+    : layoutRoute
+      ? createRoute({
+          getParentRoute: () => layoutRoute,
+          path: route.pattern.slice(layoutPrefix.length - 1),
+          component: StoryAtRoute,
+        })
+      : createRoute({
+          getParentRoute: () => rootRoute,
+          path: route.pattern,
+          component: StoryAtRoute,
+        })
   const router = createRouter({
     routeTree: rootRoute.addChildren([
-      layoutRoute ? layoutRoute.addChildren([storyRoute]) : storyRoute,
+      layoutRoute
+        ? layoutRoute.addChildren([storeRoute ? storeRoute.addChildren([storyRoute]) : storyRoute])
+        : storyRoute,
       createRoute({
         getParentRoute: () => rootRoute,
         path: '$',
