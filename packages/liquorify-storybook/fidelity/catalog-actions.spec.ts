@@ -745,6 +745,7 @@ test.describe('catalogs (P9, G-61)', () => {
     })
     await expect(card(page, 'Audiences').getByText('Not assigned to any audience yet')).toBeHidden()
     steps.push({ step: 'reloaded; the company is the audience' })
+    await card(page, 'Audiences').scrollIntoViewIfNeeded()
     await save(page, 'catalog-audience-assigned', steps, outside)
   })
 
@@ -783,6 +784,7 @@ test.describe('catalogs (P9, G-61)', () => {
     )
     await expect(card(page, 'Audiences').getByText(company)).toHaveCount(0)
     steps.push({ step: 'reloaded; the catalog has no audience' })
+    await card(page, 'Audiences').scrollIntoViewIfNeeded()
     await save(page, 'catalog-audience-withdrawn', steps, outside)
   })
 
