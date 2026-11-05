@@ -1,0 +1,19 @@
+{
+  "test": "category-image",
+  "revision": "bc5c3fcb",
+  "stamp": "mw2whsnb",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "added an image and saved"
+    },
+    {
+      "step": "reloaded",
+      "picture": {
+        "fromServer": true,
+        "file": "p9-category-mw2whsnb.png"
+      }
+    }
+  ],
+  "outside": []
+}

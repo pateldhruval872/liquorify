@@ -1,0 +1,23 @@
+{
+  "test": "category-parent",
+  "revision": "bc5c3fcb",
+  "stamp": "mw2whsnb",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "the category is listed at the top level"
+    },
+    {
+      "step": "chose the parent and saved"
+    },
+    {
+      "step": "reloaded the category",
+      "parent": "P9 Parent mw2whsnb"
+    },
+    {
+      "step": "opened the categories, expanded the parent",
+      "below": "P9 Child mw2whsnb"
+    }
+  ],
+  "outside": []
+}

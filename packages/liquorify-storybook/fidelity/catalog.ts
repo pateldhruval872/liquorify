@@ -52,7 +52,7 @@ async function json<T>(response: Awaited<ReturnType<APIRequestContext['get']>>) 
   return (await response.json()) as T
 }
 
-async function upload(
+export async function upload(
   api: APIRequestContext,
   headers: Headers,
   filename: string,

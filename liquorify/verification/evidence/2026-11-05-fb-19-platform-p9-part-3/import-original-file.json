@@ -1,0 +1,17 @@
+{
+  "test": "import-original-file",
+  "revision": "bc5c3fcb",
+  "stamp": "mw2wkyrj",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "downloaded the original file",
+      "file": "p9-original-mw2wkyrj.csv"
+    },
+    {
+      "step": "reloaded and downloaded it again; the same file",
+      "file": "p9-original-mw2wkyrj.csv"
+    }
+  ],
+  "outside": []
+}

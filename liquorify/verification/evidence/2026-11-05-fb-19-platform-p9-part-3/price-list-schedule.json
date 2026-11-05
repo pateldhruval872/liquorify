@@ -1,0 +1,19 @@
+{
+  "test": "price-list-schedule",
+  "revision": "bc5c3fcb",
+  "stamp": "mw2whsnb",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "chose a start and an end and saved",
+      "starts": "December 15th, 2026 9:30 AM",
+      "ends": "January 20th, 2027 6:00 PM"
+    },
+    {
+      "step": "reloaded",
+      "starts": "December 15th, 2026 9:30 AM",
+      "ends": "January 20th, 2027 6:00 PM"
+    }
+  ],
+  "outside": []
+}

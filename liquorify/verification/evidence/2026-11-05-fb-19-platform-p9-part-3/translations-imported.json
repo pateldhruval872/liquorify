@@ -1,0 +1,21 @@
+{
+  "test": "translations-imported",
+  "revision": "bc5c3fcb",
+  "stamp": "mw2whsnb",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "imported a file of one German name from the translations page",
+      "summary": "1 rows imported · 0 failed"
+    },
+    {
+      "step": "found and opened the product",
+      "german": "P9 Imported translation mw2whsnb auf Deutsch"
+    },
+    {
+      "step": "reloaded; found and opened the product",
+      "german": "P9 Imported translation mw2whsnb auf Deutsch"
+    }
+  ],
+  "outside": []
+}

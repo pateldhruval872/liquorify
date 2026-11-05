@@ -1,0 +1,16 @@
+{
+  "test": "import-results",
+  "revision": "bc5c3fcb",
+  "stamp": "mw2wkyrj",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "found the import by its number and viewed it",
+      "summary": "1 rows imported · 1 failed"
+    },
+    {
+      "step": "reloaded; the results open again"
+    }
+  ],
+  "outside": []
+}

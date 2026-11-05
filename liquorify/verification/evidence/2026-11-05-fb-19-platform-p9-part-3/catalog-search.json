@@ -1,0 +1,16 @@
+{
+  "test": "catalog-search",
+  "revision": "bc5c3fcb",
+  "stamp": "mw2whsnb",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "searched for one catalog",
+      "shows": "P9 Juniper catalog mw2whsnb"
+    },
+    {
+      "step": "reloaded; the search and its result are kept"
+    }
+  ],
+  "outside": []
+}

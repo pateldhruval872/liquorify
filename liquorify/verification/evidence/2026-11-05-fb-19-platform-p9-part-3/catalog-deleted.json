@@ -1,0 +1,15 @@
+{
+  "test": "catalog-deleted",
+  "revision": "bc5c3fcb",
+  "stamp": "mw2whsnb",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "deleted the catalog from its page, confirming"
+    },
+    {
+      "step": "reloaded and searched for it; it is not listed"
+    }
+  ],
+  "outside": []
+}

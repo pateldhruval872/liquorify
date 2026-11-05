@@ -1,0 +1,20 @@
+{
+  "test": "translations-categories",
+  "revision": "bc5c3fcb",
+  "stamp": "mw2whsnb",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "chose Categories, found the record, entered its German name and saved"
+    },
+    {
+      "step": "closed the record",
+      "german": "3/4"
+    },
+    {
+      "step": "reloaded; the kind is kept; found and opened the record",
+      "german": "3/4"
+    }
+  ],
+  "outside": []
+}
