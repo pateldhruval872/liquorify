@@ -1,0 +1,16 @@
+{
+  "test": "promotion-search",
+  "revision": "4a78cd88",
+  "stamp": "mw2yytz8",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "searched for one promotion",
+      "shows": "P9 Juniper promotion mw2yytz8"
+    },
+    {
+      "step": "reloaded; the search and its result are kept"
+    }
+  ],
+  "outside": []
+}

@@ -1,0 +1,16 @@
+{
+  "test": "store-credit-filter-customer",
+  "revision": "4a78cd88",
+  "stamp": "mw2z2hgi",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "filtered to one customer's credits",
+      "shows": "p9-credit-owner-mw2z2hgi@example.com"
+    },
+    {
+      "step": "reloaded; the filter and its result are kept"
+    }
+  ],
+  "outside": []
+}

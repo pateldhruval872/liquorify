@@ -1,0 +1,17 @@
+{
+  "test": "promotion-rule-product-none",
+  "revision": "4a78cd88",
+  "stamp": "mw2yytz8",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "added a product rule for none of the fixture product and saved"
+    },
+    {
+      "step": "reloaded and opened the rule's editor",
+      "policy": "None of these products",
+      "product": "E2E Promo Product"
+    }
+  ],
+  "outside": []
+}

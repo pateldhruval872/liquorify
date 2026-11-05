@@ -1,0 +1,16 @@
+{
+  "test": "gift-card-filter-status",
+  "revision": "4a78cd88",
+  "stamp": "mw2z1lj9",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "narrowed the status to Partially redeemed",
+      "shows": "P9-STATUS-MW2Z1LJ9-PARTLY"
+    },
+    {
+      "step": "reloaded; the filter and its result are kept"
+    }
+  ],
+  "outside": []
+}

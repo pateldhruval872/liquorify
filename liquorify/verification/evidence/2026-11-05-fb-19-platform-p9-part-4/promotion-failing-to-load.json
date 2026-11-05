@@ -1,0 +1,14 @@
+{
+  "test": "promotion-failing-to-load",
+  "revision": "4a78cd88",
+  "stamp": "mw2yytz8",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "opened a promotion whose request is answered with a server error",
+      "answered": 500,
+      "shows": "Settings\nStore\nStore\nEmails\nPolicies\nAI Agents\nSales channels\nCustom fields\nIntegrations\nSelling\nMarkets\nPayment methods\nTaxes\nShipping & delivery\nDelivery profiles\nStock locations\nPackage types\nProdu"
+    }
+  ],
+  "outside": []
+}

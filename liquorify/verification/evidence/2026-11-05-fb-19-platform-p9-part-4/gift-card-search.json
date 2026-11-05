@@ -1,0 +1,16 @@
+{
+  "test": "gift-card-search",
+  "revision": "4a78cd88",
+  "stamp": "mw2z1lj9",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "searched for one code",
+      "shows": "P9-JUNIPER-MW2Z1LJ9"
+    },
+    {
+      "step": "reloaded; the search and its result are kept"
+    }
+  ],
+  "outside": []
+}

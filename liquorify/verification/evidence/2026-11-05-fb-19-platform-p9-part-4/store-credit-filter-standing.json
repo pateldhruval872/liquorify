@@ -1,0 +1,17 @@
+{
+  "test": "store-credit-filter-standing",
+  "revision": "4a78cd88",
+  "stamp": "mw2z2hgi",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "narrowed the standing to Outstanding",
+      "shows": "p9-standing-open-mw2z2hgi@example.com",
+      "hides": "p9-standing-spent-mw2z2hgi@example.com"
+    },
+    {
+      "step": "reloaded; the filter and its result are kept"
+    }
+  ],
+  "outside": []
+}

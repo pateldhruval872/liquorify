@@ -1,0 +1,17 @@
+{
+  "test": "gift-card-customer-added",
+  "revision": "4a78cd88",
+  "stamp": "mw2z2hgi",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "chose a customer for a card that had none and saved",
+      "customer": "p9-new-owner-mw2z2hgi@example.com"
+    },
+    {
+      "step": "reloaded; the list and the sheet name the customer",
+      "customer": "p9-new-owner-mw2z2hgi@example.com"
+    }
+  ],
+  "outside": []
+}

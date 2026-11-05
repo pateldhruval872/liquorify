@@ -1,0 +1,25 @@
+{
+  "test": "gift-card-batch-issued",
+  "revision": "4a78cd88",
+  "stamp": "mw2z2hgi",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "issued three $20.00 cards with a prefix",
+      "codes": [
+        "P9ISSUEDMW2Z2HGI3A057F861CBB6511",
+        "P9ISSUEDMW2Z2HGIC7532574CFF36AC5",
+        "P9ISSUEDMW2Z2HGI7767FD05965746C5"
+      ]
+    },
+    {
+      "step": "filtered to the batch and reloaded",
+      "codes": [
+        "P9ISSUEDMW2Z2HGI3A057F861CBB6511",
+        "P9ISSUEDMW2Z2HGIC7532574CFF36AC5",
+        "P9ISSUEDMW2Z2HGI7767FD05965746C5"
+      ]
+    }
+  ],
+  "outside": []
+}

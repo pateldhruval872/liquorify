@@ -1,0 +1,16 @@
+{
+  "test": "promotion-usage-limit",
+  "revision": "4a78cd88",
+  "stamp": "mw2yytz8",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "set a usage limit of 25 and saved"
+    },
+    {
+      "step": "reloaded",
+      "limit": "25"
+    }
+  ],
+  "outside": []
+}

@@ -1,0 +1,17 @@
+{
+  "test": "store-credit-issue-zero",
+  "revision": "4a78cd88",
+  "stamp": "mw2z2hgi",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "chose a customer, typed 0 and pressed Issue",
+      "refusal": "Amount must be greater than 0"
+    },
+    {
+      "step": "reloaded and searched for its memo; no credit was issued",
+      "memo": "P9 zero mw2z2hgi"
+    }
+  ],
+  "outside": []
+}
