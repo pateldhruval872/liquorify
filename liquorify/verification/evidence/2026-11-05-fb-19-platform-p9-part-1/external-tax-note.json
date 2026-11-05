@@ -1,0 +1,26 @@
+{
+  "test": "external-tax-note",
+  "revision": "231b2176",
+  "stamp": "mw2sa505",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "opened tax rates; no note, every market on Spree’s rates"
+    },
+    {
+      "step": "put Europe on the Stand-in tax engine from its sheet and saved"
+    },
+    {
+      "step": "tax rates, then reloaded; the note names Europe",
+      "note": "These rates are not used in Europe (Stand-in tax engine), which work out tax with an external service."
+    },
+    {
+      "step": "put United States on the Stand-in tax engine from its sheet and saved"
+    },
+    {
+      "step": "every market on the engine, then reloaded",
+      "note": "None of your markets use these rates: United States (Stand-in tax engine), Europe (Stand-in tax engine) work out tax with an external service."
+    }
+  ],
+  "outside": []
+}

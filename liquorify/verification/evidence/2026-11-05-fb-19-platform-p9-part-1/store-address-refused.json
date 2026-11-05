@@ -1,0 +1,26 @@
+{
+  "test": "store-address-refused",
+  "revision": "231b2176",
+  "stamp": "mw2s9hx4",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "opened Getting Started in Winkel",
+      "progress": "0 of 6 completed"
+    },
+    {
+      "step": "filled every required field but the address and saved",
+      "shown": [
+        "Address is required"
+      ],
+      "dialogOpen": true
+    },
+    {
+      "step": "cancelled, then reloaded",
+      "requestsChangingTheAddress": [],
+      "task": "not done",
+      "progress": "0 of 6 completed"
+    }
+  ],
+  "outside": []
+}

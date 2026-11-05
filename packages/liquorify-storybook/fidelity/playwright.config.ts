@@ -46,6 +46,10 @@ import { defineConfig } from '@playwright/test'
  * batch 6's `g-78-stock-hold.spec.ts` holds stock in one storefront checkout and
  * sees a second refused it (see that file). For the multi-store administration batch, `multi-store.spec.ts` walks one teammate
  * with different roles in two stores through its states (see that file).
+ * For step P9, `getting-started-tasks.spec.ts` drives Getting Started's store
+ * address, storefront and payment method tasks, and `settings-actions.spec.ts`
+ * the payment, delivery and tax actions batch 7 captured, against a server
+ * started with `LIQUORIFY_TAX_ENGINE=1` (see each file and `p9.ts`).
  * `FIDELITY_BASE_URL` points the scripts at a dashboard served on another
  * port, beside a server started with `E2E_RAILS_PORT`.
  */
@@ -86,6 +90,8 @@ export default defineConfig({
     'one-store-checks.spec.ts',
     'catalog-behaviours.spec.ts',
     'multi-store.spec.ts',
+    'getting-started-tasks.spec.ts',
+    'settings-actions.spec.ts',
   ],
   outputDir: './results/test-output',
   workers: 1,

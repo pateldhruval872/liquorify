@@ -1,0 +1,29 @@
+{
+  "test": "storefront-not-an-address-words",
+  "revision": "231b2176",
+  "stamp": "mw2sa0rq",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "opened Getting Started in Winkel"
+    },
+    {
+      "step": "entered \"not an address\" and saved",
+      "shown": {
+        "refusalInThePage": 0,
+        "refusalAboveTheSheet": false,
+        "savedNotice": "Storefront URL saved: https://not%20an%20address"
+      }
+    },
+    {
+      "step": "closed the sheet and reloaded",
+      "requestsSavingAnAddress": [
+        "POST /api/v3/admin/allowed_origins",
+        "PATCH /api/v3/admin/store"
+      ],
+      "task": "done",
+      "field": "https://not%20an%20address"
+    }
+  ],
+  "outside": []
+}

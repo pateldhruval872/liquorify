@@ -1,0 +1,23 @@
+{
+  "test": "payment-method-admin-only",
+  "revision": "231b2176",
+  "stamp": "mw2sa505",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "opened payment methods",
+      "listed": " P9 test gateway mw2sa505 bogus Visible Active "
+    },
+    {
+      "step": "switched Visible in storefront off and saved"
+    },
+    {
+      "step": "reloaded; the list shows it admin only and still active",
+      "listed": " P9 test gateway mw2sa505 bogus Admin Only Active "
+    },
+    {
+      "step": "opened it; Visible in storefront is off, Active on"
+    }
+  ],
+  "outside": []
+}

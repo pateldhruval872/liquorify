@@ -1,0 +1,22 @@
+{
+  "test": "zone-postal-code-added",
+  "revision": "231b2176",
+  "stamp": "mw2sa505",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "opened the zone",
+      "zone": "P9 zone for postal codes mw2sa505"
+    },
+    {
+      "step": "added a postal code rule for the United States",
+      "prefix": "80"
+    },
+    {
+      "step": "reloaded; the zone opens with its rule",
+      "card": "P9 zone for postal codes mw2sa505 Mexico, 80* Add method No delivery methods here yet.",
+      "summary": "1 countries, 0 states, 1 postal code rules"
+    }
+  ],
+  "outside": []
+}

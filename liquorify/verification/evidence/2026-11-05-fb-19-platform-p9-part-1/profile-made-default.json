@@ -1,0 +1,21 @@
+{
+  "test": "profile-made-default",
+  "revision": "231b2176",
+  "stamp": "mw2sa505",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "opened the profile",
+      "profile": "P9 new default mw2sa505"
+    },
+    {
+      "step": "made it the default and confirmed"
+    },
+    {
+      "step": "reloaded; the profile shows as the default, here and in the list, and General no longer does",
+      "listed": "P9 new default mw2sa505 Default All locations 0 0 0 ",
+      "general": "General All locations 17 0 0 "
+    }
+  ],
+  "outside": []
+}
