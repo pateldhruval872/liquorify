@@ -1,0 +1,4 @@
+# CI, storefront 38ad098 (the fix), the pinned backend 68236c5, Ruby 4.0.5, Stripe test keys: the end of the Playwright step of run 41958211670, job 127018076627. The dot reporter prints no line per test; a retried test would be listed as flaky here, and none is
+2026-11-05T02:58:37.7742431Z ·
+2026-11-05T02:58:37.7742757Z   23 passed (2.4m)
+2026-11-05T02:58:37.7767115Z ##[notice]  23 passed (2.4m)
