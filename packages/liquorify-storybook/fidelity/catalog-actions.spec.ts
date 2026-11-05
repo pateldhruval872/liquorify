@@ -1,6 +1,5 @@
 import { readFileSync } from 'node:fs'
 import {
-  type APIRequestContext,
   type Download,
   expect,
   type Locator,
@@ -14,16 +13,20 @@ import { fixture, translateProduct, upload } from './catalog'
 import {
   answeredEmpty,
   blockOutside,
+  confirmation,
   expectFailureWhenSabotaged,
-  type Headers,
   json,
   openIn,
+  pickDate,
   recorder,
   reload,
+  type Seed,
   type Steps,
   sabotage,
   sabotaged,
+  seeded,
   stamp,
+  toast,
   withBody,
 } from './p9'
 import { admin } from './staff'
@@ -130,8 +133,6 @@ test.beforeEach(async ({ page }) => {
 
 // --- Shared ---------------------------------------------------------------
 
-const toast = (page: Page, text: string | RegExp) =>
-  page.getByRole('region', { name: 'Notifications' }).getByText(text).first()
 const saveButton = (page: Page) => page.getByRole('main').getByRole('button', { name: /^save$/i })
 const card = (page: Page, title: string) =>
   page
@@ -199,37 +200,6 @@ async function moveDownOnePlace(page: Page, row: Locator) {
   await expect.poll(async () => overAnother(await announcement())).toBe(true)
   await page.keyboard.press('Space')
   await expect.poll(announcement).toMatch(/was dropped/)
-}
-
-/** The Admin API as the browser tests' admin, for the records a test opens first. */
-async function seeded<T>(baseURL: string | undefined, work: (seed: Seed) => Promise<T>) {
-  const api = await request.newContext({ baseURL })
-  try {
-    const { headers } = await admin(api)
-    const call = async <R>(method: string, path: string, data?: object) => {
-      const res = await api.fetch(`/api/v3/admin/${path}`, { method, headers, data })
-      const text = await res.text()
-      expect(res.ok(), `${method} ${path}: ${text}`).toBeTruthy()
-      return (text ? JSON.parse(text) : undefined) as R
-    }
-    return await work({
-      api,
-      headers,
-      get: (path) => call('GET', path),
-      post: (path, data) => call('POST', path, data),
-      patch: (path, data) => call('PATCH', path, data ?? {}),
-    })
-  } finally {
-    await api.dispose()
-  }
-}
-
-interface Seed {
-  api: APIRequestContext
-  headers: Headers
-  get: <R>(path: string) => Promise<R>
-  post: <R>(path: string, data: object) => Promise<R>
-  patch: <R>(path: string, data?: object) => Promise<R>
 }
 
 interface Import {
@@ -331,8 +301,6 @@ async function heldExport(baseURL: string | undefined, filename: string) {
     return (await res.text()).replace(/^\uFEFF/, '')
   })
 }
-
-const confirmation = (page: Page) => page.getByRole('alertdialog').or(page.getByRole('dialog'))
 
 // --- Categories -----------------------------------------------------------
 
@@ -1163,28 +1131,6 @@ const priceListStatus = (page: Page) =>
 async function openPriceList(page: Page, id: string, name: string) {
   await openIn(page, ids.store, `/products/price-lists/${id}`)
   await expect(page.getByRole('heading', { name, level: 1 })).toBeVisible({ timeout: 15_000 })
-}
-
-/** Picks a day in the next month or the one after, at a time, in a date field. */
-async function pickDate(
-  page: Page,
-  trigger: Locator,
-  monthsAhead: number,
-  day: string,
-  time: string,
-) {
-  await trigger.click()
-  const calendar = page.getByRole('dialog')
-  for (let month = 0; month < monthsAhead; month++)
-    await calendar.getByRole('button', { name: /next month/i }).click()
-  await calendar
-    .getByRole('gridcell')
-    .filter({ hasText: new RegExp(`^${day}$`) })
-    .first()
-    .click()
-  await calendar.locator('input[type="time"]').fill(time)
-  await page.keyboard.press('Escape')
-  await expect(calendar).toBeHidden()
 }
 
 const scheduleField = (page: Page, label: 'Starts' | 'Ends') =>
