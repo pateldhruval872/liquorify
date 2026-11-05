@@ -4,7 +4,7 @@ record: verification
 work_item: FB-19; row 30 of the owner decision brief, batch 3's "Media picker sheet: Two picked"
 date: 2026-11-05
 verifier: Claude (automated session, thread "Investigate media picker image tolerance"); not independent review
-result: "PASS locally: with the page painted once more before its capture, the story's light and dark images were identical, byte for byte, in 40 of 40 runs, and the committed visual check passed 20 of 20 times against the two new reference images, at the tolerance of 25. The new images differ from the old ones only at the tiles' rounded photo corners. PASS in CI: two full visual runs on GitHub, on the change's commit, passed every image at 25, the story's two included."
+result: "PASS locally: with the page painted once more before its capture, the story's light and dark images were identical, byte for byte, in 40 of 40 runs, and the committed visual check passed 20 of 20 times against the two new reference images, at the tolerance of 25. The new images differ from the old ones only at the tiles' rounded photo corners. PASS in CI: two full visual runs on GitHub passed every image at 25, the story's two included, and two more passed after batch 8's first part merged into main ahead of this change and main was merged in again."
 ---
 
 # The media picker image, repainted before its capture (row 30's follow-up)
@@ -59,14 +59,18 @@ The other ten changes of the investigation counted 211 or more against the same 
 
 ## 4. CI
 
-The change is kept only if two full visual runs on GitHub pass with it at the tolerance of 25. Both did, on the pull request's commit `a82d746d`, which has main merged in, with the check in four parts ([`scores/ci-runs.txt`](evidence/2026-11-05-fb-19-media-picker-image-repaint/scores/ci-runs.txt)):
+The change is kept only if two full visual runs on GitHub pass with it at the tolerance of 25. It was run twice, each time on the pull request's own run and on one started by hand, both on the same commit ([`scores/ci-runs.txt`](evidence/2026-11-05-fb-19-media-picker-image-repaint/scores/ci-runs.txt)):
 
-| Run | Started by | Result |
-|---|---|---|
-| [Storybook run 233](https://github.com/pateldhruval872/liquorify/actions/runs/41993000293) | By hand | All four parts passed, 752 of 752 images each; 08:15 to 08:30 UTC |
-| [Storybook run 234](https://github.com/pateldhruval872/liquorify/actions/runs/41993001072) | The pull request | All four parts passed, 752 of 752 images each; 08:15 to 08:33 UTC |
+| Commit | Run | Started by | Result |
+|---|---|---|---|
+| `a82d746d`, with main merged in after #75 and #76 | [Storybook run 233](https://github.com/pateldhruval872/liquorify/actions/runs/41993000293) | By hand | All four parts passed, 752 of 752 images each; 08:15 to 08:30 UTC |
+| `a82d746d` | [Storybook run 234](https://github.com/pateldhruval872/liquorify/actions/runs/41993001072) | The pull request | All four parts passed, 752 of 752 images each; 08:15 to 08:33 UTC |
+| `67ad9650`, with main merged in after batch 8's part 1 (#80) | [Storybook run 247](https://github.com/pateldhruval872/liquorify/actions/runs/42021130775) | The pull request | All four parts passed, 825, 825, 824 and 824 images; 11:42 to 12:00 UTC |
+| `67ad9650` | [Storybook run 248](https://github.com/pateldhruval872/liquorify/actions/runs/42021140187) | By hand | All four parts passed, 825, 825, 824 and 824 images; 11:42 to 12:01 UTC |
 
-The story's two images are in part 1: the check's own listing of that part puts them 195th and 196th of its 752, and in no other part. Part 1 passed every image in both runs. The pull request's other checks on the same commit passed too, 39 of them, with the six release jobs skipped. This section was added afterwards in a commit that changes only records, which does not start the visual check again.
+The second pair was run because batch 8's first part merged into main before this pull request, adding 145 stories, and its merge changed the shared search mock. In both pairs the story's two images are in part 1: the check's own listing of that part, from a Storybook built at the same commit, puts them 195th and 196th, and in no other part. Part 1 passed every image in all four runs. The pull request's other checks passed on both commits too, 39 of them each time, with the six release jobs skipped.
+
+The commit that first added these results, `1a5830e7`, changed only records, but it did start the visual check again, because the check looks at the whole pull request's files: that run, [Storybook run 236](https://github.com/pateldhruval872/liquorify/actions/runs/41996317791), passed as well.
 
 ## 5. Evidence
 
@@ -78,7 +82,7 @@ In [`evidence/2026-11-05-fb-19-media-picker-image-repaint/`](evidence/2026-11-05
 
 ## 6. Limitations
 
-- **CI's processors.** Locally the repainted image never varied. CI's runners use other processors; §4's two runs passed, but two runs show the image within 25 there, not that it never varies. A later failure on this image is a reason to revisit the fix in a new record.
+- **CI's processors.** Locally the repainted image never varied. CI's runners use other processors; §4's runs passed, but a few runs show the image within 25 there, not that it never varies. A later failure on this image is a reason to revisit the fix in a new record.
 - **One story.** The repaint applies to this story only. The two dark chip images keep their allowance of 60, and no other image is repainted.
 - **Cause inside the browser not traced.** As the investigation says, why the browser picks a shading was not found; the repaint makes it pick the same one.
 - **Automated, not independent.** The same session made the change and checked it. The image review is delegated acceptance, not the owner's review.
