@@ -1,0 +1,14 @@
+{
+  "test": "store-credit-history-failing",
+  "revision": "4a78cd88",
+  "stamp": "mw2z2hgi",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "opened a credit whose history's request is answered here",
+      "answered": 500,
+      "shows": "Could not load the ledger."
+    }
+  ],
+  "outside": []
+}

@@ -1,0 +1,17 @@
+{
+  "test": "category-search",
+  "revision": "bc5c3fcb",
+  "stamp": "mw2whsnb",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "searched for one category",
+      "rows": 1,
+      "shows": "P9 Juniper category mw2whsnb"
+    },
+    {
+      "step": "reloaded; the search is cleared and both categories are listed again"
+    }
+  ],
+  "outside": []
+}

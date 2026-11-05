@@ -1,0 +1,401 @@
+{
+  "revision": "bc5c3fcb",
+  "mode": "checks",
+  "tests": [
+    {
+      "file": "catalog-actions.spec.ts",
+      "test": "choosing a category's parent",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(locator).toHaveValue(expected) failed",
+          "linesInTheTest": [
+            378
+          ]
+        }
+      ]
+    },
+    {
+      "file": "catalog-actions.spec.ts",
+      "test": "a category's image",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(locator).toBeVisible() failed",
+          "linesInTheTest": [
+            171,
+            420
+          ]
+        }
+      ]
+    },
+    {
+      "file": "catalog-actions.spec.ts",
+      "test": "deleting a category",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(locator).toHaveCount(expected) failed",
+          "linesInTheTest": [
+            439
+          ]
+        }
+      ]
+    },
+    {
+      "file": "catalog-actions.spec.ts",
+      "test": "reordering a category's products",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(received).toEqual(expected) // deep equality",
+          "linesInTheTest": [
+            467
+          ]
+        }
+      ]
+    },
+    {
+      "file": "catalog-actions.spec.ts",
+      "test": "searching categories",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(locator).toHaveCount(expected) failed",
+          "linesInTheTest": [
+            482
+          ]
+        }
+      ]
+    },
+    {
+      "file": "catalog-actions.spec.ts",
+      "test": "a collection's image",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(locator).toBeVisible() failed",
+          "linesInTheTest": [
+            171,
+            537
+          ]
+        }
+      ]
+    },
+    {
+      "file": "catalog-actions.spec.ts",
+      "test": "searching collections",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(locator).toHaveCount(expected) failed",
+          "linesInTheTest": [
+            551
+          ]
+        }
+      ]
+    },
+    {
+      "file": "catalog-actions.spec.ts",
+      "test": "the kind filter",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(received).toEqual(expected) // deep equality",
+          "linesInTheTest": [
+            580
+          ]
+        }
+      ]
+    },
+    {
+      "file": "catalog-actions.spec.ts",
+      "test": "activating a catalog",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(locator).toHaveText(expected) failed",
+          "linesInTheTest": [
+            677
+          ]
+        }
+      ]
+    },
+    {
+      "file": "catalog-actions.spec.ts",
+      "test": "deactivating a catalog",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(locator).toHaveText(expected) failed",
+          "linesInTheTest": [
+            702
+          ]
+        }
+      ]
+    },
+    {
+      "file": "catalog-actions.spec.ts",
+      "test": "assigning an audience",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(locator).toBeVisible() failed",
+          "linesInTheTest": [
+            743
+          ]
+        }
+      ]
+    },
+    {
+      "file": "catalog-actions.spec.ts",
+      "test": "withdrawing an audience",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(locator).toBeVisible() failed",
+          "linesInTheTest": [
+            782
+          ]
+        }
+      ]
+    },
+    {
+      "file": "catalog-actions.spec.ts",
+      "test": "importing a catalog's prices",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(locator).not.toHaveValue(expected) failed",
+          "linesInTheTest": [
+            649,
+            818
+          ]
+        }
+      ]
+    },
+    {
+      "file": "catalog-actions.spec.ts",
+      "test": "exporting a catalog's prices",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(received).toContain(expected) // indexOf",
+          "linesInTheTest": [
+            866
+          ]
+        }
+      ]
+    },
+    {
+      "file": "catalog-actions.spec.ts",
+      "test": "deleting a catalog",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(locator).toHaveCount(expected) failed",
+          "linesInTheTest": [
+            907
+          ]
+        }
+      ]
+    },
+    {
+      "file": "catalog-actions.spec.ts",
+      "test": "searching catalogs",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(locator).toHaveCount(expected) failed",
+          "linesInTheTest": [
+            932
+          ]
+        }
+      ]
+    },
+    {
+      "file": "catalog-actions.spec.ts",
+      "test": "translating categories on the translations page",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(received).not.toBe(expected) // Object.is equality",
+          "linesInTheTest": [
+            1036
+          ]
+        }
+      ]
+    },
+    {
+      "file": "catalog-actions.spec.ts",
+      "test": "translating collections on the translations page",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(received).not.toBe(expected) // Object.is equality",
+          "linesInTheTest": [
+            1036
+          ]
+        }
+      ]
+    },
+    {
+      "file": "catalog-actions.spec.ts",
+      "test": "translating option types on the translations page",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(received).not.toBe(expected) // Object.is equality",
+          "linesInTheTest": [
+            1036
+          ]
+        }
+      ]
+    },
+    {
+      "file": "catalog-actions.spec.ts",
+      "test": "importing translations",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(received).not.toBe(expected) // Object.is equality",
+          "linesInTheTest": [
+            1090
+          ]
+        }
+      ]
+    },
+    {
+      "file": "catalog-actions.spec.ts",
+      "test": "exporting translations",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(received).toHaveLength(expected)",
+          "linesInTheTest": [
+            1133
+          ]
+        }
+      ]
+    },
+    {
+      "file": "catalog-actions.spec.ts",
+      "test": "a price list's channel rule",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(locator).toBeVisible() failed",
+          "linesInTheTest": [
+            1227
+          ]
+        }
+      ]
+    },
+    {
+      "file": "catalog-actions.spec.ts",
+      "test": "a price list's schedule",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(received).toEqual(expected) // deep equality",
+          "linesInTheTest": [
+            1263
+          ]
+        }
+      ]
+    },
+    {
+      "file": "catalog-actions.spec.ts",
+      "test": "activating a price list",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(locator).toHaveText(expected) failed",
+          "linesInTheTest": [
+            1286
+          ]
+        }
+      ]
+    },
+    {
+      "file": "catalog-actions.spec.ts",
+      "test": "the price lists' priority order",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: the first list below the second after a reload",
+          "linesInTheTest": [
+            1335
+          ]
+        }
+      ]
+    },
+    {
+      "file": "catalog-actions.spec.ts",
+      "test": "an import's results",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(locator).toBeVisible() failed",
+          "linesInTheTest": [
+            1399
+          ]
+        }
+      ]
+    },
+    {
+      "file": "catalog-actions.spec.ts",
+      "test": "downloading an import's original file",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(received).toEqual(expected) // deep equality",
+          "linesInTheTest": [
+            1437
+          ]
+        }
+      ]
+    },
+    {
+      "file": "catalog-actions.spec.ts",
+      "test": "deleting an import",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(locator).toHaveCount(expected) failed",
+          "linesInTheTest": [
+            1459
+          ]
+        }
+      ]
+    }
+  ]
+}

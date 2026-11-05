@@ -1,0 +1,20 @@
+{
+  "test": "store-credit-erased-shopper",
+  "revision": "4a78cd88",
+  "stamp": "mw2z2hgi",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "listed the credit of a shopper whose data was then erased",
+      "row": "—\n\t$15.00\t$0.00\t$15.00\tUSD\tIssued by hand\tless than a minute ago\t"
+    },
+    {
+      "step": "reloaded and opened the credit",
+      "title": "—",
+      "remaining": "$15.00",
+      "memo": "—",
+      "note": "The credit and its balance are kept, its memo is cleared and the shopper is not named (B17, B18)"
+    }
+  ],
+  "outside": []
+}

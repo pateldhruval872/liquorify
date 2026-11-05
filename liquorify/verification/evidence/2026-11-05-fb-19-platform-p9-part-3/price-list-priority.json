@@ -1,0 +1,48 @@
+{
+  "test": "price-list-priority",
+  "revision": "bc5c3fcb",
+  "stamp": "mw2whsnb",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "opened the price lists",
+      "order": [
+        "P9 First priority mw2whsnb",
+        "P9 Second priority mw2whsnb"
+      ]
+    },
+    {
+      "step": "moved the first list one place down with the keyboard",
+      "order": [
+        "P9 Second priority mw2whsnb",
+        "P9 First priority mw2whsnb"
+      ],
+      "lists": [
+        "P9 Import decoy list mw2whsnb",
+        "P9 Export decoy list mw2whsnb",
+        "P9 Channel list mw2whsnb",
+        "P9 Scheduled list mw2whsnb",
+        "P9 Activated list mw2whsnb",
+        "P9 Second priority mw2whsnb",
+        "P9 First priority mw2whsnb"
+      ]
+    },
+    {
+      "step": "reloaded",
+      "order": [
+        "P9 First priority mw2whsnb",
+        "P9 Second priority mw2whsnb"
+      ],
+      "lists": [
+        "P9 Import decoy list mw2whsnb",
+        "P9 Export decoy list mw2whsnb",
+        "P9 Channel list mw2whsnb",
+        "P9 Scheduled list mw2whsnb",
+        "P9 First priority mw2whsnb",
+        "P9 Activated list mw2whsnb",
+        "P9 Second priority mw2whsnb"
+      ]
+    }
+  ],
+  "outside": []
+}

@@ -1,0 +1,38 @@
+{
+  "test": "price-list-priority-control",
+  "revision": "bc5c3fcb",
+  "stamp": "mw2wm02g",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "opened the price lists",
+      "order": [
+        "P9 First priority mw2wm02g",
+        "P9 Second priority mw2wm02g"
+      ]
+    },
+    {
+      "step": "moved the first list one place down with the keyboard",
+      "order": [
+        "P9 Second priority mw2wm02g",
+        "P9 First priority mw2wm02g"
+      ],
+      "lists": [
+        "P9 Second priority mw2wm02g",
+        "P9 First priority mw2wm02g"
+      ]
+    },
+    {
+      "step": "reloaded",
+      "order": [
+        "P9 Second priority mw2wm02g",
+        "P9 First priority mw2wm02g"
+      ],
+      "lists": [
+        "P9 Second priority mw2wm02g",
+        "P9 First priority mw2wm02g"
+      ]
+    }
+  ],
+  "outside": []
+}

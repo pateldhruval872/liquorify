@@ -1,0 +1,25 @@
+{
+  "test": "promotion-sort",
+  "revision": "4a78cd88",
+  "stamp": "mw2yytz8",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "sorted by Starts, ascending",
+      "order": [
+        "P9 Sorted A mw2yytz8",
+        "P9 Sorted C mw2yytz8",
+        "P9 Sorted B mw2yytz8"
+      ]
+    },
+    {
+      "step": "reloaded; the sort is kept",
+      "order": [
+        "P9 Sorted A mw2yytz8",
+        "P9 Sorted C mw2yytz8",
+        "P9 Sorted B mw2yytz8"
+      ]
+    }
+  ],
+  "outside": []
+}

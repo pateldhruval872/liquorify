@@ -51,7 +51,10 @@ import { defineConfig } from '@playwright/test'
  * the payment, delivery and tax actions batch 7 captured, against a server
  * started with `LIQUORIFY_TAX_ENGINE=1` (see each file and `p9.ts`).
  * `multi-store-actions.spec.ts` joins, works in and switches between two
- * stores as one teammate (see that file).
+ * stores as one teammate (see that file), and `catalog-actions.spec.ts` drives
+ * the catalog actions catalog part 2 captured, and `loyalty-actions.spec.ts`
+ * the promotion, gift card and store credit behaviours catalog part 3 captured
+ * (see each file).
  * `FIDELITY_BASE_URL` points the scripts at a dashboard served on another
  * port, beside a server started with `E2E_RAILS_PORT`.
  */
@@ -62,6 +65,13 @@ export default defineConfig({
     'screens.spec.ts',
     'screens-batch-7.spec.ts',
     'compare-batch-7.spec.ts',
+    'screens-batch-8.spec.ts',
+    'compare-batch-8.spec.ts',
+    'sd-31-gift-card.spec.ts',
+    'payment-link.spec.ts',
+    'orders-settings.spec.ts',
+    'order-emails.spec.ts',
+    'digital-delivery.spec.ts',
     'screens-catalog-3.spec.ts',
     'compare-catalog-3.spec.ts',
     'screens-batch-6.spec.ts',
@@ -97,6 +107,8 @@ export default defineConfig({
     'getting-started-tasks.spec.ts',
     'settings-actions.spec.ts',
     'multi-store-actions.spec.ts',
+    'catalog-actions.spec.ts',
+    'loyalty-actions.spec.ts',
   ],
   outputDir: './results/test-output',
   workers: 1,

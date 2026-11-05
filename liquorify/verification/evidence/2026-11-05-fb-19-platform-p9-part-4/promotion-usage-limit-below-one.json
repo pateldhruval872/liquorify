@@ -1,0 +1,18 @@
+{
+  "test": "promotion-usage-limit-below-one",
+  "revision": "4a78cd88",
+  "stamp": "mw2yytz8",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "typed a usage limit of 0 and pressed Save",
+      "refusal": "Value must be greater than or equal to 1.",
+      "note": "The browser's own number check refuses it, in its own bubble (B11)"
+    },
+    {
+      "step": "reloaded; the limit is unchanged",
+      "limit": "10"
+    }
+  ],
+  "outside": []
+}

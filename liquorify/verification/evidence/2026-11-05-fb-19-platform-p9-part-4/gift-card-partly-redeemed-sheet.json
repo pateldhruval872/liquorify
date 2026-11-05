@@ -1,0 +1,18 @@
+{
+  "test": "gift-card-partly-redeemed-sheet",
+  "revision": "4a78cd88",
+  "stamp": "mw2z1lj9",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "opened a $100.00 card $19.99 of which paid for an order",
+      "usage": "Usage\nAmount\n$100.00\nUsed\n$19.99\nRemaining\n$80.01\nIssued by\nadmin@example.com"
+    },
+    {
+      "step": "reloaded and opened the card again",
+      "usage": "Usage\nAmount\n$100.00\nUsed\n$19.99\nRemaining\n$80.01\nIssued by\nadmin@example.com",
+      "customerShown": "Customer (optional)\ncust_OIJLhNcSbf"
+    }
+  ],
+  "outside": []
+}

@@ -1,0 +1,17 @@
+{
+  "test": "promotion-generated-code",
+  "revision": "4a78cd88",
+  "stamp": "mw2yytz8",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "generated a code and created the promotion",
+      "code": "FZBCVSR8"
+    },
+    {
+      "step": "reloaded",
+      "shown": "FZBCVSR8"
+    }
+  ],
+  "outside": []
+}

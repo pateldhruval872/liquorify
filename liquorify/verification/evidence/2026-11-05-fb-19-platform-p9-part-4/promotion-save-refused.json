@@ -1,0 +1,17 @@
+{
+  "test": "promotion-save-refused",
+  "revision": "4a78cd88",
+  "stamp": "mw2yytz8",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "replaced the name with spaces and pressed Save",
+      "refusal": "Name can't be blank"
+    },
+    {
+      "step": "reloaded; the name is unchanged",
+      "name": "P9 Save refused mw2yytz8"
+    }
+  ],
+  "outside": []
+}

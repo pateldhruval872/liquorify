@@ -1,0 +1,16 @@
+{
+  "test": "catalog-audience-assigned",
+  "revision": "bc5c3fcb",
+  "stamp": "mw2whsnb",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "assigned the company and saved",
+      "audience": "P9 Assigned company mw2whsnb"
+    },
+    {
+      "step": "reloaded; the company is the audience"
+    }
+  ],
+  "outside": []
+}

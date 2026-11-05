@@ -1,0 +1,14 @@
+{
+  "test": "store-credit-history-empty",
+  "revision": "4a78cd88",
+  "stamp": "mw2z2hgi",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "opened a credit whose history's request is answered here",
+      "answered": "no entries",
+      "shows": "No movements recorded yet."
+    }
+  ],
+  "outside": []
+}

@@ -1,0 +1,16 @@
+{
+  "test": "collection-search",
+  "revision": "bc5c3fcb",
+  "stamp": "mw2whsnb",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "searched for one collection",
+      "shows": "P9 Juniper collection mw2whsnb"
+    },
+    {
+      "step": "reloaded; the search and its result are kept"
+    }
+  ],
+  "outside": []
+}

@@ -1,0 +1,17 @@
+{
+  "test": "store-credit-issue-refused-by-spree",
+  "revision": "4a78cd88",
+  "stamp": "mw2z2hgi",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "chose a customer, typed 12.345 and pressed Issue",
+      "refusal": "amount has more than 2 decimal places"
+    },
+    {
+      "step": "reloaded and searched for its memo; no credit was issued",
+      "memo": "P9 decimals mw2z2hgi"
+    }
+  ],
+  "outside": []
+}

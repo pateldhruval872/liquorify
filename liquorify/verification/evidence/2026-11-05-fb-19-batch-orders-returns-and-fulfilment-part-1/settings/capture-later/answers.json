@@ -1,0 +1,21 @@
+{
+  "revision": "08bca2e2",
+  "order": "R1028",
+  "before": [
+    {
+      "number": "R1028-P1",
+      "method": "pm_AXs1igzRC6",
+      "status": "pending",
+      "amount": "44.99"
+    }
+  ],
+  "after": [
+    {
+      "number": "R1028-P1",
+      "method": "pm_AXs1igzRC6",
+      "status": "completed",
+      "amount": "44.99"
+    }
+  ],
+  "payment_status": "paid"
+}

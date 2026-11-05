@@ -1,0 +1,17 @@
+{
+  "test": "gift-card-filter-customer",
+  "revision": "4a78cd88",
+  "stamp": "mw2z1lj9",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "filtered to one customer's cards",
+      "customer": "p9-card-owner-mw2z1lj9@example.com",
+      "shows": "P9-CUSTOMER-MW2Z1LJ9-KEPT"
+    },
+    {
+      "step": "reloaded; the filter and its result are kept"
+    }
+  ],
+  "outside": []
+}

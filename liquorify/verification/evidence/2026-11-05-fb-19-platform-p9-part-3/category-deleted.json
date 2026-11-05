@@ -1,0 +1,16 @@
+{
+  "test": "category-deleted",
+  "revision": "bc5c3fcb",
+  "stamp": "mw2whsnb",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "deleted the category from its menu, confirming",
+      "asked": "Delete the category \"P9 Doomed category mw2whsnb\" and all its subcategories?"
+    },
+    {
+      "step": "reloaded; the category is gone"
+    }
+  ],
+  "outside": []
+}

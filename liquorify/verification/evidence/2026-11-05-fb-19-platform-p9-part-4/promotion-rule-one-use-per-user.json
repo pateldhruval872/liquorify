@@ -1,0 +1,17 @@
+{
+  "test": "promotion-rule-one-use-per-user",
+  "revision": "4a78cd88",
+  "stamp": "mw2yytz8",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "added the rule and saved",
+      "rule": "One Use Per User"
+    },
+    {
+      "step": "reloaded",
+      "rule": "One Use Per User"
+    }
+  ],
+  "outside": []
+}

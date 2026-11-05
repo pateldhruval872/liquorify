@@ -1,0 +1,17 @@
+{
+  "test": "catalog-prices-exported",
+  "revision": "bc5c3fcb",
+  "stamp": "mw2whsnb",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "exported the prices from the catalog's Pricing card",
+      "file": "price_list_prices-shop-20261105020348.csv",
+      "line": "P9-EXPORTED-mw2whsnb,USD,1,19.50,\r"
+    },
+    {
+      "step": "reloaded; the server holds the same file under that name"
+    }
+  ],
+  "outside": []
+}

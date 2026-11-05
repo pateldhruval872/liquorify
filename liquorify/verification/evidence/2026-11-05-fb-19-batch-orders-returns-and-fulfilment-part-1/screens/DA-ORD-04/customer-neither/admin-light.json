@@ -1,0 +1,19 @@
+{
+  "screen": "DA-ORD-04",
+  "state": "customer-neither",
+  "variant": "admin",
+  "role": null,
+  "theme": "light",
+  "revision": "08bca2e2",
+  "path": "/<store>/orders/or_VqXmZF31wY",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "fullPage": false,
+  "capturedHeight": 960,
+  "intercepted": "The order's answer has no customer, email or addresses",
+  "settled": true,
+  "outside": [],
+  "customer": "sarah.johnson@example.com"
+}

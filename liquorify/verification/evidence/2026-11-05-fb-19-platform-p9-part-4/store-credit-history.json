@@ -1,0 +1,27 @@
+{
+  "test": "store-credit-history",
+  "revision": "4a78cd88",
+  "stamp": "mw2z2hgi",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "opened a $50.00 credit $19.99 of which paid for an order",
+      "ledger": [
+        "Used\n$19.99\nless than a minute ago",
+        "Authorized\n$19.99\nless than a minute ago",
+        "Eligible\n$19.99\nless than a minute ago",
+        "Added\n$50.00\nless than a minute ago"
+      ]
+    },
+    {
+      "step": "reloaded and opened the credit again",
+      "ledger": [
+        "Used\n$19.99\nless than a minute ago",
+        "Authorized\n$19.99\nless than a minute ago",
+        "Eligible\n$19.99\nless than a minute ago",
+        "Added\n$50.00\nless than a minute ago"
+      ]
+    }
+  ],
+  "outside": []
+}

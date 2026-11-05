@@ -1,0 +1,33 @@
+{
+  "test": "category-products-reordered",
+  "revision": "bc5c3fcb",
+  "stamp": "mw2whsnb",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "opened the category",
+      "order": [
+        "P9 Alder mw2whsnb",
+        "P9 Birch mw2whsnb",
+        "P9 Cedar mw2whsnb"
+      ]
+    },
+    {
+      "step": "moved the first product one place down with the keyboard",
+      "order": [
+        "P9 Birch mw2whsnb",
+        "P9 Alder mw2whsnb",
+        "P9 Cedar mw2whsnb"
+      ]
+    },
+    {
+      "step": "reloaded",
+      "order": [
+        "P9 Birch mw2whsnb",
+        "P9 Alder mw2whsnb",
+        "P9 Cedar mw2whsnb"
+      ]
+    }
+  ],
+  "outside": []
+}

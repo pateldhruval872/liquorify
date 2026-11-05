@@ -1,0 +1,17 @@
+{
+  "test": "promotion-typed-code",
+  "revision": "4a78cd88",
+  "stamp": "mw2yytz8",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "typed a code and created the promotion",
+      "code": "P9TYPEDMW2YYTZ8"
+    },
+    {
+      "step": "reloaded",
+      "shown": "P9TYPEDMW2YYTZ8"
+    }
+  ],
+  "outside": []
+}

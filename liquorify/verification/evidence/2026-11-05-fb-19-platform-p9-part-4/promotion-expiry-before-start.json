@@ -1,0 +1,20 @@
+{
+  "test": "promotion-expiry-before-start",
+  "revision": "4a78cd88",
+  "stamp": "mw2yytz8",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "chose an expiry five days before the start and pressed Save",
+      "starts": "December 15th, 2026 9:30 AM",
+      "expires": "December 10th, 2026 9:30 AM",
+      "refusal": "Expiry must be after the start date"
+    },
+    {
+      "step": "reloaded; the schedule is unchanged",
+      "starts": "November 5th, 2026 3:12 AM",
+      "expires": "No expiry"
+    }
+  ],
+  "outside": []
+}

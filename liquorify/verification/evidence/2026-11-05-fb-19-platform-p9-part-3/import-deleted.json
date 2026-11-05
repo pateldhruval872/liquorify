@@ -1,0 +1,15 @@
+{
+  "test": "import-deleted",
+  "revision": "bc5c3fcb",
+  "stamp": "mw2wkyrj",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "deleted the import from its row, confirming"
+    },
+    {
+      "step": "reloaded with the search kept; the import is not listed"
+    }
+  ],
+  "outside": []
+}

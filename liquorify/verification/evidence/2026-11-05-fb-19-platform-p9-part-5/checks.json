@@ -1,0 +1,237 @@
+{
+  "mode": "checks",
+  "storefront_revision": "cbb7ddc6920545d2ceca98911f99befb63e23364",
+  "started": "2026-11-05T05:18:17.282Z",
+  "duration_ms": 419435,
+  "expected": 9,
+  "unexpected": 0,
+  "flaky": 0,
+  "skipped": 0,
+  "tests": [
+    {
+      "number": 1,
+      "title": "a guest applies a coupon",
+      "file": "checkout-actions.spec.ts",
+      "line": 67,
+      "expected": "failed",
+      "outcome": "expected",
+      "result": "failed",
+      "retries": 0,
+      "started": "2026-11-05T05:18:18.226Z",
+      "duration_ms": 43950,
+      "errors": [
+        {
+          "message": [
+            "Error: expect(locator).toContainText(expected) failed",
+            "Locator: locator('div.rounded-sm').filter({ has: getByText('freeship', { exact: true }) }).filter({ visible: true })",
+            "Expected substring: \"-$5.00\"",
+            "Timeout: 30000ms",
+            "Error: element(s) not found"
+          ],
+          "file": "e2e/checkout-actions.spec.ts",
+          "line": 75
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "a guest applies a gift card",
+      "file": "checkout-actions.spec.ts",
+      "line": 87,
+      "expected": "failed",
+      "outcome": "expected",
+      "result": "failed",
+      "retries": 0,
+      "started": "2026-11-05T05:19:02.464Z",
+      "duration_ms": 41732,
+      "errors": [
+        {
+          "message": [
+            "Error: expect(locator).toContainText(expected) failed",
+            "Locator: locator('div.rounded-sm').filter({ has: getByText('Gift card E2E-GIFT-PART', { exact: true }) }).filter({ visible: true })",
+            "Expected substring: \"-$25.00\"",
+            "Timeout: 30000ms",
+            "Error: element(s) not found"
+          ],
+          "file": "e2e/checkout-actions.spec.ts",
+          "line": 94
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "a guest places an order with Check",
+      "file": "checkout-actions.spec.ts",
+      "line": 109,
+      "expected": "failed",
+      "outcome": "expected",
+      "result": "failed",
+      "retries": 0,
+      "started": "2026-11-05T05:19:44.217Z",
+      "duration_ms": 70911,
+      "errors": [
+        {
+          "message": [
+            "TimeoutError: page.waitForURL: Timeout 60000ms exceeded.",
+            "=========================== logs ===========================",
+            "waiting for navigation until \"load\"",
+            "============================================================",
+            "at support.ts:340"
+          ],
+          "file": "e2e/support.ts",
+          "line": 340
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "a guest places an order with nothing to pay",
+      "file": "checkout-actions.spec.ts",
+      "line": 120,
+      "expected": "failed",
+      "outcome": "expected",
+      "result": "failed",
+      "retries": 0,
+      "started": "2026-11-05T05:20:55.150Z",
+      "duration_ms": 40324,
+      "errors": [
+        {
+          "message": [
+            "Error: expect(locator).toContainText(expected) failed",
+            "Locator: locator('div.flex.justify-between').filter({ has: getByText('Gift card', { exact: true }) }).filter({ visible: true })",
+            "Expected substring: \"-$94.99\"",
+            "Timeout: 30000ms",
+            "Error: element(s) not found"
+          ],
+          "file": "e2e/checkout-actions.spec.ts",
+          "line": 127
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "title": "a customer chooses another saved address",
+      "file": "checkout-actions.spec.ts",
+      "line": 143,
+      "expected": "failed",
+      "outcome": "expected",
+      "result": "failed",
+      "retries": 0,
+      "started": "2026-11-05T05:21:35.491Z",
+      "duration_ms": 63846,
+      "errors": [
+        {
+          "message": [
+            "Error: expect(locator).toBeChecked() failed",
+            "Locator:  getByRole('radio', { name: /1 Older Saved Street/ })",
+            "Expected: checked",
+            "Received: unchecked",
+            "Timeout:  30000ms"
+          ],
+          "file": "e2e/checkout-actions.spec.ts",
+          "line": 171
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "title": "a signed-in customer completes checkout",
+      "file": "checkout-actions.spec.ts",
+      "line": 175,
+      "expected": "failed",
+      "outcome": "expected",
+      "result": "failed",
+      "retries": 0,
+      "started": "2026-11-05T05:22:39.357Z",
+      "duration_ms": 87186,
+      "errors": [
+        {
+          "message": [
+            "TimeoutError: page.waitForURL: Timeout 60000ms exceeded.",
+            "=========================== logs ===========================",
+            "waiting for navigation until \"load\"",
+            "============================================================",
+            "at support.ts:340"
+          ],
+          "file": "e2e/support.ts",
+          "line": 340
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "title": "a customer edits a saved address at checkout",
+      "file": "checkout-actions.spec.ts",
+      "line": 210,
+      "expected": "failed",
+      "outcome": "expected",
+      "result": "failed",
+      "retries": 0,
+      "started": "2026-11-05T05:24:06.566Z",
+      "duration_ms": 39427,
+      "errors": [
+        {
+          "message": [
+            "Error: expect(locator).toBeHidden() failed",
+            "Locator:  getByRole('dialog', { name: 'Edit Address' })",
+            "Expected: hidden",
+            "Received: visible",
+            "Timeout:  30000ms"
+          ],
+          "file": "e2e/checkout-actions.spec.ts",
+          "line": 239
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "title": "checkout shows tax on a taxed product",
+      "file": "checkout-actions.spec.ts",
+      "line": 250,
+      "expected": "failed",
+      "outcome": "expected",
+      "result": "failed",
+      "retries": 0,
+      "started": "2026-11-05T05:24:46.013Z",
+      "duration_ms": 15690,
+      "errors": [
+        {
+          "message": [
+            "Error: expect(locator).toContainText(expected) failed",
+            "Locator: locator('div.flex.justify-between').filter({ has: getByText('Tax', { exact: true }) }).filter({ visible: true })",
+            "Expected substring: \"$1.60\"",
+            "Timeout: 5000ms",
+            "Error: element(s) not found"
+          ],
+          "file": "e2e/checkout-actions.spec.ts",
+          "line": 254
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "title": "checkout shows a second market's currency",
+      "file": "checkout-actions.spec.ts",
+      "line": 264,
+      "expected": "failed",
+      "outcome": "expected",
+      "result": "failed",
+      "retries": 0,
+      "started": "2026-11-05T05:25:01.722Z",
+      "duration_ms": 14861,
+      "errors": [
+        {
+          "message": [
+            "Error: expect(locator).toBeChecked() failed",
+            "Locator: locator('#checkout-section-shipping').getByRole('radio', { name: /International Shipping \u20ac18\\.00/ })",
+            "Expected: checked",
+            "Timeout: 5000ms",
+            "Error: element(s) not found"
+          ],
+          "file": "e2e/checkout-actions.spec.ts",
+          "line": 277
+        }
+      ]
+    }
+  ]
+}
