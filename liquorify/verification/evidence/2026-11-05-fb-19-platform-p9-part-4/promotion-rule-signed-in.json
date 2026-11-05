@@ -1,0 +1,17 @@
+{
+  "test": "promotion-rule-signed-in",
+  "revision": "4a78cd88",
+  "stamp": "mw2yytz8",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "added the rule and saved",
+      "rule": "Only logged in customers"
+    },
+    {
+      "step": "reloaded",
+      "rule": "Only logged in customers"
+    }
+  ],
+  "outside": []
+}

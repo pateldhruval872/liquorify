@@ -1,0 +1,17 @@
+{
+  "test": "store-credit-filter-issuer",
+  "revision": "4a78cd88",
+  "stamp": "mw2z2hgi",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "filtered to credits the admin issued",
+      "shows": "p9-issuer-hand-mw2z2hgi@example.com",
+      "hides": "p9-issuer-card-mw2z2hgi@example.com, whose credit came from a gift card"
+    },
+    {
+      "step": "reloaded; the filter and its result are kept"
+    }
+  ],
+  "outside": []
+}

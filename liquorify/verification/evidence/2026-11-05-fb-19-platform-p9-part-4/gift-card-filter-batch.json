@@ -1,0 +1,20 @@
+{
+  "test": "gift-card-filter-batch",
+  "revision": "4a78cd88",
+  "stamp": "mw2z1lj9",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "filtered to the batch",
+      "shows": [
+        "P9BATCHMW2Z1LJ9FA6137E2A1CB1099",
+        "P9BATCHMW2Z1LJ95DB2344A223FDCA6"
+      ],
+      "hides": "P9BATCHMW2Z1LJ9-SINGLE"
+    },
+    {
+      "step": "reloaded; the filter and its result are kept"
+    }
+  ],
+  "outside": []
+}

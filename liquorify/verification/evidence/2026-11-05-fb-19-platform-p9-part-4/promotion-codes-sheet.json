@@ -1,0 +1,31 @@
+{
+  "test": "promotion-codes-sheet",
+  "revision": "4a78cd88",
+  "stamp": "mw2yytz8",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "opened the codes and turned to the second page",
+      "used": "p9umw2yytza2676002d2a510d3",
+      "firstPage": {
+        "codes": 50,
+        "used": 1
+      },
+      "secondPage": {
+        "codes": 10
+      }
+    },
+    {
+      "step": "exported the codes",
+      "file": "coupon_codes-shop-20261105031209.csv",
+      "header": "Code,State,Promotion Name,Order Number,Created At,Updated At\r",
+      "lines": 60,
+      "usedLine": "P9UMW2YYTZA2676002D2A510D3,used,P9 Codes sheet mw2yytz8,R1003,2026-11-05 03:12:05,2026-11-05 03:12:06\r"
+    },
+    {
+      "step": "reloaded and opened the codes again",
+      "used": "Used"
+    }
+  ],
+  "outside": []
+}

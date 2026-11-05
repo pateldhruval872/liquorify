@@ -1,0 +1,16 @@
+{
+  "test": "promotion-match-policy-any",
+  "revision": "4a78cd88",
+  "stamp": "mw2yytz8",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "chose \"Any rule may match\" for two rules and saved"
+    },
+    {
+      "step": "reloaded",
+      "policy": "Any rule may match"
+    }
+  ],
+  "outside": []
+}

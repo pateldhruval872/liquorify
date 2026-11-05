@@ -1,0 +1,24 @@
+{
+  "test": "promotion-filter-start-and-expiry",
+  "revision": "4a78cd88",
+  "stamp": "mw2yytz8",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "opened the list filtered to promotions started by today and expiring from today",
+      "filterPanelOffers": [
+        "Created at",
+        "Updated at"
+      ],
+      "shows": "P9 Window running mw2yytz8",
+      "hides": [
+        "P9 Window not started mw2yytz8",
+        "P9 Window expired mw2yytz8"
+      ]
+    },
+    {
+      "step": "reloaded; the filters and their result are kept"
+    }
+  ],
+  "outside": []
+}

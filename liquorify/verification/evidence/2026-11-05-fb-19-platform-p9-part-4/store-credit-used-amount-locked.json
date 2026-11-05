@@ -1,0 +1,18 @@
+{
+  "test": "store-credit-used-amount-locked",
+  "revision": "4a78cd88",
+  "stamp": "mw2z2hgi",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "opened a used credit's editor; its amount is locked, and its memo was changed and saved",
+      "memo": "P9 locked memo changed mw2z2hgi"
+    },
+    {
+      "step": "reloaded and opened the credit",
+      "memo": "P9 locked memo changed mw2z2hgi",
+      "amount": "$50.00"
+    }
+  ],
+  "outside": []
+}

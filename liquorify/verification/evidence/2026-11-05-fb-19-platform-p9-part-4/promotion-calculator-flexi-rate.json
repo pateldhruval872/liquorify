@@ -1,0 +1,31 @@
+{
+  "test": "promotion-calculator-flexi-rate",
+  "revision": "4a78cd88",
+  "stamp": "mw2yytz8",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "added the action with this calculator and saved",
+      "summary": "Create whole-order adjustment\nFlexi Rate · $10.00, $5.00, Max items: 3"
+    },
+    {
+      "step": "reloaded and opened the action's editor",
+      "summary": "Flexi Rate · \\$10\\.00, \\$5\\.00, Max items: 3$",
+      "fields": [
+        [
+          "First Item Cost",
+          "10"
+        ],
+        [
+          "Additional Item Cost",
+          "5"
+        ],
+        [
+          "Max Items",
+          "3"
+        ]
+      ]
+    }
+  ],
+  "outside": []
+}

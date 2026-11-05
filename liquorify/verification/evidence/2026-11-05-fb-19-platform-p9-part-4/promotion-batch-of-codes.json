@@ -1,0 +1,18 @@
+{
+  "test": "promotion-batch-of-codes",
+  "revision": "4a78cd88",
+  "stamp": "mw2yytz8",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "asked for 60 codes with a prefix and created it",
+      "described": "Multi-code coupon (60 codes with prefix \"P9BMW2YYTZ8\")"
+    },
+    {
+      "step": "reloaded and opened the codes",
+      "firstPage": 50,
+      "prefix": "P9BMW2YYTZ8"
+    }
+  ],
+  "outside": []
+}

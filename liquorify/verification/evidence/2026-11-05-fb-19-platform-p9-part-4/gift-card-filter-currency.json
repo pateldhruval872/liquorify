@@ -1,0 +1,17 @@
+{
+  "test": "gift-card-filter-currency",
+  "revision": "4a78cd88",
+  "stamp": "mw2z1lj9",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "filtered to euros",
+      "shows": "P9-CURRENCY-MW2Z1LJ9-EUR",
+      "hides": "P9-CURRENCY-MW2Z1LJ9-USD"
+    },
+    {
+      "step": "reloaded; the filter and its result are kept"
+    }
+  ],
+  "outside": []
+}

@@ -1,6 +1,15 @@
 import { mkdirSync, writeFileSync } from 'node:fs'
-import { type APIRequestContext, expect, type Page, type Route, test } from '@playwright/test'
+import {
+  type APIRequestContext,
+  expect,
+  type Locator,
+  type Page,
+  type Route,
+  request,
+  test,
+} from '@playwright/test'
 import { animationsFinished } from './animations'
+import { admin } from './staff'
 
 /**
  * What the platform batch's step P9 scripts share: where each writes its
@@ -144,3 +153,62 @@ export const onTop = (page: Page, selectorText: string) =>
       const top = document.elementFromPoint(box.left + box.width / 2, box.top + box.height / 2)
       return !!top && (top === element || element.contains(top))
     })
+
+/** The Admin API as the browser tests' admin, for the records a test opens first. */
+export async function seeded<T>(baseURL: string | undefined, work: (seed: Seed) => Promise<T>) {
+  const api = await request.newContext({ baseURL })
+  try {
+    const { headers } = await admin(api)
+    const call = async <R>(method: string, path: string, data?: object) => {
+      const res = await api.fetch(`/api/v3/admin/${path}`, { method, headers, data })
+      const text = await res.text()
+      expect(res.ok(), `${method} ${path}: ${text}`).toBeTruthy()
+      return (text ? JSON.parse(text) : undefined) as R
+    }
+    return await work({
+      api,
+      headers,
+      get: (path) => call('GET', path),
+      post: (path, data) => call('POST', path, data ?? {}),
+      patch: (path, data) => call('PATCH', path, data ?? {}),
+    })
+  } finally {
+    await api.dispose()
+  }
+}
+
+export interface Seed {
+  api: APIRequestContext
+  headers: Headers
+  get: <R>(path: string) => Promise<R>
+  post: <R>(path: string, data?: object) => Promise<R>
+  patch: <R>(path: string, data?: object) => Promise<R>
+}
+
+export const toast = (page: Page, text: string | RegExp) =>
+  page.getByRole('region', { name: 'Notifications' }).getByText(text).first()
+
+export const confirmation = (page: Page) =>
+  page.getByRole('alertdialog').or(page.getByRole('dialog'))
+
+/** Picks a day some months ahead, at a time, in a date field. */
+export async function pickDate(
+  page: Page,
+  trigger: Locator,
+  monthsAhead: number,
+  day: string,
+  time: string,
+) {
+  await trigger.click()
+  const calendar = page.getByRole('dialog')
+  for (let month = 0; month < monthsAhead; month++)
+    await calendar.getByRole('button', { name: /next month/i }).click()
+  await calendar
+    .getByRole('gridcell')
+    .filter({ hasText: new RegExp(`^${day}$`) })
+    .first()
+    .click()
+  await calendar.locator('input[type="time"]').fill(time)
+  await page.keyboard.press('Escape')
+  await expect(calendar).toBeHidden()
+}

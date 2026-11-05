@@ -1,0 +1,19 @@
+{
+  "test": "promotion-schedule",
+  "revision": "4a78cd88",
+  "stamp": "mw2yytz8",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "chose a start and an expiry and saved",
+      "starts": "December 15th, 2026 9:30 AM",
+      "expires": "January 20th, 2027 6:00 PM"
+    },
+    {
+      "step": "reloaded",
+      "starts": "December 15th, 2026 9:30 AM",
+      "expires": "January 20th, 2027 6:00 PM"
+    }
+  ],
+  "outside": []
+}

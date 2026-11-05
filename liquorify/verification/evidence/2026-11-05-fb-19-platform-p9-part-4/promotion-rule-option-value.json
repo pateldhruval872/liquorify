@@ -1,0 +1,17 @@
+{
+  "test": "promotion-rule-option-value",
+  "revision": "4a78cd88",
+  "stamp": "mw2yytz8",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "added an option value rule for one value and saved",
+      "value": "P9 Red mw2yytz8"
+    },
+    {
+      "step": "reloaded",
+      "rule": "Option Value(s)\nP9 Colour mw2yytz8: P9 Red mw2yytz8"
+    }
+  ],
+  "outside": []
+}

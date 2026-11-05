@@ -52,7 +52,9 @@ import { defineConfig } from '@playwright/test'
  * started with `LIQUORIFY_TAX_ENGINE=1` (see each file and `p9.ts`).
  * `multi-store-actions.spec.ts` joins, works in and switches between two
  * stores as one teammate (see that file), and `catalog-actions.spec.ts` drives
- * the catalog actions catalog part 2 captured (see that file).
+ * the catalog actions catalog part 2 captured, and `loyalty-actions.spec.ts`
+ * the promotion, gift card and store credit behaviours catalog part 3 captured
+ * (see each file).
  * `FIDELITY_BASE_URL` points the scripts at a dashboard served on another
  * port, beside a server started with `E2E_RAILS_PORT`.
  */
@@ -99,6 +101,7 @@ export default defineConfig({
     'settings-actions.spec.ts',
     'multi-store-actions.spec.ts',
     'catalog-actions.spec.ts',
+    'loyalty-actions.spec.ts',
   ],
   outputDir: './results/test-output',
   workers: 1,

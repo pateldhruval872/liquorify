@@ -1,0 +1,596 @@
+{
+  "revision": "4a78cd88",
+  "mode": "checks",
+  "tests": [
+    {
+      "file": "loyalty-actions.spec.ts",
+      "test": "a promotion with a typed code",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(locator).toHaveText(expected) failed",
+          "linesInTheTest": [
+            310
+          ]
+        }
+      ]
+    },
+    {
+      "file": "loyalty-actions.spec.ts",
+      "test": "a promotion with a generated code",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(locator).toHaveText(expected) failed",
+          "linesInTheTest": [
+            344
+          ]
+        }
+      ]
+    },
+    {
+      "file": "loyalty-actions.spec.ts",
+      "test": "a promotion with a batch of codes",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(locator).toBeVisible() failed",
+          "linesInTheTest": [
+            378
+          ]
+        }
+      ]
+    },
+    {
+      "file": "loyalty-actions.spec.ts",
+      "test": "the codes sheet: used and unused codes, its pages and its export",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(locator).toHaveText(expected) failed",
+          "linesInTheTest": [
+            450
+          ]
+        }
+      ]
+    },
+    {
+      "file": "loyalty-actions.spec.ts",
+      "test": "a usage limit",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(locator).toHaveValue(expected) failed",
+          "linesInTheTest": [
+            517
+          ]
+        }
+      ]
+    },
+    {
+      "file": "loyalty-actions.spec.ts",
+      "test": "a usage limit below one is refused",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(received).toMatch(expected)",
+          "linesInTheTest": [
+            538
+          ]
+        }
+      ]
+    },
+    {
+      "file": "loyalty-actions.spec.ts",
+      "test": "a promotion's schedule",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(received).toEqual(expected) // deep equality",
+          "linesInTheTest": [
+            587
+          ]
+        }
+      ]
+    },
+    {
+      "file": "loyalty-actions.spec.ts",
+      "test": "an expiry before the start is refused",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(locator).toHaveText(expected) failed",
+          "linesInTheTest": [
+            609
+          ]
+        }
+      ]
+    },
+    {
+      "file": "loyalty-actions.spec.ts",
+      "test": "the option value rule",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(locator).toBeVisible() failed",
+          "linesInTheTest": [
+            668
+          ]
+        }
+      ]
+    },
+    {
+      "file": "loyalty-actions.spec.ts",
+      "test": "the signed-in rule",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(locator).toBeVisible() failed",
+          "linesInTheTest": [
+            695
+          ]
+        }
+      ]
+    },
+    {
+      "file": "loyalty-actions.spec.ts",
+      "test": "the one-use-per-customer rule",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(locator).toBeVisible() failed",
+          "linesInTheTest": [
+            695
+          ]
+        }
+      ]
+    },
+    {
+      "file": "loyalty-actions.spec.ts",
+      "test": "the match policy: any rule may match",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(locator).toHaveText(expected) failed",
+          "linesInTheTest": [
+            724
+          ]
+        }
+      ]
+    },
+    {
+      "file": "loyalty-actions.spec.ts",
+      "test": "a product rule's own policy: none of these products",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(locator).toBeChecked() failed",
+          "linesInTheTest": [
+            763
+          ]
+        }
+      ]
+    },
+    {
+      "file": "loyalty-actions.spec.ts",
+      "test": "the flexible rate calculator",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(locator).toBeVisible() failed",
+          "linesInTheTest": [
+            862
+          ]
+        }
+      ]
+    },
+    {
+      "file": "loyalty-actions.spec.ts",
+      "test": "the tiered flat rate calculator",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(locator).toBeVisible() failed",
+          "linesInTheTest": [
+            862
+          ]
+        }
+      ]
+    },
+    {
+      "file": "loyalty-actions.spec.ts",
+      "test": "the percent per item calculator",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(locator).toBeVisible() failed",
+          "linesInTheTest": [
+            862
+          ]
+        }
+      ]
+    },
+    {
+      "file": "loyalty-actions.spec.ts",
+      "test": "a save refused on a saved promotion",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(locator).toBeVisible() failed",
+          "linesInTheTest": [
+            894
+          ]
+        }
+      ]
+    },
+    {
+      "file": "loyalty-actions.spec.ts",
+      "test": "searching promotions",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(locator).toHaveCount(expected) failed",
+          "linesInTheTest": [
+            922
+          ]
+        }
+      ]
+    },
+    {
+      "file": "loyalty-actions.spec.ts",
+      "test": "filtering promotions by start and expiry",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(locator).toHaveCount(expected) failed",
+          "linesInTheTest": [
+            964
+          ]
+        }
+      ]
+    },
+    {
+      "file": "loyalty-actions.spec.ts",
+      "test": "sorting promotions",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(received).toEqual(expected) // deep equality",
+          "linesInTheTest": [
+            1001
+          ]
+        }
+      ]
+    },
+    {
+      "file": "loyalty-actions.spec.ts",
+      "test": "a promotion page that cannot load",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: a message that the promotion could not be loaded",
+          "linesInTheTest": [
+            1031
+          ]
+        }
+      ]
+    },
+    {
+      "file": "loyalty-actions.spec.ts",
+      "test": "filtering gift cards by status",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(locator).toHaveCount(expected) failed",
+          "linesInTheTest": [
+            1120
+          ]
+        }
+      ]
+    },
+    {
+      "file": "loyalty-actions.spec.ts",
+      "test": "filtering gift cards by currency",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(locator).toHaveCount(expected) failed",
+          "linesInTheTest": [
+            1137
+          ]
+        }
+      ]
+    },
+    {
+      "file": "loyalty-actions.spec.ts",
+      "test": "filtering gift cards by batch",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(received).toHaveLength(expected)",
+          "linesInTheTest": [
+            1165
+          ]
+        }
+      ]
+    },
+    {
+      "file": "loyalty-actions.spec.ts",
+      "test": "filtering gift cards by customer",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(locator).toHaveCount(expected) failed",
+          "linesInTheTest": [
+            1194
+          ]
+        }
+      ]
+    },
+    {
+      "file": "loyalty-actions.spec.ts",
+      "test": "searching gift cards",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(locator).toHaveCount(expected) failed",
+          "linesInTheTest": [
+            1217
+          ]
+        }
+      ]
+    },
+    {
+      "file": "loyalty-actions.spec.ts",
+      "test": "an expired gift card",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(locator).toHaveText(expected) failed",
+          "linesInTheTest": [
+            1249
+          ]
+        }
+      ]
+    },
+    {
+      "file": "loyalty-actions.spec.ts",
+      "test": "a partly redeemed gift card's sheet",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(locator).toContainText(expected) failed",
+          "linesInTheTest": [
+            1285,
+            1291
+          ]
+        }
+      ]
+    },
+    {
+      "file": "loyalty-actions.spec.ts",
+      "test": "a gift card without a customer is given one",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(locator).toContainText(expected) failed",
+          "linesInTheTest": [
+            1347
+          ]
+        }
+      ]
+    },
+    {
+      "file": "loyalty-actions.spec.ts",
+      "test": "issuing a batch of gift cards with a prefix",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(received).toHaveLength(expected)",
+          "linesInTheTest": [
+            1379
+          ]
+        }
+      ]
+    },
+    {
+      "file": "loyalty-actions.spec.ts",
+      "test": "filtering store credits by standing",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(locator).toHaveCount(expected) failed",
+          "linesInTheTest": [
+            1454
+          ]
+        }
+      ]
+    },
+    {
+      "file": "loyalty-actions.spec.ts",
+      "test": "filtering store credits by origin",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(locator).toHaveCount(expected) failed",
+          "linesInTheTest": [
+            1482
+          ]
+        }
+      ]
+    },
+    {
+      "file": "loyalty-actions.spec.ts",
+      "test": "filtering store credits by who issued them",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(locator).toHaveCount(expected) failed",
+          "linesInTheTest": [
+            1509
+          ]
+        }
+      ]
+    },
+    {
+      "file": "loyalty-actions.spec.ts",
+      "test": "filtering store credits by customer",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(locator).toHaveCount(expected) failed",
+          "linesInTheTest": [
+            1539
+          ]
+        }
+      ]
+    },
+    {
+      "file": "loyalty-actions.spec.ts",
+      "test": "filtering store credits by currency",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(locator).toHaveCount(expected) failed",
+          "linesInTheTest": [
+            1563
+          ]
+        }
+      ]
+    },
+    {
+      "file": "loyalty-actions.spec.ts",
+      "test": "a credit's history",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(locator).toContainText(expected) failed",
+          "linesInTheTest": [
+            1582,
+            1591
+          ]
+        }
+      ]
+    },
+    {
+      "file": "loyalty-actions.spec.ts",
+      "test": "a credit's history when it is empty",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(locator).toBeVisible() failed",
+          "linesInTheTest": [
+            1643
+          ]
+        }
+      ]
+    },
+    {
+      "file": "loyalty-actions.spec.ts",
+      "test": "a credit's history that cannot load",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(locator).toBeVisible() failed",
+          "linesInTheTest": [
+            1643
+          ]
+        }
+      ]
+    },
+    {
+      "file": "loyalty-actions.spec.ts",
+      "test": "an erased shopper's credit",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(locator).toBeVisible() failed",
+          "linesInTheTest": [
+            1680
+          ]
+        }
+      ]
+    },
+    {
+      "file": "loyalty-actions.spec.ts",
+      "test": "issuing an amount of zero is refused",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(locator).toHaveText(expected) failed",
+          "linesInTheTest": [
+            1737
+          ]
+        }
+      ]
+    },
+    {
+      "file": "loyalty-actions.spec.ts",
+      "test": "issuing an amount Spree refuses",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(locator).toBeVisible() failed",
+          "linesInTheTest": [
+            1770
+          ]
+        }
+      ]
+    },
+    {
+      "file": "loyalty-actions.spec.ts",
+      "test": "a used credit's amount cannot be changed",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(locator).toBeDisabled() failed",
+          "linesInTheTest": [
+            1804
+          ]
+        }
+      ]
+    }
+  ]
+}

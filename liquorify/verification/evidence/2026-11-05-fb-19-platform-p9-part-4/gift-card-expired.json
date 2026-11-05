@@ -1,0 +1,19 @@
+{
+  "test": "gift-card-expired",
+  "revision": "4a78cd88",
+  "stamp": "mw2z1lj9",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "listed a card that expired on 1 October 2026",
+      "status": "Expired",
+      "expires": "about 1 month ago"
+    },
+    {
+      "step": "reloaded and opened the card",
+      "expires": "October 1st, 2026",
+      "status": "Expired"
+    }
+  ],
+  "outside": []
+}

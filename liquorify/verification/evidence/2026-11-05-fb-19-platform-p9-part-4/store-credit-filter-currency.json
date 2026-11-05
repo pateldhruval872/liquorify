@@ -1,0 +1,17 @@
+{
+  "test": "store-credit-filter-currency",
+  "revision": "4a78cd88",
+  "stamp": "mw2z2hgi",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "filtered to euros",
+      "shows": "p9-credit-eur-mw2z2hgi@example.com",
+      "hides": "p9-credit-usd-mw2z2hgi@example.com"
+    },
+    {
+      "step": "reloaded; the filter and its result are kept"
+    }
+  ],
+  "outside": []
+}
