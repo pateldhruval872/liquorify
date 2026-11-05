@@ -1,0 +1,16 @@
+{
+  "test": "two-stores-own-roles-second-staff-list",
+  "revision": "3709958d",
+  "stamp": "mw2t9ex7",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "as the store's admin, opened each store's staff list",
+      "listed": {
+        "Shop": "MM Mo P9 mw2t9ex7 p9-two-stores-mw2t9ex7@example.com Admin ",
+        "Winkel": "MM Mo P9 mw2t9ex7 p9-two-stores-mw2t9ex7@example.com Support "
+      }
+    }
+  ],
+  "outside": []
+}
