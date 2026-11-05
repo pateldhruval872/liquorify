@@ -19,6 +19,7 @@ import {
   pendingInvitation,
   roles,
 } from './staff'
+import { adminNavigation, navigation, openStaff, supportNavigation, switcher } from './stores'
 
 /**
  * The multi-store administration batch (CAP-11-12): one teammate who holds the
@@ -209,7 +210,6 @@ async function besideReference(page: Page, name: string, story: string, browser:
   }
 }
 
-const switcher = (page: Page) => page.getByRole('button', { name: 'Switch store' })
 const storeHeader = (page: Page) => page.locator('[data-sidebar="header"]').first()
 const productsLink = (page: Page) => page.getByRole('link', { name: /^Products/ })
 const ordersLink = (page: Page) => page.getByRole('link', { name: /^Orders/ })
@@ -225,44 +225,6 @@ async function shownToast(page: Page) {
     return null
   }
 }
-
-/**
- * The names of the main navigation's links, in order, once two readings half
- * a second apart agree: some links, such as Getting Started, appear only when
- * their own request has answered.
- */
-async function navigation(page: Page) {
-  await expect(page.locator('[data-sidebar="content"] [data-slot="skeleton"]')).toHaveCount(0, {
-    timeout: 15_000,
-  })
-  const read = async () =>
-    (await page.locator('[data-sidebar="content"] a').allInnerTexts()).map((name) =>
-      name.split('\n')[0].trim(),
-    )
-  let previous = await read()
-  for (let attempt = 0; attempt < 20; attempt++) {
-    await page.waitForTimeout(500)
-    const next = await read()
-    if (next.join('|') === previous.join('|')) return next
-    previous = next
-  }
-  return previous
-}
-
-/** What each role's navigation holds when its store is opened fresh, as the staff access batch saw them. */
-const adminNavigation = [
-  'Getting Started',
-  'Home',
-  'Orders',
-  'Products',
-  'Inventory',
-  'Customers',
-  'Sellers',
-  'Loyalty',
-  'Promotions',
-  'Reports',
-]
-const supportNavigation = ['Home', 'Orders', 'Customers']
 
 const attemptedProduct = 'Fidelity two-store attempt'
 const attemptedImport = 'Fidelity two-store import'
@@ -337,14 +299,6 @@ async function signInTeammate(page: Page) {
   await page.goto('/')
   await expect(page).toHaveURL(new RegExp(`/${stores.first.id}(/|$)`), { timeout: 15_000 })
   await page.waitForLoadState('networkidle')
-}
-
-async function openStaff(page: Page, storeId: string) {
-  await page.goto(`/${storeId}/settings/staff`)
-  await page.waitForLoadState('networkidle')
-  await expect(page.getByRole('heading', { name: 'Staff', exact: true })).toBeVisible({
-    timeout: 15_000,
-  })
 }
 
 test.use({ viewport: desktop })

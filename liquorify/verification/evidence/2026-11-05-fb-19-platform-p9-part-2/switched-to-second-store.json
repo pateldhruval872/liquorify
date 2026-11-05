@@ -1,0 +1,47 @@
+{
+  "test": "switched-to-second-store",
+  "revision": "3709958d",
+  "stamp": "mw2t9ex7",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "signed in to Shop",
+      "navigation": [
+        "Getting Started",
+        "Home",
+        "Orders",
+        "Products",
+        "Inventory",
+        "Customers",
+        "Sellers",
+        "Loyalty",
+        "Promotions",
+        "Reports"
+      ]
+    },
+    {
+      "step": "chose Winkel in the switcher",
+      "navigation": [
+        "Getting Started",
+        "Home",
+        "Orders",
+        "Products",
+        "Inventory",
+        "Customers",
+        "Sellers",
+        "Loyalty",
+        "Promotions",
+        "Reports"
+      ]
+    },
+    {
+      "step": "reloaded; still in Winkel, with its role's navigation",
+      "navigation": [
+        "Home",
+        "Orders",
+        "Customers"
+      ]
+    }
+  ],
+  "outside": []
+}

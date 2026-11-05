@@ -1,0 +1,23 @@
+{
+  "test": "two-stores-own-roles",
+  "revision": "3709958d",
+  "stamp": "mw2t9ex7",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "signed in; Shop opens with the admin role's navigation"
+    },
+    {
+      "step": "the switcher lists both stores"
+    },
+    {
+      "step": "opened Winkel by its address, then reloaded",
+      "navigation": [
+        "Home",
+        "Orders",
+        "Customers"
+      ]
+    }
+  ],
+  "outside": []
+}
