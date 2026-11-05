@@ -1,0 +1,45 @@
+
+Running 1 test using 1 worker
+
+[1/1] fidelity/p10-shoppers.spec.ts:114:1 › the storefront and the Store API keep each shopper to their own products, carts and orders, within one store
+  1) fidelity/p10-shoppers.spec.ts:114:1 › the storefront and the Store API keep each shopper to their own products, carts and orders, within one store 
+
+    Error: every case passed
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 16
+
+    - Array []
+    + Array [
+    +   Object {
+    +     "failures": Array [
+    +       "the allowed caller customerC got a 200 page showing 1 of the 2 texts it should",
+    +       "the allowed answer did not carry the values the check looks for",
+    +     ],
+    +     "title": "1.4 Open a product page with prices hidden from guests",
+    +   },
+    +   Object {
+    +     "failures": Array [
+    +       "the allowed caller customerC got a 200 page showing 0 of the 1 texts it should",
+    +       "the allowed answer did not carry the values the check looks for",
+    +     ],
+    +     "title": "1.5 Open a product page with sign-in required",
+    +   },
+    + ]
+
+      1018 |         .map((item) => ({ title: item.title, failures: item.failures })),
+      1019 |       'every case passed',
+    > 1020 |     ).toEqual([])
+           |       ^
+      1021 |   } finally {
+      1022 |     await putChequeBack()
+      1023 |     for (const context of Object.values(contexts)) await context.dispose()
+        at <repository>/packages/liquorify-storybook/fidelity/p10-shoppers.spec.ts:1020:7
+
+    Error Context: fidelity/results/test-output/p10-shoppers-the-storefron-1d919-and-orders-within-one-store/error-context.md
+
+
+  1 failed
+    fidelity/p10-shoppers.spec.ts:114:1 › the storefront and the Store API keep each shopper to their own products, carts and orders, within one store 
