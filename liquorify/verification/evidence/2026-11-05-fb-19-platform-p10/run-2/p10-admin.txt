@@ -1,0 +1,49 @@
+
+Running 1 test using 1 worker
+
+[1/1] fidelity/p10-admin.spec.ts:1253:1 › the Admin API refuses the catalog, delivery and inventory requests a role does not allow, within one store
+  1) fidelity/p10-admin.spec.ts:1253:1 › the Admin API refuses the catalog, delivery and inventory requests a role does not allow, within one store 
+
+    Error: every case passed
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 21
+
+    - Array []
+    + Array [
+    +   Object {
+    +     "failures": Array [
+    +       "the allowed write left the record as it was, so the read-back saw no change",
+    +       "the allowed caller storeSettings got 403, expected 201",
+    +     ],
+    +     "title": "3.6 Add an origin group to a profile",
+    +   },
+    +   Object {
+    +     "failures": Array [
+    +       "the allowed answer did not carry the values the check looks for",
+    +     ],
+    +     "title": "5.10 List stock reservations",
+    +   },
+    +   Object {
+    +     "failures": Array [
+    +       "the allowed caller stockViewer got 403, expected 201",
+    +     ],
+    +     "title": "5.9 Export purchase orders",
+    +   },
+    + ]
+
+      1318 |     failed.map((item) => ({ title: item.title, failures: item.failures })),
+      1319 |     'every case passed',
+    > 1320 |   ).toEqual([])
+           |     ^
+      1321 | })
+      1322 |
+        at <repository>/packages/liquorify-storybook/fidelity/p10-admin.spec.ts:1320:5
+
+    Error Context: fidelity/results/test-output/p10-admin-the-Admin-API-re-1df2d--not-allow-within-one-store/error-context.md
+
+
+  1 failed
+    fidelity/p10-admin.spec.ts:1253:1 › the Admin API refuses the catalog, delivery and inventory requests a role does not allow, within one store 

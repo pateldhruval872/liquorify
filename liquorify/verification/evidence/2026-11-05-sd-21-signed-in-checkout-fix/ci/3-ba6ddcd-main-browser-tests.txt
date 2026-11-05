@@ -1,0 +1,4 @@
+# CI on the push to storefront main, ba6ddcd (#26's merge, the same tree as 38ad098), the pinned backend 68236c5, Ruby 4.0.5, Stripe test keys: the end of the Playwright step of run 41959158297, job 127021126576. The dot reporter prints no line per test; a retried test would be listed as flaky here, and none is
+2026-11-05T03:08:33.0546028Z ·
+2026-11-05T03:08:33.0566820Z   23 passed (3.0m)
+2026-11-05T03:08:33.0599485Z ##[notice]  23 passed (3.0m)

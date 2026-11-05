@@ -1,0 +1,22 @@
+{
+ "r-c12-tile-gap-13-1": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 4359,
+   "changed": 7250,
+   "largest": 246,
+   "failsAt25": true,
+   "failsAt60": true
+  }
+ },
+ "r-c12-tile-gap-13-2": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 4359,
+   "changed": 7250,
+   "largest": 246,
+   "failsAt25": true,
+   "failsAt60": true
+  }
+ }
+}

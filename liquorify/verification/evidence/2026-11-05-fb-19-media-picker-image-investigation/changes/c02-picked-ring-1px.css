@@ -1,0 +1,2 @@
+/* c02: the picked tiles' ring narrowed from 2 pixels to 1 */
+html:not(.dark) button[aria-pressed="true"] { box-shadow: 0 0 0 1px var(--primary) !important; }

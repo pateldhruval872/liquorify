@@ -1,0 +1,2 @@
+/* c01: the picked tiles' border colour lightened: primary mixed 85 % with white */
+html:not(.dark) button[aria-pressed="true"] { border-color: color-mix(in oklab, var(--primary) 85%, white) !important; }

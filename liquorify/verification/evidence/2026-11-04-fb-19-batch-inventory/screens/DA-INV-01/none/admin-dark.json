@@ -1,0 +1,16 @@
+{
+  "screen": "DA-INV-01",
+  "state": "none",
+  "variant": "admin",
+  "role": null,
+  "theme": "dark",
+  "revision": "5b23b5af",
+  "path": "/<store>/inventory",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": "The stock levels list is answered with the server's own response, emptied",
+  "settled": true,
+  "outside": []
+}

@@ -183,7 +183,7 @@ function rule(actions: string[], subjects: string[]): PermissionRule[] {
   }))
 }
 
-const shellRules = rule(['read'], ['country', 'state', 'store'])
+export const shellRules = rule(['read'], ['country', 'state', 'store'])
 const orderSubjects = [
   'order',
   'order_group',
@@ -212,7 +212,7 @@ const customerSubjects = [
   'consent_record',
   'custom_field',
 ]
-const productSubjects = [
+export const productSubjects = [
   'product',
   'variant',
   'option_type',
@@ -228,7 +228,7 @@ const productSubjects = [
   'import',
   'import_row',
 ]
-const stockSubjects = [
+export const stockSubjects = [
   'stock_level',
   'stock_location',
   'stock_movement',
@@ -240,11 +240,11 @@ const stockSubjects = [
 ]
 
 /** Read and administer the subjects, then manage them, as each write permission expands. */
-const write = (subjects: string[]) => [
+export const write = (subjects: string[]) => [
   ...rule(['read', 'admin'], subjects),
   ...rule(['manage'], subjects),
 ]
-const read = (subjects: string[]) => rule(['read', 'admin'], subjects)
+export const read = (subjects: string[]) => rule(['read', 'admin'], subjects)
 
 /**
  * The rules Spree answers `/me` with for a teammate holding only a role made

@@ -1,0 +1,16 @@
+{
+  "screen": "DA-INV-10",
+  "state": "none",
+  "variant": "admin",
+  "role": null,
+  "theme": "dark",
+  "revision": "5b23b5af",
+  "path": "/<store>/suppliers",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": "The suppliers list is answered with the server's own response, emptied",
+  "settled": true,
+  "outside": []
+}

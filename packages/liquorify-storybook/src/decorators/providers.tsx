@@ -49,6 +49,8 @@ export interface StoryNeeds {
  * leaves inside its border and padding, for a part drawn without its card.
  * A record's page inside the settings menu, such as a delivery profile's, has
  * narrower columns, and its origin group and zone cards nest one inside the other.
+ * A part drawn inside a sheet's body, such as a stock location's stock, takes
+ * what the sheet leaves inside its padding.
  */
 export const columnWidths = {
   page: 965,
@@ -61,6 +63,7 @@ export const columnWidths = {
   settingsSidebar: 280.671875,
   inOriginGroup: 551.328125,
   inZoneCard: 525.328125,
+  inSheet: 568,
 } as const
 
 export type Column = keyof typeof columnWidths

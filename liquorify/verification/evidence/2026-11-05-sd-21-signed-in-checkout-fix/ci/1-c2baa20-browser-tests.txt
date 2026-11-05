@@ -1,0 +1,261 @@
+# CI, storefront c2baa20 (the tests, before the fix), the pinned backend 68236c5, Ruby 4.0.5, Stripe test keys: the Playwright step of run 41957152545, job 127014685991, without the web server's lines
+##[group]Run pnpm run test:e2e
+pnpm run test:e2e
+shell: /usr/bin/bash -e {0}
+env:
+  PNPM_HOME: /home/runner/setup-pnpm/node_modules/.bin
+##[endgroup]
+> nextjs-starter-spree@0.1.0 test:e2e /home/runner/work/liquorify-storefront/liquorify-storefront
+> playwright test
+Running 23 tests using 1 worker
+F::error file=e2e/customer-checkout.spec.ts,title=[chromium] › e2e/customer-checkout.spec.ts:23:7 › signed-in checkout › a customer places an order to their saved address,line=36,col=30::  1) [chromium] › e2e/customer-checkout.spec.ts:23:7 › signed-in checkout › a customer places an order to their saved address %0A    Error: expect(locator).toHaveValue(expected) failed%0A%0A    Locator:  getByPlaceholder(/email address/i)%0A    Expected: "e2e-1793846944095-185955@example.com"%0A    Received: ""%0A    Timeout:  30000ms%0A%0A    Call log:%0A      - Expect "toHaveValue" with timeout 30000ms%0A      - waiting for getByPlaceholder(/email address/i)%0A        63 × locator resolved to <input value="" disabled id="email" required="" type="email" data-slot="input" placeholder="Email address" class="h-11 w-full min-w-0 rounded-sm border border-input bg-transparent px-2.5 py-1 text-base transition-colors outline-none file:inline-flex file:h-6 file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus:border-black focus:[outline:1px_solid_black] disabled:pointer-events-none disabled:cursor-not-allowed disabled:bg-input/5…/>%0A           - unexpected value ""%0A%0A%0A      34 |     const emailField = page.getByPlaceholder(/email address/i);%0A      35 |     await expect(emailField).toHaveCount(1, { timeout: 20_000 });%0A    > 36 |     await expect(emailField).toHaveValue(email, { timeout: 30_000 });%0A         |                              ^%0A      37 |     await expect(emailField).toBeDisabled();%0A      38 |     await expect(%0A      39 |       page.getByRole("radio", { name: /12 Difference Engine Row/ }),%0A        at /home/runner/work/liquorify-storefront/liquorify-storefront/e2e/customer-checkout.spec.ts:36:30
+##[error]  1) [chromium] › e2e/customer-checkout.spec.ts:23:7 › signed-in checkout › a customer places an order to their saved address 
+    Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+    Error: expect(locator).toHaveValue(expected) failed
+    Locator:  getByPlaceholder(/email address/i)
+    Expected: "e2e-1793846986528-918634@example.com"
+    Received: ""
+    Timeout:  30000ms
+    Call log:
+      - Expect "toHaveValue" with timeout 30000ms
+      - waiting for getByPlaceholder(/email address/i)
+        63 × locator resolved to <input value="" disabled id="email" required="" type="email" data-slot="input" placeholder="Email address" class="h-11 w-full min-w-0 rounded-sm border border-input bg-transparent px-2.5 py-1 text-base transition-colors outline-none file:inline-flex file:h-6 file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus:border-black focus:[outline:1px_solid_black] disabled:pointer-events-none disabled:cursor-not-allowed disabled:bg-input/5…/>
+           - unexpected value ""
+      34 |     const emailField = page.getByPlaceholder(/email address/i);
+      35 |     await expect(emailField).toHaveCount(1, { timeout: 20_000 });
+    > 36 |     await expect(emailField).toHaveValue(email, { timeout: 30_000 });
+         |                              ^
+      37 |     await expect(emailField).toBeDisabled();
+      38 |     await expect(
+      39 |       page.getByRole("radio", { name: /12 Difference Engine Row/ }),
+        at /home/runner/work/liquorify-storefront/liquorify-storefront/e2e/customer-checkout.spec.ts:36:30
+##[error]  1) [chromium] › e2e/customer-checkout.spec.ts:23:7 › signed-in checkout › a customer places an order to their saved address 
+    Retry #2 ───────────────────────────────────────────────────────────────────────────────────────
+    Error: expect(locator).toHaveValue(expected) failed
+    Locator:  getByPlaceholder(/email address/i)
+    Expected: "e2e-1793847032581-702219@example.com"
+    Received: ""
+    Timeout:  30000ms
+    Call log:
+      - Expect "toHaveValue" with timeout 30000ms
+      - waiting for getByPlaceholder(/email address/i)
+        64 × locator resolved to <input value="" disabled id="email" required="" type="email" data-slot="input" placeholder="Email address" class="h-11 w-full min-w-0 rounded-sm border border-input bg-transparent px-2.5 py-1 text-base transition-colors outline-none file:inline-flex file:h-6 file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus:border-black focus:[outline:1px_solid_black] disabled:pointer-events-none disabled:cursor-not-allowed disabled:bg-input/5…/>
+           - unexpected value ""
+      34 |     const emailField = page.getByPlaceholder(/email address/i);
+      35 |     await expect(emailField).toHaveCount(1, { timeout: 20_000 });
+    > 36 |     await expect(emailField).toHaveValue(email, { timeout: 30_000 });
+         |                              ^
+      37 |     await expect(emailField).toBeDisabled();
+      38 |     await expect(
+      39 |       page.getByRole("radio", { name: /12 Difference Engine Row/ }),
+        at /home/runner/work/liquorify-storefront/liquorify-storefront/e2e/customer-checkout.spec.ts:36:30
+F::error file=e2e/customer-checkout.spec.ts,title=[chromium] › e2e/customer-checkout.spec.ts:48:7 › signed-in checkout › a customer places an order when their account loads late,line=95,col=30::  2) [chromium] › e2e/customer-checkout.spec.ts:48:7 › signed-in checkout › a customer places an order when their account loads late %0A    Error: expect(locator).toHaveValue(expected) failed%0A%0A    Locator:  getByPlaceholder(/email address/i)%0A    Expected: "e2e-1793847074711-108264@example.com"%0A    Received: ""%0A    Timeout:  30000ms%0A%0A    Call log:%0A      - Expect "toHaveValue" with timeout 30000ms%0A      - waiting for getByPlaceholder(/email address/i)%0A        3 × locator resolved to <input value="" id="email" required="" type="email" data-slot="input" placeholder="Email address" class="h-11 w-full min-w-0 rounded-sm border border-input bg-transparent px-2.5 py-1 text-base transition-colors outline-none file:inline-flex file:h-6 file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus:border-black focus:[outline:1px_solid_black] disabled:pointer-events-none disabled:cursor-not-allowed disabled:bg-input/50 disable…/>%0A          - unexpected value ""%0A        61 × locator resolved to <input value="" disabled id="email" required="" type="email" data-slot="input" placeholder="Email address" class="h-11 w-full min-w-0 rounded-sm border border-input bg-transparent px-2.5 py-1 text-base transition-colors outline-none file:inline-flex file:h-6 file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus:border-black focus:[outline:1px_solid_black] disabled:pointer-events-none disabled:cursor-not-allowed disabled:bg-input/5…/>%0A           - unexpected value ""%0A%0A%0A      93 |     releaseAccount();%0A      94 |%0A    > 95 |     await expect(emailField).toHaveValue(email, { timeout: 30_000 });%0A         |                              ^%0A      96 |     await expect(emailField).toBeDisabled();%0A      97 |%0A      98 |     await fillCheckoutAddress(page);%0A        at /home/runner/work/liquorify-storefront/liquorify-storefront/e2e/customer-checkout.spec.ts:95:30
+##[error]  2) [chromium] › e2e/customer-checkout.spec.ts:48:7 › signed-in checkout › a customer places an order when their account loads late 
+    Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+    Error: expect(locator).toHaveValue(expected) failed
+    Locator:  getByPlaceholder(/email address/i)
+    Expected: "e2e-1793847114819-910396@example.com"
+    Received: ""
+    Timeout:  30000ms
+    Call log:
+      - Expect "toHaveValue" with timeout 30000ms
+      - waiting for getByPlaceholder(/email address/i)
+        4 × locator resolved to <input value="" id="email" required="" type="email" data-slot="input" placeholder="Email address" class="h-11 w-full min-w-0 rounded-sm border border-input bg-transparent px-2.5 py-1 text-base transition-colors outline-none file:inline-flex file:h-6 file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus:border-black focus:[outline:1px_solid_black] disabled:pointer-events-none disabled:cursor-not-allowed disabled:bg-input/50 disable…/>
+          - unexpected value ""
+        59 × locator resolved to <input value="" disabled id="email" required="" type="email" data-slot="input" placeholder="Email address" class="h-11 w-full min-w-0 rounded-sm border border-input bg-transparent px-2.5 py-1 text-base transition-colors outline-none file:inline-flex file:h-6 file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus:border-black focus:[outline:1px_solid_black] disabled:pointer-events-none disabled:cursor-not-allowed disabled:bg-input/5…/>
+           - unexpected value ""
+      93 |     releaseAccount();
+      94 |
+    > 95 |     await expect(emailField).toHaveValue(email, { timeout: 30_000 });
+         |                              ^
+      96 |     await expect(emailField).toBeDisabled();
+      97 |
+      98 |     await fillCheckoutAddress(page);
+        at /home/runner/work/liquorify-storefront/liquorify-storefront/e2e/customer-checkout.spec.ts:95:30
+##[error]  2) [chromium] › e2e/customer-checkout.spec.ts:48:7 › signed-in checkout › a customer places an order when their account loads late 
+    Retry #2 ───────────────────────────────────────────────────────────────────────────────────────
+    Error: expect(locator).toHaveValue(expected) failed
+    Locator:  getByPlaceholder(/email address/i)
+    Expected: "e2e-1793847160822-734167@example.com"
+    Received: ""
+    Timeout:  30000ms
+    Call log:
+      - Expect "toHaveValue" with timeout 30000ms
+      - waiting for getByPlaceholder(/email address/i)
+        4 × locator resolved to <input value="" id="email" required="" type="email" data-slot="input" placeholder="Email address" class="h-11 w-full min-w-0 rounded-sm border border-input bg-transparent px-2.5 py-1 text-base transition-colors outline-none file:inline-flex file:h-6 file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus:border-black focus:[outline:1px_solid_black] disabled:pointer-events-none disabled:cursor-not-allowed disabled:bg-input/50 disable…/>
+          - unexpected value ""
+        60 × locator resolved to <input value="" disabled id="email" required="" type="email" data-slot="input" placeholder="Email address" class="h-11 w-full min-w-0 rounded-sm border border-input bg-transparent px-2.5 py-1 text-base transition-colors outline-none file:inline-flex file:h-6 file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus:border-black focus:[outline:1px_solid_black] disabled:pointer-events-none disabled:cursor-not-allowed disabled:bg-input/5…/>
+           - unexpected value ""
+      93 |     releaseAccount();
+      94 |
+    > 95 |     await expect(emailField).toHaveValue(email, { timeout: 30_000 });
+         |                              ^
+      96 |     await expect(emailField).toBeDisabled();
+      97 |
+      98 |     await fillCheckoutAddress(page);
+        at /home/runner/work/liquorify-storefront/liquorify-storefront/e2e/customer-checkout.spec.ts:95:30
+·
+  1) [chromium] › e2e/customer-checkout.spec.ts:23:7 › signed-in checkout › a customer places an order to their saved address 
+    Error: expect(locator).toHaveValue(expected) failed
+    Locator:  getByPlaceholder(/email address/i)
+    Expected: "e2e-1793846944095-185955@example.com"
+    Received: ""
+    Timeout:  30000ms
+    Call log:
+      - Expect "toHaveValue" with timeout 30000ms
+      - waiting for getByPlaceholder(/email address/i)
+        63 × locator resolved to <input value="" disabled id="email" required="" type="email" data-slot="input" placeholder="Email address" class="h-11 w-full min-w-0 rounded-sm border border-input bg-transparent px-2.5 py-1 text-base transition-colors outline-none file:inline-flex file:h-6 file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus:border-black focus:[outline:1px_solid_black] disabled:pointer-events-none disabled:cursor-not-allowed disabled:bg-input/5…/>
+           - unexpected value ""
+      34 |     const emailField = page.getByPlaceholder(/email address/i);
+      35 |     await expect(emailField).toHaveCount(1, { timeout: 20_000 });
+    > 36 |     await expect(emailField).toHaveValue(email, { timeout: 30_000 });
+         |                              ^
+      37 |     await expect(emailField).toBeDisabled();
+      38 |     await expect(
+      39 |       page.getByRole("radio", { name: /12 Difference Engine Row/ }),
+        at /home/runner/work/liquorify-storefront/liquorify-storefront/e2e/customer-checkout.spec.ts:36:30
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/customer-checkout-signed-i-7aa2f-rder-to-their-saved-address-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+    Error Context: test-results/customer-checkout-signed-i-7aa2f-rder-to-their-saved-address-chromium/error-context.md
+    Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+    Error: expect(locator).toHaveValue(expected) failed
+    Locator:  getByPlaceholder(/email address/i)
+    Expected: "e2e-1793846986528-918634@example.com"
+    Received: ""
+    Timeout:  30000ms
+    Call log:
+      - Expect "toHaveValue" with timeout 30000ms
+      - waiting for getByPlaceholder(/email address/i)
+        63 × locator resolved to <input value="" disabled id="email" required="" type="email" data-slot="input" placeholder="Email address" class="h-11 w-full min-w-0 rounded-sm border border-input bg-transparent px-2.5 py-1 text-base transition-colors outline-none file:inline-flex file:h-6 file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus:border-black focus:[outline:1px_solid_black] disabled:pointer-events-none disabled:cursor-not-allowed disabled:bg-input/5…/>
+           - unexpected value ""
+      34 |     const emailField = page.getByPlaceholder(/email address/i);
+      35 |     await expect(emailField).toHaveCount(1, { timeout: 20_000 });
+    > 36 |     await expect(emailField).toHaveValue(email, { timeout: 30_000 });
+         |                              ^
+      37 |     await expect(emailField).toBeDisabled();
+      38 |     await expect(
+      39 |       page.getByRole("radio", { name: /12 Difference Engine Row/ }),
+        at /home/runner/work/liquorify-storefront/liquorify-storefront/e2e/customer-checkout.spec.ts:36:30
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/customer-checkout-signed-i-7aa2f-rder-to-their-saved-address-chromium-retry1/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+    Error Context: test-results/customer-checkout-signed-i-7aa2f-rder-to-their-saved-address-chromium-retry1/error-context.md
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/customer-checkout-signed-i-7aa2f-rder-to-their-saved-address-chromium-retry1/trace.zip
+    Usage:
+        pnpm exec playwright show-trace test-results/customer-checkout-signed-i-7aa2f-rder-to-their-saved-address-chromium-retry1/trace.zip
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+    Retry #2 ───────────────────────────────────────────────────────────────────────────────────────
+    Error: expect(locator).toHaveValue(expected) failed
+    Locator:  getByPlaceholder(/email address/i)
+    Expected: "e2e-1793847032581-702219@example.com"
+    Received: ""
+    Timeout:  30000ms
+    Call log:
+      - Expect "toHaveValue" with timeout 30000ms
+      - waiting for getByPlaceholder(/email address/i)
+        64 × locator resolved to <input value="" disabled id="email" required="" type="email" data-slot="input" placeholder="Email address" class="h-11 w-full min-w-0 rounded-sm border border-input bg-transparent px-2.5 py-1 text-base transition-colors outline-none file:inline-flex file:h-6 file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus:border-black focus:[outline:1px_solid_black] disabled:pointer-events-none disabled:cursor-not-allowed disabled:bg-input/5…/>
+           - unexpected value ""
+      34 |     const emailField = page.getByPlaceholder(/email address/i);
+      35 |     await expect(emailField).toHaveCount(1, { timeout: 20_000 });
+    > 36 |     await expect(emailField).toHaveValue(email, { timeout: 30_000 });
+         |                              ^
+      37 |     await expect(emailField).toBeDisabled();
+      38 |     await expect(
+      39 |       page.getByRole("radio", { name: /12 Difference Engine Row/ }),
+        at /home/runner/work/liquorify-storefront/liquorify-storefront/e2e/customer-checkout.spec.ts:36:30
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/customer-checkout-signed-i-7aa2f-rder-to-their-saved-address-chromium-retry2/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+    Error Context: test-results/customer-checkout-signed-i-7aa2f-rder-to-their-saved-address-chromium-retry2/error-context.md
+  2) [chromium] › e2e/customer-checkout.spec.ts:48:7 › signed-in checkout › a customer places an order when their account loads late 
+    Error: expect(locator).toHaveValue(expected) failed
+    Locator:  getByPlaceholder(/email address/i)
+    Expected: "e2e-1793847074711-108264@example.com"
+    Received: ""
+    Timeout:  30000ms
+    Call log:
+      - Expect "toHaveValue" with timeout 30000ms
+      - waiting for getByPlaceholder(/email address/i)
+        3 × locator resolved to <input value="" id="email" required="" type="email" data-slot="input" placeholder="Email address" class="h-11 w-full min-w-0 rounded-sm border border-input bg-transparent px-2.5 py-1 text-base transition-colors outline-none file:inline-flex file:h-6 file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus:border-black focus:[outline:1px_solid_black] disabled:pointer-events-none disabled:cursor-not-allowed disabled:bg-input/50 disable…/>
+          - unexpected value ""
+        61 × locator resolved to <input value="" disabled id="email" required="" type="email" data-slot="input" placeholder="Email address" class="h-11 w-full min-w-0 rounded-sm border border-input bg-transparent px-2.5 py-1 text-base transition-colors outline-none file:inline-flex file:h-6 file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus:border-black focus:[outline:1px_solid_black] disabled:pointer-events-none disabled:cursor-not-allowed disabled:bg-input/5…/>
+           - unexpected value ""
+      93 |     releaseAccount();
+      94 |
+    > 95 |     await expect(emailField).toHaveValue(email, { timeout: 30_000 });
+         |                              ^
+      96 |     await expect(emailField).toBeDisabled();
+      97 |
+      98 |     await fillCheckoutAddress(page);
+        at /home/runner/work/liquorify-storefront/liquorify-storefront/e2e/customer-checkout.spec.ts:95:30
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/customer-checkout-signed-i-8da10-en-their-account-loads-late-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+    Error Context: test-results/customer-checkout-signed-i-8da10-en-their-account-loads-late-chromium/error-context.md
+    Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+    Error: expect(locator).toHaveValue(expected) failed
+    Locator:  getByPlaceholder(/email address/i)
+    Expected: "e2e-1793847114819-910396@example.com"
+    Received: ""
+    Timeout:  30000ms
+    Call log:
+      - Expect "toHaveValue" with timeout 30000ms
+      - waiting for getByPlaceholder(/email address/i)
+        4 × locator resolved to <input value="" id="email" required="" type="email" data-slot="input" placeholder="Email address" class="h-11 w-full min-w-0 rounded-sm border border-input bg-transparent px-2.5 py-1 text-base transition-colors outline-none file:inline-flex file:h-6 file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus:border-black focus:[outline:1px_solid_black] disabled:pointer-events-none disabled:cursor-not-allowed disabled:bg-input/50 disable…/>
+          - unexpected value ""
+        59 × locator resolved to <input value="" disabled id="email" required="" type="email" data-slot="input" placeholder="Email address" class="h-11 w-full min-w-0 rounded-sm border border-input bg-transparent px-2.5 py-1 text-base transition-colors outline-none file:inline-flex file:h-6 file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus:border-black focus:[outline:1px_solid_black] disabled:pointer-events-none disabled:cursor-not-allowed disabled:bg-input/5…/>
+           - unexpected value ""
+      93 |     releaseAccount();
+      94 |
+    > 95 |     await expect(emailField).toHaveValue(email, { timeout: 30_000 });
+         |                              ^
+      96 |     await expect(emailField).toBeDisabled();
+      97 |
+      98 |     await fillCheckoutAddress(page);
+        at /home/runner/work/liquorify-storefront/liquorify-storefront/e2e/customer-checkout.spec.ts:95:30
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/customer-checkout-signed-i-8da10-en-their-account-loads-late-chromium-retry1/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+    Error Context: test-results/customer-checkout-signed-i-8da10-en-their-account-loads-late-chromium-retry1/error-context.md
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/customer-checkout-signed-i-8da10-en-their-account-loads-late-chromium-retry1/trace.zip
+    Usage:
+        pnpm exec playwright show-trace test-results/customer-checkout-signed-i-8da10-en-their-account-loads-late-chromium-retry1/trace.zip
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+    Retry #2 ───────────────────────────────────────────────────────────────────────────────────────
+    Error: expect(locator).toHaveValue(expected) failed
+    Locator:  getByPlaceholder(/email address/i)
+    Expected: "e2e-1793847160822-734167@example.com"
+    Received: ""
+    Timeout:  30000ms
+    Call log:
+      - Expect "toHaveValue" with timeout 30000ms
+      - waiting for getByPlaceholder(/email address/i)
+        4 × locator resolved to <input value="" id="email" required="" type="email" data-slot="input" placeholder="Email address" class="h-11 w-full min-w-0 rounded-sm border border-input bg-transparent px-2.5 py-1 text-base transition-colors outline-none file:inline-flex file:h-6 file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus:border-black focus:[outline:1px_solid_black] disabled:pointer-events-none disabled:cursor-not-allowed disabled:bg-input/50 disable…/>
+          - unexpected value ""
+        60 × locator resolved to <input value="" disabled id="email" required="" type="email" data-slot="input" placeholder="Email address" class="h-11 w-full min-w-0 rounded-sm border border-input bg-transparent px-2.5 py-1 text-base transition-colors outline-none file:inline-flex file:h-6 file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus:border-black focus:[outline:1px_solid_black] disabled:pointer-events-none disabled:cursor-not-allowed disabled:bg-input/5…/>
+           - unexpected value ""
+      93 |     releaseAccount();
+      94 |
+    > 95 |     await expect(emailField).toHaveValue(email, { timeout: 30_000 });
+         |                              ^
+      96 |     await expect(emailField).toBeDisabled();
+      97 |
+      98 |     await fillCheckoutAddress(page);
+        at /home/runner/work/liquorify-storefront/liquorify-storefront/e2e/customer-checkout.spec.ts:95:30
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/customer-checkout-signed-i-8da10-en-their-account-loads-late-chromium-retry2/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+    Error Context: test-results/customer-checkout-signed-i-8da10-en-their-account-loads-late-chromium-retry2/error-context.md
+  2 failed
+    [chromium] › e2e/customer-checkout.spec.ts:23:7 › signed-in checkout › a customer places an order to their saved address 
+    [chromium] › e2e/customer-checkout.spec.ts:48:7 › signed-in checkout › a customer places an order when their account loads late 
+  21 passed (6.9m)
+##[notice]  2 failed
+    [chromium] › e2e/customer-checkout.spec.ts:23:7 › signed-in checkout › a customer places an order to their saved address 
+    [chromium] › e2e/customer-checkout.spec.ts:48:7 › signed-in checkout › a customer places an order when their account loads late 
+  21 passed (6.9m)
+ ELIFECYCLE  Command failed with exit code 1.
+##[error]Process completed with exit code 1.

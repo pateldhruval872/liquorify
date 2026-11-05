@@ -13,13 +13,19 @@ import {
   setRelay,
 } from './developers'
 import {
+  type Admin,
+  adminCall,
   adminCaller,
   type Caller,
   type Case,
   type CaseResult,
   denied,
+  fields,
   gapResult,
+  type Json,
+  named,
   notFound,
+  rows,
   runCases,
 } from './one-store'
 import { PASSWORD, seed, teammates } from './staff'
@@ -51,30 +57,6 @@ const revision = process.env.FIDELITY_REVISION ?? null
 const run = Date.now()
 
 test.use({ baseURL: API })
-
-type Json = Record<string, unknown>
-type Admin = (
-  method: 'GET' | 'POST' | 'PATCH' | 'DELETE',
-  path: string,
-  data?: Json,
-) => Promise<Json>
-
-function adminCall(api: APIRequestContext, caller: Caller): Admin {
-  return async (method, path, data) => {
-    const res = await api.fetch(`/api/v3/admin/${path}`, { method, headers: caller.headers, data })
-    // Only the status and the message, which never carries a credential.
-    const body = res.status() === 204 ? {} : ((await res.json()) as Json)
-    expect(
-      res.ok(),
-      `${method} ${path}: ${res.status()} ${(body.error as Json)?.message ?? ''}`,
-    ).toBeTruthy()
-    return body
-  }
-}
-
-const rows = (body: unknown) => ((body as { data?: Json[] }).data ?? []) as Json[]
-const named = (field: string, value: string) => (sent: { body: unknown }) =>
-  rows(sent.body).filter((item) => item[field] === value)
 
 /** Invites a teammate into a role and accepts the invitation as them, as `staff.ts` does. */
 async function addTeammate(
@@ -623,13 +605,6 @@ const storePageFields = [
   'limit_digital_download_days',
   'digital_asset_authorized_days',
 ]
-
-const fields =
-  (...keys: string[]) =>
-  (sent: { status: number; body: unknown }) => [
-    sent.status,
-    ...keys.map((key) => (sent.body as Json)[key]),
-  ]
 
 /**
  * G-40: the saves batch 3's narrower roles are shown (its record's §3.1). The

@@ -30,12 +30,18 @@ permissions:
   contents: read
 
 jobs:
-  storybook:
-    name: "Storybook & visual check"
+  # The comparisons run in four parts side by side, each on its own runner with
+  # its own copy of the Storybook. Playwright splits the stories evenly between
+  # them. One job took 41 to 51 minutes for 3,008 comparisons in November 2026,
+  # close to its 60-minute limit.
+  visual:
+    name: "Storybook & visual check, part ${{ matrix.part }} of 4"
     runs-on: ubuntu-latest
-    # 1,616 comparisons took 22 to 30 minutes on GitHub's runners in
-    # November 2026, depending on the processor, and 2,228 took 40.
-    timeout-minutes: 60
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix:
+        part: [1, 2, 3, 4]
     defaults:
       run:
         working-directory: packages/liquorify-storybook
@@ -63,19 +69,23 @@ jobs:
       - run: pnpm build-storybook
 
       - name: Check token files and inventory IDs
+        if: ${{ matrix.part == 1 }}
         run: pnpm tokens:check
 
       - name: Report coverage
+        if: ${{ matrix.part == 1 }}
         run: node scripts/coverage.mjs --summary "$GITHUB_STEP_SUMMARY"
 
       - name: Compare screenshots in the pinned Playwright image
-        run: pnpm visual
+        env:
+          PART: ${{ matrix.part }}
+        run: pnpm visual --shard="$PART/4"
 
       - name: Upload the comparison report
         if: ${{ !cancelled() }}
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
-          name: visual-report
+          name: visual-report-${{ matrix.part }}
           path: packages/liquorify-storybook/visual/report
           retention-days: 14
           if-no-files-found: ignore
@@ -87,7 +97,22 @@ jobs:
         if: failure()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
-          name: visual-failures
+          name: visual-failures-${{ matrix.part }}
           path: packages/liquorify-storybook/visual/results
           retention-days: 14
           if-no-files-found: ignore
+
+  # One result under the check's usual name, passing only when every part did.
+  result:
+    name: "Storybook & visual check"
+    needs: visual
+    if: ${{ !cancelled() }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Every part passed
+        env:
+          RESULT: ${{ needs.visual.result }}
+        run: |
+          echo "The four parts finished with: $RESULT"
+          test "$RESULT" = success

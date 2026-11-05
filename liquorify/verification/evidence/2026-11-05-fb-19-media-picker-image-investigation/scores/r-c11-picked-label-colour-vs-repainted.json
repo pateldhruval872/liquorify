@@ -1,0 +1,22 @@
+{
+ "r-c11-picked-label-colour-1": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 211,
+   "changed": 541,
+   "largest": 40,
+   "failsAt25": true,
+   "failsAt60": true
+  }
+ },
+ "r-c11-picked-label-colour-2": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 211,
+   "changed": 541,
+   "largest": 40,
+   "failsAt25": true,
+   "failsAt60": true
+  }
+ }
+}

@@ -1,0 +1,2 @@
+/* c06: one picked tile only (Clay mug, the first): 8-pixel radius changed to 9 */
+html:not(.dark) li:nth-child(2) > button[aria-pressed="true"] { border-radius: 9px !important; }

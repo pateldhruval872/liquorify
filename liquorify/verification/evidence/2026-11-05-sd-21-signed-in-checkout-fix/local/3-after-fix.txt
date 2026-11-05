@@ -1,0 +1,8 @@
+# Local, storefront 38ad098 (the fix), backend 68236c5, Ruby 3.3.6, placeholder Stripe keys: the two new tests
+
+Running 2 tests using 1 worker
+
+  ✓  1 [chromium] › e2e/customer-checkout.spec.ts:23:7 › signed-in checkout › a customer places an order to their saved address (36.6s)
+  ✓  2 [chromium] › e2e/customer-checkout.spec.ts:48:7 › signed-in checkout › a customer places an order when their account loads late (34.3s)
+
+  2 passed (1.2m)
