@@ -1,0 +1,64 @@
+{
+  "revision": "3709958d",
+  "mode": "checks",
+  "tests": [
+    {
+      "file": "multi-store-actions.spec.ts",
+      "test": "joining a second store with an existing account",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(page).toHaveURL(expected) failed",
+          "linesInTheTest": [
+            204
+          ]
+        }
+      ]
+    },
+    {
+      "file": "multi-store-actions.spec.ts",
+      "test": "a teammate works in two stores, each with its own role",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(locator).toBeVisible() failed",
+          "linesInTheTest": [
+            275
+          ]
+        }
+      ]
+    },
+    {
+      "file": "multi-store-actions.spec.ts",
+      "test": "switching from the first store to the second",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(page).toHaveURL(expected) failed",
+          "linesInTheTest": [
+            135,
+            340
+          ]
+        }
+      ]
+    },
+    {
+      "file": "multi-store-actions.spec.ts",
+      "test": "switching back from the second store to the first",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(page).toHaveURL(expected) failed",
+          "linesInTheTest": [
+            135,
+            376
+          ]
+        }
+      ]
+    }
+  ]
+}

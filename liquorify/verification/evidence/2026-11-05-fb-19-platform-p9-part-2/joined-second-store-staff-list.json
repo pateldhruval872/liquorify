@@ -1,0 +1,13 @@
+{
+  "test": "joined-second-store-staff-list",
+  "revision": "3709958d",
+  "stamp": "mw2t9ex7",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "as the store's admin, opened Winkel's staff list and reloaded",
+      "listed": "JM Jo P9 mw2t9ex7 p9-joins-mw2t9ex7@example.com Support "
+    }
+  ],
+  "outside": []
+}

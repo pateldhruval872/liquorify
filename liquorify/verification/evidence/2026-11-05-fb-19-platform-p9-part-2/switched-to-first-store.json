@@ -1,0 +1,40 @@
+{
+  "test": "switched-to-first-store",
+  "revision": "3709958d",
+  "stamp": "mw2tac4x",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "opened Winkel by its address",
+      "navigation": [
+        "Home",
+        "Orders",
+        "Customers"
+      ]
+    },
+    {
+      "step": "chose Shop in the switcher",
+      "navigation": [
+        "Home",
+        "Orders",
+        "Customers"
+      ]
+    },
+    {
+      "step": "reloaded; still in Shop, with its role's navigation",
+      "navigation": [
+        "Getting Started",
+        "Home",
+        "Orders",
+        "Products",
+        "Inventory",
+        "Customers",
+        "Sellers",
+        "Loyalty",
+        "Promotions",
+        "Reports"
+      ]
+    }
+  ],
+  "outside": []
+}
