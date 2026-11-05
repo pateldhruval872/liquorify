@@ -1,0 +1,22 @@
+{
+ "r-c04-picked-radius-6-1": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 280,
+   "changed": 512,
+   "largest": 226,
+   "failsAt25": true,
+   "failsAt60": true
+  }
+ },
+ "r-c04-picked-radius-6-2": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 280,
+   "changed": 512,
+   "largest": 226,
+   "failsAt25": true,
+   "failsAt60": true
+  }
+ }
+}

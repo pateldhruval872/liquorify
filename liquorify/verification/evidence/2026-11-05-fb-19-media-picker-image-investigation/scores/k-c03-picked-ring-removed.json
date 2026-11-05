@@ -1,0 +1,56 @@
+{
+ "k-c03-picked-ring-removed-1": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 1704,
+   "changed": 1864,
+   "largest": 246,
+   "failsAt25": true,
+   "failsAt60": true
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": false,
+   "counted": 2,
+   "changed": 68,
+   "largest": 27,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "k-c03-picked-ring-removed-2": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 1704,
+   "changed": 1883,
+   "largest": 246,
+   "failsAt25": true,
+   "failsAt60": true
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": false,
+   "counted": 2,
+   "changed": 68,
+   "largest": 27,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "k-c03-picked-ring-removed-3": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 1724,
+   "changed": 1881,
+   "largest": 246,
+   "failsAt25": true,
+   "failsAt60": true
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": false,
+   "counted": 2,
+   "changed": 68,
+   "largest": 27,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ }
+}

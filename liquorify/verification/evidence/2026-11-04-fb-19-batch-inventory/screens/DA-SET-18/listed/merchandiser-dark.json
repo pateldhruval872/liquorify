@@ -1,0 +1,24 @@
+{
+  "screen": "DA-SET-18",
+  "state": "listed",
+  "variant": "merchandiser",
+  "role": {
+    "name": "Merchandiser",
+    "permissions": [
+      "write_products",
+      "write_categories",
+      "write_collections",
+      "write_stock"
+    ]
+  },
+  "theme": "dark",
+  "revision": "5b23b5af",
+  "path": "/<store>/settings/stock-locations",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": null,
+  "settled": true,
+  "outside": []
+}

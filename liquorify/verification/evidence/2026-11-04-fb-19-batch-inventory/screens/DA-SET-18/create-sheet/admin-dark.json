@@ -1,0 +1,16 @@
+{
+  "screen": "DA-SET-18",
+  "state": "create-sheet",
+  "variant": "admin",
+  "role": null,
+  "theme": "dark",
+  "revision": "5b23b5af",
+  "path": "/<store>/settings/stock-locations",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": null,
+  "settled": true,
+  "outside": []
+}

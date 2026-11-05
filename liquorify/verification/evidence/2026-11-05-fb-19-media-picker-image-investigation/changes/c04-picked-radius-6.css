@@ -1,0 +1,2 @@
+/* c04: the picked tiles' corners: 8-pixel radius changed to 6 */
+html:not(.dark) button[aria-pressed="true"] { border-radius: 6px !important; }

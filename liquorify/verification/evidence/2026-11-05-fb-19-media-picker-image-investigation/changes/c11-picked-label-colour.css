@@ -1,0 +1,2 @@
+/* c11: the picked tiles' labels lightened: foreground mixed 80 % with white */
+html:not(.dark) button[aria-pressed="true"] > span.truncate { color: color-mix(in oklab, var(--foreground) 80%, white) !important; }

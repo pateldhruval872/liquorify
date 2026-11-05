@@ -1,0 +1,2 @@
+/* c14: as c01, stronger: the picked tiles' border colour mixed 70 % with white */
+html:not(.dark) button[aria-pressed="true"] { border-color: color-mix(in oklab, var(--primary) 70%, white) !important; }

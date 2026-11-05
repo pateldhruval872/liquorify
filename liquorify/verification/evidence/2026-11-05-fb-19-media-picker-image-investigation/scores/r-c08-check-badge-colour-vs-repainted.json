@@ -1,0 +1,22 @@
+{
+ "r-c08-check-badge-colour-1": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 506,
+   "changed": 654,
+   "largest": 29,
+   "failsAt25": true,
+   "failsAt60": true
+  }
+ },
+ "r-c08-check-badge-colour-2": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 506,
+   "changed": 654,
+   "largest": 29,
+   "failsAt25": true,
+   "failsAt60": true
+  }
+ }
+}

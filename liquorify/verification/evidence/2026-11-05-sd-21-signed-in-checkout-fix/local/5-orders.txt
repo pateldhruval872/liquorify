@@ -1,0 +1,35 @@
+# Local database of the pinned backend 68236c5 after the runs, read on 2026-11-05. R1001 and R1002 are Spree's sample orders, made by bootstrap-spree.sh's sample data. R1003 and R1004 are local run 3 (the two new tests, after the fix); R1005 and R1006 are local run 4 (all 23 tests). The runs before the fix (1 and 2) placed no order. Each test signs up a new customer with an e2e-<time>-<random>@example.com address, so two customers share a name; the emails are left out here.
+
+select o.number, o.status, o.payment_status,
+       o.email = c.email as order_email_is_the_customers,
+       c.first_name || ' ' || c.last_name as customer,
+       pm.type as payment_method, p.status as payment_status_of_payment,
+       a.address1 as shipped_to,
+       (select count(*) from spree_orders o2 where o2.customer_id = c.id and o2.completed_at is not null) as customers_completed_orders
+from spree_orders o
+left join spree_customers c on c.id = o.customer_id
+left join spree_payments p on p.order_id = o.id
+left join spree_payment_methods pm on pm.id = p.payment_method_id
+left join spree_addresses a on a.id = o.ship_address_id
+where o.completed_at is not null
+order by o.completed_at;
+
+ number | status | payment_status | order_email_is_the_customers |   customer   |       payment_method        | payment_status_of_payment |        shipped_to        | customers_completed_orders 
+--------+--------+----------------+------------------------------+--------------+-----------------------------+---------------------------+--------------------------+----------------------------
+ R1001  | placed | authorized     |                              |              | Spree::Gateway::Bogus       | pending                   |                          |                          0
+ R1002  | placed | authorized     |                              |              | Spree::Gateway::Bogus       | pending                   | 1600 Pennsylvania Ave NW |                          0
+ R1002  | placed | authorized     |                              |              | Spree::Gateway::Bogus       | pending                   | 1600 Pennsylvania Ave NW |                          0
+ R1003  | placed | paid           | t                            | Ada Lovelace | Spree::PaymentMethod::Check | completed                 | 12 Difference Engine Row |                          1
+ R1004  | placed | paid           | t                            | Alan Turing  | Spree::PaymentMethod::Check | completed                 | 123 Test St              |                          1
+ R1005  | placed | paid           | t                            | Ada Lovelace | Spree::PaymentMethod::Check | completed                 | 12 Difference Engine Row |                          1
+ R1006  | placed | paid           | t                            | Alan Turing  | Spree::PaymentMethod::Check | completed                 | 123 Test St              |                          1
+(7 rows)
+
+
+-- Each of the four orders belongs to a different customer:
+select count(distinct customer_id) as customers, count(*) as orders from spree_orders where number in ('R1003','R1004','R1005','R1006');
+ customers | orders 
+-----------+--------
+         4 |      4
+(1 row)
+

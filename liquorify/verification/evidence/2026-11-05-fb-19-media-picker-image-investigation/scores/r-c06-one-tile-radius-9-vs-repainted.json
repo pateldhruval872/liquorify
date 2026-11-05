@@ -1,0 +1,22 @@
+{
+ "r-c06-one-tile-radius-9-1": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 49,
+   "changed": 205,
+   "largest": 118,
+   "failsAt25": true,
+   "failsAt60": false
+  }
+ },
+ "r-c06-one-tile-radius-9-2": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 49,
+   "changed": 205,
+   "largest": 118,
+   "failsAt25": true,
+   "failsAt60": false
+  }
+ }
+}
