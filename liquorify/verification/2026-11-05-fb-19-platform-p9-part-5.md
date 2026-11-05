@@ -4,7 +4,7 @@ record: verification
 work_item: FB-19
 date: 2026-11-05
 verifier: Claude (automated session, thread "Add P9 browser tests"); not independent review
-result: Nine browser tests in the storefront's repository, one for each checkout action G-75 names, driven through the storefront as a guest or a signed-in customer. Each asserts what checkout shows and, after a reload, what was kept. Run twice in a row in the storefront's pinned Playwright image at storefront `2e3bdcaa`, against the pinned Liquorify backend at `68236c59` with a new database each time. All nine passed both times, and with each test's change undone in the browser all nine failed at the check of that change. G-75 closes on this record as delegated acceptance under the owner's delegation of 2026-11-04, not the owner's review. No capability changes status here. Refusals stay with P10 and tenant isolation stays NOT_RUN. P9 has no other part to run
+result: Nine browser tests in the storefront's repository, one for each checkout action G-75 names, driven through the storefront as a guest or a signed-in customer. Each asserts what checkout shows and, after a reload, what was kept. Run twice in a row in the storefront's pinned Playwright image at storefront `cbb7ddc6`, against the pinned Liquorify backend at `68236c59` with a new database each time. All nine passed both times, and with each test's change undone in the browser all nine failed at the check of that change. In storefront #27's CI the tests first timed out waiting for the whole network to fall quiet, which Stripe's script prevents there; with that wait narrowed to the storefront's own requests, all 32 of the storefront's browser tests passed in CI, and #27 merged. G-75 closes on this record as delegated acceptance under the owner's delegation of 2026-11-04, not the owner's review. No capability changes status here. Refusals stay with P10 and tenant isolation stays NOT_RUN. P9 has no other part to run
 ---
 
 # FB-19 platform batch, step P9, part 5, browser tests for the storefront's checkout
@@ -17,7 +17,7 @@ result: Nine browser tests in the storefront's repository, one for each checkout
 |---|---|---|
 | 1.5 | G-75: applying a coupon and a gift card, placing an order with Check and with nothing to pay, choosing a saved address, completing a signed-in checkout, using checkout's address editor, and checkout showing tax and a second market's currency | PASS: one test for each of the nine actions, each passing twice (§2) |
 | 2 | The tests fail when they should | PASS: run with each test's change undone, all nine failed, each at the assertion that checks that change (§1.2) |
-| 3 | A recorded run at a recorded revision, in the pinned image, twice in a row | PASS: at storefront `2e3bdcaa`, against the backend at `68236c59`, twice in a row on freshly started servers with a new database, all nine passing both times (§1) |
+| 3 | A recorded run at a recorded revision, in the pinned image, twice in a row | PASS: at storefront `cbb7ddc6`, against the backend at `68236c59`, twice in a row on freshly started servers with a new database, all nine passing both times (§1). Storefront #27's CI is recorded apart (§6.1) |
 | 4 | A failure is a defect in LIQ-004, kept, not fixed in Spree, the test not weakened | Nothing to record: no test failed. SD-21, which the owner expected the signed-in tests to fail on, was fixed in storefront #26 before these tests were written (§2) |
 | 5 | A record | PASS: this record |
 | 6 | Nothing else claimed | PASS (§5) |
@@ -27,14 +27,14 @@ result: Nine browser tests in the storefront's repository, one for each checkout
 
 | What | Detail |
 |---|---|
-| Tests | `e2e/checkout-actions.spec.ts` at storefront `2e3bdcaa`, on `main` at `ba6ddcd`, which holds SD-21's fix (#26). The same commit moves three checkout helpers that `customer-checkout.spec.ts` defined for itself into `e2e/support.ts`, so both files share them, lets the checkout address filler take another address, and lets the address book helper add a second address. `bootstrap-spree.sh` gains a step that adds the tests' data (below) |
+| Tests | `e2e/checkout-actions.spec.ts` at storefront `cbb7ddc6`, on `main` at `ba6ddcd`, which holds SD-21's fix (#26). The first commit, `2e3bdcaa`, adds the tests; the second changes only how they wait for checkout to settle (§1.3). The first commit also moves three checkout helpers that `customer-checkout.spec.ts` defined for itself into `e2e/support.ts`, so both files share them, lets the checkout address filler take another address, and lets the address book helper add a second address. `bootstrap-spree.sh` gains a step that adds the tests' data (below) |
 | Backend | The pinned Liquorify backend, as `e2e-backend/liquorify-backend.env` records it: Liquorify at `68236c59`, hosted in Spree's starter at `a853a630`, with the gems in `e2e-backend/Gemfile.lock`. It was started and seeded by the storefront's own scripts, `liquorify-backend.sh start` and `bootstrap-spree.sh`, as CI starts it |
 | Ruby and database | CI's Ruby, 4.0.5, in the `ruby:4.0.5` image by digest, and PostgreSQL 18 in the `postgres:18-alpine` image by digest, as CI's service. Before each run the database server was replaced with a new one, so each run started from an empty database, then seeded with Spree's seeds and sample data |
 | Data | Spree's sample data, with what `bootstrap-spree.sh` adds through Spree's models: Check shown at checkout and the product with colour and size options, as before, and now two gift cards, E2E-GIFT-PART for $25.00 and E2E-GIFT-WHOLE for $100,000.00, one for each test that applies one; the E2E Taxed Mug, $20.00, in a tax category of its own with an 8% rate in the United States, so no other product is taxed; and a market for Spain in euros, with €18.00 for International Shipping. The coupon is Spree's sample FREESHIP. The tests' guests and customers are made up for each test, with `example.com` addresses |
 | Storefront | `next dev` on port 3001, as the storefront's Playwright configuration starts it, with the publishable key the bootstrap wrote, started afresh before each run. Node 22.23.4, where CI uses Node 20 |
 | Stripe | The bootstrap requires Stripe keys of the test shape. Placeholder values of that shape were given, not real keys, and Stripe's servers cannot be reached from this machine, so the E2E Stripe method shows a connection error at checkout. No test uses it: every order is placed with Check or paid in full by a gift card. CI runs with the repository's Stripe test keys |
 | Browser | The storefront's pinned Playwright 1.60.0 image, by the digest in `visual/in-image.sh`, on the host's network; Chromium at 1280 by 720 pixels; one worker and no retries |
-| Runs | On 2026-11-05 UTC, each on servers started afresh with a new database just before it: the check run at 03:55, and the recorded runs at 04:04 and 04:08, each taking under three minutes. All nine tests passed in both recorded runs, with no retry |
+| Runs | On 2026-11-05 UTC at `cbb7ddc6`, each on servers started afresh with a new database just before it: the check run at 05:18, and the recorded runs at 05:27 and 05:31, each taking under three minutes. All nine tests passed in both recorded runs, with no retry |
 | Secrets | No key, token or password is recorded. The customers' password is the storefront tests' fixed test password, and the publishable key the bootstrap writes stays in an ignored file |
 
 ### 1.1 What each test asserts on the screen and after a reload
@@ -57,7 +57,7 @@ With `E2E_SABOTAGE=1`, each test is marked as expected to fail and undoes the ch
 | 8 | Checkout shows tax | The untaxed coffee maker is bought instead of the taxed mug | The summary has no tax of $1.60 |
 | 9 | Checkout shows a second market's currency | The product is bought in the United States market | International Shipping at €18.00 is not offered |
 
-The check run at `2e3bdcaa` failed all nine, each where the table says ([checks.json](evidence/2026-11-05-fb-19-platform-p9-part-5/checks.json)).
+The check run at `cbb7ddc6` failed all nine, each where the table says ([checks.json](evidence/2026-11-05-fb-19-platform-p9-part-5/checks.json)).
 
 ### 1.3 Before the recorded runs
 
@@ -69,13 +69,15 @@ The tests were tried on the same stack until each passed, and failed where it sh
 
 None of these tries is a recorded run.
 
+**The first recorded runs, and CI.** At `2e3bdcaa` the check run and two recorded runs went as they did at `cbb7ddc6`: all nine failed where §1.2 says, then passed twice in a row ([before-ci-fix](evidence/2026-11-05-fb-19-platform-p9-part-5/before-ci-fix/)). In storefront #27's CI at that commit, the browser-test job reached its 25-minute limit and was cancelled. All nine timeouts it reported were at one line, where a guest's checkout waited for the whole network to fall quiet before going on. With the repository's Stripe test keys, Stripe's script loads and keeps talking to Stripe, so the network never falls quiet; here, where Stripe cannot be reached, it did. The second commit makes the tests wait until the storefront's own requests have been answered instead, at that line and the two others that waited the same way. What the tests assert is unchanged. To check the cause here, a stand-in for Stripe's script, used only for this and not committed, kept one request to Stripe open: the first commit's coupon test then timed out at the same line as in CI, and none of the second commit's tests stopped at the new wait. Under the stand-in some tests failed at other steps, differently in each of two tries, which did not happen without it or in CI; those tries are not recorded runs. The check run and the recorded runs were then repeated at `cbb7ddc6`, and those are the runs this record gives.
+
 ### 1.4 The storefront's other browser tests
 
-The commit moves helpers that `customer-checkout.spec.ts` used and changes the address book helper that `account.spec.ts` uses. After the recorded runs, on the same servers, the storefront's other 22 browser tests passed ([other-tests.json](evidence/2026-11-05-fb-19-platform-p9-part-5/other-tests.json)), the signed-in checkout tests of SD-21's fix among them. The guest's Stripe checkout test was not run, since Stripe's servers cannot be reached here. The storefront's lint and type check passed.
+The first commit moves helpers that `customer-checkout.spec.ts` used and changes the address book helper that `account.spec.ts` uses. After the first recorded runs, at `2e3bdcaa` on the same servers, the storefront's other 22 browser tests passed ([other-tests.json](evidence/2026-11-05-fb-19-platform-p9-part-5/other-tests.json)), the signed-in checkout tests of SD-21's fix among them; the second commit changes only `checkout-actions.spec.ts`. The guest's Stripe checkout test was not run here, since Stripe's servers cannot be reached. The storefront's lint and type check passed at both commits. In CI all 32 ran (§6.1).
 
 ## 2. Results
 
-All nine tests PASSED in both recorded runs at `2e3bdcaa` ([run1.json](evidence/2026-11-05-fb-19-platform-p9-part-5/run1.json), [run2.json](evidence/2026-11-05-fb-19-platform-p9-part-5/run2.json)). The coffee maker is Spree's sample Drip Coffee Maker, $89.99 or €84.99, with Standard delivery at $5.00.
+All nine tests PASSED in both recorded runs at `cbb7ddc6` ([run1.json](evidence/2026-11-05-fb-19-platform-p9-part-5/run1.json), [run2.json](evidence/2026-11-05-fb-19-platform-p9-part-5/run2.json)). The coffee maker is Spree's sample Drip Coffee Maker, $89.99 or €84.99, with Standard delivery at $5.00.
 
 | # | Action | What the test does and asserts | Result | Screenshot |
 |---|---|---|---|---|
@@ -131,13 +133,20 @@ Recorded as the storefront at `ba6ddcd` and Spree at `68236c59` behave. Nothing 
 |---|---|
 | Kind | **Delegated acceptance, under the owner's delegation of 2026-11-04** ([record](2026-11-04-delegated-acceptance-and-merging.md)): technical acceptance of these nine tests and their results, as recorded here. The owner did not review this work |
 | Accepted by | Claude, in the thread "Add P9 browser tests" |
-| Revision | Storefront #27's final commit, once every required check passed on it, and this pull request's final commit |
+| Revision | Storefront `cbb7ddc6`, #27's final commit, on which every required check passed, and this pull request's final commit |
 | Closed | **G-75**, under P9's criterion 7: each action it names has a test that passes |
 | Not accepted here | Whether any behaviour of §4 is a defect, which is the owner's; and any change to a capability's status |
 
 ### 6.1 Storefront #27's checks
 
-To be completed when storefront #27's checks finish and it merges.
+Kept apart from the local runs above. CI starts the same pinned backend with its own Ruby and PostgreSQL service, runs `next dev` on Node 20 with the repository's Stripe test keys, and runs every browser test with one worker and up to two retries.
+
+| Commit | Lint, Type Check, Unit Tests | E2E (Playwright + Spree) |
+|---|---|---|
+| `2e3bdcaa` | Passed | Cancelled at the job's 25-minute limit. Of the new file's tests, the coupon test and the nothing-to-pay test timed out on all three tries, and the gift card test on its first try and the Check test on its first two, each passing on its next; all nine timeouts were at the wait for the whole network (§1.3). The saved address test was on its second try when the job was cancelled. The storefront's other tests that ran before them reported no failure ([run](https://github.com/pateldhruval872/liquorify-storefront/actions/runs/41966628142)) |
+| `cbb7ddc6` | Passed | Passed: all 32 browser tests in 5.2 minutes, none retried, the nine checkout tests and the guest's Stripe checkout among them ([run](https://github.com/pateldhruval872/liquorify-storefront/actions/runs/41972943949)) |
+
+#27 merged on 2026-11-05 as `b3202e83`, under the owner's delegation of 2026-11-04, after every required check passed on `cbb7ddc6`.
 
 What stays open:
 
@@ -149,9 +158,10 @@ What stays open:
 
 The [evidence folder](evidence/2026-11-05-fb-19-platform-p9-part-5/) holds:
 
-- `run1.json` and `run2.json`: each test's result, timing and retries in the two recorded runs, summarised from Playwright's report.
-- `checks.json`: the sabotaged run's outcome for each test, with the assertion it failed at.
-- `other-tests.json`: the storefront's other 22 browser tests, run once after the recorded runs.
+- `run1.json` and `run2.json`: each test's result, timing and retries in the two recorded runs at `cbb7ddc6`, summarised from Playwright's report.
+- `checks.json`: the sabotaged run's outcome for each test at `cbb7ddc6`, with the assertion it failed at.
+- `before-ci-fix/`: the same three at `2e3bdcaa`, before CI's timeout (§1.3).
+- `other-tests.json`: the storefront's other 22 browser tests, run once at `2e3bdcaa` after the first recorded runs.
 - `screenshots/`: where each test ended in the second recorded run.
 
 No machine path, key, token or password is recorded.

@@ -1,8 +1,8 @@
 {
   "mode": "checks",
-  "storefront_revision": "2e3bdcaaf2d6277a9df35fe6556289c759312edc",
-  "started": "2026-11-05T03:55:46.158Z",
-  "duration_ms": 407894,
+  "storefront_revision": "cbb7ddc6920545d2ceca98911f99befb63e23364",
+  "started": "2026-11-05T05:18:17.282Z",
+  "duration_ms": 419435,
   "expected": 9,
   "unexpected": 0,
   "flaky": 0,
@@ -12,13 +12,13 @@
       "number": 1,
       "title": "a guest applies a coupon",
       "file": "checkout-actions.spec.ts",
-      "line": 65,
+      "line": 67,
       "expected": "failed",
       "outcome": "expected",
       "result": "failed",
       "retries": 0,
-      "started": "2026-11-05T03:55:46.941Z",
-      "duration_ms": 41433,
+      "started": "2026-11-05T05:18:18.226Z",
+      "duration_ms": 43950,
       "errors": [
         {
           "message": [
@@ -29,7 +29,7 @@
             "Error: element(s) not found"
           ],
           "file": "e2e/checkout-actions.spec.ts",
-          "line": 73
+          "line": 75
         }
       ]
     },
@@ -37,13 +37,13 @@
       "number": 2,
       "title": "a guest applies a gift card",
       "file": "checkout-actions.spec.ts",
-      "line": 85,
+      "line": 87,
       "expected": "failed",
       "outcome": "expected",
       "result": "failed",
       "retries": 0,
-      "started": "2026-11-05T03:56:28.613Z",
-      "duration_ms": 37759,
+      "started": "2026-11-05T05:19:02.464Z",
+      "duration_ms": 41732,
       "errors": [
         {
           "message": [
@@ -54,7 +54,7 @@
             "Error: element(s) not found"
           ],
           "file": "e2e/checkout-actions.spec.ts",
-          "line": 92
+          "line": 94
         }
       ]
     },
@@ -62,13 +62,13 @@
       "number": 3,
       "title": "a guest places an order with Check",
       "file": "checkout-actions.spec.ts",
-      "line": 107,
+      "line": 109,
       "expected": "failed",
       "outcome": "expected",
       "result": "failed",
       "retries": 0,
-      "started": "2026-11-05T03:57:06.395Z",
-      "duration_ms": 70881,
+      "started": "2026-11-05T05:19:44.217Z",
+      "duration_ms": 70911,
       "errors": [
         {
           "message": [
@@ -87,13 +87,13 @@
       "number": 4,
       "title": "a guest places an order with nothing to pay",
       "file": "checkout-actions.spec.ts",
-      "line": 118,
+      "line": 120,
       "expected": "failed",
       "outcome": "expected",
       "result": "failed",
       "retries": 0,
-      "started": "2026-11-05T03:58:17.296Z",
-      "duration_ms": 39606,
+      "started": "2026-11-05T05:20:55.150Z",
+      "duration_ms": 40324,
       "errors": [
         {
           "message": [
@@ -104,7 +104,7 @@
             "Error: element(s) not found"
           ],
           "file": "e2e/checkout-actions.spec.ts",
-          "line": 125
+          "line": 127
         }
       ]
     },
@@ -112,13 +112,13 @@
       "number": 5,
       "title": "a customer chooses another saved address",
       "file": "checkout-actions.spec.ts",
-      "line": 141,
+      "line": 143,
       "expected": "failed",
       "outcome": "expected",
       "result": "failed",
       "retries": 0,
-      "started": "2026-11-05T03:58:56.930Z",
-      "duration_ms": 62342,
+      "started": "2026-11-05T05:21:35.491Z",
+      "duration_ms": 63846,
       "errors": [
         {
           "message": [
@@ -129,7 +129,7 @@
             "Timeout:  30000ms"
           ],
           "file": "e2e/checkout-actions.spec.ts",
-          "line": 169
+          "line": 171
         }
       ]
     },
@@ -137,13 +137,13 @@
       "number": 6,
       "title": "a signed-in customer completes checkout",
       "file": "checkout-actions.spec.ts",
-      "line": 173,
+      "line": 175,
       "expected": "failed",
       "outcome": "expected",
       "result": "failed",
       "retries": 0,
-      "started": "2026-11-05T03:59:59.301Z",
-      "duration_ms": 87706,
+      "started": "2026-11-05T05:22:39.357Z",
+      "duration_ms": 87186,
       "errors": [
         {
           "message": [
@@ -162,13 +162,13 @@
       "number": 7,
       "title": "a customer edits a saved address at checkout",
       "file": "checkout-actions.spec.ts",
-      "line": 208,
+      "line": 210,
       "expected": "failed",
       "outcome": "expected",
       "result": "failed",
       "retries": 0,
-      "started": "2026-11-05T04:01:27.031Z",
-      "duration_ms": 39392,
+      "started": "2026-11-05T05:24:06.566Z",
+      "duration_ms": 39427,
       "errors": [
         {
           "message": [
@@ -179,7 +179,7 @@
             "Timeout:  30000ms"
           ],
           "file": "e2e/checkout-actions.spec.ts",
-          "line": 237
+          "line": 239
         }
       ]
     },
@@ -187,13 +187,13 @@
       "number": 8,
       "title": "checkout shows tax on a taxed product",
       "file": "checkout-actions.spec.ts",
-      "line": 248,
+      "line": 250,
       "expected": "failed",
       "outcome": "expected",
       "result": "failed",
       "retries": 0,
-      "started": "2026-11-05T04:02:06.439Z",
-      "duration_ms": 14367,
+      "started": "2026-11-05T05:24:46.013Z",
+      "duration_ms": 15690,
       "errors": [
         {
           "message": [
@@ -204,7 +204,7 @@
             "Error: element(s) not found"
           ],
           "file": "e2e/checkout-actions.spec.ts",
-          "line": 252
+          "line": 254
         }
       ]
     },
@@ -212,13 +212,13 @@
       "number": 9,
       "title": "checkout shows a second market's currency",
       "file": "checkout-actions.spec.ts",
-      "line": 262,
+      "line": 264,
       "expected": "failed",
       "outcome": "expected",
       "result": "failed",
       "retries": 0,
-      "started": "2026-11-05T04:02:20.826Z",
-      "duration_ms": 13141,
+      "started": "2026-11-05T05:25:01.722Z",
+      "duration_ms": 14861,
       "errors": [
         {
           "message": [
@@ -229,7 +229,7 @@
             "Error: element(s) not found"
           ],
           "file": "e2e/checkout-actions.spec.ts",
-          "line": 275
+          "line": 277
         }
       ]
     }
