@@ -1,0 +1,54 @@
+# Local, storefront 38ad098 (the fix), backend 68236c5, Ruby 3.3.6, placeholder Stripe keys: all 23 browser tests. The guest's Stripe test fails at Stripe's card form because the keys are placeholders; it passed in CI with Stripe test keys
+
+Running 23 tests using 1 worker
+
+  ✓   1 [chromium] › e2e/account.spec.ts:9:7 › customer account › the account navigation reaches every section (10.1s)
+  ✓   2 [chromium] › e2e/account.spec.ts:35:7 › customer account › a customer adds and deletes an address (7.3s)
+  ✓   3 [chromium] › e2e/account.spec.ts:57:7 › customer account › a customer updates their name (7.5s)
+  ✓   4 [chromium] › e2e/auth.spec.ts:11:7 › sign up and sign in › a new customer signs up, signs out and signs back in (6.4s)
+  ✓   5 [chromium] › e2e/auth.spec.ts:36:7 › sign up and sign in › a wrong password is refused (5.8s)
+  ✓   6 [chromium] › e2e/auth.spec.ts:47:7 › sign up and sign in › an account page sends a guest to sign in and back (6.7s)
+  ✓   7 [chromium] › e2e/auth.spec.ts:61:7 › sign up and sign in › sign up refuses passwords that do not match (3.0s)
+  ✓   8 [chromium] › e2e/cart.spec.ts:10:7 › cart page › an empty cart points back to the catalog (3.9s)
+  ✓   9 [chromium] › e2e/cart.spec.ts:24:7 › cart page › a customer changes the quantity and removes the item (6.6s)
+  ✓  10 [chromium] › e2e/catalog.spec.ts:18:7 › home page › shows featured products that open their product page (4.0s)
+  ✓  11 [chromium] › e2e/catalog.spec.ts:30:7 › home page › the header menu opens a category (5.3s)
+  ✓  12 [chromium] › e2e/catalog.spec.ts:36:7 › category page › lists the category's products with a count and breadcrumb (2.7s)
+  ✓  13 [chromium] › e2e/catalog.spec.ts:50:7 › category page › a subcategory narrows the listing (5.0s)
+  ✓  14 [chromium] › e2e/catalog.spec.ts:72:7 › category page › sorts products by name (4.1s)
+  ✓  15 [chromium] › e2e/catalog.spec.ts:91:7 › category page › a product card opens its product page (4.4s)
+  ✘  16 [chromium] › e2e/checkout.spec.ts:21:5 › guest can complete a checkout with a Stripe test card (1.2m)
+  ✓  17 [chromium] › e2e/customer-checkout.spec.ts:23:7 › signed-in checkout › a customer places an order to their saved address (35.2s)
+  ✓  18 [chromium] › e2e/customer-checkout.spec.ts:48:7 › signed-in checkout › a customer places an order when their account loads late (33.8s)
+  ✓  19 [chromium] › e2e/product.spec.ts:10:7 › product page › shows the product's price, availability and details (3.1s)
+  ✓  20 [chromium] › e2e/product.spec.ts:23:7 › product page › adds the chosen quantity to the cart (3.6s)
+  ✓  21 [chromium] › e2e/product.spec.ts:69:7 › product page with color and size options › picking a color and a size adds that combination to the cart (3.0s)
+  ✓  22 [chromium] › e2e/product.spec.ts:90:7 › product page with color and size options › a discounted variant shows its sale price, and the cart charges it (4.6s)
+  ✓  23 [chromium] › e2e/product.spec.ts:116:7 › product page with color and size options › a sold-out variant can be picked but not added to the cart (1.9s)
+
+
+  1) [chromium] › e2e/checkout.spec.ts:21:5 › guest can complete a checkout with a Stripe test card 
+
+    Error: Card form has not rendered in any Stripe frame yet
+
+    Call Log:
+    - Timeout 60000ms exceeded while waiting on the predicate
+
+      168 |   };
+      169 |
+    > 170 |   await expect(fillCardForm).toPass({ timeout: 60_000 });
+          |                              ^
+      171 |
+      172 |   // 6. Accept policies + submit. A remount can still land between the
+      173 |   //    fill loop and the click, leaving Pay Now to fail inline validation
+        at <storefront checkout>/e2e/checkout.spec.ts:170:30
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/checkout-guest-can-complet-5da40-out-with-a-Stripe-test-card-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/checkout-guest-can-complet-5da40-out-with-a-Stripe-test-card-chromium/error-context.md
+
+  1 failed
+    [chromium] › e2e/checkout.spec.ts:21:5 › guest can complete a checkout with a Stripe test card ─
+  22 passed (4.0m)

@@ -1,0 +1,77 @@
+# Local, storefront c2baa20 (the tests, before the fix), backend 68236c5, Ruby 3.3.6, placeholder Stripe keys: the two new tests
+
+Running 2 tests using 1 worker
+
+  ✘  1 [chromium] › e2e/customer-checkout.spec.ts:23:7 › signed-in checkout › a customer places an order to their saved address (41.8s)
+  ✘  2 [chromium] › e2e/customer-checkout.spec.ts:48:7 › signed-in checkout › a customer places an order when their account loads late (38.7s)
+
+
+  1) [chromium] › e2e/customer-checkout.spec.ts:23:7 › signed-in checkout › a customer places an order to their saved address 
+
+    Error: expect(locator).toHaveValue(expected) failed
+
+    Locator:  getByPlaceholder(/email address/i)
+    Expected: "e2e-1793846316730-467599@example.com"
+    Received: ""
+    Timeout:  30000ms
+
+    Call log:
+      - Expect "toHaveValue" with timeout 30000ms
+      - waiting for getByPlaceholder(/email address/i)
+        4 × locator resolved to <input value="" id="email" required="" type="email" data-slot="input" placeholder="Email address" class="h-11 w-full min-w-0 rounded-sm border border-input bg-transparent px-2.5 py-1 text-base transition-colors outline-none file:inline-flex file:h-6 file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus:border-black focus:[outline:1px_solid_black] disabled:pointer-events-none disabled:cursor-not-allowed disabled:bg-input/50 disable…/>
+          - unexpected value ""
+        59 × locator resolved to <input value="" disabled id="email" required="" type="email" data-slot="input" placeholder="Email address" class="h-11 w-full min-w-0 rounded-sm border border-input bg-transparent px-2.5 py-1 text-base transition-colors outline-none file:inline-flex file:h-6 file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus:border-black focus:[outline:1px_solid_black] disabled:pointer-events-none disabled:cursor-not-allowed disabled:bg-input/5…/>
+           - unexpected value ""
+
+
+      34 |     const emailField = page.getByPlaceholder(/email address/i);
+      35 |     await expect(emailField).toHaveCount(1, { timeout: 20_000 });
+    > 36 |     await expect(emailField).toHaveValue(email, { timeout: 30_000 });
+         |                              ^
+      37 |     await expect(emailField).toBeDisabled();
+      38 |     await expect(
+      39 |       page.getByRole("radio", { name: /12 Difference Engine Row/ }),
+        at <storefront checkout>/e2e/customer-checkout.spec.ts:36:30
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/customer-checkout-signed-i-7aa2f-rder-to-their-saved-address-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/customer-checkout-signed-i-7aa2f-rder-to-their-saved-address-chromium/error-context.md
+
+  2) [chromium] › e2e/customer-checkout.spec.ts:48:7 › signed-in checkout › a customer places an order when their account loads late 
+
+    Error: expect(locator).toHaveValue(expected) failed
+
+    Locator:  getByPlaceholder(/email address/i)
+    Expected: "e2e-1793846359615-882561@example.com"
+    Received: ""
+    Timeout:  30000ms
+
+    Call log:
+      - Expect "toHaveValue" with timeout 30000ms
+      - waiting for getByPlaceholder(/email address/i)
+        4 × locator resolved to <input value="" id="email" required="" type="email" data-slot="input" placeholder="Email address" class="h-11 w-full min-w-0 rounded-sm border border-input bg-transparent px-2.5 py-1 text-base transition-colors outline-none file:inline-flex file:h-6 file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus:border-black focus:[outline:1px_solid_black] disabled:pointer-events-none disabled:cursor-not-allowed disabled:bg-input/50 disable…/>
+          - unexpected value ""
+        59 × locator resolved to <input value="" disabled id="email" required="" type="email" data-slot="input" placeholder="Email address" class="h-11 w-full min-w-0 rounded-sm border border-input bg-transparent px-2.5 py-1 text-base transition-colors outline-none file:inline-flex file:h-6 file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus:border-black focus:[outline:1px_solid_black] disabled:pointer-events-none disabled:cursor-not-allowed disabled:bg-input/5…/>
+           - unexpected value ""
+
+
+      93 |     releaseAccount();
+      94 |
+    > 95 |     await expect(emailField).toHaveValue(email, { timeout: 30_000 });
+         |                              ^
+      96 |     await expect(emailField).toBeDisabled();
+      97 |
+      98 |     await fillCheckoutAddress(page);
+        at <storefront checkout>/e2e/customer-checkout.spec.ts:95:30
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/customer-checkout-signed-i-8da10-en-their-account-loads-late-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/customer-checkout-signed-i-8da10-en-their-account-loads-late-chromium/error-context.md
+
+  2 failed
+    [chromium] › e2e/customer-checkout.spec.ts:23:7 › signed-in checkout › a customer places an order to their saved address 
+    [chromium] › e2e/customer-checkout.spec.ts:48:7 › signed-in checkout › a customer places an order when their account loads late 

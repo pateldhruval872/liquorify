@@ -1,0 +1,2 @@
+/* c03: the picked tiles' ring removed, leaving the 1-pixel border */
+html:not(.dark) button[aria-pressed="true"] { box-shadow: none !important; }

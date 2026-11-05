@@ -1,0 +1,2 @@
+/* c13: only the picked tiles' ring colour lightened (border unchanged): primary mixed 85 % with white */
+html:not(.dark) button[aria-pressed="true"] { --tw-ring-color: color-mix(in oklab, var(--primary) 85%, white) !important; }

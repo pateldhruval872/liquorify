@@ -1,0 +1,22 @@
+{
+ "r-c02-picked-ring-1px-1": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 1178,
+   "changed": 1388,
+   "largest": 246,
+   "failsAt25": true,
+   "failsAt60": true
+  }
+ },
+ "r-c02-picked-ring-1px-2": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 1178,
+   "changed": 1388,
+   "largest": 246,
+   "failsAt25": true,
+   "failsAt60": true
+  }
+ }
+}

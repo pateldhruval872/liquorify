@@ -1,0 +1,722 @@
+{
+ "s1-1": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": true,
+   "counted": 0,
+   "changed": 0,
+   "largest": 0,
+   "failsAt25": false,
+   "failsAt60": false
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": true,
+   "counted": 0,
+   "changed": 0,
+   "largest": 0,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "s1-10": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 14,
+   "changed": 53,
+   "largest": 7,
+   "failsAt25": false,
+   "failsAt60": false
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": true,
+   "counted": 0,
+   "changed": 0,
+   "largest": 0,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "s1-11": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 34,
+   "changed": 98,
+   "largest": 34,
+   "failsAt25": true,
+   "failsAt60": false
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": false,
+   "counted": 23,
+   "changed": 94,
+   "largest": 32,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "s1-12": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 14,
+   "changed": 75,
+   "largest": 7,
+   "failsAt25": false,
+   "failsAt60": false
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": false,
+   "counted": 23,
+   "changed": 70,
+   "largest": 32,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "s1-13": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 34,
+   "changed": 102,
+   "largest": 34,
+   "failsAt25": true,
+   "failsAt60": false
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": true,
+   "counted": 0,
+   "changed": 0,
+   "largest": 0,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "s1-14": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 14,
+   "changed": 56,
+   "largest": 7,
+   "failsAt25": false,
+   "failsAt60": false
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": true,
+   "counted": 0,
+   "changed": 0,
+   "largest": 0,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "s1-15": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 20,
+   "changed": 53,
+   "largest": 34,
+   "failsAt25": false,
+   "failsAt60": false
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": false,
+   "counted": 0,
+   "changed": 24,
+   "largest": 9,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "s1-16": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 12,
+   "changed": 31,
+   "largest": 7,
+   "failsAt25": false,
+   "failsAt60": false
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": false,
+   "counted": 0,
+   "changed": 24,
+   "largest": 9,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "s1-17": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 14,
+   "changed": 75,
+   "largest": 7,
+   "failsAt25": false,
+   "failsAt60": false
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": false,
+   "counted": 23,
+   "changed": 70,
+   "largest": 32,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "s1-18": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 14,
+   "changed": 46,
+   "largest": 7,
+   "failsAt25": false,
+   "failsAt60": false
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": false,
+   "counted": 0,
+   "changed": 24,
+   "largest": 9,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "s1-19": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 14,
+   "changed": 56,
+   "largest": 7,
+   "failsAt25": false,
+   "failsAt60": false
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": false,
+   "counted": 23,
+   "changed": 94,
+   "largest": 32,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "s1-2": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 20,
+   "changed": 52,
+   "largest": 34,
+   "failsAt25": false,
+   "failsAt60": false
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": false,
+   "counted": 23,
+   "changed": 70,
+   "largest": 32,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "s1-20": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 14,
+   "changed": 56,
+   "largest": 7,
+   "failsAt25": false,
+   "failsAt60": false
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": false,
+   "counted": 0,
+   "changed": 24,
+   "largest": 9,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "s1-21": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 20,
+   "changed": 53,
+   "largest": 34,
+   "failsAt25": false,
+   "failsAt60": false
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": false,
+   "counted": 23,
+   "changed": 94,
+   "largest": 32,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "s1-22": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 20,
+   "changed": 53,
+   "largest": 34,
+   "failsAt25": false,
+   "failsAt60": false
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": false,
+   "counted": 13,
+   "changed": 46,
+   "largest": 9,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "s1-23": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 20,
+   "changed": 53,
+   "largest": 34,
+   "failsAt25": false,
+   "failsAt60": false
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": false,
+   "counted": 23,
+   "changed": 70,
+   "largest": 32,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "s1-24": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 20,
+   "changed": 31,
+   "largest": 34,
+   "failsAt25": false,
+   "failsAt60": false
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": false,
+   "counted": 23,
+   "changed": 70,
+   "largest": 32,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "s1-25": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 20,
+   "changed": 53,
+   "largest": 34,
+   "failsAt25": false,
+   "failsAt60": false
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": false,
+   "counted": 10,
+   "changed": 48,
+   "largest": 32,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "s1-26": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 20,
+   "changed": 56,
+   "largest": 34,
+   "failsAt25": false,
+   "failsAt60": false
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": false,
+   "counted": 0,
+   "changed": 24,
+   "largest": 9,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "s1-27": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 14,
+   "changed": 53,
+   "largest": 7,
+   "failsAt25": false,
+   "failsAt60": false
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": false,
+   "counted": 23,
+   "changed": 70,
+   "largest": 32,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "s1-28": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 22,
+   "changed": 53,
+   "largest": 34,
+   "failsAt25": false,
+   "failsAt60": false
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": false,
+   "counted": 23,
+   "changed": 70,
+   "largest": 32,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "s1-29": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 14,
+   "changed": 74,
+   "largest": 7,
+   "failsAt25": false,
+   "failsAt60": false
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": true,
+   "counted": 0,
+   "changed": 0,
+   "largest": 0,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "s1-3": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 20,
+   "changed": 49,
+   "largest": 34,
+   "failsAt25": false,
+   "failsAt60": false
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": false,
+   "counted": 23,
+   "changed": 94,
+   "largest": 32,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "s1-30": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 20,
+   "changed": 46,
+   "largest": 34,
+   "failsAt25": false,
+   "failsAt60": false
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": false,
+   "counted": 10,
+   "changed": 24,
+   "largest": 32,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "s1-31": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 14,
+   "changed": 56,
+   "largest": 7,
+   "failsAt25": false,
+   "failsAt60": false
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": true,
+   "counted": 0,
+   "changed": 0,
+   "largest": 0,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "s1-32": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 20,
+   "changed": 31,
+   "largest": 34,
+   "failsAt25": false,
+   "failsAt60": false
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": false,
+   "counted": 10,
+   "changed": 48,
+   "largest": 32,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "s1-33": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 14,
+   "changed": 75,
+   "largest": 7,
+   "failsAt25": false,
+   "failsAt60": false
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": true,
+   "counted": 0,
+   "changed": 0,
+   "largest": 0,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "s1-34": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 12,
+   "changed": 53,
+   "largest": 7,
+   "failsAt25": false,
+   "failsAt60": false
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": false,
+   "counted": 0,
+   "changed": 24,
+   "largest": 9,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "s1-35": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 34,
+   "changed": 99,
+   "largest": 34,
+   "failsAt25": true,
+   "failsAt60": false
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": false,
+   "counted": 13,
+   "changed": 46,
+   "largest": 9,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "s1-36": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 20,
+   "changed": 53,
+   "largest": 34,
+   "failsAt25": false,
+   "failsAt60": false
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": false,
+   "counted": 23,
+   "changed": 70,
+   "largest": 32,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "s1-37": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 14,
+   "changed": 56,
+   "largest": 7,
+   "failsAt25": false,
+   "failsAt60": false
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": false,
+   "counted": 23,
+   "changed": 94,
+   "largest": 32,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "s1-38": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 14,
+   "changed": 49,
+   "largest": 7,
+   "failsAt25": false,
+   "failsAt60": false
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": false,
+   "counted": 13,
+   "changed": 22,
+   "largest": 7,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "s1-39": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 14,
+   "changed": 53,
+   "largest": 7,
+   "failsAt25": false,
+   "failsAt60": false
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": false,
+   "counted": 0,
+   "changed": 24,
+   "largest": 9,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "s1-4": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 14,
+   "changed": 53,
+   "largest": 7,
+   "failsAt25": false,
+   "failsAt60": false
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": false,
+   "counted": 10,
+   "changed": 24,
+   "largest": 32,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "s1-40": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 14,
+   "changed": 53,
+   "largest": 7,
+   "failsAt25": false,
+   "failsAt60": false
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": false,
+   "counted": 10,
+   "changed": 24,
+   "largest": 32,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "s1-5": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 14,
+   "changed": 53,
+   "largest": 7,
+   "failsAt25": false,
+   "failsAt60": false
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": true,
+   "counted": 0,
+   "changed": 0,
+   "largest": 0,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "s1-6": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 14,
+   "changed": 52,
+   "largest": 7,
+   "failsAt25": false,
+   "failsAt60": false
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": true,
+   "counted": 0,
+   "changed": 0,
+   "largest": 0,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "s1-7": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 0,
+   "changed": 7,
+   "largest": 2,
+   "failsAt25": false,
+   "failsAt60": false
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": true,
+   "counted": 0,
+   "changed": 0,
+   "largest": 0,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "s1-8": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 14,
+   "changed": 55,
+   "largest": 7,
+   "failsAt25": false,
+   "failsAt60": false
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": true,
+   "counted": 0,
+   "changed": 0,
+   "largest": 0,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "s1-9": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 14,
+   "changed": 52,
+   "largest": 7,
+   "failsAt25": false,
+   "failsAt60": false
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": false,
+   "counted": 13,
+   "changed": 70,
+   "largest": 9,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ }
+}
