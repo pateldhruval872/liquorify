@@ -1,0 +1,19 @@
+{
+  "screen": "DA-ORD-04",
+  "state": "purchase-order-editing",
+  "variant": "admin",
+  "role": null,
+  "theme": "dark",
+  "revision": "08bca2e2",
+  "path": "/<store>/orders/or_F0GX8NaP3Y",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "fullPage": false,
+  "capturedHeight": 960,
+  "intercepted": null,
+  "settled": true,
+  "outside": [],
+  "customer": "sarah.johnson@example.com"
+}

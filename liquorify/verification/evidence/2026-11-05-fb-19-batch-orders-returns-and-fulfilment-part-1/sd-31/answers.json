@@ -1,0 +1,68 @@
+{
+  "revision": "08bca2e2",
+  "code": "FIDELITY-SD31-1793869871747",
+  "ranAt": "2026-11-05T09:11:12.216Z",
+  "drafts": {
+    "first": "R1036",
+    "second": "R1037"
+  },
+  "created": {
+    "status": "active",
+    "amount": "20.00",
+    "amount_used": "0.00",
+    "amount_authorized": "0.00",
+    "amount_remaining": "20.00"
+  },
+  "firstApply": {
+    "status": 201,
+    "body": {
+      "id": "gc_VqXmZF31wY",
+      "code": "***********************1747",
+      "status": "active",
+      "currency": "USD",
+      "amount": "20.00",
+      "amount_used": "20.00",
+      "amount_authorized": "0.00",
+      "amount_remaining": "0.00",
+      "expires_at": null,
+      "redeemed_at": null,
+      "expired": false,
+      "active": true,
+      "created_at": "2026-11-05T09:11:12.251Z",
+      "updated_at": "2026-11-05T09:11:17.834Z",
+      "customer_id": null,
+      "created_by_id": "adm_UkLWZg9DAJ"
+    }
+  },
+  "afterFirstApply": {
+    "status": "active",
+    "amount": "20.00",
+    "amount_used": "20.00",
+    "amount_authorized": "0.00",
+    "amount_remaining": "0.00"
+  },
+  "firstDraftAfterDelete": 404,
+  "afterDelete": {
+    "status": "active",
+    "amount": "20.00",
+    "amount_used": "20.00",
+    "amount_authorized": "0.00",
+    "amount_remaining": "0.00"
+  },
+  "secondApply": {
+    "status": 422,
+    "body": {
+      "error": {
+        "code": "processing_error",
+        "message": "gift_card_no_amount_remaining"
+      }
+    }
+  },
+  "afterSecondApply": {
+    "status": "active",
+    "amount": "20.00",
+    "amount_used": "20.00",
+    "amount_authorized": "0.00",
+    "amount_remaining": "0.00"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "revision": "08bca2e2",
+  "reason": "Fidelity duplicate order",
+  "order": "R1027",
+  "status": "canceled",
+  "cancel_reason_name": "Fidelity duplicate order"
+}

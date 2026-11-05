@@ -1,0 +1,19 @@
+{
+  "screen": "DA-ORD-04",
+  "state": "risky",
+  "variant": "admin",
+  "role": null,
+  "theme": "dark",
+  "revision": "08bca2e2",
+  "path": "/<store>/orders/or_OIJLhNcSbf",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "fullPage": true,
+  "capturedHeight": 2388,
+  "intercepted": "The order's answer says it is considered risky and not yet approved",
+  "settled": true,
+  "outside": [],
+  "customer": "sarah.johnson@example.com"
+}

@@ -1,0 +1,59 @@
+[
+  {
+    "email": "EM-C-02",
+    "order": "R1010",
+    "subject": "Shop Cancellation of Order #R1010",
+    "parts": [
+      "text/plain; charset=UTF-8",
+      "text/html; charset=UTF-8"
+    ],
+    "links": [
+      "<site>",
+      "<site>/products/electric-kettle-1-7l",
+      "mailto:support@example.com"
+    ]
+  },
+  {
+    "email": "EM-C-03",
+    "order": "R1004",
+    "subject": "Payment link for order #R1004",
+    "parts": [
+      "text/plain; charset=UTF-8",
+      "text/html; charset=UTF-8"
+    ],
+    "links": [
+      "<site>",
+      "<site>/checkout/<token>/payment",
+      "mailto:support@example.com"
+    ]
+  },
+  {
+    "email": "EM-C-07",
+    "order": "R1015",
+    "subject": "Shop Your files are ready #R1015",
+    "parts": [
+      "text/plain; charset=UTF-8",
+      "text/html; charset=UTF-8"
+    ],
+    "links": [
+      "<site>",
+      "<site>/api/v3/store/digital_links/<token>",
+      "mailto:support@example.com"
+    ]
+  },
+  {
+    "email": "EM-O-01",
+    "order": "R1007",
+    "subject": "Shop received a new order",
+    "parts": [
+      "text/plain; charset=UTF-8",
+      "text/html; charset=UTF-8"
+    ],
+    "links": [
+      "<site>",
+      "<site>/products/electric-kettle-1-7l",
+      "<site>/products/2-slice-toaster",
+      "mailto:support@example.com"
+    ]
+  }
+]

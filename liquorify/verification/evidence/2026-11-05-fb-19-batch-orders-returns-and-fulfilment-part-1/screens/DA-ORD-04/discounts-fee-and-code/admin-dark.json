@@ -1,0 +1,19 @@
+{
+  "screen": "DA-ORD-04",
+  "state": "discounts-fee-and-code",
+  "variant": "admin",
+  "role": null,
+  "theme": "dark",
+  "revision": "08bca2e2",
+  "path": "/<store>/orders/or_vEmzDoNU0H",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "fullPage": true,
+  "capturedHeight": 2534,
+  "intercepted": null,
+  "settled": true,
+  "outside": [],
+  "customer": "sarah.johnson@example.com"
+}

@@ -1,0 +1,18 @@
+{
+  "revision": "08bca2e2",
+  "order": "R1035",
+  "3-downloads-before": "Downloads Resend email File Item Downloads used Expires Status the-spree-commerce-handbook.pdf The Spree Commerce Handbook 0 November 12th, 2026 9:09 AM Available Reset fidelity-care-guide.pdf The Spree Commerce Handbook 0 November 12th, 2026 9:09 AM Available Reset",
+  "download": {
+    "status": 302,
+    "contentType": "text/html; charset=utf-8",
+    "redirectsTo": "/rails/active_storage/disk",
+    "body": null
+  },
+  "madeUpToken": {
+    "status": 404,
+    "contentType": "application/json; charset=utf-8",
+    "redirectsTo": null,
+    "body": "{\"error\":{\"code\":\"record_not_found\",\"message\":\"Digital link not found\"}}"
+  },
+  "4-downloads-after": "Downloads Resend email File Item Downloads used Expires Status the-spree-commerce-handbook.pdf The Spree Commerce Handbook 0 November 12th, 2026 9:09 AM Available Reset fidelity-care-guide.pdf The Spree Commerce Handbook 1 November 12th, 2026 9:09 AM Available Reset"
+}

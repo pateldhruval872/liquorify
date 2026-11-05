@@ -1,0 +1,44 @@
+{
+  "revision": "ba6ddcd",
+  "storefront": "<storefront>",
+  "1-mailer-link": {
+    "requested": "/checkout/<order token>/payment",
+    "hops": [
+      {
+        "status": 307,
+        "url": "<storefront>/checkout/<order token>/payment"
+      },
+      {
+        "status": 404,
+        "url": "<storefront>/us/en/checkout/<order token>/payment"
+      }
+    ],
+    "landedOn": "<storefront>/us/en/checkout/<order token>/payment",
+    "title": "404: This page could not be found.",
+    "says": "404 This page could not be found."
+  },
+  "2-checkout-with-token": {
+    "requested": "/us/en/checkout/<order token>",
+    "hops": [
+      {
+        "status": 200,
+        "url": "<storefront>/us/en/checkout/<order token>"
+      }
+    ],
+    "landedOn": "<storefront>/us/en/checkout/<order token>",
+    "title": "Spree Store",
+    "says": "Back to store Checkout Error Order not found or you don't have access to it. Return to Cart © 2026 Spree Store. All rights reserved. Shipping Policy Privacy Policy Returns Policy Terms of Service"
+  },
+  "3-checkout-with-order-id": {
+    "requested": "/us/en/checkout/<order id>",
+    "hops": [
+      {
+        "status": 200,
+        "url": "<storefront>/us/en/checkout/<order id>"
+      }
+    ],
+    "landedOn": "<storefront>/us/en/checkout/<order id>",
+    "title": "Spree Store",
+    "says": "Back to store Checkout Error Order not found or you don't have access to it. Return to Cart © 2026 Spree Store. All rights reserved. Shipping Policy Privacy Policy Returns Policy Terms of Service"
+  }
+}

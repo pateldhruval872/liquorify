@@ -1,0 +1,19 @@
+{
+  "screen": "DA-ORD-04",
+  "state": "refunded",
+  "variant": "admin",
+  "role": null,
+  "theme": "dark",
+  "revision": "08bca2e2",
+  "path": "/<store>/orders/or_nJqfPa3Cpe",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "fullPage": true,
+  "capturedHeight": 2324,
+  "intercepted": null,
+  "settled": true,
+  "outside": [],
+  "customer": "sarah.johnson@example.com"
+}
