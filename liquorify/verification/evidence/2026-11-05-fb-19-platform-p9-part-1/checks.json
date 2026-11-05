@@ -1,0 +1,260 @@
+{
+  "revision": "231b2176",
+  "mode": "checks",
+  "tests": [
+    {
+      "file": "getting-started-tasks.spec.ts",
+      "test": "the store address dialog refuses an empty required field and saves nothing",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: Add your shipping address shows not done",
+          "linesInTheTest": [
+            181,
+            287
+          ]
+        }
+      ]
+    },
+    {
+      "file": "getting-started-tasks.spec.ts",
+      "test": "saving the store address closes the dialog and shows the task done",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: Add your shipping address shows done",
+          "linesInTheTest": [
+            181,
+            316
+          ]
+        }
+      ]
+    },
+    {
+      "file": "getting-started-tasks.spec.ts",
+      "test": "saving the storefront address keeps it after a reload and shows the task done",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: Set up storefront shows done",
+          "linesInTheTest": [
+            181,
+            365
+          ]
+        }
+      ]
+    },
+    {
+      "file": "getting-started-tasks.spec.ts",
+      "test": "a storefront value that is not an address, \"https://\", is not saved and its message shows",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: the refusal message shows above the sheet",
+          "linesInTheTest": [
+            429
+          ]
+        },
+        {
+          "assertion": "Error: the storefront task after a reload",
+          "linesInTheTest": [
+            452
+          ]
+        }
+      ]
+    },
+    {
+      "file": "getting-started-tasks.spec.ts",
+      "test": "a storefront value that is not an address, \"not an address\", is not saved and its message shows",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: the refusal message shows above the sheet",
+          "linesInTheTest": [
+            429
+          ]
+        },
+        {
+          "assertion": "Error: no request saved a storefront address",
+          "linesInTheTest": [
+            451
+          ]
+        }
+      ]
+    },
+    {
+      "file": "getting-started-tasks.spec.ts",
+      "test": "the payment method task's link opens the payment methods page",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(page).toHaveURL(expected) failed",
+          "linesInTheTest": [
+            482
+          ]
+        }
+      ]
+    },
+    {
+      "file": "getting-started-tasks.spec.ts",
+      "test": "after a reload, Getting Started shows the three tasks done and counts them",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: Add your shipping address shows done",
+          "linesInTheTest": [
+            181,
+            564
+          ]
+        }
+      ]
+    },
+    {
+      "file": "settings-actions.spec.ts",
+      "test": "deleting a delivery zone removes it and keeps the others",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(locator).toHaveCount(expected) failed",
+          "linesInTheTest": [
+            228
+          ]
+        }
+      ]
+    },
+    {
+      "file": "settings-actions.spec.ts",
+      "test": "deleting a delivery method removes it and keeps the zone’s other method",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(locator).toHaveCount(expected) failed",
+          "linesInTheTest": [
+            260
+          ]
+        }
+      ]
+    },
+    {
+      "file": "settings-actions.spec.ts",
+      "test": "adding a zone's states keeps them after a reload",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(locator).toContainText(expected) failed",
+          "linesInTheTest": [
+            295
+          ]
+        }
+      ]
+    },
+    {
+      "file": "settings-actions.spec.ts",
+      "test": "adding a zone's postal code rule keeps it after a reload",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(locator).toBeVisible() failed",
+          "linesInTheTest": [
+            350
+          ]
+        }
+      ]
+    },
+    {
+      "file": "settings-actions.spec.ts",
+      "test": "making a profile the default moves the default to it",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(locator).toBeVisible() failed",
+          "linesInTheTest": [
+            386
+          ]
+        }
+      ]
+    },
+    {
+      "file": "settings-actions.spec.ts",
+      "test": "narrowing a profile's origins to one location keeps it after a reload",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(locator).toBeChecked() failed",
+          "linesInTheTest": [
+            444
+          ]
+        }
+      ]
+    },
+    {
+      "file": "settings-actions.spec.ts",
+      "test": "creating a tax rate for a state lists it for that state after a reload",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(locator).toContainText(expected) failed",
+          "linesInTheTest": [
+            500
+          ]
+        }
+      ]
+    },
+    {
+      "file": "settings-actions.spec.ts",
+      "test": "the taxes page notes the markets an external tax service works out",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(locator).toHaveText(expected) failed",
+          "linesInTheTest": [
+            552
+          ]
+        }
+      ]
+    },
+    {
+      "file": "settings-actions.spec.ts",
+      "test": "a payment method name the store already uses is refused, and nothing is added",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(locator).toHaveAttribute(expected) failed",
+          "linesInTheTest": [
+            615
+          ]
+        }
+      ]
+    },
+    {
+      "file": "settings-actions.spec.ts",
+      "test": "switching a payment method to admin only keeps it after a reload",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: expect(locator).toContainText(expected) failed",
+          "linesInTheTest": [
+            673
+          ]
+        }
+      ]
+    }
+  ]
+}

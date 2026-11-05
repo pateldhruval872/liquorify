@@ -1,0 +1,20 @@
+{
+  "test": "method-deleted",
+  "revision": "231b2176",
+  "stamp": "mw2sa505",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "opened the profile",
+      "method": "P9 method to delete mw2sa505"
+    },
+    {
+      "step": "deleted it from its menu and confirmed",
+      "shown": "Delivery method deleted"
+    },
+    {
+      "step": "reloaded; the method is gone and the other stays"
+    }
+  ],
+  "outside": []
+}
