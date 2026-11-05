@@ -1,0 +1,15 @@
+{
+  "test": "price-list-channel-rule",
+  "revision": "bc5c3fcb",
+  "stamp": "mw2whsnb",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "added a channel rule for E2E Bulk Channel and saved"
+    },
+    {
+      "step": "reloaded; the rule names the channel"
+    }
+  ],
+  "outside": []
+}

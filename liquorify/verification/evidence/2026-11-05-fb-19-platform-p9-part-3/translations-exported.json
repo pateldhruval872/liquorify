@@ -1,0 +1,17 @@
+{
+  "test": "translations-exported",
+  "revision": "bc5c3fcb",
+  "stamp": "mw2whsnb",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "searched for the product and exported the current filter",
+      "file": "product_translations-shop-20261105020426.csv",
+      "rows": 1
+    },
+    {
+      "step": "reloaded; the server holds the same file under that name"
+    }
+  ],
+  "outside": []
+}

@@ -1,0 +1,17 @@
+{
+  "test": "price-list-activated",
+  "revision": "bc5c3fcb",
+  "stamp": "mw2whsnb",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "activated the draft list, confirming",
+      "status": "Active"
+    },
+    {
+      "step": "reloaded",
+      "status": "Active"
+    }
+  ],
+  "outside": []
+}

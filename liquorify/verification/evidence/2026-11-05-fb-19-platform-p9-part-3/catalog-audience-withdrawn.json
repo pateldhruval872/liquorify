@@ -1,0 +1,16 @@
+{
+  "test": "catalog-audience-withdrawn",
+  "revision": "bc5c3fcb",
+  "stamp": "mw2whsnb",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "removed the company and saved",
+      "undo": "admin.actions.restore"
+    },
+    {
+      "step": "reloaded; the catalog has no audience"
+    }
+  ],
+  "outside": []
+}

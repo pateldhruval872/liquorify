@@ -1,0 +1,21 @@
+{
+  "test": "collection-kind-filter",
+  "revision": "bc5c3fcb",
+  "stamp": "mw2whsnb",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "left only Automatic ticked in the kind filter",
+      "kinds": [
+        "Automatic"
+      ]
+    },
+    {
+      "step": "reloaded; the filter and its result are kept",
+      "kinds": [
+        "Automatic"
+      ]
+    }
+  ],
+  "outside": []
+}

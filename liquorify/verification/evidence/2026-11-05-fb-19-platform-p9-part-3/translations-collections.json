@@ -1,0 +1,20 @@
+{
+  "test": "translations-collections",
+  "revision": "bc5c3fcb",
+  "stamp": "mw2whsnb",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "chose Collections, found the record, entered its German name and saved"
+    },
+    {
+      "step": "closed the record",
+      "german": "2/3"
+    },
+    {
+      "step": "reloaded; the kind is kept; found and opened the record",
+      "german": "2/3"
+    }
+  ],
+  "outside": []
+}

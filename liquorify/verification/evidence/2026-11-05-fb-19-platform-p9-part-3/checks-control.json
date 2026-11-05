@@ -1,0 +1,20 @@
+{
+  "revision": "bc5c3fcb",
+  "mode": "checks",
+  "tests": [
+    {
+      "file": "catalog-actions.spec.ts",
+      "test": "the price lists' priority order",
+      "expected": "failed",
+      "status": "failed",
+      "failedAt": [
+        {
+          "assertion": "Error: the first list below the second after a reload",
+          "linesInTheTest": [
+            1335
+          ]
+        }
+      ]
+    }
+  ]
+}

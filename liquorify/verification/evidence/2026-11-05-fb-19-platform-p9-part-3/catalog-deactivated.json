@@ -1,0 +1,17 @@
+{
+  "test": "catalog-deactivated",
+  "revision": "bc5c3fcb",
+  "stamp": "mw2whsnb",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "deactivated the active catalog, confirming",
+      "status": "Inactive"
+    },
+    {
+      "step": "reloaded",
+      "status": "Inactive"
+    }
+  ],
+  "outside": []
+}
