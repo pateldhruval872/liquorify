@@ -1,0 +1,71 @@
+# Local, storefront c2baa20 (before the fix), with the two email checks removed from a copy of the tests that was run once and not committed, to see where checkout then stops
+
+Running 2 tests using 1 worker
+
+  ✘  1 [chromium] › e2e/zz-without-email-checks.spec.ts:23:7 › signed-in checkout › a customer places an order to their saved address (40.1s)
+  ✘  2 [chromium] › e2e/zz-without-email-checks.spec.ts:46:7 › signed-in checkout › a customer places an order when their account loads late (51.8s)
+
+
+  1) [chromium] › e2e/zz-without-email-checks.spec.ts:23:7 › signed-in checkout › a customer places an order to their saved address 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: locator('#checkout-section-shipping').getByRole('radio', { checked: true })
+    Expected: visible
+    Timeout: 30000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 30000ms
+      - waiting for locator('#checkout-section-shipping').getByRole('radio', { checked: true })
+
+
+      128 |     .locator("#checkout-section-shipping")
+      129 |     .getByRole("radio", { checked: true });
+    > 130 |   await expect(chosenRate).toBeVisible({ timeout: 30_000 });
+          |                            ^
+      131 |
+      132 |   const check = page.getByRole("radio", { name: "Check", exact: true });
+      133 |   await expect(check).toBeVisible({ timeout: 30_000 });
+        at placeOrderWithCheck (<storefront checkout>/e2e/zz-without-email-checks.spec.ts:130:28)
+        at <storefront checkout>/e2e/zz-without-email-checks.spec.ts:40:31
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/zz-without-email-checks-si-285ff-rder-to-their-saved-address-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/zz-without-email-checks-si-285ff-rder-to-their-saved-address-chromium/error-context.md
+
+  2) [chromium] › e2e/zz-without-email-checks.spec.ts:46:7 › signed-in checkout › a customer places an order when their account loads late 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: locator('#checkout-section-shipping').getByRole('radio', { checked: true })
+    Expected: visible
+    Timeout: 30000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 30000ms
+      - waiting for locator('#checkout-section-shipping').getByRole('radio', { checked: true })
+
+
+      128 |     .locator("#checkout-section-shipping")
+      129 |     .getByRole("radio", { checked: true });
+    > 130 |   await expect(chosenRate).toBeVisible({ timeout: 30_000 });
+          |                            ^
+      131 |
+      132 |   const check = page.getByRole("radio", { name: "Check", exact: true });
+      133 |   await expect(check).toBeVisible({ timeout: 30_000 });
+        at placeOrderWithCheck (<storefront checkout>/e2e/zz-without-email-checks.spec.ts:130:28)
+        at <storefront checkout>/e2e/zz-without-email-checks.spec.ts:98:31
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/zz-without-email-checks-si-31e60-en-their-account-loads-late-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/zz-without-email-checks-si-31e60-en-their-account-loads-late-chromium/error-context.md
+
+  2 failed
+    [chromium] › e2e/zz-without-email-checks.spec.ts:23:7 › signed-in checkout › a customer places an order to their saved address 
+    [chromium] › e2e/zz-without-email-checks.spec.ts:46:7 › signed-in checkout › a customer places an order when their account loads late 

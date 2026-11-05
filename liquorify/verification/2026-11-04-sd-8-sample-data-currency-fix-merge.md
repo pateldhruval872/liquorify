@@ -61,3 +61,9 @@ Storybook's visual check runs on pull requests only, and passed on #44's final c
 - **SD-13 stays open:** a store whose language is German or French gets no sample orders. **SD-14 stays open:** the welcome screen still says the store is ready when the background load fails. Whether to fix either is a separate decision, and neither is reported to Spree (decision 37).
 - **CAP-03-03 stays PARTIAL** with a failing part, now SD-13 instead of SD-8, and for tenant isolation. **FL-01 stays PARTIAL:** setup with sample data is shown working in US dollars, Polish złoty and euros, in English, and the getting started tasks' own steps are still not shown (G-37).
 - **Statuses are unchanged.** The work item stays PROPOSED, and LIQ-004 stays DRAFT.
+
+## 6. Correction, 2026-11-05: logs not committed
+
+The logs the [evidence README](evidence/2026-11-04-sd-8-sample-data-currency-fix/README.md) names, Spree's spec runs and each first-run's setup check and storefront build, are not in the repository: it ignores files ending in `.log`, so they were left out of #44 without anyone noticing. This acceptance was given on them in the accepting thread's own working copy. No copy was found to add back.
+
+This does not change what §5 closes. SD-8's and G-36's conditions rest on checks 2, 2a, 3 and 4. The committed first-run results show checks 3 and 4. Spree's spec holds checks 2 and 2a and is committed. It passed in CI's core jobs on PostgreSQL and MySQL on the final commit (§3), and it runs on every later pull request. What has no committed record is the spec failing before the fix, and the SQLite runs. Those are stated in the verification record's text only.

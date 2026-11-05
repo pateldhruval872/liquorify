@@ -75,7 +75,7 @@ The welcome screen was captured in each run as setup finished, before the backgr
 ## 4. Searches of the pull request
 
 - Every line the pull request adds, across its 57 files, was searched for `sk_`, `pk_`, `token`, `password`, `secret`, `/home/`, `/tmp/`, `/root/` and `/Users/`, ignoring case. The only matches are in this record, where it describes the search. The sample data's demo passwords and the first-run check's handling of the setup token and the merchant's made-up password, which it never saves, are unchanged.
-- The evidence's logs had their local checkout and scratch paths replaced with `<checkout>` and `<scratch>`. The storefront's publishable key was read from the first-run database and passed to its build only, never printed or saved.
+- The evidence's logs had their local checkout and scratch paths replaced with `<checkout>` and `<scratch>`. They were not committed (above). The storefront's publishable key was read from the first-run database and passed to its build only, never printed or saved.
 
 ## 5. Found on the way, not fixed
 
@@ -99,4 +99,4 @@ SD-8 and G-36 close only once their closing conditions have passing evidence and
 
 ## 8. Evidence
 
-[`evidence/2026-11-04-sd-8-sample-data-currency-fix/`](evidence/2026-11-04-sd-8-sample-data-currency-fix/README.md) holds the spec logs, each run's first-run results and setup check output, the welcome screen captures, and the storefront results and screenshots.
+[`evidence/2026-11-04-sd-8-sample-data-currency-fix/`](evidence/2026-11-04-sd-8-sample-data-currency-fix/README.md) holds each run's first-run results, the welcome screen captures, and the storefront results and screenshots. *Corrected on 2026-11-05:* the spec logs, each run's setup check output and the storefront's build summaries, which this record and the evidence README named, were never committed, because the repository ignores files ending in `.log`, and no copy was found to add back. The results this record gives from them, in §1 and §2, stand as written when they were read, with no committed log behind them; the spec's results after the fix are also shown by CI ([evidence README](evidence/2026-11-04-sd-8-sample-data-currency-fix/README.md)).
