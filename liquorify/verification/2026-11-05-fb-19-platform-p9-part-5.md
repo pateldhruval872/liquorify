@@ -4,7 +4,7 @@ record: verification
 work_item: FB-19
 date: 2026-11-05
 verifier: Claude (automated session, thread "Add P9 browser tests"); not independent review
-result: Nine browser tests in the storefront's repository, one for each checkout action G-75 names, driven through the storefront as a guest or a signed-in customer. Each asserts what checkout shows and, after a reload, what was kept. Run twice in a row in the storefront's pinned Playwright image at storefront `cbb7ddc6`, against the pinned Liquorify backend at `68236c59` with a new database each time. All nine passed both times, and with each test's change undone in the browser all nine failed at the check of that change. In storefront #27's CI the tests first timed out waiting for the whole network to fall quiet, which Stripe's script prevents there; with that wait narrowed to the storefront's own requests, all 32 of the storefront's browser tests passed in CI, and #27 merged. G-75 closes on this record as delegated acceptance under the owner's delegation of 2026-11-04, not the owner's review. No capability changes status here. Refusals stay with P10 and tenant isolation stays NOT_RUN. P9 has no other part to run
+result: Nine browser tests in the storefront's repository, one for each checkout action G-75 names, driven through the storefront as a guest or a signed-in customer. Each asserts what checkout shows and, after a reload, what was kept. Run twice in a row in the storefront's pinned Playwright image at storefront `cbb7ddc6`, against the pinned Liquorify backend at `68236c59` with a new database each time. All nine passed both times, and with each test's change undone in the browser all nine failed at the check of that change. In storefront #27's CI the tests first timed out waiting for the whole network to fall quiet, which Stripe's script prevents there; with that wait narrowed to the storefront's own requests, all 32 of the storefront's browser tests passed in CI, and #27 merged. G-75 closes on this record as delegated acceptance under the owner's delegation of 2026-11-04, not the owner's review. No capability changes status here. Refusals stay with P10 and tenant isolation stays NOT_RUN. P9 has no other part to run, but it is not complete while G-84 waits on the owner's answer to row 36 (part 4)
 ---
 
 # FB-19 platform batch, step P9, part 5, browser tests for the storefront's checkout
@@ -150,7 +150,7 @@ Kept apart from the local runs above. CI starts the same pinned backend with its
 
 What stays open:
 
-- **P9's parts are all run.** Parts 2 to 5 merge in turn, each with its own record. P9 is complete once they have merged and G-84 has its answer: G-84 stays OPEN for SD-26 and SD-27, pending row 36 (part 4).
+- **P9's parts are all run.** Parts 1 to 4 have merged, each with its verification record and its merge record; part 4's merge record comes with this one ([record](2026-11-05-fb-19-platform-p9-part-4-merge.md)). P9 is complete once this part has merged and G-84 has its answer: G-84 stays OPEN for SD-26 and SD-27, held for the owner's answer to row 36 ([part 4](2026-11-05-fb-19-platform-p9-part-4.md)).
 - **The refusals** stay with P10, G-79 among them.
 - **Tenant isolation stays NOT_RUN**, with ISO-1 to ISO-7 open.
 
