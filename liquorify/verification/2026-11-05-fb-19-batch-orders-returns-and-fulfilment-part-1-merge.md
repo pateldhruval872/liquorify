@@ -85,8 +85,8 @@ The 3,298 comparisons are part 1's 290 and the 3,008 of the batches merged befor
 
 | Workflow | Run | Result |
 |---|---|---|
-| Packages: typecheck, tests and builds of the TypeScript packages, the dashboard's browser tests and the scaffolded app | [42020769360](https://github.com/pateldhruval872/liquorify/actions/runs/42020769360) | Started at 11:39 UTC; still running when this record was first written |
-| Storybook's visual check, started by hand on `main` at `c2128ac2`, because part 1 adds stories and reference images | [42020943466](https://github.com/pateldhruval872/liquorify/actions/runs/42020943466) | Started at 11:41 UTC; still running when this record was first written |
+| Packages: typecheck, tests and builds of the TypeScript packages, the dashboard's browser tests and the scaffolded app | [42020769360](https://github.com/pateldhruval872/liquorify/actions/runs/42020769360) | Passed, 11:39 to 11:49 UTC, on its first attempt. The release jobs were skipped |
+| Storybook's visual check, started by hand on `main` at `c2128ac2`, because part 1 adds stories and reference images | [42020943466](https://github.com/pateldhruval872/liquorify/actions/runs/42020943466) | Passed, 11:41 to 11:58 UTC: all four parts and the summary, each on its first attempt, in 16.5, 10.4, 13.4 and 14.3 minutes. `main`'s tree is #80's final tree, so these are the same 3,298 comparisons |
 | Tests: the backend's builds and Spree's test suites on PostgreSQL and MySQL, and Brakeman | None | Did not start, as expected. On a push to `main` it runs only when `spree/` or its own workflow file changes, and #80 changes neither. It passed on #80's final commit |
 
 ## 5. What the merge changes, and what stays open
