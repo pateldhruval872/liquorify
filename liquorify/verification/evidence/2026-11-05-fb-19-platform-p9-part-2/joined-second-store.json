@@ -1,0 +1,24 @@
+{
+  "test": "joined-second-store",
+  "revision": "3709958d",
+  "stamp": "mw2t9ex7",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "opened the invitation signed out",
+      "heading": "Join Winkel",
+      "fields": [
+        "invitee-email",
+        "password"
+      ]
+    },
+    {
+      "step": "entered the password and accepted",
+      "opened": "/<store>"
+    },
+    {
+      "step": "reloaded; the switcher lists both stores"
+    }
+  ],
+  "outside": []
+}
