@@ -1,0 +1,22 @@
+{
+ "r-c15-picked-border-colour-5-1": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 56,
+   "changed": 692,
+   "largest": 29,
+   "failsAt25": true,
+   "failsAt60": false
+  }
+ },
+ "r-c15-picked-border-colour-5-2": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 56,
+   "changed": 692,
+   "largest": 29,
+   "failsAt25": true,
+   "failsAt60": false
+  }
+ }
+}

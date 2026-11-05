@@ -1,0 +1,2 @@
+/* c08: the check badges' background lightened: primary mixed 85 % with white */
+html:not(.dark) button[aria-pressed="true"] > span.rounded-full { background-color: color-mix(in oklab, var(--primary) 85%, white) !important; }

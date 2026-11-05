@@ -1,0 +1,57 @@
+--- visual/stories.spec.ts
++++ tolerance/diag.spec.ts
+@@ -2,7 +2,7 @@
+ import path from 'node:path'
+ import { expect, type Locator, type Page, test } from '@playwright/test'
+ import { FIXTURE_NOW } from '../src/fixtures/clock'
+-import { modes, phoneModes } from './modes'
++import { modes, phoneModes } from '../visual/modes'
+ 
+ interface IndexEntry {
+   id: string
+@@ -13,7 +13,7 @@
+ }
+ 
+ const index: { entries: Record<string, IndexEntry> } = JSON.parse(
+-  readFileSync(new URL('../storybook-static/index.json', import.meta.url), 'utf8'),
++  readFileSync(new URL("../storybook-static/index.json", import.meta.url), 'utf8'),
+ )
+ const stories = Object.values(index.entries).filter((entry) => entry.type === 'story')
+ 
+@@ -28,6 +28,10 @@
+ const pixelAllowances: Readonly<Record<string, number>> = {
+   'dashboard-core-product-form-variants-section--seeded-from-type/dark': 60,
+   'dashboard-core-product-form-variants-options-builder--awaiting-values/dark': 60,
++  // Diagnostic only: the allowance row 30 authorizes, applied when DIAG_ALLOWANCE is set.
++  ...(process.env.DIAG_ALLOWANCE
++    ? { 'dashboard-core-media-picker-sheet--two-picked/light': Number(process.env.DIAG_ALLOWANCE) }
++    : {}),
+ }
+ for (const key of Object.keys(pixelAllowances)) {
+   const [id, modeName] = key.split('/')
+@@ -288,6 +292,25 @@
+         await testInfo.attach('proposed reference', { path: proposed, contentType: 'image/png' })
+         throw new Error(`No reference image yet for ${name.join('/')}; a proposed one is attached`)
+       }
++      const diag = process.env.DIAG ?? ''
++      if (diag.includes('hide-images')) await page.addStyleTag({ content: 'img { visibility: hidden !important; }' })
++      if (diag.includes('no-images')) await page.evaluate(() => document.querySelectorAll('img').forEach((image) => image.removeAttribute('src')))
++      if (diag.includes('decode')) await page.evaluate(() => Promise.all([...document.images].map((image) => image.decode().catch(() => undefined))))
++      if (diag.includes('wait')) await page.waitForTimeout(1000)
++      if (process.env.DIAG_CSS) {
++        await page.addStyleTag({ content: readFileSync(process.env.DIAG_CSS, 'utf8') })
++        await page.waitForTimeout(400)
++      }
++      if (diag.includes('repaint')) {
++        await page.evaluate(() => { document.body.style.opacity = '0.999' })
++        await page.waitForTimeout(200)
++        await page.evaluate(() => { document.body.style.opacity = '' })
++        await page.waitForTimeout(200)
++      }
++      if (diag.includes('log-images')) {
++        const info = await page.evaluate(() => [...document.images].map((image) => `${image.alt}:${image.complete}:${image.naturalWidth}:${image.loading}:${image.getBoundingClientRect().toJSON().x.toFixed(3)},${image.getBoundingClientRect().toJSON().y.toFixed(3)},${image.getBoundingClientRect().width.toFixed(3)}`))
++        console.log('IMAGES', info.join(' | '))
++      }
+       const allowance = pixelAllowances[`${story.id}/${mode.name}`]
+       try {
+         await expect(target).toHaveScreenshot(name, allowance ? { maxDiffPixels: allowance } : {})

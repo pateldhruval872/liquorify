@@ -1,0 +1,22 @@
+{
+ "r-c13-picked-ring-colour-1": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 1731,
+   "changed": 1940,
+   "largest": 34,
+   "failsAt25": true,
+   "failsAt60": true
+  }
+ },
+ "r-c13-picked-ring-colour-2": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 1731,
+   "changed": 1940,
+   "largest": 34,
+   "failsAt25": true,
+   "failsAt60": true
+  }
+ }
+}

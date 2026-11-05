@@ -1,0 +1,70 @@
+Every failed attempt of the Storybook workflow from 2026-10-26, when batch 3 added the media picker sheet's stories,
+to 2026-11-05 04:00 UTC, as GitHub's API listed them on 2026-11-05: 126 completed runs, 19 of them failed and 4 more
+re-run after a failed first attempt. Each failed attempt's job log was read through GitHub's API and searched for
+the comparisons it failed. Columns: run, attempt, revision, branch, comparisons run, "Two picked" light, the images that failed.
+Run 41892185225 failed before any job started, so it compared nothing.
+
+41880170859  attempt 1  8aa92fca  claude/project-thread-oie490  2544 compared  Two picked light: passed
+      failed: Dashboard core/Import button / Created / light
+41877259668  attempt 1  16380f5f  main  2544 compared  Two picked light: failed
+      failed: Dashboard core/Media picker sheet / Two picked / light
+41857245485  attempt 1  ba5cf1f7  claude/project-thread-qxa4oc-batch-5-part-2-build  2544 compared  Two picked light: passed
+      failed: Dashboard UI/Composed/Wizard / Jumping back to a finished step / light
+41799659773  attempt 1  ef7cf6e8  claude/project-thread-06e227  1616 compared  Two picked light: passed
+      failed: Dashboard core/Product form/Media edit sheet / Assigned to a variant / light
+41794557078  attempt 1  43b8d7a8  claude/project-thread-0qew1h  1932 compared  Two picked light: passed
+      failed: Admin dashboard/Shipping/Delivery origin group section / Method editor / light
+      failed: Admin dashboard/Shipping/Delivery zone card / No zone restriction, carrier method from its source / light
+      failed: Admin dashboard/Shipping/Delivery zone card / States and postal codes / light
+      failed: Dashboard core/Product form/Variant edit sheet / Pre-order / dark
+41786873454  attempt 1  6c258f53  claude/project-thread-qxa4oc-batch-5-part-2-build  2228 compared  Two picked light: passed
+      failed: Admin dashboard/Price lists/Price list form / Choosing the match policy / dark
+41782406117  attempt 1  e662bbb3  claude/project-thread-0qew1h  1932 compared  Two picked light: passed
+      failed: Admin dashboard/Shipping/Delivery origin group section / Group menu / dark
+      failed: Admin dashboard/Shipping/Delivery zone card / States and postal codes / dark
+      failed: Dashboard core/Pages/Package types / Delete confirmation / light
+41782324157  attempt 1  e662bbb3  claude/project-thread-0qew1h  1932 compared  Two picked light: passed
+      failed: Admin dashboard/Shipping/Delivery origin group section / Group menu / dark
+      failed: Admin dashboard/Shipping/Delivery origin group section / West coast / dark
+41781170470  attempt 1  7feafe5e  claude/project-thread-qxa4oc-batch-5-part-2-build  2228 compared  Two picked light: passed
+      failed: Admin dashboard/Price lists/Price list form / A price list / dark
+      failed: Admin dashboard/Price lists/Price list form / Choosing the match policy / dark
+41780521522  attempt 1  7feafe5e  claude/project-thread-qxa4oc-batch-5-part-2-build  2228 compared  Two picked light: passed
+      failed: Admin dashboard/Price lists/Price list form / A price list / dark
+      failed: Admin dashboard/Price lists/Price list form / Choosing the match policy / dark
+      failed: Admin dashboard/Product membership/Product membership staging / Discarded / dark
+      failed: Admin dashboard/Product membership/Product membership staging / Saved / light
+      failed: Dashboard core/Export button / Downloaded / dark
+      failed: Dashboard core/Export button / Downloaded / light
+41428473224  attempt 1  d82c4c29  claude/project-thread-qxa4oc-batch-5-part-1  1616 compared  Two picked light: passed
+      failed: Dashboard core/Product form/Variants section / Options from the product type / dark
+41424639383  attempt 1  f718e75e  claude/project-thread-qxa4oc-batch-5-part-1  1616 compared  Two picked light: passed
+      failed: Dashboard core/Product form/Variants section / Options from the product type / dark
+41415160663  attempt 1  b4130c28  claude/project-thread-qxa4oc-batch-5-part-1  1616 compared  Two picked light: passed
+      failed: Dashboard core/Product form/Variants section / Options from the product type / dark
+41414987837  attempt 1  b4130c28  claude/project-thread-qxa4oc-batch-5-part-1  1616 compared  Two picked light: passed
+      failed: Dashboard core/Product form/Variants section / Options from the product type / dark
+41410767799  attempt 1  4c2a3f61  claude/project-thread-qxa4oc-batch-5-part-1  1616 compared  Two picked light: passed
+      failed: Admin dashboard/Products/Digital asset provider sheet / Refused by Spree / dark
+      failed: Dashboard UI/Composed/Data grid/Fill handle / On a selected cell / dark
+      failed: Dashboard core/Product form/Variants section / Options from the product type / dark
+41407138018  attempt 1  0be0dc68  claude/project-thread-qxa4oc-batch-5-part-1  1616 compared  Two picked light: passed
+      failed: Admin dashboard/Products/Digital asset provider sheet / Refused by Spree / light
+      failed: Dashboard UI/Composed/Data grid/Fill handle / On a selected cell / dark
+      failed: Dashboard core/Product form/Variants section / Options from the product type / dark
+      failed: Dashboard core/Shell/Sidebar user / Teammate without a name / dark
+41407136796  attempt 1  0be0dc68  claude/project-thread-qxa4oc-batch-5-part-1  1616 compared  Two picked light: passed
+      failed: Admin dashboard/Products/Digital asset provider sheet / Refused by Spree / light
+      failed: Admin dashboard/Translations/Resource translations dialog / Save refused / dark
+      failed: Dashboard UI/Composed/Data grid/Fill handle / On a selected cell / dark
+      failed: Dashboard core/Product form/Variants section / Options from the product type / dark
+41386307065  attempt 1  db550f1d  claude/project-thread-qxa4oc-batch-5-part-1  1616 compared  Two picked light: passed
+      failed: Admin dashboard/Products/Digital asset provider sheet / Refused by Spree / dark
+      failed: Admin dashboard/Products/Digital asset provider sheet / Refused by Spree / light
+      failed: Dashboard core/Product form/Variants options builder / Awaiting values / dark
+41382171893  attempt 1  8662b4cc  claude/project-thread-qxa4oc-batch-5-part-1  0 compared  Two picked light: not compared
+41378653818  attempt 1  e282ce6b  claude/project-thread-qxa4oc-batch-5-part-1  0 compared  Two picked light: not compared
+40257240781  attempt 1  92832926  claude/fb-19-batch-3-setup-proposal  1108 compared  Two picked light: passed
+      failed: Dashboard core/Currency select / Any currency, searched / light
+
+41892185225  attempt 1  ea143996  chore/security-audit  0 compared (no job ran)

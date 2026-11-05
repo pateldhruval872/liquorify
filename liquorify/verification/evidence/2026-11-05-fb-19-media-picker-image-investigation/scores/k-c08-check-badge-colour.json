@@ -1,0 +1,56 @@
+{
+ "k-c08-check-badge-colour-1": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 506,
+   "changed": 664,
+   "largest": 29,
+   "failsAt25": true,
+   "failsAt60": true
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": false,
+   "counted": 2,
+   "changed": 68,
+   "largest": 27,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "k-c08-check-badge-colour-2": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 506,
+   "changed": 664,
+   "largest": 29,
+   "failsAt25": true,
+   "failsAt60": true
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": false,
+   "counted": 2,
+   "changed": 68,
+   "largest": 27,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "k-c08-check-badge-colour-3": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 506,
+   "changed": 664,
+   "largest": 29,
+   "failsAt25": true,
+   "failsAt60": true
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": false,
+   "counted": 2,
+   "changed": 68,
+   "largest": 27,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ }
+}

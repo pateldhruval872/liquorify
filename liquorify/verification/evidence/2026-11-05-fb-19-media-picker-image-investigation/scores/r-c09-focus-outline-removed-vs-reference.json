@@ -1,0 +1,22 @@
+{
+ "r-c09-focus-outline-removed-1": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 1727,
+   "changed": 1845,
+   "largest": 246,
+   "failsAt25": true,
+   "failsAt60": true
+  }
+ },
+ "r-c09-focus-outline-removed-2": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 1727,
+   "changed": 1845,
+   "largest": 246,
+   "failsAt25": true,
+   "failsAt60": true
+  }
+ }
+}
