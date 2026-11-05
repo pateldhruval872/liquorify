@@ -5,6 +5,7 @@ import { type APIRequestContext, expect, request as playwright, test } from '@pl
 import {
   type Caller,
   type Case,
+  changeSetting,
   denied,
   notFound,
   ownOnly,
@@ -14,8 +15,8 @@ import {
 } from './one-store'
 
 /**
- * Step P7's criterion 6: each kind of assertion in `one-store.ts` shown to
- * fail when it should. A stand-in server, started here on a free port, gives
+ * Step P7's criterion 6, which step P10 extends: each kind of assertion in
+ * `one-store.ts` shown to fail when it should. A stand-in server, started here on a free port, gives
  * each case one wrong answer: a success where a refusal was due, the wrong
  * code, the wrong permission, a server error, a refused answer that carries
  * the protected record's data, a refused write that changes the record, an
@@ -24,6 +25,14 @@ import {
  * callers allowed. Its storefront part answers as a storefront page or server action
  * would. One case of each judge gets right answers, to show the stand-in's
  * cases fail for their wrong answer and not for the stand-in itself.
+ *
+ * P10 adds a case for each kind of answer its checks meet: a list carrying the
+ * protected record beside the allowed one, a not-found page answered with the
+ * wrong status, an action that acts on the cart it names instead of the
+ * caller's own, a setting the run changed and did not put back, controls that
+ * fail as a defect makes them fail, and the two parts it added to the
+ * storefront judge, a value only the allowed answer must carry and a change
+ * made just before the allowed request.
  *
  * Needs no Spree server. Results go to `results/p7/checks.json`.
  */
@@ -299,6 +308,38 @@ const apiCases: { title: string; failure: RegExp | null; item: () => Case }[] = 
     }),
   },
   {
+    title: 'A list carrying the protected record beside the caller’s own (P10)',
+    failure: /refused: the answer carried a known value/,
+    item: () => ({
+      ...read(23, {
+        status: 200,
+        body: { data: [{ name: 'Own Record 23' }, { name: PROTECTED }] },
+      }),
+      attempts: [{ caller: refused, expected: ownOnly }],
+    }),
+  },
+  {
+    title: 'An allowed create refused as an over-refusal defect would refuse it (P10)',
+    failure: /the allowed caller allowed got 403, expected 201/,
+    item: () => {
+      const created: string[] = []
+      route('GET', '/api/24/state', () => ({ status: 200, body: { data: created } }))
+      route('POST', '/api/24', () => ({
+        status: 403,
+        body: { error: { code: 'access_denied', message: 'You are not authorized' } },
+      }))
+      return {
+        gap: 'stand-in',
+        area: 'stand-in',
+        title: '',
+        request: { method: 'POST', path: '/api/24', data: { name: 'Created 24' } },
+        attempts: [{ caller: refused, expected: denied(null) }],
+        control: { caller: allowed, status: 201 },
+        state: { caller: allowed, request: { method: 'GET', path: '/api/24/state' } },
+      }
+    },
+  },
+  {
     title: 'The second of two refused callers allowed',
     failure: /also: answered 200, expected 403 access_denied write_things/,
     item: () => {
@@ -336,6 +377,8 @@ const action = (n: number) => ({
   action: { id: 'stand-in', args: ['addr_Ab12Cd34'] },
 })
 const kept = { id: 'addr_Ab12Cd34', address1: LINE }
+const SHOWN = 'Shown Value 11'
+const HIDDEN = 'Hidden Value 11'
 
 const storefrontCases: { title: string; failure: RegExp | null; item: () => StorefrontCase }[] = [
   {
@@ -606,6 +649,264 @@ const storefrontCases: { title: string; failure: RegExp | null; item: () => Stor
         },
       ),
   },
+  {
+    title: 'Right answers throughout, with a value only the allowed answer carries (P10)',
+    failure: null,
+    item: () =>
+      storefront(
+        113,
+        {
+          refused: { status: 200, html: `<h1>${SHOWN}</h1>` },
+          allowed: { status: 200, html: `<h1>${SHOWN}</h1>` },
+        },
+        {
+          attempts: [
+            {
+              caller: 'refused',
+              probe: { page: '/sf/113' },
+              expected: { page: 200, shows: [SHOWN] },
+            },
+          ],
+          control: {
+            caller: 'allowed',
+            probe: { page: '/sf/113' },
+            expected: { page: 200, shows: [SHOWN] },
+          },
+          protectedValues: [HIDDEN],
+          controlCarries: [SHOWN],
+        },
+      ),
+  },
+  {
+    title: 'A page whose allowed answer lacks the value only it must carry (P10)',
+    failure: /the allowed answer did not carry the values the check looks for/,
+    item: () =>
+      storefront(
+        114,
+        {
+          refused: { status: 200, html: '<h1>Product 114</h1>' },
+          allowed: { status: 200, html: '<h1>Product 114</h1>' },
+        },
+        {
+          attempts: [
+            {
+              caller: 'refused',
+              probe: { page: '/sf/114' },
+              expected: { page: 200, shows: ['Product 114'] },
+            },
+          ],
+          control: {
+            caller: 'allowed',
+            probe: { page: '/sf/114' },
+            expected: { page: 200, shows: ['Product 114'] },
+          },
+          protectedValues: [HIDDEN],
+          controlCarries: [SHOWN],
+        },
+      ),
+  },
+  {
+    title: 'A list action carrying the protected record beside the allowed one (P10)',
+    failure: /refused: the answer carried a known value/,
+    item: () =>
+      storefront(
+        115,
+        {
+          refused: rsc({ data: [{ name: SHOWN }, { name: HIDDEN }] }),
+          allowed: rsc({ data: [{ name: SHOWN }] }),
+        },
+        {
+          attempts: [
+            {
+              caller: 'refused',
+              probe: action(115),
+              expected: { partly: { data: [{ name: SHOWN }] } },
+            },
+          ],
+          control: {
+            caller: 'allowed',
+            probe: action(115),
+            expected: { partly: { data: [{ name: SHOWN }] } },
+          },
+          protectedValues: [HIDDEN],
+          controlCarries: [SHOWN],
+        },
+      ),
+  },
+  {
+    title: 'A not-found page answered with the wrong status (P10)',
+    failure: /refused: answered a 500 page showing 2 of the 2 texts it should/,
+    item: () =>
+      storefront(
+        116,
+        {
+          refused: { status: 500, html: '<h1>404</h1><p>This page could not be found.</p>' },
+          allowed: { status: 200, html: `<h1>${SHOWN}</h1>` },
+        },
+        {
+          attempts: [
+            {
+              caller: 'refused',
+              probe: { page: '/sf/116' },
+              expected: { page: 200, shows: ['404', 'This page could not be found.'] },
+            },
+          ],
+          control: {
+            caller: 'allowed',
+            probe: { page: '/sf/116' },
+            expected: { page: 200, shows: [SHOWN] },
+          },
+          protectedValues: [HIDDEN],
+          controlCarries: [SHOWN],
+        },
+      ),
+  },
+  {
+    title: "An action that acts on the cart it names instead of the caller's own (P10)",
+    failure: /refused: answered 200 with \{"success":true,"cart":\{"id":"cart_Named1"/,
+    item: () => {
+      const named = { id: 'cart_Named1', currency: 'USD' }
+      const item = storefront(
+        117,
+        { refused: rsc({}), allowed: rsc({}) },
+        {
+          attempts: [
+            {
+              caller: 'refused',
+              probe: { page: '/sf/117', action: { id: 'stand-in', args: [named.id] } },
+              expected: { partly: { success: true, cart: { id: 'cart_Own1' } } },
+            },
+          ],
+          control: {
+            caller: 'allowed',
+            probe: { page: '/sf/117', action: { id: 'stand-in', args: [named.id] } },
+            expected: { partly: { success: true, cart: { id: named.id } } },
+          },
+          state: async () => ({ ...named }),
+        },
+      )
+      route('POST', '/sf/117', () => {
+        named.currency = named.currency === 'USD' ? 'EUR' : 'USD'
+        return rsc({ success: true, cart: { ...named } })
+      })
+      return item
+    },
+  },
+  {
+    title: 'A product page whose signed-in control lacks the price, as SD-9 makes it (P10)',
+    failure: /the allowed caller allowed got a 200 page showing 1 of the 2 texts it should/,
+    item: () =>
+      storefront(
+        118,
+        {
+          refused: { status: 200, html: '<h1>Product 118</h1>' },
+          allowed: { status: 200, html: '<h1>Product 118</h1>' },
+        },
+        {
+          attempts: [
+            {
+              caller: 'refused',
+              probe: { page: '/sf/118' },
+              expected: { page: 200, shows: ['Product 118'] },
+            },
+          ],
+          control: {
+            caller: 'allowed',
+            probe: { page: '/sf/118' },
+            expected: { page: 200, shows: ['Product 118', '27.00'] },
+          },
+          protectedValues: ['27.00'],
+        },
+      ),
+  },
+  {
+    title: 'Right answers throughout, with a change made just before the allowed request (P10)',
+    failure: null,
+    item: () => publishing(119, true),
+  },
+  {
+    title: 'A change before the allowed request that does not take (P10)',
+    failure: /the allowed caller allowed got a 200 page showing 0 of the 1 texts it should/,
+    item: () => publishing(120, false),
+  },
+]
+
+/**
+ * A draft's page, `/sf/<n>`, not found for everyone until `beforeControl`
+ * publishes it, which takes only when `takes` is set.
+ */
+function publishing(n: number, takes: boolean): StorefrontCase {
+  let published = false
+  const item = storefront(
+    n,
+    { refused: rsc(null), allowed: rsc(null) },
+    {
+      attempts: [
+        {
+          caller: 'refused',
+          probe: { page: `/sf/${n}` },
+          expected: { page: 200, shows: ['This page could not be found.'] },
+        },
+      ],
+      control: {
+        caller: 'allowed',
+        probe: { page: `/sf/${n}` },
+        expected: { page: 200, shows: [`Draft ${n}`] },
+      },
+      protectedValues: [`Draft ${n}`],
+      beforeControl: {
+        what: 'the stand-in publishes the draft',
+        run: async () => {
+          published = takes
+        },
+      },
+    },
+  )
+  route('GET', `/sf/${n}`, () =>
+    published
+      ? { status: 200, html: `<h1>Draft ${n}</h1>` }
+      : { status: 200, html: '<p>This page could not be found.</p>' },
+  )
+  return item
+}
+
+/**
+ * A setting changed for some cases and put back: the stand-in setting takes
+ * the first write, and the write that puts it back only when `putBackTakes`.
+ */
+async function settingCase(putBackTakes: boolean) {
+  let value: unknown = null
+  let writes = 0
+  const putBack = await changeSetting(
+    {
+      name: 'the stand-in storefront access',
+      read: async () => value,
+      write: async (next) => {
+        writes += 1
+        if (writes === 1 || putBackTakes) value = next
+      },
+    },
+    'login_required',
+  )
+  const changed = value === 'login_required'
+  const result = await putBack()
+  const failures = [
+    ...(changed ? [] : ['the setting was not changed']),
+    ...(result.restored ? [] : [`${result.setting} was not put back`]),
+  ]
+  return { result: failures.length === 0 ? 'PASS' : 'FAIL', failures }
+}
+const settingCases: { title: string; failure: RegExp | null; putBackTakes: boolean }[] = [
+  {
+    title: 'Right answers throughout: a setting changed and put back (P10)',
+    failure: null,
+    putBackTakes: true,
+  },
+  {
+    title: 'A setting the run changed and did not put back (P10)',
+    failure: /the stand-in storefront access was not put back/,
+    putBackTakes: false,
+  },
 ]
 
 const readBody = (req: IncomingMessage) =>
@@ -667,6 +968,8 @@ test('each kind of assertion fails against a stand-in server that answers wrongl
         result: await runStorefrontCase(contexts, entry.built),
       })
     await client.dispose()
+    for (const entry of settingCases)
+      outcomes.push({ judge: 'setting', entry, result: await settingCase(entry.putBackTakes) })
 
     const checked = outcomes.map(({ judge, entry, result }) => {
       const caught = entry.failure

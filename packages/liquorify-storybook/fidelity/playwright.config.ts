@@ -90,6 +90,8 @@ export default defineConfig({
     'one-store-accounts.spec.ts',
     'one-store-storefront.spec.ts',
     'one-store-checks.spec.ts',
+    'p10-admin.spec.ts',
+    'p10-shoppers.spec.ts',
     'catalog-behaviours.spec.ts',
     'multi-store.spec.ts',
     'getting-started-tasks.spec.ts',
