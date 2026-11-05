@@ -41,8 +41,10 @@ import { defineConfig } from '@playwright/test'
  * product list, reading both staff emails, against a server started as for
  * `mail.spec.ts` (see that file). Batch 7's captures and comparison keep their
  * own files, `screens-batch-7.spec.ts` and `compare-batch-7.spec.ts`, as do
- * catalog part 3's, `screens-catalog-3.spec.ts` and `compare-catalog-3.spec.ts`. For the
- * multi-store administration batch, `multi-store.spec.ts` walks one teammate
+ * catalog part 3's, `screens-catalog-3.spec.ts` and `compare-catalog-3.spec.ts`,
+ * and batch 6's (inventory), `screens-batch-6.spec.ts` and `compare-batch-6.spec.ts`;
+ * batch 6's `g-78-stock-hold.spec.ts` holds stock in one storefront checkout and
+ * sees a second refused it (see that file). For the multi-store administration batch, `multi-store.spec.ts` walks one teammate
  * with different roles in two stores through its states (see that file).
  * For step P9, `getting-started-tasks.spec.ts` drives Getting Started's store
  * address, storefront and payment method tasks, and `settings-actions.spec.ts`
@@ -62,6 +64,9 @@ export default defineConfig({
     'compare-batch-7.spec.ts',
     'screens-catalog-3.spec.ts',
     'compare-catalog-3.spec.ts',
+    'screens-batch-6.spec.ts',
+    'compare-batch-6.spec.ts',
+    'g-78-stock-hold.spec.ts',
     'setup.spec.ts',
     'refusals.spec.ts',
     'mail.spec.ts',

@@ -1,0 +1,24 @@
+{
+  "screen": "DA-INV-01",
+  "state": "incoming-menu",
+  "variant": "merchandiser",
+  "role": {
+    "name": "Merchandiser",
+    "permissions": [
+      "write_products",
+      "write_categories",
+      "write_collections",
+      "write_stock"
+    ]
+  },
+  "theme": "dark",
+  "revision": "5b23b5af",
+  "path": "/<store>/inventory",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": null,
+  "settled": true,
+  "outside": []
+}

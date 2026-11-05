@@ -1,0 +1,354 @@
+{
+  "revision": "99751176",
+  "storefrontRevision": "ad77c3d",
+  "width": "desktop",
+  "product": {
+    "name": "Fidelity stoneware teapot",
+    "sku": "FID-TEAPOT",
+    "slug": "fidelity-stoneware-teapot-mw2s5erf"
+  },
+  "steps": [
+    {
+      "step": "1-dashboard-count-set",
+      "level": {
+        "count_on_hand": 1,
+        "reserved_count": 0,
+        "available_count": 1
+      }
+    },
+    {
+      "step": "2-second-shopper-cart",
+      "level": {
+        "count_on_hand": 1,
+        "reserved_count": 0,
+        "available_count": 1
+      },
+      "url": "/us/en/products/fidelity-stoneware-teapot-mw2s5erf"
+    },
+    {
+      "step": "3-first-shopper-checkout",
+      "level": {
+        "count_on_hand": 1,
+        "reserved_count": 1,
+        "available_count": 1
+      },
+      "said": "The page showed no alert, status, toast or field error.",
+      "url": "/us/en/checkout/cart_ed6l8wVqSM"
+    },
+    {
+      "step": "4-dashboard-reserved",
+      "level": {
+        "count_on_hand": 1,
+        "reserved_count": 1,
+        "available_count": 1
+      }
+    },
+    {
+      "step": "5-third-shopper-product",
+      "level": {
+        "count_on_hand": 1,
+        "reserved_count": 1,
+        "available_count": 1
+      },
+      "said": "Its button read \"Add to Cart\" and was enabled.",
+      "url": "/us/en/products/fidelity-stoneware-teapot-mw2s5erf"
+    },
+    {
+      "step": "5b-third-shopper-adds",
+      "level": {
+        "count_on_hand": 1,
+        "reserved_count": 1,
+        "available_count": 1
+      },
+      "said": "The page said: \"Quantity selected of \"Fidelity stoneware teapot\" is not available.\".",
+      "url": "/us/en/products/fidelity-stoneware-teapot-mw2s5erf"
+    },
+    {
+      "step": "6-second-shopper-checkout",
+      "level": {
+        "count_on_hand": 1,
+        "reserved_count": 1,
+        "available_count": 1
+      },
+      "said": "The page showed no alert, status, toast or field error.",
+      "url": "/us/en/checkout/cart_HOVtlDrOmL"
+    },
+    {
+      "step": "7-hold-given-back",
+      "level": {
+        "count_on_hand": 1,
+        "reserved_count": 0,
+        "available_count": 1
+      }
+    }
+  ],
+  "carts": {
+    "first": [
+      {
+        "method": "POST",
+        "path": "/api/v3/store/carts/cart_ed6l8wVqSM/items",
+        "status": 201,
+        "body": {
+          "warnings": [
+            {
+              "code": "delivery_unavailable",
+              "message": "Fidelity stoneware teapot cannot be delivered to the selected address",
+              "line_item_id": "li_xhoCpeNMWu"
+            }
+          ],
+          "total_quantity": 1,
+          "email": null,
+          "items": [
+            {
+              "name": "Fidelity stoneware teapot",
+              "quantity": 1
+            }
+          ]
+        }
+      },
+      {
+        "method": "GET",
+        "path": "/api/v3/store/carts/cart_ed6l8wVqSM",
+        "status": 200,
+        "body": {
+          "warnings": [],
+          "total_quantity": 1,
+          "email": null,
+          "items": [
+            {
+              "name": "Fidelity stoneware teapot",
+              "quantity": 1
+            }
+          ]
+        }
+      },
+      {
+        "method": "GET",
+        "path": "/api/v3/store/carts/cart_ed6l8wVqSM",
+        "status": 200,
+        "body": {
+          "warnings": [],
+          "total_quantity": 1,
+          "email": null,
+          "items": [
+            {
+              "name": "Fidelity stoneware teapot",
+              "quantity": 1
+            }
+          ]
+        }
+      },
+      {
+        "method": "GET",
+        "path": "/api/v3/store/carts/cart_ed6l8wVqSM",
+        "status": 200,
+        "body": {
+          "warnings": [],
+          "total_quantity": 1,
+          "email": null,
+          "items": [
+            {
+              "name": "Fidelity stoneware teapot",
+              "quantity": 1
+            }
+          ]
+        }
+      },
+      {
+        "method": "GET",
+        "path": "/api/v3/store/carts/cart_ed6l8wVqSM",
+        "status": 200,
+        "body": {
+          "warnings": [],
+          "total_quantity": 1,
+          "email": null,
+          "items": [
+            {
+              "name": "Fidelity stoneware teapot",
+              "quantity": 1
+            }
+          ]
+        }
+      },
+      {
+        "method": "GET",
+        "path": "/api/v3/store/carts/cart_ed6l8wVqSM",
+        "status": 200,
+        "body": {
+          "warnings": [],
+          "total_quantity": 1,
+          "email": null,
+          "items": [
+            {
+              "name": "Fidelity stoneware teapot",
+              "quantity": 1
+            }
+          ]
+        }
+      },
+      {
+        "method": "PATCH",
+        "path": "/api/v3/store/carts/cart_ed6l8wVqSM",
+        "status": 200,
+        "body": {
+          "warnings": [],
+          "total_quantity": 1,
+          "email": "<set>",
+          "items": [
+            {
+              "name": "Fidelity stoneware teapot",
+              "quantity": 1
+            }
+          ]
+        }
+      },
+      {
+        "method": "GET",
+        "path": "/api/v3/store/carts/cart_ed6l8wVqSM",
+        "status": 200,
+        "body": {
+          "warnings": [],
+          "total_quantity": 1,
+          "email": "<set>",
+          "items": [
+            {
+              "name": "Fidelity stoneware teapot",
+              "quantity": 1
+            }
+          ]
+        }
+      },
+      {
+        "method": "PATCH",
+        "path": "/api/v3/store/carts/cart_ed6l8wVqSM",
+        "status": 200,
+        "body": {
+          "warnings": [
+            {
+              "code": "delivery_unavailable",
+              "message": "Fidelity stoneware teapot cannot be delivered to the selected address",
+              "line_item_id": "li_xhoCpeNMWu"
+            }
+          ],
+          "total_quantity": 1,
+          "email": "<set>",
+          "items": [
+            {
+              "name": "Fidelity stoneware teapot",
+              "quantity": 1
+            }
+          ]
+        }
+      },
+      {
+        "method": "GET",
+        "path": "/api/v3/store/carts/cart_ed6l8wVqSM",
+        "status": 200,
+        "body": {
+          "warnings": [
+            {
+              "code": "delivery_unavailable",
+              "message": "Fidelity stoneware teapot cannot be delivered to the selected address",
+              "line_item_id": "li_xhoCpeNMWu"
+            }
+          ],
+          "total_quantity": 1,
+          "email": "<set>",
+          "items": [
+            {
+              "name": "Fidelity stoneware teapot",
+              "quantity": 1
+            }
+          ]
+        }
+      }
+    ],
+    "second": [
+      {
+        "method": "GET",
+        "path": "/api/v3/store/carts/cart_HOVtlDrOmL",
+        "status": 200,
+        "body": {
+          "warnings": [
+            {
+              "code": "line_item_removed",
+              "message": "Fidelity stoneware teapot was removed because it was sold out",
+              "line_item_id": "li_98FqgRua4h",
+              "variant_id": "variant_C9SrJgpzQ4"
+            }
+          ],
+          "total_quantity": 0,
+          "email": null,
+          "items": []
+        }
+      },
+      {
+        "method": "GET",
+        "path": "/api/v3/store/carts/cart_HOVtlDrOmL",
+        "status": 200,
+        "body": {
+          "warnings": [],
+          "total_quantity": 0,
+          "email": null,
+          "items": []
+        }
+      },
+      {
+        "method": "GET",
+        "path": "/api/v3/store/carts/cart_HOVtlDrOmL",
+        "status": 200,
+        "body": {
+          "warnings": [],
+          "total_quantity": 0,
+          "email": null,
+          "items": []
+        }
+      },
+      {
+        "method": "GET",
+        "path": "/api/v3/store/carts/cart_HOVtlDrOmL",
+        "status": 200,
+        "body": {
+          "warnings": [],
+          "total_quantity": 0,
+          "email": null,
+          "items": []
+        }
+      }
+    ],
+    "third": [
+      {
+        "method": "POST",
+        "path": "/api/v3/store/carts",
+        "status": 201,
+        "body": {
+          "warnings": [],
+          "total_quantity": 0,
+          "email": null,
+          "items": []
+        }
+      },
+      {
+        "method": "POST",
+        "path": "/api/v3/store/carts/cart_s18jaGonyx/items",
+        "status": 422,
+        "body": {
+          "error": {
+            "code": "validation_error",
+            "message": "Quantity selected of \"Fidelity stoneware teapot\" is not available.",
+            "details": {
+              "quantity": [
+                "selected of \"Fidelity stoneware teapot\" is not available."
+              ]
+            }
+          }
+        }
+      }
+    ]
+  },
+  "productWhileHeld": {
+    "status": 200,
+    "in_stock": false,
+    "purchasable": false
+  }
+}

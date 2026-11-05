@@ -1,0 +1,16 @@
+{
+  "screen": "DA-INV-08",
+  "state": "overdue",
+  "variant": "admin",
+  "role": null,
+  "theme": "light",
+  "revision": "5b23b5af",
+  "path": "/<store>/purchase-orders/po_EfhxLZ9ck8",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": null,
+  "settled": true,
+  "outside": []
+}
