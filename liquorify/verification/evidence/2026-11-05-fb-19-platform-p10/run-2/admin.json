@@ -1,0 +1,4349 @@
+{
+  "revision": "d12407b2",
+  "run": 1793859134901,
+  "store": "default",
+  "hold": {
+    "reservedAtLocation": 1,
+    "listedReservations": 0
+  },
+  "gaps": {
+    "G-56": {
+      "cases": 4,
+      "attempts": 5,
+      "passed": 4,
+      "failed": []
+    },
+    "G-60": {
+      "cases": 6,
+      "attempts": 6,
+      "passed": 6,
+      "failed": []
+    },
+    "G-83": {
+      "cases": 28,
+      "attempts": 45,
+      "passed": 28,
+      "failed": []
+    },
+    "G-70": {
+      "cases": 10,
+      "attempts": 11,
+      "passed": 9,
+      "failed": [
+        "3.6 Add an origin group to a profile"
+      ]
+    },
+    "G-11": {
+      "cases": 17,
+      "attempts": 26,
+      "passed": 15,
+      "failed": [
+        "5.10 List stock reservations",
+        "5.9 Export purchase orders"
+      ]
+    }
+  },
+  "cases": [
+    {
+      "gap": "G-83",
+      "area": "promotions",
+      "title": "2.16 Rule picker: search products by name",
+      "request": "GET /api/v3/admin/products?q[name_cont]=p10cat1793859134901&limit=10&sort=name",
+      "attempts": [
+        {
+          "caller": "marketer",
+          "permissionKeys": [
+            "read_promotions",
+            "write_promotions"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_products"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_products"
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": null
+        }
+      ],
+      "control": {
+        "caller": "merchandiser",
+        "permissionKeys": [
+          "read_products",
+          "write_products",
+          "read_categories",
+          "write_categories",
+          "read_collections",
+          "write_collections",
+          "read_stock",
+          "write_stock"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": true,
+        "changed": null
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-83",
+      "area": "promotions",
+      "title": "2.16 Rule picker: a saved rule's products by id",
+      "request": "GET /api/v3/admin/products?q[id_in][]=prod_L3pHOn63Vw&q[id_in][]=prod_PQNMcnNFWw&limit=2",
+      "attempts": [
+        {
+          "caller": "marketer",
+          "permissionKeys": [
+            "read_promotions",
+            "write_promotions"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_products"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_products"
+          },
+          "asExpected": true,
+          "exposureChecked": 2,
+          "exposed": [],
+          "unchanged": null
+        }
+      ],
+      "control": {
+        "caller": "merchandiser",
+        "permissionKeys": [
+          "read_products",
+          "write_products",
+          "read_categories",
+          "write_categories",
+          "read_collections",
+          "write_collections",
+          "read_stock",
+          "write_stock"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": true,
+        "changed": null
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-83",
+      "area": "promotions",
+      "title": "2.16 Rule picker: search categories by name",
+      "request": "GET /api/v3/admin/categories?q[name_cont]=p10cat1793859134901&limit=20&sort=pretty_name",
+      "attempts": [
+        {
+          "caller": "marketer",
+          "permissionKeys": [
+            "read_promotions",
+            "write_promotions"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_categories"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_categories"
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": null
+        }
+      ],
+      "control": {
+        "caller": "catalogViewer",
+        "permissionKeys": [
+          "read_products",
+          "read_product_types",
+          "read_publishing",
+          "read_media",
+          "read_categories",
+          "read_collections",
+          "read_stock"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": true,
+        "changed": null
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-83",
+      "area": "promotions",
+      "title": "2.16 Rule picker: search customers",
+      "request": "GET /api/v3/admin/customers?q[search]=Customer1793859134901&limit=10",
+      "attempts": [
+        {
+          "caller": "marketer",
+          "permissionKeys": [
+            "read_promotions",
+            "write_promotions"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_customers"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_customers"
+          },
+          "asExpected": true,
+          "exposureChecked": 2,
+          "exposed": [],
+          "unchanged": null
+        }
+      ],
+      "control": {
+        "caller": "support",
+        "permissionKeys": [
+          "read_dashboard",
+          "read_orders",
+          "read_customers"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": true,
+        "changed": null
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-83",
+      "area": "promotions",
+      "title": "2.16 Rule picker: a saved rule's customers by id",
+      "request": "GET /api/v3/admin/customers?q[id_in][]=cust_gbHJdmfrXB&limit=1",
+      "attempts": [
+        {
+          "caller": "marketer",
+          "permissionKeys": [
+            "read_promotions",
+            "write_promotions"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_customers"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_customers"
+          },
+          "asExpected": true,
+          "exposureChecked": 2,
+          "exposed": [],
+          "unchanged": null
+        }
+      ],
+      "control": {
+        "caller": "support",
+        "permissionKeys": [
+          "read_dashboard",
+          "read_orders",
+          "read_customers"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": true,
+        "changed": null
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-83",
+      "area": "promotions",
+      "title": "2.16 Rule picker: the customer groups",
+      "request": "GET /api/v3/admin/customer_groups?limit=100&sort=name",
+      "attempts": [
+        {
+          "caller": "marketer",
+          "permissionKeys": [
+            "read_promotions",
+            "write_promotions"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_customers"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_customers"
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": null
+        }
+      ],
+      "control": {
+        "caller": "support",
+        "permissionKeys": [
+          "read_dashboard",
+          "read_orders",
+          "read_customers"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": true,
+        "changed": null
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-83",
+      "area": "promotions",
+      "title": "2.16 Rule picker: search the customer groups",
+      "request": "GET /api/v3/admin/customer_groups?q[name_cont]=1793859134901&limit=100&sort=name",
+      "attempts": [
+        {
+          "caller": "marketer",
+          "permissionKeys": [
+            "read_promotions",
+            "write_promotions"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_customers"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_customers"
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": null
+        }
+      ],
+      "control": {
+        "caller": "support",
+        "permissionKeys": [
+          "read_dashboard",
+          "read_orders",
+          "read_customers"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": true,
+        "changed": null
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-83",
+      "area": "promotions",
+      "title": "2.16 Rule picker: the channels",
+      "request": "GET /api/v3/admin/channels?page=1&limit=100",
+      "attempts": [
+        {
+          "caller": "marketer",
+          "permissionKeys": [
+            "read_promotions",
+            "write_promotions"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_settings"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_settings"
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": null
+        }
+      ],
+      "control": {
+        "caller": "settingsViewer",
+        "permissionKeys": [
+          "read_settings"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": true,
+        "changed": null
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-83",
+      "area": "promotions",
+      "title": "2.16 Rule picker: the markets",
+      "request": "GET /api/v3/admin/markets?limit=100&sort=position",
+      "attempts": [
+        {
+          "caller": "marketer",
+          "permissionKeys": [
+            "read_promotions",
+            "write_promotions"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_settings"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_settings"
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": null
+        }
+      ],
+      "control": {
+        "caller": "settingsViewer",
+        "permissionKeys": [
+          "read_settings"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": true,
+        "changed": null
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-83",
+      "area": "promotions",
+      "title": "2.16 Rule picker: the option types with their values",
+      "request": "GET /api/v3/admin/option_types?page=1&limit=100&expand=option_values",
+      "attempts": [
+        {
+          "caller": "marketer",
+          "permissionKeys": [
+            "read_promotions",
+            "write_promotions"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_products"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_products"
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": null
+        }
+      ],
+      "control": {
+        "caller": "catalogViewer",
+        "permissionKeys": [
+          "read_products",
+          "read_product_types",
+          "read_publishing",
+          "read_media",
+          "read_categories",
+          "read_collections",
+          "read_stock"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": true,
+        "changed": null
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-83",
+      "area": "loyalty",
+      "title": "2.17 The gift cards list",
+      "request": "GET /api/v3/admin/gift_cards?page=1&sort=-created_at&expand=customer,created_by,gift_card_batch",
+      "attempts": [
+        {
+          "caller": "marketer",
+          "permissionKeys": [
+            "read_promotions",
+            "write_promotions"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_gift_cards"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_gift_cards"
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": null
+        },
+        {
+          "caller": "merchandiser",
+          "permissionKeys": [
+            "read_products",
+            "write_products",
+            "read_categories",
+            "write_categories",
+            "read_collections",
+            "write_collections",
+            "read_stock",
+            "write_stock"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_gift_cards"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_gift_cards"
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": null
+        }
+      ],
+      "control": {
+        "caller": "loyaltyViewer",
+        "permissionKeys": [
+          "read_customers",
+          "read_gift_cards",
+          "read_store_credits",
+          "read_promotions"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": true,
+        "changed": null
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-83",
+      "area": "loyalty",
+      "title": "2.17 The store credits list",
+      "request": "GET /api/v3/admin/store_credits?page=1&sort=-created_at&expand=customer,created_by",
+      "attempts": [
+        {
+          "caller": "marketer",
+          "permissionKeys": [
+            "read_promotions",
+            "write_promotions"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_store_credits"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_store_credits"
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": null
+        },
+        {
+          "caller": "merchandiser",
+          "permissionKeys": [
+            "read_products",
+            "write_products",
+            "read_categories",
+            "write_categories",
+            "read_collections",
+            "write_collections",
+            "read_stock",
+            "write_stock"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_store_credits"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_store_credits"
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": null
+        }
+      ],
+      "control": {
+        "caller": "loyaltyViewer",
+        "permissionKeys": [
+          "read_customers",
+          "read_gift_cards",
+          "read_store_credits",
+          "read_promotions"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": true,
+        "changed": null
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-83",
+      "area": "promotions",
+      "title": "2.18 The promotions list",
+      "request": "GET /api/v3/admin/promotions?page=1&sort=-created_at",
+      "attempts": [
+        {
+          "caller": "orderManager",
+          "permissionKeys": [
+            "read_orders",
+            "write_orders",
+            "read_payments",
+            "write_payments",
+            "read_fulfillments",
+            "write_fulfillments",
+            "read_refunds",
+            "write_refunds",
+            "read_customers",
+            "read_gift_cards",
+            "write_gift_cards",
+            "read_store_credits",
+            "write_store_credits"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_promotions"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_promotions"
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": null
+        },
+        {
+          "caller": "merchandiser",
+          "permissionKeys": [
+            "read_products",
+            "write_products",
+            "read_categories",
+            "write_categories",
+            "read_collections",
+            "write_collections",
+            "read_stock",
+            "write_stock"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_promotions"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_promotions"
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": null
+        }
+      ],
+      "control": {
+        "caller": "loyaltyViewer",
+        "permissionKeys": [
+          "read_customers",
+          "read_gift_cards",
+          "read_store_credits",
+          "read_promotions"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": true,
+        "changed": null
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-83",
+      "area": "promotions",
+      "title": "2.18 The new promotion page's rule types",
+      "request": "GET /api/v3/admin/promotion_rules/types",
+      "attempts": [
+        {
+          "caller": "orderManager",
+          "permissionKeys": [
+            "read_orders",
+            "write_orders",
+            "read_payments",
+            "write_payments",
+            "read_fulfillments",
+            "write_fulfillments",
+            "read_refunds",
+            "write_refunds",
+            "read_customers",
+            "read_gift_cards",
+            "write_gift_cards",
+            "read_store_credits",
+            "write_store_credits"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_promotions"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_promotions"
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": null
+        },
+        {
+          "caller": "merchandiser",
+          "permissionKeys": [
+            "read_products",
+            "write_products",
+            "read_categories",
+            "write_categories",
+            "read_collections",
+            "write_collections",
+            "read_stock",
+            "write_stock"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_promotions"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_promotions"
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": null
+        }
+      ],
+      "control": {
+        "caller": "marketer",
+        "permissionKeys": [
+          "read_promotions",
+          "write_promotions"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": true,
+        "changed": null
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-83",
+      "area": "promotions",
+      "title": "2.18 The new promotion page's action types",
+      "request": "GET /api/v3/admin/promotion_actions/types",
+      "attempts": [
+        {
+          "caller": "orderManager",
+          "permissionKeys": [
+            "read_orders",
+            "write_orders",
+            "read_payments",
+            "write_payments",
+            "read_fulfillments",
+            "write_fulfillments",
+            "read_refunds",
+            "write_refunds",
+            "read_customers",
+            "read_gift_cards",
+            "write_gift_cards",
+            "read_store_credits",
+            "write_store_credits"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_promotions"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_promotions"
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": null
+        },
+        {
+          "caller": "merchandiser",
+          "permissionKeys": [
+            "read_products",
+            "write_products",
+            "read_categories",
+            "write_categories",
+            "read_collections",
+            "write_collections",
+            "read_stock",
+            "write_stock"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_promotions"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_promotions"
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": null
+        }
+      ],
+      "control": {
+        "caller": "marketer",
+        "permissionKeys": [
+          "read_promotions",
+          "write_promotions"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": true,
+        "changed": null
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-83",
+      "area": "promotions",
+      "title": "2.19 A promotion's page",
+      "request": "GET /api/v3/admin/promotions/<id>",
+      "attempts": [
+        {
+          "caller": "orderManager",
+          "permissionKeys": [
+            "read_orders",
+            "write_orders",
+            "read_payments",
+            "write_payments",
+            "read_fulfillments",
+            "write_fulfillments",
+            "read_refunds",
+            "write_refunds",
+            "read_customers",
+            "read_gift_cards",
+            "write_gift_cards",
+            "read_store_credits",
+            "write_store_credits"
+          ],
+          "expected": {
+            "status": 404,
+            "code": "record_not_found",
+            "requiredPermission": null
+          },
+          "actual": {
+            "status": 404,
+            "code": "record_not_found",
+            "requiredPermission": null
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": null
+        },
+        {
+          "caller": "merchandiser",
+          "permissionKeys": [
+            "read_products",
+            "write_products",
+            "read_categories",
+            "write_categories",
+            "read_collections",
+            "write_collections",
+            "read_stock",
+            "write_stock"
+          ],
+          "expected": {
+            "status": 404,
+            "code": "record_not_found",
+            "requiredPermission": null
+          },
+          "actual": {
+            "status": 404,
+            "code": "record_not_found",
+            "requiredPermission": null
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": null
+        }
+      ],
+      "control": {
+        "caller": "loyaltyViewer",
+        "permissionKeys": [
+          "read_customers",
+          "read_gift_cards",
+          "read_store_credits",
+          "read_promotions"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": true,
+        "changed": null
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-83",
+      "area": "promotions",
+      "title": "2.20 A promotion's rules",
+      "request": "GET /api/v3/admin/promotions/<id>/promotion_rules?limit=100",
+      "attempts": [
+        {
+          "caller": "orderManager",
+          "permissionKeys": [
+            "read_orders",
+            "write_orders",
+            "read_payments",
+            "write_payments",
+            "read_fulfillments",
+            "write_fulfillments",
+            "read_refunds",
+            "write_refunds",
+            "read_customers",
+            "read_gift_cards",
+            "write_gift_cards",
+            "read_store_credits",
+            "write_store_credits"
+          ],
+          "expected": {
+            "status": 404,
+            "code": "record_not_found",
+            "requiredPermission": null
+          },
+          "actual": {
+            "status": 404,
+            "code": "record_not_found",
+            "requiredPermission": null
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": null
+        },
+        {
+          "caller": "merchandiser",
+          "permissionKeys": [
+            "read_products",
+            "write_products",
+            "read_categories",
+            "write_categories",
+            "read_collections",
+            "write_collections",
+            "read_stock",
+            "write_stock"
+          ],
+          "expected": {
+            "status": 404,
+            "code": "record_not_found",
+            "requiredPermission": null
+          },
+          "actual": {
+            "status": 404,
+            "code": "record_not_found",
+            "requiredPermission": null
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": null
+        },
+        {
+          "caller": "loyaltyViewer",
+          "permissionKeys": [
+            "read_customers",
+            "read_gift_cards",
+            "read_store_credits",
+            "read_promotions"
+          ],
+          "expected": {
+            "status": 404,
+            "code": "record_not_found",
+            "requiredPermission": null
+          },
+          "actual": {
+            "status": 404,
+            "code": "record_not_found",
+            "requiredPermission": null
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": null
+        }
+      ],
+      "control": {
+        "caller": "marketer",
+        "permissionKeys": [
+          "read_promotions",
+          "write_promotions"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": true,
+        "changed": null
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-83",
+      "area": "promotions",
+      "title": "2.20 A promotion's actions",
+      "request": "GET /api/v3/admin/promotions/<id>/promotion_actions?limit=100",
+      "attempts": [
+        {
+          "caller": "orderManager",
+          "permissionKeys": [
+            "read_orders",
+            "write_orders",
+            "read_payments",
+            "write_payments",
+            "read_fulfillments",
+            "write_fulfillments",
+            "read_refunds",
+            "write_refunds",
+            "read_customers",
+            "read_gift_cards",
+            "write_gift_cards",
+            "read_store_credits",
+            "write_store_credits"
+          ],
+          "expected": {
+            "status": 404,
+            "code": "record_not_found",
+            "requiredPermission": null
+          },
+          "actual": {
+            "status": 404,
+            "code": "record_not_found",
+            "requiredPermission": null
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": null
+        },
+        {
+          "caller": "merchandiser",
+          "permissionKeys": [
+            "read_products",
+            "write_products",
+            "read_categories",
+            "write_categories",
+            "read_collections",
+            "write_collections",
+            "read_stock",
+            "write_stock"
+          ],
+          "expected": {
+            "status": 404,
+            "code": "record_not_found",
+            "requiredPermission": null
+          },
+          "actual": {
+            "status": 404,
+            "code": "record_not_found",
+            "requiredPermission": null
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": null
+        },
+        {
+          "caller": "loyaltyViewer",
+          "permissionKeys": [
+            "read_customers",
+            "read_gift_cards",
+            "read_store_credits",
+            "read_promotions"
+          ],
+          "expected": {
+            "status": 404,
+            "code": "record_not_found",
+            "requiredPermission": null
+          },
+          "actual": {
+            "status": 404,
+            "code": "record_not_found",
+            "requiredPermission": null
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": null
+        }
+      ],
+      "control": {
+        "caller": "marketer",
+        "permissionKeys": [
+          "read_promotions",
+          "write_promotions"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": true,
+        "changed": null
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-83",
+      "area": "loyalty",
+      "title": "2.21 The channels list, as the loyalty screens send it",
+      "request": "GET /api/v3/admin/channels?page=1&limit=100",
+      "attempts": [
+        {
+          "caller": "orderManager",
+          "permissionKeys": [
+            "read_orders",
+            "write_orders",
+            "read_payments",
+            "write_payments",
+            "read_fulfillments",
+            "write_fulfillments",
+            "read_refunds",
+            "write_refunds",
+            "read_customers",
+            "read_gift_cards",
+            "write_gift_cards",
+            "read_store_credits",
+            "write_store_credits"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_settings"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_settings"
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": null
+        },
+        {
+          "caller": "loyaltyViewer",
+          "permissionKeys": [
+            "read_customers",
+            "read_gift_cards",
+            "read_store_credits",
+            "read_promotions"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_settings"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_settings"
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": null
+        }
+      ],
+      "control": {
+        "caller": "settingsViewer",
+        "permissionKeys": [
+          "read_settings"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": true,
+        "changed": null
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-83",
+      "area": "promotions",
+      "title": "2.22 The sales query the promotion pages send",
+      "request": "POST /api/v3/admin/reporting/query",
+      "attempts": [
+        {
+          "caller": "marketer",
+          "permissionKeys": [
+            "read_promotions",
+            "write_promotions"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_reports"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_reports"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": null
+        },
+        {
+          "caller": "merchandiser",
+          "permissionKeys": [
+            "read_products",
+            "write_products",
+            "read_categories",
+            "write_categories",
+            "read_collections",
+            "write_collections",
+            "read_stock",
+            "write_stock"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_reports"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_reports"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": null
+        }
+      ],
+      "control": {
+        "caller": "admin",
+        "permissionKeys": [
+          "read_dashboard",
+          "read_reports",
+          "write_reports",
+          "read_orders",
+          "write_orders",
+          "read_payments",
+          "write_payments",
+          "read_fulfillments",
+          "write_fulfillments",
+          "read_refunds",
+          "write_refunds",
+          "read_products",
+          "write_products",
+          "read_product_types",
+          "write_product_types",
+          "read_publishing",
+          "write_publishing",
+          "read_media",
+          "write_media",
+          "read_categories",
+          "write_categories",
+          "read_collections",
+          "write_collections",
+          "read_stock",
+          "write_stock",
+          "read_purchasing",
+          "write_purchasing",
+          "read_customers",
+          "write_customers",
+          "read_sellers",
+          "write_sellers",
+          "read_commissions",
+          "write_commissions",
+          "read_payouts",
+          "write_payouts",
+          "read_gift_cards",
+          "write_gift_cards",
+          "read_store_credits",
+          "write_store_credits",
+          "read_promotions",
+          "write_promotions",
+          "read_settings",
+          "write_settings",
+          "read_delivery_methods",
+          "write_delivery_methods",
+          "read_package_types",
+          "write_package_types",
+          "read_webhooks",
+          "write_webhooks",
+          "read_email_templates",
+          "write_email_templates",
+          "read_integrations",
+          "write_integrations",
+          "read_api_keys",
+          "write_api_keys",
+          "read_oauth_applications",
+          "write_oauth_applications",
+          "read_staff",
+          "write_staff"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": null,
+        "changed": null
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-83",
+      "area": "navigation",
+      "title": "2.23 The navigation's counters",
+      "request": "GET /api/v3/admin/dashboard/counters",
+      "attempts": [
+        {
+          "caller": "marketer",
+          "permissionKeys": [
+            "read_promotions",
+            "write_promotions"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_dashboard"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_dashboard"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": null
+        },
+        {
+          "caller": "loyaltyViewer",
+          "permissionKeys": [
+            "read_customers",
+            "read_gift_cards",
+            "read_store_credits",
+            "read_promotions"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_dashboard"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_dashboard"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": null
+        },
+        {
+          "caller": "orderManager",
+          "permissionKeys": [
+            "read_orders",
+            "write_orders",
+            "read_payments",
+            "write_payments",
+            "read_fulfillments",
+            "write_fulfillments",
+            "read_refunds",
+            "write_refunds",
+            "read_customers",
+            "read_gift_cards",
+            "write_gift_cards",
+            "read_store_credits",
+            "write_store_credits"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_dashboard"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_dashboard"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": null
+        },
+        {
+          "caller": "merchandiser",
+          "permissionKeys": [
+            "read_products",
+            "write_products",
+            "read_categories",
+            "write_categories",
+            "read_collections",
+            "write_collections",
+            "read_stock",
+            "write_stock"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_dashboard"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_dashboard"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": null
+        }
+      ],
+      "control": {
+        "caller": "support",
+        "permissionKeys": [
+          "read_dashboard",
+          "read_orders",
+          "read_customers"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": true,
+        "changed": null
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-56",
+      "area": "catalog",
+      "title": "2.1 Save a product",
+      "request": "PATCH /api/v3/admin/products/<id>",
+      "attempts": [
+        {
+          "caller": "catalogViewer",
+          "permissionKeys": [
+            "read_products",
+            "read_product_types",
+            "read_publishing",
+            "read_media",
+            "read_categories",
+            "read_collections",
+            "read_stock"
+          ],
+          "expected": {
+            "status": 404,
+            "code": "record_not_found",
+            "requiredPermission": null
+          },
+          "actual": {
+            "status": 404,
+            "code": "record_not_found",
+            "requiredPermission": null
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "merchandiser",
+        "permissionKeys": [
+          "read_products",
+          "write_products",
+          "read_categories",
+          "write_categories",
+          "read_collections",
+          "write_collections",
+          "read_stock",
+          "write_stock"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-56",
+      "area": "catalog",
+      "title": "2.2 Create a product",
+      "request": "POST /api/v3/admin/products",
+      "attempts": [
+        {
+          "caller": "catalogViewer",
+          "permissionKeys": [
+            "read_products",
+            "read_product_types",
+            "read_publishing",
+            "read_media",
+            "read_categories",
+            "read_collections",
+            "read_stock"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_products"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_products"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": true
+        },
+        {
+          "caller": "orderManager",
+          "permissionKeys": [
+            "read_orders",
+            "write_orders",
+            "read_payments",
+            "write_payments",
+            "read_fulfillments",
+            "write_fulfillments",
+            "read_refunds",
+            "write_refunds",
+            "read_customers",
+            "read_gift_cards",
+            "write_gift_cards",
+            "read_store_credits",
+            "write_store_credits"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_products"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_products"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "merchandiser",
+        "permissionKeys": [
+          "read_products",
+          "write_products",
+          "read_categories",
+          "write_categories",
+          "read_collections",
+          "write_collections",
+          "read_stock",
+          "write_stock"
+        ],
+        "expectedStatus": 201,
+        "status": 201,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-56",
+      "area": "catalog",
+      "title": "2.3 Save an option type",
+      "request": "PATCH /api/v3/admin/option_types/<id>",
+      "attempts": [
+        {
+          "caller": "catalogViewer",
+          "permissionKeys": [
+            "read_products",
+            "read_product_types",
+            "read_publishing",
+            "read_media",
+            "read_categories",
+            "read_collections",
+            "read_stock"
+          ],
+          "expected": {
+            "status": 404,
+            "code": "record_not_found",
+            "requiredPermission": null
+          },
+          "actual": {
+            "status": 404,
+            "code": "record_not_found",
+            "requiredPermission": null
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "merchandiser",
+        "permissionKeys": [
+          "read_products",
+          "write_products",
+          "read_categories",
+          "write_categories",
+          "read_collections",
+          "write_collections",
+          "read_stock",
+          "write_stock"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-56",
+      "area": "catalog",
+      "title": "2.4 Save a product type",
+      "request": "PATCH /api/v3/admin/product_types/<id>",
+      "attempts": [
+        {
+          "caller": "catalogViewer",
+          "permissionKeys": [
+            "read_products",
+            "read_product_types",
+            "read_publishing",
+            "read_media",
+            "read_categories",
+            "read_collections",
+            "read_stock"
+          ],
+          "expected": {
+            "status": 404,
+            "code": "record_not_found",
+            "requiredPermission": null
+          },
+          "actual": {
+            "status": 404,
+            "code": "record_not_found",
+            "requiredPermission": null
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "admin",
+        "permissionKeys": [
+          "read_dashboard",
+          "read_reports",
+          "write_reports",
+          "read_orders",
+          "write_orders",
+          "read_payments",
+          "write_payments",
+          "read_fulfillments",
+          "write_fulfillments",
+          "read_refunds",
+          "write_refunds",
+          "read_products",
+          "write_products",
+          "read_product_types",
+          "write_product_types",
+          "read_publishing",
+          "write_publishing",
+          "read_media",
+          "write_media",
+          "read_categories",
+          "write_categories",
+          "read_collections",
+          "write_collections",
+          "read_stock",
+          "write_stock",
+          "read_purchasing",
+          "write_purchasing",
+          "read_customers",
+          "write_customers",
+          "read_sellers",
+          "write_sellers",
+          "read_commissions",
+          "write_commissions",
+          "read_payouts",
+          "write_payouts",
+          "read_gift_cards",
+          "write_gift_cards",
+          "read_store_credits",
+          "write_store_credits",
+          "read_promotions",
+          "write_promotions",
+          "read_settings",
+          "write_settings",
+          "read_delivery_methods",
+          "write_delivery_methods",
+          "read_package_types",
+          "write_package_types",
+          "read_webhooks",
+          "write_webhooks",
+          "read_email_templates",
+          "write_email_templates",
+          "read_integrations",
+          "write_integrations",
+          "read_api_keys",
+          "write_api_keys",
+          "read_oauth_applications",
+          "write_oauth_applications",
+          "read_staff",
+          "write_staff"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-60",
+      "area": "catalog",
+      "title": "2.5 Save a category",
+      "request": "PATCH /api/v3/admin/categories/<id>",
+      "attempts": [
+        {
+          "caller": "catalogViewer",
+          "permissionKeys": [
+            "read_products",
+            "read_product_types",
+            "read_publishing",
+            "read_media",
+            "read_categories",
+            "read_collections",
+            "read_stock"
+          ],
+          "expected": {
+            "status": 404,
+            "code": "record_not_found",
+            "requiredPermission": null
+          },
+          "actual": {
+            "status": 404,
+            "code": "record_not_found",
+            "requiredPermission": null
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "merchandiser",
+        "permissionKeys": [
+          "read_products",
+          "write_products",
+          "read_categories",
+          "write_categories",
+          "read_collections",
+          "write_collections",
+          "read_stock",
+          "write_stock"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-60",
+      "area": "catalog",
+      "title": "2.6 Save a collection",
+      "request": "PATCH /api/v3/admin/collections/<id>",
+      "attempts": [
+        {
+          "caller": "catalogViewer",
+          "permissionKeys": [
+            "read_products",
+            "read_product_types",
+            "read_publishing",
+            "read_media",
+            "read_categories",
+            "read_collections",
+            "read_stock"
+          ],
+          "expected": {
+            "status": 404,
+            "code": "record_not_found",
+            "requiredPermission": null
+          },
+          "actual": {
+            "status": 404,
+            "code": "record_not_found",
+            "requiredPermission": null
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "merchandiser",
+        "permissionKeys": [
+          "read_products",
+          "write_products",
+          "read_categories",
+          "write_categories",
+          "read_collections",
+          "write_collections",
+          "read_stock",
+          "write_stock"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-60",
+      "area": "catalog",
+      "title": "2.7 Save a price list",
+      "request": "PATCH /api/v3/admin/price_lists/<id>",
+      "attempts": [
+        {
+          "caller": "catalogViewer",
+          "permissionKeys": [
+            "read_products",
+            "read_product_types",
+            "read_publishing",
+            "read_media",
+            "read_categories",
+            "read_collections",
+            "read_stock"
+          ],
+          "expected": {
+            "status": 404,
+            "code": "record_not_found",
+            "requiredPermission": null
+          },
+          "actual": {
+            "status": 404,
+            "code": "record_not_found",
+            "requiredPermission": null
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "merchandiser",
+        "permissionKeys": [
+          "read_products",
+          "write_products",
+          "read_categories",
+          "write_categories",
+          "read_collections",
+          "write_collections",
+          "read_stock",
+          "write_stock"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-60",
+      "area": "catalog",
+      "title": "2.8 Create a category",
+      "request": "POST /api/v3/admin/categories",
+      "attempts": [
+        {
+          "caller": "orderManager",
+          "permissionKeys": [
+            "read_orders",
+            "write_orders",
+            "read_payments",
+            "write_payments",
+            "read_fulfillments",
+            "write_fulfillments",
+            "read_refunds",
+            "write_refunds",
+            "read_customers",
+            "read_gift_cards",
+            "write_gift_cards",
+            "read_store_credits",
+            "write_store_credits"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_categories"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_categories"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "merchandiser",
+        "permissionKeys": [
+          "read_products",
+          "write_products",
+          "read_categories",
+          "write_categories",
+          "read_collections",
+          "write_collections",
+          "read_stock",
+          "write_stock"
+        ],
+        "expectedStatus": 201,
+        "status": 201,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-60",
+      "area": "catalog",
+      "title": "2.9 Create a collection",
+      "request": "POST /api/v3/admin/collections",
+      "attempts": [
+        {
+          "caller": "orderManager",
+          "permissionKeys": [
+            "read_orders",
+            "write_orders",
+            "read_payments",
+            "write_payments",
+            "read_fulfillments",
+            "write_fulfillments",
+            "read_refunds",
+            "write_refunds",
+            "read_customers",
+            "read_gift_cards",
+            "write_gift_cards",
+            "read_store_credits",
+            "write_store_credits"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_collections"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_collections"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "merchandiser",
+        "permissionKeys": [
+          "read_products",
+          "write_products",
+          "read_categories",
+          "write_categories",
+          "read_collections",
+          "write_collections",
+          "read_stock",
+          "write_stock"
+        ],
+        "expectedStatus": 201,
+        "status": 201,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-60",
+      "area": "catalog",
+      "title": "2.10 Create a price list",
+      "request": "POST /api/v3/admin/price_lists",
+      "attempts": [
+        {
+          "caller": "orderManager",
+          "permissionKeys": [
+            "read_orders",
+            "write_orders",
+            "read_payments",
+            "write_payments",
+            "read_fulfillments",
+            "write_fulfillments",
+            "read_refunds",
+            "write_refunds",
+            "read_customers",
+            "read_gift_cards",
+            "write_gift_cards",
+            "read_store_credits",
+            "write_store_credits"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_products"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_products"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "merchandiser",
+        "permissionKeys": [
+          "read_products",
+          "write_products",
+          "read_categories",
+          "write_categories",
+          "read_collections",
+          "write_collections",
+          "read_stock",
+          "write_stock"
+        ],
+        "expectedStatus": 201,
+        "status": 201,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-83",
+      "area": "loyalty",
+      "title": "2.11 Save a gift card from its sheet",
+      "request": "PATCH /api/v3/admin/gift_cards/<id>",
+      "attempts": [
+        {
+          "caller": "loyaltyViewer",
+          "permissionKeys": [
+            "read_customers",
+            "read_gift_cards",
+            "read_store_credits",
+            "read_promotions"
+          ],
+          "expected": {
+            "status": 404,
+            "code": "record_not_found",
+            "requiredPermission": null
+          },
+          "actual": {
+            "status": 404,
+            "code": "record_not_found",
+            "requiredPermission": null
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "orderManager",
+        "permissionKeys": [
+          "read_orders",
+          "write_orders",
+          "read_payments",
+          "write_payments",
+          "read_fulfillments",
+          "write_fulfillments",
+          "read_refunds",
+          "write_refunds",
+          "read_customers",
+          "read_gift_cards",
+          "write_gift_cards",
+          "read_store_credits",
+          "write_store_credits"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-83",
+      "area": "loyalty",
+      "title": "2.12 Delete a gift card from its row menu",
+      "request": "DELETE /api/v3/admin/gift_cards/<id>",
+      "attempts": [
+        {
+          "caller": "loyaltyViewer",
+          "permissionKeys": [
+            "read_customers",
+            "read_gift_cards",
+            "read_store_credits",
+            "read_promotions"
+          ],
+          "expected": {
+            "status": 404,
+            "code": "record_not_found",
+            "requiredPermission": null
+          },
+          "actual": {
+            "status": 404,
+            "code": "record_not_found",
+            "requiredPermission": null
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "orderManager",
+        "permissionKeys": [
+          "read_orders",
+          "write_orders",
+          "read_payments",
+          "write_payments",
+          "read_fulfillments",
+          "write_fulfillments",
+          "read_refunds",
+          "write_refunds",
+          "read_customers",
+          "read_gift_cards",
+          "write_gift_cards",
+          "read_store_credits",
+          "write_store_credits"
+        ],
+        "expectedStatus": 204,
+        "status": 204,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-83",
+      "area": "promotions",
+      "title": "2.13 Delete a promotion from its row menu",
+      "request": "DELETE /api/v3/admin/promotions/<id>",
+      "attempts": [
+        {
+          "caller": "loyaltyViewer",
+          "permissionKeys": [
+            "read_customers",
+            "read_gift_cards",
+            "read_store_credits",
+            "read_promotions"
+          ],
+          "expected": {
+            "status": 404,
+            "code": "record_not_found",
+            "requiredPermission": null
+          },
+          "actual": {
+            "status": 404,
+            "code": "record_not_found",
+            "requiredPermission": null
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "marketer",
+        "permissionKeys": [
+          "read_promotions",
+          "write_promotions"
+        ],
+        "expectedStatus": 204,
+        "status": 204,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-83",
+      "area": "promotions",
+      "title": "2.14 Create a promotion from the new promotion page",
+      "request": "POST /api/v3/admin/promotions",
+      "attempts": [
+        {
+          "caller": "loyaltyViewer",
+          "permissionKeys": [
+            "read_customers",
+            "read_gift_cards",
+            "read_store_credits",
+            "read_promotions"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_promotions"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_promotions"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": true
+        },
+        {
+          "caller": "orderManager",
+          "permissionKeys": [
+            "read_orders",
+            "write_orders",
+            "read_payments",
+            "write_payments",
+            "read_fulfillments",
+            "write_fulfillments",
+            "read_refunds",
+            "write_refunds",
+            "read_customers",
+            "read_gift_cards",
+            "write_gift_cards",
+            "read_store_credits",
+            "write_store_credits"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_promotions"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_promotions"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": true
+        },
+        {
+          "caller": "merchandiser",
+          "permissionKeys": [
+            "read_products",
+            "write_products",
+            "read_categories",
+            "write_categories",
+            "read_collections",
+            "write_collections",
+            "read_stock",
+            "write_stock"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_promotions"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_promotions"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "marketer",
+        "permissionKeys": [
+          "read_promotions",
+          "write_promotions"
+        ],
+        "expectedStatus": 201,
+        "status": 201,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-83",
+      "area": "loyalty",
+      "title": "2.15 Issue a store credit",
+      "request": "POST /api/v3/admin/customers/<id>/store_credits",
+      "attempts": [
+        {
+          "caller": "loyaltyViewer",
+          "permissionKeys": [
+            "read_customers",
+            "read_gift_cards",
+            "read_store_credits",
+            "read_promotions"
+          ],
+          "expected": {
+            "status": 404,
+            "code": "record_not_found",
+            "requiredPermission": null
+          },
+          "actual": {
+            "status": 404,
+            "code": "record_not_found",
+            "requiredPermission": null
+          },
+          "asExpected": true,
+          "exposureChecked": 2,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "admin",
+        "permissionKeys": [
+          "read_dashboard",
+          "read_reports",
+          "write_reports",
+          "read_orders",
+          "write_orders",
+          "read_payments",
+          "write_payments",
+          "read_fulfillments",
+          "write_fulfillments",
+          "read_refunds",
+          "write_refunds",
+          "read_products",
+          "write_products",
+          "read_product_types",
+          "write_product_types",
+          "read_publishing",
+          "write_publishing",
+          "read_media",
+          "write_media",
+          "read_categories",
+          "write_categories",
+          "read_collections",
+          "write_collections",
+          "read_stock",
+          "write_stock",
+          "read_purchasing",
+          "write_purchasing",
+          "read_customers",
+          "write_customers",
+          "read_sellers",
+          "write_sellers",
+          "read_commissions",
+          "write_commissions",
+          "read_payouts",
+          "write_payouts",
+          "read_gift_cards",
+          "write_gift_cards",
+          "read_store_credits",
+          "write_store_credits",
+          "read_promotions",
+          "write_promotions",
+          "read_settings",
+          "write_settings",
+          "read_delivery_methods",
+          "write_delivery_methods",
+          "read_package_types",
+          "write_package_types",
+          "read_webhooks",
+          "write_webhooks",
+          "read_email_templates",
+          "write_email_templates",
+          "read_integrations",
+          "write_integrations",
+          "read_api_keys",
+          "write_api_keys",
+          "read_oauth_applications",
+          "write_oauth_applications",
+          "read_staff",
+          "write_staff"
+        ],
+        "expectedStatus": 201,
+        "status": 201,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-83",
+      "area": "loyalty",
+      "title": "2.15 Edit a store credit",
+      "request": "PATCH /api/v3/admin/customers/<id>/store_credits/<id>",
+      "attempts": [
+        {
+          "caller": "loyaltyViewer",
+          "permissionKeys": [
+            "read_customers",
+            "read_gift_cards",
+            "read_store_credits",
+            "read_promotions"
+          ],
+          "expected": {
+            "status": 404,
+            "code": "record_not_found",
+            "requiredPermission": null
+          },
+          "actual": {
+            "status": 404,
+            "code": "record_not_found",
+            "requiredPermission": null
+          },
+          "asExpected": true,
+          "exposureChecked": 2,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "admin",
+        "permissionKeys": [
+          "read_dashboard",
+          "read_reports",
+          "write_reports",
+          "read_orders",
+          "write_orders",
+          "read_payments",
+          "write_payments",
+          "read_fulfillments",
+          "write_fulfillments",
+          "read_refunds",
+          "write_refunds",
+          "read_products",
+          "write_products",
+          "read_product_types",
+          "write_product_types",
+          "read_publishing",
+          "write_publishing",
+          "read_media",
+          "write_media",
+          "read_categories",
+          "write_categories",
+          "read_collections",
+          "write_collections",
+          "read_stock",
+          "write_stock",
+          "read_purchasing",
+          "write_purchasing",
+          "read_customers",
+          "write_customers",
+          "read_sellers",
+          "write_sellers",
+          "read_commissions",
+          "write_commissions",
+          "read_payouts",
+          "write_payouts",
+          "read_gift_cards",
+          "write_gift_cards",
+          "read_store_credits",
+          "write_store_credits",
+          "read_promotions",
+          "write_promotions",
+          "read_settings",
+          "write_settings",
+          "read_delivery_methods",
+          "write_delivery_methods",
+          "read_package_types",
+          "write_package_types",
+          "read_webhooks",
+          "write_webhooks",
+          "read_email_templates",
+          "write_email_templates",
+          "read_integrations",
+          "write_integrations",
+          "read_api_keys",
+          "write_api_keys",
+          "read_oauth_applications",
+          "write_oauth_applications",
+          "read_staff",
+          "write_staff"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-83",
+      "area": "loyalty",
+      "title": "2.15 Delete a store credit",
+      "request": "DELETE /api/v3/admin/customers/<id>/store_credits/<id>",
+      "attempts": [
+        {
+          "caller": "loyaltyViewer",
+          "permissionKeys": [
+            "read_customers",
+            "read_gift_cards",
+            "read_store_credits",
+            "read_promotions"
+          ],
+          "expected": {
+            "status": 404,
+            "code": "record_not_found",
+            "requiredPermission": null
+          },
+          "actual": {
+            "status": 404,
+            "code": "record_not_found",
+            "requiredPermission": null
+          },
+          "asExpected": true,
+          "exposureChecked": 2,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "admin",
+        "permissionKeys": [
+          "read_dashboard",
+          "read_reports",
+          "write_reports",
+          "read_orders",
+          "write_orders",
+          "read_payments",
+          "write_payments",
+          "read_fulfillments",
+          "write_fulfillments",
+          "read_refunds",
+          "write_refunds",
+          "read_products",
+          "write_products",
+          "read_product_types",
+          "write_product_types",
+          "read_publishing",
+          "write_publishing",
+          "read_media",
+          "write_media",
+          "read_categories",
+          "write_categories",
+          "read_collections",
+          "write_collections",
+          "read_stock",
+          "write_stock",
+          "read_purchasing",
+          "write_purchasing",
+          "read_customers",
+          "write_customers",
+          "read_sellers",
+          "write_sellers",
+          "read_commissions",
+          "write_commissions",
+          "read_payouts",
+          "write_payouts",
+          "read_gift_cards",
+          "write_gift_cards",
+          "read_store_credits",
+          "write_store_credits",
+          "read_promotions",
+          "write_promotions",
+          "read_settings",
+          "write_settings",
+          "read_delivery_methods",
+          "write_delivery_methods",
+          "read_package_types",
+          "write_package_types",
+          "read_webhooks",
+          "write_webhooks",
+          "read_email_templates",
+          "write_email_templates",
+          "read_integrations",
+          "write_integrations",
+          "read_api_keys",
+          "write_api_keys",
+          "read_oauth_applications",
+          "write_oauth_applications",
+          "read_staff",
+          "write_staff"
+        ],
+        "expectedStatus": 204,
+        "status": 204,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-70",
+      "area": "delivery and payments",
+      "title": "3.1 Save a payment method from its sheet",
+      "request": "PATCH /api/v3/admin/payment_methods/<id>",
+      "attempts": [
+        {
+          "caller": "deliveryViewer",
+          "permissionKeys": [
+            "read_settings",
+            "read_delivery_methods",
+            "read_package_types"
+          ],
+          "expected": {
+            "status": 404,
+            "code": "record_not_found",
+            "requiredPermission": null
+          },
+          "actual": {
+            "status": 404,
+            "code": "record_not_found",
+            "requiredPermission": null
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "storeSettings",
+        "permissionKeys": [
+          "read_settings",
+          "write_settings"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-70",
+      "area": "delivery and payments",
+      "title": "3.2 Save a tax category",
+      "request": "PATCH /api/v3/admin/tax_categories/<id>",
+      "attempts": [
+        {
+          "caller": "deliveryViewer",
+          "permissionKeys": [
+            "read_settings",
+            "read_delivery_methods",
+            "read_package_types"
+          ],
+          "expected": {
+            "status": 404,
+            "code": "record_not_found",
+            "requiredPermission": null
+          },
+          "actual": {
+            "status": 404,
+            "code": "record_not_found",
+            "requiredPermission": null
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "storeSettings",
+        "permissionKeys": [
+          "read_settings",
+          "write_settings"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-70",
+      "area": "delivery and payments",
+      "title": "3.3 Save a tax rate",
+      "request": "PATCH /api/v3/admin/tax_rates/<id>",
+      "attempts": [
+        {
+          "caller": "deliveryViewer",
+          "permissionKeys": [
+            "read_settings",
+            "read_delivery_methods",
+            "read_package_types"
+          ],
+          "expected": {
+            "status": 404,
+            "code": "record_not_found",
+            "requiredPermission": null
+          },
+          "actual": {
+            "status": 404,
+            "code": "record_not_found",
+            "requiredPermission": null
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "storeSettings",
+        "permissionKeys": [
+          "read_settings",
+          "write_settings"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-70",
+      "area": "delivery and payments",
+      "title": "3.4 Save a delivery zone from its sheet",
+      "request": "PATCH /api/v3/admin/delivery_zones/<id>",
+      "attempts": [
+        {
+          "caller": "deliveryViewer",
+          "permissionKeys": [
+            "read_settings",
+            "read_delivery_methods",
+            "read_package_types"
+          ],
+          "expected": {
+            "status": 404,
+            "code": "record_not_found",
+            "requiredPermission": null
+          },
+          "actual": {
+            "status": 404,
+            "code": "record_not_found",
+            "requiredPermission": null
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": true
+        },
+        {
+          "caller": "deliveryEditor",
+          "permissionKeys": [
+            "read_settings",
+            "read_delivery_methods",
+            "write_delivery_methods",
+            "read_package_types",
+            "write_package_types"
+          ],
+          "expected": {
+            "status": 404,
+            "code": "record_not_found",
+            "requiredPermission": null
+          },
+          "actual": {
+            "status": 404,
+            "code": "record_not_found",
+            "requiredPermission": null
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "storeSettings",
+        "permissionKeys": [
+          "read_settings",
+          "write_settings"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-70",
+      "area": "delivery and payments",
+      "title": "3.5 Add a delivery zone",
+      "request": "POST /api/v3/admin/delivery_zones",
+      "attempts": [
+        {
+          "caller": "deliveryEditor",
+          "permissionKeys": [
+            "read_settings",
+            "read_delivery_methods",
+            "write_delivery_methods",
+            "read_package_types",
+            "write_package_types"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_settings"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_settings"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "storeSettings",
+        "permissionKeys": [
+          "read_settings",
+          "write_settings"
+        ],
+        "expectedStatus": 201,
+        "status": 201,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-70",
+      "area": "delivery and payments",
+      "title": "3.6 Add an origin group to a profile",
+      "request": "POST /api/v3/admin/delivery_profiles/<id>/origin_groups",
+      "attempts": [
+        {
+          "caller": "deliveryEditor",
+          "permissionKeys": [
+            "read_settings",
+            "read_delivery_methods",
+            "write_delivery_methods",
+            "read_package_types",
+            "write_package_types"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_settings"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_settings"
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "storeSettings",
+        "permissionKeys": [
+          "read_settings",
+          "write_settings"
+        ],
+        "expectedStatus": 201,
+        "status": 403,
+        "succeeded": false,
+        "carried": null,
+        "changed": false
+      },
+      "failures": [
+        "the allowed write left the record as it was, so the read-back saw no change",
+        "the allowed caller storeSettings got 403, expected 201"
+      ],
+      "result": "FAIL"
+    },
+    {
+      "gap": "G-70",
+      "area": "delivery and payments",
+      "title": "3.7 Save a delivery method",
+      "request": "PATCH /api/v3/admin/delivery_methods/<id>",
+      "attempts": [
+        {
+          "caller": "deliveryViewer",
+          "permissionKeys": [
+            "read_settings",
+            "read_delivery_methods",
+            "read_package_types"
+          ],
+          "expected": {
+            "status": 404,
+            "code": "record_not_found",
+            "requiredPermission": null
+          },
+          "actual": {
+            "status": 404,
+            "code": "record_not_found",
+            "requiredPermission": null
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "deliveryEditor",
+        "permissionKeys": [
+          "read_settings",
+          "read_delivery_methods",
+          "write_delivery_methods",
+          "read_package_types",
+          "write_package_types"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-70",
+      "area": "delivery and payments",
+      "title": "3.8 Add a delivery method",
+      "request": "POST /api/v3/admin/delivery_methods",
+      "attempts": [
+        {
+          "caller": "deliveryViewer",
+          "permissionKeys": [
+            "read_settings",
+            "read_delivery_methods",
+            "read_package_types"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_delivery_methods"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_delivery_methods"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "deliveryEditor",
+        "permissionKeys": [
+          "read_settings",
+          "read_delivery_methods",
+          "write_delivery_methods",
+          "read_package_types",
+          "write_package_types"
+        ],
+        "expectedStatus": 201,
+        "status": 201,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-70",
+      "area": "delivery and payments",
+      "title": "3.9 Save a package type from its sheet",
+      "request": "PATCH /api/v3/admin/package_types/<id>",
+      "attempts": [
+        {
+          "caller": "deliveryViewer",
+          "permissionKeys": [
+            "read_settings",
+            "read_delivery_methods",
+            "read_package_types"
+          ],
+          "expected": {
+            "status": 404,
+            "code": "record_not_found",
+            "requiredPermission": null
+          },
+          "actual": {
+            "status": 404,
+            "code": "record_not_found",
+            "requiredPermission": null
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "deliveryEditor",
+        "permissionKeys": [
+          "read_settings",
+          "read_delivery_methods",
+          "write_delivery_methods",
+          "read_package_types",
+          "write_package_types"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-70",
+      "area": "delivery and payments",
+      "title": "3.10 Add a package type",
+      "request": "POST /api/v3/admin/package_types",
+      "attempts": [
+        {
+          "caller": "deliveryViewer",
+          "permissionKeys": [
+            "read_settings",
+            "read_delivery_methods",
+            "read_package_types"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_package_types"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_package_types"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "deliveryEditor",
+        "permissionKeys": [
+          "read_settings",
+          "read_delivery_methods",
+          "write_delivery_methods",
+          "read_package_types",
+          "write_package_types"
+        ],
+        "expectedStatus": 201,
+        "status": 201,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-11",
+      "area": "inventory",
+      "title": "5.8 List purchase orders",
+      "request": "GET /api/v3/admin/purchase_orders?page=1&sort=-created_at",
+      "attempts": [
+        {
+          "caller": "merchandiser",
+          "permissionKeys": [
+            "read_products",
+            "write_products",
+            "read_categories",
+            "write_categories",
+            "read_collections",
+            "write_collections",
+            "read_stock",
+            "write_stock"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_purchasing"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_purchasing"
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": null
+        },
+        {
+          "caller": "orderManager",
+          "permissionKeys": [
+            "read_orders",
+            "write_orders",
+            "read_payments",
+            "write_payments",
+            "read_fulfillments",
+            "write_fulfillments",
+            "read_refunds",
+            "write_refunds",
+            "read_customers",
+            "read_gift_cards",
+            "write_gift_cards",
+            "read_store_credits",
+            "write_store_credits"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_purchasing"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_purchasing"
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": null
+        }
+      ],
+      "control": {
+        "caller": "stockViewer",
+        "permissionKeys": [
+          "read_products",
+          "read_stock",
+          "read_purchasing"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": true,
+        "changed": null
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-11",
+      "area": "inventory",
+      "title": "5.8 List suppliers",
+      "request": "GET /api/v3/admin/suppliers?page=1&limit=100",
+      "attempts": [
+        {
+          "caller": "merchandiser",
+          "permissionKeys": [
+            "read_products",
+            "write_products",
+            "read_categories",
+            "write_categories",
+            "read_collections",
+            "write_collections",
+            "read_stock",
+            "write_stock"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_purchasing"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_purchasing"
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": null
+        },
+        {
+          "caller": "orderManager",
+          "permissionKeys": [
+            "read_orders",
+            "write_orders",
+            "read_payments",
+            "write_payments",
+            "read_fulfillments",
+            "write_fulfillments",
+            "read_refunds",
+            "write_refunds",
+            "read_customers",
+            "read_gift_cards",
+            "write_gift_cards",
+            "read_store_credits",
+            "write_store_credits"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_purchasing"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_purchasing"
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": null
+        }
+      ],
+      "control": {
+        "caller": "stockViewer",
+        "permissionKeys": [
+          "read_products",
+          "read_stock",
+          "read_purchasing"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": true,
+        "changed": null
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-11",
+      "area": "inventory",
+      "title": "5.10 List stock levels",
+      "request": "GET /api/v3/admin/stock_levels?q[stock_location_id_eq]=sloc_uw2YK1rnl0",
+      "attempts": [
+        {
+          "caller": "orderManager",
+          "permissionKeys": [
+            "read_orders",
+            "write_orders",
+            "read_payments",
+            "write_payments",
+            "read_fulfillments",
+            "write_fulfillments",
+            "read_refunds",
+            "write_refunds",
+            "read_customers",
+            "read_gift_cards",
+            "write_gift_cards",
+            "read_store_credits",
+            "write_store_credits"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_stock"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_stock"
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": null
+        }
+      ],
+      "control": {
+        "caller": "stockViewer",
+        "permissionKeys": [
+          "read_products",
+          "read_stock",
+          "read_purchasing"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": true,
+        "changed": null
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-11",
+      "area": "inventory",
+      "title": "5.10 List stock locations",
+      "request": "GET /api/v3/admin/stock_locations?limit=100",
+      "attempts": [
+        {
+          "caller": "orderManager",
+          "permissionKeys": [
+            "read_orders",
+            "write_orders",
+            "read_payments",
+            "write_payments",
+            "read_fulfillments",
+            "write_fulfillments",
+            "read_refunds",
+            "write_refunds",
+            "read_customers",
+            "read_gift_cards",
+            "write_gift_cards",
+            "read_store_credits",
+            "write_store_credits"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_stock"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_stock"
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": null
+        }
+      ],
+      "control": {
+        "caller": "stockViewer",
+        "permissionKeys": [
+          "read_products",
+          "read_stock",
+          "read_purchasing"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": true,
+        "changed": null
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-11",
+      "area": "inventory",
+      "title": "5.10 List stock movements",
+      "request": "GET /api/v3/admin/stock_movements?page=1&sort=-created_at",
+      "attempts": [
+        {
+          "caller": "orderManager",
+          "permissionKeys": [
+            "read_orders",
+            "write_orders",
+            "read_payments",
+            "write_payments",
+            "read_fulfillments",
+            "write_fulfillments",
+            "read_refunds",
+            "write_refunds",
+            "read_customers",
+            "read_gift_cards",
+            "write_gift_cards",
+            "read_store_credits",
+            "write_store_credits"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_stock"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_stock"
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": null
+        }
+      ],
+      "control": {
+        "caller": "stockViewer",
+        "permissionKeys": [
+          "read_products",
+          "read_stock",
+          "read_purchasing"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": true,
+        "changed": null
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-11",
+      "area": "inventory",
+      "title": "5.10 List stock reservations",
+      "request": "GET /api/v3/admin/stock_reservations?limit=100",
+      "attempts": [
+        {
+          "caller": "orderManager",
+          "permissionKeys": [
+            "read_orders",
+            "write_orders",
+            "read_payments",
+            "write_payments",
+            "read_fulfillments",
+            "write_fulfillments",
+            "read_refunds",
+            "write_refunds",
+            "read_customers",
+            "read_gift_cards",
+            "write_gift_cards",
+            "read_store_credits",
+            "write_store_credits"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_stock"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_stock"
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": null
+        }
+      ],
+      "control": {
+        "caller": "stockViewer",
+        "permissionKeys": [
+          "read_products",
+          "read_stock",
+          "read_purchasing"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": false,
+        "changed": null
+      },
+      "failures": [
+        "the allowed answer did not carry the values the check looks for"
+      ],
+      "result": "FAIL"
+    },
+    {
+      "gap": "G-11",
+      "area": "inventory",
+      "title": "5.10 List stock transfers",
+      "request": "GET /api/v3/admin/stock_transfers?page=1&sort=-created_at",
+      "attempts": [
+        {
+          "caller": "orderManager",
+          "permissionKeys": [
+            "read_orders",
+            "write_orders",
+            "read_payments",
+            "write_payments",
+            "read_fulfillments",
+            "write_fulfillments",
+            "read_refunds",
+            "write_refunds",
+            "read_customers",
+            "read_gift_cards",
+            "write_gift_cards",
+            "read_store_credits",
+            "write_store_credits"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_stock"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_stock"
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": null
+        }
+      ],
+      "control": {
+        "caller": "stockViewer",
+        "permissionKeys": [
+          "read_products",
+          "read_stock",
+          "read_purchasing"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": true,
+        "changed": null
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-11",
+      "area": "inventory",
+      "title": "5.11 A transfer's page",
+      "request": "GET /api/v3/admin/stock_transfers/<id>",
+      "attempts": [
+        {
+          "caller": "orderManager",
+          "permissionKeys": [
+            "read_orders",
+            "write_orders",
+            "read_payments",
+            "write_payments",
+            "read_fulfillments",
+            "write_fulfillments",
+            "read_refunds",
+            "write_refunds",
+            "read_customers",
+            "read_gift_cards",
+            "write_gift_cards",
+            "read_store_credits",
+            "write_store_credits"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_stock"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_stock"
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": null
+        }
+      ],
+      "control": {
+        "caller": "stockViewer",
+        "permissionKeys": [
+          "read_products",
+          "read_stock",
+          "read_purchasing"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": true,
+        "changed": null
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-11",
+      "area": "inventory",
+      "title": "5.11 A purchase order's page",
+      "request": "GET /api/v3/admin/purchase_orders/<id>",
+      "attempts": [
+        {
+          "caller": "orderManager",
+          "permissionKeys": [
+            "read_orders",
+            "write_orders",
+            "read_payments",
+            "write_payments",
+            "read_fulfillments",
+            "write_fulfillments",
+            "read_refunds",
+            "write_refunds",
+            "read_customers",
+            "read_gift_cards",
+            "write_gift_cards",
+            "read_store_credits",
+            "write_store_credits"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_purchasing"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_purchasing"
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": null
+        }
+      ],
+      "control": {
+        "caller": "stockViewer",
+        "permissionKeys": [
+          "read_products",
+          "read_stock",
+          "read_purchasing"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": true,
+        "changed": null
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-11",
+      "area": "inventory",
+      "title": "5.1 Save a stock location from its sheet",
+      "request": "PATCH /api/v3/admin/stock_locations/<id>",
+      "attempts": [
+        {
+          "caller": "stockViewer",
+          "permissionKeys": [
+            "read_products",
+            "read_stock",
+            "read_purchasing"
+          ],
+          "expected": {
+            "status": 404,
+            "code": "record_not_found",
+            "requiredPermission": null
+          },
+          "actual": {
+            "status": 404,
+            "code": "record_not_found",
+            "requiredPermission": null
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": true
+        },
+        {
+          "caller": "purchaser",
+          "permissionKeys": [
+            "read_products",
+            "read_stock",
+            "read_purchasing",
+            "write_purchasing"
+          ],
+          "expected": {
+            "status": 404,
+            "code": "record_not_found",
+            "requiredPermission": null
+          },
+          "actual": {
+            "status": 404,
+            "code": "record_not_found",
+            "requiredPermission": null
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": true
+        },
+        {
+          "caller": "merchandiser",
+          "permissionKeys": [
+            "read_products",
+            "write_products",
+            "read_categories",
+            "write_categories",
+            "read_collections",
+            "write_collections",
+            "read_stock",
+            "write_stock"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_settings"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_settings"
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "storeSettings",
+        "permissionKeys": [
+          "read_settings",
+          "write_settings"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-11",
+      "area": "inventory",
+      "title": "5.2 Save a location's stock levels",
+      "request": "POST /api/v3/admin/stock_levels/bulk_upsert",
+      "attempts": [
+        {
+          "caller": "stockViewer",
+          "permissionKeys": [
+            "read_products",
+            "read_stock",
+            "read_purchasing"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_stock"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_stock"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": true
+        },
+        {
+          "caller": "purchaser",
+          "permissionKeys": [
+            "read_products",
+            "read_stock",
+            "read_purchasing",
+            "write_purchasing"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_stock"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_stock"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "merchandiser",
+        "permissionKeys": [
+          "read_products",
+          "write_products",
+          "read_categories",
+          "write_categories",
+          "read_collections",
+          "write_collections",
+          "read_stock",
+          "write_stock"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-11",
+      "area": "inventory",
+      "title": "5.3 Save a supplier from its sheet",
+      "request": "PATCH /api/v3/admin/suppliers/<id>",
+      "attempts": [
+        {
+          "caller": "stockViewer",
+          "permissionKeys": [
+            "read_products",
+            "read_stock",
+            "read_purchasing"
+          ],
+          "expected": {
+            "status": 404,
+            "code": "record_not_found",
+            "requiredPermission": null
+          },
+          "actual": {
+            "status": 404,
+            "code": "record_not_found",
+            "requiredPermission": null
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "purchaser",
+        "permissionKeys": [
+          "read_products",
+          "read_stock",
+          "read_purchasing",
+          "write_purchasing"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-11",
+      "area": "inventory",
+      "title": "5.4 Receive a delivery on a transfer in transit",
+      "request": "POST /api/v3/admin/stock_transfers/<id>/stock_receipts",
+      "attempts": [
+        {
+          "caller": "stockViewer",
+          "permissionKeys": [
+            "read_products",
+            "read_stock",
+            "read_purchasing"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_stock"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_stock"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": true
+        },
+        {
+          "caller": "purchaser",
+          "permissionKeys": [
+            "read_products",
+            "read_stock",
+            "read_purchasing",
+            "write_purchasing"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_stock"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_stock"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "merchandiser",
+        "permissionKeys": [
+          "read_products",
+          "write_products",
+          "read_categories",
+          "write_categories",
+          "read_collections",
+          "write_collections",
+          "read_stock",
+          "write_stock"
+        ],
+        "expectedStatus": 201,
+        "status": 201,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-11",
+      "area": "inventory",
+      "title": "5.5 Receive a delivery on an ordered purchase order",
+      "request": "POST /api/v3/admin/purchase_orders/<id>/stock_receipts",
+      "attempts": [
+        {
+          "caller": "stockViewer",
+          "permissionKeys": [
+            "read_products",
+            "read_stock",
+            "read_purchasing"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_purchasing"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_purchasing"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "purchaser",
+        "permissionKeys": [
+          "read_products",
+          "read_stock",
+          "read_purchasing",
+          "write_purchasing"
+        ],
+        "expectedStatus": 201,
+        "status": 201,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-11",
+      "area": "inventory",
+      "title": "5.6 Create a transfer from the new transfer page",
+      "request": "POST /api/v3/admin/stock_transfers",
+      "attempts": [
+        {
+          "caller": "stockViewer",
+          "permissionKeys": [
+            "read_products",
+            "read_stock",
+            "read_purchasing"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_stock"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_stock"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": true
+        },
+        {
+          "caller": "purchaser",
+          "permissionKeys": [
+            "read_products",
+            "read_stock",
+            "read_purchasing",
+            "write_purchasing"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_stock"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_stock"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "merchandiser",
+        "permissionKeys": [
+          "read_products",
+          "write_products",
+          "read_categories",
+          "write_categories",
+          "read_collections",
+          "write_collections",
+          "read_stock",
+          "write_stock"
+        ],
+        "expectedStatus": 201,
+        "status": 201,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-11",
+      "area": "inventory",
+      "title": "5.7 Create a purchase order from the new purchase order page",
+      "request": "POST /api/v3/admin/purchase_orders",
+      "attempts": [
+        {
+          "caller": "stockViewer",
+          "permissionKeys": [
+            "read_products",
+            "read_stock",
+            "read_purchasing"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_purchasing"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_purchasing"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": true
+        },
+        {
+          "caller": "merchandiser",
+          "permissionKeys": [
+            "read_products",
+            "write_products",
+            "read_categories",
+            "write_categories",
+            "read_collections",
+            "write_collections",
+            "read_stock",
+            "write_stock"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_purchasing"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_purchasing"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "purchaser",
+        "permissionKeys": [
+          "read_products",
+          "read_stock",
+          "read_purchasing",
+          "write_purchasing"
+        ],
+        "expectedStatus": 201,
+        "status": 201,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-11",
+      "area": "inventory",
+      "title": "5.9 Export purchase orders",
+      "request": "POST /api/v3/admin/exports",
+      "attempts": [
+        {
+          "caller": "merchandiser",
+          "permissionKeys": [
+            "read_products",
+            "write_products",
+            "read_categories",
+            "write_categories",
+            "read_collections",
+            "write_collections",
+            "read_stock",
+            "write_stock"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_purchasing"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_purchasing"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": null
+        },
+        {
+          "caller": "orderManager",
+          "permissionKeys": [
+            "read_orders",
+            "write_orders",
+            "read_payments",
+            "write_payments",
+            "read_fulfillments",
+            "write_fulfillments",
+            "read_refunds",
+            "write_refunds",
+            "read_customers",
+            "read_gift_cards",
+            "write_gift_cards",
+            "read_store_credits",
+            "write_store_credits"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_purchasing"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_purchasing"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": null
+        }
+      ],
+      "control": {
+        "caller": "stockViewer",
+        "permissionKeys": [
+          "read_products",
+          "read_stock",
+          "read_purchasing"
+        ],
+        "expectedStatus": 201,
+        "status": 403,
+        "succeeded": false,
+        "carried": null,
+        "changed": null
+      },
+      "failures": [
+        "the allowed caller stockViewer got 403, expected 201"
+      ],
+      "result": "FAIL"
+    }
+  ],
+  "observations": [
+    {
+      "title": "Add a delivery zone within an origin group",
+      "caller": "storeSettings",
+      "request": "POST /api/v3/admin/delivery_zones",
+      "status": 404,
+      "code": "record_not_found",
+      "requiredPermission": null
+    },
+    {
+      "title": "Add a delivery method within an origin group",
+      "caller": "deliveryEditor",
+      "request": "POST /api/v3/admin/delivery_methods",
+      "status": 404,
+      "code": "record_not_found",
+      "requiredPermission": null
+    },
+    {
+      "title": "Export products",
+      "caller": "catalogViewer",
+      "request": "POST /api/v3/admin/exports",
+      "status": 403,
+      "code": "access_denied",
+      "requiredPermission": null
+    },
+    {
+      "title": "Export orders",
+      "caller": "support",
+      "request": "POST /api/v3/admin/exports",
+      "status": 403,
+      "code": "access_denied",
+      "requiredPermission": null
+    }
+  ]
+}

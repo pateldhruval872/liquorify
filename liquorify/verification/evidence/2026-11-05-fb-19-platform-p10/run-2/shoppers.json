@@ -1,0 +1,1378 @@
+{
+  "revision": "d12407b2",
+  "storefrontRevision": "ba6ddcd",
+  "run": 1793859154962,
+  "store": "default",
+  "gaps": {
+    "G-45": {
+      "rows": [
+        "1.1",
+        "1.2",
+        "1.6",
+        "1.7"
+      ],
+      "cases": 4,
+      "attempts": 7,
+      "passed": 4,
+      "failed": []
+    },
+    "G-50": {
+      "rows": [
+        "1.2",
+        "1.3",
+        "1.4",
+        "1.5"
+      ],
+      "cases": 4,
+      "attempts": 6,
+      "passed": 2,
+      "failed": [
+        "1.4 Open a product page with prices hidden from guests",
+        "1.5 Open a product page with sign-in required"
+      ]
+    },
+    "G-79": {
+      "rows": [
+        "4.1",
+        "4.2",
+        "4.3",
+        "4.4",
+        "4.5",
+        "4.6",
+        "4.7",
+        "4.8",
+        "4.9",
+        "4.10",
+        "4.11",
+        "4.12",
+        "4.13",
+        "4.14",
+        "4.15",
+        "4.16",
+        "4.17"
+      ],
+      "cases": 21,
+      "attempts": 33,
+      "passed": 21,
+      "failed": []
+    }
+  },
+  "storefront": [
+    {
+      "gap": "G-45",
+      "area": "storefront",
+      "title": "1.2 Search the catalog with the product list action",
+      "attempts": [
+        {
+          "caller": "guest",
+          "page": "/us/en/checkout/<id>",
+          "action": "server action",
+          "expected": "an action result holding these values",
+          "expectedResult": {
+            "data": [
+              {
+                "name": "P10 shop product p10shop1793859154962"
+              }
+            ]
+          },
+          "status": 200,
+          "redirectedTo": null,
+          "asExpected": true,
+          "exposureChecked": 2,
+          "exposed": [],
+          "unchanged": null
+        },
+        {
+          "caller": "customerC",
+          "page": "/us/en/checkout/<id>",
+          "action": "server action",
+          "expected": "an action result holding these values",
+          "expectedResult": {
+            "data": [
+              {
+                "name": "P10 shop product p10shop1793859154962"
+              }
+            ]
+          },
+          "status": 200,
+          "redirectedTo": null,
+          "asExpected": true,
+          "exposureChecked": 2,
+          "exposed": [],
+          "unchanged": null
+        }
+      ],
+      "control": {
+        "caller": "guest",
+        "page": "/us/en/checkout/<id>",
+        "after": null,
+        "status": 200,
+        "succeeded": true,
+        "carried": true,
+        "changed": null
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-50",
+      "area": "storefront",
+      "title": "1.3 Open a product page with a custom field hidden from the storefront",
+      "attempts": [
+        {
+          "caller": "guest",
+          "page": "/us/en/products/p10-listed-1793859154962",
+          "action": null,
+          "expected": {
+            "page": 200,
+            "shows": [
+              "P10 shop product p10shop1793859154962",
+              "P10 shown value 1793859154962"
+            ]
+          },
+          "status": 200,
+          "redirectedTo": null,
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": null
+        },
+        {
+          "caller": "customerC",
+          "page": "/us/en/products/p10-listed-1793859154962",
+          "action": null,
+          "expected": {
+            "page": 200,
+            "shows": [
+              "P10 shop product p10shop1793859154962",
+              "P10 shown value 1793859154962"
+            ]
+          },
+          "status": 200,
+          "redirectedTo": null,
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": null
+        }
+      ],
+      "control": {
+        "caller": "guest",
+        "page": "/us/en/products/p10-listed-1793859154962",
+        "after": null,
+        "status": 200,
+        "succeeded": true,
+        "carried": true,
+        "changed": null
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-45",
+      "area": "storefront",
+      "title": "1.1 Open a draft product's page",
+      "attempts": [
+        {
+          "caller": "guest",
+          "page": "/us/en/products/p10-draft-1793859154962",
+          "action": null,
+          "expected": {
+            "page": 200,
+            "shows": [
+              "404",
+              "This page could not be found."
+            ]
+          },
+          "status": 200,
+          "redirectedTo": null,
+          "asExpected": true,
+          "exposureChecked": 2,
+          "exposed": [],
+          "unchanged": null
+        },
+        {
+          "caller": "customerC",
+          "page": "/us/en/products/p10-draft-1793859154962",
+          "action": null,
+          "expected": {
+            "page": 200,
+            "shows": [
+              "404",
+              "This page could not be found."
+            ]
+          },
+          "status": 200,
+          "redirectedTo": null,
+          "asExpected": true,
+          "exposureChecked": 2,
+          "exposed": [],
+          "unchanged": null
+        }
+      ],
+      "control": {
+        "caller": "guest",
+        "page": "/us/en/products/p10-draft-1793859154962",
+        "after": "the admin made the product active; it was already on the storefront’s channel",
+        "status": 200,
+        "succeeded": true,
+        "carried": true,
+        "changed": null
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-50",
+      "area": "storefront",
+      "title": "1.4 Open a product page with prices hidden from guests",
+      "attempts": [
+        {
+          "caller": "guest",
+          "page": "/us/en/products/p10-priced-1793859154962",
+          "action": null,
+          "expected": {
+            "page": 200,
+            "shows": [
+              "P10 priced product 1793859154962"
+            ]
+          },
+          "status": 200,
+          "redirectedTo": null,
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": null
+        }
+      ],
+      "control": {
+        "caller": "customerC",
+        "page": "/us/en/products/p10-priced-1793859154962",
+        "after": null,
+        "status": 200,
+        "succeeded": false,
+        "carried": false,
+        "changed": null
+      },
+      "failures": [
+        "the allowed caller customerC got a 200 page showing 1 of the 2 texts it should",
+        "the allowed answer did not carry the values the check looks for"
+      ],
+      "result": "FAIL"
+    },
+    {
+      "gap": "G-50",
+      "area": "storefront",
+      "title": "1.5 Open a product page with sign-in required",
+      "attempts": [
+        {
+          "caller": "guest",
+          "page": "/us/en/products/p10-gated-1793859154962",
+          "action": null,
+          "expected": {
+            "page": 200,
+            "shows": [
+              "404",
+              "This page could not be found."
+            ]
+          },
+          "status": 200,
+          "redirectedTo": null,
+          "asExpected": true,
+          "exposureChecked": 2,
+          "exposed": [],
+          "unchanged": null
+        }
+      ],
+      "control": {
+        "caller": "customerC",
+        "page": "/us/en/products/p10-gated-1793859154962",
+        "after": null,
+        "status": 200,
+        "succeeded": false,
+        "carried": false,
+        "changed": null
+      },
+      "failures": [
+        "the allowed caller customerC got a 200 page showing 0 of the 1 texts it should",
+        "the allowed answer did not carry the values the check looks for"
+      ],
+      "result": "FAIL"
+    },
+    {
+      "gap": "G-45",
+      "area": "storefront",
+      "title": "1.6 Read guest A's cart through the cart action",
+      "attempts": [
+        {
+          "caller": "guestB",
+          "page": "/us/en/checkout/<id>",
+          "action": "server action",
+          "expected": "an exact action result",
+          "expectedResult": null,
+          "status": 200,
+          "redirectedTo": null,
+          "asExpected": true,
+          "exposureChecked": 4,
+          "exposed": [],
+          "unchanged": null
+        },
+        {
+          "caller": "customerC",
+          "page": "/us/en/checkout/<id>",
+          "action": "server action",
+          "expected": "an exact action result",
+          "expectedResult": null,
+          "status": 200,
+          "redirectedTo": null,
+          "asExpected": true,
+          "exposureChecked": 4,
+          "exposed": [],
+          "unchanged": null
+        }
+      ],
+      "control": {
+        "caller": "guestA",
+        "page": "/us/en/checkout/<id>",
+        "after": null,
+        "status": 200,
+        "succeeded": true,
+        "carried": true,
+        "changed": null
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-45",
+      "area": "storefront",
+      "title": "1.7 Switch currency on guest A's cart through the region switch's action",
+      "attempts": [
+        {
+          "caller": "guestB",
+          "page": "/us/en/checkout/<id>",
+          "action": "server action",
+          "expected": "an action result holding these values",
+          "expectedResult": {
+            "success": true,
+            "cart": {
+              "id": "cart_VqXmZF31wY"
+            }
+          },
+          "status": 200,
+          "redirectedTo": null,
+          "asExpected": true,
+          "exposureChecked": 4,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "guestA",
+        "page": "/us/en/checkout/<id>",
+        "after": null,
+        "status": 200,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-79",
+      "area": "storefront",
+      "title": "4.12 Read guest A's checkout through the checkout action",
+      "attempts": [
+        {
+          "caller": "guestB",
+          "page": "/us/en/checkout/<id>",
+          "action": "server action",
+          "expected": "an exact action result",
+          "expectedResult": null,
+          "status": 200,
+          "redirectedTo": null,
+          "asExpected": true,
+          "exposureChecked": 5,
+          "exposed": [],
+          "unchanged": null
+        },
+        {
+          "caller": "customerC",
+          "page": "/us/en/checkout/<id>",
+          "action": "server action",
+          "expected": "an exact action result",
+          "expectedResult": null,
+          "status": 200,
+          "redirectedTo": null,
+          "asExpected": true,
+          "exposureChecked": 5,
+          "exposed": [],
+          "unchanged": null
+        }
+      ],
+      "control": {
+        "caller": "guestA",
+        "page": "/us/en/checkout/<id>",
+        "after": null,
+        "status": 200,
+        "succeeded": true,
+        "carried": true,
+        "changed": null
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-79",
+      "area": "storefront",
+      "title": "4.13 Open guest A's checkout page",
+      "attempts": [
+        {
+          "caller": "guestB",
+          "page": "/us/en/checkout/<id>",
+          "action": null,
+          "expected": {
+            "page": 200,
+            "shows": []
+          },
+          "status": 200,
+          "redirectedTo": null,
+          "asExpected": true,
+          "exposureChecked": 5,
+          "exposed": [],
+          "unchanged": null
+        },
+        {
+          "caller": "customerC",
+          "page": "/us/en/checkout/<id>",
+          "action": null,
+          "expected": {
+            "page": 200,
+            "shows": []
+          },
+          "status": 200,
+          "redirectedTo": null,
+          "asExpected": true,
+          "exposureChecked": 5,
+          "exposed": [],
+          "unchanged": null
+        }
+      ],
+      "control": {
+        "caller": "guestA",
+        "page": "/us/en/checkout/<id>",
+        "after": null,
+        "status": 200,
+        "succeeded": true,
+        "carried": true,
+        "changed": null
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-79",
+      "area": "storefront",
+      "title": "4.14 Change the addresses through the checkout action, naming guest A’s cart",
+      "attempts": [
+        {
+          "caller": "guestB",
+          "page": "/us/en/checkout/<id>",
+          "action": "server action",
+          "expected": "an action result holding these values",
+          "expectedResult": {
+            "success": true,
+            "cart": {
+              "id": "cart_VqXmZF31wY"
+            }
+          },
+          "status": 200,
+          "redirectedTo": null,
+          "asExpected": true,
+          "exposureChecked": 5,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "guestA",
+        "page": "/us/en/checkout/<id>",
+        "after": null,
+        "status": 200,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-79",
+      "area": "storefront",
+      "title": "4.14 Apply a code through the checkout action, naming guest A’s cart",
+      "attempts": [
+        {
+          "caller": "guestB",
+          "page": "/us/en/checkout/<id>",
+          "action": "server action",
+          "expected": "an action result holding these values",
+          "expectedResult": {
+            "success": true,
+            "cart": {
+              "id": "cart_VqXmZF31wY"
+            }
+          },
+          "status": 200,
+          "redirectedTo": null,
+          "asExpected": true,
+          "exposureChecked": 5,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "guestA",
+        "page": "/us/en/checkout/<id>",
+        "after": null,
+        "status": 200,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-79",
+      "area": "storefront",
+      "title": "4.15 Choose guest A's delivery rate through the checkout action",
+      "attempts": [
+        {
+          "caller": "guestB",
+          "page": "/us/en/checkout/<id>",
+          "action": "server action",
+          "expected": "an action result holding these values",
+          "expectedResult": {
+            "success": false
+          },
+          "status": 200,
+          "redirectedTo": null,
+          "asExpected": true,
+          "exposureChecked": 5,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "guestA",
+        "page": "/us/en/checkout/<id>",
+        "after": null,
+        "status": 200,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-79",
+      "area": "storefront",
+      "title": "4.15 Change guest A's item through the cart action",
+      "attempts": [
+        {
+          "caller": "guestB",
+          "page": "/us/en/checkout/<id>",
+          "action": "server action",
+          "expected": "an action result holding these values",
+          "expectedResult": {
+            "success": false
+          },
+          "status": 200,
+          "redirectedTo": null,
+          "asExpected": true,
+          "exposureChecked": 5,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "guestA",
+        "page": "/us/en/checkout/<id>",
+        "after": null,
+        "status": 200,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-79",
+      "area": "storefront",
+      "title": "4.15 Remove guest A's item through the cart action",
+      "attempts": [
+        {
+          "caller": "guestB",
+          "page": "/us/en/checkout/<id>",
+          "action": "server action",
+          "expected": "an action result holding these values",
+          "expectedResult": {
+            "success": false
+          },
+          "status": 200,
+          "redirectedTo": null,
+          "asExpected": true,
+          "exposureChecked": 5,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "guestA",
+        "page": "/us/en/checkout/<id>",
+        "after": null,
+        "status": 200,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-79",
+      "area": "storefront",
+      "title": "4.16 Name customer D's address through the checkout action",
+      "attempts": [
+        {
+          "caller": "customerC",
+          "page": "/us/en/checkout/<id>",
+          "action": "server action",
+          "expected": "an action result holding these values",
+          "expectedResult": {
+            "success": true,
+            "cart": {
+              "id": "cart_uw2YK1rnl0"
+            }
+          },
+          "status": 200,
+          "redirectedTo": null,
+          "asExpected": true,
+          "exposureChecked": 2,
+          "exposed": [],
+          "unchanged": null
+        }
+      ],
+      "control": {
+        "caller": "customerD",
+        "page": "/us/en/checkout/<id>",
+        "after": null,
+        "status": 200,
+        "succeeded": true,
+        "carried": true,
+        "changed": null
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-79",
+      "area": "storefront",
+      "title": "4.17 Read guest A's placed order through the order placed page's action",
+      "attempts": [
+        {
+          "caller": "guestB",
+          "page": "/us/en/order-placed/<id>",
+          "action": "server action",
+          "expected": "an exact action result",
+          "expectedResult": null,
+          "status": 200,
+          "redirectedTo": null,
+          "asExpected": true,
+          "exposureChecked": 5,
+          "exposed": [],
+          "unchanged": null
+        },
+        {
+          "caller": "customerC",
+          "page": "/us/en/order-placed/<id>",
+          "action": "server action",
+          "expected": "an exact action result",
+          "expectedResult": null,
+          "status": 200,
+          "redirectedTo": null,
+          "asExpected": true,
+          "exposureChecked": 5,
+          "exposed": [],
+          "unchanged": null
+        }
+      ],
+      "control": {
+        "caller": "guestA",
+        "page": "/us/en/order-placed/<id>",
+        "after": null,
+        "status": 200,
+        "succeeded": true,
+        "carried": true,
+        "changed": null
+      },
+      "failures": [],
+      "result": "PASS"
+    }
+  ],
+  "storeApi": [
+    {
+      "gap": "G-79",
+      "area": "store api",
+      "title": "4.1 Read guest A's cart",
+      "request": "GET /api/v3/store/carts/<id>",
+      "attempts": [
+        {
+          "caller": "guestB",
+          "permissionKeys": null,
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": null
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": null
+          },
+          "asExpected": true,
+          "exposureChecked": 5,
+          "exposed": [],
+          "unchanged": null
+        },
+        {
+          "caller": "customerC",
+          "permissionKeys": null,
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": null
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": null
+          },
+          "asExpected": true,
+          "exposureChecked": 5,
+          "exposed": [],
+          "unchanged": null
+        }
+      ],
+      "control": {
+        "caller": "guestA",
+        "permissionKeys": null,
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": true,
+        "changed": null
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-79",
+      "area": "store api",
+      "title": "4.2 Change guest A's cart's email",
+      "request": "PATCH /api/v3/store/carts/<id>",
+      "attempts": [
+        {
+          "caller": "guestB",
+          "permissionKeys": null,
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": null
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": null
+          },
+          "asExpected": true,
+          "exposureChecked": 5,
+          "exposed": [],
+          "unchanged": true
+        },
+        {
+          "caller": "customerC",
+          "permissionKeys": null,
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": null
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": null
+          },
+          "asExpected": true,
+          "exposureChecked": 5,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "guestA",
+        "permissionKeys": null,
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-79",
+      "area": "store api",
+      "title": "4.3 Add an item to guest A's cart",
+      "request": "POST /api/v3/store/carts/<id>/items",
+      "attempts": [
+        {
+          "caller": "guestB",
+          "permissionKeys": null,
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": null
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": null
+          },
+          "asExpected": true,
+          "exposureChecked": 5,
+          "exposed": [],
+          "unchanged": true
+        },
+        {
+          "caller": "customerC",
+          "permissionKeys": null,
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": null
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": null
+          },
+          "asExpected": true,
+          "exposureChecked": 5,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "guestA",
+        "permissionKeys": null,
+        "expectedStatus": 201,
+        "status": 201,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-79",
+      "area": "store api",
+      "title": "4.4 Change the quantity of guest A's item",
+      "request": "PATCH /api/v3/store/carts/<id>/items/<id>",
+      "attempts": [
+        {
+          "caller": "guestB",
+          "permissionKeys": null,
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": null
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": null
+          },
+          "asExpected": true,
+          "exposureChecked": 5,
+          "exposed": [],
+          "unchanged": true
+        },
+        {
+          "caller": "customerC",
+          "permissionKeys": null,
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": null
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": null
+          },
+          "asExpected": true,
+          "exposureChecked": 5,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "guestA",
+        "permissionKeys": null,
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-79",
+      "area": "store api",
+      "title": "4.5 Change guest A's item on guest B's own cart",
+      "request": "PATCH /api/v3/store/carts/<id>/items/<id>",
+      "attempts": [
+        {
+          "caller": "guestB",
+          "permissionKeys": null,
+          "expected": {
+            "status": 404,
+            "code": "line_item_not_found",
+            "requiredPermission": null
+          },
+          "actual": {
+            "status": 404,
+            "code": "line_item_not_found",
+            "requiredPermission": null
+          },
+          "asExpected": true,
+          "exposureChecked": 5,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "guestA",
+        "permissionKeys": null,
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-79",
+      "area": "store api",
+      "title": "4.5 Remove guest A's item on guest B's own cart",
+      "request": "DELETE /api/v3/store/carts/<id>/items/<id>",
+      "attempts": [
+        {
+          "caller": "guestB",
+          "permissionKeys": null,
+          "expected": {
+            "status": 404,
+            "code": "line_item_not_found",
+            "requiredPermission": null
+          },
+          "actual": {
+            "status": 404,
+            "code": "line_item_not_found",
+            "requiredPermission": null
+          },
+          "asExpected": true,
+          "exposureChecked": 5,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "guestA",
+        "permissionKeys": null,
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-79",
+      "area": "store api",
+      "title": "4.6 Choose a delivery rate on guest A's cart",
+      "request": "PATCH /api/v3/store/carts/<id>/fulfillments/<id>",
+      "attempts": [
+        {
+          "caller": "guestB",
+          "permissionKeys": null,
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": null
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": null
+          },
+          "asExpected": true,
+          "exposureChecked": 5,
+          "exposed": [],
+          "unchanged": true
+        },
+        {
+          "caller": "customerC",
+          "permissionKeys": null,
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": null
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": null
+          },
+          "asExpected": true,
+          "exposureChecked": 5,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "guestA",
+        "permissionKeys": null,
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-79",
+      "area": "store api",
+      "title": "4.7 Apply a discount code to guest A's cart",
+      "request": "POST /api/v3/store/carts/<id>/discount_codes",
+      "attempts": [
+        {
+          "caller": "guestB",
+          "permissionKeys": null,
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": null
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": null
+          },
+          "asExpected": true,
+          "exposureChecked": 5,
+          "exposed": [],
+          "unchanged": true
+        },
+        {
+          "caller": "customerC",
+          "permissionKeys": null,
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": null
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": null
+          },
+          "asExpected": true,
+          "exposureChecked": 5,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "guestA",
+        "permissionKeys": null,
+        "expectedStatus": 201,
+        "status": 201,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-79",
+      "area": "store api",
+      "title": "4.11 Name customer D's saved address on customer C's cart",
+      "request": "PATCH /api/v3/store/carts/<id>",
+      "attempts": [
+        {
+          "caller": "customerC",
+          "permissionKeys": null,
+          "expected": {
+            "status": 200,
+            "code": null,
+            "requiredPermission": null
+          },
+          "actual": {
+            "status": 200,
+            "code": null,
+            "requiredPermission": null
+          },
+          "asExpected": true,
+          "exposureChecked": 2,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "customerD",
+        "permissionKeys": null,
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": true,
+        "changed": null
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-79",
+      "area": "store api",
+      "title": "4.8 Add a payment to guest A's cart",
+      "request": "POST /api/v3/store/carts/<id>/payments",
+      "attempts": [
+        {
+          "caller": "guestB",
+          "permissionKeys": null,
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": null
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": null
+          },
+          "asExpected": true,
+          "exposureChecked": 5,
+          "exposed": [],
+          "unchanged": true
+        },
+        {
+          "caller": "customerC",
+          "permissionKeys": null,
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": null
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": null
+          },
+          "asExpected": true,
+          "exposureChecked": 5,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "guestA",
+        "permissionKeys": null,
+        "expectedStatus": 201,
+        "status": 201,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-79",
+      "area": "store api",
+      "title": "4.9 Place guest A's order",
+      "request": "POST /api/v3/store/carts/<id>/complete",
+      "attempts": [
+        {
+          "caller": "guestB",
+          "permissionKeys": null,
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": null
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": null
+          },
+          "asExpected": true,
+          "exposureChecked": 5,
+          "exposed": [],
+          "unchanged": true
+        },
+        {
+          "caller": "customerC",
+          "permissionKeys": null,
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": null
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": null
+          },
+          "asExpected": true,
+          "exposureChecked": 5,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "guestA",
+        "permissionKeys": null,
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-79",
+      "area": "store api",
+      "title": "4.10 Read guest A's placed order",
+      "request": "GET /api/v3/store/orders/<id>",
+      "attempts": [
+        {
+          "caller": "guestB",
+          "permissionKeys": null,
+          "expected": {
+            "status": 404,
+            "code": "order_not_found",
+            "requiredPermission": null
+          },
+          "actual": {
+            "status": 404,
+            "code": "order_not_found",
+            "requiredPermission": null
+          },
+          "asExpected": true,
+          "exposureChecked": 5,
+          "exposed": [],
+          "unchanged": null
+        },
+        {
+          "caller": "customerC",
+          "permissionKeys": null,
+          "expected": {
+            "status": 404,
+            "code": "order_not_found",
+            "requiredPermission": null
+          },
+          "actual": {
+            "status": 404,
+            "code": "order_not_found",
+            "requiredPermission": null
+          },
+          "asExpected": true,
+          "exposureChecked": 5,
+          "exposed": [],
+          "unchanged": null
+        }
+      ],
+      "control": {
+        "caller": "guestA",
+        "permissionKeys": null,
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": true,
+        "changed": null
+      },
+      "failures": [],
+      "result": "PASS"
+    }
+  ],
+  "observations": [
+    {
+      "title": "1.4 The Store API's answer for the same product, with the customer's token sent",
+      "caller": "guest",
+      "status": 200,
+      "code": null,
+      "carriedAll": false
+    },
+    {
+      "title": "1.4 The Store API's answer for the same product, with the customer's token sent",
+      "caller": "customerC",
+      "status": 200,
+      "code": null,
+      "carriedAll": true
+    },
+    {
+      "title": "1.5 The Store API's answer for the same product, with the customer's token sent",
+      "caller": "guest",
+      "status": 401,
+      "code": "authentication_required",
+      "carriedAll": false
+    },
+    {
+      "title": "1.5 The Store API's answer for the same product, with the customer's token sent",
+      "caller": "customerC",
+      "status": 200,
+      "code": null,
+      "carriedAll": true
+    }
+  ],
+  "putBack": [
+    {
+      "setting": "the default channel's storefront access",
+      "restored": true
+    },
+    {
+      "setting": "the default channel's storefront access",
+      "restored": true
+    },
+    {
+      "setting": "whether the cheque payment method is active and shown on the storefront",
+      "restored": true
+    }
+  ]
+}
