@@ -4,7 +4,7 @@ record: verification
 work_item: FB-19; row 30 of the owner decision brief, batch 3's "Media picker sheet: Two picked"
 date: 2026-11-05
 verifier: Claude (automated session, thread "Investigate media picker image tolerance"); not independent review
-result: "PASS locally: with the page painted once more before its capture, the story's light and dark images were identical, byte for byte, in 40 of 40 runs, and the committed visual check passed 20 of 20 times against the two new reference images, at the tolerance of 25. The new images differ from the old ones only at the tiles' rounded photo corners. CI: two full visual runs on the change's commit are pending, and are recorded in §4 before the pull request merges."
+result: "PASS locally: with the page painted once more before its capture, the story's light and dark images were identical, byte for byte, in 40 of 40 runs, and the committed visual check passed 20 of 20 times against the two new reference images, at the tolerance of 25. The new images differ from the old ones only at the tiles' rounded photo corners. PASS in CI: two full visual runs on GitHub, on the change's commit, passed every image at 25, the story's two included."
 ---
 
 # The media picker image, repainted before its capture (row 30's follow-up)
@@ -59,19 +59,26 @@ The other ten changes of the investigation counted 211 or more against the same 
 
 ## 4. CI
 
-Pending. The change is kept only if two full visual runs on GitHub pass with it at the tolerance of 25: the pull request's own run and one started by hand, on the same commit. Their results are recorded here before the pull request merges, in a commit that changes only this record.
+The change is kept only if two full visual runs on GitHub pass with it at the tolerance of 25. Both did, on the pull request's commit `a82d746d`, which has main merged in, with the check in four parts ([`scores/ci-runs.txt`](evidence/2026-11-05-fb-19-media-picker-image-repaint/scores/ci-runs.txt)):
+
+| Run | Started by | Result |
+|---|---|---|
+| [Storybook run 233](https://github.com/pateldhruval872/liquorify/actions/runs/41993000293) | By hand | All four parts passed, 752 of 752 images each; 08:15 to 08:30 UTC |
+| [Storybook run 234](https://github.com/pateldhruval872/liquorify/actions/runs/41993001072) | The pull request | All four parts passed, 752 of 752 images each; 08:15 to 08:33 UTC |
+
+The story's two images are in part 1: the check's own listing of that part puts them 195th and 196th of its 752, and in no other part. Part 1 passed every image in both runs. The pull request's other checks on the same commit passed too, 39 of them, with the six release jobs skipped. This section was added afterwards in a commit that changes only records, which does not start the visual check again.
 
 ## 5. Evidence
 
 In [`evidence/2026-11-05-fb-19-media-picker-image-repaint/`](evidence/2026-11-05-fb-19-media-picker-image-repaint/), every log as `.txt`:
 
 - `review/`: the old and new images side by side, light and dark, and the tiles' top row enlarged with the difference amplified eight times;
-- `scores/`: the new references against the old (`new-references-vs-old.json`) and against the 40 captures (`new-references-vs-40-runs.json`), and `runs.txt`, one line per local run;
+- `scores/`: the new references against the old (`new-references-vs-old.json`) and against the 40 captures (`new-references-vs-40-runs.json`), `runs.txt`, one line per local run, and `ci-runs.txt`, the two CI runs part by part;
 - `scripts/`: `check-committed.sh` (the committed check, run several times), with the capture and check scripts the investigation used.
 
 ## 6. Limitations
 
-- **CI's processors.** Locally the repainted image never varied. CI's runners use other processors; §4's two runs are the evidence that they draw it the same way, and a later failure on this image is a reason to revisit the fix in a new record.
+- **CI's processors.** Locally the repainted image never varied. CI's runners use other processors; §4's two runs passed, but two runs show the image within 25 there, not that it never varies. A later failure on this image is a reason to revisit the fix in a new record.
 - **One story.** The repaint applies to this story only. The two dark chip images keep their allowance of 60, and no other image is repainted.
 - **Cause inside the browser not traced.** As the investigation says, why the browser picks a shading was not found; the repaint makes it pick the same one.
 - **Automated, not independent.** The same session made the change and checked it. The image review is delegated acceptance, not the owner's review.

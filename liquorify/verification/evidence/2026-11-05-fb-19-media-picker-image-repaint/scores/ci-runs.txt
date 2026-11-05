@@ -1,0 +1,25 @@
+CI results for the media picker repaint, on commit a82d746d2c9b10833b40e029ab8fa0c57f12196b
+(the pull request's head, with main merged in). Read from GitHub's job records and the last lines of each part's log.
+
+Storybook run 233, id 41993000293, started by hand (workflow_dispatch), 08:15:00 to 08:30:18 UTC
+  https://github.com/pateldhruval872/liquorify/actions/runs/41993000293
+  part 1 of 4   752 passed (13.6m)   job 127129455152   success
+  part 2 of 4   752 passed (11.1m)   job 127129455254   success
+  part 3 of 4   752 passed (11.9m)   job 127129455270   success
+  part 4 of 4   752 passed (10.4m)   job 127129454916   success
+  Storybook & visual check ("Every part passed")      job 127135683578   success
+
+Storybook run 234, id 41993001072, started by the pull request (pull_request), 08:15:00 to 08:33:12 UTC
+  https://github.com/pateldhruval872/liquorify/actions/runs/41993001072
+  part 1 of 4   752 passed (15.3m)   job 127129453101   success
+  part 2 of 4   752 passed (11.2m)   job 127129452785   success
+  part 3 of 4   752 passed (9.0m)    job 127129452881   success
+  part 4 of 4   752 passed (10.9m)   job 127129452634   success
+  Storybook & visual check ("Every part passed")      job 127136430826   success
+
+Where the story is: the check's own listing of part 1 (npx playwright test -c visual/playwright.config.ts --list --shard=1/4)
+puts "Dashboard core/Media picker sheet / Two picked / light" and "/ dark" 195th and 196th of part 1's 752, and in no other part.
+Part 1's last image in both CI logs ("File type icon / Archive / dark") is the listing's last, so the listing matches CI's order.
+
+The pull request's other checks on the same commit: 45 check runs in all; 39 succeeded, 6 were skipped
+(the release jobs: CLI, create-spree-app, Dashboard packages, Seller packages, Admin SDK, SDK), none failed.
