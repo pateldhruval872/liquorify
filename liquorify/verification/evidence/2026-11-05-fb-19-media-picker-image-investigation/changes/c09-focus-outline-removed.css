@@ -1,0 +1,2 @@
+/* c09: the focus outline the last-picked tile (Slate cap) shows, removed */
+html:not(.dark) button[aria-pressed="true"]:focus-visible, html:not(.dark) button[aria-pressed="true"]:focus { outline: none !important; }

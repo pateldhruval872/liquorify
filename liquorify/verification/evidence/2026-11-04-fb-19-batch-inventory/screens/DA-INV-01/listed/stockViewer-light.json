@@ -1,0 +1,23 @@
+{
+  "screen": "DA-INV-01",
+  "state": "listed",
+  "variant": "stockViewer",
+  "role": {
+    "name": "Stock viewer",
+    "permissions": [
+      "read_stock",
+      "read_purchasing",
+      "read_products"
+    ]
+  },
+  "theme": "light",
+  "revision": "5b23b5af",
+  "path": "/<store>/inventory",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": null,
+  "settled": true,
+  "outside": []
+}

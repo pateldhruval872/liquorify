@@ -1,0 +1,302 @@
+{
+ "d-wait-1": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 0,
+   "changed": 10,
+   "largest": 2,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "d-wait-10": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 0,
+   "changed": 10,
+   "largest": 2,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "d-wait-11": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 0,
+   "changed": 3,
+   "largest": 1,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "d-wait-12": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 0,
+   "changed": 29,
+   "largest": 3,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "d-wait-13": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 0,
+   "changed": 7,
+   "largest": 2,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "d-wait-14": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 0,
+   "changed": 10,
+   "largest": 2,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "d-wait-15": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 0,
+   "changed": 7,
+   "largest": 2,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "d-wait-16": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 0,
+   "changed": 9,
+   "largest": 1,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "d-wait-17": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 0,
+   "changed": 10,
+   "largest": 2,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "d-wait-18": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 0,
+   "changed": 10,
+   "largest": 2,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "d-wait-19": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 0,
+   "changed": 9,
+   "largest": 1,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "d-wait-2": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 0,
+   "changed": 9,
+   "largest": 1,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "d-wait-20": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 0,
+   "changed": 10,
+   "largest": 2,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "d-wait-21": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 32,
+   "changed": 58,
+   "largest": 34,
+   "failsAt25": true,
+   "failsAt60": false
+  }
+ },
+ "d-wait-22": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 0,
+   "changed": 10,
+   "largest": 2,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "d-wait-23": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 0,
+   "changed": 3,
+   "largest": 1,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "d-wait-24": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 0,
+   "changed": 9,
+   "largest": 1,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "d-wait-25": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 0,
+   "changed": 10,
+   "largest": 2,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "d-wait-26": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 0,
+   "changed": 3,
+   "largest": 1,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "d-wait-27": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 0,
+   "changed": 29,
+   "largest": 3,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "d-wait-28": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 0,
+   "changed": 10,
+   "largest": 2,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "d-wait-29": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 0,
+   "changed": 10,
+   "largest": 2,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "d-wait-3": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 0,
+   "changed": 3,
+   "largest": 1,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "d-wait-30": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 0,
+   "changed": 9,
+   "largest": 1,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "d-wait-4": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 34,
+   "changed": 106,
+   "largest": 34,
+   "failsAt25": true,
+   "failsAt60": false
+  }
+ },
+ "d-wait-5": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 0,
+   "changed": 9,
+   "largest": 1,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "d-wait-6": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 0,
+   "changed": 9,
+   "largest": 1,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "d-wait-7": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 0,
+   "changed": 10,
+   "largest": 2,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "d-wait-8": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 0,
+   "changed": 7,
+   "largest": 2,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "d-wait-9": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 0,
+   "changed": 10,
+   "largest": 2,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ }
+}

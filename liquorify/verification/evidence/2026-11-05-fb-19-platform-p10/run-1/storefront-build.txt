@@ -1,0 +1,116 @@
+▲ Next.js 16.3.8 (Turbopack)
+✓ Running next.config.ts took 407ms
+- Cache Components enabled
+- Experiments (use with caution):
+  · optimizePackageImports
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 28.9s
+  Running TypeScript ...
+  Finished TypeScript in 15.4s ...
+  Collecting page data using 3 workers ...
+[webhooks] NEXT_PUBLIC_SITE_URL is not set — email links will be broken
+  Generating static pages using 3 workers (0/62) ...
+⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+  Generating static pages using 3 workers (15/62) 
+[webhooks] NEXT_PUBLIC_SITE_URL is not set — email links will be broken
+  Generating static pages using 3 workers (30/62) 
+  Generating static pages using 3 workers (46/62) 
+✓ Generating static pages using 3 workers (62/62) in 2.4s
+  Finalizing page optimization ...
+
+Route (app)
+┌ ○ /_not-found
+├   /[country]/[locale]
+│ ├ ◐ /[country]/[locale]
+│ └ ◐ /us/en
+├   /[country]/[locale]/account
+│ ├ ◐ /[country]/[locale]/account
+│ └ ◐ /us/en/account
+├   /[country]/[locale]/account/addresses
+│ ├ ◐ /[country]/[locale]/account/addresses
+│ └ ◐ /us/en/account/addresses
+├   /[country]/[locale]/account/credit-cards
+│ ├ ◐ /[country]/[locale]/account/credit-cards
+│ └ ◐ /us/en/account/credit-cards
+├   /[country]/[locale]/account/forgot-password
+│ ├ ◐ /[country]/[locale]/account/forgot-password
+│ └ ◐ /us/en/account/forgot-password
+├   /[country]/[locale]/account/gift-cards
+│ ├ ◐ /[country]/[locale]/account/gift-cards
+│ └ ◐ /us/en/account/gift-cards
+├   /[country]/[locale]/account/orders
+│ ├ ◐ /[country]/[locale]/account/orders
+│ └ ◐ /us/en/account/orders
+├   /[country]/[locale]/account/orders/[id]
+│ ├ ◐ /[country]/[locale]/account/orders/[id]
+│ └ ◐ /us/en/account/orders/[id]
+├   /[country]/[locale]/account/profile
+│ ├ ◐ /[country]/[locale]/account/profile
+│ └ ◐ /us/en/account/profile
+├   /[country]/[locale]/account/register
+│ ├ ◐ /[country]/[locale]/account/register
+│ └ ◐ /us/en/account/register
+├   /[country]/[locale]/account/reset-password
+│ ├ ◐ /[country]/[locale]/account/reset-password
+│ └ ◐ /us/en/account/reset-password
+├   /[country]/[locale]/c/[...permalink]
+│ ├ ◐ /[country]/[locale]/c/[...permalink]
+│ └ ◐ /us/en/c/[...permalink]
+├   /[country]/[locale]/cart
+│ ├ ◐ /[country]/[locale]/cart
+│ └ ◐ /us/en/cart
+├   /[country]/[locale]/checkout/[id]
+│ ├ ◐ /[country]/[locale]/checkout/[id]
+│ └ ◐ /us/en/checkout/[id]
+├   /[country]/[locale]/confirm-payment/[id]
+│ ├ ◐ /[country]/[locale]/confirm-payment/[id]
+│ └ ◐ /us/en/confirm-payment/[id]
+├   /[country]/[locale]/order-placed/[id]
+│ ├ ◐ /[country]/[locale]/order-placed/[id]
+│ └ ◐ /us/en/order-placed/[id]
+├   /[country]/[locale]/policies/[slug]
+│ ├ ◐ /[country]/[locale]/policies/[slug]
+│ └ ◐ /us/en/policies/[slug]
+├   /[country]/[locale]/products
+│ ├ ◐ /[country]/[locale]/products
+│ └ ◐ /us/en/products
+├   /[country]/[locale]/products/[slug]
+│ ├ ◐ /[country]/[locale]/products/[slug]
+│ └ ◐ /us/en/products/[slug]
+├   /[country]/[locale]/wholesale
+│ ├ ◐ /[country]/[locale]/wholesale
+│ └ ◐ /us/en/wholesale
+├   /[country]/[locale]/wholesale/apply
+│ ├ ◐ /[country]/[locale]/wholesale/apply
+│ └ ◐ /us/en/wholesale/apply
+├   /[country]/[locale]/wholesale/cart
+│ ├ ◐ /[country]/[locale]/wholesale/cart
+│ └ ◐ /us/en/wholesale/cart
+├   /[country]/[locale]/wholesale/products/[slug]
+│ ├ ◐ /[country]/[locale]/wholesale/products/[slug]
+│ └ ◐ /us/en/wholesale/products/[slug]
+├   /[country]/[locale]/wholesale/quick-order
+│ ├ ◐ /[country]/[locale]/wholesale/quick-order
+│ └ ◐ /us/en/wholesale/quick-order
+├   /[country]/[locale]/wholesale/sign-in
+│ ├ ◐ /[country]/[locale]/wholesale/sign-in
+│ └ ◐ /us/en/wholesale/sign-in
+├ ƒ /api/webhooks/spree
+├ ○ /dev/emails
+├   /dev/emails/[template]
+│ ├ ◐ /dev/emails/[template]
+│ ├ ○ /dev/emails/order-confirmation
+│ ├ ○ /dev/emails/order-canceled
+│ └ ◐ [+2 more paths]
+├ ƒ /robots.txt
+└ ƒ /sitemap/[__metadata_id__]
+
+
+ƒ Proxy (Middleware)
+
+○  (Static)             prerendered as static content
+◐  (Partial Prerender)  prerendered as static HTML with dynamic server-streamed content
+ƒ  (Dynamic)            server-rendered on demand
+

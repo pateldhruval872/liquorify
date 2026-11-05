@@ -1,0 +1,2 @@
+/* c12: the gap between tiles: 12 pixels to 13 */
+html:not(.dark) ul.grid { gap: 13px !important; }

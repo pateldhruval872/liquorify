@@ -1,0 +1,16 @@
+{
+  "screen": "DA-INV-07",
+  "state": "save-refused",
+  "variant": "admin",
+  "role": null,
+  "theme": "light",
+  "revision": "5b23b5af",
+  "path": "/<store>/purchase-orders/new",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "intercepted": "The create request is answered with a refusal naming the supplier",
+  "settled": true,
+  "outside": []
+}

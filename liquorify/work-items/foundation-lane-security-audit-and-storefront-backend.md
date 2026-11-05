@@ -5,14 +5,14 @@ work_item: FB-11, FB-06
 status: PROPOSED
 owner: the owner reviews and accepts; an automated Claude session implements
 created: 2026-11-03
-updated: 2026-11-04
+updated: 2026-11-05
 ---
 
 # Foundation lane: the weekly security audit, then the storefront's test backend
 
 One implementation lane for two foundation items, in the order the owner asked on 2026-11-03: first repair the backend's weekly security audit, which has failed both times it ran (part of FB-11), then complete FB-06, so that the storefront's browser tests run against a backend built from a recorded `liquorify` revision and use the matching SDK. Both were found by the baseline audit of 2026-11-02 (its findings A-1 and A-6). Neither changes Spree's application code or the storefront's pages, or adds a Liquorify feature.
 
-**Status.** PROPOSED. On 2026-11-04 the owner approved the lane (decision 1 of the owner decision brief) and answered §5: questions 2 and 3 as recommended, and question 1, the advisory, later the same day, choosing the second way in §1.1 ([record](../verification/2026-11-04-owner-decision-brief-answers-2.md)). Step 2's spike ran on 2026-11-04 and showed option A works (§2.1), and the owner answered the two questions it raised for step 2.2 the same day. Later still that day the owner reported OA-6 saved, so step 1 can run, and authorized step 2.2's workflow change in storefront #23 to merge under the delegation ([record](../verification/2026-11-04-owner-decision-brief-answers-2.md#5-later-the-same-day)). At most three implementation lanes run at once; §4 shows where this one fits.
+**Status.** PROPOSED. On 2026-11-04 the owner approved the lane (decision 1 of the owner decision brief) and answered §5: questions 2 and 3 as recommended, and question 1, the advisory, later the same day, choosing the second way in §1.1 ([record](../verification/2026-11-04-owner-decision-brief-answers-2.md)). Step 2's spike ran on 2026-11-04 and showed option A works (§2.1), and the owner answered the two questions it raised for step 2.2 the same day. Later still that day the owner reported OA-6 saved, so step 1 can run, and authorized step 2.2's workflow change in storefront #23 to merge under the delegation ([record](../verification/2026-11-04-owner-decision-brief-answers-2.md#5-later-the-same-day)). That night the owner approved step 1's repair, #57, and the dependency updates its run by hand opened, #58 (§5, question 4). Step 2.2 merged as storefront #23 on 2026-11-04 (§2.2). #57 merged on 2026-11-04 and #58 on 2026-11-05, and the audit then passed on `main` (§1.2); step 1 closes once the scheduled run on Monday 2026-11-09 also passes. At most three implementation lanes run at once; §4 shows where this one fits.
 
 ## 1. Step 1: repair the weekly security audit (FB-11)
 
@@ -73,6 +73,19 @@ Prepared on 2026-11-04 because the owner kept decision 9 pending until this was 
 **Recommendation: the second way.** The exposure is developer tooling run by hand against registries the developer chooses, so the risk is low either way; what differs is whether the advisory stays visible. Skipping unpublished fixes keeps it in front of the owner every week without a review date to remember, and handles the next advisory of the same shape without another exception. The `braces` entry stays as the owner decided it; moving it to the same handling would be a separate decision. The repair pull request then has three parts: the workflow step, the owner's setting from question 2, and the run by hand, with the built bundle searched.
 
 **The owner's answer, 2026-11-04 (decision 9, row 1 of the owner decision brief, [record](../verification/2026-11-04-owner-decision-brief-answers-2.md)):** the second way. The workflow skips a fix version that is definitively unpublished, that is, one the registry answered does not exist, and keeps reporting its advisory as unresolved in every run. No ignore entry is added. A registry or network failure while checking stays a failure of the run, so an advisory is never skipped because the registry could not be reached. The `braces` entry stays as it is.
+
+### 1.2 The result, 2026-11-04 and 2026-11-05
+
+The repair, [#57](https://github.com/pateldhruval872/liquorify/pull/57), merged on 2026-11-04 as `303d3410`, and the dependency updates its run by hand opened, [#58](https://github.com/pateldhruval872/liquorify/pull/58), merged on 2026-11-05 as `953a281d`. Both merged by delegated acceptance under the owner's approval (§5, question 4), each after every check passed on its final commit ([record](../verification/2026-11-04-fb-11-security-audit-repair.md)).
+
+| Done when | Where it stands |
+|---|---|
+| The run by hand passes | Done. From #57's branch it skipped the unpublished `deepmerge` version and opened #58, which shows the repository setting OA-6 works. Run again by hand on `main` after both merges, it passed, found nothing new to fix and opened no pull request |
+| The next scheduled Monday run passes | Pending: Monday 2026-11-09 |
+| The pull request it opens is reviewed under FB-11 | Done. #58's eight dependency updates were reviewed, including its major-version moves of `glob`, `minimatch` and `path-scurry`, which reach only Storybook and the `shadcn` developer tool |
+| FB-11's text in LIQ-004 says what ran and what was decided | Done |
+
+The `deepmerge` advisory stays reported and unresolved, with no ignore entry, until a fixed version is published.
 
 ## 2. Step 2: the storefront's browser tests against a pinned Liquorify backend (FB-06)
 
@@ -146,6 +159,10 @@ Prepared on 2026-11-04 because the owner kept decision 9 pending until this was 
 
 **Against the acceptance criteria, as evidence for step 2.2.** Criteria 1, 2, 5 and 6 hold on #23: no step pulls the published image, the revision is one line whose comment says who changes it and when, and the files carry no credential, key, machine path or page change. `4ce4270` showed criterion 2 in use: moving to a newer backend changed that one line and nothing else, and the tests passed. Criterion 3 holds on #23's `920534a`: `package.json` and the lockfile name 2.0.0-rc.4, with no local path. Criterion 4 held twice on `0fce23c`, and single runs on `920534a` and `4ce4270` also passed; step 2.2's pull request runs it again on its own final commit.
 
+### 2.2 Step 2.2's result, 2026-11-04
+
+Storefront [#23](https://github.com/pateldhruval872/liquorify-storefront/pull/23) merged on 2026-11-04 as `ad77c3d`, by delegated acceptance under the owner's authorization of that day ([merge record](../verification/2026-11-04-fb-06-storefront-test-backend-merge.md)). All six acceptance criteria above hold on its final commit, `ecbc9ac`: all 21 browser tests passed twice in CI, with no retry, against a backend built from `liquorify` `68236c59`, and CI on the storefront's `main` passed afterwards, all 21 again. FB-06 is done. Where the host application lives for development and hosting stays FB-05's open question.
+
 ## 3. Risk and release impact
 
 - **Risk.** Step 1 changes the workflow's fix step and needs one repository setting: Protected, because it changes how advisories are handled and lets a workflow open pull requests. Step 2 changes the storefront's CI workflow and one dependency: Standard as LIQ-004 classes FB-06, and the workflow change in storefront #23 may merge under the owner's delegation, as the owner authorized on 2026-11-04 with no further personal review: after the technical review, an update from main with any conflicts resolved, and two passing browser-test runs on its final revision, with main checked after the merge ([record](../verification/2026-11-04-owner-decision-brief-answers-2.md#5-later-the-same-day)). It does not depend on OA-6. Neither touches application code.
@@ -173,3 +190,6 @@ The owner asked on 2026-11-03 for at most three implementation lanes at once, an
    *Later the same day:* the owner reported it saved ([record](../verification/2026-11-04-owner-decision-brief-answers-2.md#5-later-the-same-day)). Step 1's run by hand checks that the workflow can open its pull request.
 3. **Which backend for the storefront's tests?** Recommended: option A, with the host application's home decided as part of it. Option B waits for hosting.
    *The owner's answer, 2026-11-04 (decision 11):* option A, with the host application's home (FB-05) decided as part of it. The SDK stays on 2.0.0-rc.4, matching the backend, while the baseline stays on 6.0.0.rc4 (decision 32).
+4. **Merge step 1's repair (#57) and the dependency updates its run by hand opened (#58)?** Recommended: both. #57's 35 checks passed, and a run by hand from its branch skipped the unpublished `deepmerge` version and opened #58. #58's 36 checks passed; only `seroval` sits under the admin dashboard's router, and the built dashboard and seller panel contain none of its code (checked locally); the rest affect Storybook and the shadcn developer tool, where `glob` and `minimatch` move up a major version.
+   *The owner's answer, 2026-11-04 (rows G and H of the owner decision brief, [record](../verification/2026-11-04-owner-decision-brief-answers-3.md)):* both approved. #57 merges under the delegation; the `deepmerge` advisory stays visible, with no new ignore entry, and the audit's result after the merge is recorded. #58 merges after #57: it is brought up to date with `main`, any conflicts are resolved, and the affected checks run again on its final commit before it merges. The review of its major-version moves and the unresolved advisory are kept in the verification record.
+   *Outcome:* #57 merged on 2026-11-04 and #58 on 2026-11-05, each after every check passed on its final commit, and the audit then passed on `main`, still reporting the `deepmerge` advisory with no ignore entry (§1.2).

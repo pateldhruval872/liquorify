@@ -1,0 +1,251 @@
+▲ Next.js 16.3.8
+- Local:         http://localhost:3001
+- Network:       http://192.0.2.2:3001
+✓ Ready in 147ms
+✓ Running next.config.ts took 296ms
+⚠ "next start" does not work with "output: standalone" configuration. Use "node .next/standalone/server.js" instead.
+⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3001". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+Error [SpreeError]: Order not found
+    at n.request (.next/server/chunks/ssr/src_lib_spree_config_ts_0ssc5jx._.js:1:13277)
+    at async c (.next/server/chunks/ssr/src_lib_data_1_44s81._.js:1:6337)
+    at async (.next/server/chunks/ssr/src_lib_data_1h_2htk._.js:1:4269)
+    at async c (.next/server/chunks/ssr/src_lib_data_1_44s81._.js:1:6337)
+    at async l (.next/server/chunks/ssr/[root-of-the-server]__0-n4hct._.js:1:5028) {
+  code: 'order_not_found',
+  status: 404,
+  details: undefined
+}
+Error [SpreeError]: Order not found
+    at n.request (.next/server/chunks/ssr/src_lib_spree_config_ts_0ssc5jx._.js:1:13277)
+    at async c (.next/server/chunks/ssr/src_lib_data_1_44s81._.js:1:6337)
+    at async (.next/server/chunks/ssr/src_lib_data_1h_2htk._.js:1:4269)
+    at async c (.next/server/chunks/ssr/src_lib_data_1_44s81._.js:1:6337)
+    at async l (.next/server/chunks/ssr/[root-of-the-server]__0-n4hct._.js:1:5028) {
+  code: 'order_not_found',
+  status: 404,
+  details: undefined
+}
+Error [SpreeError]: Order not found
+    at n.request (.next/server/chunks/ssr/src_lib_spree_config_ts_0ssc5jx._.js:1:13277)
+    at async c (.next/server/chunks/ssr/src_lib_data_1_44s81._.js:1:6337)
+    at async (.next/server/chunks/ssr/src_lib_data_1h_2htk._.js:1:4269)
+    at async c (.next/server/chunks/ssr/src_lib_data_1_44s81._.js:1:6337)
+    at async l (.next/server/chunks/ssr/[root-of-the-server]__0-n4hct._.js:1:5028) {
+  code: 'order_not_found',
+  status: 404,
+  details: undefined
+}
+⨯ Error [SpreeError]: Product not found
+    at n.request (.next/server/chunks/ssr/src_lib_spree_config_ts_0ssc5jx._.js:1:13277) {
+  code: 'record_not_found',
+  status: 404,
+  details: undefined,
+  digest: '580554846'
+}
+⨯ Error [SpreeError]: Product not found
+    at n.request (.next/server/chunks/ssr/src_lib_spree_config_ts_0ssc5jx._.js:1:13277) {
+  code: 'record_not_found',
+  status: 404,
+  details: undefined,
+  digest: '580554846'
+}
+⨯ Error [SpreeError]: Product not found
+    at n.request (.next/server/chunks/ssr/src_lib_spree_config_ts_0ssc5jx._.js:1:13277) {
+  code: 'record_not_found',
+  status: 404,
+  details: undefined,
+  digest: '580554846'
+}
+⨯ Error [SpreeError]: Product not found
+    at n.request (.next/server/chunks/ssr/src_lib_spree_config_ts_0ssc5jx._.js:1:13277) {
+  code: 'record_not_found',
+  status: 404,
+  details: undefined,
+  digest: '580554846'
+}
+⨯ Error [SpreeError]: Authentication required to access this store.
+    at n.request (.next/server/chunks/ssr/src_lib_spree_config_ts_0ssc5jx._.js:1:13277) {
+  code: 'authentication_required',
+  status: 401,
+  details: undefined,
+  digest: '3091993342'
+}
+⨯ Error [SpreeError]: Authentication required to access this store.
+    at n.request (.next/server/chunks/ssr/src_lib_spree_config_ts_0ssc5jx._.js:1:13277) {
+  code: 'authentication_required',
+  status: 401,
+  details: undefined,
+  digest: '3091993342'
+}
+⨯ Error [SpreeError]: Authentication required to access this store.
+    at n.request (.next/server/chunks/ssr/src_lib_spree_config_ts_0ssc5jx._.js:1:13277) {
+  code: 'authentication_required',
+  status: 401,
+  details: undefined,
+  digest: '3091993342'
+}
+⨯ Error [SpreeError]: Authentication required to access this store.
+    at n.request (.next/server/chunks/ssr/src_lib_spree_config_ts_0ssc5jx._.js:1:13277) {
+  code: 'authentication_required',
+  status: 401,
+  details: undefined,
+  digest: '3091993342'
+}
+Error [SpreeError]: Order not found
+    at n.request (.next/server/chunks/ssr/src_lib_spree_config_ts_0ssc5jx._.js:1:13277)
+    at async c (.next/server/chunks/ssr/src_lib_data_1_44s81._.js:1:6337)
+    at async (.next/server/chunks/ssr/src_lib_data_1h_2htk._.js:1:4269)
+    at async c (.next/server/chunks/ssr/src_lib_data_1_44s81._.js:1:6337)
+    at async l (.next/server/chunks/ssr/[root-of-the-server]__0-n4hct._.js:1:5028) {
+  code: 'order_not_found',
+  status: 404,
+  details: undefined
+}
+Error [SpreeError]: Order not found
+    at n.request (.next/server/chunks/ssr/src_lib_spree_config_ts_0ssc5jx._.js:1:13277)
+    at async c (.next/server/chunks/ssr/src_lib_data_1_44s81._.js:1:6337)
+    at async (.next/server/chunks/ssr/src_lib_data_1h_2htk._.js:1:4269)
+    at async c (.next/server/chunks/ssr/src_lib_data_1_44s81._.js:1:6337)
+    at async l (.next/server/chunks/ssr/[root-of-the-server]__0-n4hct._.js:1:5028) {
+  code: 'order_not_found',
+  status: 404,
+  details: undefined
+}
+Error [SpreeError]: Order not found
+    at n.request (.next/server/chunks/ssr/src_lib_spree_config_ts_0ssc5jx._.js:1:13277)
+    at async c (.next/server/chunks/ssr/src_lib_data_1_44s81._.js:1:6337)
+    at async (.next/server/chunks/ssr/src_lib_data_1h_2htk._.js:1:4269)
+    at async c (.next/server/chunks/ssr/src_lib_data_1_44s81._.js:1:6337)
+    at async l (.next/server/chunks/ssr/[root-of-the-server]__0-n4hct._.js:1:5028) {
+  code: 'order_not_found',
+  status: 404,
+  details: undefined
+}
+Error [SpreeError]: Order not found
+    at n.request (.next/server/chunks/ssr/src_lib_spree_config_ts_0ssc5jx._.js:1:13277)
+    at async c (.next/server/chunks/ssr/src_lib_data_1_44s81._.js:1:6337)
+    at async (.next/server/chunks/ssr/src_lib_data_1h_2htk._.js:1:4269)
+    at async c (.next/server/chunks/ssr/src_lib_data_1_44s81._.js:1:6337)
+    at async l (.next/server/chunks/ssr/0q3k_next_dist_0o1vs24._.js:1:11030) {
+  code: 'order_not_found',
+  status: 404,
+  details: undefined
+}
+Error [SpreeError]: Order not found
+    at n.request (.next/server/chunks/ssr/src_lib_spree_config_ts_0ssc5jx._.js:1:13277)
+    at async c (.next/server/chunks/ssr/src_lib_data_1_44s81._.js:1:6337)
+    at async (.next/server/chunks/ssr/src_lib_data_1h_2htk._.js:1:4269)
+    at async c (.next/server/chunks/ssr/src_lib_data_1_44s81._.js:1:6337)
+    at async l (.next/server/chunks/ssr/[root-of-the-server]__0-n4hct._.js:1:5028) {
+  code: 'order_not_found',
+  status: 404,
+  details: undefined
+}
+Error [SpreeError]: Order not found
+    at n.request (.next/server/chunks/ssr/src_lib_spree_config_ts_0ssc5jx._.js:1:13277)
+    at async c (.next/server/chunks/ssr/src_lib_data_1_44s81._.js:1:6337)
+    at async (.next/server/chunks/ssr/src_lib_data_1h_2htk._.js:1:4269)
+    at async c (.next/server/chunks/ssr/src_lib_data_1_44s81._.js:1:6337)
+    at async l (.next/server/chunks/ssr/0q3k_next_dist_0o1vs24._.js:1:11030) {
+  code: 'order_not_found',
+  status: 404,
+  details: undefined
+}
+Error [SpreeError]: Order not found
+    at n.request (.next/server/chunks/ssr/src_lib_spree_config_ts_0ssc5jx._.js:1:13277)
+    at async c (.next/server/chunks/ssr/src_lib_data_1_44s81._.js:1:6337)
+    at async (.next/server/chunks/ssr/src_lib_data_1h_2htk._.js:1:4269)
+    at async c (.next/server/chunks/ssr/src_lib_data_1_44s81._.js:1:6337)
+    at async l (.next/server/chunks/ssr/[root-of-the-server]__0-n4hct._.js:1:5028) {
+  code: 'order_not_found',
+  status: 404,
+  details: undefined
+}
+Error [SpreeError]: Order not found
+    at n.request (.next/server/chunks/ssr/src_lib_spree_config_ts_0ssc5jx._.js:1:13277)
+    at async c (.next/server/chunks/ssr/src_lib_data_1_44s81._.js:1:6337)
+    at async (.next/server/chunks/ssr/src_lib_data_1h_2htk._.js:1:4269)
+    at async c (.next/server/chunks/ssr/src_lib_data_1_44s81._.js:1:6337)
+    at async l (.next/server/chunks/ssr/[root-of-the-server]__0-n4hct._.js:1:5028) {
+  code: 'order_not_found',
+  status: 404,
+  details: undefined
+}
+Error [SpreeError]: Order not found
+    at n.request (.next/server/chunks/ssr/src_lib_spree_config_ts_0ssc5jx._.js:1:13277)
+    at async c (.next/server/chunks/ssr/src_lib_data_1_44s81._.js:1:6337)
+    at async (.next/server/chunks/ssr/src_lib_data_1h_2htk._.js:1:4269)
+    at async c (.next/server/chunks/ssr/src_lib_data_1_44s81._.js:1:6337)
+    at async l (.next/server/chunks/ssr/[root-of-the-server]__0-n4hct._.js:1:5028) {
+  code: 'order_not_found',
+  status: 404,
+  details: undefined
+}
+Error [SpreeError]: Order not found
+    at n.request (.next/server/chunks/ssr/src_lib_spree_config_ts_0ssc5jx._.js:1:13277)
+    at async c (.next/server/chunks/ssr/src_lib_data_1_44s81._.js:1:6337)
+    at async (.next/server/chunks/ssr/src_lib_data_1h_2htk._.js:1:4269)
+    at async c (.next/server/chunks/ssr/src_lib_data_1_44s81._.js:1:6337)
+    at async l (.next/server/chunks/ssr/[root-of-the-server]__0-n4hct._.js:1:5028) {
+  code: 'order_not_found',
+  status: 404,
+  details: undefined
+}
+Error [SpreeError]: Order not found
+    at n.request (.next/server/chunks/ssr/src_lib_spree_config_ts_0ssc5jx._.js:1:13277)
+    at async c (.next/server/chunks/ssr/src_lib_data_1_44s81._.js:1:6337)
+    at async (.next/server/chunks/ssr/src_lib_data_1h_2htk._.js:1:4269)
+    at async c (.next/server/chunks/ssr/src_lib_data_1_44s81._.js:1:6337)
+    at async l (.next/server/chunks/ssr/[root-of-the-server]__0-n4hct._.js:1:5028) {
+  code: 'order_not_found',
+  status: 404,
+  details: undefined
+}
+Error [SpreeError]: Order not found
+    at n.request (.next/server/chunks/ssr/src_lib_spree_config_ts_0ssc5jx._.js:1:13277)
+    at async c (.next/server/chunks/ssr/src_lib_data_1_44s81._.js:1:6337)
+    at async (.next/server/chunks/ssr/src_lib_data_1h_2htk._.js:1:4269)
+    at async c (.next/server/chunks/ssr/src_lib_data_1_44s81._.js:1:6337)
+    at async l (.next/server/chunks/ssr/[root-of-the-server]__0-n4hct._.js:1:5028) {
+  code: 'order_not_found',
+  status: 404,
+  details: undefined
+}
+Error [SpreeError]: Order not found
+    at n.request (.next/server/chunks/ssr/src_lib_spree_config_ts_0ssc5jx._.js:1:13277)
+    at async c (.next/server/chunks/ssr/src_lib_data_1_44s81._.js:1:6337)
+    at async (.next/server/chunks/ssr/src_lib_data_1h_2htk._.js:1:4269)
+    at async c (.next/server/chunks/ssr/src_lib_data_1_44s81._.js:1:6337)
+    at async l (.next/server/chunks/ssr/[root-of-the-server]__0-n4hct._.js:1:5028) {
+  code: 'order_not_found',
+  status: 404,
+  details: undefined
+}
+Error [SpreeError]: Order not found
+    at n.request (.next/server/chunks/ssr/src_lib_spree_config_ts_0ssc5jx._.js:1:13277)
+    at async c (.next/server/chunks/ssr/src_lib_data_1_44s81._.js:1:6337)
+    at async (.next/server/chunks/ssr/src_lib_data_1h_2htk._.js:1:4269)
+    at async c (.next/server/chunks/ssr/src_lib_data_1_44s81._.js:1:6337)
+    at async l (.next/server/chunks/ssr/[root-of-the-server]__0-n4hct._.js:1:5028) {
+  code: 'order_not_found',
+  status: 404,
+  details: undefined
+}
+Error [SpreeError]: Order not found
+    at n.request (.next/server/chunks/ssr/src_lib_spree_config_ts_0ssc5jx._.js:1:13277)
+    at async c (.next/server/chunks/ssr/src_lib_data_1_44s81._.js:1:6337)
+    at async c (.next/server/chunks/ssr/src_lib_data_1_44s81._.js:1:6337)
+    at async l (.next/server/chunks/ssr/0q3k_next_dist_0o1vs24._.js:1:11030) {
+  code: 'order_not_found',
+  status: 404,
+  details: undefined
+}
+Error [SpreeError]: Order not found
+    at n.request (.next/server/chunks/ssr/src_lib_spree_config_ts_0ssc5jx._.js:1:13277)
+    at async c (.next/server/chunks/ssr/src_lib_data_1_44s81._.js:1:6337)
+    at async c (.next/server/chunks/ssr/src_lib_data_1_44s81._.js:1:6337)
+    at async l (.next/server/chunks/ssr/0q3k_next_dist_0o1vs24._.js:1:11030) {
+  code: 'order_not_found',
+  status: 404,
+  details: undefined
+}

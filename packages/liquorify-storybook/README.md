@@ -49,7 +49,7 @@ Reference images live in `visual/__screenshots__/<story id>/<mode>.png`, one for
 To add or change references:
 
 1. Build the Storybook with `pnpm build-storybook`.
-2. Either run `pnpm visual:update` with Docker, or download the `visual-failures` artifact from the pull request's Storybook run and run `pnpm visual:copy <folder>` after looking at the images. The artifact holds a proposed image for each story without a reference, and the actual image for each one that changed.
+2. Either run `pnpm visual:update` with Docker, or download the `visual-failures-<part>` artifacts from the pull request's Storybook run into one folder and run `pnpm visual:copy <folder>` after looking at the images. CI compares the stories in four parts, and each part that fails uploads its own artifact. It holds a proposed image for each story without a reference, and the actual image for each one that changed.
 3. Commit the images, and list in the pull request which ones changed and why.
 
 Comparisons run only in the pinned image, because another browser or font set renders differently. Images taken anywhere else are never references.

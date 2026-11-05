@@ -1,0 +1,2 @@
+/* c07: the picked tiles' check badges moved 1 pixel down */
+html:not(.dark) button[aria-pressed="true"] > span.rounded-full { top: calc(0.375rem + 1px) !important; }

@@ -148,7 +148,7 @@ Seen again and not new: the category's deletion asked through the browser's own 
 
 ## 5. What this does not show
 
-- **Refusals to the narrower roles (G-60, P10).** Every test signs in as the admin. What the server refuses the catalog's narrower roles stays with G-60 and G-11, for P10. Nothing here sends a request the admin may not make.
+- **Refusals to the narrower roles (G-60, P10).** Every test signs in as the admin. What the server refuses the catalog's narrower roles was G-60's, under G-11, for P10. P10 has since closed G-60 on its own record ([record](2026-11-05-fb-19-platform-p10.md)); this record adds nothing to that. Nothing here sends a request the admin may not make.
 - **Tenant isolation.** Every test works within the default store. Nothing here shows that one store's catalog stays out of another's. Tenant isolation stays FB-03's validation, NOT_RUN, with ISO-1 to ISO-7 open.
 - **The storefront.** The tests check what the dashboard shows and keeps. Whether the storefront then shows a category's parent or image, a collection's members, a catalog's prices to its audience, a translation, or a price list's prices, is not checked here; the shopper's side of the catalog stays with the shop batch's records and their gaps.
 - **Which price applies.** Test 25 checks the order the page keeps, and SD-25 is recorded from it. Whether a different order changes the price a shopper pays was not checked.

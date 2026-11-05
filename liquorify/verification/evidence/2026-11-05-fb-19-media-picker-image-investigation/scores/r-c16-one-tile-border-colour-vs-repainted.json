@@ -1,0 +1,22 @@
+{
+ "r-c16-one-tile-border-colour-1": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 36,
+   "changed": 599,
+   "largest": 29,
+   "failsAt25": true,
+   "failsAt60": false
+  }
+ },
+ "r-c16-one-tile-border-colour-2": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 36,
+   "changed": 599,
+   "largest": 29,
+   "failsAt25": true,
+   "failsAt60": false
+  }
+ }
+}
