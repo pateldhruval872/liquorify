@@ -1,0 +1,25 @@
+{
+  "revision": "08bca2e2",
+  "rates": [
+    "Fidelity California sales tax 54114",
+    "Fidelity Germany VAT 54114"
+  ],
+  "3-order-tax-added": {
+    "order": "R1029",
+    "currency": "USD",
+    "item_total": "39.99",
+    "tax_total": "3.26",
+    "included_tax_total": "0.00",
+    "additional_tax_total": "3.26",
+    "total": "48.25"
+  },
+  "4-order-tax-included": {
+    "order": "R1030",
+    "currency": "EUR",
+    "item_total": "37.99",
+    "tax_total": "6.07",
+    "included_tax_total": "6.07",
+    "additional_tax_total": "0.00",
+    "total": "37.99"
+  }
+}

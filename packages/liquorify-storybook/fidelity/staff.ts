@@ -96,6 +96,11 @@ export const roles = {
    * this is the role a store would make for the person who runs them.
    */
   marketer: { name: 'Marketer', permissions: ['write_promotions'] },
+  /**
+   * Read on orders and write on fulfilments, with nothing on payments or
+   * refunds: the person who packs and ships, as batch 8 maps them.
+   */
+  packer: { name: 'Packer', permissions: ['read_orders', 'write_fulfillments'] },
   /** Read on the four scopes of catalog part 3's screens, and write on none. */
   loyaltyViewer: {
     name: 'Loyalty viewer',
@@ -199,6 +204,12 @@ export const teammates: Record<
     role: 'marketer',
     first: 'Max',
     last: 'Promotions',
+  },
+  packer: {
+    email: 'fidelity-packer@example.com',
+    role: 'packer',
+    first: 'Pia',
+    last: 'Packer',
   },
   loyaltyViewer: {
     email: 'fidelity-loyalty-viewer@example.com',

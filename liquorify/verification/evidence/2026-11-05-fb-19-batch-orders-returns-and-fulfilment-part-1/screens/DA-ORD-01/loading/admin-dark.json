@@ -1,0 +1,19 @@
+{
+  "screen": "DA-ORD-01",
+  "state": "loading",
+  "variant": "admin",
+  "role": null,
+  "theme": "dark",
+  "revision": "08bca2e2",
+  "path": "/<store>/orders",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "fullPage": false,
+  "capturedHeight": 960,
+  "intercepted": "The orders request is held open",
+  "settled": null,
+  "outside": [],
+  "customer": "sarah.johnson@example.com"
+}

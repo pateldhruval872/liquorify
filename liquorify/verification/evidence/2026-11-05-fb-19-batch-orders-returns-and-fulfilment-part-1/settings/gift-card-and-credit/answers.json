@@ -1,0 +1,41 @@
+{
+  "revision": "08bca2e2",
+  "code": "FIDELITY-SCREEN-77600",
+  "giftCardOrder": {
+    "order": "R1033",
+    "gift_card_total": "25.00",
+    "amount_due": "59.98",
+    "total": "84.98",
+    "payments": [
+      {
+        "number": "R1033-P1",
+        "method": "pm_UkLWZg9DAJ",
+        "status": "checkout",
+        "amount": "25.00"
+      }
+    ],
+    "storeCreditRefused": {
+      "status": 422,
+      "body": {
+        "error": {
+          "code": "processing_error",
+          "message": "You can't apply store credit after you applied a gift card."
+        }
+      }
+    }
+  },
+  "storeCreditOrder": {
+    "order": "R1034",
+    "store_credit_total": "10.00",
+    "amount_due": "34.99",
+    "total": "44.99",
+    "payments": [
+      {
+        "number": "R1034-P1",
+        "method": "pm_UkLWZg9DAJ",
+        "status": "checkout",
+        "amount": "10.00"
+      }
+    ]
+  }
+}
