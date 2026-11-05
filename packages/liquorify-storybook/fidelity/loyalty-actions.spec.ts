@@ -43,7 +43,7 @@ import {
  * database directly. With `P9_SABOTAGE=1` each test undoes the change it looks
  * for (see p9.ts).
  *
- * Four tests answer a request themselves, because the state cannot be reached
+ * Three tests answer a request themselves, because the state cannot be reached
  * otherwise: a promotion that fails to load, and a credit's history that is
  * empty or fails to load. They show how the screen handles that answer, not
  * that the server gives it.
