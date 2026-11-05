@@ -1,0 +1,20 @@
+--- src/stories/dashboard-core/media-picker-sheet.stories.tsx
++++ src/stories/dashboard-core/media-picker-sheet.stories.tsx (trial, not committed)
+@@ -39,9 +39,17 @@
+   },
+ }
+ 
++/** Waits until every photo in the sheet has loaded and been decoded. */
++async function photosReady() {
++  await waitFor(() => expect(document.querySelectorAll('img')).toHaveLength(mediaLibrary.length))
++  await Promise.all([...document.querySelectorAll('img')].map((image) => image.decode()))
++}
++
+ export const TwoPicked: Story = {
+   name: 'Two picked',
+   play: async () => {
++    await tiles()
++    await photosReady()
+     await userEvent.click(await tiles())
+     await userEvent.click(screen.getByRole('button', { name: /Slate cap/ }))
+     await screen.findByText('2 selected')

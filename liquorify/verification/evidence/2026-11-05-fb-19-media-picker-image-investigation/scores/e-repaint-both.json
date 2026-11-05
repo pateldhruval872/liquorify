@@ -1,0 +1,722 @@
+{
+ "e-repaint-both-1": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 34,
+   "changed": 99,
+   "largest": 34,
+   "failsAt25": true,
+   "failsAt60": false
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": false,
+   "counted": 25,
+   "changed": 107,
+   "largest": 32,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "e-repaint-both-10": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 34,
+   "changed": 99,
+   "largest": 34,
+   "failsAt25": true,
+   "failsAt60": false
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": false,
+   "counted": 25,
+   "changed": 107,
+   "largest": 32,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "e-repaint-both-11": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 34,
+   "changed": 99,
+   "largest": 34,
+   "failsAt25": true,
+   "failsAt60": false
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": false,
+   "counted": 25,
+   "changed": 107,
+   "largest": 32,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "e-repaint-both-12": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 34,
+   "changed": 99,
+   "largest": 34,
+   "failsAt25": true,
+   "failsAt60": false
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": false,
+   "counted": 25,
+   "changed": 107,
+   "largest": 32,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "e-repaint-both-13": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 34,
+   "changed": 99,
+   "largest": 34,
+   "failsAt25": true,
+   "failsAt60": false
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": false,
+   "counted": 25,
+   "changed": 107,
+   "largest": 32,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "e-repaint-both-14": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 34,
+   "changed": 99,
+   "largest": 34,
+   "failsAt25": true,
+   "failsAt60": false
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": false,
+   "counted": 25,
+   "changed": 107,
+   "largest": 32,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "e-repaint-both-15": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 34,
+   "changed": 99,
+   "largest": 34,
+   "failsAt25": true,
+   "failsAt60": false
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": false,
+   "counted": 25,
+   "changed": 107,
+   "largest": 32,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "e-repaint-both-16": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 34,
+   "changed": 99,
+   "largest": 34,
+   "failsAt25": true,
+   "failsAt60": false
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": false,
+   "counted": 25,
+   "changed": 107,
+   "largest": 32,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "e-repaint-both-17": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 34,
+   "changed": 99,
+   "largest": 34,
+   "failsAt25": true,
+   "failsAt60": false
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": false,
+   "counted": 25,
+   "changed": 107,
+   "largest": 32,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "e-repaint-both-18": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 34,
+   "changed": 99,
+   "largest": 34,
+   "failsAt25": true,
+   "failsAt60": false
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": false,
+   "counted": 25,
+   "changed": 107,
+   "largest": 32,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "e-repaint-both-19": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 34,
+   "changed": 99,
+   "largest": 34,
+   "failsAt25": true,
+   "failsAt60": false
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": false,
+   "counted": 25,
+   "changed": 107,
+   "largest": 32,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "e-repaint-both-2": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 34,
+   "changed": 99,
+   "largest": 34,
+   "failsAt25": true,
+   "failsAt60": false
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": false,
+   "counted": 25,
+   "changed": 107,
+   "largest": 32,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "e-repaint-both-20": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 34,
+   "changed": 99,
+   "largest": 34,
+   "failsAt25": true,
+   "failsAt60": false
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": false,
+   "counted": 25,
+   "changed": 107,
+   "largest": 32,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "e-repaint-both-21": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 34,
+   "changed": 99,
+   "largest": 34,
+   "failsAt25": true,
+   "failsAt60": false
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": false,
+   "counted": 25,
+   "changed": 107,
+   "largest": 32,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "e-repaint-both-22": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 34,
+   "changed": 99,
+   "largest": 34,
+   "failsAt25": true,
+   "failsAt60": false
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": false,
+   "counted": 25,
+   "changed": 107,
+   "largest": 32,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "e-repaint-both-23": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 34,
+   "changed": 99,
+   "largest": 34,
+   "failsAt25": true,
+   "failsAt60": false
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": false,
+   "counted": 25,
+   "changed": 107,
+   "largest": 32,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "e-repaint-both-24": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 34,
+   "changed": 99,
+   "largest": 34,
+   "failsAt25": true,
+   "failsAt60": false
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": false,
+   "counted": 25,
+   "changed": 107,
+   "largest": 32,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "e-repaint-both-25": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 34,
+   "changed": 99,
+   "largest": 34,
+   "failsAt25": true,
+   "failsAt60": false
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": false,
+   "counted": 25,
+   "changed": 107,
+   "largest": 32,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "e-repaint-both-26": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 34,
+   "changed": 99,
+   "largest": 34,
+   "failsAt25": true,
+   "failsAt60": false
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": false,
+   "counted": 25,
+   "changed": 107,
+   "largest": 32,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "e-repaint-both-27": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 34,
+   "changed": 99,
+   "largest": 34,
+   "failsAt25": true,
+   "failsAt60": false
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": false,
+   "counted": 25,
+   "changed": 107,
+   "largest": 32,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "e-repaint-both-28": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 34,
+   "changed": 99,
+   "largest": 34,
+   "failsAt25": true,
+   "failsAt60": false
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": false,
+   "counted": 25,
+   "changed": 107,
+   "largest": 32,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "e-repaint-both-29": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 34,
+   "changed": 99,
+   "largest": 34,
+   "failsAt25": true,
+   "failsAt60": false
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": false,
+   "counted": 25,
+   "changed": 107,
+   "largest": 32,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "e-repaint-both-3": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 34,
+   "changed": 99,
+   "largest": 34,
+   "failsAt25": true,
+   "failsAt60": false
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": false,
+   "counted": 25,
+   "changed": 107,
+   "largest": 32,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "e-repaint-both-30": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 34,
+   "changed": 99,
+   "largest": 34,
+   "failsAt25": true,
+   "failsAt60": false
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": false,
+   "counted": 25,
+   "changed": 107,
+   "largest": 32,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "e-repaint-both-31": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 34,
+   "changed": 99,
+   "largest": 34,
+   "failsAt25": true,
+   "failsAt60": false
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": false,
+   "counted": 25,
+   "changed": 107,
+   "largest": 32,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "e-repaint-both-32": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 34,
+   "changed": 99,
+   "largest": 34,
+   "failsAt25": true,
+   "failsAt60": false
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": false,
+   "counted": 25,
+   "changed": 107,
+   "largest": 32,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "e-repaint-both-33": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 34,
+   "changed": 99,
+   "largest": 34,
+   "failsAt25": true,
+   "failsAt60": false
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": false,
+   "counted": 25,
+   "changed": 107,
+   "largest": 32,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "e-repaint-both-34": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 34,
+   "changed": 99,
+   "largest": 34,
+   "failsAt25": true,
+   "failsAt60": false
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": false,
+   "counted": 25,
+   "changed": 107,
+   "largest": 32,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "e-repaint-both-35": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 34,
+   "changed": 99,
+   "largest": 34,
+   "failsAt25": true,
+   "failsAt60": false
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": false,
+   "counted": 25,
+   "changed": 107,
+   "largest": 32,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "e-repaint-both-36": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 34,
+   "changed": 99,
+   "largest": 34,
+   "failsAt25": true,
+   "failsAt60": false
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": false,
+   "counted": 25,
+   "changed": 107,
+   "largest": 32,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "e-repaint-both-37": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 34,
+   "changed": 99,
+   "largest": 34,
+   "failsAt25": true,
+   "failsAt60": false
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": false,
+   "counted": 25,
+   "changed": 107,
+   "largest": 32,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "e-repaint-both-38": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 34,
+   "changed": 99,
+   "largest": 34,
+   "failsAt25": true,
+   "failsAt60": false
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": false,
+   "counted": 25,
+   "changed": 107,
+   "largest": 32,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "e-repaint-both-39": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 34,
+   "changed": 99,
+   "largest": 34,
+   "failsAt25": true,
+   "failsAt60": false
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": false,
+   "counted": 25,
+   "changed": 107,
+   "largest": 32,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "e-repaint-both-4": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 34,
+   "changed": 99,
+   "largest": 34,
+   "failsAt25": true,
+   "failsAt60": false
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": false,
+   "counted": 25,
+   "changed": 107,
+   "largest": 32,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "e-repaint-both-40": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 34,
+   "changed": 99,
+   "largest": 34,
+   "failsAt25": true,
+   "failsAt60": false
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": false,
+   "counted": 25,
+   "changed": 107,
+   "largest": 32,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "e-repaint-both-5": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 34,
+   "changed": 99,
+   "largest": 34,
+   "failsAt25": true,
+   "failsAt60": false
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": false,
+   "counted": 25,
+   "changed": 107,
+   "largest": 32,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "e-repaint-both-6": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 34,
+   "changed": 99,
+   "largest": 34,
+   "failsAt25": true,
+   "failsAt60": false
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": false,
+   "counted": 25,
+   "changed": 107,
+   "largest": 32,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "e-repaint-both-7": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 34,
+   "changed": 99,
+   "largest": 34,
+   "failsAt25": true,
+   "failsAt60": false
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": false,
+   "counted": 25,
+   "changed": 107,
+   "largest": 32,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "e-repaint-both-8": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 34,
+   "changed": 99,
+   "largest": 34,
+   "failsAt25": true,
+   "failsAt60": false
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": false,
+   "counted": 25,
+   "changed": 107,
+   "largest": 32,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "e-repaint-both-9": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 34,
+   "changed": 99,
+   "largest": 34,
+   "failsAt25": true,
+   "failsAt60": false
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": false,
+   "counted": 25,
+   "changed": 107,
+   "largest": 32,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ }
+}

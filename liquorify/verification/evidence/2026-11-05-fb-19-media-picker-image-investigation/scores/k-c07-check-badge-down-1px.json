@@ -1,0 +1,56 @@
+{
+ "k-c07-check-badge-down-1px-1": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 22,
+   "changed": 272,
+   "largest": 246,
+   "failsAt25": false,
+   "failsAt60": false
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": false,
+   "counted": 2,
+   "changed": 44,
+   "largest": 27,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "k-c07-check-badge-down-1px-2": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 22,
+   "changed": 287,
+   "largest": 246,
+   "failsAt25": false,
+   "failsAt60": false
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": false,
+   "counted": 2,
+   "changed": 68,
+   "largest": 27,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "k-c07-check-badge-down-1px-3": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 22,
+   "changed": 265,
+   "largest": 246,
+   "failsAt25": false,
+   "failsAt60": false
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": false,
+   "counted": 2,
+   "changed": 68,
+   "largest": 27,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ }
+}

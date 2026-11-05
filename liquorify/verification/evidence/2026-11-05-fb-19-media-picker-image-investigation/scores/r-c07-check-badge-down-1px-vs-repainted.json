@@ -1,0 +1,22 @@
+{
+ "r-c07-check-badge-down-1px-1": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 22,
+   "changed": 262,
+   "largest": 246,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "r-c07-check-badge-down-1px-2": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 22,
+   "changed": 262,
+   "largest": 246,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ }
+}
