@@ -176,7 +176,7 @@ Seen again and not new: the filter panel offering neither Starts nor Expires (pa
 
 ## 5. What this does not show
 
-- **Refusals to the narrower roles (G-83, P10).** Every test signs in as the admin. Behaviours 11, 12 and 22, which need a narrower role, are P10's with G-83, and nothing here sends a request the admin may not make.
+- **Refusals to the narrower roles (G-83, P10).** Every test signs in as the admin. Behaviours 11, 12 and 22, which need a narrower role, are P10's with G-83, and P10's checks met them on 2026-11-05 ([record](2026-11-05-fb-19-platform-p10.md)); this record adds nothing to that. Nothing here sends a request the admin may not make.
 - **Tenant isolation.** Every test works within the default store. Nothing here shows that one store's promotions, cards or credits stay out of another's. Tenant isolation stays FB-03's validation, NOT_RUN, with ISO-1 to ISO-7 open.
 - **The storefront and checkout.** The tests check what the dashboard shows and keeps. Whether a code, a rule, a calculator, a usage limit or a schedule then changes what a shopper pays is not checked here: applying a coupon, a gift card and store credit at checkout is G-75, P9's storefront part. The orders the tests place through the Admin API only make a code, card or credit used.
 - **What the simulated tests do not show** (§3): when the server fails, or answers an empty history.
