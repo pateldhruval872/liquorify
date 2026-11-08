@@ -171,8 +171,10 @@ ignore_unused:
 #     - common.brand
 
 ## Exclude these keys from the `i18n-tasks check-consistent-interpolations` report:
-# ignore_inconsistent_interpolations:
-# - 'activerecord.attributes.*'
+ignore_inconsistent_interpolations:
+  # Some locales write the number in the `one` form instead of %{count},
+  # which i18n-tasks 1.2 flags. Spree never reads this key.
+  - 'errors.messages.not_saved.one'
 
 ## Ignore these keys completely:
 # ignore:
