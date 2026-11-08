@@ -92,6 +92,8 @@ export const Backordered: Story = {
   play: async () => {
     await submit()
     await screen.findByRole('alert')
+    // Where focus lands after the refusal depends on how fast it came back.
+    ;(document.activeElement as HTMLElement | null)?.blur()
   },
 }
 

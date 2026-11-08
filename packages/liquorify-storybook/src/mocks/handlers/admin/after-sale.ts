@@ -15,18 +15,6 @@ import { reasonRequests, stockLocationList } from './settings'
 
 const admin = '/api/v3/admin'
 
-const refusal = (message: string, field = 'base') =>
-  HttpResponse.json(
-    {
-      error: {
-        code: 'validation_error',
-        message,
-        details: { [field]: [{ code: 'invalid', message, specific: false }] },
-      },
-    },
-    { status: 422 },
-  )
-
 /** An order's returns, exchanges and claims. */
 export interface AfterSaleRecords {
   returns?: Return[]
@@ -128,12 +116,6 @@ export function afterSaleRequests(records: Record<string, AfterSaleRecords> = {}
     ...reasonRequests('return-reasons', returnReasons),
     ...reasonRequests('claim-reasons', claimReasons),
   ]
-}
-
-/** A write on a fulfilment that the server refuses, with its reason. */
-export function fulfillmentRefused(path: string, message: string, field?: string) {
-  const [method, route] = path.split(' ') as ['post' | 'patch', string]
-  return [http[method](`${admin}/orders/:id/fulfillments${route}`, () => refusal(message, field))]
 }
 
 /** A write on a fulfilment held open, so its button shows that it is working. */

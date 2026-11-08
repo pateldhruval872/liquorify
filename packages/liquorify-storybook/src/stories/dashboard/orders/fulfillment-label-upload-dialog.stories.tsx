@@ -124,6 +124,8 @@ export const Refused: Story = {
     await fill()
     await userEvent.click(await upload())
     await screen.findByText('This parcel already has an active shipping label')
+    // Where focus lands after the refusal depends on how fast it came back.
+    ;(document.activeElement as HTMLElement | null)?.blur()
   },
 }
 
