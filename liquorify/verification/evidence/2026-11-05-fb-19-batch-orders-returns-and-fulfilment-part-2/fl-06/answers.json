@@ -1,0 +1,29 @@
+{
+  "revision": "3009cc37",
+  "storefront_revision": "ba6ddcd",
+  "order": "R1004",
+  "tracking_number": "1Z999AA10123456784",
+  "fulfilments": [
+    {
+      "status": "fulfilled",
+      "tracking": "1Z999AA10123456784",
+      "tracking_url": "https://www.ups.com/track?tracknum=1Z999AA10123456784"
+    }
+  ],
+  "storefront_views": [
+    {
+      "width": 390,
+      "track_items_links": [
+        "https://www.ups.com/track?tracknum=1Z999AA10123456784"
+      ],
+      "text": "Back to orders Order #R1004 Placed on November 5, 2026 at 02:17 PM Delivery Address River Okafor 214 Larkspur Lane Portland, OR 97205 United States 5035550142 Shipping Method Standard Shipped from Shop location Fulfilled Track Items Electric Kettle 1.7L $44.99 Color: White Qty: 1 Order again $44.99 Billing Address River Okafor 214 Larkspur Lane Portland, OR 97205 United States 5035550142 Payment Information Fidelity cheque $49.99 $49.99 Subtotal $44.99 Shipping $5.00 Total $49.99"
+    },
+    {
+      "width": 1280,
+      "track_items_links": [
+        "https://www.ups.com/track?tracknum=1Z999AA10123456784"
+      ],
+      "text": "Back to orders Order #R1004 Placed on November 5, 2026 at 02:17 PM Delivery Address River Okafor 214 Larkspur Lane Portland, OR 97205 United States 5035550142 Shipping Method Standard Shipped from Shop location Fulfilled Track Items Electric Kettle 1.7L $44.99 Color: White Qty: 1 Order again $44.99 Billing Address River Okafor 214 Larkspur Lane Portland, OR 97205 United States 5035550142 Payment Information Fidelity cheque $49.99 $49.99 Subtotal $44.99 Shipping $5.00 Total $49.99"
+    }
+  ]
+}

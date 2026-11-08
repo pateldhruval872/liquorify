@@ -5,6 +5,11 @@ import type { StoryRoute } from '../../../decorators/router'
 import { storeParameters } from '../../../decorators/store'
 import { paidOrder } from '../../../fixtures/admin/orders'
 import { shellStore } from '../../../fixtures/admin/shell'
+import {
+  type AfterSaleRecords,
+  afterSaleRequests,
+  fulfillmentRequests,
+} from '../../../mocks/handlers/admin/after-sale'
 import { type OrderLines, orderPageRequests } from '../../../mocks/handlers/admin/orders'
 
 const store = shellStore.id
@@ -35,9 +40,15 @@ interface OrderOptions {
   lines?: Record<string, OrderLines>
   /** Answers before the store's records, for a held or refused request. */
   first?: HttpHandler[]
+  /** The order's returns, exchanges and claims, by order. */
+  afterSale?: Record<string, AfterSaleRecords>
 }
 
-/** A signed-in admin on an order's page, with every record its cards read. */
+/**
+ * A signed-in admin on an order's page, with every record its cards read:
+ * the order, its fulfilments' carriers, locations and stock, and its returns,
+ * exchanges and claims.
+ */
 export function orderParameters({
   order = paidOrder,
   route,
@@ -46,6 +57,7 @@ export function orderParameters({
   viewport = false,
   lines,
   first = [],
+  afterSale = {},
 }: OrderOptions = {}) {
   const base = storeParameters(undefined, rules)
   return {
@@ -56,6 +68,16 @@ export function orderParameters({
       ...(viewport && { capture: 'viewport' }),
     },
     // `first` leads, so its answers win over the order's own.
-    msw: { handlers: { first, ...base.msw.handlers, orders: orderPageRequests([order], lines) } },
+    msw: {
+      handlers: {
+        first,
+        ...base.msw.handlers,
+        orders: [
+          ...orderPageRequests([order], lines),
+          ...fulfillmentRequests([order]),
+          ...afterSaleRequests(afterSale),
+        ],
+      },
+    },
   }
 }

@@ -1,0 +1,30 @@
+{
+  "revision": "3009cc37",
+  "method": "Standard",
+  "template": "https://track.example.com/parcel/:tracking",
+  "saved": "https://track.example.com/parcel/:tracking",
+  "2-unrecognised-number": {
+    "order": "R1025",
+    "number": "PRO-558210",
+    "link_on_page": "https://track.example.com/parcel/PRO-558210",
+    "fulfilment_tracking_url": "https://track.example.com/parcel/PRO-558210",
+    "deliveries": [
+      {
+        "carrier": null,
+        "tracking_url": "https://track.example.com/parcel/PRO-558210"
+      }
+    ]
+  },
+  "3-carrier-number": {
+    "order": "R1026",
+    "number": "1Z999AA10123456784",
+    "link_on_page": "https://www.ups.com/track?tracknum=1Z999AA10123456784",
+    "fulfilment_tracking_url": "https://www.ups.com/track?tracknum=1Z999AA10123456784",
+    "deliveries": [
+      {
+        "carrier": "ups",
+        "tracking_url": "https://www.ups.com/track?tracknum=1Z999AA10123456784"
+      }
+    ]
+  }
+}

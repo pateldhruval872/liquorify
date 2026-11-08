@@ -1,0 +1,25 @@
+{
+  "screen": "DA-ORD-07",
+  "state": "listed",
+  "variant": "packer",
+  "role": {
+    "name": "Packer",
+    "permissions": [
+      "read_orders",
+      "write_fulfillments"
+    ]
+  },
+  "theme": "light",
+  "revision": "3009cc37",
+  "path": "/<store>/exchanges",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "fullPage": true,
+  "capturedHeight": 960,
+  "intercepted": null,
+  "settled": true,
+  "outside": [],
+  "customer": "sarah.johnson@example.com"
+}

@@ -1,0 +1,41 @@
+{
+  "revision": "3009cc37",
+  "reason": "Fidelity wrong size",
+  "destination_returns_enabled": false,
+  "reasons_offered": [
+    "Accidental order",
+    "Better price available",
+    "Damaged/Defective",
+    "Different from description",
+    "Different from what was ordered",
+    "Fidelity wrong size",
+    "Missed estimated delivery date",
+    "Missing parts or accessories",
+    "No longer needed/wanted",
+    "Unauthorized purchase"
+  ],
+  "locations_offered": [
+    "Shop location",
+    "E2E Source Warehouse",
+    "E2E Destination Warehouse (does not accept returns)"
+  ],
+  "order": "R1033",
+  "return": {
+    "number": "RET1009",
+    "status": "received",
+    "reason": "rar_L3pHOn63Vw",
+    "stock_location": "E2E Source Warehouse"
+  },
+  "toaster_at_second_location": {
+    "before": {
+      "count_on_hand": 50,
+      "allocated_count": 2,
+      "available_count": 48
+    },
+    "after": {
+      "count_on_hand": 51,
+      "allocated_count": 2,
+      "available_count": 49
+    }
+  }
+}
