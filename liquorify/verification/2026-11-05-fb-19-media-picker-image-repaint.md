@@ -4,7 +4,7 @@ record: verification
 work_item: FB-19; row 30 of the owner decision brief, batch 3's "Media picker sheet: Two picked"
 date: 2026-11-05
 verifier: Claude (automated session, thread "Investigate media picker image tolerance"); not independent review
-result: "PASS locally: with the page painted once more before its capture, the story's light and dark images were identical, byte for byte, in 40 of 40 runs, and the committed visual check passed 20 of 20 times against the two new reference images, at the tolerance of 25. The new images differ from the old ones only at the tiles' rounded photo corners. PASS in CI: two full visual runs on GitHub passed every image at 25, the story's two included, and two more passed after batch 8's first part merged into main ahead of this change and main was merged in again."
+result: "PASS locally: with the page painted once more before its capture, the story's light and dark images were identical, byte for byte, in 40 of 40 runs, and the committed visual check passed 20 of 20 times against the two new reference images, at the tolerance of 25. The new images differ from the old ones only at the tiles' rounded photo corners. PASS in CI: two full visual runs on GitHub passed every image at 25, the story's two included, and two more passed each time main was merged in again, after batch 8's first part and after its second part."
 ---
 
 # The media picker image, repainted before its capture (row 30's follow-up)
@@ -59,7 +59,7 @@ The other ten changes of the investigation counted 211 or more against the same 
 
 ## 4. CI
 
-The change is kept only if two full visual runs on GitHub pass with it at the tolerance of 25. It was run twice, each time on the pull request's own run and on one started by hand, both on the same commit ([`scores/ci-runs.txt`](evidence/2026-11-05-fb-19-media-picker-image-repaint/scores/ci-runs.txt)):
+The change is kept only if two full visual runs on GitHub pass with it at the tolerance of 25. It was run three times, each time on the pull request's own run and on one started by hand, both on the same commit ([`scores/ci-runs.txt`](evidence/2026-11-05-fb-19-media-picker-image-repaint/scores/ci-runs.txt)):
 
 | Commit | Run | Started by | Result |
 |---|---|---|---|
@@ -67,10 +67,12 @@ The change is kept only if two full visual runs on GitHub pass with it at the to
 | `a82d746d` | [Storybook run 234](https://github.com/pateldhruval872/liquorify/actions/runs/41993001072) | The pull request | All four parts passed, 752 of 752 images each; 08:15 to 08:33 UTC |
 | `67ad9650`, with main merged in after batch 8's part 1 (#80) | [Storybook run 247](https://github.com/pateldhruval872/liquorify/actions/runs/42021130775) | The pull request | All four parts passed, 825, 825, 824 and 824 images; 11:42 to 12:00 UTC |
 | `67ad9650` | [Storybook run 248](https://github.com/pateldhruval872/liquorify/actions/runs/42021140187) | By hand | All four parts passed, 825, 825, 824 and 824 images; 11:42 to 12:01 UTC |
+| `e7fbb4ab`, with main merged in after batch 8's part 2 (#84), on 2026-11-08 | [Storybook run 258](https://github.com/pateldhruval872/liquorify/actions/runs/42530476474) | The pull request | All four parts passed, 931, 931, 930 and 930 images; 22:29 to 22:47 UTC |
+| `e7fbb4ab` | [Storybook run 259](https://github.com/pateldhruval872/liquorify/actions/runs/42530481590) | By hand | All four parts passed, 931, 931, 930 and 930 images; 22:29 to 22:53 UTC |
 
-The second pair was run because batch 8's first part merged into main before this pull request, adding 145 stories, and its merge changed the shared search mock. In both pairs the story's two images are in part 1: the check's own listing of that part, from a Storybook built at the same commit, puts them 195th and 196th, and in no other part. Part 1 passed every image in all four runs. The pull request's other checks passed on both commits too, 39 of them each time, with the six release jobs skipped.
+The second pair was run because batch 8's first part merged into main before this pull request, adding 145 stories, and its merge changed the shared search mock; the third because batch 8's second part merged on 2026-11-08 and left a conflict in the records index. In every pair the story's two images are in part 1: the check's own listing of that part, from a Storybook built at the same commit, puts them 195th and 196th, and in no other part. Part 1 passed every image in all six runs. The pull request's other checks passed on all three commits too, 39 of them each time, with the six release jobs skipped.
 
-The commit that first added these results, `1a5830e7`, changed only records, but it did start the visual check again, because the check looks at the whole pull request's files: that run, [Storybook run 236](https://github.com/pateldhruval872/liquorify/actions/runs/41996317791), passed as well.
+The commit that first added these results, `1a5830e7`, changed only records, but it did start the visual check again, because the check looks at the whole pull request's files: that run, [Storybook run 236](https://github.com/pateldhruval872/liquorify/actions/runs/41996317791), passed as well, as did [run 249](https://github.com/pateldhruval872/liquorify/actions/runs/42024521596) on the next records commit, `58aaba81`.
 
 ## 5. Evidence
 

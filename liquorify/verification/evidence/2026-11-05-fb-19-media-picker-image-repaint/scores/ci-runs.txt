@@ -54,3 +54,34 @@ and "/ dark" 195th and 196th of its 825, and in no other part. Part 1's last ima
 Selecting all / light") is the listing's last.
 
 The pull request's other checks on this commit: 45 check runs in all; 39 succeeded, 6 were skipped (the same release jobs), none failed.
+
+----
+The records commit 58aaba81de7390b84fd113ea71c278df1226e604 started Storybook run 249, id 42024521596, pull_request,
+12:07:45 to 12:28:22 UTC, success.
+
+----
+After batch 8 part 2 (#84) merged into main on 2026-11-08, main was merged in again, with a conflict in the records
+index only. Commit e7fbb4abff37be467a1dbcdca0cb5923217327f0.
+
+Storybook run 258, id 42530476474, started by the pull request (pull_request), 2026-11-08 22:29:23 to 22:47:38 UTC, success
+  https://github.com/pateldhruval872/liquorify/actions/runs/42530476474
+  part 1 of 4   931 passed (15.7m), from its log   job 128883360703   success
+  part 2 of 4   931 images listed                 job 128883360647   success
+  part 3 of 4   930 images listed                 job 128883360479   success
+  part 4 of 4   930 images listed                 job 128883360695   success
+  Storybook & visual check ("Every part passed")   job 128887699942   success
+
+Storybook run 259, id 42530481590, started by hand (workflow_dispatch), 2026-11-08 22:29:27 to 22:53:42 UTC, success
+  https://github.com/pateldhruval872/liquorify/actions/runs/42530481590
+  part 1 of 4   931 passed (17.9m), from its log   job 128883379117   success
+  part 2 of 4   931 images listed                 job 128883378886   success
+  part 3 of 4   930 images listed                 job 128883379131   success
+  part 4 of 4   930 images listed                 job 128883379074   success
+  Storybook & visual check ("Every part passed")   job 128889476771   success
+
+Parts 2 to 4: the counts are from the check's listing of a Storybook built at this commit; each part's job succeeded, which
+it does only when every image in it passes. Where the story is: the listing of part 1 puts "Media picker sheet / Two picked /
+light" and "/ dark" 195th and 196th of its 931, and in no other part. Part 1's last image in both CI logs ("Post-sale create
+dialogs / Claim / light") is the listing's last.
+
+The pull request's other checks on this commit: 45 check runs in all; 39 succeeded, 6 were skipped (the same release jobs), none failed.
