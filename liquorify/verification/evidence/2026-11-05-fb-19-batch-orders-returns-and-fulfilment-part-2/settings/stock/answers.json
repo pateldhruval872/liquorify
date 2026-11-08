@@ -1,0 +1,56 @@
+{
+  "revision": "3009cc37",
+  "sku": "AUTOMATIC-ESPRESSO-MACHINE-MATTE-BLACK",
+  "location": "Shop location",
+  "0-before": {
+    "listed": "Automatic Espresso Machine Color: Matte Black AUTOMATIC-ESPRESSO-MACHINE-MATTE-BLACK Shop location 0 0 5000 5000 0",
+    "counted": {
+      "count_on_hand": 5000,
+      "allocated_count": 0,
+      "available_count": 5000
+    }
+  },
+  "shipped_order": "R1036",
+  "1-placed": {
+    "listed": "Automatic Espresso Machine Color: Matte Black AUTOMATIC-ESPRESSO-MACHINE-MATTE-BLACK Shop location 1 0 4999 5000 0",
+    "counted": {
+      "count_on_hand": 5000,
+      "allocated_count": 1,
+      "available_count": 4999
+    }
+  },
+  "2-shipped": {
+    "listed": "Automatic Espresso Machine Color: Matte Black AUTOMATIC-ESPRESSO-MACHINE-MATTE-BLACK Shop location 0 0 4999 4999 0",
+    "counted": {
+      "count_on_hand": 4999,
+      "allocated_count": 0,
+      "available_count": 4999
+    }
+  },
+  "canceled_order": "R1037",
+  "3-second-order-placed": {
+    "listed": "Automatic Espresso Machine Color: Matte Black AUTOMATIC-ESPRESSO-MACHINE-MATTE-BLACK Shop location 1 0 4998 4999 0",
+    "counted": {
+      "count_on_hand": 4999,
+      "allocated_count": 1,
+      "available_count": 4998
+    }
+  },
+  "4-canceled-before-shipping": {
+    "listed": "Automatic Espresso Machine Color: Matte Black AUTOMATIC-ESPRESSO-MACHINE-MATTE-BLACK Shop location 0 0 4999 4999 0",
+    "counted": {
+      "count_on_hand": 4999,
+      "allocated_count": 0,
+      "available_count": 4999
+    }
+  },
+  "5-returned": {
+    "listed": "Automatic Espresso Machine Color: Matte Black AUTOMATIC-ESPRESSO-MACHINE-MATTE-BLACK Shop location 0 0 5000 5000 0",
+    "counted": {
+      "count_on_hand": 5000,
+      "allocated_count": 0,
+      "available_count": 5000
+    }
+  },
+  "history": "Stock history Date Product Where Change What happened Why less than a minute ago Automatic Espresso Machine AUTOMATIC-ESPRESSO-MACHINE-MATTE-BLACK Shop location +1 Received Return RET1012 less than a minute ago Automatic Espresso Machine AUTOMATIC-ESPRESSO-MACHINE-MATTE-BLACK Shop location +1 Released Fulfillment R1037 less than a minute ago Automatic Espresso Machine AUTOMATIC-ESPRESSO-MACHINE-MATTE-BLACK Shop location +1 Allocated Fulfillment R1037 less than a minute ago Automatic Espresso Machine AUTOMATIC-ESPRESSO-MACHINE-MATTE-BLACK Shop location -1 Shipped Fulfillment R1036 less than a minute ago Automatic Espresso Machine AUTOMATIC-ESPRESSO-MACHINE-MATTE-BLACK Shop location +1 Allocated Fulfillment R1036 1 minute ago 2-Slice Toaster 2-SLICE-TOASTER-WHITE Shop location +1 Received Return RET1011 1 minute ago 2-Slice Toaster 2-SLICE-TOASTER-WHITE Shop location -1 Shipped Fulfillment R1035 1 minute ago 2-Slice Toaster 2-SLICE-TOASTER-WHITE Shop location +1 Allocated Fulfillment R1035 5 minutes ago 2-Slice Toaster 2-SLICE-TOASTER-WHITE Shop location +1 Received Return RET1010 5 minutes ago 2-Slice Toaster 2-SLICE-TOASTER-WHITE Shop location -1 Shipped Fulfillment R1034 1–10 of 178 Page 1 of 18 Go to first page Go to previous page Go to next page Go to last page"
+}

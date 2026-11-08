@@ -1,0 +1,45 @@
+[
+  {
+    "email": "EM-C-05",
+    "order": "R1007",
+    "subject": "Shop Fulfillment Notification #R1007",
+    "parts": [
+      "text/plain; charset=UTF-8",
+      "text/html; charset=UTF-8"
+    ],
+    "links": [
+      "<site>",
+      "https://www.ups.com/track?tracknum=1Z999AA10123456784",
+      "<site>/products/electric-kettle-1-7l",
+      "<site>/products/2-slice-toaster",
+      "mailto:support@example.com"
+    ]
+  },
+  {
+    "email": "EM-C-06",
+    "order": "R1018",
+    "subject": "Shop Return Refunded #R1018",
+    "parts": [
+      "text/plain; charset=UTF-8",
+      "text/html; charset=UTF-8"
+    ],
+    "links": [
+      "<site>",
+      "<site>/products/electric-kettle-1-7l",
+      "mailto:support@example.com"
+    ]
+  },
+  {
+    "email": "EM-SF-03",
+    "order": "R1004",
+    "subject": "Your order R1004 has shipped - Spree Store",
+    "parts": [
+      "text/html, written to a file by the storefront"
+    ],
+    "links": [
+      "<storefront>",
+      "<storefront>/products/electric-kettle-1-7l",
+      "https://www.ups.com/track?tracknum=1Z999AA10123456784"
+    ]
+  }
+]

@@ -4,12 +4,12 @@ record: review list
 work_item: FB-19
 date: 2026-11-05
 prepared_by: Claude (automated session)
-status: Accepted by delegated acceptance (Claude, under the owner's delegation of 2026-11-04), at the pull request's final commit, which the merge record names; not the owner's review
+status: Accepted by delegated acceptance (Claude, under the owner's delegation of 2026-11-04), at #80's final commit, `93bfeba1`, merged on 2026-11-05 as `c2128ac2`; not the owner's review
 ---
 
 # FB-19 batch 8, part 1, reference images for review
 
-This list holds every reference image part 1 of batch 8 commits, by inventory ID ([LIQ-009](../LIQ-009-spree-component-and-token-inventory.md)), so each can be accepted or rejected, and the earlier batches' stories that part 1's running screens compare. Part 1 is accepted by delegated acceptance, under the owner's delegation of 2026-11-04 ([record](2026-11-04-delegated-acceptance-and-merging.md)), at its pull request's final commit, by Claude in the thread "Build dashboard batch 8" ([verification record §13](2026-11-05-fb-19-batch-orders-returns-and-fulfilment-part-1.md#13-delegated-acceptance)). The owner did not review these images. The Acceptance column reads DELEGATED ACCEPTANCE for each.
+This list holds every reference image part 1 of batch 8 commits, by inventory ID ([LIQ-009](../LIQ-009-spree-component-and-token-inventory.md)), so each can be accepted or rejected, and the earlier batches' stories that part 1's running screens compare. Part 1 is accepted by delegated acceptance, under the owner's delegation of 2026-11-04 ([record](2026-11-04-delegated-acceptance-and-merging.md)), at #80's final commit, `93bfeba1`, by Claude in the thread "Build dashboard batch 8" ([verification record §13](2026-11-05-fb-19-batch-orders-returns-and-fulfilment-part-1.md#13-delegated-acceptance)), and #80 merged on 2026-11-05 ([merge record](2026-11-05-fb-19-batch-orders-returns-and-fulfilment-part-1-merge.md)). The owner did not review these images. The Acceptance column reads DELEGATED ACCEPTANCE for each.
 
 **What to look at.** Each link opens the image beside this list, in the revision being read, and the pull request's file list shows the same images. Every image was looked at in light and dark before it was committed, and the six order header images made again after their fixtures were corrected, four of a canceled order and two of a draft, were looked at beside the images they replaced (verification record §4.3). The four images of the add line item sheet's Search results and Nothing found stories were wrong when first accepted: they listed every product for any search, and this review did not notice. After a CI run showed it, the mock was corrected and the four images made again and looked at (verification record §4.3 and §10). Stories use invented shops, products, people, addresses and references; the running screens show the browser tests' data and the orders part 1 added through the Admin API.
 

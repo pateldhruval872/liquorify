@@ -1,0 +1,19 @@
+{
+  "screen": "DA-ORD-08",
+  "state": "listed",
+  "variant": "admin",
+  "role": null,
+  "theme": "dark",
+  "revision": "3009cc37",
+  "path": "/<store>/claims",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "fullPage": true,
+  "capturedHeight": 1200,
+  "intercepted": null,
+  "settled": true,
+  "outside": [],
+  "customer": "sarah.johnson@example.com"
+}

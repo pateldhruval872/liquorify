@@ -1,0 +1,52 @@
+{
+  "revision": "3009cc37",
+  "order": "R1023",
+  "before": {
+    "add_fulfillment_shown": false,
+    "card_text": "Fulfillments 1 Unfulfilled Canceled Shop location Actions Standard $5.00 Electric Kettle 1.7L Color: White $44.99 × 2"
+  },
+  "return_of_a_canceled_unit": {
+    "status": 201,
+    "body": {
+      "id": "ret_p6klVeMgbn",
+      "number": "RET1008",
+      "status": "requested",
+      "order_id": "or_5OQZnCRf8J",
+      "reason_id": "rar_p6klVeMgbn",
+      "refund_total": "44.99",
+      "refund_tax_total": "0.00",
+      "approved_at": null,
+      "received_at": null,
+      "refunded_at": null,
+      "canceled_at": null,
+      "external_references": {},
+      "memo": null,
+      "metadata": {},
+      "created_at": "2026-11-05T13:39:37.435Z",
+      "updated_at": "2026-11-05T13:39:37.435Z",
+      "stock_location_id": "sloc_UkLWZg9DAJ",
+      "created_by_id": "adm_UkLWZg9DAJ",
+      "created_by_type": "admin_user",
+      "refunded_total": "0.00",
+      "refundable_total": "44.99",
+      "documents": [],
+      "labels": [],
+      "deliveries": []
+    }
+  },
+  "new_fulfilment": {
+    "status": 201,
+    "fulfilment_status": "unfulfilled",
+    "errors": null
+  },
+  "fulfilments_after": [
+    {
+      "status": "unfulfilled",
+      "units": 2
+    }
+  ],
+  "after": {
+    "add_fulfillment_shown": false,
+    "card_text": "Fulfillments 1 Unfulfilled Unfulfilled Shop location Actions Standard $5.00 Electric Kettle 1.7L Color: White $44.99 × 2 Mark as fulfilled"
+  }
+}
