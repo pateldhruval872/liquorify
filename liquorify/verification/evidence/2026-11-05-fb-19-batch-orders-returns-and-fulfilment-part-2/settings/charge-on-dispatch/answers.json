@@ -1,0 +1,25 @@
+{
+  "revision": "3009cc37",
+  "method": "Fidelity cheque, collected later",
+  "capture_method_before": "manual",
+  "capture_method_saved": "on_dispatch",
+  "order": "R1024",
+  "payments_when_placed": [
+    {
+      "number": "R1024-P1",
+      "status": "pending",
+      "amount": "44.99",
+      "captured_amount": "0.00"
+    }
+  ],
+  "payments_when_fulfilled": [
+    {
+      "number": "R1024-P1",
+      "status": "completed",
+      "amount": "44.99",
+      "captured_amount": "44.99"
+    }
+  ],
+  "payment_status_when_fulfilled": "paid",
+  "fulfilment_status": "fulfilled"
+}

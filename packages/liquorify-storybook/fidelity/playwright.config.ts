@@ -54,7 +54,14 @@ import { defineConfig } from '@playwright/test'
  * stores as one teammate (see that file), and `catalog-actions.spec.ts` drives
  * the catalog actions catalog part 2 captured, and `loyalty-actions.spec.ts`
  * the promotion, gift card and store credit behaviours catalog part 3 captured
- * (see each file).
+ * (see each file). Batch 8 (orders, returns and fulfilment) keeps its captures
+ * and comparisons in `screens-batch-8.spec.ts` and `compare-batch-8.spec.ts`,
+ * with `-part-2` files for part 2. Its settings checks are
+ * `orders-settings.spec.ts` and `orders-settings-part-2.spec.ts`, its emails
+ * are captured by `order-emails.spec.ts`, and `payment-link.spec.ts` and
+ * `fl-06-storefront.spec.ts` follow an order to the storefront;
+ * `sd-31-gift-card.spec.ts`, `sd-36-canceled-fulfilment.spec.ts` and
+ * `digital-delivery.spec.ts` check single findings (see each file).
  * `FIDELITY_BASE_URL` points the scripts at a dashboard served on another
  * port, beside a server started with `E2E_RAILS_PORT`.
  */
@@ -67,9 +74,14 @@ export default defineConfig({
     'compare-batch-7.spec.ts',
     'screens-batch-8.spec.ts',
     'compare-batch-8.spec.ts',
+    'screens-batch-8-part-2.spec.ts',
+    'compare-batch-8-part-2.spec.ts',
     'sd-31-gift-card.spec.ts',
+    'sd-36-canceled-fulfilment.spec.ts',
     'payment-link.spec.ts',
     'orders-settings.spec.ts',
+    'orders-settings-part-2.spec.ts',
+    'fl-06-storefront.spec.ts',
     'order-emails.spec.ts',
     'digital-delivery.spec.ts',
     'screens-catalog-3.spec.ts',

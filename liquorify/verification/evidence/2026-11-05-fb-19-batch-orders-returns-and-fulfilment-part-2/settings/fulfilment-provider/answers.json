@@ -1,0 +1,40 @@
+{
+  "revision": "3009cc37",
+  "offered": [
+    "Manual",
+    "Pickup",
+    "Pickup Point"
+  ],
+  "store_pickup_provider": "Pickup",
+  "order": "R1032",
+  "standard": {
+    "method": "Standard",
+    "fulfillment_type": "shipping",
+    "provider_generates_labels": false,
+    "documents": [],
+    "cost": "5.00"
+  },
+  "standard_menu": [
+    "Edit",
+    "Split",
+    "Print packing slip",
+    "Add tracking",
+    "Upload label",
+    "Cancel"
+  ],
+  "store_pickup": {
+    "method": "Store Pickup",
+    "fulfillment_type": "shipping",
+    "provider_generates_labels": false,
+    "documents": [],
+    "cost": "0.00"
+  },
+  "store_pickup_menu": [
+    "Edit",
+    "Split",
+    "Print packing slip",
+    "Add tracking",
+    "Upload label",
+    "Cancel"
+  ]
+}

@@ -7,13 +7,18 @@
 #   EM-C-03  Spree::OrderMailer.payment_link_email           DRAFT (nothing sends it)
 #   EM-C-07  Spree::DigitalAssetMailer.files_ready_email     DIGITAL
 #   EM-O-01  Spree::OrderMailer.store_owner_notification_email PLACED
+#   EM-C-05  Spree::FulfillmentMailer.fulfilled_email        SHIPPED (its first sent fulfillment)
+#   EM-C-06  Spree::ReturnMailer.refunded_email              REFUNDED (its first refunded return)
 #
+# Only the emails whose order is named are rendered, so each part names its own.
 # Copy the server's database to the emails test app as
 # `db/spree_test_liquorify8.sqlite3`, then from `spree/emails/spec/dummy`:
 #
 #   SECRET_KEY_BASE=<the server's> RAILS_ENV=test TEST_ENV_NUMBER=_liquorify8 \
 #     EMAILS_OUT=<folder> CANCELED=R1010 DRAFT=R1004 DIGITAL=R1015 PLACED=R1007 \
 #     bin/rails runner <this file>
+#
+# Part 2 names SHIPPED and REFUNDED instead.
 #
 # The browser-test server's own test secret signs the pictures' addresses, so
 # the server serves them when the emails are captured; read it there with
@@ -42,13 +47,23 @@ ActiveRecord::Base.transaction do
   end
 
   builds = {
-    'EM-C-02' => -> { [order.call('CANCELED'), Spree::OrderMailer.cancel_email(order.call('CANCELED'))] },
-    'EM-C-03' => -> { [order.call('DRAFT'), Spree::OrderMailer.payment_link_email(order.call('DRAFT').id)] },
-    'EM-C-07' => -> { [order.call('DIGITAL'), Spree::DigitalAssetMailer.files_ready_email(order.call('DIGITAL'))] },
-    'EM-O-01' => -> { [order.call('PLACED'), Spree::OrderMailer.store_owner_notification_email(order.call('PLACED'))] }
+    'EM-C-02' => ['CANCELED', -> { [order.call('CANCELED'), Spree::OrderMailer.cancel_email(order.call('CANCELED'))] }],
+    'EM-C-03' => ['DRAFT', -> { [order.call('DRAFT'), Spree::OrderMailer.payment_link_email(order.call('DRAFT').id)] }],
+    'EM-C-07' => ['DIGITAL', -> { [order.call('DIGITAL'), Spree::DigitalAssetMailer.files_ready_email(order.call('DIGITAL'))] }],
+    'EM-O-01' => ['PLACED', -> { [order.call('PLACED'), Spree::OrderMailer.store_owner_notification_email(order.call('PLACED'))] }],
+    'EM-C-05' => ['SHIPPED', lambda {
+      shipped = order.call('SHIPPED')
+      [shipped, Spree::FulfillmentMailer.fulfilled_email(shipped.fulfillments.fulfilled.order(:id).first)]
+    }],
+    'EM-C-06' => ['REFUNDED', lambda {
+      refunded = order.call('REFUNDED')
+      [refunded, Spree::ReturnMailer.refunded_email(Spree::Return.where(order: refunded).refunded.order(:id).first)]
+    }]
   }
 
-  builds.each do |id, build|
+  builds.each do |id, (name, build)|
+    next unless ENV.key?(name)
+
     record, delivery = build.call
     mail = delivery.message
     secrets = [record.token, *record.digital_links.map(&:token)].compact

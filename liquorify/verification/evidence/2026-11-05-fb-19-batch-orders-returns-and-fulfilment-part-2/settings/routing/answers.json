@@ -1,0 +1,106 @@
+{
+  "revision": "3009cc37",
+  "rules": [
+    {
+      "type": "preferred_location",
+      "active": true
+    },
+    {
+      "type": "minimize_splits",
+      "active": true
+    },
+    {
+      "type": "default_location",
+      "active": true
+    }
+  ],
+  "preferred_location_off": {
+    "order": "R1028",
+    "fulfilments": [
+      {
+        "number": "R1028-F1",
+        "status": "unfulfilled",
+        "location": "Shop location",
+        "units": [
+          {
+            "variant": "variant_6AgxZbenF4",
+            "quantity": 1
+          }
+        ],
+        "cost": "5.00",
+        "unpriced": false
+      }
+    ]
+  },
+  "preferred_location_on": {
+    "order": "R1029",
+    "fulfilments": [
+      {
+        "number": "R1029-F1",
+        "status": "unfulfilled",
+        "location": "E2E Source Warehouse",
+        "units": [
+          {
+            "variant": "variant_6AgxZbenF4",
+            "quantity": 1
+          }
+        ],
+        "cost": "5.00",
+        "unpriced": false
+      }
+    ]
+  },
+  "split": {
+    "order": "R1030",
+    "fulfilments": [
+      {
+        "number": "R1030-F1",
+        "status": "unfulfilled",
+        "location": "E2E Source Warehouse",
+        "units": [
+          {
+            "variant": "variant_6AgxZbenF4",
+            "quantity": 1
+          }
+        ],
+        "cost": "5.00",
+        "unpriced": false
+      },
+      {
+        "number": "R1030-F2",
+        "status": "unfulfilled",
+        "location": "Shop location",
+        "units": [
+          {
+            "variant": "variant_STIszOMIvc",
+            "quantity": 1
+          }
+        ],
+        "cost": "5.00",
+        "unpriced": false
+      }
+    ]
+  },
+  "default_profile_narrowed": {
+    "order": "R1031",
+    "payment_answer": 201,
+    "complete_answer": 200,
+    "complete_errors": null,
+    "status": "placed",
+    "fulfilments": [
+      {
+        "number": "R1031-F1",
+        "status": "unfulfilled",
+        "location": "Shop location",
+        "units": [
+          {
+            "variant": "variant_6AgxZbenF4",
+            "quantity": 1
+          }
+        ],
+        "cost": "0.00",
+        "unpriced": false
+      }
+    ]
+  }
+}

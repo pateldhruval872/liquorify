@@ -1,0 +1,24 @@
+{
+  "revision": "3009cc37",
+  "rate": "Fidelity California sales tax 65540",
+  "dialog_note": "The full amount includes $2.90 of tax. A smaller amount gives back tax in the same proportion.",
+  "dialog_amount": "42.89",
+  "order": {
+    "number": "R1035",
+    "item_total": "39.99",
+    "tax_total": "3.26",
+    "additional_tax_total": "3.26",
+    "total": "48.25"
+  },
+  "return": {
+    "number": "RET1011",
+    "status": "refunded",
+    "refundable_total_when_received": "42.89",
+    "refund_total": "42.89",
+    "refunds": [
+      {
+        "amount": "42.89"
+      }
+    ]
+  }
+}

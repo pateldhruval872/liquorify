@@ -1,0 +1,26 @@
+{
+  "screen": "DA-ORD-04",
+  "state": "delivery-menu",
+  "variant": "support",
+  "role": {
+    "name": "Support",
+    "permissions": [
+      "read_orders",
+      "read_customers",
+      "read_dashboard"
+    ]
+  },
+  "theme": "dark",
+  "revision": "3009cc37",
+  "path": "/<store>/orders/or_AXs1igzRC6",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "fullPage": false,
+  "capturedHeight": 960,
+  "intercepted": null,
+  "settled": true,
+  "outside": [],
+  "customer": "sarah.johnson@example.com"
+}
