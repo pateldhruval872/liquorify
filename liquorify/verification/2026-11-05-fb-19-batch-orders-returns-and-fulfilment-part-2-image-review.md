@@ -4,12 +4,12 @@ record: review list
 work_item: FB-19
 date: 2026-11-05
 prepared_by: Claude (automated session)
-status: Ready for delegated acceptance (Claude, under the owner's delegation of 2026-11-04) once the pull request's checks pass; not the owner's review
+status: Accepted by delegated acceptance (Claude, under the owner's delegation of 2026-11-04), at #84's final commit, `0c5223bf`, merged on 2026-11-08 as `63394738`; not the owner's review
 ---
 
 # FB-19 batch 8, part 2, reference images for review
 
-This list holds every reference image part 2 of batch 8 commits, by inventory ID ([LIQ-009](../LIQ-009-spree-component-and-token-inventory.md)), so each can be accepted or rejected, and the two part 1 stories that part 2's running screens compare. Part 2 is to be accepted by delegated acceptance, under the owner's delegation of 2026-11-04 ([record](2026-11-04-delegated-acceptance-and-merging.md)), by Claude in the thread "Build dashboard batch 8", once the pull request's checks pass ([verification record §13](2026-11-05-fb-19-batch-orders-returns-and-fulfilment-part-2.md#13-delegated-acceptance)). The owner does not review these images. The Acceptance column reads DELEGATED ACCEPTANCE for each.
+This list holds every reference image part 2 of batch 8 commits, by inventory ID ([LIQ-009](../LIQ-009-spree-component-and-token-inventory.md)), so each can be accepted or rejected, and the two part 1 stories that part 2's running screens compare. Part 2 is accepted by delegated acceptance, under the owner's delegation of 2026-11-04 ([record](2026-11-04-delegated-acceptance-and-merging.md)), at #84's final commit, `0c5223bf`, by Claude in the thread "Build dashboard batch 8" ([verification record §13](2026-11-05-fb-19-batch-orders-returns-and-fulfilment-part-2.md#13-delegated-acceptance)), and #84 merged on 2026-11-08 ([merge record](2026-11-08-fb-19-batch-orders-returns-and-fulfilment-part-2-merge.md)). The owner does not review these images. The Acceptance column reads DELEGATED ACCEPTANCE for each.
 
 **What to look at.** Each link opens the image beside this list, in the revision being read, and the pull request's file list shows the same images. Every image was looked at in light and dark before it was committed. Five stories were corrected after they were first written (verification record §4.3 and §10):
 - **Fulfillments card: Draft, items unclaimed** (S110) showed an "Unfulfilled" badge the server never sends, because the story's draft carried statuses that a draft only gets once it has an address. The fixture was corrected, and its two images were made again and looked at beside the ones they replaced; only the badge is gone.
