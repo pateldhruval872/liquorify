@@ -133,6 +133,8 @@ export const AddFulfillmentRefused: Story = {
     await userEvent.type(mugs, '2')
     await userEvent.click(within(dialog).getByRole('button', { name: 'Create' }))
     await within(dialog).findByRole('alert')
+    // Where focus lands after the refusal depends on how fast it came back.
+    ;(document.activeElement as HTMLElement | null)?.blur()
   },
 }
 
