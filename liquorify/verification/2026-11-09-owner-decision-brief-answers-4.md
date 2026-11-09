@@ -4,7 +4,7 @@ record: owner decisions
 work_item: FB-19 (batch 3's media picker images, batch 6, batch 8, batches 10 and 11, P4, P9, P11, P12), FB-03, SD-26, SD-27, G-11, G-84, G-87, G-90 to G-95
 date: 2026-11-09
 recorded_by: Claude (automated session); not independent review
-result: On 2026-11-09 the owner answered in one message, in six items. Item 3 adds P11, a bounded browser-test follow-up for G-87, G-90 and G-92. Item 4 approves G-92's assignment to it, defers G-93 to the comparison follow-up with each story named and its provider-specific stories assigned to P4, accepts G-94 as simulated interface-state coverage only, and links G-95, with G-91's outstanding requests, to G-11 through P12, a named follow-up to P10. Items 1, 2, 5 and 6 are recorded where their work is. No capability, gap or defect result changes to PASS because of these answers. Tenant isolation stays NOT_RUN, and G-85, G-86, G-88, G-89 and every other unanswered decision stay pending.
+result: On 2026-11-09 the owner answered in one message, in six items. Item 3 adds P11, a bounded browser-test follow-up for G-87, G-90 and G-92. Item 4 approves G-92's assignment to it, defers G-93 to the comparison follow-up with each story named and its provider-specific stories assigned to P4, accepts G-94 as simulated interface-state coverage only, and links G-95, with G-91's outstanding requests, to G-11 through P12, a named follow-up to P10. Items 1, 2 and 5 are recorded where their work is. Recording item 6, FB-03, is blocked by the platform's safety classifier, so that work is paused and only its status is recorded. No capability, gap or defect result changes to PASS because of these answers. Tenant isolation stays NOT_RUN, and G-85, G-86, G-88, G-89 and every other unanswered decision stay pending.
 ---
 
 # The owner's fourth set of answers to the owner decision brief
@@ -18,7 +18,7 @@ result: On 2026-11-09 the owner answered in one message, in six items. Item 3 ad
 5. **SD-26 and SD-27:** part of row 36.
 6. **FB-03:** its validation report.
 
-The owner asked that the approved baseline work then resume under the delegation of 2026-11-04, within the three-lane limit.
+The owner asked that the approved baseline work then resume under the delegation of 2026-11-04, within the three-lane limit. Later the same day the owner asked that the FB-03 work stay paused, with its status tracked as item 6 gives it.
 
 Each answer is recorded against its own ID in the document that owns that ID, and §1 says where. This record is the single list. Under D5, an answer recorded here is the owner's approval, its date and its scope.
 
@@ -31,7 +31,7 @@ Each answer is recorded against its own ID in the document that owns that ID, an
 | 3 | G-87, G-90, G-92 | A bounded platform follow-up is added for the three gaps. It lists every outstanding action, its dependencies, its expected result and its closure condition. Known-defect failures are kept, and real-provider work stays with P4 | The platform work item's step [P11](../work-items/fb-19-batch-platform.md#p11-browser-tests-for-inventory-orders-and-what-happens-after-the-sale); each gap in [LIQ-004's gap register](../LIQ-004-foundation-backlog.md#deferred-gaps-and-the-owners-acceptance) |
 | 4 | G-91 to G-95 | G-92's assignment to P11 is approved. G-93 is deferred to the existing comparison follow-up, with each remaining story identified (§3) and its provider-specific states assigned to P4. G-94 is accepted as simulated interface-state coverage only. G-95 is linked to G-11 through a named follow-up to the completed P10 work, which also holds G-91's outstanding requests, without implying that P10 tested them | P11; the platform work item's step [P12](../work-items/fb-19-batch-platform.md#p12-the-order-refusals-a-follow-up-to-p10); each gap in LIQ-004's gap register; §3 of this record |
 | 5 | SD-26, SD-27, G-84 | Both are accepted as Low-severity defects, and their fixes stay deferred. Their documented failures are accepted as baseline exceptions for G-84 under P9's existing closure rule. The failing tests are kept, and the affected functional results stay FAIL or PARTIAL | [SD-26 and SD-27](../LIQ-004-foundation-backlog.md#existing-defects-found-by-the-baseline) and G-84 in LIQ-004, and P9 part 4's record, in their own pull request |
-| 6 | FB-03 | The report and its reproduction evidence stay private. The owner's instructions for it are kept in the private project files, and this repository records nothing more about them. Which candidates are accepted, and who owns a shopper account, stay pending | The private project files only |
+| 6 | FB-03 | The report and its reproduction evidence stay private. The owner gave decisions on it in the conversation. Recording those decisions and preparing the remediation plan are blocked by the platform's safety classifier, so the FB-03 work is paused until that block is resolved through the platform's support or review process. This is not a failed validation, and the decisions are not missing. No fix has started, ISO-1 to ISO-7 stay open, and a multi-tenant release stays blocked. Which candidates are accepted, and who owns a shopper account, stay pending. This repository records only that status | [FB-03's status](../LIQ-004-foundation-backlog.md#open-isolation-findings) in LIQ-004; the private evidence stays in the project files as it is |
 
 ## 2. Work items and closure conditions
 
@@ -227,7 +227,7 @@ Batch 8's part 2 left 162 of its 212 stories not compared with a running screen 
 - **Row 39:** what the payment link becomes (SD-32, held). P11's action 2.21 follows that answer.
 - **Rows 18, 22, 24 and 33:** the earlier behaviours and gaps the owner was asked to classify or close.
 - **Rows 25 to 29:** the gaps answered as their batches report, where P5 runs, FB-04's last step, a verified inbox for security reports, and the completion record.
-- **FB-03:** which candidates are accepted, and who owns a shopper account.
+- **FB-03:** which candidates are accepted, and who owns a shopper account. Recording the owner's 2026-11-09 decisions on FB-03 is paused by the platform block above.
 - **The owner actions still open in the brief,** among them the Figma purchase (OA-5) and the backend sandbox keys P4 needs (OA-8).
 
 ## 5. What these answers do not change
