@@ -30,8 +30,16 @@ Each answer is recorded against its own ID in the document that owns that ID, an
 | 2 | Batches 10 and 11 | Both start, within the approved Spree baseline scope: the dashboard's customers, then the home figures, reports and email templates, running independently where their dependencies permit. Each work item's scope and acceptance criteria are set before implementation. At most three implementation lanes run | Each batch's work item; [LIQ-004's backlog](../LIQ-004-foundation-backlog.md#backlog) |
 | 3 | G-87, G-90, G-92 | A bounded platform follow-up is added for the three gaps. It lists every outstanding action, its dependencies, its expected result and its closure condition. Known-defect failures are kept, and real-provider work stays with P4 | The platform work item's step [P11](../work-items/fb-19-batch-platform.md#p11-browser-tests-for-inventory-orders-and-what-happens-after-the-sale); each gap in [LIQ-004's gap register](../LIQ-004-foundation-backlog.md#deferred-gaps-and-the-owners-acceptance) |
 | 4 | G-91 to G-95 | G-92's assignment to P11 is approved. G-93 is deferred to the existing comparison follow-up, with each remaining story identified (§3) and its provider-specific states assigned to P4. G-94 is accepted as simulated interface-state coverage only. G-95 is linked to G-11 through a named follow-up to the completed P10 work, which also holds G-91's outstanding requests, without implying that P10 tested them | P11; the platform work item's step [P12](../work-items/fb-19-batch-platform.md#p12-the-order-refusals-a-follow-up-to-p10); each gap in LIQ-004's gap register; §3 of this record |
-| 5 | SD-26, SD-27, G-84 | Both are accepted as Low-severity defects, and their fixes stay deferred. Their documented failures are accepted as baseline exceptions for G-84 under P9's existing closure rule. The failing tests are kept, and the affected functional results stay FAIL or PARTIAL | [SD-26 and SD-27](../LIQ-004-foundation-backlog.md#existing-defects-found-by-the-baseline) and G-84 in LIQ-004, and P9 part 4's record, in their own pull request |
+| 5 | SD-26, SD-27, G-84 | Both are accepted as Low-severity defects, and their fixes stay deferred. Their documented failures are accepted as baseline exceptions for G-84 under P9's existing closure rule. The failing tests are kept, and the affected functional results stay FAIL or PARTIAL | [SD-26 and SD-27](../LIQ-004-foundation-backlog.md#existing-defects-found-by-the-baseline) and G-84 in LIQ-004, and [§8 of P9 part 4's record](2026-11-05-fb-19-platform-p9-part-4.md#8-the-owners-answer-to-row-36-2026-11-09), merged in #88 |
 | 6 | FB-03 | The report and its reproduction evidence stay private. The owner gave decisions on it in the conversation. Recording those decisions and preparing the remediation plan are blocked by the platform's safety classifier, so the FB-03 work is paused until that block is resolved through the platform's support or review process. This is not a failed validation, and the decisions are not missing. No fix has started, ISO-1 to ISO-7 stay open, and a multi-tenant release stays blocked. Which candidates are accepted, and who owns a shopper account, stay pending. This repository records only that status | [FB-03's status](../LIQ-004-foundation-backlog.md#open-isolation-findings) in LIQ-004; the private evidence stays in the project files as it is |
+
+**Later the same day, the rest of row 36.** In two later messages the owner answered the rest of row 36:
+
+- Batch 9's B18 is tracked as SD-22, at Medium.
+- B12, B13 and B16 are tracked as SD-41, SD-42 and SD-43, at Medium, with their fixes deferred.
+- The other behaviours batch 9 and part 3 recorded stay recorded observations.
+
+Those answers are recorded in [their own record](2026-11-09-row-36-recorded-behaviours.md), in #93.
 
 ## 2. Work items and closure conditions
 
@@ -221,7 +229,6 @@ Batch 8's part 2 left 162 of its 212 stories not compared with a running screen 
 
 ## 4. What stays pending
 
-- **Row 36, apart from SD-26 and SD-27:** whether batch 9's B18 becomes a defect (SD-22, held), and the other behaviours batch 9 and part 3 recorded.
 - **Row 37's G-85 and G-86, and row 40's G-88 and G-89:** the comparisons and simulated states of batch 6 and batch 8's part 1.
 - **Row 38:** the proposed severities of the fifteen other new defects.
 - **Row 39:** what the payment link becomes (SD-32, held). P11's action 2.21 follows that answer.
@@ -233,7 +240,7 @@ Batch 8's part 2 left 162 of its 212 stories not compared with a running screen 
 ## 5. What these answers do not change
 
 - **No result changes.** No capability, gap or defect result changes to PASS because of these answers. A deferred gap stays unverified until its closure condition holds, and simulated or source-reviewed coverage is not functional verification.
-- **Defects stay open.** SD-23 to SD-31 and SD-33 to SD-40 stay open, with their failing results kept where they have one, and SD-22 and SD-32 stay held. Nothing is reported to Spree.
+- **Defects stay open.** SD-22 to SD-31 and SD-33 to SD-43 stay open, with their failing results kept where they have one, and SD-15, SD-16 and SD-32 stay held. Nothing is reported to Spree.
 - **Tenant isolation** stays NOT_RUN in every batch, with ISO-1 to ISO-7 open.
 - **Criteria and tolerances.** No criterion changes. Every image keeps the tolerance of 25.
 - **Lanes.** At most three implementation lanes run at once.
