@@ -215,7 +215,7 @@ On 2026-11-09 the owner answered row 36 of the decision brief for SD-26 and SD-2
 
 > SD-26 and SD-27: Accept both as Low-severity defects and keep their fixes deferred. Accept their documented failures as baseline exceptions for G-84 under P9's existing closure rule. Record that decision explicitly, retain the failing tests and keep affected functional results FAIL/PARTIAL.
 
-The answer is listed with that day's other decisions in [the owner's fourth set of answers](2026-11-09-owner-decision-brief-answers-4.md). It answers row 36 only for SD-26 and SD-27. Whether batch 9's B18 becomes a defect, and the other behaviours batch 9 and part 3 recorded, stay pending.
+The answer is listed with that day's other decisions in [the owner's fourth set of answers](2026-11-09-owner-decision-brief-answers-4.md). It answers row 36 only for SD-26 and SD-27. The owner answered the rest of row 36, batch 9's B18 and the other behaviours batch 9 and part 3 recorded, later the same day ([record](2026-11-09-row-36-recorded-behaviours.md)).
 
 | What | Since 2026-11-09 |
 |---|---|
