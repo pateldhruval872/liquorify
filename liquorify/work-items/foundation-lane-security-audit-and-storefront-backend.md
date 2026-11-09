@@ -5,14 +5,14 @@ work_item: FB-11, FB-06
 status: PROPOSED
 owner: the owner reviews and accepts; an automated Claude session implements
 created: 2026-11-03
-updated: 2026-11-05
+updated: 2026-11-09
 ---
 
 # Foundation lane: the weekly security audit, then the storefront's test backend
 
 One implementation lane for two foundation items, in the order the owner asked on 2026-11-03: first repair the backend's weekly security audit, which has failed both times it ran (part of FB-11), then complete FB-06, so that the storefront's browser tests run against a backend built from a recorded `liquorify` revision and use the matching SDK. Both were found by the baseline audit of 2026-11-02 (its findings A-1 and A-6). Neither changes Spree's application code or the storefront's pages, or adds a Liquorify feature.
 
-**Status.** PROPOSED. On 2026-11-04 the owner approved the lane (decision 1 of the owner decision brief) and answered §5: questions 2 and 3 as recommended, and question 1, the advisory, later the same day, choosing the second way in §1.1 ([record](../verification/2026-11-04-owner-decision-brief-answers-2.md)). Step 2's spike ran on 2026-11-04 and showed option A works (§2.1), and the owner answered the two questions it raised for step 2.2 the same day. Later still that day the owner reported OA-6 saved, so step 1 can run, and authorized step 2.2's workflow change in storefront #23 to merge under the delegation ([record](../verification/2026-11-04-owner-decision-brief-answers-2.md#5-later-the-same-day)). That night the owner approved step 1's repair, #57, and the dependency updates its run by hand opened, #58 (§5, question 4). Step 2.2 merged as storefront #23 on 2026-11-04 (§2.2). #57 merged on 2026-11-04 and #58 on 2026-11-05, and the audit then passed on `main` (§1.2); step 1 closes once the scheduled run on Monday 2026-11-09 also passes. At most three implementation lanes run at once; §4 shows where this one fits.
+**Status.** PROPOSED. On 2026-11-04 the owner approved the lane (decision 1 of the owner decision brief) and answered §5: questions 2 and 3 as recommended, and question 1, the advisory, later the same day, choosing the second way in §1.1 ([record](../verification/2026-11-04-owner-decision-brief-answers-2.md)). Step 2's spike ran on 2026-11-04 and showed option A works (§2.1), and the owner answered the two questions it raised for step 2.2 the same day. Later still that day the owner reported OA-6 saved, so step 1 can run, and authorized step 2.2's workflow change in storefront #23 to merge under the delegation ([record](../verification/2026-11-04-owner-decision-brief-answers-2.md#5-later-the-same-day)). That night the owner approved step 1's repair, #57, and the dependency updates its run by hand opened, #58 (§5, question 4). Step 2.2 merged as storefront #23 on 2026-11-04 (§2.2). #57 merged on 2026-11-04 and #58 on 2026-11-05, and the audit then passed on `main` (§1.2). The scheduled run on 2026-11-09 also passed, so step 1 is done. At most three implementation lanes run at once; §4 shows where this one fits.
 
 ## 1. Step 1: repair the weekly security audit (FB-11)
 
@@ -81,7 +81,7 @@ The repair, [#57](https://github.com/pateldhruval872/liquorify/pull/57), merged 
 | Done when | Where it stands |
 |---|---|
 | The run by hand passes | Done. From #57's branch it skipped the unpublished `deepmerge` version and opened #58, which shows the repository setting OA-6 works. Run again by hand on `main` after both merges, it passed, found nothing new to fix and opened no pull request |
-| The next scheduled Monday run passes | Pending: Monday 2026-11-09 |
+| The next scheduled Monday run passes | Done. The scheduled run on 2026-11-09 passed on `main` at `934e6eea`, with the same result as the run by hand: it skipped the unpublished `deepmerge` version, changed no file and opened no pull request ([record](../verification/2026-11-09-fb-11-security-audit-scheduled-run.md)) |
 | The pull request it opens is reviewed under FB-11 | Done. #58's eight dependency updates were reviewed, including its major-version moves of `glob`, `minimatch` and `path-scurry`, which reach only Storybook and the `shadcn` developer tool |
 | FB-11's text in LIQ-004 says what ran and what was decided | Done |
 
