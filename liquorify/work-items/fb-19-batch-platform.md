@@ -527,6 +527,116 @@ P12 is complete when P7's criteria 2 to 10 hold for these requests, as P10 sets 
 
 **Closing.** Under the owner's delegation, as delegated acceptance, not the owner's review. G-91 and G-95 each close only on P12's passing evidence for every request they name, in both recorded runs. A refused caller answered with a success, or with an answer that carries the protected record's values, is recorded as a defect with its severity, brought to the owner as a security finding, and keeps its gap and G-11 open. A control that fails, such as an over-refusal like SD-28 to SD-30, keeps its row failing and is recorded as a defect. G-11 closes only when G-91 and G-95 have closed and everything else it holds has closed too.
 
+#### P12's checks, recorded before implementation
+
+Recorded on 2026-11-09, before any of P12's scripts was written: the requests, who sends them, the answer each must get, the control beside it, and how each gap closes. The expected answers are written from Spree's code as on `main` at `05b7c95b` and from the source records named in items 1 and 2 (part 1's and part 2's §3.1 and §3.2). Nothing here has been sent yet, and none of it was sent by P10.
+
+**How the checks run.** As P10's Admin API checks did: Liquorify's own scripts in `packages/liquorify-storybook/fidelity/`, with P7's judge (`one-store.ts`), against Spree's browser-test server started freshly with its own fixtures (`stack.spec.ts`). Every request stays in the default store. No storefront is needed: every request is the dashboard's, sent to the Admin API. Each run adds its own records through the Admin API, as the admin: a product with two variants held in stock at the default location, a customer with an address, a gift card, a discount code, a cancellation reason, the cheque payment methods batch 8 used, and the orders below, each marked with the run's stamp. The browser-test fixtures carry no sample catalog, so the run does not use batch 8's sample products. Spree's code, tests and workflows are not changed.
+
+**The callers.** The teammates `staff.ts` already adds, each holding one role, with the permission keys `/me` reports recorded beside each answer:
+
+| Caller | Role's keys, as created | Used in |
+|---|---|---|
+| Support | `read_orders`, `read_customers`, `read_dashboard` | Refused in items 1 and 2; control for the merchandiser's reads |
+| Packer | `read_orders`, `write_fulfillments` | Refused in item 1 and in item 2's returns, exchanges and claims |
+| Merchandiser | `write_products`, `write_categories`, `write_collections`, `write_stock` | Refused in both items' reads |
+| Order manager | `write_orders`, `write_payments`, `write_fulfillments`, `write_refunds`, `write_gift_cards`, `write_store_credits`, `read_customers` | Refused the cancellation reasons; control for most writes |
+| Settings viewer | `read_settings` | Control for the cancellation reasons |
+| Admin | Every key | Control where no template role may make the request (rows 1.10 and 2.1) |
+
+**How each expected answer is written.** By P10's rules A1 to A4, with two more that P10's development trial and Spree's order controllers give:
+
+- **A5. An endpoint that registers its record lookup again** (`before_action :set_resource` declared in the controller itself) runs the key gate before the lookup, so a caller without the key is refused with 403 `access_denied` naming it, not 404. This is P10's correction to its row 5.11. It applies to an order (`OrdersController`), a payment, a fulfilment, a consignment (delivery), a label, a return, an exchange and a claim.
+- **A6. A record nested in an order whose controller does not register its lookup again** (an item, a discount, a fee) is found within the order, which Spree finds among the store's orders whatever the caller's role (`Orders::BaseController#set_parent`). The change is then refused by the record's own authorization, 403 `access_denied`, naming `write_orders`, because the error handler names the key the caller lacks (`ErrorHandler#access_denied_details`).
+
+Two gates are not the ones the screens suggest, and the rows follow the code. Consignments and labels hang off a fulfilment, but their controllers do not declare a key of their own, so they inherit the order's (`scoped_resource :orders`) and are refused naming `write_orders`, not `write_fulfillments`. A payment's method is found among the payment methods the caller may read, which are settings, and a new fulfilment's stock location among the stock locations the caller may read, which are stock; the order manager holds neither, so rows 1.10 and 2.1 use the admin as the control and keep the order manager's answer as an observation, not a case.
+
+A **control** is the same request from a caller who may make it, in the same run, and must succeed with the status written for it. For a read, its answer must carry the values the refused answers are searched for. For a write, the read-back, by the admin, must see the change, and after every refused write it must find the record as it was.
+
+**Corrections before the first recorded run.** As P10's rule: an expectation may be corrected only between two refusals, only where Spree's code gives the reason, and only before the first recorded run, and the verification record lists each correction. An answer that lets a caller read or change what it may not is never corrected into an expectation.
+
+**The run's orders.** Placed orders are paid by the cheque method that charges at checkout unless a row says otherwise. Order A: placed, not shipped. Draft D: two items, a manual discount and a fee. Draft G: one item, for the gift card. Orders E1 and E2: placed with the cheque method that leaves the payment to capture, so each holds an authorized payment. Order B: placed, for the cancellation. Orders F1, F2, F5 and F6: placed, not shipped. Order F3: placed, with its only fulfilment canceled, so its units wait for a new one. Order F4: placed and shipped. Order R: placed and shipped, with three of the first variant and two of the second. Order R2: placed and shipped, with a requested return, a second requested return, an exchange and a claim opened by the admin.
+
+##### Item 1: G-91, batch 8's part 1, orders and their money
+
+| # | Request | Refused callers and expected answer | Control | Gap |
+|---|---|---|---|---|
+| 1.1 | Save an order's contact email from the edit page: `PATCH /api/v3/admin/orders/<A>` | Support, packer: 403 `access_denied` `write_orders` (A5) | Order manager: 200, changed | G-91 |
+| 1.2 | Save an order's notes from the notes' pencils: `PATCH /api/v3/admin/orders/<A>` with the customer and internal notes | Support, packer: 403 `write_orders` (A5) | Order manager: 200, changed | G-91 |
+| 1.3 | Save an order's shipping and billing address from the customer card's menu: `PATCH /api/v3/admin/orders/<A>` | Support, packer: 403 `write_orders` (A5) | Order manager: 200, changed | G-91 |
+| 1.4 | Add a discount: `POST /api/v3/admin/orders/<D>/discounts` | Support, packer: 403 `write_orders` (A1) | Order manager: 201, added | G-91 |
+| 1.5 | Change a discount: `PATCH …/orders/<D>/discounts/<id>` | Support, packer: 403 `write_orders` (A6) | Order manager: 200, changed | G-91 |
+| 1.6 | Remove a discount: `DELETE …/orders/<D>/discounts/<id>` | Support, packer: 403 `write_orders` (A6) | Order manager: 204, removed | G-91 |
+| 1.7 | Add a fee: `POST …/orders/<D>/fees` | Support, packer: 403 `write_orders` (A1) | Order manager: 201, added | G-91 |
+| 1.8 | Change a fee: `PATCH …/orders/<D>/fees/<id>` | Support, packer: 403 `write_orders` (A6) | Order manager: 200, changed | G-91 |
+| 1.9 | Remove a fee: `DELETE …/orders/<D>/fees/<id>` | Support, packer: 403 `write_orders` (A6) | Order manager: 204, removed | G-91 |
+| 1.10 | Add a payment from the payments card: `POST …/orders/<D>/payments` | Support, packer: 403 `write_payments` (A1) | Admin: 201, added. The order manager's answer is kept as an observation (see above) | G-91 |
+| 1.11 | Capture an authorized payment: `PATCH …/orders/<E1>/payments/<id>/capture` | Support, packer: 403 `write_payments` (A5) | Order manager: 200, captured | G-91 |
+| 1.12 | Void an authorized payment: `PATCH …/orders/<E2>/payments/<id>/void` | Support, packer: 403 `write_payments` (A5) | Order manager: 200, voided | G-91 |
+| 1.13 | Apply a discount code from the sidebar: `POST …/orders/<D>/discount_codes` | Support, packer: 403 `write_orders` (A1) | Order manager: 201, applied | G-91 |
+| 1.14 | Remove a discount code: `DELETE …/orders/<D>/discount_codes/<code>` | Support, packer: 403 `write_orders` (A1: the code controller looks up no record) | Order manager: 200, removed | G-91 |
+| 1.15 | Apply a gift card from the sidebar: `POST …/orders/<G>/gift_cards` | Support, packer: 403 `write_orders` (A1) | Order manager: 201, applied | G-91 |
+| 1.16 | Remove the gift card: `DELETE …/orders/<G>/gift_cards/<id>` | Support, packer: 403 `write_orders` (A1, as 1.14) | Order manager: 204, removed | G-91 |
+| 1.17 | Add an item from the edit page: `POST …/orders/<D>/items` | Support, packer: 403 `write_orders` (A1) | Order manager: 201, added | G-91 |
+| 1.18 | Change an item's quantity: `PATCH …/orders/<D>/items/<id>` | Support, packer: 403 `write_orders` (A6) | Order manager: 200, changed | G-91 |
+| 1.19 | Remove an item: `DELETE …/orders/<D>/items/<id>` | Support, packer: 403 `write_orders` (A6) | Order manager: 204, removed | G-91 |
+| 1.20 | Create a draft from the new order page: `POST /api/v3/admin/orders` | Support, packer: 403 `write_orders` (A1) | Order manager: 201, created | G-91 |
+| 1.21 | Cancel a placed order: `PATCH …/orders/<B>/cancel` | Support, packer: 403 `write_orders` (A5) | Order manager: 200, canceled | G-91 |
+| 1.22 | Read an order's payments: `GET …/orders/<A>/payments` | Support, packer: 403 `read_payments` (A1) | Order manager: 200, carrying the payment's id | G-91 |
+| 1.23 | Read one payment: `GET …/orders/<A>/payments/<id>` | Support, packer: 403 `read_payments` (A5) | Order manager: 200, carrying the payment's id | G-91 |
+| 1.24 | Read the store's cancellation reasons for the cancel dialog: `GET /api/v3/admin/order_cancellation_reasons` | Order manager: 403 `read_settings` (A1) | Settings viewer: 200, carrying the run's reason | G-91 |
+| 1.25 | Read the order list: `GET /api/v3/admin/orders` | Merchandiser: 403 `read_orders` (A1) | Support: 200, carrying order A's number | G-91 |
+| 1.26 | Read the draft list: `GET /api/v3/admin/orders?incomplete=1` | Merchandiser: 403 `read_orders` (A1) | Support: 200, carrying draft D's number | G-91 |
+| 1.27 | Read an order: `GET /api/v3/admin/orders/<A>` | Merchandiser: 403 `read_orders` (A5) | Support: 200, carrying order A's number and email | G-91 |
+
+##### Item 2: G-95, batch 8's part 2, fulfilment and what happens after the sale
+
+| # | Request | Refused callers and expected answer | Control | Gap |
+|---|---|---|---|---|
+| 2.1 | Create a fulfilment for waiting units: `POST …/orders/<F3>/fulfillments` | Support: 403 `write_fulfillments` (A1) | Admin: 201, created. The order manager's answer is kept as an observation (see above) | G-95 |
+| 2.2 | Save a fulfilment's tracking from its Edit: `PATCH …/orders/<F1>/fulfillments/<id>` | Support: 403 `write_fulfillments` (A5) | Order manager: 200, changed | G-95 |
+| 2.3 | Split a fulfilment: `PATCH …/fulfillments/<id>/split` | Support: 403 `write_fulfillments` (A5) | Order manager: 200, split | G-95 |
+| 2.4 | Mark a fulfilment as fulfilled: `PATCH …/fulfillments/<id>/fulfill` | Support: 403 `write_fulfillments` (A5) | Order manager: 200, shipped | G-95 |
+| 2.5 | Cancel a fulfilment: `PATCH …/orders/<F2>/fulfillments/<id>/cancel` | Support: 403 `write_fulfillments` (A5) | Order manager: 200, canceled | G-95 |
+| 2.6 | Mark a shipped fulfilment as delivered: `PATCH …/orders/<F4>/fulfillments/<id>/mark_delivered` | Support: 403 `write_fulfillments` (A5) | Order manager: 200, delivered | G-95 |
+| 2.7 | Add tracking (a consignment): `POST …/orders/<F5>/fulfillments/<id>/deliveries` | Support: 403 `write_orders` (A1, the order's key) | Order manager: 201, added | G-95 |
+| 2.8 | Edit a consignment: `PATCH …/deliveries/<id>` | Support: 403 `write_orders` (A5) | Order manager: 200, changed | G-95 |
+| 2.9 | Mark a consignment arrived: `PATCH …/deliveries/<id>/mark_delivered` | Support: 403 `write_orders` (A5) | Order manager: 200, arrived | G-95 |
+| 2.10 | Delete a consignment: `DELETE …/deliveries/<id>` | Support: 403 `write_orders` (A5) | Order manager: 204, deleted | G-95 |
+| 2.11 | Upload a label bought elsewhere: `POST …/orders/<F6>/fulfillments/<id>/labels` with a file the admin uploaded | Support: 403 `write_orders` (A1, the order's key) | Order manager: 201, recorded | G-95 |
+| 2.12 | Delete an uploaded label: `DELETE …/labels/<id>` | Support: 403 `write_orders` (A5) | Order manager: 204, deleted | G-95 |
+| 2.13 | Open a return: `POST …/orders/<R>/returns` | Support, packer: 403 `write_orders` (A1) | Order manager: 201, opened | G-95 |
+| 2.14 | Open an exchange: `POST …/orders/<R>/exchanges` | Support, packer: 403 `write_orders` (A1) | Order manager: 201, opened | G-95 |
+| 2.15 | Open a claim: `POST …/orders/<R>/claims` | Support, packer: 403 `write_orders` (A1) | Order manager: 201, opened | G-95 |
+| 2.16 | Approve a requested return: `PATCH …/orders/<R2>/returns/<id>/approve` | Packer: 403 `write_orders` (A5) | Order manager: 200, approved | G-95 |
+| 2.17 | Cancel a requested return: `PATCH …/orders/<R2>/returns/<id>/cancel` | Packer: 403 `write_orders` (A5) | Order manager: 200, canceled | G-95 |
+| 2.18 | Read an order: `GET /api/v3/admin/orders/<R2>` | Merchandiser: 403 `read_orders` (A5) | Support: 200, carrying R2's number | G-95 |
+| 2.19 | Read the returns list: `GET /api/v3/admin/returns` | Merchandiser: 403 `read_orders` (A1) | Support: 200, carrying R2's return | G-95 |
+| 2.20 | Read the exchanges list: `GET /api/v3/admin/exchanges` | Merchandiser: 403 `read_orders` (A1) | Support: 200, carrying R2's exchange | G-95 |
+| 2.21 | Read the claims list: `GET /api/v3/admin/claims` | Merchandiser: 403 `read_orders` (A1) | Support: 200, carrying R2's claim | G-95 |
+
+Buying a return label and refunding a label call a provider, and stay with P4; P12 does not send them.
+
+**Observations, not cases.** Beside the cases, the run sends a few requests whose answers it records without judging them, as P10 did, and brings any refusal of a role the screens map as allowed to the owner without classifying it: the order manager adding a payment (row 1.10) and creating a fulfilment (row 2.1), and the packer marking a fulfilment as fulfilled and adding tracking, which part 2's §3.1 shows as the packer's controls. Spree's code suggests the packer is refused both, because a fulfilment's writes need a change to the order and consignments the order's key.
+
+##### The stand-in checks, the runs and the record
+
+- **The judge fails when it should (P7's criterion 6).** P7's and P10's stand-in cases run again (`one-store-checks.spec.ts`). P12 adds no new kind of answer, so it adds no stand-in case.
+- **The runs (criterion 7).** One development trial on a freshly started server, whose answers are not evidence. Then two recorded runs in a row, each on a freshly started server, at a recorded revision of the scripts and Spree's code. Evidence is saved as JSON results with statuses, codes and the checks' outcomes only, and any run log as a `.txt` file. These scripts are not part of any workflow, so CI's checks on the pull request cover the repository's own suites and the scripts' type check and lint, not these requests.
+- **The record (criterion 10).** A verification record in `liquorify/verification/` gives the revisions and, for each request, its callers, the expected and actual answers, the control's result and the exposure and change checks, then each gap's result. Corrections made after the development trial are listed there with their reasons.
+
+**What P12 does not send.** Requests across stores, which are tenant isolation and stay FB-03's validation, NOT_RUN, with ISO-1 to ISO-7 open. Secret API keys and their scopes, which Spree's specs and P2 cover. Real payment and carrier providers, which stay P4's. The seller panel. Writes the source records do not name for these roles, such as refunds, store credit on an order, and receiving or refunding a return.
+
+**How each gap closes.** Under the owner's delegation of 2026-11-04, as delegated acceptance, not the owner's review:
+
+| Gap | Closes when | Stays open when |
+|---|---|---|
+| G-91 | Rows 1.1 to 1.27 pass in both recorded runs | Any of them fails |
+| G-95 | Rows 2.1 to 2.21 pass in both recorded runs | Any of them fails |
+| G-11 | G-91 and G-95 have closed, and everything else it holds has closed. P10 left G-50, G-70 and its own inventory controls open | Any of those stays open. G-11 is expected to stay open after P12 |
+
+A refused caller answered with a success, or with an answer that carries the protected record's values, is recorded in LIQ-004 as a defect with its severity, brought to the owner as a security finding, and keeps its gap and G-11 open. A control that fails keeps its row failing, and the record names the defect or cause. No result is described as passing that did not pass in both recorded runs. Closing either gap claims nothing about tenant isolation.
+
 ## 6. Acceptance criteria
 
 1. Every capability in §2 has a row in the batch record with its coverage and its functional verification apart.
