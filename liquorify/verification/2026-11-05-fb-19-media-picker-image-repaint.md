@@ -4,12 +4,12 @@ record: verification
 work_item: FB-19; row 30 of the owner decision brief, batch 3's "Media picker sheet: Two picked"
 date: 2026-11-05
 verifier: Claude (automated session, thread "Investigate media picker image tolerance"); not independent review
-result: "PASS locally: with the page painted once more before its capture, the story's light and dark images were identical, byte for byte, in 40 of 40 runs, and the committed visual check passed 20 of 20 times against the two new reference images, at the tolerance of 25. The new images differ from the old ones only at the tiles' rounded photo corners. PASS in CI: two full visual runs on GitHub passed every image at 25, the story's two included, and two more passed each time main was merged in again, after batch 8's first part and after its second part."
+result: "PASS locally: with the page painted once more before its capture, the story's light and dark images were identical, byte for byte, in 40 of 40 runs, and the committed visual check passed 20 of 20 times against the two new reference images, at the tolerance of 25. The new images differ from the old ones mostly at the tiles' rounded photo corners, and also, by a few pixels, at other curved edges: the light image at one tile's border corner, and the dark image at the search field's corners, a check badge's outline, one tile's border corner and one corner of a button (§2). PASS in CI: two full visual runs on GitHub passed every image at 25, the story's two included, and two more passed each time main was merged in again, after batch 8's first part and after its second part. Both images accepted as delegated acceptance (Claude) under the owner's decision of 2026-11-09."
 ---
 
 # The media picker image, repainted before its capture (row 30's follow-up)
 
-**What this records.** The [investigation of row 30](2026-11-05-fb-19-media-picker-image-investigation.md) found that batch 3's story "Media picker sheet: Two picked" draws each tile's rounded photo corners in one of two shadings from run to run, by up to 34 counted pixels, and that the image therefore keeps the tolerance of 25 with no allowance. It offered one fix: paint the page once more after the story's clicks, which drew both images identically in every local run. On 2026-11-05 the owner chose that fix on the decision card in this thread, on the condition the card stated: a small pull request with the story's two new reference images, kept only if two full visual runs pass on GitHub at the tolerance of 25. This record is that pull request's evidence. The threshold, the tolerance of 25 and every other image's tolerance are unchanged.
+**What this records.** The [investigation of row 30](2026-11-05-fb-19-media-picker-image-investigation.md) found that batch 3's story "Media picker sheet: Two picked" draws each tile's rounded photo corners in one of two shadings from run to run, by up to 34 counted pixels, and that the image therefore keeps the tolerance of 25 with no allowance. It offered one fix: paint the page once more after the story's clicks, which drew both images identically in every local run. On 2026-11-05 the owner chose that fix on the decision card in this thread, on the condition the card stated: a small pull request with the story's two new reference images, kept only if two full visual runs pass on GitHub at the tolerance of 25. This record is that pull request's evidence. On 2026-11-09 the owner delegated the acceptance of both new images (§2.1). The threshold, the tolerance of 25 and every other image's tolerance are unchanged.
 
 ## 1. The change
 
@@ -24,14 +24,29 @@ result: "PASS locally: with the page painted once more before its capture, the s
 
 Both were captured with the check's own update script in the pinned Playwright image, from the Storybook built at `01b2092d`: `sh visual/in-image.sh --update-snapshots=all --grep "Media picker sheet / Two picked"`. The script's usual `changed` mode would have rewritten only the light image, because the dark one differs from its old reference by exactly 25 counted pixels, which passes; both had to change for the variation to go.
 
-Each new image is identical, byte for byte, to the investigation's runs with a repaint forced. Against the old references:
+Each new image is identical, byte for byte, to the investigation's runs with a repaint forced. Against the old references, every changed pixel, grouped by where it is ([`scores/old-vs-new-regions-light.json`](evidence/2026-11-05-fb-19-media-picker-image-repaint/scores/old-vs-new-regions-light.json) and [`-dark.json`](evidence/2026-11-05-fb-19-media-picker-image-repaint/scores/old-vs-new-regions-dark.json), which list each pixel):
 
-| Image | Changed | Largest change | Counted | Where |
+| Image | Where | Changed | Counted at 0.005 | Largest change, of 255 |
 |---|---|---|---|---|
-| Light | 99 | 34 of 255 | 34 | The four tiles' rounded top photo corners, and one bottom corner, between x 690 to 1253 and y 171 to 327 |
-| Dark | 107 | 32 of 255 | 25 | The same corners, the edge of "Clay mug"'s check badge, the right end of the search field, and one pixel at a corner of the "Add selected" button |
+| Light | The top corners of all four tiles' photos | 92 | 34 | 34 |
+| Light | The bottom-right corner of the fourth tile's border | 7 | 0 | 2 |
+| **Light, in all** | | **99** | **34** | **34** |
+| Dark | The top corners of the photos of "Clay mug", "Slate cap" and "banner-lilac.png"; the first tile's did not change | 70 | 23 | 32 |
+| Dark | The outline of "Clay mug"'s check badge | 20 | 0 | 7 |
+| Dark | The right end of the search field, at its top and bottom corners | 15 | 2 | 3 |
+| Dark | The bottom-right corner of the fourth tile's border | 1 | 0 | 1 |
+| Dark | The top-left corner of the "Add selected" button | 1 | 0 | 27 |
+| **Dark, in all** | | **107** | **25** | **32** |
 
-**Image review: delegated acceptance (Claude, under the owner's delegation of 2026-11-04).** Both pairs were looked at side by side at full size, and the tiles' top row twelve times enlarged with the difference amplified ([`review/`](evidence/2026-11-05-fb-19-media-picker-image-repaint/review/)). The sheet, its four tiles, the two picked tiles' borders, rings and check badges, the focus outline, the names, the search field and the footer are the same in both. The only change is the shading at the curve of each photo's rounded corner, which the eye does not see at full size. The owner asked to review these two images in this pull request; this delegated look does not replace that.
+So most of the change is at the photos' corners, where the investigation saw the variation, but not all of it. Outside the photo corners the light image changed 7 pixels and the dark image 37, of which the check counts 2, both at the search field's corners. Every one of these is on a curved edge drawn with smoothing, which the extra paint redraws; none moves or recolours anything. The repainted images then stayed the same, byte for byte, in every later run (§3), these edges included.
+
+**Image review: delegated acceptance (Claude, under the owner's delegation of 2026-11-04).** Both pairs were looked at side by side at full size ([`review/light-old-new.png`, `dark-old-new.png`](evidence/2026-11-05-fb-19-media-picker-image-repaint/review/)), the tiles' top row twelve times enlarged with the difference amplified (`light-corners-zoom.png`, `dark-corners-zoom.png`), every changed region marked on the new image (`light-changed-regions.png`, `dark-changed-regions.png`), and each region outside the photo corners six times enlarged, old beside new, with the difference amplified eight times (`light-outside-photo-corners-zoom.png`, `dark-outside-photo-corners-zoom.png`). The sheet, its four tiles, the two picked tiles' borders, rings and check badges, the focus outline, the names, the search field and the footer are the same in both. Every change is a slightly different shade along one of the curved edges in the table, which the eye does not see at full size; the largest outside the photo corners, 27 of 255, is a single pixel at the button's corner.
+
+### 2.1 The owner's decision of 2026-11-09
+
+The owner first asked to review the two images in this pull request. On 2026-11-09 they delegated that instead, in the project chat: "#77: I explicitly delegate acceptance of both new reference images. Review the supplied comparisons, record delegated acceptance and merge once the agreed checks and visual evidence hold on the final revision. Keep the tolerance at 25 and the change scoped to this story. Correct the record to describe all measured differences—the dark image's table includes pixels beyond the photo corners."
+
+The review above is that delegated acceptance, of both images, made again on 2026-11-09 against every measured difference rather than the corners alone; it is not the owner's own review. Earlier versions of this record said the images differed "only at the tiles' rounded photo corners", which the table shows was not true of the dark image, nor of seven pixels of the light one. The tolerance stays 25, and the repaint still applies to this one story only.
 
 ## 3. Local results
 
@@ -72,19 +87,21 @@ The change is kept only if two full visual runs on GitHub pass with it at the to
 
 The second pair was run because batch 8's first part merged into main before this pull request, adding 145 stories, and its merge changed the shared search mock; the third because batch 8's second part merged on 2026-11-08 and left a conflict in the records index. In every pair the story's two images are in part 1: the check's own listing of that part, from a Storybook built at the same commit, puts them 195th and 196th, and in no other part. Part 1 passed every image in all six runs. The pull request's other checks passed on all three commits too, 39 of them each time, with the six release jobs skipped.
 
+The pull request merges only once both full runs, the pull request's own and one started by hand, and its other checks have passed on its final commit, the one that merges; those last runs are on the pull request's checks, since recording them here would make a new commit.
+
 The commit that first added these results, `1a5830e7`, changed only records, but it did start the visual check again, because the check looks at the whole pull request's files: that run, [Storybook run 236](https://github.com/pateldhruval872/liquorify/actions/runs/41996317791), passed as well, as did [run 249](https://github.com/pateldhruval872/liquorify/actions/runs/42024521596) on the next records commit, `58aaba81`.
 
 ## 5. Evidence
 
 In [`evidence/2026-11-05-fb-19-media-picker-image-repaint/`](evidence/2026-11-05-fb-19-media-picker-image-repaint/), every log as `.txt`:
 
-- `review/`: the old and new images side by side, light and dark, and the tiles' top row enlarged with the difference amplified eight times;
-- `scores/`: the new references against the old (`new-references-vs-old.json`) and against the 40 captures (`new-references-vs-40-runs.json`), `runs.txt`, one line per local run, and `ci-runs.txt`, the two CI runs part by part;
-- `scripts/`: `check-committed.sh` (the committed check, run several times), with the capture and check scripts the investigation used.
+- `review/`: the old and new images side by side, light and dark; the tiles' top row enlarged with the difference amplified eight times; every changed region marked on the new image; and each region outside the photo corners enlarged;
+- `scores/`: the new references against the old (`new-references-vs-old.json`) and against the 40 captures (`new-references-vs-40-runs.json`), `runs.txt`, one line per local run, and `ci-runs.txt`, the CI runs part by part, and `old-vs-new-regions-light.json` and `-dark.json`, every changed pixel by region, with whether the check counts it;
+- `scripts/`: `check-committed.sh` (the committed check, run several times), `regions.cjs` and `review-regions.py` (the regions and their review images), with the capture and check scripts the investigation used.
 
 ## 6. Limitations
 
 - **CI's processors.** Locally the repainted image never varied. CI's runners use other processors; §4's runs passed, but a few runs show the image within 25 there, not that it never varies. A later failure on this image is a reason to revisit the fix in a new record.
 - **One story.** The repaint applies to this story only. The two dark chip images keep their allowance of 60, and no other image is repainted.
 - **Cause inside the browser not traced.** As the investigation says, why the browser picks a shading was not found; the repaint makes it pick the same one.
-- **Automated, not independent.** The same session made the change and checked it. The image review is delegated acceptance, not the owner's review.
+- **Automated, not independent.** The same session made the change and checked it. The image review is delegated acceptance under the owner's decision of 2026-11-09, not the owner's own review.
