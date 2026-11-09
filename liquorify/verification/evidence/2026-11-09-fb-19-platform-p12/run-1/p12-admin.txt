@@ -1,0 +1,5 @@
+
+Running 1 test using 1 worker
+
+[1/1] fidelity/p12-admin.spec.ts:971:1 › the Admin API refuses the order and after-sale requests a role does not allow, within one store
+  1 passed (29.1s)
