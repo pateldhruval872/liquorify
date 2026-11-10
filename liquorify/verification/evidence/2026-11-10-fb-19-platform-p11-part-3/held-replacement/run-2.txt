@@ -1,0 +1,11 @@
+server up 15:10:17
+
+Running 4 tests using 1 worker
+
+  ✓  1 fidelity/held-replacement.spec.ts:135:5 › the replacement held after a refund (P11 part 3, §4.4) › A: one claim on one unit, refunded and replaced (8.1s)
+  ✓  2 fidelity/held-replacement.spec.ts:135:5 › the replacement held after a refund (P11 part 3, §4.4) › B1: a line of 2: one claim refunded, another claim on the other unit replaced (6.7s)
+  ✓  3 fidelity/held-replacement.spec.ts:135:5 › the replacement held after a refund (P11 part 3, §4.4) › B2: two lines: one product's claim refunded, the other's replaced (7.3s)
+  ✓  4 fidelity/held-replacement.spec.ts:135:5 › the replacement held after a refund (P11 part 3, §4.4) › C: one claim on one unit, replaced, with no refund (6.7s)
+
+  4 passed (29.8s)
+done 15:10:48

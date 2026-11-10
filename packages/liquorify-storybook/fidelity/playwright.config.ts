@@ -61,7 +61,9 @@ import { defineConfig } from '@playwright/test'
  * are captured by `order-emails.spec.ts`, and `payment-link.spec.ts` and
  * `fl-06-storefront.spec.ts` follow an order to the storefront;
  * `sd-31-gift-card.spec.ts`, `sd-36-canceled-fulfilment.spec.ts` and
- * `digital-delivery.spec.ts` check single findings (see each file).
+ * `digital-delivery.spec.ts` check single findings, and `held-replacement.spec.ts`
+ * is P11 part 3's bounded check of a replacement held after a refund (see each
+ * file).
  * Batch 11 (home figures, reports and email templates) keeps its captures and
  * comparison in `screens-batch-11.spec.ts` and `compare-batch-11.spec.ts`,
  * which open the email templates on the emails gem's test app that
@@ -143,6 +145,7 @@ export default defineConfig({
     'order-actions.spec.ts',
     'fulfilment-actions.spec.ts',
     'after-sale-actions.spec.ts',
+    'held-replacement.spec.ts',
   ],
   outputDir: './results/test-output',
   workers: 1,
