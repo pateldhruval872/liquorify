@@ -1,0 +1,108 @@
+revision d78e0491, 2026-11-10T15:47:22Z to 2026-11-10T15:49:13Z
+
+### emails
+
+Running 9 tests using 1 worker
+
+  ✓  1 fidelity/b11-email-behaviours.spec.ts:176:3 › Batch 11 verification: the email template editor (behaviours 1 to 9) › 1. Editing a template, with the leave confirmation (3.4s)
+  ✓  2 fidelity/b11-email-behaviours.spec.ts:215:3 › Batch 11 verification: the email template editor (behaviours 1 to 9) › 2. Saving a draft, which does not reach customers (2.6s)
+  ✓  3 fidelity/b11-email-behaviours.spec.ts:236:3 › Batch 11 verification: the email template editor (behaviours 1 to 9) › 3. Sending a test email (5.3s)
+  ✓  4 fidelity/b11-email-behaviours.spec.ts:262:3 › Batch 11 verification: the email template editor (behaviours 1 to 9) › 4. Publishing, and the change reaching customers (2.3s)
+  ✓  5 fidelity/b11-email-behaviours.spec.ts:282:3 › Batch 11 verification: the email template editor (behaviours 1 to 9) › 9. The templates list (2.2s)
+  ✓  6 fidelity/b11-email-behaviours.spec.ts:321:3 › Batch 11 verification: the email template editor (behaviours 1 to 9) › 5. The history, and restoring a version (3.3s)
+  ✓  7 fidelity/b11-email-behaviours.spec.ts:364:3 › Batch 11 verification: the email template editor (behaviours 1 to 9) › 6. The conflict when another editor saved first (3.0s)
+  ✓  8 fidelity/b11-email-behaviours.spec.ts:402:3 › Batch 11 verification: the email template editor (behaviours 1 to 9) › 7. Reverting to Spree's default (2.7s)
+  ✓  9 fidelity/b11-email-behaviours.spec.ts:428:3 › Batch 11 verification: the email template editor (behaviours 1 to 9) › 8. Choosing a record for the preview, and inserting a variable (3.3s)
+
+  9 passed (36.1s)
+
+### reports
+
+Running 3 tests using 1 worker
+
+  ✘  1 fidelity/b11-report-behaviours.spec.ts:85:3 › Batch 11 verification: reports and the home page (behaviours 10 to 12) › 10. Exporting a report, and its email (4.6s)
+  ✓  2 fidelity/b11-report-behaviours.spec.ts:160:3 › Batch 11 verification: reports and the home page (behaviours 10 to 12) › 11. Saving a copy of a built-in report, and searching and sorting the reports list (4.6s)
+  ✘  3 fidelity/b11-report-behaviours.spec.ts:259:3 › Batch 11 verification: reports and the home page (behaviours 10 to 12) › 12. The home page's date range, rankings tabs and operations links (28.9s)
+
+
+  1) fidelity/b11-report-behaviours.spec.ts:85:3 › Batch 11 verification: reports and the home page (behaviours 10 to 12) › 10. Exporting a report, and its email 
+
+    Error: SD-52: the export email links to the exported file
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+      152 |           'SD-52: the export email links to the exported file',
+      153 |         )
+    > 154 |         .toBe(true)
+          |          ^
+      155 |     } finally {
+      156 |       await page.request.delete(`/api/v3/admin/reporting/saved_reports/${reportId}`, { headers })
+      157 |     }
+        at packages/liquorify-storybook/fidelity/b11-report-behaviours.spec.ts:154:10
+
+    Error Context: fidelity/results/test-output/b11-report-behaviours-Batc-d65bf-ting-a-report-and-its-email/error-context.md
+
+  2) fidelity/b11-report-behaviours.spec.ts:259:3 › Batch 11 verification: reports and the home page (behaviours 10 to 12) › 12. The home page's date range, rankings tabs and operations links 
+
+    Error: SD-51: Payments to collect against the list its link opens
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 2
+    Received: 3
+
+      386 |     expect
+      387 |       .soft(payments?.listed, 'SD-51: Payments to collect against the list its link opens')
+    > 388 |       .toBe(payments?.count)
+          |        ^
+      389 |   })
+      390 | })
+      391 |
+        at packages/liquorify-storybook/fidelity/b11-report-behaviours.spec.ts:388:8
+
+    Error Context: fidelity/results/test-output/b11-report-behaviours-Batc-58028-s-tabs-and-operations-links/error-context.md
+
+  2 failed
+    fidelity/b11-report-behaviours.spec.ts:85:3 › Batch 11 verification: reports and the home page (behaviours 10 to 12) › 10. Exporting a report, and its email 
+    fidelity/b11-report-behaviours.spec.ts:259:3 › Batch 11 verification: reports and the home page (behaviours 10 to 12) › 12. The home page's date range, rankings tabs and operations links 
+  1 passed (1.1m)
+
+### permissions
+
+Running 1 test using 1 worker
+
+  ✘  1 fidelity/b11-permissions.spec.ts:81:1 › G-103: what the server answers the narrower roles of batch 11 (3.9s)
+
+
+  1) fidelity/b11-permissions.spec.ts:81:1 › G-103: what the server answers the narrower roles of batch 11 
+
+    Error: requests whose answer differs from the expected one
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 4
+
+    - Array []
+    + Array [
+    +   "analyst-rename",
+    +   "analyst-delete",
+    + ]
+
+      470 |   expect(targetUnchanged, 'the saved report the analyst was refused changing').toBe(true)
+      471 |   const mismatched = answers.filter((answer) => !answer.matches).map((answer) => answer.id)
+    > 472 |   expect(mismatched, 'requests whose answer differs from the expected one').toEqual(
+          |                                                                             ^
+      473 |     SABOTAGE ? ['impossible'] : [],
+      474 |   )
+      475 |   expect(answers).toHaveLength(checks.length)
+        at packages/liquorify-storybook/fidelity/b11-permissions.spec.ts:472:77
+
+    Error Context: fidelity/results/test-output/b11-permissions-G-103-what-18ad3--narrower-roles-of-batch-11/error-context.md
+
+  1 failed
+    fidelity/b11-permissions.spec.ts:81:1 › G-103: what the server answers the narrower roles of batch 11 
+

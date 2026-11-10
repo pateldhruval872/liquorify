@@ -1,0 +1,7 @@
+{
+  "editor_subject_is_default": true,
+  "reset_email": {
+    "subject": "Shop Password Reset Instructions",
+    "holds_a_change": false
+  }
+}

@@ -247,6 +247,23 @@ const reportingCases: Case[] = [
   },
   {
     id: 'CMP-DUI-P-19',
+    name: 'b11v-date-range-picker-year-to-date',
+    story: 'dashboard-ui-primitives-date-range-picker--year-to-date',
+    screen: async (page) => {
+      await adminPage(page, '')
+      await expect(page.getByText('Operations', { exact: true })).toBeVisible({ timeout: 20_000 })
+      await page
+        .getByRole('button', { name: /Last 30 days/ })
+        .first()
+        .click()
+      await page.getByRole('button', { name: 'Year to date' }).click()
+      await page.mouse.move(0, 0)
+      return page.getByRole('button', { name: /Year to date/ }).first()
+    },
+    inStory: (page) => page.getByRole('button', { name: /Year to date/ }).first(),
+  },
+  {
+    id: 'CMP-DUI-P-19',
     name: 'b11v-date-range-picker-custom-range',
     story: 'dashboard-ui-primitives-date-range-picker--custom-range',
     screen: async (page) => {
@@ -633,6 +650,23 @@ const emailCases: Case[] = [
       await page.keyboard.type('\nHi {{ customer.')
       const list = page.getByRole('listbox').first()
       await expect(list).toBeVisible()
+      return list
+    },
+    inStory: (page) => page.getByRole('listbox').first(),
+  },
+  {
+    id: 'CMP-DUI-P-12',
+    name: 'b11v-code-editor-suggesting-filters',
+    story: 'dashboard-ui-primitives-code-editor--suggesting-filters',
+    viewport: true,
+    window: { width: 1280, height: 800 },
+    screen: async (page) => {
+      await template(page, RESET)
+      await page.getByRole('textbox', { name: 'Template code' }).click()
+      await page.keyboard.press('ControlOrMeta+End')
+      await page.keyboard.type('\n{{ store.name | m')
+      const list = page.getByRole('listbox').first()
+      await expect(list.getByRole('option', { name: /money_with_currency/ })).toBeVisible()
       return list
     },
     inStory: (page) => page.getByRole('listbox').first(),

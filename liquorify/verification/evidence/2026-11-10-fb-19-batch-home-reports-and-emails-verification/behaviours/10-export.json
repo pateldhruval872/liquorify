@@ -1,0 +1,13 @@
+{
+  "report": "B11 export 1794325680608",
+  "file": "report-shop-20261110154828.csv",
+  "csv_rows": 2,
+  "csv_matches_screen": true,
+  "email": {
+    "subject": "Your export EF1001 was successfully processed!",
+    "seconds": 2,
+    "links": 2
+  },
+  "email_links_to_file": false,
+  "known_defect": "SD-52"
+}

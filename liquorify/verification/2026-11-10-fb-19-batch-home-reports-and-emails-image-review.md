@@ -124,6 +124,8 @@ The [comparison follow-up](../LIQ-004-foundation-backlog.md#comparisons-deferred
 
 ## Remaining stories and their destinations
 
+**Compared on 2026-11-10 by the batch 11 verification.** 43 of the 54 stories sent to the batch 11 verification work item are now compared with the running screens in light and dark; the other 11 keep the coverage given below, each with the reason the [verification record §4](2026-11-10-fb-19-batch-home-reports-and-emails-verification.md#4-comparisons-and-batch-11s-6-states) gives. Compared: S1, S5 to S7, S12, S14, S18, S26, S30, S35 to S41, S43, S45 to S47, S49, S51, S52, S54 to S57, S59, S62, S64, S66 to S68, S71, S74 to S80, S84 and S87. Not compared: S4, S11, S23, S53 and S65 (simulated, G-102), S13, S19, S24, and S31, S33 and S34.
+
 The owner accepted G-101's deferral to the comparison follow-up on 2026-11-10 ([verification record §14](2026-11-10-fb-19-batch-home-reports-and-emails.md#14-the-owners-answers-2026-11-10)). Each of the 58 stories not compared by the script keeps the coverage it has now, and its destination says which later work compares it. Seen in a capture or checked against its source is coverage, not a comparison. No later screen batch shows these seven screens, so most go to the batch 11 verification work item that G-100's answer creates.
 
 | # | Story | Coverage now | Destination |

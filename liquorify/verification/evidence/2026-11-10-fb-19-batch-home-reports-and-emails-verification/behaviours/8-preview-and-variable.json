@@ -1,0 +1,6 @@
+{
+  "record_chosen": "R1002",
+  "subject_shows_number": true,
+  "inserted": "{{ order.total | money }}",
+  "at": "the cursor, at the start of the code"
+}

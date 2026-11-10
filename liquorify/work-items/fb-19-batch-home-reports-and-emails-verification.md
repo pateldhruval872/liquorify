@@ -2,7 +2,7 @@
 title: FB-19 batch 11 verification, home figures, reports and emails
 record: work item
 work_item: FB-19
-status: IN PROGRESS
+status: DONE
 owner: the owner reviews and accepts; an automated Claude session implements, under the owner's delegation of 2026-11-04
 created: 2026-11-10
 updated: 2026-11-10
@@ -10,7 +10,7 @@ updated: 2026-11-10
 
 # FB-19 batch 11 verification: home figures, reports and emails
 
-**Status.** IN PROGRESS from 2026-11-10 (§7 was settled and committed before any test was written). PROPOSED on 2026-11-10, at the owner's answer of the same day to G-100 and G-103 ([batch 11 record §14](../verification/2026-11-10-fb-19-batch-home-reports-and-emails.md#14-the-owners-answers-2026-11-10)). It is bounded to batch 11's screens. Each expected result and closure condition below is recorded before anything is built, as the owner asked. Nothing here changes Spree's code or the storefront, and nothing in it marks an unverified behaviour PASS before its evidence exists.
+**Status.** DONE on 2026-11-10 ([verification record](../verification/2026-11-10-fb-19-batch-home-reports-and-emails-verification.md)): G-100 closed, with behaviours 10 and 12 keeping SD-52's and SD-51's failing parts; G-103's 28 answers recorded, 26 as expected and two recorded as G-117 at the owner's choice; 43 of the 54 stories sent here compared. IN PROGRESS from 2026-11-10 (§7 was settled and committed before any test was written). PROPOSED on 2026-11-10, at the owner's answer of the same day to G-100 and G-103 ([batch 11 record §14](../verification/2026-11-10-fb-19-batch-home-reports-and-emails.md#14-the-owners-answers-2026-11-10)). It is bounded to batch 11's screens. Each expected result and closure condition below is recorded before anything is built, as the owner asked. Nothing here changes Spree's code or the storefront, and nothing in it marks an unverified behaviour PASS before its evidence exists.
 
 ## 1. Outcome
 
