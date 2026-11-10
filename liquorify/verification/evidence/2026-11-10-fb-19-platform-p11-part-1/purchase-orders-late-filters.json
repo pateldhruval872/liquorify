@@ -1,0 +1,49 @@
+{
+  "test": "purchase-orders-late-filters",
+  "revision": "69bb4eef",
+  "stamp": "mwa88abg",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "listed the run's three placed orders",
+      "listed": [
+        "PO1008",
+        "PO1009",
+        "PO1010"
+      ]
+    },
+    {
+      "step": "kept only Overdue",
+      "listed": [],
+      "empty": "No purchase orders yet"
+    },
+    {
+      "step": "opened Add filter for Past cancel-by",
+      "panelItems": [
+        "Supplier",
+        "Expected",
+        "Cancel by",
+        "Past cancel-by",
+        "Created at",
+        "Updated at"
+      ],
+      "listed": [
+        "PO1009"
+      ]
+    },
+    {
+      "step": "opened the columns menu",
+      "columns": [
+        "Number",
+        "Status",
+        "Supplier",
+        "Received / ordered",
+        "Total",
+        "Expected",
+        "Created at",
+        "Updated at"
+      ]
+    }
+  ],
+  "outside": []
+}

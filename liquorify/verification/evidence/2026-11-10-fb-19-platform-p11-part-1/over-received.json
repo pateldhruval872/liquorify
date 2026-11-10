@@ -1,0 +1,17 @@
+{
+  "test": "over-received",
+  "revision": "69bb4eef",
+  "stamp": "mwa88abg",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "received 5 of the 4 sent, reloaded",
+      "status": "Over-received"
+    },
+    {
+      "step": "received 4 of the 3 ordered, reloaded",
+      "status": "Over-received"
+    }
+  ],
+  "outside": []
+}

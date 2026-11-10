@@ -1,0 +1,20 @@
+{
+  "test": "inventory-after-purchase-order",
+  "revision": "69bb4eef",
+  "stamp": "mwa872au",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "received both lines in full",
+      "status": "Received"
+    },
+    {
+      "step": "opened the inventory list for each line and reloaded",
+      "counts": {
+        "P11 PO jug mwa872au": 12,
+        "P11 PO bowl mwa872au": 4
+      }
+    }
+  ],
+  "outside": []
+}

@@ -1,0 +1,19 @@
+{
+  "test": "back-to-draft",
+  "revision": "69bb4eef",
+  "stamp": "mwa88lu2",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "took the ready transfer back to draft, reloaded",
+      "status": "Draft",
+      "edit": 1
+    },
+    {
+      "step": "took the placed order back to draft before anything arrived, reloaded",
+      "status": "Draft",
+      "edit": 1
+    }
+  ],
+  "outside": []
+}
