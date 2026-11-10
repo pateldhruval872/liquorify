@@ -104,3 +104,5 @@ What the server refuses to narrower roles stays with G-11, P10 and P12. Tenant i
 ## 6. Closing
 
 Under the owner's delegation, as delegated acceptance, not the owner's review. G-87 closes when every action 1.1 to 1.12 passes in both recorded runs or fails only on SD-23 or another defect recorded under criterion 4. Ten pass and 1.11 fails only on SD-23. 1.9 fails only on B5, which waits for the owner's answer to SD-57. If the owner accepts SD-57 as a defect, G-87 closes on this record. Until then G-87 stays OPEN, and CAP-07-09 and CAP-07-10 stay PARTIAL.
+
+**The owner's answer, 2026-11-10** ([record](2026-11-10-fb-19-platform-p11-owner-decisions.md)). SD-57 is accepted as a Low existing defect, with its fix deferred, and 1.9 is kept failing. G-87 is CLOSED under its closing rule.
