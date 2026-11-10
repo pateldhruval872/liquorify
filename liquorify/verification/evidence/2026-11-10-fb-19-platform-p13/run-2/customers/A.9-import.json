@@ -1,0 +1,21 @@
+{
+  "test": "A.9-import",
+  "revision": "4a269571",
+  "stamp": "mwb01f49",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "uploaded the file and reached the column mapping",
+      "rows": 3
+    },
+    {
+      "step": "the wizard finished",
+      "report": "Import Customers · IM1001 Completed Map fields Process rows Complete Import completed 2 rows imported · 1 failed Failed rows Row Error 3 Email is required View row data Retry failed rows (1) View Customers"
+    },
+    {
+      "step": "an imported customer's addresses",
+      "card": "Addresses 1 Add address Default billing Default shipping Tomas Varga mwb01f49 Varga Studio mwb01f49 Birch Street Suite 2 Portland, OR, 97211 United States 555-0122"
+    }
+  ],
+  "outside": []
+}

@@ -1,0 +1,29 @@
+{
+  "test": "A.7-bulk-remove",
+  "revision": "4a269571",
+  "stamp": "mwazxqf1",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "removed two customers from the group"
+    },
+    {
+      "step": "removed the tag from two customers"
+    },
+    {
+      "step": "after a reload, filtered to the group",
+      "selectedStillListed": [
+        0,
+        0
+      ]
+    },
+    {
+      "step": "after a reload, filtered to the tag",
+      "selectedStillListed": [
+        0,
+        0
+      ]
+    }
+  ],
+  "outside": []
+}
