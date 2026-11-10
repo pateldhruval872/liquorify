@@ -123,7 +123,7 @@ The inventory came first, as the owner asked. Each check runs once what it needs
 | P1 | Regenerate the API reference and compare it with the committed files; call the Admin and Seller kits' read endpoints against the running browser-test server; serve the hosted dashboard; export traces to a local collector; external references and price history through the Admin API. Also find out whether the browser-test server can deliver mail where a script can read it, without changing Spree's code, which would close the email gaps in the staff and account batches | Nothing new. It can run now. Run on 2026-10-22: the [mail check](../verification/2026-10-22-fb-19-platform-p1-mail.md) and the [other checks](../verification/2026-10-22-fb-19-platform-p1-checks.md). Merged with #13 and storefront #19, and accepted, on 2026-10-23 ([merge record](../verification/2026-10-23-fb-19-platform-p1-merge.md)) |
 | P2 | Webhook deliveries, API keys, OAuth applications and the agent server, set up on their settings screens and used from outside. It includes a browser test that approves an application's request on the authorization page (DA-SET-32), which the owner assigned to P2 on 2026-10-23, because Spree's browser tests make that approval through the API | The owner's acceptance of batch 2, developer and integration settings, as the owner answered on 2026-10-23; in its own pull request. The owner accepted batch 2 and merged #16 on 2026-10-25, and P2 started the same day. Its completion criteria are below. It ran the same day in #17, every check passing ([record](../verification/2026-10-25-fb-19-platform-p2.md)), and again after the owner's corrections. The owner accepted it the same day ([record §9](../verification/2026-10-25-fb-19-platform-p2.md#9-the-owners-answer-2026-10-25)) and merged it ([merge record](../verification/2026-10-25-fb-19-platform-p2-merge.md)) |
 | P3 | The plugin example loaded into a running dashboard, with its slot entries captured | Dashboard shell part 2. Run on 2026-10-23 in #15, after part 2's merge, and again with the corrections the owner asked for; accepted by the owner on 2026-10-23 ([record](../verification/2026-10-23-fb-19-platform-p3.md)) |
-| P4 | Stripe and EasyPost sandbox calls; the providers through their area screens; Meilisearch on the storefront. Since 2026-11-04 also G-13, a saved card shown with a real Stripe test card on the storefront, and batch 9's real Stripe states, which the owner moved here that day ([record](../verification/2026-11-04-owner-decision-brief-answers-2.md)); batch 9 shows the provider forms only in stories labelled as mocked. Since 2026-11-09 also buying a return label, P11's action 3.11 (G-92), and since 2026-11-10 approving a risky order, P11's action 2.3 (G-90), which needs a payment whose checks mark it risky ([record](../verification/2026-11-10-fb-19-platform-p11-owner-decisions.md)), and the 15 provider-specific stories of G-93: bought labels, their refunds, shipping documents and every carrier status ([record §3](../verification/2026-11-09-owner-decision-brief-answers-4.md#3-g-93s-remaining-stories)) | Batches 4, 7, 8 and 9; test keys from the owner. OA-1 adds keys to the storefront's CI only; the backend's sandbox runs need keys the owner provides separately, and they are never printed or committed |
+| P4 | Stripe and EasyPost sandbox calls; the providers through their area screens; Meilisearch on the storefront. Since 2026-11-04 also G-13, a saved card shown with a real Stripe test card on the storefront, and batch 9's real Stripe states, which the owner moved here that day ([record](../verification/2026-11-04-owner-decision-brief-answers-2.md)); batch 9 shows the provider forms only in stories labelled as mocked. Since 2026-11-09 also buying a return label, P11's action 3.11 (G-92), and since 2026-11-10 approving a risky order, P11's action 2.3 (G-90), which needs a payment whose checks mark it risky ([record](../verification/2026-11-10-fb-19-platform-p11-owner-decisions.md)), and the 15 provider-specific stories of G-93: bought labels, their refunds, shipping documents and every carrier status ([record §3](../verification/2026-11-09-owner-decision-brief-answers-4.md#3-g-93s-remaining-stories)) | Batches 4, 7, 8 and 9; test keys from the owner. OA-1 adds keys to the storefront's CI only; the backend's sandbox runs need keys the owner provides separately, and they are never printed or committed. Its checks and closing conditions were recorded before implementation on 2026-11-10 (below) |
 | P5 | A project created and started with the command line tool | FB-04, the development path, in an environment with Docker |
 | P6 | Browser tests for the five dashboard shell behaviours that part 2 captured but no test drives (G-22): the theme, the store switcher, the notifications, the command palette's record search and the rail's settings search. Added on 2026-10-23, when the owner accepted G-22's deferral to it | Part 2's merge (#14). Its completion criteria are below. Run on 2026-10-23 in #15, after the merge ([record](../verification/2026-10-23-fb-19-platform-p6.md)). The owner accepted it and closed G-22 the same day |
 | P7 | Requests that no Spree spec sends, each sent within one store as a caller who may not make it and checked for its exact refusal, with the same request from a caller who may make it as a control: G-11 (staff access and the shopper accounts, the storefront's own server code included), G-23 (the command palette's searches) and G-32 (batch 2's narrower roles). Added on 2026-10-26, when the owner brought G-11 forward to it. Its completion criteria are below | Staff access parts 1 and 2, the shopper accounts batch and batch 2, all accepted; in its own pull request, beside batch 3. G-40, batch 3's narrower roles, joins from 2026-10-26, when the owner accepted batch 3 and #19 merged. Run on 2026-10-26 in #22 for G-11, G-23 and G-32, and again after #19's merge with G-40, every request passing twice in a row each time ([record](../verification/2026-10-26-fb-19-platform-p7.md)). Merged and accepted on 2026-10-27 ([merge record](../verification/2026-10-27-fb-19-platform-p7-merge.md)) |
@@ -848,6 +848,114 @@ A **control** is the same request from a caller who may make it, in the same run
 | 14.26 | Send a proposed product back: `PATCH /api/v3/admin/products/<id>/reject` with a reason | As 14.25 | Merchandiser: 200, the product sent back with the reason |
 
 Each refused answer is also searched for the protected record's values: the seller's name and email, the rate's value, the balance's amount, the invitation's link and the payout's reference. Every refused write is read back as the admin to show that nothing changed.
+
+### P4: the real providers, Stripe, EasyPost and Meilisearch
+
+P4 checks the providers that need a real account. It uses Stripe and EasyPost in their sandboxes, Meilisearch on the storefront, and the screens that show them. Before P4, Spree's own provider specs were the only evidence that ran. Those specs replay recorded answers, so they are not end-to-end verification (criterion 3). The owner moved these items into P4:
+
+- G-13 and batch 9's real Stripe states, on 2026-11-04.
+- G-26, G-39's tax engine and G-76's Stripe part.
+- Buying a return label, P11's action 3.11 (G-92).
+- Approving a risky order, P11's action 2.3 (G-90).
+- G-93's 15 provider-specific stories.
+- G-109's payout states.
+
+**What it depends on.**
+
+- The merges of batches 4, 7, 8 and 9, all done.
+- The backend's sandbox keys (OA-8), which the "liquorify" cloud environment supplies. The environment's network proxy adds them to every request sent to `api.stripe.com` and `api.easypost.com`. Spree's settings hold only placeholder values. On 2026-11-10, before any of P4's scripts was written, a placeholder secret key reached Stripe's account in test mode (`livemode: false`). An EasyPost placeholder key reached EasyPost, which refused a production-only resource, so the key in use is a test key.
+- The storefront's publishable test key comes from the environment's `STRIPE_PUBLISHABLE_KEY`.
+- Stripe's browser hosts, which the owner allowed for this environment on 2026-11-10: `js.stripe.com`, `m.stripe.network`, `m.stripe.com`, `hooks.stripe.com`, `r.stripe.com` and `q.stripe.com`. Stripe's hosted Connect onboarding, `connect.stripe.com`, is still refused, and so is EasyPost's file storage.
+- P4 runs in its own pull request, in parts. Stripe on the backend runs first.
+
+**Keys and money.** These rules make criterion 4 precise for P4:
+
+- Keys are never written to a file, printed or committed.
+- Every call uses test mode only.
+- The only labels bought are EasyPost test labels. EasyPost does not charge for them and no carrier ships them.
+- No live payment is made, and no live label is bought.
+- Anything the runs create in either sandbox carries the run's stamp. That includes Stripe's webhook endpoints and Connect accounts. A run removes the webhook endpoints it registered once it ends.
+
+#### P4's checks, recorded before implementation
+
+Recorded on 2026-11-10, before any of P4's scripts was written. For each check, this section gives the action, the expected result, and the gap or capability it closes. The expected results are written from Spree's and the storefront's code as on `main` at `fd711171`, and from Stripe's and EasyPost's published test values. Nothing here has been run yet.
+
+**How the checks run.**
+
+- **The server.** The dashboard browser tests' own Rails server, started freshly with its own fixtures as P11's was (`stack.spec.ts`). Liquorify's own Gemfile, outside `spree/`, adds the three provider gems from `spree/providers/` to that server's bundle. Their migrations are installed into the generated test app only. The server is not changed in any other way.
+- **The scripts.** Liquorify's own scripts in `packages/liquorify-storybook/fidelity/`. The storefront's checks run in the storefront's repository against that server.
+- **The records.** Each run adds its own records through the Admin API and the Store API, as an admin or as a shopper, each marked with the run's stamp.
+- **Webhooks.** Neither provider can reach the test server, which has no public address. Where a state arrives only by webhook, the script reads the real event from the provider's own event list (Stripe's `/v1/events`, EasyPost's `/v2/events`). It then posts that event unchanged to the server's webhook endpoint, signed with the secret the endpoint holds. The record names every state reached this way as **relayed, not delivered by the provider**. A relayed event that Spree's signature check refuses fails its check.
+- **What stays unchanged.** Spree's code, its tests and its workflows. The storefront's code is unchanged too.
+
+**How a check passes.**
+
+- Every check runs twice in a row at a recorded revision, and passes only if both runs pass.
+- A screen check also records a screenshot of the state it reaches. That screenshot is the comparison evidence for the story the check names.
+- A failure is recorded as a defect with its severity, or is linked to an open defect. Its test keeps asserting the intended result and stays failing.
+- A check that this environment cannot run is NOT_RUN or BLOCKED, with the reason. It is never replaced by a stand-in.
+
+##### Part 1: Stripe on the backend and on the dashboard
+
+| # | Action | Expected result | Closes, with the rest of its row in the closing table |
+|---|---|---|---|
+| 4.1 | Add Stripe on the integrations page (DA-SET-10), with placeholder keys and in test mode | Saved and switched on. Spree's key check (a call to Stripe's refunds) passes through the proxy. Spree registers a webhook endpoint in Stripe's test account with the store's address, and the run's clean-up removes it | G-26's payment part, CAP-07-02 |
+| 4.2 | Place an order through the Store API with Stripe's `pm_card_visa`: open a payment session, confirm the payment, then complete the session | The order is placed, and its payment matches a test-mode payment in Stripe for the order's total and currency | CAP-07-02 |
+| 4.3 | On the order page (DA-ORD-04): capture an order authorized on the manual capture setting; refund part of a captured payment; void an uncaptured one | Each change shows after a reload, and Stripe reports the same payment captured, refunded by that amount or canceled | CAP-07-02 |
+| 4.4 | Pay with `pm_card_chargeDeclined` | The session fails with Stripe's decline message. No order is placed and no payment is completed | CAP-07-02 |
+| 4.5 | **P11's action 2.3, approving a risky order.** Pay with Stripe's test cards whose checks fail: `4000000000000101` for the security code, then `4000000000000028` for the street address | Spree records the failed check on the payment (security code `N`, or address code `Z`, both risky codes in `Spree::Payment`) and marks the order risky. On the order page the risk warning shows. After approval and a reload, the warning is gone and the order shows approved. If Stripe's own fraud rules decline both cards, so that no risky payment is completed, 2.3 is NOT_RUN with that reason and G-90 stays open | G-90 |
+
+##### Part 2: Stripe on the storefront
+
+Run in the storefront's repository with the publishable test key, against the server from part 1.
+
+| # | Action | Expected result | Closes |
+|---|---|---|---|
+| 4.6 | Checkout's payment step (SF-CHK-01) with Stripe switched on | Stripe's payment form renders inside its frame. Paying with `4242 4242 4242 4242` places the order, and the order placed page shows it paid by card | G-76 (the payment form), batch 9's real Stripe states |
+| 4.7 | Pay with the declined card `4000 0000 0000 0002` | The storefront shows Stripe's decline message and stays on the payment step. No order is placed | G-76 (a decline) |
+| 4.8 | Pay with `4000 0025 0000 3155`, which asks for a 3-D Secure check, and complete the check | Stripe's check opens. Completing it lands on the confirm payment page (SF-CHK-02), which finalizes, and the order is placed. Failing the check returns to checkout with the error (SF-CHK-01's "payment error returned") | G-76 (SF-CHK-02 after a real check) |
+| 4.9 | Checkout's express checkout area | A Stripe express checkout button renders, either Link or a wallet the browser offers. If headless Chromium offers none, so that no button can render, the check is BLOCKED with that reason. Stripe's choice is recorded, and nothing is mocked in its place | G-76 (an express checkout button) |
+| 4.10 | **G-13.** A signed-in shopper pays with `4242 4242 4242 4242` and saves the card. They then open the payment methods page (SF-ACC-08), remove the card and confirm | SF-ACC-08 lists the card with its brand and last four digits ("cards listed"). The removal asks for confirmation ("remove confirmation"). After a reload, the card is gone. If the card comes back without a brand, the page fails on SD-1, which stays open and unchanged | G-13 |
+
+##### Part 3: EasyPost
+
+| # | Action | Expected result | Closes |
+|---|---|---|---|
+| 4.11 | Connect EasyPost on the integrations page (DA-SET-10), with a placeholder key and the run's own webhook secret | Connected | G-26's integrations part, CAP-07-07 |
+| 4.12 | Put a delivery method on EasyPost's live rates (DA-SET-17), then ask for rates for a domestic cart, through the Store API and at the storefront's delivery step | Rates come back from EasyPost's test carriers, each with a price and a service name | CAP-07-07 |
+| 4.13 | On the order page, buy a label for a domestic fulfilment | The fulfilments card goes through "Label to buy" (S132), the buy confirmation (S133) and "Buying a label" (S134), then "Label bought" (S135). The label row shows "Purchased" (S207), with EasyPost's tracking code and one shipping document (S203) | CAP-07-07, G-93 (S132 to S135, S203, S207) |
+| 4.14 | Buy a label for an international fulfilment that needs a customs declaration | The fulfilments card shows the label and its customs paperwork (S140), and the shipping documents list the customs form (S202) | G-93 (S140, S202) |
+| 4.15 | Refund 4.13's label | The refund confirmation (S208) and "Refunding" (S209) appear, then "Refund requested" (S210) with EasyPost's test answer (`submitted`). EasyPost may then report the refund complete, and if it does, "Refunded" (S211) is reached by relaying that event. If EasyPost's test mode never completes a refund, S211 is NOT_RUN with that reason | G-93 (S208 to S211) |
+| 4.16 | **P11's action 3.11.** Buy a return label for an accepted return, first for a domestic order, then for an international one | The order returns card shows the bought return label, and for the international order its customs paperwork too (S186). EasyPost's test shipment is marked as a return | G-92, G-93 (S186) |
+| 4.17 | Relay EasyPost's test trackers, `EZ1000000001` to `EZ7000000007`, to the fulfilments that carry them | Each EasyPost status maps to Spree's status as `SpreeEasyPost::TrackerEvent` sets out: pre-transit, in transit, out for delivery, delivered, returned to sender, failure and unknown. The fulfilment's deliveries (S78) and the fulfilments card (S139) show every status, and "delivered" marks the fulfilment delivered | G-93 (S78, S139) |
+
+##### Part 4: payouts, the tax engine and search
+
+| # | Action | Expected result | Closes |
+|---|---|---|---|
+| 4.18 | **G-109: find the provider.** Read which payout providers the server registers, then open the marketplace settings (DA-SET-22) with Stripe's gem loaded and no Stripe gateway set up | The existing provider is `SpreeStripe::PayoutProvider`, Stripe Connect with Express accounts. Spree's built-in provider settles by hand. DA-SET-22 shows the provider not connected hint | G-109 (the hint) |
+| 4.19 | With Stripe set up (4.1) and chosen as the payout provider: open a seller's onboarding link, then place and fulfil an order for that seller | A Connect account with the run's stamp is created in test mode, and Spree returns a link to Stripe's hosted onboarding. The seller's earning stays a **pending** transfer while the account is not onboarded | G-109 (pending) |
+| 4.20 | Complete the seller's onboarding on Stripe's hosted pages. Then settle the seller to their test bank account, once with `000123456789`, which pays, and once with `000111111116`, which fails | The transfer is **processing**, then completed. The settlement fails on `payout.failed`, relayed, and the earning goes back to the seller's balance. If `connect.stripe.com` stays refused, 4.20 is BLOCKED with that reason, and G-109 stays open for it | G-109 (processing, failed) |
+| 4.21 | Reach an **unresolved** transfer | Spree parks a transfer as unresolved only when Stripe's answer is lost after the request was sent (`AmbiguousGatewayError`). No sandbox call produces that without changing the network path or Spree's code. Unless a call is found that does, 4.21 is NOT_RUN with that reason | G-109 (unresolved) |
+| 4.22 | **G-39's tax engine** | Neither repository contains a tax engine that is not Spree's own. `Spree.tax_providers` holds only `Spree::TaxProvider::Internal`, and the stand-in engine P9 used is not a real provider. NOT_RUN: a real tax engine is not implemented, and that becomes its own named gap | G-39 (moved to the new gap) |
+| 4.23 | **Meilisearch on the storefront.** Run Meilisearch locally from its published release, set `MEILISEARCH_URL` on the server, reindex, then search on the storefront | Search results come from Meilisearch. A misspelt name finds the product (typo tolerance), and the filters show counts across the other filters' values (disjunctive facets). If no Meilisearch server can run here, the check is NOT_RUN, and that becomes its own named gap | CAP-05-14, the Meilisearch part |
+
+**Closing.** Under the owner's delegation, as delegated acceptance, not the owner's review:
+
+| Gap or capability | Closes when | Stays open when |
+|---|---|---|
+| G-13 | 4.10 passes in both runs | 4.10 fails, including on SD-1 |
+| G-26 | 4.1 and 4.11 pass in both runs | Either fails |
+| G-39 | The exemption code part is batch 7's. The tax engine part moves to its own new gap, named in the run's record, which closes when Liquorify chooses a tax engine and P4 or its successor checks it | Always, until then |
+| G-76, Stripe part | 4.6, 4.7, 4.8 and 4.9 pass in both runs | Any of them fails or is BLOCKED |
+| G-90 | 2.3 passes in both runs as 4.5. G-90 then closes under P11's rule | 4.5 fails or is NOT_RUN |
+| G-92 | 4.16 passes in both runs. G-92 then closes under P11's rule | 4.16 fails |
+| G-93's 15 stories | Each story is compared with its screenshot from 4.13 to 4.17 in both runs. A story never reached keeps its status and is listed by number | Any story is not reached |
+| G-109 | 4.18 to 4.21 each pass, or each part that cannot pass is recorded as its own named gap with the reason | A state is neither reached nor named |
+| CAP-07-02 and CAP-07-07 | 4.1 to 4.4 for Stripe, and 4.11 to 4.13 for EasyPost, pass in both runs | Any of them fails. Carriers' own rules for alcohol stay unchecked in either case |
+| CAP-05-14, the Meilisearch part | 4.23 passes in both runs | 4.23 fails or is NOT_RUN |
+
+P4 claims nothing about tenant isolation, which stays FB-03's validation, NOT_RUN, with ISO-1 to ISO-7 open. It claims nothing about Adyen or PayPal, which the owner accepted as source-reviewed coverage only (G-76, row 32). It also claims nothing about live mode.
 
 ## 6. Acceptance criteria
 
