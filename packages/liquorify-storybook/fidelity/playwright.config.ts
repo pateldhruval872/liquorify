@@ -144,6 +144,8 @@ export default defineConfig({
     'p10-admin.spec.ts',
     'p10-shoppers.spec.ts',
     'p12-admin.spec.ts',
+    'p13-admin.spec.ts',
+    'p13-customers.spec.ts',
     'catalog-behaviours.spec.ts',
     'multi-store.spec.ts',
     'getting-started-tasks.spec.ts',
