@@ -438,8 +438,10 @@ test.describe("a location's stock levels and history (P11, G-87)", () => {
     const search = panel.getByPlaceholder(/search sku or product/i)
 
     await search.fill(`Juniper carafe ${stamp}`)
-    await expect(panel.getByText(missed.name, { exact: true })).toHaveCount(0, { timeout: 15_000 })
-    await expect(panel.getByText(found.name, { exact: true })).toBeVisible()
+    // The panel shows "Loading…" while it asks again, so the result is read once the answer is in.
+    await page.waitForLoadState('networkidle')
+    await expect(panel.getByText(found.name, { exact: true })).toBeVisible({ timeout: 15_000 })
+    await expect(panel.getByText(missed.name, { exact: true })).toHaveCount(0)
     const steps: Steps = [{ step: 'searched for one product', shows: found.name }]
     await snap(page, 'stock-levels-search-found')
 
@@ -766,7 +768,7 @@ test.describe('suppliers (P11, G-87)', () => {
 
     await openSuppliers(page, taken.name)
     await page.waitForLoadState('networkidle')
-    const saved = await supplierRow(page, taken.name).count()
+    const saved = await page.getByRole('main').getByText(taken.name, { exact: true }).count()
     steps.push({
       step: 'reloaded the suppliers searched for the name',
       suppliersWithTheName: saved,
