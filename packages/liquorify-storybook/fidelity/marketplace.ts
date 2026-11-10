@@ -61,7 +61,7 @@ export interface Marketplace {
   ownOrder: string
 }
 
-async function send(
+export async function send(
   api: APIRequestContext,
   headers: Headers,
   method: 'get' | 'post' | 'patch' | 'delete',
@@ -82,6 +82,57 @@ export async function sellerHeaders(api: APIRequestContext, email: string, selle
     password: SELLER_PASSWORD,
   })
   return { Authorization: `Bearer ${token}`, 'X-Spree-Seller-Id': sellerId }
+}
+
+/**
+ * A shopper's checkout through the Store API with the store's publishable key,
+ * paid by cheque: one cart holding the products given, which Spree splits into
+ * an order group when they come from more than one seller.
+ */
+export async function shopper(api: APIRequestContext, headers: Headers) {
+  const call = (method: 'get' | 'post' | 'patch', path: string, data?: object) =>
+    send(api, headers, method, `admin/${path}`, data)
+  const publishable = await publishableKey(api, headers)
+  const methods = rows(await call('get', 'payment_methods?limit=100'))
+  const cheque =
+    methods.find((each) => each.type === 'check' && each.active) ??
+    (await call('post', 'payment_methods', {
+      name: 'Cheque',
+      type: 'check',
+      active: true,
+      storefront_visible: true,
+    }))
+  return async (products: string[]) => {
+    const shopperHeaders = { 'X-Spree-API-Key': publishable }
+    const cart = await send(api, shopperHeaders, 'post', 'store/carts', {})
+    const inCart = { ...shopperHeaders, 'X-Spree-Token': cart.token as string }
+    const store_ = (method: 'get' | 'post' | 'patch', path: string, data?: object) =>
+      send(api, inCart, method, `store/carts/${cart.id}${path}`, data)
+    for (const product of products) {
+      const variant = (await call('get', `products/${product}`)).default_variant_id as string
+      await store_('post', '/items', { variant_id: variant, quantity: 1 })
+    }
+    await store_('patch', '', {
+      email: shopperEmail,
+      shipping_address: shopperAddress,
+      billing_address: shopperAddress,
+    })
+    const quoted = await store_('get', '?expand=fulfillments')
+    expect(quoted.warnings, 'nothing in the cart left undeliverable').toEqual([])
+    await store_('post', '/payments', { payment_method_id: cheque.id })
+    return store_('post', '/complete', {})
+  }
+}
+
+/** The store's publishable key, for reading what a shopper sees. */
+export async function publishableKey(api: APIRequestContext, headers: Headers) {
+  const keys = rows(await send(api, headers, 'get', 'admin/api_keys?limit=100'))
+  const key = keys.find(
+    (each) => each.key_type === 'publishable' && !each.channel_id && !each.revoked_at,
+  ) as Json | undefined
+  expect(key, "the store's publishable key").toBeTruthy()
+  return (await send(api, headers, 'get', `admin/api_keys/${(key as Json).id}`))
+    .plaintext_token as string
 }
 
 export async function seedMarketplace(baseURL: string): Promise<Marketplace> {
@@ -162,42 +213,7 @@ export async function seedMarketplace(baseURL: string): Promise<Marketplace> {
     await call('patch', 'store', { default_commission_tax_rate: '0.2' })
 
     // A shopper buys the store's own product, then from both sellers, through the Store API.
-    const keys = rows(await call('get', 'api_keys?limit=100'))
-    const key = keys.find(
-      (each) => each.key_type === 'publishable' && !each.channel_id && !each.revoked_at,
-    )
-    expect(key, "the store's publishable key").toBeTruthy()
-    const publishable = (await call('get', `api_keys/${(key as Json).id}`))
-      .plaintext_token as string
-    const methods = rows(await call('get', 'payment_methods?limit=100'))
-    const cheque =
-      methods.find((each) => each.type === 'check' && each.active) ??
-      (await call('post', 'payment_methods', {
-        name: 'Cheque',
-        type: 'check',
-        active: true,
-        storefront_visible: true,
-      }))
-    const checkout = async (products: string[]) => {
-      const shopper = { 'X-Spree-API-Key': publishable }
-      const cart = await send(api, shopper, 'post', 'store/carts', {})
-      const inCart = { ...shopper, 'X-Spree-Token': cart.token as string }
-      const store_ = (method: 'get' | 'post' | 'patch', path: string, data?: object) =>
-        send(api, inCart, method, `store/carts/${cart.id}${path}`, data)
-      for (const product of products) {
-        const variant = (await call('get', `products/${product}`)).default_variant_id as string
-        await store_('post', '/items', { variant_id: variant, quantity: 1 })
-      }
-      await store_('patch', '', {
-        email: shopperEmail,
-        shipping_address: shopperAddress,
-        billing_address: shopperAddress,
-      })
-      const quoted = await store_('get', '?expand=fulfillments')
-      expect(quoted.warnings, 'nothing in the cart left undeliverable').toEqual([])
-      await store_('post', '/payments', { payment_method_id: cheque.id })
-      return store_('post', '/complete', {})
-    }
+    const checkout = await shopper(api, headers)
     const own = await checkout([seeded.products.own])
     const group = await checkout([seeded.products.active, seeded.products.second])
     const orders = (group.orders as Json[]).map((order) => order.id)
