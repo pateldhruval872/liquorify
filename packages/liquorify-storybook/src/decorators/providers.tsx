@@ -51,7 +51,10 @@ export interface StoryNeeds {
  * narrower columns, and its origin group and zone cards nest one inside the other.
  * A part drawn inside a sheet's body, such as a stock location's stock, takes
  * what the sheet leaves inside its padding, and one inside a dialog's body,
- * such as the company page's add member dialog, what the dialog leaves.
+ * such as the company page's add member dialog, what the dialog leaves. The
+ * seller panel draws each fulfillment as a card inside the order's
+ * Fulfillments card, so the parts drawn inside one take what that inner card
+ * leaves.
  */
 export const columnWidths = {
   page: 965,
@@ -66,6 +69,7 @@ export const columnWidths = {
   inZoneCard: 525.328125,
   inSheet: 568,
   inDialog: 466,
+  inSellerFulfillment: 583.328125,
 } as const
 
 export type Column = keyof typeof columnWidths

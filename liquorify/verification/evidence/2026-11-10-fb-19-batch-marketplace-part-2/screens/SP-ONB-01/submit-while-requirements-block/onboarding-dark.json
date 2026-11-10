@@ -1,0 +1,20 @@
+{
+  "screen": "SP-ONB-01",
+  "state": "submit-while-requirements-block",
+  "variant": "onboarding",
+  "signedInAs": "maya.okafor@stonecrop.example.com",
+  "server": "browser-test server",
+  "panel": "seller panel",
+  "theme": "dark",
+  "revision": "1342549c",
+  "path": "/sel_uw2YK1rnl0/onboarding",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "fullPage": false,
+  "capturedHeight": 960,
+  "intercepted": null,
+  "settled": true,
+  "outside": []
+}

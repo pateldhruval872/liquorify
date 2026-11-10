@@ -1,0 +1,20 @@
+{
+  "screen": "SP-HOME-01",
+  "state": "status-ready",
+  "variant": "ready",
+  "signedInAs": "theo.lindqvist@juniper-row.example.com",
+  "server": "browser-test server",
+  "panel": "seller panel",
+  "theme": "dark",
+  "revision": "1342549c",
+  "path": "/sel_OIJLhNcSbf",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "fullPage": true,
+  "capturedHeight": 960,
+  "intercepted": null,
+  "settled": true,
+  "outside": []
+}

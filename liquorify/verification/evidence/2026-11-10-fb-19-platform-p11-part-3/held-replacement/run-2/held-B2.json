@@ -1,0 +1,177 @@
+{
+  "test": "held-B2",
+  "revision": "7a7eb507",
+  "stamp": "held2",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "placed, paid in full by cheque and shipped",
+      "total": "45.00",
+      "paid": "45.00",
+      "amount_due": "0.00",
+      "payment_status": "paid",
+      "fulfillment_status": "fulfilled",
+      "lines": [
+        {
+          "id": "li_VqXmZF31wY",
+          "quantity": 1
+        },
+        {
+          "id": "li_uw2YK1rnl0",
+          "quantity": 1
+        }
+      ],
+      "refunds": [],
+      "claims": [],
+      "fulfilments": [
+        {
+          "number": "R1005-F1",
+          "status": "fulfilled"
+        }
+      ]
+    },
+    {
+      "step": "claim CLM1004 resolved with a refund",
+      "total": "45.00",
+      "paid": "25.00",
+      "amount_due": "0.00",
+      "payment_status": "partially_refunded",
+      "fulfillment_status": "fulfilled",
+      "lines": [
+        {
+          "id": "li_VqXmZF31wY",
+          "quantity": 1
+        },
+        {
+          "id": "li_uw2YK1rnl0",
+          "quantity": 1
+        }
+      ],
+      "refunds": [
+        "20.00"
+      ],
+      "claims": [
+        {
+          "number": "CLM1004",
+          "status": "resolved",
+          "resolution": "refund",
+          "refund_total": "0.00"
+        },
+        {
+          "number": "CLM1005",
+          "status": "approved",
+          "resolution": null,
+          "refund_total": "0.00"
+        }
+      ],
+      "fulfilments": [
+        {
+          "number": "R1005-F1",
+          "status": "fulfilled"
+        }
+      ]
+    },
+    {
+      "step": "claim CLM1005 resolved with a replacement",
+      "total": "45.00",
+      "paid": "25.00",
+      "amount_due": "0.00",
+      "payment_status": "partially_refunded",
+      "fulfillment_status": "partial",
+      "lines": [
+        {
+          "id": "li_VqXmZF31wY",
+          "quantity": 1
+        },
+        {
+          "id": "li_uw2YK1rnl0",
+          "quantity": 1
+        }
+      ],
+      "refunds": [
+        "20.00"
+      ],
+      "claims": [
+        {
+          "number": "CLM1004",
+          "status": "resolved",
+          "resolution": "refund",
+          "refund_total": "0.00"
+        },
+        {
+          "number": "CLM1005",
+          "status": "resolved",
+          "resolution": "replacement",
+          "refund_total": "0.00"
+        }
+      ],
+      "fulfilments": [
+        {
+          "number": "R1005-F1",
+          "status": "fulfilled"
+        },
+        {
+          "number": "R1005-F2",
+          "status": "unfulfilled"
+        }
+      ]
+    },
+    {
+      "step": "asked the server to ship each replacement without force",
+      "answers": [
+        {
+          "fulfilment": "R1005-F2",
+          "status": 422,
+          "answer": "{\"error\":{\"code\":\"processing_error\",\"message\":\"This order is not paid for yet\"}}"
+        }
+      ],
+      "total": "45.00",
+      "paid": "25.00",
+      "amount_due": "0.00",
+      "payment_status": "partially_refunded",
+      "fulfillment_status": "partial",
+      "lines": [
+        {
+          "id": "li_VqXmZF31wY",
+          "quantity": 1
+        },
+        {
+          "id": "li_uw2YK1rnl0",
+          "quantity": 1
+        }
+      ],
+      "refunds": [
+        "20.00"
+      ],
+      "claims": [
+        {
+          "number": "CLM1004",
+          "status": "resolved",
+          "resolution": "refund",
+          "refund_total": "0.00"
+        },
+        {
+          "number": "CLM1005",
+          "status": "resolved",
+          "resolution": "replacement",
+          "refund_total": "0.00"
+        }
+      ],
+      "fulfilments": [
+        {
+          "number": "R1005-F1",
+          "status": "fulfilled"
+        },
+        {
+          "number": "R1005-F2",
+          "status": "unfulfilled"
+        }
+      ]
+    },
+    {
+      "step": "opened the order page",
+      "fulfillments_card": "Fulfillments 2 Partial Fulfilled Shop location Fulfilled less than a minute ago Actions P11 Held B2 Ground held2 $5.00 P11 Held B2 held2 $20.00 × 1 P11 Held B2 second held2 $20.00 × 1 Mark as delivered Add tracking Unfulfilled Shop location Actions P11 Held B2 Ground held2 $0.00 P11 Held B2 second held2 $20.00 × 1 Mark as fulfilled"
+    }
+  ],
+  "outside": []
+}

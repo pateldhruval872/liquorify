@@ -1,0 +1,20 @@
+{
+  "screen": "SP-AUTH-02",
+  "state": "empty",
+  "variant": "signedOut",
+  "signedInAs": null,
+  "server": "browser-test server",
+  "panel": "seller panel",
+  "theme": "light",
+  "revision": "1342549c",
+  "path": "/forgot-password",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "fullPage": false,
+  "capturedHeight": 960,
+  "intercepted": null,
+  "settled": true,
+  "outside": []
+}
