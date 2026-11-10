@@ -750,7 +750,7 @@ P14 is complete when P7's criteria 2 to 10 hold for these requests, as P10 sets 
 
 - G-106 closes only on P14's passing evidence for every request below, in both recorded runs.
 - A refused caller answered with a success, or with an answer that carries the protected record's values, is recorded as a defect with its severity. It is brought to the owner as a security finding, and it keeps G-106 and G-11 open.
-- A control that fails keeps its row failing and is recorded as a defect, or is linked to the defect that is already open. Row 14.8's control is expected to fail on SD-70.
+- A control that fails keeps its row failing and is recorded as a defect, or is linked to the defect that is already open. Row 14.8's control is expected to fail on SD-70. On 2026-11-10 the owner confirmed that G-114's exceptions do not extend to this control: these closure criteria apply as written, and G-106 stays open while it fails ([part 2's record §15](../verification/2026-11-10-fb-19-batch-marketplace-part-2.md#15-the-owners-answers-later-on-2026-11-10)).
 - G-11 closes only when G-106 has closed and everything else it holds has closed too.
 
 #### P14's checks, recorded before implementation
