@@ -4,7 +4,7 @@ record: verification
 work_item: FB-19
 date: 2026-11-10
 verifier: Claude (automated session, thread "Add P11 browser tests"); not independent review
-result: Fourteen browser tests, one for each of G-92's actions 3.1 to 3.15 but 3.11, which stays with P4. Thirteen drive the running dashboard as the admin; 3.15 drives the storefront as a signed-in customer, in the storefront's repository. Each asserts what the screen shows and what a reload shows. The dashboard tests ran twice in a row in the pinned Playwright image at `f467aeb6`, on freshly started servers, with Spree's code as on `main`. Nine passed both times. Four failed both times, each only at the check of a known or numbered defect. Tests 3.2 and 3.7 fail on SD-36. Test 3.12 fails on SD-37 and on SD-71. Test 3.13 fails on SD-35 and SD-37. SD-71 is new: a replacement for part of an order line is refused as out of stock when the replacement is stocked at more than one location. The baseline audit numbered it; it is proposed Medium and held for the owner. Test 3.15 passed twice in a row in the storefront's pinned image at storefront `6ca5e70`. It ran against the storefront's pinned backend, moved in that pull request to Liquorify `e7fd2953` so that it includes batch 8's part 2. Batch 8's B11 (empty pictures on the packing slip) and B29 (Track Items without the number) did not reproduce. Each of the 14 tests was shown to fail when what it checks does not happen. G-92 stays OPEN while SD-71 is held, and then for 3.11 alone, DEFERRED to P4. Tenant isolation stays NOT_RUN. P11 is not complete
+result: Fourteen browser tests, one for each of G-92's actions 3.1 to 3.15 but 3.11, which stays with P4. Thirteen drive the running dashboard as the admin; 3.15 drives the storefront as a signed-in customer, in the storefront's repository. Each asserts what the screen shows and what a reload shows. The dashboard tests ran twice in a row in the pinned Playwright image at `f467aeb6`, on freshly started servers, with Spree's code as on `main`. Nine passed both times, so with 3.15 ten of the 14 pass. Four failed both times, each only at the check of a known or numbered defect. Tests 3.2 and 3.7 fail on SD-36. Test 3.12 fails on SD-37 and on SD-71. Test 3.13 fails on SD-35 and SD-37. SD-71 is new: a replacement for part of an order line is refused as out of stock when the replacement is stocked at more than one location. The baseline audit numbered it; it is proposed Medium and held for the owner. Test 3.15 passed twice in a row in the storefront's pinned image at storefront `6ca5e70`. It ran against the storefront's pinned backend, moved in that pull request to Liquorify `e7fd2953` so that it includes batch 8's part 2. Batch 8's B11 (empty pictures on the packing slip) and B29 (Track Items without the number) did not reproduce. Each of the 14 tests was shown to fail when what it checks does not happen. G-92 stays OPEN while SD-71 is held, and then for 3.11 alone, DEFERRED to P4. Tenant isolation stays NOT_RUN. P11 is not complete
 ---
 
 # FB-19 platform batch, step P11, part 3, browser tests for fulfilment and what happens after the sale (G-92)
@@ -152,10 +152,37 @@ The same code serves exchanges and claim replacements. With the replacement stoc
 
 ### 4.3 Observations, not numbered
 
-- A replacement is held after a refund to the original payment, which is recorded for the owner's product review. It is neither approved as correct nor called a defect. In a first try, one claim on the order was refunded to the original payment. The order then read Partially Refunded, and another claim's replacement fulfilment said "This order is not paid for yet" and was not shipped. Spree may intend to hold a replacement until the order is paid again, since a customer who is both refunded and sent a replacement is paid back twice. Only the owner can say whether that is right here. 3.13 therefore resolves the replacement claim before the refunds.
+- A replacement is held after a refund to the original payment, which is recorded for the owner's product review. It is neither approved as correct nor called a defect. On 2026-11-10 the owner kept it an observation, not approved as intended, until the bounded check in §4.4 has run. In a first try, one claim on the order was refunded to the original payment. The order then read Partially Refunded, and another claim's replacement fulfilment said "This order is not paid for yet" and was not shipped. Spree may intend to hold a replacement until the order is paid again, since a customer who is both refunded and sent a replacement is paid back twice. Only the owner can say whether that is right here. 3.13 therefore resolves the replacement claim before the refunds.
 - A return owed nothing, once completed, reads Refunded with "Refunded $0.00".
 - The returns, exchanges and claims lists search by the record's own number only: an order's number finds nothing.
 - The packing slip opens in a new window.
+
+### 4.4 The bounded check for the held replacement
+
+The owner asked on 2026-11-10 for a bounded check before deciding whether the hold is intended ([record](2026-11-10-fb-19-platform-p11-owner-decisions.md)). It separates a refund and a replacement for the same item, which pays the customer back twice, from a refund on one claim and a replacement on another, which does not. It is recorded here before it runs. It runs in its own pull request, on Spree's browser-test server at a recorded revision, twice in a row on freshly started servers, and changes no Spree code, test or production setting. It is a check, not a browser test: it makes each order through the Admin API, as 3.13 does, and reads each replacement's fulfilment on the order page.
+
+Each order is paid in full by Check, shipped, and given claims with no return. Each claim is resolved through the Admin API's claim resolution. For each order the check records, after each step:
+
+- each line's quantity, and the units each claim names;
+- each refund and its amount;
+- the order's total, what has been paid (`payment_total`), the amount due and the payment state;
+- whether the replacement's fulfilment ships without the force option, and the message the order page shows for it.
+
+| Order | Claims | What it shows |
+|---|---|---|
+| A, the same item | One claim on one unit, resolved with a refund and a replacement | The customer is paid back for the unit and sent a new one |
+| B1, other claims, the same line | A line of 2: one claim on one unit refunded, another claim on the other unit replaced | A refund and a legitimate replacement on the same line |
+| B2, other claims, other lines | Two lines: one product's claim refunded, the other product's claim replaced | A refund and a legitimate replacement on different items |
+| C, the control | One claim on one unit, replaced, with no refund | A replacement with nothing refunded |
+
+The expected results are not predictions of what Spree does, but what each answer would show:
+
+- C ships without force, with nothing due. If it does not, the hold is not caused by the refund, and the check says so.
+- If A is held and B1 and B2 ship, the hold tells the two cases apart, and the owner can decide whether it is intended.
+- If A, B1 and B2 are all held, with an amount due equal to the refund in each, the hold reads only the order's balance and does not tell a double payment from a legitimate replacement. That is the first try's result in §4.3.
+- Any other result is recorded as it is.
+
+Every result stays an observation for the owner's product review. Nothing is numbered as a defect or approved as intended until the owner has read it.
 
 ## 5. Nothing else claimed
 
@@ -171,9 +198,11 @@ Under the owner's delegation, as delegated acceptance, not the owner's review. G
 
 Of the 14 actions tested:
 
-- Nine pass: 3.1, 3.3 to 3.6, 3.8 to 3.10, and 3.14 and 3.15.
+- Ten pass: 3.1, 3.3 to 3.6, 3.8 to 3.10, and 3.14 and 3.15. This line first said nine; the owner corrected it on 2026-11-10.
 - 3.2 and 3.7 fail only on SD-36.
 - 3.13 fails only on SD-35 and SD-37.
 - 3.12 fails on SD-37 and on SD-71.
 
 G-92 stays OPEN until the owner answers on SD-71. If the owner records SD-71 as a defect, G-92 stays open for 3.11 alone, DEFERRED to P4. All three parts of P11 have now run. P11 is not complete while G-87, G-90 and G-92 stay open.
+
+**The owner's answer, 2026-11-10** ([record](2026-11-10-fb-19-platform-p11-owner-decisions.md)). SD-71 is accepted as a Medium existing defect, with its fix deferred, and 3.12 is kept failing. G-92 stays OPEN for 3.11 alone, DEFERRED to P4. The tally above is corrected to ten. The held replacement stays an observation until §4.4 has run.
