@@ -1,0 +1,19 @@
+{
+  "screen": "DA-SET-22",
+  "state": "saved",
+  "variant": "admin",
+  "role": null,
+  "server": "browser-test server",
+  "theme": "dark",
+  "revision": "6b163aad",
+  "path": "/<store>/settings/marketplace",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "fullPage": true,
+  "capturedHeight": 844,
+  "intercepted": null,
+  "settled": true,
+  "outside": []
+}

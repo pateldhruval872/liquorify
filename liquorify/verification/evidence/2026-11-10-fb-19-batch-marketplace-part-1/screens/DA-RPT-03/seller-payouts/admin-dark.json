@@ -1,0 +1,19 @@
+{
+  "screen": "DA-RPT-03",
+  "state": "seller-payouts",
+  "variant": "admin",
+  "role": null,
+  "server": "browser-test server",
+  "theme": "dark",
+  "revision": "6b163aad",
+  "path": "/<store>/reports/sq_2KY5XM6frI",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "fullPage": true,
+  "capturedHeight": 1879,
+  "intercepted": null,
+  "settled": true,
+  "outside": []
+}

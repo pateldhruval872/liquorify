@@ -1,0 +1,230 @@
+{
+  "revision": null,
+  "check": "mark-paid",
+  "answers": [
+    {
+      "step": "balance before",
+      "status": 200,
+      "body": {
+        "data": [
+          {
+            "currency": "USD",
+            "settlement_currency": "USD",
+            "converted": false,
+            "seller_id": "sel_AXs1igzRC6",
+            "earned": "356.95",
+            "pending": "0.00",
+            "payable": "356.95",
+            "paid": "195.50",
+            "balance": "161.45"
+          }
+        ]
+      }
+    },
+    {
+      "step": "payout before",
+      "status": 200,
+      "body": {
+        "id": "vpo_VqXmZF31wY",
+        "status": "completed",
+        "currency": "USD",
+        "reference": "FID-PAY-1310",
+        "metadata": {},
+        "period_start": "2026-10-20T06:24:03.999Z",
+        "period_end": "2026-11-03T06:24:03.999Z",
+        "created_at": "2026-11-10T06:24:04.000Z",
+        "updated_at": "2026-11-10T06:54:06.198Z",
+        "amount": "42.50",
+        "seller_id": "sel_AXs1igzRC6",
+        "seller_name": "Harbour Cask Co.",
+        "transfers_count": 2,
+        "provider": "system"
+      }
+    },
+    {
+      "step": "transfers it covers",
+      "status": 200,
+      "body": {
+        "data": [
+          {
+            "id": "vtr_VqXmZF31wY",
+            "kind": "earning",
+            "status": "completed",
+            "currency": "USD",
+            "reference": null,
+            "metadata": {},
+            "created_at": "2026-10-20T06:24:03.895Z",
+            "updated_at": "2026-11-10T06:24:04.011Z",
+            "amount": "102.00",
+            "settled_amount": "102.00",
+            "settled_currency": "USD",
+            "converted": false,
+            "seller_id": "sel_AXs1igzRC6",
+            "order_id": "or_uw2YK1rnl0",
+            "payout_id": "vpo_VqXmZF31wY",
+            "reversed_from_id": null,
+            "refund_id": null,
+            "seller_name": "Harbour Cask Co.",
+            "order_number": "R1005",
+            "provider": "system"
+          },
+          {
+            "id": "vtr_OIJLhNcSbf",
+            "kind": "refund_reversal",
+            "status": "completed",
+            "currency": "USD",
+            "reference": null,
+            "metadata": {},
+            "created_at": "2026-11-10T06:24:04.016Z",
+            "updated_at": "2026-11-10T06:24:04.016Z",
+            "amount": "-59.50",
+            "settled_amount": "-59.50",
+            "settled_currency": "USD",
+            "converted": false,
+            "seller_id": "sel_AXs1igzRC6",
+            "order_id": "or_OIJLhNcSbf",
+            "payout_id": "vpo_VqXmZF31wY",
+            "reversed_from_id": "vtr_uw2YK1rnl0",
+            "refund_id": null,
+            "seller_name": "Harbour Cask Co.",
+            "order_number": "R1006",
+            "provider": "system"
+          }
+        ],
+        "meta": {
+          "page": 1,
+          "limit": 25,
+          "count": 2,
+          "pages": 1,
+          "from": 1,
+          "to": 2,
+          "in": 2,
+          "previous": null,
+          "next": null
+        }
+      }
+    },
+    {
+      "step": "payout after",
+      "status": 200,
+      "body": {
+        "id": "vpo_VqXmZF31wY",
+        "status": "completed",
+        "currency": "USD",
+        "reference": "FID-PAY-1310",
+        "metadata": {},
+        "period_start": "2026-10-20T06:24:03.999Z",
+        "period_end": "2026-11-03T06:24:03.999Z",
+        "created_at": "2026-11-10T06:24:04.000Z",
+        "updated_at": "2026-11-10T06:54:06.198Z",
+        "amount": "42.50",
+        "seller_id": "sel_AXs1igzRC6",
+        "seller_name": "Harbour Cask Co.",
+        "transfers_count": 2,
+        "provider": "system"
+      }
+    },
+    {
+      "step": "transfers after",
+      "status": 200,
+      "body": {
+        "data": [
+          {
+            "id": "vtr_VqXmZF31wY",
+            "kind": "earning",
+            "status": "completed",
+            "currency": "USD",
+            "reference": null,
+            "metadata": {},
+            "created_at": "2026-10-20T06:24:03.895Z",
+            "updated_at": "2026-11-10T06:24:04.011Z",
+            "amount": "102.00",
+            "settled_amount": "102.00",
+            "settled_currency": "USD",
+            "converted": false,
+            "seller_id": "sel_AXs1igzRC6",
+            "order_id": "or_uw2YK1rnl0",
+            "payout_id": "vpo_VqXmZF31wY",
+            "reversed_from_id": null,
+            "refund_id": null,
+            "seller_name": "Harbour Cask Co.",
+            "order_number": "R1005",
+            "provider": "system"
+          },
+          {
+            "id": "vtr_OIJLhNcSbf",
+            "kind": "refund_reversal",
+            "status": "completed",
+            "currency": "USD",
+            "reference": null,
+            "metadata": {},
+            "created_at": "2026-11-10T06:24:04.016Z",
+            "updated_at": "2026-11-10T06:24:04.016Z",
+            "amount": "-59.50",
+            "settled_amount": "-59.50",
+            "settled_currency": "USD",
+            "converted": false,
+            "seller_id": "sel_AXs1igzRC6",
+            "order_id": "or_OIJLhNcSbf",
+            "payout_id": "vpo_VqXmZF31wY",
+            "reversed_from_id": "vtr_uw2YK1rnl0",
+            "refund_id": null,
+            "seller_name": "Harbour Cask Co.",
+            "order_number": "R1006",
+            "provider": "system"
+          }
+        ],
+        "meta": {
+          "page": 1,
+          "limit": 25,
+          "count": 2,
+          "pages": 1,
+          "from": 1,
+          "to": 2,
+          "in": 2,
+          "previous": null,
+          "next": null
+        }
+      }
+    },
+    {
+      "step": "balance after",
+      "status": 200,
+      "body": {
+        "data": [
+          {
+            "currency": "USD",
+            "settlement_currency": "USD",
+            "converted": false,
+            "seller_id": "sel_AXs1igzRC6",
+            "earned": "356.95",
+            "pending": "0.00",
+            "payable": "356.95",
+            "paid": "195.50",
+            "balance": "161.45"
+          }
+        ]
+      }
+    },
+    {
+      "step": "completing it again",
+      "status": 200,
+      "body": {
+        "id": "vpo_VqXmZF31wY",
+        "status": "completed",
+        "currency": "USD",
+        "reference": "FID-PAY-1310",
+        "metadata": {},
+        "period_start": "2026-10-20T06:24:03.999Z",
+        "period_end": "2026-11-03T06:24:03.999Z",
+        "created_at": "2026-11-10T06:24:04.000Z",
+        "updated_at": "2026-11-10T06:54:06.198Z",
+        "amount": "42.50",
+        "seller_id": "sel_AXs1igzRC6",
+        "seller_name": "Harbour Cask Co.",
+        "transfers_count": 2,
+        "provider": "system"
+      }
+    }
+  ]
+}

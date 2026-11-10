@@ -1,0 +1,26 @@
+{
+  "screen": "DA-SEL-02",
+  "state": "status-onboarding",
+  "variant": "sellerViewer",
+  "role": {
+    "name": "Seller viewer",
+    "permissions": [
+      "read_sellers",
+      "read_commissions",
+      "read_payouts"
+    ]
+  },
+  "server": "browser-test server",
+  "theme": "dark",
+  "revision": "6b163aad",
+  "path": "/<store>/sellers/sel_uw2YK1rnl0",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "fullPage": true,
+  "capturedHeight": 1047,
+  "intercepted": null,
+  "settled": true,
+  "outside": []
+}

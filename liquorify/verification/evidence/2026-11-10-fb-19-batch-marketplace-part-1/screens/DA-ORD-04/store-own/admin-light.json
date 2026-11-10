@@ -1,0 +1,19 @@
+{
+  "screen": "DA-ORD-04",
+  "state": "store-own",
+  "variant": "admin",
+  "role": null,
+  "server": "browser-test server",
+  "theme": "light",
+  "revision": "6b163aad",
+  "path": "/<store>/orders/or_AXs1igzRC6",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "fullPage": true,
+  "capturedHeight": 2286,
+  "intercepted": null,
+  "settled": true,
+  "outside": []
+}

@@ -1,0 +1,19 @@
+{
+  "screen": "DA-PRD-01",
+  "state": "filtered-by-seller",
+  "variant": "admin",
+  "role": null,
+  "server": "browser-test server",
+  "theme": "dark",
+  "revision": "6b163aad",
+  "path": "/<store>/products",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "fullPage": false,
+  "capturedHeight": 960,
+  "intercepted": null,
+  "settled": true,
+  "outside": []
+}

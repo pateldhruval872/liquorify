@@ -1,0 +1,4 @@
+The first run sent the background check back through DA-SEL-02, then stopped on
+a text assertion. answers.json is from the second run, which found it already
+sent back (its "before" therefore reads "rejected") and carried on from there.
+The before capture, 1-before.png, is from the second run too.

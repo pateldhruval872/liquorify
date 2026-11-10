@@ -1,0 +1,168 @@
+{
+  "request": {
+    "metrics": [
+      "net_sales",
+      "commission",
+      "seller_payout",
+      "units_sold"
+    ],
+    "time_range": {
+      "preset": "month_to_date"
+    },
+    "dimensions": [
+      "seller"
+    ],
+    "sort": "-seller_payout",
+    "limit": 50
+  },
+  "answer": {
+    "meta": {
+      "currency": "USD",
+      "time_range": {
+        "since": "2026-11-01T00:00:00Z",
+        "until": "2026-11-10T23:59:59Z"
+      },
+      "previous_time_range": null,
+      "metrics": [
+        "net_sales",
+        "commission",
+        "seller_payout",
+        "units_sold"
+      ],
+      "dimensions": [
+        {
+          "name": "seller"
+        }
+      ]
+    },
+    "totals": {
+      "net_sales": {
+        "value": "182.00",
+        "display": "$182.00"
+      },
+      "commission": {
+        "value": "20.50",
+        "display": "$20.50"
+      },
+      "seller_payout": {
+        "value": "161.50",
+        "display": "$161.50"
+      },
+      "units_sold": {
+        "value": 7
+      }
+    },
+    "rows": [
+      {
+        "dimensions": {
+          "seller": {
+            "id": "sel_AXs1igzRC6",
+            "label": "Harbour Cask Co.",
+            "meta": {
+              "slug": "harbour-cask-co"
+            }
+          }
+        },
+        "metrics": {
+          "net_sales": {
+            "value": "84.00",
+            "display": "$84.00"
+          },
+          "commission": {
+            "value": "12.10",
+            "display": "$12.10"
+          },
+          "seller_payout": {
+            "value": "71.90",
+            "display": "$71.90"
+          },
+          "units_sold": {
+            "value": 2
+          }
+        }
+      },
+      {
+        "dimensions": {
+          "seller": {
+            "id": "sel_98FqgRua4h",
+            "label": "Saltmarsh Gin Co.",
+            "meta": {
+              "slug": "saltmarsh-gin-co"
+            }
+          }
+        },
+        "metrics": {
+          "net_sales": {
+            "value": "68.00",
+            "display": "$68.00"
+          },
+          "commission": {
+            "value": "3.60",
+            "display": "$3.60"
+          },
+          "seller_payout": {
+            "value": "64.40",
+            "display": "$64.40"
+          },
+          "units_sold": {
+            "value": 2
+          }
+        }
+      },
+      {
+        "dimensions": {
+          "seller": {
+            "id": null,
+            "label": "Unassigned",
+            "meta": {}
+          }
+        },
+        "metrics": {
+          "net_sales": {
+            "value": "18.00",
+            "display": "$18.00"
+          },
+          "commission": {
+            "value": "0.00",
+            "display": "$0.00"
+          },
+          "seller_payout": {
+            "value": "18.00",
+            "display": "$18.00"
+          },
+          "units_sold": {
+            "value": 1
+          }
+        }
+      },
+      {
+        "dimensions": {
+          "seller": {
+            "id": "sel_nJqfPa3Cpe",
+            "label": "Copperline Brewing",
+            "meta": {
+              "slug": "copperline-brewing"
+            }
+          }
+        },
+        "metrics": {
+          "net_sales": {
+            "value": "12.00",
+            "display": "$12.00"
+          },
+          "commission": {
+            "value": "4.80",
+            "display": "$4.80"
+          },
+          "seller_payout": {
+            "value": "7.20",
+            "display": "$7.20"
+          },
+          "units_sold": {
+            "value": 2
+          }
+        }
+      }
+    ]
+  }
+}

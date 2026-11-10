@@ -1,0 +1,19 @@
+{
+  "screen": "DA-ORD-04",
+  "state": "commission-failed",
+  "variant": "admin",
+  "role": null,
+  "server": "browser-test server",
+  "theme": "dark",
+  "revision": "6b163aad",
+  "path": "/<store>/orders/or_p6klVeMgbn",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "fullPage": true,
+  "capturedHeight": 2620,
+  "intercepted": "The commission lines are answered with a server error",
+  "settled": true,
+  "outside": []
+}

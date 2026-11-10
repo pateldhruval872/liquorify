@@ -1,0 +1,19 @@
+{
+  "screen": "DA-PRD-03",
+  "state": "proposed",
+  "variant": "admin",
+  "role": null,
+  "server": "browser-test server",
+  "theme": "dark",
+  "revision": "6b163aad",
+  "path": "/<store>/products/prod_ROeNhrwyV9",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "fullPage": true,
+  "capturedHeight": 2573,
+  "intercepted": null,
+  "settled": true,
+  "outside": []
+}
