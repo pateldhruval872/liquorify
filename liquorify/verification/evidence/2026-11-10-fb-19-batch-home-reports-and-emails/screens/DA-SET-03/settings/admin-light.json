@@ -1,0 +1,19 @@
+{
+  "screen": "DA-SET-03",
+  "state": "settings",
+  "variant": "admin",
+  "role": null,
+  "server": "browser-test server",
+  "theme": "light",
+  "revision": null,
+  "path": "/<store>/settings/emails",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "fullPage": true,
+  "capturedHeight": 1639,
+  "intercepted": null,
+  "settled": true,
+  "outside": []
+}

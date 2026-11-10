@@ -1,0 +1,203 @@
+[
+  {
+    "name": "all-channels-last-30-days",
+    "sent": {
+      "metrics": [
+        "total_sales",
+        "orders",
+        "average_order_value",
+        "units_sold",
+        "customers"
+      ],
+      "dimensions": [
+        {
+          "name": "completed_at",
+          "grain": "day"
+        }
+      ],
+      "compare": "previous_period",
+      "time_range": {
+        "since": "2026-10-12",
+        "until": "2026-11-10"
+      },
+      "currency": "USD"
+    },
+    "channel": "All channels",
+    "screen": {
+      "total_sales": "6214.22",
+      "orders": 16
+    },
+    "admin_api": {
+      "orders": 16,
+      "total_sales": "6214.22",
+      "numbers": [
+        "R1001",
+        "R1005",
+        "R1006",
+        "R1007",
+        "R1008",
+        "R1009",
+        "R1011",
+        "R1012",
+        "R1013",
+        "R1014",
+        "R1015",
+        "R1016",
+        "R1017",
+        "R1018",
+        "R1019",
+        "R1020"
+      ]
+    }
+  },
+  {
+    "name": "channel-online-store",
+    "sent": {
+      "metrics": [
+        "total_sales",
+        "orders",
+        "average_order_value",
+        "units_sold",
+        "customers"
+      ],
+      "dimensions": [
+        {
+          "name": "completed_at",
+          "grain": "day"
+        }
+      ],
+      "compare": "previous_period",
+      "time_range": {
+        "since": "2026-10-12",
+        "until": "2026-11-10"
+      },
+      "currency": "USD",
+      "filters": [
+        {
+          "dimension": "channel",
+          "op": "eq",
+          "value": "ch_UkLWZg9DAJ"
+        }
+      ]
+    },
+    "channel": "Online Store",
+    "screen": {
+      "total_sales": "6214.22",
+      "orders": 16
+    },
+    "admin_api": {
+      "orders": 16,
+      "total_sales": "6214.22",
+      "numbers": [
+        "R1001",
+        "R1005",
+        "R1006",
+        "R1007",
+        "R1008",
+        "R1009",
+        "R1011",
+        "R1012",
+        "R1013",
+        "R1014",
+        "R1015",
+        "R1016",
+        "R1017",
+        "R1018",
+        "R1019",
+        "R1020"
+      ]
+    }
+  },
+  {
+    "name": "channel-wholesale",
+    "sent": {
+      "metrics": [
+        "total_sales",
+        "orders",
+        "average_order_value",
+        "units_sold",
+        "customers"
+      ],
+      "dimensions": [
+        {
+          "name": "completed_at",
+          "grain": "day"
+        }
+      ],
+      "compare": "previous_period",
+      "time_range": {
+        "since": "2026-10-12",
+        "until": "2026-11-10"
+      },
+      "currency": "USD",
+      "filters": [
+        {
+          "dimension": "channel",
+          "op": "eq",
+          "value": "ch_gbHJdmfrXB"
+        }
+      ]
+    },
+    "channel": "Wholesale",
+    "screen": {
+      "total_sales": "0.00",
+      "orders": 0
+    },
+    "admin_api": {
+      "orders": 0,
+      "total_sales": "0.00",
+      "numbers": []
+    }
+  },
+  {
+    "name": "all-channels-last-7-days",
+    "sent": {
+      "metrics": [
+        "total_sales",
+        "orders",
+        "average_order_value",
+        "units_sold",
+        "customers"
+      ],
+      "dimensions": [
+        {
+          "name": "completed_at",
+          "grain": "day"
+        }
+      ],
+      "compare": "previous_period",
+      "time_range": {
+        "since": "2026-11-04",
+        "until": "2026-11-10"
+      },
+      "currency": "USD"
+    },
+    "channel": "All channels",
+    "screen": {
+      "total_sales": "6214.22",
+      "orders": 16
+    },
+    "admin_api": {
+      "orders": 16,
+      "total_sales": "6214.22",
+      "numbers": [
+        "R1001",
+        "R1005",
+        "R1006",
+        "R1007",
+        "R1008",
+        "R1009",
+        "R1011",
+        "R1012",
+        "R1013",
+        "R1014",
+        "R1015",
+        "R1016",
+        "R1017",
+        "R1018",
+        "R1019",
+        "R1020"
+      ]
+    }
+  }
+]

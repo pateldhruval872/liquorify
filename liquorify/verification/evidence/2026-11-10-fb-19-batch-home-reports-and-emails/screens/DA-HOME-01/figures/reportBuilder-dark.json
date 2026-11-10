@@ -1,0 +1,26 @@
+{
+  "screen": "DA-HOME-01",
+  "state": "figures",
+  "variant": "reportBuilder",
+  "role": {
+    "name": "Report builder",
+    "permissions": [
+      "read_dashboard",
+      "write_reports",
+      "read_orders"
+    ]
+  },
+  "server": "browser-test server",
+  "theme": "dark",
+  "revision": null,
+  "path": "/<store>",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "fullPage": true,
+  "capturedHeight": 960,
+  "intercepted": null,
+  "settled": true,
+  "outside": []
+}
