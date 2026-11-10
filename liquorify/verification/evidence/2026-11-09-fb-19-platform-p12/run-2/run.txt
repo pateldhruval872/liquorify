@@ -1,0 +1,7 @@
+Run 2: scripts and Spree at 8e2e5482
+started 2026-11-09T21:59:42Z
+test server answered 404
+one-store-checks exited 0
+p12-admin exited 0
+test server stopped, exit 0
+finished 2026-11-09T22:00:34Z
