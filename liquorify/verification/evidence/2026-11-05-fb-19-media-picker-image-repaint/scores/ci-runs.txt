@@ -1,0 +1,87 @@
+CI results for the media picker repaint, on commit a82d746d2c9b10833b40e029ab8fa0c57f12196b
+(the pull request's head, with main merged in). Read from GitHub's job records and the last lines of each part's log.
+
+Storybook run 233, id 41993000293, started by hand (workflow_dispatch), 08:15:00 to 08:30:18 UTC
+  https://github.com/pateldhruval872/liquorify/actions/runs/41993000293
+  part 1 of 4   752 passed (13.6m)   job 127129455152   success
+  part 2 of 4   752 passed (11.1m)   job 127129455254   success
+  part 3 of 4   752 passed (11.9m)   job 127129455270   success
+  part 4 of 4   752 passed (10.4m)   job 127129454916   success
+  Storybook & visual check ("Every part passed")      job 127135683578   success
+
+Storybook run 234, id 41993001072, started by the pull request (pull_request), 08:15:00 to 08:33:12 UTC
+  https://github.com/pateldhruval872/liquorify/actions/runs/41993001072
+  part 1 of 4   752 passed (15.3m)   job 127129453101   success
+  part 2 of 4   752 passed (11.2m)   job 127129452785   success
+  part 3 of 4   752 passed (9.0m)    job 127129452881   success
+  part 4 of 4   752 passed (10.9m)   job 127129452634   success
+  Storybook & visual check ("Every part passed")      job 127136430826   success
+
+Where the story is: the check's own listing of part 1 (npx playwright test -c visual/playwright.config.ts --list --shard=1/4)
+puts "Dashboard core/Media picker sheet / Two picked / light" and "/ dark" 195th and 196th of part 1's 752, and in no other part.
+Part 1's last image in both CI logs ("File type icon / Archive / dark") is the listing's last, so the listing matches CI's order.
+
+The pull request's other checks on the same commit: 45 check runs in all; 39 succeeded, 6 were skipped
+(the release jobs: CLI, create-spree-app, Dashboard packages, Seller packages, Admin SDK, SDK), none failed.
+
+----
+Run started by the records-only commit 1a5830e73dd5421fe293bcc751a7c420bec8948b (the pull request's path filter looks at the
+whole pull request, so this commit did start the visual check):
+Storybook run 236, id 41996317791, pull_request, 08:40:40 to 08:57:12 UTC, success
+  https://github.com/pateldhruval872/liquorify/actions/runs/41996317791
+
+----
+After batch 8 part 1 (#80) merged into main first, main was merged in again. Commit 67ad96504c42e2e1b82696c4248749441983cfc3.
+
+Storybook run 247, id 42021130775, started by the pull request (pull_request), 11:42:25 to 12:00:14 UTC
+  https://github.com/pateldhruval872/liquorify/actions/runs/42021130775
+  part 1 of 4   825 passed (16.3m)   job 127223884838   success
+  part 2 of 4   825 passed (12.4m)   job 127223885094   success
+  part 3 of 4   824 passed (10.2m)   job 127223885373   success
+  part 4 of 4   824 passed (12.6m)   job 127223885428   success
+  Storybook & visual check ("Every part passed")      job 127231754671   success
+
+Storybook run 248, id 42021140187, started by hand (workflow_dispatch), 11:42:29 to 12:01:25 UTC
+  https://github.com/pateldhruval872/liquorify/actions/runs/42021140187
+  part 1 of 4   825 passed (13.6m)   job 127223922602   success
+  part 2 of 4   825 passed (12.4m)   job 127223922369   success
+  part 3 of 4   824 passed (12.6m)   job 127223922656   success
+  part 4 of 4   824 passed (14.2m)   job 127223922657   success
+  Storybook & visual check ("Every part passed")      job 127232308242   success
+
+Where the story is, from a Storybook built at this commit: the listing of part 1 puts "Media picker sheet / Two picked / light"
+and "/ dark" 195th and 196th of its 825, and in no other part. Part 1's last image in CI's log ("Product membership list /
+Selecting all / light") is the listing's last.
+
+The pull request's other checks on this commit: 45 check runs in all; 39 succeeded, 6 were skipped (the same release jobs), none failed.
+
+----
+The records commit 58aaba81de7390b84fd113ea71c278df1226e604 started Storybook run 249, id 42024521596, pull_request,
+12:07:45 to 12:28:22 UTC, success.
+
+----
+After batch 8 part 2 (#84) merged into main on 2026-11-08, main was merged in again, with a conflict in the records
+index only. Commit e7fbb4abff37be467a1dbcdca0cb5923217327f0.
+
+Storybook run 258, id 42530476474, started by the pull request (pull_request), 2026-11-08 22:29:23 to 22:47:38 UTC, success
+  https://github.com/pateldhruval872/liquorify/actions/runs/42530476474
+  part 1 of 4   931 passed (15.7m), from its log   job 128883360703   success
+  part 2 of 4   931 images listed                 job 128883360647   success
+  part 3 of 4   930 images listed                 job 128883360479   success
+  part 4 of 4   930 images listed                 job 128883360695   success
+  Storybook & visual check ("Every part passed")   job 128887699942   success
+
+Storybook run 259, id 42530481590, started by hand (workflow_dispatch), 2026-11-08 22:29:27 to 22:53:42 UTC, success
+  https://github.com/pateldhruval872/liquorify/actions/runs/42530481590
+  part 1 of 4   931 passed (17.9m), from its log   job 128883379117   success
+  part 2 of 4   931 images listed                 job 128883378886   success
+  part 3 of 4   930 images listed                 job 128883379131   success
+  part 4 of 4   930 images listed                 job 128883379074   success
+  Storybook & visual check ("Every part passed")   job 128889476771   success
+
+Parts 2 to 4: the counts are from the check's listing of a Storybook built at this commit; each part's job succeeded, which
+it does only when every image in it passes. Where the story is: the listing of part 1 puts "Media picker sheet / Two picked /
+light" and "/ dark" 195th and 196th of its 931, and in no other part. Part 1's last image in both CI logs ("Post-sale create
+dialogs / Claim / light") is the listing's last.
+
+The pull request's other checks on this commit: 45 check runs in all; 39 succeeded, 6 were skipped (the same release jobs), none failed.
