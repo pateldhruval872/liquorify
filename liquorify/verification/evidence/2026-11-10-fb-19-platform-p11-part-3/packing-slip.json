@@ -1,0 +1,15 @@
+{
+  "test": "packing-slip",
+  "revision": "f467aeb6",
+  "stamp": "p11p3r2",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "chose Print packing slip and read the slip it opened",
+      "slip": "PACKING SLIP — ORDER R1019 Order #R1019 Fulfillment #R1019-F1 November 10, 2026 SHIP TO River Okafor 214 Larkspur Lane Portland, Oregon, 97205 United States 5035550142 p11-packing-slip-p11p3r2@example.com SHIPS FROM Shop location United States PRODUCT UNIT PRICE QUANTITY LINE TOTAL P11 Packing slip p11p3r2 $20.00 2 $40.00 Subtotal $40.00 Shipping $5.00 Total $45.00 Thank you for your order.",
+      "pictures": 1,
+      "emptyFrames": 0
+    }
+  ],
+  "outside": []
+}

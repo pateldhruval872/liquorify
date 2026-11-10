@@ -1,0 +1,6 @@
+
+Running 1 test using 1 worker
+
+  ✘  1 [chromium] › e2e/order-tracking.spec.ts:130:7 › the shopper's order page › a shipped order shows its status and tracking (1.0m)
+
+  1 passed (1.1m)

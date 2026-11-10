@@ -1,0 +1,17 @@
+{
+  "test": "label-deleted",
+  "revision": "f467aeb6",
+  "stamp": "p11p3r2",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "opened an order with an uploaded label",
+      "card": "Fulfillments 1 Unfulfilled Unfulfilled Shop location Actions P11 Label Ground p11p3r2 $5.00 Shipping label Uploaded Postage: $7.25 Print label Actions UPS: 1Z999AA10123456788 Awaiting Carrier Actions P11 Label p11p3r2 $20.00 × 1 Mark as fulfilled"
+    },
+    {
+      "step": "deleted the label from its menu, then reloaded",
+      "card": "Fulfillments 1 Unfulfilled Unfulfilled Shop location Actions P11 Label Ground p11p3r2 $5.00 P11 Label p11p3r2 $20.00 × 1 Mark as fulfilled"
+    }
+  ],
+  "outside": []
+}

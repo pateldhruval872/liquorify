@@ -1,0 +1,46 @@
+{
+  "test": "exchange",
+  "revision": "f467aeb6",
+  "stamp": "p11p3r2",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "opened an exchange of 1 unit for the dearer product, then reloaded",
+      "exchange": "Requested EX1003 Actions P11 Exchange p11p3r2 → P11 Exchange dearer p11p3r2 ×1 Price difference $10.00"
+    },
+    {
+      "step": "approved it, then reloaded",
+      "exchange": "Approved EX1003 Actions P11 Exchange p11p3r2 → P11 Exchange dearer p11p3r2 ×1 Price difference $10.00"
+    },
+    {
+      "step": "received it, then reloaded",
+      "exchange": "Received EX1003 Actions P11 Exchange p11p3r2 → P11 Exchange dearer p11p3r2 ×1 Price difference $10.00"
+    },
+    {
+      "step": "shipped the replacement, then reloaded",
+      "confirmation": "Are you sure? The replacement costs more than what came back. Shipping it adds the difference to the order as a balance due, for you to collect. Nothing is charged automatically. Cancel Ship replacement",
+      "exchange": "Fulfilled EX1003 P11 Exchange p11p3r2 → P11 Exchange dearer p11p3r2 ×1 Price difference $10.00",
+      "fulfilments": "Fulfillments 2 Partial Fulfilled Shop location Fulfilled less than a minute ago Actions P11 Exchange Ground p11p3r2 $5.00 P11 Exchange p11p3r2 $20.00 × 3 Mark as delivered Add tracking Unfulfilled Shop location Actions P11 Exchange Ground p11p3r2 $0.00 P11 Exchange dearer p11p3r2 × 1 Mark as fulfilled",
+      "summary": {
+        "Subtotal": 60,
+        "Shipping": 5,
+        "Adjustments": 10,
+        "Tax (additional)": 0,
+        "Total": 75,
+        "Payment total": 65,
+        "Outstanding balance": 10
+      }
+    },
+    {
+      "step": "canceled the other exchange, then reloaded",
+      "confirmation": "Are you sure? Cancel this return? Nothing will be restocked and no money will move. Keep exchange Cancel exchange",
+      "exchange": "Canceled EX1001 P11 Exchange p11p3r2 → P11 Exchange dearer p11p3r2 ×1 Price difference $10.00"
+    },
+    {
+      "step": "shipped the replacement stocked at every location, then reloaded",
+      "shown": "",
+      "exchange": "Received EX1002 Actions P11 Exchange p11p3r2 → P11 Exchange everywhere p11p3r2 ×1 Price difference $0.00"
+    }
+  ],
+  "outside": []
+}

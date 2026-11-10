@@ -6,7 +6,6 @@ import {
   login,
   narrowQuickFilter,
 } from '../../dashboard/e2e/helpers'
-import { chequeMethods } from './orders'
 import {
   answeredEmpty,
   blockOutside,
@@ -24,6 +23,25 @@ import {
   toast,
   withBody,
 } from './p9'
+import {
+  address,
+  addsUp,
+  card,
+  dialog,
+  draft,
+  emailOf,
+  money,
+  moreActions,
+  named,
+  type Order,
+  openOrder,
+  placed,
+  product,
+  rowValue,
+  shop,
+  summary,
+  totalOf,
+} from './p11-orders'
 
 /**
  * The platform batch's step P11, part 2, G-90: the order actions batch 8's
@@ -44,11 +62,6 @@ import {
 
 const { snap, save } = recorder('orders', 'p11')
 
-const named = (name: string) => `P11 ${name} ${stamp}`
-const skuOf = (name: string) => `P11-${name.toUpperCase().replace(/[^A-Z0-9]+/g, '-')}-${stamp}`
-const emailOf = (name: string) =>
-  `p11-${name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}-${stamp}@example.com`
-
 let storeId = ''
 
 test.beforeAll(() => {
@@ -59,186 +72,6 @@ test.beforeEach(async ({ page }) => {
   test.setTimeout(180_000)
   await login(page)
 })
-
-// --- Records each test starts from -----------------------------------------
-
-interface Product {
-  name: string
-  sku: string
-  productId: string
-  variantId: string
-}
-
-interface Order {
-  id: string
-  number: string
-}
-
-const address = {
-  first_name: 'River',
-  last_name: 'Okafor',
-  address1: '214 Larkspur Lane',
-  city: 'Portland',
-  country_code: 'US',
-  state_code: 'OR',
-  postal_code: '97205',
-  phone: '5035550142',
-}
-
-/** A product of one variant at this price, stocked at every location and backorderable. */
-async function product(seed: Seed, label: string, price = '20.00'): Promise<Product> {
-  const name = named(label)
-  const sku = skuOf(label)
-  const created = await seed.post<{ id: string; default_variant_id: string }>('products', {
-    name,
-    status: 'active',
-    prices: [{ amount: price, currency: 'USD' }],
-  })
-  await seed.patch(`products/${created.id}/variants/${created.default_variant_id}`, { sku })
-  const { data } = await seed.get<{ data: { id: string }[] }>('stock_locations?limit=100')
-  await seed.post('stock_levels/bulk_upsert', {
-    stock_levels: data.map((location) => ({
-      variant_id: created.default_variant_id,
-      stock_location_id: location.id,
-      count_on_hand: 50,
-      backorderable: true,
-    })),
-  })
-  return { name, sku, productId: created.id, variantId: created.default_variant_id }
-}
-
-/** A customer with one address, their default for billing and shipping. */
-async function customer(seed: Seed, label: string) {
-  const email = emailOf(label)
-  const created = await seed.post<{ id: string }>('customers', {
-    email,
-    first_name: 'P11',
-    last_name: label,
-  })
-  await seed.post(`customers/${created.id}/addresses`, {
-    ...address,
-    is_default_billing: true,
-    is_default_shipping: true,
-  })
-  return { id: created.id, email }
-}
-
-interface Shop {
-  customer: { id: string; email: string }
-  product: Product
-  methods: { cheque: string; later: string }
-}
-
-/** A customer and a product, with the cheque methods, for a test's orders. */
-async function shop(seed: Seed, label: string, baseURL: string): Promise<Shop> {
-  return {
-    customer: await customer(seed, label),
-    product: await product(seed, label),
-    methods: await chequeMethods(baseURL, seed.api, seed.headers),
-  }
-}
-
-async function draft(seed: Seed, at: Shop, quantity = 1, data: object = {}) {
-  return seed.post<Order>('orders', {
-    customer_id: at.customer.id,
-    use_customer_default_address: true,
-    items: [{ variant_id: at.product.variantId, quantity }],
-    ...data,
-  })
-}
-
-/** Pays the order's balance by this cheque method and places it. */
-async function placed(
-  seed: Seed,
-  at: Shop,
-  options: { quantity?: number; method?: 'cheque' | 'later'; data?: object } = {},
-) {
-  const order = await draft(seed, at, options.quantity ?? 1, options.data)
-  const current = await seed.get<{ amount_due: string }>(`orders/${order.id}`)
-  await seed.post(`orders/${order.id}/payments`, {
-    payment_method_id: at.methods[options.method ?? 'cheque'],
-    amount: current.amount_due,
-  })
-  return seed.patch<Order>(`orders/${order.id}/complete`, { notify_customer: false })
-}
-
-// --- Reading the screens ---------------------------------------------------
-
-const dialog = (page: Page) => page.getByRole('alertdialog').or(page.getByRole('dialog'))
-
-/** A card on the order page, found by its title. */
-const card = (page: Page, title: RegExp) =>
-  page
-    .locator('[data-slot="card"]')
-    .filter({ has: page.locator('[data-slot="card-title"]', { hasText: title }) })
-    .first()
-
-const moreActions = (page: Page) => page.getByRole('button', { name: 'More actions' })
-
-async function openOrder(page: Page, order: Order) {
-  await openIn(page, storeId, `/orders/${order.id}`)
-  await expect(page.getByRole('heading', { name: order.number })).toBeVisible({
-    timeout: 15_000,
-  })
-}
-
-/** The text of a row of a card, found by its label, such as the Summary card's Total. */
-async function rowValue(scope: Locator, label: string) {
-  const row = scope
-    .locator('div, tr, dl > *')
-    .filter({ has: scope.page().getByText(label, { exact: true }) })
-    .last()
-  await expect(row).toBeVisible({ timeout: 15_000 })
-  return ((await row.innerText()).replace(label, '').match(/-?\$[\d,]+\.\d{2}/) ?? [''])[0]
-}
-
-const money = (text: string) => Number(text.replace(/[$,]/g, ''))
-
-/** The Summary card's money rows, by their labels, as numbers. */
-async function summary(page: Page) {
-  const scope = card(page, /^summary$/i)
-  await expect(scope).toBeVisible({ timeout: 15_000 })
-  const text = await scope.innerText()
-  const rows: Record<string, number> = {}
-  for (const label of [
-    'Subtotal',
-    'Shipping',
-    'Promotions',
-    'Adjustments',
-    'Tax (included)',
-    'Tax (additional)',
-    'Total',
-    'Payment total',
-    'Outstanding balance',
-  ]) {
-    const found = text.match(
-      new RegExp(`(?:^|\\n)${label.replace(/[()]/g, '\\$&')}\\s*\\n?\\s*(-?\\$[\\d,]+\\.\\d{2})`),
-    )
-    if (found) rows[label] = money(found[1])
-  }
-  return rows
-}
-
-/**
- * Whether the Summary card's rows above Total add up to it. Tax included in
- * prices is not added. SD-34: the Adjustments row repeats the discounts and
- * added tax, so an order with either does not add up.
- */
-const addsUp = (rows: Record<string, number>) =>
-  Math.abs(
-    (rows.Subtotal ?? 0) +
-      (rows.Shipping ?? 0) +
-      (rows.Promotions ?? 0) +
-      (rows.Adjustments ?? 0) +
-      (rows['Tax (additional)'] ?? 0) -
-      (rows.Total ?? 0),
-  ) < 0.005
-
-/** The order's total from the Admin API, for a check of what the screen shows. */
-const totalOf = async (baseURL: string | undefined, order: Order) =>
-  seeded(baseURL, async (seed) =>
-    money(String((await seed.get<{ total: string }>(`orders/${order.id}`)).total)),
-  )
 
 // --- 2.1 and 2.2: completing a draft and canceling an order ----------------
 

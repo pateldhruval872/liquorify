@@ -1,0 +1,33 @@
+{
+  "test": "tracking",
+  "revision": "f467aeb6",
+  "stamp": "p11p3r2",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "added tracking before shipping, then reloaded",
+      "panel": "Unfulfilled Shop location Actions P11 Tracking Ground p11p3r2 $5.00 UPS: 1Z999AA10123456784 Awaiting Carrier Actions P11 Tracking p11p3r2 $20.00 × 1 Mark as fulfilled"
+    },
+    {
+      "step": "edited it before shipping, then reloaded",
+      "panel": "Unfulfilled Shop location Actions P11 Tracking Ground p11p3r2 $5.00 UPS: 1Z999AA10123456785 Awaiting Carrier Actions P11 Tracking p11p3r2 $20.00 × 1 Mark as fulfilled"
+    },
+    {
+      "step": "removed it before shipping, then reloaded",
+      "panel": "Unfulfilled Shop location Actions P11 Tracking Ground p11p3r2 $5.00 P11 Tracking p11p3r2 $20.00 × 1 Mark as fulfilled"
+    },
+    {
+      "step": "added tracking after shipping, then reloaded",
+      "panel": "Fulfilled Shop location Fulfilled less than a minute ago Actions P11 Tracking Ground p11p3r2 $5.00 USPS: 9400111899223817630345 Awaiting Carrier Actions P11 Tracking p11p3r2 $20.00 × 1 Mark as delivered Add tracking"
+    },
+    {
+      "step": "edited it after shipping, then reloaded",
+      "panel": "Fulfilled Shop location Fulfilled less than a minute ago Actions P11 Tracking Ground p11p3r2 $5.00 USPS: 9400111899223817630346 Awaiting Carrier Actions P11 Tracking p11p3r2 $20.00 × 1 Mark as delivered Add tracking"
+    },
+    {
+      "step": "removed it after shipping, then reloaded",
+      "panel": "Fulfilled Shop location Fulfilled less than a minute ago Actions P11 Tracking Ground p11p3r2 $5.00 P11 Tracking p11p3r2 $20.00 × 1 Mark as delivered Add tracking"
+    }
+  ],
+  "outside": []
+}

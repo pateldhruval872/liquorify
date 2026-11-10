@@ -1,0 +1,40 @@
+{
+  "test": "fulfilment-edited",
+  "revision": "f467aeb6",
+  "stamp": "p11p3r2",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "opened the order",
+      "panels": [
+        {
+          "status": "Unfulfilled",
+          "text": "Unfulfilled Shop location Actions P11 Edit fulfilment Ground p11p3r2 $5.00 P11 Edit fulfilment p11p3r2 $20.00 × 1 Mark as fulfilled"
+        }
+      ]
+    },
+    {
+      "step": "chose the destination warehouse and pressed Move and re-quote",
+      "dialog": "Edit fulfillment Change where this fulfillment ships from and which delivery method carries it. Ships from E2E Destination Warehouse Delivery method P11 Edit fulfilment Ground p11p3r2 — $5.00 Cancel Save Close"
+    },
+    {
+      "step": "closed the dialog, then reloaded",
+      "panels": [
+        {
+          "status": "Unfulfilled",
+          "text": "Unfulfilled E2E Destination Warehouse Actions P11 Edit fulfilment Ground p11p3r2 $5.00 P11 Edit fulfilment p11p3r2 $20.00 × 1 Mark as fulfilled"
+        }
+      ]
+    },
+    {
+      "step": "chose P11 Express, then reloaded",
+      "panels": [
+        {
+          "status": "Unfulfilled",
+          "text": "Unfulfilled E2E Destination Warehouse Actions P11 Edit fulfilment Express p11p3r2 $12.00 P11 Edit fulfilment p11p3r2 $20.00 × 1 Mark as fulfilled"
+        }
+      ]
+    }
+  ],
+  "outside": []
+}

@@ -1,0 +1,20 @@
+{
+  "test": "fulfilment-added",
+  "revision": "f467aeb6",
+  "stamp": "p11p3r2",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "opened an order of 2 units whose fulfilment was canceled",
+      "panels": [
+        {
+          "status": "Canceled",
+          "text": "Canceled Shop location Actions P11 Add fulfilment Ground p11p3r2 $5.00 P11 Add fulfilment p11p3r2 $20.00 × 2"
+        }
+      ],
+      "card": "Fulfillments 1 Unfulfilled Canceled Shop location Actions P11 Add fulfilment Ground p11p3r2 $5.00 P11 Add fulfilment p11p3r2 $20.00 × 2",
+      "addFulfillmentOffered": false
+    }
+  ],
+  "outside": []
+}
