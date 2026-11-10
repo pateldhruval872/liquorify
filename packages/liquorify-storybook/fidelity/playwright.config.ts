@@ -141,6 +141,8 @@ export default defineConfig({
     'loyalty-actions.spec.ts',
     'inventory-actions.spec.ts',
     'order-actions.spec.ts',
+    'fulfilment-actions.spec.ts',
+    'after-sale-actions.spec.ts',
   ],
   outputDir: './results/test-output',
   workers: 1,

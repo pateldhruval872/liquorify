@@ -19,6 +19,7 @@ import {
   toast,
   withBody,
 } from './p9'
+import { inventoryRow, onHand, openInventory } from './p11-orders'
 
 /**
  * The platform batch's step P11, part 1, G-87: the inventory actions batch 6
@@ -168,25 +169,6 @@ async function purchaseOrder(
 // --- Reading the screens ---------------------------------------------------
 
 /** The inventory list, searched for one product. */
-async function openInventory(page: Page, search: string) {
-  await openIn(page, storeId, `/inventory?search=${encodeURIComponent(search)}`)
-  await expect(page.getByRole('heading', { name: /^inventory$/i })).toBeVisible({
-    timeout: 15_000,
-  })
-}
-
-const inventoryRow = (page: Page, product: string, location: string) =>
-  page.getByRole('row').filter({ hasText: product }).filter({ hasText: location })
-
-/** The on-hand count a row of the inventory list shows. */
-async function onHand(page: Page, product: string, location: string) {
-  const cell = inventoryRow(page, product, location).getByRole('button', {
-    name: /edit on-hand count/i,
-  })
-  await expect(cell).toBeVisible({ timeout: 15_000 })
-  return Number.parseInt((await cell.innerText()).trim(), 10)
-}
-
 async function openTransfer(page: Page, document: Document) {
   await openIn(page, storeId, `/transfers/${document.id}`)
   await expect(page.getByRole('heading', { name: document.number })).toBeVisible({
