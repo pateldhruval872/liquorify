@@ -34,6 +34,12 @@ const newReport = async (page: Page, query?: Record<string, unknown>) => {
     `/reports/new${query ? `?query=${encodeURIComponent(JSON.stringify(JSON.stringify(query)))}` : ''}`,
   )
   await expect(builder(page)).toBeVisible({ timeout: 15_000 })
+  // With no metric the page sends no query, so the report keeps its loading
+  // placeholders under the builder's own message.
+  if (Array.isArray(query?.metrics) && query.metrics.length === 0) {
+    await expect(builder(page).getByText('Pick at least one metric.')).toBeVisible()
+    return
+  }
   await expect(page.locator('[data-slot="skeleton"]:visible')).toHaveCount(0, { timeout: 20_000 })
 }
 
@@ -250,19 +256,103 @@ const reportingCases: Case[] = [
         .getByRole('button', { name: /Last 30 days/ })
         .first()
         .click()
-      const days = page.locator('[data-slot="popover-content"] button[name="day"]')
-      await expect(days.first()).toBeVisible()
-      await days.nth(3).click()
-      await days.nth(10).click()
+      // One click on a day of the current month moves the range's start
+      // there (B5); the end stays today.
+      const start = new Date()
+      start.setUTCDate(Math.max(1, start.getUTCDate() - 5))
+      await page
+        .getByRole('button', {
+          name: new RegExp(
+            `${start.toLocaleString('en-US', { month: 'long', timeZone: 'UTC' })} ${start.getUTCDate()}(st|nd|rd|th), ${start.getUTCFullYear()}`,
+          ),
+        })
+        .last()
+        .click()
       await page.getByRole('button', { name: 'Apply' }).click()
       await page.mouse.move(0, 0)
       return page.getByRole('button', { name: /–/ }).first()
     },
     inStory: (page) => page.getByRole('button', { name: /–/ }).first(),
   },
+  {
+    id: 'CMP-DA-G-17',
+    name: 'b11v-report-builder-another-family',
+    story: 'admin-dashboard-reporting-report-builder--another-family',
+    window: { width: 1280, height: 1800 },
+    screen: async (page) => {
+      await newReport(page, newReportQuery)
+      await builder(page).getByRole('checkbox', { name: 'Payments received' }).click()
+      await expect(builder(page).getByRole('checkbox', { name: 'Total sales' })).not.toBeChecked()
+      await page.evaluate(() => (document.activeElement as HTMLElement | null)?.blur())
+      await page.mouse.move(0, 0)
+      return builder(page)
+    },
+    inStory: (page) => card(page, 'Report settings'),
+  },
+  builderCase('custom-range', 'custom-range', {
+    ...newReportQuery,
+    time_range: { since: '2026-09-07', until: '2026-09-20' },
+  }),
+  builderCase('filtered', 'filtered', {
+    ...overTime(['total_sales', 'orders'], 'day'),
+    // The story adds a channel; one payment status filter reaches the
+    // same filter rows.
+    filters: [{ dimension: 'payment_status', op: 'in', value: ['paid', 'partially_refunded'] }],
+  }),
+  ...(
+    [
+      ['new-report', 'new-report', newReportQuery],
+      ['ranking', 'ranking', channelQuery],
+    ] as const
+  ).map(
+    ([name, story, query]): Case => ({
+      id: 'CMP-DA-G-17',
+      name: `b11v-report-workspace-${name}`,
+      story: `admin-dashboard-reporting-report-workspace--${story}`,
+      window: { width: 1280, height: 1800 },
+      screen: async (page) => {
+        await newReport(page, query)
+        return builder(page).locator('xpath=..')
+      },
+      inStory: (page) => storyRoot(page).locator(':scope > *').first(),
+    }),
+  ),
+  ...(
+    [
+      ['this-period', 'this-period', overTime(['total_sales', 'orders'], 'day')],
+      [
+        'no-figures',
+        'no-figures',
+        overTime(['total_sales', 'orders'], 'day', {
+          compare: 'previous_period',
+          time_range: { since: '2026-10-01', until: '2026-10-05' },
+        }),
+      ],
+      ['tooltip', 'tooltip', newReportQuery],
+    ] as const
+  ).map(
+    ([name, story, query]): Case => ({
+      id: 'CMP-DUI-P-10',
+      name: `b11v-chart-${name}`,
+      story: `dashboard-ui-primitives-chart--${story}`,
+      screen: async (page) => {
+        await newReport(page, query)
+        const chart = reportView(page).locator('[data-slot="chart"]').first()
+        if (name === 'tooltip') {
+          const box = await chart.boundingBox()
+          if (box) await page.mouse.move(box.x + box.width * 0.6, box.y + box.height / 2)
+          await expect(page.locator('.recharts-tooltip-wrapper').first()).toBeVisible()
+        }
+        return chart
+      },
+      inStory: (page) => page.locator('[data-slot="chart"]').first(),
+    }),
+  ),
 ]
 
 // The email templates, on the emails gem's test app
+
+const LAYOUT = 'layouts.spree.base_mailer'
 
 const emailsPage = async (page: Page, path: string, as?: 'emailViewer') => {
   const creds = emailsAdmin()
@@ -485,6 +575,90 @@ const emailCases: Case[] = [
     },
     inStory: (page) => page.getByRole('alertdialog').or(page.getByRole('dialog')).last(),
     after: revert,
+  },
+  ...(
+    [
+      ['desktop', 'desktop', undefined],
+      ['phone', 'phone', 'Mobile width'],
+      ['plain-text', 'plain-text', 'Plain text'],
+    ] as const
+  ).map(
+    ([name, story, control]): Case => ({
+      id: 'CMP-DA-G-08',
+      name: `b11v-email-preview-frame-${name}`,
+      story: `admin-dashboard-email-templates-email-preview-frame--${story}`,
+      window: { width: 1280, height: 1200 },
+      screen: async (page) => {
+        await template(page, RESET)
+        const card = previewCard(page)
+        await expect(card.locator('iframe')).toBeVisible({ timeout: 15_000 })
+        if (control === 'Plain text') await card.getByRole('tab', { name: control }).click()
+        if (control === 'Mobile width') await card.getByRole('button', { name: control }).click()
+        await page.mouse.move(0, 0)
+        return control === 'Plain text'
+          ? card.locator('pre').first()
+          : card.locator('iframe').locator('xpath=..')
+      },
+      inStory: (page) => storyRoot(page).locator(':scope > *').first(),
+    }),
+  ),
+  {
+    id: 'CMP-DUI-P-12',
+    name: 'b11v-code-editor-problem',
+    story: 'dashboard-ui-primitives-code-editor--problem',
+    window: { width: 1280, height: 1200 },
+    screen: async (page) => {
+      await template(page, RESET)
+      await page.getByRole('textbox', { name: 'Template code' }).click()
+      await page.keyboard.press('ControlOrMeta+End')
+      await page.keyboard.insertText('\n{{ name }')
+      await expect(
+        page.getByRole('alert').filter({ hasText: 'This template does not render' }),
+      ).toBeVisible({ timeout: 15_000 })
+      await page.mouse.move(0, 0)
+      return page.locator('.cm-editor').first()
+    },
+    inStory: (page) => page.locator('.cm-editor').first(),
+  },
+  {
+    id: 'CMP-DUI-P-12',
+    name: 'b11v-code-editor-suggesting-fields',
+    story: 'dashboard-ui-primitives-code-editor--suggesting-fields',
+    viewport: true,
+    window: { width: 1280, height: 800 },
+    screen: async (page) => {
+      await template(page, RESET)
+      await page.getByRole('textbox', { name: 'Template code' }).click()
+      await page.keyboard.press('ControlOrMeta+End')
+      await page.keyboard.type('\nHi {{ customer.')
+      const list = page.getByRole('listbox').first()
+      await expect(list).toBeVisible()
+      return list
+    },
+    inStory: (page) => page.getByRole('listbox').first(),
+  },
+  {
+    // A layout that does not render breaks every email it wraps, so saving
+    // one lists each email's problem. The draft is reverted after the case.
+    id: 'CMP-DA-G-08',
+    name: 'b11v-problems-alert-in-several-emails',
+    story: 'admin-dashboard-email-templates-problems-alert--in-several-emails',
+    screen: async (page) => {
+      await template(page, LAYOUT)
+      await page.getByRole('textbox', { name: 'Template code' }).click()
+      await page.keyboard.press('ControlOrMeta+End')
+      await page.keyboard.insertText("\n{{ 'x' | monee }}")
+      await page.getByRole('button', { name: 'Save draft' }).click()
+      const alert = page.getByRole('alert').filter({ hasText: 'This template does not render' })
+      await expect(alert).toBeVisible({ timeout: 15_000 })
+      return alert
+    },
+    inStory: (page) => page.getByRole('alert').first(),
+    after: async () => {
+      const { api, headers } = await emailsApi()
+      await api.delete(`/api/v3/admin/email_templates/${LAYOUT}?language=en`, { headers })
+      await api.dispose()
+    },
   },
 ]
 
