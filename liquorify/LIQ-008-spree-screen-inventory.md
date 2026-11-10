@@ -245,7 +245,7 @@ The seller panel uses the dashboard's design system and shared pages. **Code pat
 
 | ID | Screen and route | Scope | Workflows (browser tests) | Meaningful states | Code |
 |---|---|---|---|---|---|
-| SP-AUTH-01 | Sign in, `/login` | Public | Sign in; sign out back to it (`seller-panel-home.spec.ts`) | Wrong password | SP/`login.tsx` |
+| SP-AUTH-01 | Sign in, `/login` | Public | Sign in; sign out back to it (`seller-panel-home.spec.ts`) | Wrong password; a store staff member who is not a seller's member, refused with the wrong password's message | SP/`login.tsx` |
 | SP-AUTH-02 | Forgot password, `/forgot-password` | Public | Request a reset link (`seller-panel-home.spec.ts`) | Sent | SP/`forgot-password.tsx` |
 | SP-AUTH-03 | Reset password, `/reset-password` | Public, with the link | Choose a new password | Invalid link | SP/`reset-password.tsx` |
 | SP-AUTH-04 | Accept invitation, `/accept-invitation/$invitationId` | Public, with the link | Join a seller's team and land in its panel (`seller-invitation-acceptance.spec.ts`) | Invalid link | SP/`accept-invitation.tsx` |
@@ -256,7 +256,7 @@ The seller panel uses the dashboard's design system and shared pages. **Code pat
 | SP-PRD-02 | New product, `/$sellerId/products/new` | `products`, write | List a product (`seller-catalog.spec.ts`) | Field errors | SP/`product.tsx` |
 | SP-PRD-03 | Product, `/$sellerId/products/$productId` | `products` | Rename; submit a draft for review (`seller-panel-products.spec.ts`) | Submission pending, approved, rejected, withdrawn | SP/`product.tsx`; slot `seller.product.form_sidebar` |
 | SP-ORD-01 | Orders, `/$sellerId/orders` | `orders` | List the seller's own orders (`seller-panel-earnings.spec.ts`) | Fulfillment statuses | SP/`orders.tsx` |
-| SP-ORD-02 | Order, `/$sellerId/orders/$orderId` | `orders`, `fulfillments` | Fulfil, split, labels, deliveries, returns, cancel; see what it earned (`seller-panel-earnings.spec.ts`) | Fulfillment statuses | SP/`order.tsx`; `components/orders/`; slot `seller.order.form_sidebar` |
+| SP-ORD-02 | Order, `/$sellerId/orders/$orderId` | `orders`, `fulfillments` | Fulfil, split, labels, deliveries, returns, claims, cancel; see what it earned (`seller-panel-earnings.spec.ts`) | Fulfillment statuses; an exchanges card only while the order has an exchange | SP/`order.tsx`; `components/orders/`; slot `seller.order.form_sidebar` |
 | SP-FIN-01 | Earnings, `/$sellerId/earnings` | `seller_earnings` | Balance and the sales behind it (`seller-panel-earnings.spec.ts`) | — | SP/`earnings.tsx`; `components/finance/balance-summary.tsx` |
 | SP-FIN-02 | Payouts, `/$sellerId/payouts` | `seller_earnings` | List payouts (`seller-panel-earnings.spec.ts`) | Pending, processing, completed, failed, unresolved | SP/`payouts.tsx` |
 | SP-FIN-03 | Payout, `/$sellerId/payouts/$payoutId` | `seller_earnings` | The earnings a payout covers (`seller-panel-earnings.spec.ts`) | The statuses above | SP/`payout.tsx`; slot `seller.payout.form_sidebar` |

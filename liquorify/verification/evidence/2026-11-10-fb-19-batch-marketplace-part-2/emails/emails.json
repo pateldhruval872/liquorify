@@ -1,0 +1,20 @@
+[
+  {
+    "id": "EM-S-02",
+    "to": "Harbour Cask member",
+    "subject": "Shop Password Reset Instructions",
+    "links": [
+      "<site>",
+      "<site>/reset-password?token=…"
+    ]
+  },
+  {
+    "id": "EM-S-03",
+    "to": "the invitee",
+    "subject": "Invitation to join Harbour Cask Co.",
+    "links": [
+      "<site>",
+      "<site>/accept-invitation/inv_EfhxLZ9ck8?token=…"
+    ]
+  }
+]
