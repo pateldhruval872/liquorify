@@ -1049,7 +1049,7 @@ export const harbourCommissionLines: CommissionLine[] = [
     seller_name: 'Harbour Cask Co.',
     commission_rate: {
       id: 'crate_EfhxLZ9ck8',
-      name: 'Spirits and wine, 12%',
+      name: 'Spirits and wine',
       code: null,
       enabled: true,
       position: 1,

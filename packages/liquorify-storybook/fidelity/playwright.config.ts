@@ -88,6 +88,7 @@ export default defineConfig({
     'screens-batch-11.spec.ts',
     'compare-batch-11.spec.ts',
     'screens-batch-13.spec.ts',
+    'compare-batch-13.spec.ts',
     'fl-22.spec.ts',
     'fl-18.spec.ts',
     'sf-dev-emails.spec.ts',
