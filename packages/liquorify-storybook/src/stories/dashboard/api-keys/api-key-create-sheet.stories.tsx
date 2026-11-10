@@ -26,9 +26,13 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 // The sheet takes clicks once it has opened, which is when it focuses Name.
+// Its scopes stay disabled until the admin's own permissions arrive, which can
+// come after the list of scopes.
 const grid = async () => {
   await screen.findByRole('checkbox', { name: 'View Products' })
   await waitFor(() => expect(screen.getByLabelText('Name')).toHaveFocus())
+  const fullAccess = screen.getByRole('checkbox', { name: /Full access/ })
+  await waitFor(() => expect(fullAccess).not.toHaveAttribute('data-disabled'))
 }
 
 // A new key starts as a secret key, with nothing chosen.
