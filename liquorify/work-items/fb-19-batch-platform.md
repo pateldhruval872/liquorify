@@ -44,7 +44,7 @@ The capabilities with no screen in [LIQ-006](../LIQ-006-product-capability-basel
 
 Left out: CAP-11-12, multi-store administration, which has screens (dashboard shell part 2 and batch 3) and its own [work item](fb-19-batch-multi-store-administration.md), proposed on 2026-11-03 and built on 2026-11-04 in #49 ([record](../verification/2026-11-04-fb-19-batch-multi-store-administration.md)), and the Enterprise and documentation-only features (LIQ-006 §12). Its browser tests are G-72, which the multi-store record proposes to defer to this batch's browser-test work, with G-57 and P8, pending the owner's answer.
 
-Seven steps also hold checks that area batches deferred here, although their capabilities have screens: P6, the dashboard shell's untested behaviours (G-22); P7, what the server refuses within one store (G-11, G-23, G-32 and G-40); P8, the catalog's untested behaviours (G-57); P9, the untested actions in settings, the catalog, multi-store administration, Getting Started and the storefront's checkout (G-37 with G-68, G-61, G-69, G-72, G-75 and G-84); P10, the remaining refusals within one store (G-11, with G-45, G-50, G-56, G-60, G-70, G-79, G-83 and batch 6's requests); P11, the untested actions in inventory, orders and what happens after the sale (G-87, G-90 and G-92); and P12, the order refusals of batch 8 (G-91 and G-95).
+Eight steps also hold checks that area batches deferred here, although their capabilities have screens: P6, the dashboard shell's untested behaviours (G-22); P7, what the server refuses within one store (G-11, G-23, G-32 and G-40); P8, the catalog's untested behaviours (G-57); P9, the untested actions in settings, the catalog, multi-store administration, Getting Started and the storefront's checkout (G-37 with G-68, G-61, G-69, G-72, G-75 and G-84); P10, the remaining refusals within one store (G-11, with G-45, G-50, G-56, G-60, G-70, G-79, G-83 and batch 6's requests); P11, the untested actions in inventory, orders and what happens after the sale (G-87, G-90 and G-92); P12, the order refusals of batch 8 (G-91 and G-95); and P13, the customer behaviours and refusals of batch 10 (G-97 and G-99).
 
 ## 3. Coverage inventory
 
@@ -132,6 +132,7 @@ The inventory came first, as the owner asked. Each check runs once what it needs
 | P10 | The refusals within one store that G-11 still holds after P7: the requests of G-45, G-50, G-56, G-60, G-70 and G-79, part 3's (G-83, with three of G-84's behaviours) and batch 6's, checked as P7 checked its own. Added on 2026-11-04 as the consolidated check of decision 3, when the owner linked G-45 and G-70 to G-11. Its completion criteria are below, and its requests, expected answers and closing conditions were recorded before implementation on 2026-11-05 | Part 3 of the catalog and pricing batch, merged; in its own pull request, before Liquorify changes identity or access |
 | P11 | Browser tests for the 48 inventory, order and after-sale actions that batch 6 and both parts of batch 8 captured but no test drives (G-87, G-90 and G-92), each listed with its expected result. Added on 2026-11-09, when the owner asked for a bounded follow-up for them, since P9 had finished. Buying a return label stays with P4. Its completion criteria are below | The merges of #64, #80 and #84, all done; in its own pull request, in parts if need be, with action 3.15 in the storefront's repository. Action 2.21 follows the owner's answer to row 39 of the owner decision brief |
 | P12 | The refusals within one store that batch 8 recorded and P10 did not send: G-95, with G-91's outstanding requests. Added on 2026-11-09, when the owner linked G-95 to G-11 through a named follow-up to P10. Its checks are recorded before implementation, as P10's were | The merges of #80 and #84, both done; P10's scripts; in its own pull request, before Liquorify changes identity or access. Checks recorded and run on 2026-11-09, every request passing twice in a row ([record](../verification/2026-11-09-fb-19-platform-p12.md)) |
+| P13 | Batch 10's customer behaviours no browser test drives (G-97), in part A, and the refusals its narrower roles could meet (G-99), in part B, kept apart. Added on 2026-11-10, when the owner asked for a bounded customer verification follow-up and linked G-99 to G-11 ([record](../verification/2026-11-10-owner-answers-batch-10.md)). Part B's expected refusals and controls are recorded before implementation, as P12's were | The merge of #94; P10's judge; in its own pull request, in two parts if need be, with part B before Liquorify changes identity or access |
 | — | The update check against a stand-in server | FB-09 |
 
 ### P2: keys, OAuth clients, the agent server and webhooks, used from outside
@@ -642,6 +643,95 @@ Buying a return label and refunding a label call a provider, and stay with P4; P
 | G-11 | G-91 and G-95 have closed, and everything else it holds has closed. P10 left G-50, G-70 and its own inventory controls open | Any of those stays open. G-11 is expected to stay open after P12 |
 
 A refused caller answered with a success, or with an answer that carries the protected record's values, is recorded in LIQ-004 as a defect with its severity, brought to the owner as a security finding, and keeps its gap and G-11 open. A control that fails keeps its row failing, and the record names the defect or cause. No result is described as passing that did not pass in both recorded runs. Closing either gap claims nothing about tenant isolation.
+
+### P13: customer verification, a follow-up to batch 10
+
+Batch 10 (#94) captured the customer screens on Spree's running dashboard. It recorded 14 behaviours that no browser test drives (G-97), and the requests the narrower roles could make that no Spree spec sends (G-99). On 2026-11-10 the owner added this bounded follow-up for both ([record](../verification/2026-11-10-owner-answers-batch-10.md)). Its browser tests (part A) and its refusal checks (part B) are separate, with separate evidence. P11 and P12 keep the scopes they already have. P13 adds nothing to them, and they add nothing to it.
+
+**What it depends on.**
+
+- Batch 10 (#94), merged.
+- Spree's browser-test server at a recorded revision, as batch 10 used. Each test and check adds the records it starts from, through the dashboard or the Admin API, named with the run's stamp. It puts back any shared setting it changes. Every request stays in the default store, and nothing opens another store's customers.
+- No real provider and no mail service. Whether an email is delivered stays with G-16 and G-77.
+- Its own pull request, in two parts if need be. Part B runs before Liquorify changes identity or access, as P10 and P12 do.
+
+#### Part A: browser tests for G-97
+
+**How each test is written.** As P9's and P11's were: driven through the dashboard as the admin, asserting what the screen shows and, after a reload, what was saved. The expected results below say what should happen. How each test reaches its starting state is recorded in P13's verification record. The behaviours are those in [batch 10's record §2.3](../verification/2026-11-09-fb-19-batch-customers.md#23-behaviours-no-browser-test-drives-criterion-15).
+
+| # | Behaviour | Expected result | Its own dependency or known defect |
+|---|---|---|---|
+| A.1 | Exporting a customer's data from the privacy card | The dashboard downloads a file for the customer. The file holds the sections Spree's export gathers: the profile, addresses, orders, store credit, gift cards and consent records. The customer's data requests then list a completed access request | A customer with an order, an address and a store credit, added by the test. The file is checked in the test and never committed. The internal note in the file is batch 10's B7, which is recorded and not a failure |
+| A.2 | Editing an address and deleting another | After a reload, the edited address shows its new street and city, and the deleted address is gone. An address used by a completed order is kept for that order, as Spree's specs require | — |
+| A.3 | Setting a default billing address, then a default shipping address, from the row menu | After a reload, the chosen address carries the default it was given, and the other default stays where it was | **SD-45**: the other default is cleared today. The test fails until it is fixed, and the failing result is kept |
+| A.4 | Adding, editing and deleting a tax registration, including a refused number and a kind typed in | Each change shows on the card after a reload. A number that fails its kind's format is refused, and the sheet says what is wrong with it. A kind typed in stays in its field and is saved as typed | **SD-44** (the typed kind empties its field) and **SD-46** (the refusal says only "is invalid"): the tests that read those fail until they are fixed, and the failing results are kept. Checking a number with a registry needs a registered validator, which the browser-test server does not have, so the check action is NOT_RUN with that reason, and G-97 stays open for it alone |
+| A.5 | Editing the internal note, and clearing it | After a reload, the card shows the new text, and then its empty state | — |
+| A.6 | Deleting an unused store credit from the customer's page, and trying to delete a used one | The unused credit is gone after a reload. The used credit is refused with Spree's message, shown where the merchant can read it, and stays listed | A used credit: one the test applies to an order |
+| A.7 | Removing customers from a group, and removing a tag, in bulk from the list | After a reload, the selected customers are no longer in the group and no longer carry the tag. Customers not selected keep theirs | — |
+| A.8 | Filtering the list by group, by company, by tags and by erased customers | Each filter lists only matching customers, and clearing it lists them all again. Erased customers appear only with their filter on | A company with a member customer, added by the test |
+| A.9 | Importing a customer file through the wizard, to the end | The wizard finishes and reports its rows. After a reload, the file's customers are listed with their addresses. A row the wizard refuses is reported with its reason | A file the test writes in the format the wizard asks for |
+| A.10 | Exporting the customer list | The dashboard downloads the file when it is ready, and the file holds the store's customers. The email link sent when an export takes a while is SD-17's and is not part of this test | — |
+| A.11 | Saving a profile with an email another customer has, and creating a customer with that email | Each is refused, with "Email has already been taken" under the email field, and nothing is saved | — |
+| A.12 | The orders card's View all link | It opens the order list filtered to the customer, listing only that customer's orders | A customer with more orders than the card shows |
+| A.13 | The JSON drawer on a customer's page | It opens and shows the customer's record, with its prefixed id and email | — |
+| A.14 | Filling a customer field on a customer's page | After a reload, the card shows the saved value | A customer field defined by the test |
+
+#### Part B: refusal checks for G-99
+
+P13 sends, within one store, as a caller who may not, the requests batch 10's narrower roles could make or were shown the controls for ([batch 10's record §3.1](../verification/2026-11-09-fb-19-batch-customers.md#31-what-the-interface-shows-each-role) and [§3.2](../verification/2026-11-09-fb-19-batch-customers.md#32-what-the-server-refuses), B1 to B4, B6, B9 and B10), each beside a control that may. Like P10 and P12, it uses P10's judge (`one-store.ts`) and the callers in `staff.ts`, and it claims nothing about tenant isolation.
+
+**Recorded before implementation.** The checks below were recorded on 2026-11-10, before any of P13's scripts was written, from Spree's code at `05b7c95b`, which is the same at `44be970f`. An expectation may be corrected only as P10 allows: between two refusals, before the first recorded run, where Spree's code gives the reason, with the reason in the record. An answer that lets a caller read or change what it may not is never corrected into an expectation.
+
+**The callers.** As batch 10 created them:
+
+| Caller | Role's keys, as created |
+|---|---|
+| Order manager | `write_orders`, `write_payments`, `write_fulfillments`, `write_refunds`, `write_gift_cards`, `write_store_credits`, `read_customers` |
+| Support | `read_orders`, `read_customers`, `read_dashboard` |
+| Customer manager | `write_customers` |
+| Merchandiser | `write_products`, `write_categories`, `write_collections`, `write_stock` |
+| Admin | Every key |
+
+A write key also grants its read key (`Spree.permissions.expand_keys`), so the order manager holds `read_orders`, `read_payments`, `read_store_credits` and `read_gift_cards`, and the customer manager holds `read_customers`.
+
+**How each expected answer is written.** By P10's rules A1 and A2, with two points from the customers' own controllers:
+
+- **C1. A change to one customer, by a role without `write_customers`:** 403 `access_denied` naming `write_customers`. The customers controller declares its record lookup again, which puts it after the key gate (`CustomersController`, `before_action :set_resource`), so the key gate answers first. Batch 10 saw this answer for support's group save (B10).
+- **C2. A write nested under a customer the role may only read:** 404 `record_not_found`. The nested controllers find the customer among those the caller may change before the key gate runs (`Customers::BaseController#set_parent`), as Spree's own specs expect for store credits.
+- **C3. The customer's export:** a read of the customer, then a check of `read_orders`, `read_payments`, `read_store_credits` and `read_gift_cards`. A role missing one is refused with 403 `access_denied` naming the first missing key (`EXPORT_PERMISSIONS`).
+
+A **control** is the same request from a caller who may make it, in the same run. It must succeed with the status written for it. For a read, its answer must carry the values the refused answers are searched for. For a write, the read-back must see the change.
+
+| # | Request | Refused callers and expected answer | Control | Gap |
+|---|---|---|---|---|
+| B.1 | Save a customer's profile, groups or internal note: `PATCH /api/v3/admin/customers/<id>` | Order manager, support: 403 `access_denied` `write_customers` (C1) | Customer manager: 200, changed | G-99 |
+| B.2 | Create a customer: `POST /api/v3/admin/customers` | Order manager, support: 403 `access_denied` `write_customers` (A1) | Customer manager: 201, created | G-99 |
+| B.3 | Delete a customer with no orders: `DELETE /api/v3/admin/customers/<id>` | Order manager, support: 403 `access_denied` `write_customers` (C1) | Customer manager: 204, and the customer is gone | G-99 |
+| B.4 | Erase a customer: `POST /api/v3/admin/customers/<id>/anonymize` | Order manager, support: 403 `access_denied` `write_customers` (C1) | Customer manager: 200, and the customer reads as erased | G-99 |
+| B.5 | Export a customer's data: `GET /api/v3/admin/customers/<id>/export` | Support: 403 `access_denied` `read_payments`. Customer manager: 403 `access_denied` `read_orders` (C3) | Order manager, who holds every key the export asks for: 200, carrying the customer's email. Admin: 200, the same | G-99 |
+| B.6 | Add, change and delete an address: `POST`, `PATCH` and `DELETE /api/v3/admin/customers/<id>/addresses[/<address_id>]` | Order manager, support: 404 `record_not_found` (C2) | Customer manager: 201, 200 and 204, each seen on read-back | G-99 |
+| B.7 | Issue store credit: `POST /api/v3/admin/customers/<id>/store_credits` | Order manager, support: 404 `record_not_found` (C2) | Admin: 201, and the credit is listed | G-99 |
+| B.8 | Add customers to a group, and remove them, in bulk: `POST /api/v3/admin/customers/bulk_add_to_groups` and `bulk_remove_from_groups` | Order manager, support: 403 `access_denied` `write_customers` (A1) | Customer manager: 200, and the membership changed | G-99 |
+| B.9 | Add a tag and remove it, in bulk: `POST /api/v3/admin/customers/bulk_add_tags` and `bulk_remove_tags` | Order manager, support: 403 `access_denied` `write_customers` (A1) | Customer manager: 200, and the tags changed | G-99 |
+| B.10 | Read a customer's store credit: `GET /api/v3/admin/customers/<id>/store_credits` | Customer manager: 403 `access_denied` `read_store_credits`. It may read the customer, so the lookup finds it, and the key gate answers for the store credit scope (`scoped_resource :store_credits`) | Order manager: 200, carrying the credit's amount | G-99 |
+| B.11 | Read a customer's orders: `GET /api/v3/admin/orders` filtered to the customer, and `GET /api/v3/admin/customers/<id>?expand=orders` | Customer manager: the list is 403 `access_denied` `read_orders` (A1); the customer is 200 and carries none of the orders' numbers, because the expansion is dropped for a caller without `read_orders` | Order manager: 200 for both, carrying the orders' numbers | G-99 |
+| B.12 | Read the customer list, a customer and the groups list: `GET /api/v3/admin/customers`, `/customers/<id>` and `/customer_groups` | Merchandiser: 403 `access_denied` `read_customers` for each (A1, C1) | Support: 200 for each, carrying the run's customer's email and group's name | G-99 |
+
+**Closing.** Under the owner's delegation, as delegated acceptance, not the owner's review:
+
+1. **One browser test for each behaviour** A.1 to A.14, apart from A.4's registry check while no validator is registered, each shown to fail when what it asserts does not happen.
+2. **Every check B.1 to B.12** sent with its control, as P7's criteria 2 to 10 set out: the refusals written before the run, nothing exposed, nothing changed, the checks shown to fail against a stand-in server, and results read from the evidence.
+3. **Two recorded runs** in a row, in the pinned Playwright image, on freshly started servers.
+4. **A failure is kept, never hidden.** A test that fails because Spree does not do what it should is recorded in LIQ-004 as a defect, with a number from the defect register, and its failing result is kept. It is not fixed in Spree's code, and the test is not weakened to pass. The failures named above on SD-44, SD-45 and SD-46 are expected and kept. A refused caller answered with a success, or with an answer that carries the protected record's values, is recorded as a defect with its severity, brought to the owner as a security finding, and keeps G-99 and G-11 open. A control that fails keeps its row failing and is recorded as a defect.
+5. **A record.** A verification record gives the revisions, each test's and check's result and evidence, and which results fail and on which defect. Evidence logs are saved with a `.txt` name.
+6. **Nothing else claimed.** Tenant isolation stays FB-03's validation, NOT_RUN, with ISO-1 to ISO-7 open. P13 claims nothing about requests or roles it did not send, nor about a real provider or email delivery.
+
+| Gap | Closes when | Stays open when |
+|---|---|---|
+| G-97 | Every behaviour A.1 to A.14 has a test that passes in both recorded runs, or fails only on SD-44, SD-45, SD-46 or another defect recorded under criterion 4. A.4's registry check then stays open alone, until a validator is registered on the server the tests use | A test fails for any other reason, or on a held behaviour the owner has not answered |
+| G-99 | Every check B.1 to B.12 passes in both recorded runs, with its control | Any refusal or control fails |
+
+G-11 closes only when G-99 has closed with the other gaps linked to it. Until a gap closes, the functional verification it names stays open, and no capability it touches is described as passing for it.
 
 ## 6. Acceptance criteria
 

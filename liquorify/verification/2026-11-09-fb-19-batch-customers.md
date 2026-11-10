@@ -340,3 +340,7 @@ The [evidence index](evidence/2026-11-09-fb-19-batch-customers/README.md) lists 
 | Not accepted here | Any answer to a gap, any exception or security risk, and any change of status the owner has not decided. G-96 to G-99 stay OPEN for the owner's answers, with their handling proposed, not decided; G-11 stays open. G-33, G-53, G-58 and G-81 stay open for their other stories. SD-44 to SD-46 stay open with their proposed severities. B1 to B11 stay recorded as Spree's behaviour, and whether to track any of them as a defect is the owner's. Tenant isolation stays NOT_RUN (§3.3), ISO-1 to ISO-7 stay open, and FB-03's result and who owns a shopper account stay with the owner. The work item stays PROPOSED and LIQ-004 DRAFT |
 
 What the checks did not show stays as §11 states it.
+
+## 14. The owner's answers (2026-11-10)
+
+On 2026-11-10 the owner answered G-96 to G-99 and SD-44 to SD-46. They are recorded apart from this record's technical acceptance, in [the owner's answers on batch 10](2026-11-10-owner-answers-batch-10.md): G-96 deferred, with each of its 39 stories given a destination and keeping its comparison status; G-97 deferred to the platform batch's step [P13](../work-items/fb-19-batch-platform.md#p13-customer-verification-a-follow-up-to-batch-10), part A; G-98 accepted as simulated interface-state coverage only; G-99 linked to G-11 through P13's part B; SD-45 accepted at Medium and SD-44 and SD-46 at Low, all open, with fixes deferred until after the baseline. Nothing in §1 to §13 changes with them.
