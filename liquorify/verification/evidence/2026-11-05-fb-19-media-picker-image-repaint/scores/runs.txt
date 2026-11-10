@@ -1,0 +1,79 @@
+Local runs for the repaint before capture, in the pinned Playwright image, with the Storybook built at 01b2092d.
+Captures: the committed visual/stories.spec.ts, writing to a separate folder (capture.config.ts), scored against the new references.
+
+f-capture-1 light identical | dark identical
+f-capture-2 light identical | dark identical
+f-capture-3 light identical | dark identical
+f-capture-4 light identical | dark identical
+f-capture-5 light identical | dark identical
+f-capture-6 light identical | dark identical
+f-capture-7 light identical | dark identical
+f-capture-8 light identical | dark identical
+f-capture-9 light identical | dark identical
+f-capture-10 light identical | dark identical
+f-capture-11 light identical | dark identical
+f-capture-12 light identical | dark identical
+f-capture-13 light identical | dark identical
+f-capture-14 light identical | dark identical
+f-capture-15 light identical | dark identical
+f-capture-16 light identical | dark identical
+f-capture-17 light identical | dark identical
+f-capture-18 light identical | dark identical
+f-capture-19 light identical | dark identical
+f-capture-20 light identical | dark identical
+f-capture-21 light identical | dark identical
+f-capture-22 light identical | dark identical
+f-capture-23 light identical | dark identical
+f-capture-24 light identical | dark identical
+f-capture-25 light identical | dark identical
+f-capture-26 light identical | dark identical
+f-capture-27 light identical | dark identical
+f-capture-28 light identical | dark identical
+f-capture-29 light identical | dark identical
+f-capture-30 light identical | dark identical
+f-capture-31 light identical | dark identical
+f-capture-32 light identical | dark identical
+f-capture-33 light identical | dark identical
+f-capture-34 light identical | dark identical
+f-capture-35 light identical | dark identical
+f-capture-36 light identical | dark identical
+f-capture-37 light identical | dark identical
+f-capture-38 light identical | dark identical
+f-capture-39 light identical | dark identical
+f-capture-40 light identical | dark identical
+
+The committed visual check, unchanged (check-committed.sh), against the new references:
+f-check-1 exit 0 2 passed counted none
+f-check-2 exit 0 2 passed counted none
+f-check-3 exit 0 2 passed counted none
+f-check-4 exit 0 2 passed counted none
+f-check-5 exit 0 2 passed counted none
+f-check-6 exit 0 2 passed counted none
+f-check-7 exit 0 2 passed counted none
+f-check-8 exit 0 2 passed counted none
+f-check-9 exit 0 2 passed counted none
+f-check-10 exit 0 2 passed counted none
+f-check-11 exit 0 2 passed counted none
+f-check-12 exit 0 2 passed counted none
+f-check-13 exit 0 2 passed counted none
+f-check-14 exit 0 2 passed counted none
+f-check-15 exit 0 2 passed counted none
+f-check-16 exit 0 2 passed counted none
+f-check-17 exit 0 2 passed counted none
+f-check-18 exit 0 2 passed counted none
+f-check-19 exit 0 2 passed counted none
+f-check-20 exit 0 2 passed counted none
+f-sheet-1 exit 0 14 passed counted none
+f-sheet-2 exit 0 14 passed counted none
+f-sheet-3 exit 0 14 passed counted none
+
+Deliberate changes with the check's tolerance of 25 (the investigation's diagnostic copy of the spec: the change's rule added, then the same repaint), against the new references:
+g-c01-picked-border-colour-repainted-at-25-1  1 failed  1 passed (4.4s)  counted 61
+g-c06-one-tile-radius-9-repainted-at-25-1  1 failed  1 passed (4.4s)  counted 49
+g-c07-check-badge-down-1px-repainted-at-25-1  2 passed (3.9s)  counted none
+g-c14-picked-border-colour-30-repainted-at-25-1  1 failed  1 passed (4.5s)  counted 76
+g-c15-picked-border-colour-5-repainted-at-25-1  1 failed  1 passed (4.5s)  counted 34
+g-c16-one-tile-border-colour-repainted-at-25-1  1 failed  1 passed (4.4s)  counted 36
+g-unchanged-repainted-at-25-1  2 passed (3.5s)  counted none
+g-unchanged-repainted-at-25-2  2 passed (3.5s)  counted none
+g-unchanged-repainted-at-25-3  2 passed (3.5s)  counted none
