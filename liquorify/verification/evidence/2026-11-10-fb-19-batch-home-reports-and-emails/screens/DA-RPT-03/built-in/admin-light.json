@@ -1,0 +1,19 @@
+{
+  "screen": "DA-RPT-03",
+  "state": "built-in",
+  "variant": "admin",
+  "role": null,
+  "server": "browser-test server",
+  "theme": "light",
+  "revision": null,
+  "path": "/<store>/reports/sq_s18jaGonyx",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "fullPage": true,
+  "capturedHeight": 1879,
+  "intercepted": null,
+  "settled": true,
+  "outside": []
+}

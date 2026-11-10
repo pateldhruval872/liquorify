@@ -1,0 +1,19 @@
+{
+  "screen": "DA-HOME-01",
+  "state": "operations-failed",
+  "variant": "admin",
+  "role": null,
+  "server": "browser-test server",
+  "theme": "light",
+  "revision": null,
+  "path": "/<store>",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "fullPage": false,
+  "capturedHeight": 960,
+  "intercepted": "The counters request is answered with a server error",
+  "settled": true,
+  "outside": []
+}

@@ -921,9 +921,14 @@ const template = (id: string) => async (page: Page) => {
   await expect(page.getByRole('textbox', { name: 'Template code' })).toBeVisible({
     timeout: 15_000,
   })
-  // A role that may only read templates gets no preview, and a sentence saying why.
+  // A role that may only read templates gets no preview, and a sentence saying
+  // why; so does an email whose kind of record the store has none of, such as
+  // a marketplace order group in a store with one seller.
   await expect(
-    page.getByText(/^Subject: /).or(page.getByText(/^Previews are rendered for people/)),
+    page
+      .getByText(/^Subject: /)
+      .or(page.getByText(/^Previews are rendered for people/))
+      .or(page.getByText(/^There is no .* to preview this email with yet\./)),
   ).toBeVisible({ timeout: 15_000 })
 }
 
@@ -950,6 +955,16 @@ const editorCaptures: Capture[] = [
     [
       ['order-confirmation', confirmation],
       ['layout', layout],
+      // The other nine editable customer emails, each in the editor's preview.
+      ['email-order-canceled', 'spree.order_mailer.cancel_email'],
+      ['email-payment-link', 'spree.order_mailer.payment_link_email'],
+      ['email-order-group-confirmation', 'spree.order_group_mailer.confirm_email'],
+      ['email-fulfilled', 'spree.fulfillment_mailer.fulfilled_email'],
+      ['email-return-refunded', 'spree.return_mailer.refunded_email'],
+      ['email-files-ready', 'spree.digital_asset_mailer.files_ready_email'],
+      ['email-data-export', 'spree.customer_mailer.data_export_email'],
+      ['email-newsletter-confirmation', 'spree.newsletter_mailer.email_confirmation'],
+      ['email-company-invitation', 'spree.company_mailer.invitation_email'],
     ] as const
   ).map(
     ([state, id]): Capture => ({

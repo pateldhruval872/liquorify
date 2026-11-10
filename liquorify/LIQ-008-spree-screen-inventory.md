@@ -101,7 +101,7 @@ Layouts without a screen ID: R/`__root.tsx`, R/`_authenticated.tsx`, R/`_authent
 
 | ID | Screen and route | Scope | Workflows (browser tests) | Meaningful states | Code |
 |---|---|---|---|---|---|
-| DA-HOME-01 | Home, `/$storeId` | `dashboard` (SU); each ranking tab also needs read on its own scope | Key figures with a comparison chart, by date range, currency and channel; operations and ranking widgets; "orders to fulfill" opens the filtered orders list (`home-dashboard.spec.ts`) | Loading; no data for the period; ranking tabs hidden without permission | S/`index.tsx` |
+| DA-HOME-01 | Home, `/$storeId` | `dashboard` (SU) for the operations counts and `reports` (—) for the figures, which the page needs to show anything: a role without `reports` sees "Reports are unavailable for your role" in place of the whole page, counts included (SD-53, corrected 2026-11-10 by [batch 11](verification/2026-11-10-fb-19-batch-home-reports-and-emails.md#6-corrections)); each ranking tab also needs read on its own scope | Key figures with a comparison chart, by date range, currency and channel; operations and ranking widgets; "orders to fulfill" opens the filtered orders list (`home-dashboard.spec.ts`) | Loading; no data for the period; ranking tabs hidden without permission | S/`index.tsx` |
 | DA-HOME-02 | Getting started, `/$storeId/getting-started` | `settings`, write (—) | Six setup tasks, each linked to where it is done: store address, payment method, products, support email, taxes, storefront (`getting-started.spec.ts`) | Progress; each task done or not; hidden from the navigation once all are done | S/`getting-started.tsx`; `config/initializers/spree_store_setup_tasks.rb`; `components/spree/setup-tasks/` |
 
 ### Orders
