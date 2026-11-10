@@ -1,0 +1,20 @@
+{
+  "screen": "SP-PRF-01",
+  "state": "edit-profile-name-cleared",
+  "variant": "member",
+  "signedInAs": "ines.carvalho@harbour-cask.example.com",
+  "server": "browser-test server",
+  "panel": "seller panel",
+  "theme": "dark",
+  "revision": "1342549c",
+  "path": "/sel_AXs1igzRC6/profile",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "fullPage": false,
+  "capturedHeight": 960,
+  "intercepted": "A save, had the sheet sent one, was refused in the browser so nothing changed.",
+  "settled": true,
+  "outside": []
+}

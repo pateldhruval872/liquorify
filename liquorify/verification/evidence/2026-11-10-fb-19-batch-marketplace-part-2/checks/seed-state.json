@@ -1,0 +1,109 @@
+{
+  "market": {
+    "sellers": {
+      "pending": "sel_EfhxLZ9ck8",
+      "invited": "sel_VqXmZF31wY",
+      "onboarding": "sel_uw2YK1rnl0",
+      "ready": "sel_OIJLhNcSbf",
+      "approved": "sel_AXs1igzRC6",
+      "rejected": "sel_p6klVeMgbn",
+      "suspended": "sel_nJqfPa3Cpe",
+      "second": "sel_98FqgRua4h"
+    },
+    "statuses": {
+      "pending": "pending",
+      "invited": "invited",
+      "onboarding": "onboarding",
+      "ready": "ready_for_review",
+      "approved": "approved",
+      "rejected": "rejected",
+      "suspended": "suspended",
+      "second": "approved"
+    },
+    "products": {
+      "proposed": "prod_ROeNhrwyV9",
+      "rejected": "prod_L3pHOn63Vw",
+      "active": "prod_PQNMcnNFWw",
+      "second": "prod_C9SrJgpzQ4",
+      "draft": "prod_YHETxCGlb0",
+      "suspended": "prod_5OQZnCRf8J",
+      "own": "prod_F0GX8NaP3Y"
+    },
+    "product_statuses": {
+      "proposed": "proposed",
+      "rejected": "rejected",
+      "active": "active",
+      "second": "active",
+      "draft": "draft",
+      "suspended": "active",
+      "own": "active"
+    },
+    "payouts": [
+      [
+        "vpo_EfhxLZ9ck8",
+        "completed"
+      ],
+      [
+        "vpo_VqXmZF31wY",
+        "pending"
+      ]
+    ],
+    "transfers": [
+      [
+        "vtr_uw2YK1rnl0",
+        "earning",
+        "or_OIJLhNcSbf"
+      ],
+      [
+        "vtr_VqXmZF31wY",
+        "earning",
+        "or_uw2YK1rnl0"
+      ],
+      [
+        "vtr_EfhxLZ9ck8",
+        "earning",
+        "or_VqXmZF31wY"
+      ],
+      [
+        "vtr_gbHJdmfrXB",
+        "earning",
+        "or_EfhxLZ9ck8"
+      ],
+      [
+        "vtr_OIJLhNcSbf",
+        "refund_reversal",
+        "or_OIJLhNcSbf"
+      ]
+    ],
+    "requirements": {
+      "attestation": "selreq_ed6l8wVqSM",
+      "review": "selreq_s18jaGonyx"
+    },
+    "users": {
+      "approved": "ines.carvalho@harbour-cask.example.com",
+      "ready": "theo.lindqvist@juniper-row.example.com",
+      "onboarding": "maya.okafor@stonecrop.example.com"
+    },
+    "commissionRate": "crate_EfhxLZ9ck8",
+    "orderGroup": {
+      "id": "ogrp_UkLWZg9DAJ",
+      "number": "R1008",
+      "orders": [
+        "or_p6klVeMgbn",
+        "or_nJqfPa3Cpe"
+      ]
+    },
+    "fulfilledOrder": "or_p6klVeMgbn",
+    "ownOrder": "or_AXs1igzRC6"
+  },
+  "orders": {
+    "new": "or_98FqgRua4h",
+    "partial": "or_xhoCpeNMWu",
+    "canceled": "or_vEmzDoNU0H",
+    "returned": "or_p6klVeMgbn"
+  },
+  "ledgerOrder": "or_EfhxLZ9ck8",
+  "returnId": "ret_UkLWZg9DAJ",
+  "exchangeRefused": "404 {\"error\":{\"code\":\"variant_not_found\",\"message\":\"Variant not found\"}}",
+  "claimId": "claim_UkLWZg9DAJ"
+}

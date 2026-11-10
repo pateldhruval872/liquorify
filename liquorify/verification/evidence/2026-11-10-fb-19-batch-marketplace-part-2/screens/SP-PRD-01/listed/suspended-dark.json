@@ -1,0 +1,20 @@
+{
+  "screen": "SP-PRD-01",
+  "state": "listed",
+  "variant": "suspended",
+  "signedInAs": "sam.reyes@copperline.example.com",
+  "server": "browser-test server",
+  "panel": "seller panel",
+  "theme": "dark",
+  "revision": "1342549c",
+  "path": "/sel_nJqfPa3Cpe/products?<query>",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "fullPage": false,
+  "capturedHeight": 960,
+  "intercepted": null,
+  "settled": true,
+  "outside": []
+}

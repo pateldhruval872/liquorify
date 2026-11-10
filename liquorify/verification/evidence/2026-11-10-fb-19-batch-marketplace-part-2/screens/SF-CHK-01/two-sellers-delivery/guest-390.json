@@ -1,0 +1,15 @@
+{
+  "screen": "SF-CHK-01",
+  "state": "two-sellers-delivery",
+  "variant": "guest",
+  "server": "browser-test server",
+  "app": "storefront",
+  "revision": "1342549c",
+  "path": "/us/en/checkout/<order>",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "fullPage": true,
+  "intercepted": null
+}
