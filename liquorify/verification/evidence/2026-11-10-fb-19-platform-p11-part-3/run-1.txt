@@ -1,0 +1,138 @@
+server up 09:42:22
+
+Running 13 tests using 1 worker
+
+  ✓   1 fidelity/after-sale-actions.spec.ts:135:3 › returns (P11, G-92) › 3.10 a return's location, partial and not resellable receipts, refund with tax, nothing owed, and cancel (30.4s)
+  ✘   2 fidelity/after-sale-actions.spec.ts:319:3 › exchanges (P11, G-92) › 3.12 an exchange opened, approved, received and its dearer replacement shipped, and another canceled (24.8s)
+  ✘   3 fidelity/after-sale-actions.spec.ts:469:3 › claims (P11, G-92) › 3.13 claims resolved by refund, by store credit and by replacement, and another canceled (24.9s)
+  ✓   4 fidelity/after-sale-actions.spec.ts:613:3 › the returns, exchanges and claims lists (P11, G-92) › 3.14 the returns list's search and status filter, and the exchanges and claims lists' search (18.3s)
+  ✓   5 fidelity/fulfilment-actions.spec.ts:113:3 › fulfilling (P11, G-92) › 3.1 fulfilling every unit, then some units, with tracking, a carrier and the notify switch (14.1s)
+  ✘   6 fidelity/fulfilment-actions.spec.ts:197:3 › canceling and adding fulfilments (P11, G-92) › 3.2 adding a fulfilment for units no fulfilment holds, after one is canceled (4.9s)
+  ✘   7 fidelity/fulfilment-actions.spec.ts:245:3 › canceling and adding fulfilments (P11, G-92) › 3.7 canceling a fulfilment (9.4s)
+  ✓   8 fidelity/fulfilment-actions.spec.ts:318:3 › tracking and deliveries (P11, G-92) › 3.3 adding, editing and removing tracking, before and after the parcel ships (18.6s)
+  ✓   9 fidelity/fulfilment-actions.spec.ts:373:3 › tracking and deliveries (P11, G-92) › 3.4 marking a fulfilment delivered, and one of its consignments delivered (11.9s)
+  ✓  10 fidelity/fulfilment-actions.spec.ts:432:3 › editing and splitting fulfilments (P11, G-92) › 3.5 editing a fulfilment's origin and delivery method, with Move and re-quote (9.6s)
+  ✓  11 fidelity/fulfilment-actions.spec.ts:483:3 › editing and splitting fulfilments (P11, G-92) › 3.6 splitting a fulfilment, and a split that would empty it (9.0s)
+  ✓  12 fidelity/fulfilment-actions.spec.ts:536:3 › labels and the packing slip (P11, G-92) › 3.8 deleting an uploaded label (6.6s)
+  ✓  13 fidelity/fulfilment-actions.spec.ts:582:3 › labels and the packing slip (P11, G-92) › 3.9 printing the packing slip (5.2s)
+
+
+  1) fidelity/after-sale-actions.spec.ts:319:3 › exchanges (P11, G-92) › 3.12 an exchange opened, approved, received and its dearer replacement shipped, and another canceled 
+
+    Error: a replacement stocked at every location ships
+
+    expect(received).not.toMatch(expected)
+
+    Expected pattern: not /\breceived\b/i
+    Received string:      "Received EX1002 Actions P11 Exchange p11p3r1 → P11 Exchange everywhere p11p3r1 ×1 Price difference $0.00"
+
+      456 |     expect
+      457 |       .soft(spreadShown, 'a replacement stocked at every location ships')
+    > 458 |       .not.toMatch(/\breceived\b/i)
+          |            ^
+      459 |     // SD-37: the confirmation asks "Cancel this return?".
+      460 |     expect
+      461 |       .soft(cancelText, 'the cancel confirmation asks about the exchange')
+        at /work/packages/liquorify-storybook/fidelity/after-sale-actions.spec.ts:458:12
+
+    Error: the cancel confirmation asks about the exchange
+
+    expect(received).toMatch(expected)
+
+    Expected pattern: /Cancel this exchange\?/
+    Received string:  "Are you sure? Cancel this return? Nothing will be restocked and no money will move. Keep exchange Cancel exchange"
+
+      460 |     expect
+      461 |       .soft(cancelText, 'the cancel confirmation asks about the exchange')
+    > 462 |       .toMatch(/Cancel this exchange\?/)
+          |        ^
+      463 |   })
+      464 | })
+      465 |
+        at /work/packages/liquorify-storybook/fidelity/after-sale-actions.spec.ts:462:8
+
+    Error Context: fidelity/results/test-output/after-sale-actions-exchang-4a67d-hipped-and-another-canceled/error-context.md
+
+  2) fidelity/after-sale-actions.spec.ts:469:3 › claims (P11, G-92) › 3.13 claims resolved by refund, by store credit and by replacement, and another canceled 
+
+    Error: the claim's card shows what the resolution paid
+
+    expect(received).toContain(expected) // indexOf
+
+    Expected substring: "$12.00"
+    Received string:    "Resolved CLM1001 P11 Claim p11p3r1 ×1 Refund total $0.00"
+
+      600 |     await save(page, 'claim', steps, outside)
+      601 |     // SD-35: the card shows the amount claimed, $20.00, not what the resolution paid.
+    > 602 |     expect.soft(refundCard, "the claim's card shows what the resolution paid").toContain('$12.00')
+          |                                                                                ^
+      603 |     // SD-37: the confirmation asks "Cancel this return?".
+      604 |     expect
+      605 |       .soft(cancelText, 'the cancel confirmation asks about the claim')
+        at /work/packages/liquorify-storybook/fidelity/after-sale-actions.spec.ts:602:80
+
+    Error: the cancel confirmation asks about the claim
+
+    expect(received).toMatch(expected)
+
+    Expected pattern: /Cancel this claim\?/
+    Received string:  "Are you sure? Cancel this return? Nothing will be restocked and no money will move. Keep claim Cancel claim"
+
+      604 |     expect
+      605 |       .soft(cancelText, 'the cancel confirmation asks about the claim')
+    > 606 |       .toMatch(/Cancel this claim\?/)
+          |        ^
+      607 |   })
+      608 | })
+      609 |
+        at /work/packages/liquorify-storybook/fidelity/after-sale-actions.spec.ts:606:8
+
+    Error Context: fidelity/results/test-output/after-sale-actions-claims--302c3-cement-and-another-canceled/error-context.md
+
+  3) fidelity/fulfilment-actions.spec.ts:197:3 › canceling and adding fulfilments (P11, G-92) › 3.2 adding a fulfilment for units no fulfilment holds, after one is canceled 
+
+    Error: Add fulfillment is offered for the units
+
+    expect(received).toBeGreaterThan(expected)
+
+    Expected: > 0
+    Received:   0
+
+      229 |       await save(page, 'fulfilment-added', steps, outside)
+      230 |       // SD-36: Add fulfillment is never offered for these units.
+    > 231 |       expect(offered, 'Add fulfillment is offered for the units').toBeGreaterThan(0)
+          |                                                                   ^
+      232 |     }
+      233 |     await add.click()
+      234 |     await dialog(page).getByRole('button', { name: 'Create' }).click()
+        at /work/packages/liquorify-storybook/fidelity/fulfilment-actions.spec.ts:231:67
+
+    Error Context: fidelity/results/test-output/fulfilment-actions-canceli-4cb14-holds-after-one-is-canceled/error-context.md
+
+  4) fidelity/fulfilment-actions.spec.ts:245:3 › canceling and adding fulfilments (P11, G-92) › 3.7 canceling a fulfilment 
+
+    Error: its units are offered to a new fulfilment
+
+    expect(received).toBeGreaterThan(expected)
+
+    Expected: > 0
+    Received:   0
+
+      278 |     expect(released, 'its stock is released').not.toEqual(before)
+      279 |     // SD-36: the canceled units are not offered to a new fulfilment.
+    > 280 |     expect(offered, 'its units are offered to a new fulfilment').toBeGreaterThan(0)
+          |                                                                  ^
+      281 |   })
+      282 | })
+      283 |
+        at /work/packages/liquorify-storybook/fidelity/fulfilment-actions.spec.ts:280:66
+
+    Error Context: fidelity/results/test-output/fulfilment-actions-canceli-20741--3-7-canceling-a-fulfilment/error-context.md
+
+  4 failed
+    fidelity/after-sale-actions.spec.ts:319:3 › exchanges (P11, G-92) › 3.12 an exchange opened, approved, received and its dearer replacement shipped, and another canceled 
+    fidelity/after-sale-actions.spec.ts:469:3 › claims (P11, G-92) › 3.13 claims resolved by refund, by store credit and by replacement, and another canceled 
+    fidelity/fulfilment-actions.spec.ts:197:3 › canceling and adding fulfilments (P11, G-92) › 3.2 adding a fulfilment for units no fulfilment holds, after one is canceled 
+    fidelity/fulfilment-actions.spec.ts:245:3 › canceling and adding fulfilments (P11, G-92) › 3.7 canceling a fulfilment 
+  9 passed (3.2m)
+done 09:45:34

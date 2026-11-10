@@ -1,0 +1,41 @@
+{
+  "test": "fulfilled",
+  "revision": "f467aeb6",
+  "stamp": "p11p3r2",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "read the stock at the shop before fulfilling",
+      "onHand": 50
+    },
+    {
+      "step": "fulfilled all 3 units with a UPS tracking number, notify on, then reloaded",
+      "notify": true,
+      "panels": [
+        {
+          "status": "Fulfilled",
+          "text": "Fulfilled Shop location Fulfilled less than a minute ago Actions P11 Fulfil Ground p11p3r2 $5.00 UPS: 1Z999AA10123456784 Awaiting Carrier Actions P11 Fulfil p11p3r2 $20.00 × 3 Mark as delivered Add tracking"
+        }
+      ]
+    },
+    {
+      "step": "fulfilled 2 of 3 units with a USPS tracking number, notify off, then reloaded",
+      "notify": false,
+      "panels": [
+        {
+          "status": "Unfulfilled",
+          "text": "Unfulfilled Shop location Actions P11 Fulfil Ground p11p3r2 $5.00 P11 Fulfil p11p3r2 $20.00 × 1 Mark as fulfilled"
+        },
+        {
+          "status": "Fulfilled",
+          "text": "Fulfilled Shop location Fulfilled less than a minute ago Actions P11 Fulfil Ground p11p3r2 $0.00 USPS: 9400111899223817630345 Awaiting Carrier Actions P11 Fulfil p11p3r2 $20.00 × 2 Mark as delivered Add tracking"
+        }
+      ]
+    },
+    {
+      "step": "read the stock at the shop after both",
+      "onHand": 45
+    }
+  ],
+  "outside": []
+}
