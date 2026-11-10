@@ -189,7 +189,7 @@ None. No story was corrected after the comparison.
 
 ## 5. Behaviour found, recorded and not changed
 
-Recorded as Spree's behaviour, and not changed. Six are brought to the owner as candidate existing defects, numbered from the register through the audit thread, each with a proposed severity, unfixed and not reported to Spree, by the owner's standing instruction.
+Recorded as Spree's behaviour, and not changed. Six were brought to the owner as candidate existing defects, numbered from the register through the audit thread, unfixed and not reported to Spree, by the owner's standing instruction. The owner approved SD-53 as Medium and the other five as Low on 2026-11-10, with every fix deferred until after the baseline (§14).
 
 | # | What | Where | Evidence |
 |---|---|---|---|
@@ -200,9 +200,9 @@ Recorded as Spree's behaviour, and not changed. Six are brought to the owner as 
 | SD-55 | A report that fails to load reads "Loading…" without end | DA-RPT-03, seen on support's direct visit | DA-RPT-03 direct-visit (support) |
 | SD-56 | Save is offered to a role that may only read reports, and the server refuses it with 403 "Missing permission: write_reports" | DA-RPT-02 for the analyst | DA-RPT-02 save-refused-by-server (analyst) |
 
-Their entries, with the proposed severities, are in [LIQ-004's existing defects](../LIQ-004-foundation-backlog.md#existing-defects-found-by-the-baseline).
+Their entries, with the approved severities, are in [LIQ-004's existing defects](../LIQ-004-foundation-backlog.md#existing-defects-found-by-the-baseline).
 
-**Other behaviours, recorded only.** Whether to track any of them as a defect is the owner's.
+**Other behaviours, recorded only.** The owner kept them on 2026-11-10 as observations for later product review, without approving them as correct (§14).
 - B1. The home page's figure tiles truncate a long amount ("$6,214....") at 1280 pixels.
 - B2. The rankings card's tabs clip "Sellers" at 1280 pixels.
 - B3. A report link whose `?query=` holds raw JSON instead of the encoded string breaks the page.
@@ -234,11 +234,11 @@ Their entries, with the proposed severities, are in [LIQ-004's existing defects]
 
 | Gap | What | Kind | Proposed answer | Status |
 |---|---|---|---|---|
-| **G-100** | 12 home, report and email template behaviours no browser test drives (§2.3) | Function | Defer to a further browser-test step in the platform batch, as G-87, G-90 and G-92 propose | OPEN, for the owner's answer |
-| **G-101** | 58 of the batch's 87 stories not compared by the script: 27 seen in a capture or a flow script's images, and 31 checked against their source only ([image review list](2026-11-10-fb-19-batch-home-reports-and-emails-image-review.md)) | Coverage | Defer, as G-88 and G-93: each story keeps the comparison status the image review list gives it, and the later batch whose running screen first shows the state compares it, under the [comparison follow-up](../LIQ-004-foundation-backlog.md#comparisons-deferred-to-later-batches) | OPEN, for the owner's answer |
-| **G-102** | 16 states reached by answering a request in the browser (§2.1) | Coverage | Accept as simulated interface-state coverage only, as G-89 and G-94 | OPEN, for the owner's answer |
-| **G-103** | What the server answers to the requests support, the merchandiser, the analyst, the store settings role and the email editor and viewer could make or were shown the controls for (§3.1, §3.2) | Function | Join G-11, for the platform batch's step P12, as G-91 and G-95 did; the owner decides | OPEN, for the owner's answer |
-| **G-104** | DA-SET-04 and DA-SET-05 with their content were captured on the emails gem's test app, not the browser-test server, which does not load the emails gem (§6) | Coverage | Close with G-16, when whether a Liquorify store loads the emails gem is decided | OPEN, for the owner's answer |
+| **G-100** | 12 home, report and email template behaviours no browser test drives (§2.3) | Function | Defer to a further browser-test step in the platform batch, as G-87, G-90 and G-92 propose | DEFERRED on 2026-11-10 to the batch 11 verification work item (§14) |
+| **G-101** | 58 of the batch's 87 stories not compared by the script: 27 seen in a capture or a flow script's images, and 31 checked against their source only ([image review list](2026-11-10-fb-19-batch-home-reports-and-emails-image-review.md)) | Coverage | Defer, as G-88 and G-93: each story keeps the comparison status the image review list gives it, and the later batch whose running screen first shows the state compares it, under the [comparison follow-up](../LIQ-004-foundation-backlog.md#comparisons-deferred-to-later-batches) | ACCEPTED on 2026-11-10 (§14) |
+| **G-102** | 16 states reached by answering a request in the browser (§2.1) | Coverage | Accept as simulated interface-state coverage only, as G-89 and G-94 | ACCEPTED on 2026-11-10 (§14) |
+| **G-103** | What the server answers to the requests support, the merchandiser, the analyst, the store settings role and the email editor and viewer could make or were shown the controls for (§3.1, §3.2) | Function | Join G-11, for the platform batch's step P12, as G-91 and G-95 did; the owner decides | LINKED to G-11 on 2026-11-10, and open (§14) |
+| **G-104** | DA-SET-04 and DA-SET-05 with their content were captured on the emails gem's test app, not the browser-test server, which does not load the emails gem (§6) | Coverage | Close with G-16, when whether a Liquorify store loads the emails gem is decided | ACCEPTED on 2026-11-10 within its documented limits (§14) |
 
 G-88 loses the channel select's "All channels" story (§4.2). Whether Spree sends each email on a Liquorify store, and through which mail service, stays with G-16 and G-77 (§9).
 
@@ -307,6 +307,22 @@ The [evidence index](evidence/2026-11-10-fb-19-batch-home-reports-and-emails/REA
 | Accepted by | Claude, in the thread for batch 11 |
 | Revision | #89's final commit, named in the merge record |
 | Scope | Criterion 11: the 174 reference images of the [image review list](2026-11-10-fb-19-batch-home-reports-and-emails-image-review.md), each looked at in light and dark; the running-screen evidence of §2 and §3.1; and fidelity, judged from the comparison of §4, 29 cases and 1 earlier story with every difference explained. Technical acceptance of criteria 1 to 10 and 12 to 17 as this record gives them, with criterion 8 as the merge record gives it |
-| Not accepted here | Any answer to a gap, any exception or security risk, and any change of status the owner has not decided. G-100 to G-104 stay OPEN for the owner's answers, with their handling proposed, not decided. SD-51 to SD-56 stay open with their proposed severities. B1 to B14 stay recorded as Spree's and the storefront's behaviour. Tenant isolation stays NOT_RUN (§3.3), ISO-1 to ISO-7 stay open, and FB-03's result stays with the owner |
+| Not accepted here | Any answer to a gap, any exception or security risk, and any change of status the owner has not decided. The owner's answers of 2026-11-10 are the owner's (§14), not part of this acceptance: G-100 and G-103 stay open, and G-101, G-102 and G-104 are accepted only as §14 records. SD-51 to SD-56 stay open with the severities the owner approved. B1 to B14 stay observations, not approved as correct. Tenant isolation stays NOT_RUN (§3.3), ISO-1 to ISO-7 stay open, and FB-03's result stays with the owner |
 
 What the checks did not show stays as §11 states it.
+
+## 14. The owner's answers, 2026-11-10
+
+The owner answered the batch's defects, gaps and recorded behaviours on 2026-11-10, in the project chat, and asked for #89 to be merged under the delegation once its checks pass. They are the owner's answers, recorded here as given; nothing in them marks an unverified behaviour PASS.
+
+| Item | The owner's answer | Where it is recorded |
+|---|---|---|
+| SD-53 | Approved as Medium. Kept open, with the fix deferred until after the baseline | [LIQ-004's existing defects](../LIQ-004-foundation-backlog.md#existing-defects-found-by-the-baseline) |
+| SD-51, SD-52, SD-54, SD-55, SD-56 | Approved as Low. Kept open, with the fixes deferred until after the baseline | The same |
+| All six | When the interface is later corrected, the server's permissions stay as they are | The same, in each entry's follow-up |
+| G-100 | Deferred to one bounded batch 11 verification work item. It records each of the 12 behaviours' expected result and closure condition before anything is built, and keeps any failure a known defect causes as that defect's failing part | LIQ-004's gap register; the work item follows this pull request |
+| G-101 | Deferral to the comparison follow-up accepted. Each remaining story is listed with its destination, and the states of §6 no capture shows are accounted for, with their actual coverage | [Image review list](2026-11-10-fb-19-batch-home-reports-and-emails-image-review.md#remaining-stories-and-their-destinations) |
+| G-102 | The 16 states accepted as simulated interface-state coverage only | LIQ-004's gap register |
+| G-103 | Linked to G-11. The batch 11 verification work item gets its own permission-check section, recording each expected refusal and each control that should succeed before it runs. P12's recorded scope is unchanged | The same |
+| G-104 | The captures on the emails gem's test app accepted within their documented limits. Verification on the chosen host is deferred to G-16 and G-77's email integration work, with template rendering, application integration and delivery through a mail service recorded separately. This does not choose Liquorify's production email architecture | The same |
+| B1 to B14 | Kept as observations for later product review, without approving them as correct | §5 |
