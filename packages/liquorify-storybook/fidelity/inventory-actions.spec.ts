@@ -768,7 +768,11 @@ test.describe('suppliers (P11, G-87)', () => {
 
     await openSuppliers(page, taken.name)
     await page.waitForLoadState('networkidle')
-    const saved = await page.getByRole('main').getByText(taken.name, { exact: true }).count()
+    const saved = await page
+      .getByRole('main')
+      .getByRole('row')
+      .filter({ has: page.getByText(taken.name, { exact: true }) })
+      .count()
     steps.push({
       step: 'reloaded the suppliers searched for the name',
       suppliersWithTheName: saved,
