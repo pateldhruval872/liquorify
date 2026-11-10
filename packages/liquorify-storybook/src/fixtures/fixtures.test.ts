@@ -68,6 +68,7 @@ import {
   StoreSchema,
   SupplierSchema,
   TaxCategorySchema,
+  TaxExemptionCertificateSchema,
   TaxExemptionReasonSchema,
   TaxIdentifierSchema,
   TaxRateSchema,
@@ -149,6 +150,7 @@ import {
   stockMovements,
   taxCategories,
 } from './admin/catalog'
+import { certificates, headOffice, tradeDivision, tradeGroup } from './admin/companies'
 import { countries } from './admin/countries'
 import {
   customerCredits,
@@ -389,6 +391,9 @@ const fixtures: [string, ZodType, unknown[]][] = [
   ],
   ['part 2 collections', CollectionSchema, [summerEdit, newArrivals]],
   ['companies', CompanySchema, companies],
+  ['batch 12 companies', CompanySchema, [tradeGroup, tradeDivision]],
+  ['tax exemption certificates', TaxExemptionCertificateSchema, certificates],
+  ['company addresses', AddressSchema, [headOffice]],
   ['customer groups', CustomerGroupSchema, customerGroups],
   ['exports', ExportSchema, [productExport]],
   [
