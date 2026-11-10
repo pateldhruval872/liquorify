@@ -1,0 +1,29 @@
+{
+  "test": "store-credit",
+  "revision": "759e1832",
+  "stamp": "mwac83h6",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "read the customer's credit and the order before",
+      "credit": "$12.00 $0.00 $12.00 P11 Goodwill credit mwac83h6 Actions",
+      "amountDue": 40
+    },
+    {
+      "step": "added $12.00 of store credit as a payment, then reloaded",
+      "amountDue": 28,
+      "payments": "Payments 1 None Add Number Method State Amount R1016-P1 Store Credit Checkout $12.00 Actions"
+    },
+    {
+      "step": "read the customer's credit with the payment added",
+      "credit": "$12.00 $0.00 $12.00 P11 Goodwill credit mwac83h6 Actions"
+    },
+    {
+      "step": "captured the store credit payment, reloaded, and read the customer's credit",
+      "payments": "Payments 1 Partially Paid Add Number Method State Amount R1016-P1 Store Credit Completed $12.00 Actions",
+      "amountDue": 28,
+      "credit": "$12.00 $12.00 $0.00 P11 Goodwill credit mwac83h6 Actions"
+    }
+  ],
+  "outside": []
+}

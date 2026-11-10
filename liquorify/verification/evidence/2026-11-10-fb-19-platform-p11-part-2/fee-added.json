@@ -1,0 +1,37 @@
+{
+  "test": "fee-added",
+  "revision": "759e1832",
+  "stamp": "mwac5jei",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "read the draft before the fee",
+      "total": 20
+    },
+    {
+      "step": "added a $4.50 fee, then reloaded",
+      "fees": "Fees Add fee Description Kind Amount P11 gift wrap Surcharge $4.50 ",
+      "total": 24.5,
+      "summaryRows": {
+        "Subtotal": 20,
+        "Adjustments": 4.5,
+        "Total": 24.5,
+        "Payment total": 0,
+        "Outstanding balance": 24.5
+      },
+      "rowsAddUp": true
+    },
+    {
+      "step": "deleted the fee, then reloaded",
+      "total": 20,
+      "summaryRows": {
+        "Subtotal": 20,
+        "Total": 20,
+        "Payment total": 0,
+        "Outstanding balance": 20
+      },
+      "rowsAddUp": true
+    }
+  ],
+  "outside": []
+}

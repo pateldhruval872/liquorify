@@ -1,0 +1,19 @@
+{
+  "test": "left-edit-page",
+  "revision": "759e1832",
+  "stamp": "mwac981d",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "changed a quantity from 2 to 4, then followed the back link",
+      "warned": false,
+      "warning": "",
+      "leftThePage": true
+    },
+    {
+      "step": "opened the order",
+      "items": "Fulfillments 1 Unfulfilled Unfulfilled Shop location Actions P11 Leave edit mwac981d $20.00 × 2 Mark as fulfilled"
+    }
+  ],
+  "outside": []
+}

@@ -1,0 +1,31 @@
+{
+  "test": "gift-card",
+  "revision": "759e1832",
+  "stamp": "mwac7p4u",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "read the card and the order before",
+      "card": "P11-GIFT-MWAC7P4U Active $15.00 $0.00 $15.00 — ",
+      "amountDue": 40
+    },
+    {
+      "step": "applied the card, then reloaded",
+      "sidebar": "Discounts & Credit Discount code None applied Apply Gift card P11-GIFT-MWAC7P4U · $15.00 Remove",
+      "amountDue": 25,
+      "card": "P11-GIFT-MWAC7P4U Active $15.00 $15.00 $0.00 — "
+    },
+    {
+      "step": "removed the card, then reloaded",
+      "amountDue": 40,
+      "card": "P11-GIFT-MWAC7P4U Active $15.00 $0.00 $15.00 — "
+    },
+    {
+      "step": "entered a card nobody has",
+      "dialogStillOpen": true,
+      "dialog": "Apply Gift Card Enter a gift card code to apply to this order. Code Cancel Add Close",
+      "amountDueAfterReload": 40
+    }
+  ],
+  "outside": []
+}
