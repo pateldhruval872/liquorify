@@ -1,0 +1,22 @@
+{
+  "test": "purchase-order-export",
+  "revision": "69bb4eef",
+  "stamp": "mwa872au",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "exported every purchase order from the list",
+      "toast": "Export downloaded",
+      "header": "number,status,reference,supplier,destination,sku,product_name,quantity,received,rejected,unit_cost,currency,expected_at,cancel_by,notes\r",
+      "lines": 7
+    },
+    {
+      "step": "read the downloaded file",
+      "linesForTheTwoOrders": [
+        "PO1004,draft,P11 export order one mwa872au,P11 Export supplier mwa872au,E2E Destination Warehouse,P11-EXPORT-PLATE-mwa872au,P11 Export plate mwa872au,2,0,0,4.50,USD,,,\r",
+        "PO1005,ordered,P11 export order two mwa872au,P11 Export supplier mwa872au,E2E Destination Warehouse,P11-EXPORT-PLATE-mwa872au,P11 Export plate mwa872au,3,0,0,4.50,USD,,,"
+      ]
+    }
+  ],
+  "outside": []
+}

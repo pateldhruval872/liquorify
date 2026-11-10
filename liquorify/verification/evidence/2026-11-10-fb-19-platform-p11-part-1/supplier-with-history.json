@@ -1,0 +1,22 @@
+{
+  "test": "supplier-with-history",
+  "revision": "69bb4eef",
+  "stamp": "mwa872au",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "opened the row menu of a supplier never ordered from",
+      "offers": [
+        "Edit",
+        "Delete"
+      ]
+    },
+    {
+      "step": "opened the row menu of the supplier with a purchase order",
+      "offers": [
+        "Edit"
+      ]
+    }
+  ],
+  "outside": []
+}

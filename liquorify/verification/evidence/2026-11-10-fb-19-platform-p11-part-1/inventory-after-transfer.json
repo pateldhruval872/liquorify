@@ -1,0 +1,23 @@
+{
+  "test": "inventory-after-transfer",
+  "revision": "69bb4eef",
+  "stamp": "mwa872au",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "opened the inventory list after the transfer was sent",
+      "source": 14,
+      "destination": 0
+    },
+    {
+      "step": "received the 6 units on the transfer page",
+      "status": "Received"
+    },
+    {
+      "step": "opened the inventory list and reloaded",
+      "source": 14,
+      "destination": 6
+    }
+  ],
+  "outside": []
+}

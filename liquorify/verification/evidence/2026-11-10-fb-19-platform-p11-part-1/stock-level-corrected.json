@@ -1,0 +1,21 @@
+{
+  "test": "stock-level-corrected",
+  "revision": "69bb4eef",
+  "stamp": "mwa872au",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "set on hand from 5 to 17, turned backorders on, saved the row"
+    },
+    {
+      "step": "reloaded the sheet",
+      "onHand": "17",
+      "backorderable": true
+    },
+    {
+      "step": "opened the inventory list",
+      "onHand": 17
+    }
+  ],
+  "outside": []
+}
