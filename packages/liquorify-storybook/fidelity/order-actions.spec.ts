@@ -538,6 +538,9 @@ test.describe('discounts, fees and codes (P11, G-90)', () => {
     const totalWithBoth = money(await rowValue(card(page, /^summary$/i), 'Total'))
     const rowsWithBoth = await summary(page)
     await snap(page, 'discounts-added')
+    // Checked here as well, so a run where it did not happen stops at this check.
+    expect(listedBoth).toContain('P11 goodwill')
+    expect(totalWithBoth).toBeLessThan(before - 5)
 
     await discounts
       .getByRole('row')
@@ -604,6 +607,8 @@ test.describe('discounts, fees and codes (P11, G-90)', () => {
     const withFee = money(await rowValue(card(page, /^summary$/i), 'Total'))
     const rowsWithFee = await summary(page)
     await snap(page, 'fee-added')
+    // Checked here as well, so a run where it did not happen stops at this check.
+    expect(listed).toContain('P11 gift wrap')
 
     await fees.getByRole('button', { name: 'Actions' }).first().click()
     await page.getByRole('menuitem', { name: 'Delete' }).click()
@@ -672,6 +677,8 @@ test.describe('discounts, fees and codes (P11, G-90)', () => {
     const withCode = money(await rowValue(card(page, /^summary$/i), 'Total'))
     const rowsWithCode = await summary(page)
     await snap(page, 'discount-code-applied')
+    // Checked here as well, so a run where it did not happen stops at this check.
+    expect(applied.toLowerCase()).toContain(code.toLowerCase())
 
     await sidebar.getByRole('button', { name: 'Remove' }).first().click()
     await confirmation(page).getByRole('button', { name: 'Remove' }).click()
@@ -884,6 +891,8 @@ test.describe('gift cards and store credit (P11, G-90)', () => {
     const sidebarApplied = (await sidebar.innerText()).replace(/\s+/g, ' ')
     const dueApplied = await due()
     await snap(page, 'gift-card-applied')
+    // Checked here as well, so a run where it did not happen stops at this check.
+    expect(dueApplied).toBeCloseTo(dueBefore - 15, 2)
     const cardApplied = await balance()
 
     await openOrder(page, order)
@@ -989,6 +998,8 @@ test.describe('gift cards and store credit (P11, G-90)', () => {
     const dueAfter = (await summary(page))['Outstanding balance']
     const paymentsAfter = (await payments.innerText()).replace(/\s+/g, ' ')
     await snap(page, 'store-credit-applied')
+    // Checked here as well, so a run where it did not happen stops at this check.
+    expect(dueAfter).toBeCloseTo(dueBefore - 12, 2)
     const creditAdded = await remaining()
     // The credit is taken when its payment is captured, from the payment's menu.
     await openOrder(page, order)
@@ -1186,12 +1197,7 @@ test.describe('editing an order (P11, G-90)', () => {
     baseURL,
   }) => {
     const outside = await blockOutside(page)
-    await sabotage(
-      page,
-      'PATCH',
-      /\/orders\/[^/]+\/items\/bulk$|\/orders\/[^/]+\/upsert_items$|\/orders\/[^/]+\/items$/,
-      answeredEmpty,
-    )
+    await sabotage(page, 'PATCH', /\/orders\/[^/]+$/, answeredEmpty)
     const { order, kept, dropped, added } = await seeded(baseURL, async (seed) => {
       const at = await shop(seed, 'Edit kept', baseURL as string)
       const second = await product(seed, 'Edit dropped', '9.00')
@@ -1278,9 +1284,10 @@ test.describe('editing an order (P11, G-90)', () => {
     await quantity.fill(typed)
     await page.getByRole('button', { name: /^save/i }).click()
     await page.waitForTimeout(1_500)
-    const browserMessage = await quantity.evaluate(
-      (element) => (element as HTMLInputElement).validationMessage,
-    )
+    // Sabotaged, the save goes through and the page moves on.
+    const browserMessage = (await quantity.isVisible())
+      ? await quantity.evaluate((element) => (element as HTMLInputElement).validationMessage)
+      : ''
     const pageMessage = page.getByRole('alert').or(toast(page, /fulfilled|shipped|below|cannot/i))
     const shownMessage =
       (await pageMessage.count()) > 0 ? await pageMessage.first().innerText() : ''
@@ -1547,6 +1554,8 @@ test.describe('the orders list and new orders (P11, G-90)', () => {
     expect(summaryText, 'the draft keeps the channel').toContain(channelName)
     expect(sidebar.toLowerCase(), 'the draft keeps the coupon').toContain(code.toLowerCase())
     expect(kept.company_name, 'the draft keeps the company').toBe(companyName)
+    // SD-59, held: the order page shows an order's company nowhere.
+    expect(pageText, "the order page shows the draft's company").toContain(companyName)
   })
 })
 
