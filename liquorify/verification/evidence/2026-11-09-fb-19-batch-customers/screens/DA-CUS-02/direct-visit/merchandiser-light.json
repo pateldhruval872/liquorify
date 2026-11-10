@@ -1,0 +1,27 @@
+{
+  "screen": "DA-CUS-02",
+  "state": "direct-visit",
+  "variant": "merchandiser",
+  "role": {
+    "name": "Merchandiser",
+    "permissions": [
+      "write_products",
+      "write_categories",
+      "write_collections",
+      "write_stock"
+    ]
+  },
+  "theme": "light",
+  "revision": "05b7c95b",
+  "path": "/<store>/customers/cust_gbHJdmfrXB",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "fullPage": false,
+  "capturedHeight": 960,
+  "intercepted": null,
+  "handOff": null,
+  "settled": true,
+  "outside": []
+}

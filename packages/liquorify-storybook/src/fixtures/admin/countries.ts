@@ -25,6 +25,7 @@ export const countries: Country[] = [
     states: [
       { abbr: 'CA', name: 'California' },
       { abbr: 'NY', name: 'New York' },
+      { abbr: 'OR', name: 'Oregon' },
       { abbr: 'TX', name: 'Texas' },
     ],
   } as Partial<Country>),

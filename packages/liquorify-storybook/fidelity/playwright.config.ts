@@ -64,6 +64,9 @@ import { defineConfig } from '@playwright/test'
  * `digital-delivery.spec.ts` check single findings, and `held-replacement.spec.ts`
  * is P11 part 3's bounded check of a replacement held after a refund (see each
  * file).
+ * Batch 10 (customers) keeps its captures and comparison in
+ * `screens-batch-10.spec.ts` and `compare-batch-10.spec.ts`, seeding through
+ * `customers.ts`.
  * Batch 11 (home figures, reports and email templates) keeps its captures and
  * comparison in `screens-batch-11.spec.ts` and `compare-batch-11.spec.ts`,
  * which open the email templates on the emails gem's test app that
@@ -87,6 +90,8 @@ export default defineConfig({
     'compare-batch-8.spec.ts',
     'screens-batch-8-part-2.spec.ts',
     'compare-batch-8-part-2.spec.ts',
+    'screens-batch-10.spec.ts',
+    'compare-batch-10.spec.ts',
     'screens-batch-11.spec.ts',
     'compare-batch-11.spec.ts',
     'screens-batch-13.spec.ts',

@@ -1,0 +1,39 @@
+{
+  "name": "customer-cust_gbHJdmfrXB.json",
+  "outline": {
+    "account": [
+      "id",
+      "email",
+      "first_name",
+      "last_name",
+      "phone",
+      "selected_locale",
+      "tags",
+      "metadata",
+      "internal_note",
+      "created_at",
+      "anonymized_at"
+    ],
+    "marketing_consent": [
+      "accepts_email_marketing",
+      "consent_updated_at",
+      "consent_source",
+      "newsletter_subscriptions"
+    ],
+    "consent_records": "0 records",
+    "addresses": "2 records",
+    "orders": "16 records",
+    "draft_orders": "1 records",
+    "order_groups": "0 records",
+    "carts": "0 records",
+    "payment_sources": "0 records",
+    "connected_logins": "0 records",
+    "store_credits": "2 records",
+    "gift_cards": "0 records",
+    "wishlists": "0 records",
+    "custom_fields": "1 records",
+    "companies": "0 records",
+    "tax_identifiers": "2 records",
+    "exported_at": "string"
+  }
+}

@@ -1,0 +1,30 @@
+[
+  {
+    "email": "EM-C-09",
+    "subject": "Shop Your Data Is Ready to Download",
+    "parts": [
+      "text/plain; charset=UTF-8",
+      "text/html; charset=UTF-8"
+    ],
+    "links": [
+      "<site>",
+      "<site>/api/v3/store/data_requests/<token>/download",
+      "mailto:support@example.com"
+    ],
+    "token_hidden": true
+  },
+  {
+    "email": "EM-C-10",
+    "subject": "Verify your email address",
+    "parts": [
+      "text/plain; charset=UTF-8",
+      "text/html; charset=UTF-8"
+    ],
+    "links": [
+      "<site>",
+      "<site>?token=<token>",
+      "mailto:support@example.com"
+    ],
+    "token_hidden": true
+  }
+]

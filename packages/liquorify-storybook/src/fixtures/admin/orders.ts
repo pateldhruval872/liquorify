@@ -73,7 +73,7 @@ function address(id: string, fields: Partial<Address> = {}): Address {
     company: null,
     country_name: 'United States',
     country_code: 'US',
-    state_text: null,
+    state_text: 'OR',
     state_code: 'OR',
     quick_checkout: false,
     is_default_billing: false,

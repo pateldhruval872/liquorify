@@ -1,0 +1,19 @@
+{
+  "screen": "DA-CUS-02",
+  "state": "erased",
+  "variant": "admin",
+  "role": null,
+  "theme": "light",
+  "revision": "05b7c95b",
+  "path": "/<store>/customers/cust_F0GX8NaP3Y",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "fullPage": true,
+  "capturedHeight": 1200,
+  "intercepted": null,
+  "handOff": null,
+  "settled": true,
+  "outside": []
+}
