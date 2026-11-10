@@ -1,0 +1,19 @@
+{
+  "screen": "DA-CUS-02",
+  "state": "custom-field-filled",
+  "variant": "admin",
+  "role": null,
+  "theme": "light",
+  "revision": "05b7c95b",
+  "path": "/<store>/customers/cust_gbHJdmfrXB",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "fullPage": false,
+  "capturedHeight": 960,
+  "intercepted": null,
+  "handOff": "Batch 3, DA-SET-09: a field defined for customers, filled on the customer’s page",
+  "settled": true,
+  "outside": []
+}

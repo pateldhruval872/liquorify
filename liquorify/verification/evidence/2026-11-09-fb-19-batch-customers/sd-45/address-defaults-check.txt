@@ -1,0 +1,6 @@
+0 before -> customer default shipping: None billing: None
+1 PATCH Home {is_default_shipping: true} -> customer default shipping: addr_UkLWZg9DAJ billing: None
+2 PATCH Home {is_default_billing: true} -> customer default shipping: None billing: addr_UkLWZg9DAJ
+3 PATCH Home with both flags true -> customer default shipping: addr_UkLWZg9DAJ billing: addr_UkLWZg9DAJ
+4 PATCH Home {label: "Home"} (no flags, nothing changed) -> customer default shipping: None billing: None
+5 restored: PATCH Home with both flags true -> customer default shipping: addr_UkLWZg9DAJ billing: addr_UkLWZg9DAJ

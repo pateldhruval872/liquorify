@@ -1,0 +1,19 @@
+{
+  "screen": "DA-SET-09",
+  "state": "customer-field-defined",
+  "variant": "admin",
+  "role": null,
+  "theme": "dark",
+  "revision": "05b7c95b",
+  "path": "/<store>/settings/custom-field-definitions",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "fullPage": false,
+  "capturedHeight": 960,
+  "intercepted": null,
+  "handOff": "Batch 3, DA-SET-09: the field defined for customers",
+  "settled": true,
+  "outside": []
+}

@@ -1,0 +1,19 @@
+{
+  "screen": "DA-CUS-02",
+  "state": "orders-view-all",
+  "variant": "admin",
+  "role": null,
+  "theme": "light",
+  "revision": "05b7c95b",
+  "path": "/<store>/orders",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "fullPage": false,
+  "capturedHeight": 960,
+  "intercepted": null,
+  "handOff": "Batch 8: the orders card’s link to the order list filtered to the customer",
+  "settled": true,
+  "outside": []
+}

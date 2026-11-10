@@ -107,6 +107,12 @@ export const roles = {
     permissions: ['read_promotions', 'read_gift_cards', 'read_store_credits', 'read_customers'],
   },
   /**
+   * Write on `customers` and nothing on orders or store credits: no template
+   * holds write on customers, so this is the role a store would make for the
+   * person who keeps its customer records, as batch 10 maps them.
+   */
+  customerManager: { name: 'Customer manager', permissions: ['write_customers'] },
+  /**
    * Read on the home page's counts, on reports and on orders, which every
    * figure is counted from, with read on the three scopes the rankings and top
    * products need: the person who reads the figures and changes nothing
@@ -259,6 +265,12 @@ export const teammates: Record<
     role: 'loyaltyViewer',
     first: 'Lou',
     last: 'Viewer',
+  },
+  customerManager: {
+    email: 'fidelity-customer-manager@example.com',
+    role: 'customerManager',
+    first: 'Cam',
+    last: 'Records',
   },
   analyst: {
     email: 'fidelity-analyst@example.com',

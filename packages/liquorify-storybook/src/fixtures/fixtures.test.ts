@@ -1,4 +1,5 @@
 import {
+  AddressSchema,
   AdminUserSchema,
   ApiKeySchema,
   CatalogProductSchema,
@@ -68,6 +69,7 @@ import {
   SupplierSchema,
   TaxCategorySchema,
   TaxExemptionReasonSchema,
+  TaxIdentifierSchema,
   TaxRateSchema,
   UpdateStatusSchema,
   VariantSchema,
@@ -148,6 +150,18 @@ import {
   taxCategories,
 } from './admin/catalog'
 import { countries } from './admin/countries'
+import {
+  customerCredits,
+  customerOrders,
+  erasedRecord,
+  groupedCustomer,
+  identifierVerdicts,
+  newCustomer,
+  onlyAddress,
+  plainAddress,
+  regularCustomer,
+  studioAddress,
+} from './admin/customers'
 import {
   carrierMethodFromSource,
   deliveryMethods,
@@ -413,6 +427,19 @@ const fixtures: [string, ZodType, unknown[]][] = [
   ['gift cards', LiveGiftCardSchema, giftCards],
   ['store credits', StoreCreditSchema, storeCredits],
   ['store credit events', StoreCreditEventSchema, goodwillEvents],
+  [
+    'batch 10 customers',
+    CustomerSchema,
+    [regularCustomer, groupedCustomer, newCustomer, erasedRecord],
+  ],
+  [
+    'batch 10 addresses',
+    AddressSchema,
+    [...(regularCustomer.addresses ?? []), studioAddress, onlyAddress, plainAddress],
+  ],
+  ['batch 10 store credits', StoreCreditSchema, customerCredits],
+  ['batch 10 tax identifiers', TaxIdentifierSchema, identifierVerdicts],
+  ['batch 10 orders', LiveOrderSchema, customerOrders],
   [
     'after-sale orders',
     LiveOrderSchema,
