@@ -1,0 +1,64 @@
+[
+  {
+    "step": "the newcomer’s companies before",
+    "status": 200,
+    "companies": []
+  },
+  {
+    "step": "after the Admin API made them a member of Quillon Provisions",
+    "status": 200,
+    "companies": [
+      "Quillon Provisions"
+    ]
+  },
+  {
+    "step": "after the membership was removed",
+    "status": 200,
+    "companies": []
+  },
+  {
+    "step": "an invitation made for an email with no account, looked up and accepted through the Store API, as the email’s link would",
+    "made": {
+      "status": "pending"
+    },
+    "looked_up": {
+      "status": 200,
+      "company_name": "Quillon Provisions"
+    },
+    "accepted_with_a_new_account": {
+      "status": 201,
+      "role": null
+    },
+    "the_new_buyer_reads_their_companies": {
+      "status": 200,
+      "companies": [
+        "Quillon Provisions"
+      ]
+    },
+    "looked_up_again": {
+      "status": 404,
+      "company_name": null
+    }
+  },
+  {
+    "step": "an invitation made for an email with no account, then revoked",
+    "made": {
+      "status": "pending"
+    },
+    "looked_up_before_revoking": {
+      "status": 200,
+      "company_name": "Quillon Provisions"
+    },
+    "after_revoke": {
+      "status": 200,
+      "invitation_status": "revoked"
+    },
+    "looked_up_after_revoking": {
+      "status": 404,
+      "company_name": null
+    },
+    "accept_after_revoking": {
+      "status": 404
+    }
+  }
+]

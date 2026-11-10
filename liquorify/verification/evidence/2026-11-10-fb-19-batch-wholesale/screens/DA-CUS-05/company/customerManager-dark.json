@@ -1,0 +1,24 @@
+{
+  "screen": "DA-CUS-05",
+  "state": "company",
+  "variant": "customerManager",
+  "role": {
+    "name": "Customer manager",
+    "permissions": [
+      "write_customers"
+    ]
+  },
+  "theme": "dark",
+  "revision": "a3a427fc",
+  "path": "/<store>/companies/comp_UkLWZg9DAJ",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "fullPage": true,
+  "capturedHeight": 1161,
+  "intercepted": null,
+  "handOff": null,
+  "settled": true,
+  "outside": []
+}

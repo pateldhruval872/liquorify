@@ -1,0 +1,11 @@
+[
+  {
+    "step": "a guest follows the link",
+    "landed": "/us/en/account?redirect=%2Fus%2Fen%2Faccount%2Fcompany-invitation%3Ftoken=…"
+  },
+  {
+    "step": "a signed-in buyer follows the link",
+    "landed": "/us/en/account/company-invitation",
+    "page_not_found": true
+  }
+]

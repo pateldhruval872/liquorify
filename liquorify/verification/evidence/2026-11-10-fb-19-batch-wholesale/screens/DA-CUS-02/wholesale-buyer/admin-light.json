@@ -1,0 +1,19 @@
+{
+  "screen": "DA-CUS-02",
+  "state": "wholesale-buyer",
+  "variant": "admin",
+  "role": null,
+  "theme": "light",
+  "revision": "a3a427fc",
+  "path": "/<store>/customers/cust_gbHJdmfrXB",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "fullPage": true,
+  "capturedHeight": 1287,
+  "intercepted": null,
+  "handOff": "Batch 10, G-96: the company and wholesale states of the customer page",
+  "settled": true,
+  "outside": []
+}
