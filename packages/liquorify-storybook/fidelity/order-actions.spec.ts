@@ -1277,7 +1277,7 @@ test.describe('editing an order (P11, G-90)', () => {
       return { order: made, item: at.product }
     })
     // Sabotaged, a quantity above what has shipped is typed, so nothing is refused.
-    const typed = sabotaged ? '2' : '1'
+    const typed = sabotaged ? '4' : '1'
 
     await openEdit(page, order)
     const quantity = page.getByLabel(`Quantity of ${item.name}`)
