@@ -1,0 +1,7 @@
+{
+  "unsaved_badge": true,
+  "stay_kept_text": true,
+  "stayed_on": "/<store>/settings/emails/templates/spree.customer_mailer.password_reset_email",
+  "left_to": "/<store>/settings/emails/templates",
+  "reopened_without_text": true
+}

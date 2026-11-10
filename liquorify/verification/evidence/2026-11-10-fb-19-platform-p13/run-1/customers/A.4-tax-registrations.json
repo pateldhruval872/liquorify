@@ -1,0 +1,38 @@
+{
+  "test": "A.4-tax-registrations",
+  "revision": "4a269571",
+  "stamp": "mwazwzf2",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "a number that fails its format was refused",
+      "message": "is invalid"
+    },
+    {
+      "step": "added an EU VAT number; after a reload",
+      "card": "Tax registration 1 Add registration DE811907980 EU VAT Not checked No registry to check this kind against, so the number is recorded as entered."
+    },
+    {
+      "step": "edited the number; after a reload",
+      "card": "Tax registration 1 Add registration DE136695976 EU VAT Not checked No registry to check this kind against, so the number is recorded as entered."
+    },
+    {
+      "step": "typed the kind nz_gst and moved on",
+      "fieldReads": ""
+    },
+    {
+      "step": "saved the typed kind; after a reload",
+      "card": "Tax registration 2 Add registration DE136695976 EU VAT Not checked No registry to check this kind against, so the number is recorded as entered. 123-456-789 nz_gst Not checked No registry to check this kind against, so the number is recorded as entered."
+    },
+    {
+      "step": "deleted the EU VAT number; after a reload",
+      "card": "Tax registration 1 Add registration 123-456-789 nz_gst Not checked No registry to check this kind against, so the number is recorded as entered."
+    },
+    {
+      "step": "checking a number with a registry",
+      "result": "NOT_RUN",
+      "reason": "no validator is registered on the browser-test server"
+    }
+  ],
+  "outside": []
+}

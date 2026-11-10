@@ -1,0 +1,139 @@
+{
+  "ranges": [
+    {
+      "name": "preset-last-7-days",
+      "sent": {
+        "since": "2026-11-04",
+        "until": "2026-11-10"
+      },
+      "screen": {
+        "total_sales": "6214.22",
+        "orders": 16
+      },
+      "admin_api": {
+        "orders": 16,
+        "total_sales": "6214.22",
+        "numbers": [
+          "R1001",
+          "R1005",
+          "R1006",
+          "R1007",
+          "R1008",
+          "R1009",
+          "R1011",
+          "R1012",
+          "R1013",
+          "R1014",
+          "R1015",
+          "R1016",
+          "R1017",
+          "R1018",
+          "R1019",
+          "R1020"
+        ]
+      }
+    },
+    {
+      "name": "custom-range",
+      "sent": {
+        "since": "2026-11-02",
+        "until": "2026-11-10"
+      },
+      "screen": {
+        "total_sales": "6214.22",
+        "orders": 16
+      },
+      "admin_api": {
+        "orders": 16,
+        "total_sales": "6214.22",
+        "numbers": [
+          "R1001",
+          "R1005",
+          "R1006",
+          "R1007",
+          "R1008",
+          "R1009",
+          "R1011",
+          "R1012",
+          "R1013",
+          "R1014",
+          "R1015",
+          "R1016",
+          "R1017",
+          "R1018",
+          "R1019",
+          "R1020"
+        ]
+      }
+    }
+  ],
+  "rankings": [
+    {
+      "tab": "Customers",
+      "shows": "its list"
+    },
+    {
+      "tab": "Categories",
+      "shows": "its list"
+    },
+    {
+      "tab": "Companies",
+      "shows": "its list"
+    },
+    {
+      "tab": "Sellers",
+      "shows": "its list"
+    }
+  ],
+  "operations": [
+    {
+      "label": "Orders to fulfill",
+      "count": 12,
+      "listed": 12,
+      "matches": true,
+      "known_defect": null
+    },
+    {
+      "label": "Payments to collect",
+      "count": 2,
+      "listed": 3,
+      "matches": false,
+      "known_defect": "SD-51"
+    },
+    {
+      "label": "Open returns",
+      "count": 0,
+      "listed": 0,
+      "matches": true,
+      "known_defect": null
+    },
+    {
+      "label": "Open exchanges",
+      "count": 0,
+      "listed": 0,
+      "matches": true,
+      "known_defect": null
+    },
+    {
+      "label": "Open claims",
+      "count": 0,
+      "listed": 0,
+      "matches": true,
+      "known_defect": null
+    },
+    {
+      "label": "Low stock",
+      "count": 0,
+      "listed": 0,
+      "matches": true,
+      "known_defect": null
+    },
+    {
+      "label": "Out of stock",
+      "count": 2,
+      "listed": 2,
+      "matches": true,
+      "known_defect": null
+    }
+  ]
+}

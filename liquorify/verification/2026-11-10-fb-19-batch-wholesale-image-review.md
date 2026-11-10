@@ -17,7 +17,7 @@ Stories use invented companies, people, addresses, tax numbers and certificate n
 
 **What the Running screen column means.**
 - **Compared:** the story was put beside the same component on Spree's running admin dashboard, and the result is in the [verification record](2026-11-10-fb-19-batch-wholesale.md) §4. Images and computed styles are in the [evidence index](evidence/2026-11-10-fb-19-batch-wholesale/README.md). The comparison is diagnostic: it informs the review and does not decide it.
-- **Not compared; checked against its source:** no running screen showed that state, so it was checked against the component's source only, with the reason. It is G-119 ([record §11](2026-11-10-fb-19-batch-wholesale.md#11-gaps)), proposed to defer to the [comparison follow-up](../LIQ-004-foundation-backlog.md#comparisons-deferred-to-later-batches).
+- **Not compared; checked against its source:** no running screen showed that state, so it was checked against the component's source only, with the reason. It is G-125 ([record §11](2026-11-10-fb-19-batch-wholesale.md#11-gaps)), proposed to defer to the [comparison follow-up](../LIQ-004-foundation-backlog.md#comparisons-deferred-to-later-batches).
 
 **How a decision is recorded.** An image is accepted or rejected in the pull request, row by row or as a whole. An image rejected is fixed in its story, its providers or its mocks, never by changing the component ([LIQ-010 §12.1](../LIQ-010-design-system-reproduction-architecture.md#121-each-batch)).
 

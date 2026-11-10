@@ -199,7 +199,7 @@ Batch 12 has no question that needs the owner now. Its choices are planning with
 7. **Spree's built-in tax engine only.** Provider exemption codes stay with P4.
 8. **The comparison follow-up's share runs inside the batch** (§3.1), as batch 13 ran its share.
 
-What stays with the owner: what §2.7's finding becomes if it is confirmed, the answers to the gaps the record lists, and anything the batch finds that would change scope, a defect or a criterion, which comes back to the owner before it is settled. New defect and gap numbers come only from the defect register's allocating thread, which reserved SD-86 to SD-93 and G-117 to G-122 for part 1 on 2026-11-10. Tenant isolation stays NOT_RUN.
+What stays with the owner: what §2.7's finding becomes if it is confirmed, the answers to the gaps the record lists, and anything the batch finds that would change scope, a defect or a criterion, which comes back to the owner before it is settled. New defect and gap numbers come only from the defect register's allocating thread, which reserved SD-86 to SD-93 and G-123 to G-128 for part 1 on 2026-11-10. Tenant isolation stays NOT_RUN.
 
 ## 8. Gaps known before the work starts
 

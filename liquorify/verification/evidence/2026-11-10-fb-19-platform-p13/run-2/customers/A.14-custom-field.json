@@ -1,0 +1,17 @@
+{
+  "test": "A.14-custom-field",
+  "revision": "4a269571",
+  "stamp": "mwb01f49",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "filled the field in the card's editor"
+    },
+    {
+      "step": "after a reload, the card",
+      "card": "Custom fields P13 pickup day mwb01f49 Saturday mwb01f49",
+      "kept": true
+    }
+  ],
+  "outside": []
+}

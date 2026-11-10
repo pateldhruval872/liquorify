@@ -23,9 +23,13 @@ import { admin } from './staff'
  * it came from the assertion that checks that change.
  */
 
-export const sabotaged = process.env.P9_SABOTAGE === '1' || process.env.P11_SABOTAGE === '1'
+export const sabotaged =
+  process.env.P9_SABOTAGE === '1' ||
+  process.env.P11_SABOTAGE === '1' ||
+  process.env.P13_SABOTAGE === '1'
 export const revision = process.env.FIDELITY_REVISION ?? null
-export const stamp = process.env.P9_STAMP ?? process.env.P11_STAMP ?? Date.now().toString(36)
+export const stamp =
+  process.env.P9_STAMP ?? process.env.P11_STAMP ?? process.env.P13_STAMP ?? Date.now().toString(36)
 
 export type Steps = Record<string, unknown>[]
 export type Headers = Record<string, string>

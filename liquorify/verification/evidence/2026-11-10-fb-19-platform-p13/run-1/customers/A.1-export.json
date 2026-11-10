@@ -1,0 +1,45 @@
+{
+  "test": "A.1-export",
+  "revision": "4a269571",
+  "stamp": "mwazwiyb",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "exported the data",
+      "name": "customer-cust_p6klVeMgbn.json",
+      "sections": {
+        "account": "object",
+        "marketing_consent": "object",
+        "consent_records": 0,
+        "addresses": 2,
+        "orders": 1,
+        "draft_orders": 0,
+        "order_groups": 0,
+        "carts": 0,
+        "payment_sources": 0,
+        "connected_logins": 0,
+        "store_credits": 1,
+        "gift_cards": 0,
+        "wishlists": 0,
+        "custom_fields": 0,
+        "companies": 0,
+        "tax_identifiers": 0,
+        "exported_at": "2026-11-10T18:00:15Z"
+      }
+    },
+    {
+      "step": "the internal note in the file (batch 10, B7)",
+      "present": true
+    },
+    {
+      "step": "the customer's data requests, read through the Admin API",
+      "requests": [
+        {
+          "kind": "access",
+          "status": "completed"
+        }
+      ]
+    }
+  ],
+  "outside": []
+}
