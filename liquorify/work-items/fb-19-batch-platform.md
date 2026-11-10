@@ -5,7 +5,7 @@ work_item: FB-19
 status: PROPOSED
 owner: the owner reviews and accepts; an automated Claude session implements
 created: 2026-10-22
-updated: 2026-11-09
+updated: 2026-11-10
 ---
 
 # FB-19 batch: the platform capabilities without screens
@@ -44,7 +44,7 @@ The capabilities with no screen in [LIQ-006](../LIQ-006-product-capability-basel
 
 Left out: CAP-11-12, multi-store administration, which has screens (dashboard shell part 2 and batch 3) and its own [work item](fb-19-batch-multi-store-administration.md), proposed on 2026-11-03 and built on 2026-11-04 in #49 ([record](../verification/2026-11-04-fb-19-batch-multi-store-administration.md)), and the Enterprise and documentation-only features (LIQ-006 §12). Its browser tests are G-72, which the multi-store record proposes to defer to this batch's browser-test work, with G-57 and P8, pending the owner's answer.
 
-Eight steps also hold checks that area batches deferred here, although their capabilities have screens: P6, the dashboard shell's untested behaviours (G-22); P7, what the server refuses within one store (G-11, G-23, G-32 and G-40); P8, the catalog's untested behaviours (G-57); P9, the untested actions in settings, the catalog, multi-store administration, Getting Started and the storefront's checkout (G-37 with G-68, G-61, G-69, G-72, G-75 and G-84); P10, the remaining refusals within one store (G-11, with G-45, G-50, G-56, G-60, G-70, G-79, G-83 and batch 6's requests); P11, the untested actions in inventory, orders and what happens after the sale (G-87, G-90 and G-92); P12, the order refusals of batch 8 (G-91 and G-95); and P13, the customer behaviours and refusals of batch 10 (G-97 and G-99).
+Nine steps also hold checks that area batches deferred here, although their capabilities have screens: P6, the dashboard shell's untested behaviours (G-22); P7, what the server refuses within one store (G-11, G-23, G-32 and G-40); P8, the catalog's untested behaviours (G-57); P9, the untested actions in settings, the catalog, multi-store administration, Getting Started and the storefront's checkout (G-37 with G-68, G-61, G-69, G-72, G-75 and G-84); P10, the remaining refusals within one store (G-11, with G-45, G-50, G-56, G-60, G-70, G-79, G-83 and batch 6's requests); P11, the untested actions in inventory, orders and what happens after the sale (G-87, G-90 and G-92); P12, the order refusals of batch 8 (G-91 and G-95); P13, the customer behaviours and refusals of batch 10 (G-97 and G-99); and P14, the marketplace refusals of batch 13 (G-106).
 
 ## 3. Coverage inventory
 
@@ -133,6 +133,7 @@ The inventory came first, as the owner asked. Each check runs once what it needs
 | P11 | Browser tests for the 48 inventory, order and after-sale actions that batch 6 and both parts of batch 8 captured but no test drives (G-87, G-90 and G-92), each listed with its expected result. Added on 2026-11-09, when the owner asked for a bounded follow-up for them, since P9 had finished. Buying a return label stays with P4. Its completion criteria are below | The merges of #64, #80 and #84, all done; in its own pull request, in parts if need be, with action 3.15 in the storefront's repository. Action 2.21 follows the owner's answer to row 39 of the owner decision brief |
 | P12 | The refusals within one store that batch 8 recorded and P10 did not send: G-95, with G-91's outstanding requests. Added on 2026-11-09, when the owner linked G-95 to G-11 through a named follow-up to P10. Its checks are recorded before implementation, as P10's were | The merges of #80 and #84, both done; P10's scripts; in its own pull request, before Liquorify changes identity or access. Checks recorded and run on 2026-11-09, every request passing twice in a row ([record](../verification/2026-11-09-fb-19-platform-p12.md)) |
 | P13 | Batch 10's customer behaviours no browser test drives (G-97), in part A, and the refusals its narrower roles could meet (G-99), in part B, kept apart. Added on 2026-11-10, when the owner asked for a bounded customer verification follow-up and linked G-99 to G-11 ([record](../verification/2026-11-10-owner-answers-batch-10.md)). Part B's expected refusals and controls are recorded before implementation, as P12's were | The merge of #94; P10's judge; in its own pull request, in two parts if need be, with part B before Liquorify changes identity or access |
+| P14 | The marketplace refusals of batch 13's part 1 (G-106): the requests the narrower seller, commission, payout, order and settings roles could make, which no Spree spec sends. Added on 2026-11-10, when the owner linked G-106 to G-11 through a named follow-up ([record §14](../verification/2026-11-10-fb-19-batch-marketplace-part-2.md#14-the-owners-answers-of-2026-11-10)). Its exact refusals and controls are recorded before implementation | The merges of #98 and #101; P10's judge; in its own pull request, before Liquorify changes identity or access |
 | — | The update check against a stand-in server | FB-09 |
 
 ### P2: keys, OAuth clients, the agent server and webhooks, used from outside
@@ -734,6 +735,108 @@ A **control** is the same request from a caller who may make it, in the same run
 | G-99 | Every check B.1 to B.12 passes in both recorded runs, with its control | Any refusal or control fails |
 
 G-11 closes only when G-99 has closed with the other gaps linked to it. Until a gap closes, the functional verification it names stays open, and no capability it touches is described as passing for it.
+
+### P14: the marketplace refusals, a follow-up to P10
+
+P10 and P12 did not send the marketplace's requests. Batch 13's part 1 (#98) recorded them as G-106: what the server refuses to the narrower seller roles beyond Spree's own specs, such as the seller viewer's refusals beyond the balances, the order manager's refusals on the commission and transfer endpoints, and a store settings role on the seller endpoints ([part 1's record §3.2](../verification/2026-11-10-fb-19-batch-marketplace-part-1.md#32-what-the-server-refuses)). On 2026-11-10 the owner linked G-106 to G-11 through a named authorization follow-up, with the exact refusals and the successful controls recorded first ([record §14](../verification/2026-11-10-fb-19-batch-marketplace-part-2.md#14-the-owners-answers-of-2026-11-10)). P14 is that follow-up. P10's and P12's records are unchanged and claim nothing about these requests.
+
+P14 sends, within one store, as a caller who may not make it, each request no Spree spec sends for the operator's narrower roles on the seller, onboarding, commission, ledger, order group and product review endpoints. It does not send the Seller API's requests. Part 2's Seller API specs send every endpoint as a member of the seller named in the request, and as a member of another seller (§3.2 of [part 2's record](../verification/2026-11-10-fb-19-batch-marketplace-part-2.md#32-what-the-server-refuses)). What a suspended seller's team may do stays with G-107, not here.
+
+**What it depends on.** The merges of #98 and #101, both done. P10's judge (`one-store.ts`) and callers (`staff.ts`), with the roles part 1 used. Its own pull request, before Liquorify changes identity or access.
+
+P14 is complete when P7's criteria 2 to 10 hold for these requests, as P10 sets out. Like P10, it claims nothing about tenant isolation, which stays FB-03's validation, NOT_RUN, with ISO-1 to ISO-7 open. It also claims nothing about requests or roles it did not send.
+
+**Closing.** Under the owner's delegation, as delegated acceptance, not the owner's review:
+
+- G-106 closes only on P14's passing evidence for every request below, in both recorded runs.
+- A refused caller answered with a success, or with an answer that carries the protected record's values, is recorded as a defect with its severity. It is brought to the owner as a security finding, and it keeps G-106 and G-11 open.
+- A control that fails keeps its row failing and is recorded as a defect, or is linked to the defect that is already open. Row 14.8's control is expected to fail on SD-70.
+- G-11 closes only when G-106 has closed and everything else it holds has closed too.
+
+#### P14's checks, recorded before implementation
+
+Recorded on 2026-11-10, before any of P14's scripts was written: the requests, who sends them, the answer each must get, the control beside it, and how the gap closes. The expected answers are written from Spree's code as on `main` at `e1092bc7`, and from part 1's §3.1 and §3.2. Nothing here has been sent yet.
+
+**How the checks run.** As P12's did:
+
+- Liquorify's own scripts in `packages/liquorify-storybook/fidelity/`, with P7's judge (`one-store.ts`), against Spree's browser-test server, started freshly with its own fixtures (`stack.spec.ts`).
+- Every request stays in the default store, and every request is the dashboard's, sent to the Admin API.
+- Each run adds its own records through the Admin API, as the admin, each marked with the run's stamp:
+  - one seller ready for review, one approved seller and one seller not yet admitted;
+  - a requirement with a submission waiting for a decision;
+  - a commission rate;
+  - a product the approved seller has proposed;
+  - for the approved seller, on the `manual` interval, a balance from an order that the run places and fulfils, which also gives a seller transfer, an order group and a commission line.
+- A record that a control changes is made again before the next caller sends the request.
+- Spree's code, tests and workflows are not changed.
+
+**The callers.** Teammates `staff.ts` adds, each holding one role, with the permission keys `/me` reports recorded beside each answer. The custom roles are the ones part 1 made, with the keys it recorded. A `write_` key also grants the `read_` key of the same scope.
+
+| Caller | Role's keys, as created | Used in |
+|---|---|---|
+| Seller manager (custom) | `write_sellers`, `read_products`, `read_orders` | Refused the commission and ledger requests; control for the seller writes |
+| Seller viewer (custom) | `read_sellers`, `read_commissions`, `read_payouts` | Refused every write; control for the reads |
+| Payouts clerk (custom) | `read_sellers`, `write_payouts` | Refused the seller and commission writes; control for the payout writes |
+| Commission manager (custom) | `read_sellers`, `write_commissions` | Refused the seller and ledger writes; control for the commission writes |
+| Merchandiser (template) | `write_products`, `write_categories`, `write_collections`, `write_stock` | Refused the seller reads; control for the product review |
+| Order manager (template) | `write_orders`, `write_payments`, `write_fulfillments`, `write_refunds`, `write_gift_cards`, `write_store_credits`, `read_customers` | Refused the seller, commission and ledger reads; control for the order groups |
+| Store settings (custom) | `write_settings` | Refused the seller and order group reads |
+| Admin | Every key | Run setup only |
+
+**How each expected answer is written.** By P10's rules A1 and A2 and P12's rule A5:
+
+- **A1.** A list, a create or a collection action is refused before the action runs.
+- **A2.** Reading or changing one record is refused as not found where Spree looks the record up before the key gate.
+- **A5.** Where the controller registers its own lookup, or finds the record inside the action, the key gate runs first.
+
+These marketplace controllers fall under the rules as follows:
+
+- `SellersController` registers its lookup again for every member action, so A5 applies to them all.
+- The seller's nested balances, payouts, team and invitations find the seller in a lookup that runs after the key gate.
+- The acceptance link counts no action as a read, so it needs `write_sellers`.
+- A payout's `complete` and a product's `approve` and `reject` find the record inside the action, after the key gate.
+- Commission rates use the base lookup, so A2 applies to their changes.
+
+Every 403 is `access_denied`, with the missing key named in `details.required_permission`.
+
+A **control** is the same request from a caller who may make it, in the same run, and it must succeed with the status written for it. For a read, its answer must carry the run's record. For a write, the read-back must see the change.
+
+**Corrections before the first recorded run.** As P10 allows:
+
+- An expected answer may be corrected only between two refusals, and only where Spree's code gives the reason.
+- Every correction is made before the first recorded run, and the record lists it with that reason.
+- An answer that lets a caller read or change what it may not is never turned into an expected answer.
+
+| # | Request | Refused callers and expected answer | Control |
+|---|---|---|---|
+| 14.1 | List sellers: `GET /api/v3/admin/sellers` | Store settings, order manager, merchandiser: 403 `read_sellers` (A1) | Seller viewer: 200, listing the run's sellers |
+| 14.2 | Read a seller: `GET /api/v3/admin/sellers/<id>` | Store settings, order manager: 403 `read_sellers` (A5) | Seller viewer: 200, carrying the seller's name |
+| 14.3 | Save a seller's contact email: `PATCH /api/v3/admin/sellers/<id>` | Seller viewer, payouts clerk, commission manager: 403 `write_sellers` (A5) | Seller manager: 200, changed |
+| 14.4 | Approve the seller ready for review: `PATCH …/sellers/<id>/approve` | Seller viewer, payouts clerk, commission manager: 403 `write_sellers` (A5) | Seller manager: 200, the seller approved |
+| 14.5 | Suspend the approved seller: `PATCH …/sellers/<id>/suspend` with a reason | As 14.4 | Seller manager: 200, the seller suspended |
+| 14.6 | Reject the seller not yet admitted: `PATCH …/sellers/<id>/reject` with a reason | As 14.4 | Seller manager: 200, the seller rejected |
+| 14.7 | Send the seller ready for review back: `PATCH …/sellers/<id>/reopen_onboarding` with a note | As 14.4 | Seller manager: 200, back in onboarding |
+| 14.8 | Read a seller's onboarding: `GET …/sellers/<id>/onboarding` | Store settings, order manager: 403 `read_sellers` (A5) | Seller manager: 200, carrying the checklist. The seller viewer is a second control, expected by Spree's code to get 200, and **expected to fail on SD-70**, which part 1 saw refused with 403. A failing control fails the row |
+| 14.9 | Invite a team member: `POST …/sellers/<id>/invite` | Seller viewer, payouts clerk, commission manager: 403 `write_sellers` (A5) | Seller manager: 201, an invitation pending |
+| 14.10 | List a seller's team and invitations: `GET …/sellers/<id>/team`, `GET …/sellers/<id>/invitations` | Store settings, order manager: 403 `read_sellers` | Seller viewer: 200, listing the run's invitation |
+| 14.11 | Read an invitation's acceptance link: `GET …/sellers/<id>/invitations/<id>/acceptance_link` | Seller viewer, payouts clerk, commission manager: 403 `write_sellers` | Seller manager: 200, carrying a link |
+| 14.12 | Read a seller's balances: `GET …/sellers/<id>/balances` | Seller manager, commission manager: 403 `read_payouts` | Seller viewer: 200, carrying the run's balance |
+| 14.13 | Settle the seller by hand: `POST …/sellers/<id>/payouts` | Seller viewer, seller manager, commission manager: 403 `write_payouts` | Payouts clerk: 201, a payout for the balance |
+| 14.14 | List the requirements: `GET /api/v3/admin/seller_requirements` | Store settings, order manager: 403 `read_sellers` (A1) | Seller viewer: 200, listing the run's requirement |
+| 14.15 | Add a requirement: `POST /api/v3/admin/seller_requirements` | Seller viewer, payouts clerk, commission manager: 403 `write_sellers` (A1) | Seller manager: 201, created |
+| 14.16 | Accept a submission: `PATCH …/sellers/<id>/requirement_submissions/<id>/accept` | Seller viewer, payouts clerk, commission manager: 403 `write_sellers` (A5) | Seller manager: 200, accepted |
+| 14.17 | List commission rates: `GET /api/v3/admin/commission_rates` | Seller manager, order manager, store settings: 403 `read_commissions` (A1) | Seller viewer: 200, listing the run's rate |
+| 14.18 | Add a commission rate: `POST /api/v3/admin/commission_rates` | Seller viewer, payouts clerk, seller manager: 403 `write_commissions` (A1) | Commission manager: 201, created |
+| 14.19 | Change a commission rate: `PATCH /api/v3/admin/commission_rates/<id>` | Seller viewer, payouts clerk: 404 `record_not_found` (A2). Seller manager: 404 (A2) | Commission manager: 200, changed |
+| 14.20 | List commission lines: `GET /api/v3/admin/commission_lines` | Order manager, seller manager: 403 `read_commissions` (A1) | Seller viewer: 200, listing the run's line |
+| 14.21 | List seller transfers: `GET /api/v3/admin/seller_transfers` | Order manager, seller manager, commission manager: 403 `read_payouts` (A1) | Seller viewer: 200, listing the run's transfer |
+| 14.22 | List seller payouts: `GET /api/v3/admin/seller_payouts` | As 14.21 | Seller viewer: 200, listing 14.13's payout |
+| 14.23 | Mark a payout paid: `PATCH /api/v3/admin/seller_payouts/<id>/complete` with a reference | Seller viewer, commission manager, seller manager: 403 `write_payouts` | Payouts clerk: 200, the payout completed |
+| 14.24 | List order groups: `GET /api/v3/admin/order_groups` | Store settings, merchandiser: 403 `read_orders` (A1) | Order manager: 200, listing the run's order group |
+| 14.25 | Approve the seller's proposed product: `PATCH /api/v3/admin/products/<id>/approve` | Seller manager, order manager, seller viewer: 403 `write_products` | Merchandiser: 200, the product approved |
+| 14.26 | Send a proposed product back: `PATCH /api/v3/admin/products/<id>/reject` with a reason | As 14.25 | Merchandiser: 200, the product sent back with the reason |
+
+Each refused answer is also searched for the protected record's values: the seller's name and email, the rate's value, the balance's amount, the invitation's link and the payout's reference. Every refused write is read back as the admin to show that nothing changed.
 
 ## 6. Acceptance criteria
 
