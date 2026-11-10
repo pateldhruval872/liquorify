@@ -1,0 +1,20 @@
+{
+  "screen": "SP-PRF-01",
+  "state": "filled",
+  "variant": "onboarding",
+  "signedInAs": "maya.okafor@stonecrop.example.com",
+  "server": "browser-test server",
+  "panel": "seller panel",
+  "theme": "dark",
+  "revision": "1342549c",
+  "path": "/sel_uw2YK1rnl0/profile",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "fullPage": true,
+  "capturedHeight": 1327,
+  "intercepted": null,
+  "settled": true,
+  "outside": []
+}

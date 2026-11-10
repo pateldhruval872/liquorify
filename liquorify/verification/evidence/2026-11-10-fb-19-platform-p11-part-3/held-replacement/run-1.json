@@ -1,0 +1,397 @@
+{
+  "config": {
+    "argv": [
+      "/usr/bin/node",
+      "/work/packages/liquorify-storybook/node_modules/@playwright/test/cli.js",
+      "test",
+      "--config",
+      "fidelity/playwright.config.ts",
+      "fidelity/held-replacement.spec.ts",
+      "--reporter=list,json"
+    ],
+    "configFile": "/work/packages/liquorify-storybook/fidelity/playwright.config.ts",
+    "rootDir": "/work/packages/liquorify-storybook/fidelity",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/work/packages/liquorify-storybook/fidelity/results/test-output",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "/work/packages/liquorify-storybook/fidelity",
+        "testIgnore": [],
+        "testMatch": [
+          "compare.spec.ts",
+          "screens.spec.ts",
+          "screens-batch-7.spec.ts",
+          "compare-batch-7.spec.ts",
+          "screens-batch-8.spec.ts",
+          "compare-batch-8.spec.ts",
+          "screens-batch-8-part-2.spec.ts",
+          "compare-batch-8-part-2.spec.ts",
+          "screens-batch-11.spec.ts",
+          "compare-batch-11.spec.ts",
+          "screens-batch-13.spec.ts",
+          "compare-batch-13.spec.ts",
+          "marketplace-checks.spec.ts",
+          "fl-22.spec.ts",
+          "fl-18.spec.ts",
+          "sf-dev-emails.spec.ts",
+          "sd-31-gift-card.spec.ts",
+          "sd-36-canceled-fulfilment.spec.ts",
+          "payment-link.spec.ts",
+          "orders-settings.spec.ts",
+          "orders-settings-part-2.spec.ts",
+          "fl-06-storefront.spec.ts",
+          "order-emails.spec.ts",
+          "digital-delivery.spec.ts",
+          "screens-catalog-3.spec.ts",
+          "compare-catalog-3.spec.ts",
+          "screens-batch-6.spec.ts",
+          "compare-batch-6.spec.ts",
+          "g-78-stock-hold.spec.ts",
+          "setup.spec.ts",
+          "refusals.spec.ts",
+          "mail.spec.ts",
+          "customer-mail.spec.ts",
+          "kits.spec.ts",
+          "records.spec.ts",
+          "hosted.spec.ts",
+          "tracing.spec.ts",
+          "shell.spec.ts",
+          "plugin.spec.ts",
+          "json-drawer.spec.ts",
+          "keys.spec.ts",
+          "oauth.spec.ts",
+          "webhooks.spec.ts",
+          "storefront-webhooks.spec.ts",
+          "fl-04-storefront.spec.ts",
+          "fl-21.spec.ts",
+          "agent.spec.ts",
+          "webhook-tracing.spec.ts",
+          "one-store-admin.spec.ts",
+          "one-store-accounts.spec.ts",
+          "one-store-storefront.spec.ts",
+          "one-store-checks.spec.ts",
+          "p10-admin.spec.ts",
+          "p10-shoppers.spec.ts",
+          "p12-admin.spec.ts",
+          "catalog-behaviours.spec.ts",
+          "multi-store.spec.ts",
+          "getting-started-tasks.spec.ts",
+          "settings-actions.spec.ts",
+          "multi-store-actions.spec.ts",
+          "catalog-actions.spec.ts",
+          "loyalty-actions.spec.ts",
+          "inventory-actions.spec.ts",
+          "order-actions.spec.ts",
+          "fulfilment-actions.spec.ts",
+          "after-sale-actions.spec.ts",
+          "held-replacement.spec.ts"
+        ],
+        "timeout": 180000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/work/packages/liquorify-storybook/fidelity/results/test-output",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "",
+        "testDir": "/work/packages/liquorify-storybook/fidelity",
+        "snapshotDir": "/work/packages/liquorify-storybook/fidelity",
+        "testIgnore": [],
+        "testMatch": [
+          "compare.spec.ts",
+          "screens.spec.ts",
+          "screens-batch-7.spec.ts",
+          "compare-batch-7.spec.ts",
+          "screens-batch-8.spec.ts",
+          "compare-batch-8.spec.ts",
+          "screens-batch-8-part-2.spec.ts",
+          "compare-batch-8-part-2.spec.ts",
+          "screens-batch-11.spec.ts",
+          "compare-batch-11.spec.ts",
+          "screens-batch-13.spec.ts",
+          "compare-batch-13.spec.ts",
+          "marketplace-checks.spec.ts",
+          "fl-22.spec.ts",
+          "fl-18.spec.ts",
+          "sf-dev-emails.spec.ts",
+          "sd-31-gift-card.spec.ts",
+          "sd-36-canceled-fulfilment.spec.ts",
+          "payment-link.spec.ts",
+          "orders-settings.spec.ts",
+          "orders-settings-part-2.spec.ts",
+          "fl-06-storefront.spec.ts",
+          "order-emails.spec.ts",
+          "digital-delivery.spec.ts",
+          "screens-catalog-3.spec.ts",
+          "compare-catalog-3.spec.ts",
+          "screens-batch-6.spec.ts",
+          "compare-batch-6.spec.ts",
+          "g-78-stock-hold.spec.ts",
+          "setup.spec.ts",
+          "refusals.spec.ts",
+          "mail.spec.ts",
+          "customer-mail.spec.ts",
+          "kits.spec.ts",
+          "records.spec.ts",
+          "hosted.spec.ts",
+          "tracing.spec.ts",
+          "shell.spec.ts",
+          "plugin.spec.ts",
+          "json-drawer.spec.ts",
+          "keys.spec.ts",
+          "oauth.spec.ts",
+          "webhooks.spec.ts",
+          "storefront-webhooks.spec.ts",
+          "fl-04-storefront.spec.ts",
+          "fl-21.spec.ts",
+          "agent.spec.ts",
+          "webhook-tracing.spec.ts",
+          "one-store-admin.spec.ts",
+          "one-store-accounts.spec.ts",
+          "one-store-storefront.spec.ts",
+          "one-store-checks.spec.ts",
+          "p10-admin.spec.ts",
+          "p10-shoppers.spec.ts",
+          "p12-admin.spec.ts",
+          "catalog-behaviours.spec.ts",
+          "multi-store.spec.ts",
+          "getting-started-tasks.spec.ts",
+          "settings-actions.spec.ts",
+          "multi-store-actions.spec.ts",
+          "catalog-actions.spec.ts",
+          "loyalty-actions.spec.ts",
+          "inventory-actions.spec.ts",
+          "order-actions.spec.ts",
+          "fulfilment-actions.spec.ts",
+          "after-sale-actions.spec.ts",
+          "held-replacement.spec.ts"
+        ],
+        "timeout": 180000,
+        "use": {
+          "browserName": "chromium",
+          "baseURL": "http://localhost:5174",
+          "viewport": {
+            "width": 1280,
+            "height": 800
+          },
+          "deviceScaleFactor": 1,
+          "locale": "en-US",
+          "timezoneId": "UTC",
+          "reducedMotion": "reduce"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": ""
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list"
+      ],
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "held-replacement.spec.ts",
+      "file": "held-replacement.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "the replacement held after a refund (P11 part 3, §4.4)",
+          "file": "held-replacement.spec.ts",
+          "line": 133,
+          "column": 6,
+          "specs": [
+            {
+              "title": "A: one claim on one unit, refunded and replaced",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 240000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 8031,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-10T15:09:25.940Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ba936991e6abc72c04ad-36c22da5d88196786494",
+              "file": "held-replacement.spec.ts",
+              "line": 135,
+              "column": 5
+            },
+            {
+              "title": "B1: a line of 2: one claim refunded, another claim on the other unit replaced",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 240000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 6589,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-10T15:09:34.132Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ba936991e6abc72c04ad-198b94ee69502abfcd7c",
+              "file": "held-replacement.spec.ts",
+              "line": 135,
+              "column": 5
+            },
+            {
+              "title": "B2: two lines: one product's claim refunded, the other's replaced",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 240000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 6848,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-10T15:09:40.733Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ba936991e6abc72c04ad-dfb9bcb240bd5e94561c",
+              "file": "held-replacement.spec.ts",
+              "line": 135,
+              "column": 5
+            },
+            {
+              "title": "C: one claim on one unit, replaced, with no refund",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 240000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 6430,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-10T15:09:47.604Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ba936991e6abc72c04ad-61aa071ff15f026b2ab1",
+              "file": "held-replacement.spec.ts",
+              "line": 135,
+              "column": 5
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-10T15:09:25.249Z",
+    "duration": 28855.806,
+    "expected": 4,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

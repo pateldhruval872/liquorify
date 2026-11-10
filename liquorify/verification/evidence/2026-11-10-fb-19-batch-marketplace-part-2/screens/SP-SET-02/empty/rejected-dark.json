@@ -1,0 +1,20 @@
+{
+  "screen": "SP-SET-02",
+  "state": "empty",
+  "variant": "rejected",
+  "signedInAs": "elin.voss@northgate.example.com",
+  "server": "browser-test server",
+  "panel": "seller panel",
+  "theme": "dark",
+  "revision": "1342549c",
+  "path": "/sel_p6klVeMgbn/settings/delivery-methods?<query>",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "fullPage": false,
+  "capturedHeight": 960,
+  "intercepted": null,
+  "settled": true,
+  "outside": []
+}

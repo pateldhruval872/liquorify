@@ -36,3 +36,5 @@ result: On 2026-11-10 the owner accepted SD-57, SD-58 and SD-59 as Low existing 
 ## 3. What is not changed
 
 No Spree code, Spree test, workflow or production setting changes. The defects are not reported to Spree, by the owner's standing instruction (decisions 21 and 37). None is a security or tenant-isolation finding. The bounded check is recorded here before it runs, and runs in its own pull request.
+
+**The bounded check, run on 2026-11-10.** It ran twice in its own pull request ([part 3's record §4.5](2026-11-10-fb-19-platform-p11-part-3.md#45-what-the-bounded-check-found)). A refund to the original payment holds every later replacement on the order, for the same item, for another unit of the same line and for another line alike, while a replacement with no refund ships. The held replacement stays an observation for the owner's product decision.

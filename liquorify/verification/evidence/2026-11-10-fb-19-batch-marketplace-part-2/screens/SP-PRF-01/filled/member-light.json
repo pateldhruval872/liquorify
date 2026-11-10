@@ -1,0 +1,20 @@
+{
+  "screen": "SP-PRF-01",
+  "state": "filled",
+  "variant": "member",
+  "signedInAs": "ines.carvalho@harbour-cask.example.com",
+  "server": "browser-test server",
+  "panel": "seller panel",
+  "theme": "light",
+  "revision": "1342549c",
+  "path": "/sel_AXs1igzRC6/profile",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "fullPage": true,
+  "capturedHeight": 1345,
+  "intercepted": null,
+  "settled": true,
+  "outside": []
+}

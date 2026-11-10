@@ -1,0 +1,20 @@
+{
+  "screen": "SP-OVL-01",
+  "state": "phone-menu-open",
+  "variant": "member",
+  "signedInAs": "ines.carvalho@harbour-cask.example.com",
+  "server": "browser-test server",
+  "panel": "seller panel",
+  "theme": "light",
+  "revision": "1342549c",
+  "path": "/sel_AXs1igzRC6",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "fullPage": false,
+  "capturedHeight": 844,
+  "intercepted": null,
+  "settled": true,
+  "outside": []
+}

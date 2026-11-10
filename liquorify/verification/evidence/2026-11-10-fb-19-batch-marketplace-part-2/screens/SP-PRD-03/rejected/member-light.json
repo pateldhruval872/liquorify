@@ -1,0 +1,20 @@
+{
+  "screen": "SP-PRD-03",
+  "state": "rejected",
+  "variant": "member",
+  "signedInAs": "ines.carvalho@harbour-cask.example.com",
+  "server": "browser-test server",
+  "panel": "seller panel",
+  "theme": "light",
+  "revision": "1342549c",
+  "path": "/sel_AXs1igzRC6/products/prod_L3pHOn63Vw",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "fullPage": true,
+  "capturedHeight": 1371,
+  "intercepted": null,
+  "settled": true,
+  "outside": []
+}

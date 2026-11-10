@@ -58,12 +58,17 @@ export const routerLoader: Loader = async (context) => {
   const layoutRoute = underLayout
     ? createRoute({ getParentRoute: () => rootRoute, id: '_authenticated', component: Outlet })
     : null
-  // A component can also read the store's own route, `/_authenticated/$storeId`,
-  // from deeper down, so a page under a store gets that route above it too.
-  const storePrefix = `${layoutPrefix}$storeId/`
+  // A component can also read its tenant's own route from deeper down, the
+  // store's `/_authenticated/$storeId` in the dashboard or the seller's
+  // `/_authenticated/$sellerId` in the seller panel, so a page under a tenant
+  // gets that route above it too.
+  const tenantParam = ['$storeId', '$sellerId'].find((param) =>
+    route.pattern.startsWith(`${layoutPrefix}${param}/`),
+  )
+  const storePrefix = `${layoutPrefix}${tenantParam}/`
   const storeRoute =
-    layoutRoute && route.pattern.startsWith(storePrefix)
-      ? createRoute({ getParentRoute: () => layoutRoute, path: '$storeId', component: Outlet })
+    layoutRoute && tenantParam
+      ? createRoute({ getParentRoute: () => layoutRoute, path: tenantParam, component: Outlet })
       : null
   const storyRoute = storeRoute
     ? createRoute({

@@ -1,0 +1,46 @@
+{
+  "revision": "1342549c",
+  "check": "invitation",
+  "answers": [
+    {
+      "step": "invitations",
+      "status": 200,
+      "body": {
+        "data": [
+          {
+            "id": "inv_EfhxLZ9ck8",
+            "email": "cooper.1794305698475@harbour-cask.example.com",
+            "created_at": "2026-11-10T10:14:59.845Z",
+            "expires_at": "2026-11-24T10:14:59.841Z",
+            "accepted_at": null,
+            "status": "pending"
+          },
+          {
+            "id": "inv_gbHJdmfrXB",
+            "email": "cellar@harbour-cask.example.com",
+            "created_at": "2026-11-10T10:04:45.639Z",
+            "expires_at": "2026-11-24T10:04:45.636Z",
+            "accepted_at": null,
+            "status": "pending"
+          }
+        ]
+      }
+    },
+    {
+      "step": "acceptance link",
+      "status": 200,
+      "body": {
+        "id": "inv_EfhxLZ9ck8",
+        "acceptance_url": "[masked]"
+      }
+    },
+    {
+      "step": "EM-S-03 written",
+      "status": 0,
+      "body": {
+        "subject": "Invitation to join Harbour Cask Co.",
+        "linkMatchesPanel": true
+      }
+    }
+  ]
+}
