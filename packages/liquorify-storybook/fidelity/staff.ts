@@ -106,6 +106,32 @@ export const roles = {
     name: 'Loyalty viewer',
     permissions: ['read_promotions', 'read_gift_cards', 'read_store_credits', 'read_customers'],
   },
+  /**
+   * Read on the home page's counts, on reports and on orders, which every
+   * figure is counted from, with read on the three scopes the rankings and top
+   * products need: the person who reads the figures and changes nothing
+   * (batch 11).
+   */
+  analyst: {
+    name: 'Analyst',
+    permissions: [
+      'read_dashboard',
+      'read_reports',
+      'read_orders',
+      'read_products',
+      'read_categories',
+      'read_customers',
+    ],
+  },
+  /** Write on reports, with read on orders and the home page's counts, and nothing the rankings need. */
+  reportBuilder: {
+    name: 'Report builder',
+    permissions: ['read_dashboard', 'write_reports', 'read_orders'],
+  },
+  /** Write on email templates and read on settings: who edits what customers receive. */
+  emailEditor: { name: 'Email editor', permissions: ['read_settings', 'write_email_templates'] },
+  /** Read on email templates and on settings, and write on neither. */
+  emailViewer: { name: 'Email viewer', permissions: ['read_settings', 'read_email_templates'] },
 } as const
 
 export type RoleKey = keyof typeof roles
@@ -217,6 +243,30 @@ export const teammates: Record<
     first: 'Lou',
     last: 'Viewer',
   },
+  analyst: {
+    email: 'fidelity-analyst@example.com',
+    role: 'analyst',
+    first: 'Ana',
+    last: 'Figures',
+  },
+  reportBuilder: {
+    email: 'fidelity-report-builder@example.com',
+    role: 'reportBuilder',
+    first: 'Rob',
+    last: 'Reports',
+  },
+  emailEditor: {
+    email: 'fidelity-email-editor@example.com',
+    role: 'emailEditor',
+    first: 'Em',
+    last: 'Editor',
+  },
+  emailViewer: {
+    email: 'fidelity-email-viewer@example.com',
+    role: 'emailViewer',
+    first: 'Eve',
+    last: 'Reader',
+  },
 }
 
 /**
@@ -244,8 +294,17 @@ export interface Seeded {
   roleChangeId: string
 }
 
-export async function admin(api: APIRequestContext) {
-  const creds = getCredentials()
+/** The admin a server was seeded with, and its store. */
+export type AdminCredentials = Pick<
+  ReturnType<typeof getCredentials>,
+  'admin_email' | 'admin_password' | 'store_id' | 'store_name'
+>
+
+/**
+ * Signs in as the server's admin: the browser-test server's, or another
+ * server's when its credentials are given.
+ */
+export async function admin(api: APIRequestContext, creds: AdminCredentials = getCredentials()) {
   const res = await api.post('/api/v3/admin/auth/login', {
     data: { email: creds.admin_email, password: creds.admin_password },
   })
@@ -328,10 +387,10 @@ export async function join(
   }
 }
 
-export async function seed(baseURL: string): Promise<Seeded> {
+export async function seed(baseURL: string, credentials?: AdminCredentials): Promise<Seeded> {
   const api = await request.newContext({ baseURL })
   try {
-    const { creds, headers } = await admin(api)
+    const { creds, headers } = await admin(api, credentials)
     const existing = (
       (await (await api.get('/api/v3/admin/roles?limit=100', { headers })).json()) as {
         data: { id: string; name: string }[]

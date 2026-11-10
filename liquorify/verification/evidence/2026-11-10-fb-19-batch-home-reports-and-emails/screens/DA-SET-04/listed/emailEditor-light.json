@@ -1,0 +1,25 @@
+{
+  "screen": "DA-SET-04",
+  "state": "listed",
+  "variant": "emailEditor",
+  "role": {
+    "name": "Email editor",
+    "permissions": [
+      "read_settings",
+      "write_email_templates"
+    ]
+  },
+  "server": "emails gem test app",
+  "theme": "light",
+  "revision": null,
+  "path": "/<store>/settings/emails/templates",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "fullPage": true,
+  "capturedHeight": 1485,
+  "intercepted": null,
+  "settled": true,
+  "outside": []
+}

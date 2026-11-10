@@ -21,6 +21,11 @@ import {
   DeliverySchema,
   DeliveryZoneSchema,
   DigitalAssetSchema,
+  EmailTemplateDraftSchema,
+  EmailTemplatePreviewSchema,
+  EmailTemplateRevisionSchema,
+  EmailTemplateSampleRecordSchema,
+  EmailTemplateSchema,
   ExchangeSchema,
   ExportSchema,
   FulfillmentSchema,
@@ -157,6 +162,19 @@ import {
   westGroup,
 } from './admin/delivery'
 import {
+  customizedTemplate,
+  draftedTemplate,
+  layoutTemplate,
+  lineItemPartial,
+  orderConfirmationPreview,
+  orderConfirmationTemplate,
+  passwordResetPreview,
+  passwordResetTemplate,
+  revisions,
+  sampleOrders,
+  savedDraft,
+} from './admin/email-templates'
+import {
   purchaseOrders,
   stockLevels,
   stockReceipts,
@@ -280,6 +298,26 @@ const LiveGiftCardSchema = GiftCardSchema.extend({
 // A fixture that no longer parses means the API changed and the mock now shows
 // something Spree would not (LIQ-010 §7.3).
 const fixtures: [string, ZodType, unknown[]][] = [
+  [
+    'email templates',
+    EmailTemplateSchema,
+    [
+      passwordResetTemplate,
+      orderConfirmationTemplate,
+      layoutTemplate,
+      lineItemPartial,
+      customizedTemplate,
+      draftedTemplate,
+    ],
+  ],
+  ['email template drafts', EmailTemplateDraftSchema, [savedDraft]],
+  [
+    'email template previews',
+    EmailTemplatePreviewSchema,
+    [passwordResetPreview, orderConfirmationPreview],
+  ],
+  ['email template revisions', EmailTemplateRevisionSchema, revisions],
+  ['email template sample records', EmailTemplateSampleRecordSchema, sampleOrders],
   [
     'admin users',
     AdminUserSchema,

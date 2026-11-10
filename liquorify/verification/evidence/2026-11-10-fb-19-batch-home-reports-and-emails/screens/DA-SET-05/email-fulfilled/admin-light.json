@@ -1,0 +1,24 @@
+{
+  "screen": "DA-SET-05",
+  "state": "email-fulfilled",
+  "variant": "admin",
+  "role": null,
+  "server": "emails gem test app",
+  "theme": "light",
+  "revision": null,
+  "path": "/<store>/settings/emails/templates/spree.fulfillment_mailer.fulfilled_email",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "fullPage": true,
+  "capturedHeight": 1397,
+  "intercepted": null,
+  "settled": true,
+  "outside": [
+    "https://fonts.gstatic.com/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuGKYMZg.ttf",
+    "https://fonts.gstatic.com/s/geist/v4/gyByhwUxId8gMEwcGFU.woff2",
+    "https://fonts.gstatic.com/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuI6fMZg.ttf",
+    "https://fonts.gstatic.com/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuOKfMZg.ttf"
+  ]
+}

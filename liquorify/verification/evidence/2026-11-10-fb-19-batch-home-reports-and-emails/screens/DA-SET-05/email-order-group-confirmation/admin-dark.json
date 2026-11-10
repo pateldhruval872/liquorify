@@ -1,0 +1,19 @@
+{
+  "screen": "DA-SET-05",
+  "state": "email-order-group-confirmation",
+  "variant": "admin",
+  "role": null,
+  "server": "emails gem test app",
+  "theme": "dark",
+  "revision": null,
+  "path": "/<store>/settings/emails/templates/spree.order_group_mailer.confirm_email",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "fullPage": true,
+  "capturedHeight": 1621,
+  "intercepted": null,
+  "settled": true,
+  "outside": []
+}

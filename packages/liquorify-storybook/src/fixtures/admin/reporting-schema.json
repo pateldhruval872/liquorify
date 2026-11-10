@@ -1,0 +1,1195 @@
+{
+  "meta": {
+    "currency": "USD",
+    "timezone": "UTC",
+    "supported_currencies": ["USD", "EUR"]
+  },
+  "families": [
+    {
+      "name": "sales",
+      "label": "Sales",
+      "metrics": [
+        "gross_sales",
+        "discounts",
+        "returns",
+        "net_sales",
+        "shipping",
+        "duties",
+        "fees",
+        "taxes",
+        "total_sales",
+        "orders",
+        "units_sold",
+        "customers",
+        "average_order_value",
+        "cost_of_goods",
+        "gross_profit",
+        "gross_margin",
+        "commission",
+        "seller_payout",
+        "promotion_discounts",
+        "promotion_redemptions",
+        "customer_lifetime_value",
+        "orders_lifetime"
+      ],
+      "dimensions": [
+        "completed_at",
+        "payment_status",
+        "fulfillment_status",
+        "country",
+        "market",
+        "channel",
+        "customer_type",
+        "seller",
+        "customer",
+        "company",
+        "category",
+        "variant",
+        "product",
+        "promotion",
+        "coupon_code"
+      ]
+    },
+    {
+      "name": "payments",
+      "label": "Payments",
+      "metrics": [
+        "payments_received",
+        "payments_refunded",
+        "net_payments",
+        "payments_count",
+        "payments_failed"
+      ],
+      "dimensions": ["payment_method", "payment_result", "paid_at"]
+    },
+    {
+      "name": "inventory",
+      "label": "Inventory",
+      "metrics": ["units_received", "units_shipped", "units_adjusted", "sell_through"],
+      "dimensions": ["moved_at", "movement_kind", "moved_variant", "stock_location"]
+    },
+    {
+      "name": "carts",
+      "label": "Carts",
+      "metrics": [
+        "carts_started",
+        "carts_converted",
+        "carts_abandoned",
+        "abandoned_value",
+        "cart_conversion_rate"
+      ],
+      "dimensions": ["started_at", "cart_status", "cart_channel"]
+    }
+  ],
+  "metrics": [
+    {
+      "name": "gross_sales",
+      "family": "sales",
+      "label": "Gross sales",
+      "description": "Item prices multiplied by quantity, before discounts, returns and tax.",
+      "format": "money",
+      "currency": "USD",
+      "derived": false,
+      "filterable": true
+    },
+    {
+      "name": "discounts",
+      "family": "sales",
+      "label": "Discounts",
+      "description": "Discounts applied to the items sold.",
+      "format": "money",
+      "currency": "USD",
+      "derived": false,
+      "filterable": true
+    },
+    {
+      "name": "returns",
+      "family": "sales",
+      "label": "Returns",
+      "description": "Money refunded, counted in the period the refund was issued.",
+      "format": "money",
+      "currency": "USD",
+      "derived": false,
+      "filterable": true
+    },
+    {
+      "name": "net_sales",
+      "family": "sales",
+      "label": "Net sales",
+      "description": "Gross sales less discounts and returns. What you actually sold.",
+      "format": "money",
+      "currency": "USD",
+      "derived": false,
+      "filterable": true
+    },
+    {
+      "name": "shipping",
+      "family": "sales",
+      "label": "Shipping",
+      "description": "Delivery charged to the customer.",
+      "format": "money",
+      "currency": "USD",
+      "derived": false,
+      "filterable": true
+    },
+    {
+      "name": "duties",
+      "family": "sales",
+      "label": "Duties",
+      "description": "Customs duties charged on the order.",
+      "format": "money",
+      "currency": "USD",
+      "derived": false,
+      "filterable": true
+    },
+    {
+      "name": "fees",
+      "family": "sales",
+      "label": "Fees",
+      "description": "Shopper-visible fees other than duties.",
+      "format": "money",
+      "currency": "USD",
+      "derived": false,
+      "filterable": true
+    },
+    {
+      "name": "taxes",
+      "family": "sales",
+      "label": "Taxes",
+      "description": "Sum of additional and included taxes.",
+      "format": "money",
+      "currency": "USD",
+      "derived": false,
+      "filterable": true
+    },
+    {
+      "name": "total_sales",
+      "family": "sales",
+      "label": "Total sales",
+      "description": "Net sales plus shipping, duties, fees and taxes. The money taken.",
+      "format": "money",
+      "currency": "USD",
+      "derived": false,
+      "filterable": true
+    },
+    {
+      "name": "orders",
+      "family": "sales",
+      "label": "Orders",
+      "description": "Number of placed orders.",
+      "format": "integer",
+      "derived": false,
+      "filterable": true
+    },
+    {
+      "name": "units_sold",
+      "family": "sales",
+      "label": "Units sold",
+      "description": "Sum of line item quantities.",
+      "format": "integer",
+      "derived": false,
+      "filterable": true
+    },
+    {
+      "name": "customers",
+      "family": "sales",
+      "label": "Customers",
+      "description": "Distinct customer emails that placed orders.",
+      "format": "integer",
+      "derived": false,
+      "filterable": true
+    },
+    {
+      "name": "average_order_value",
+      "family": "sales",
+      "label": "Average order value",
+      "description": "Total sales divided by the number of orders.",
+      "format": "money",
+      "currency": "USD",
+      "derived": true,
+      "filterable": false
+    },
+    {
+      "name": "cost_of_goods",
+      "family": "sales",
+      "label": "Cost of goods",
+      "description": "What the goods sold cost you. Variants with no cost price count as zero.",
+      "format": "money",
+      "currency": "USD",
+      "derived": false,
+      "filterable": true
+    },
+    {
+      "name": "gross_profit",
+      "family": "sales",
+      "label": "Gross profit",
+      "description": "Net sales less the cost of the goods sold.",
+      "format": "money",
+      "currency": "USD",
+      "derived": false,
+      "filterable": true
+    },
+    {
+      "name": "gross_margin",
+      "family": "sales",
+      "label": "Gross margin",
+      "description": "Gross profit as a share of net sales.",
+      "format": "percent",
+      "derived": true,
+      "filterable": false
+    },
+    {
+      "name": "commission",
+      "family": "sales",
+      "label": "Commission",
+      "description": "What the marketplace earned on these sales, including its tax.",
+      "format": "money",
+      "currency": "USD",
+      "derived": false,
+      "filterable": true
+    },
+    {
+      "name": "seller_payout",
+      "family": "sales",
+      "label": "Seller payout",
+      "description": "What the sellers are owed on these sales, after commission.",
+      "format": "money",
+      "currency": "USD",
+      "derived": false,
+      "filterable": true
+    },
+    {
+      "name": "payments_received",
+      "family": "payments",
+      "label": "Payments received",
+      "description": "Money successfully taken, counted when the payment was made.",
+      "format": "money",
+      "currency": "USD",
+      "derived": false,
+      "filterable": true
+    },
+    {
+      "name": "payments_refunded",
+      "family": "payments",
+      "label": "Payments refunded",
+      "description": "Money refunded through these payments.",
+      "format": "money",
+      "currency": "USD",
+      "derived": false,
+      "filterable": true
+    },
+    {
+      "name": "net_payments",
+      "family": "payments",
+      "label": "Net payments",
+      "description": "Money taken less money refunded, by the instrument that moved it.",
+      "format": "money",
+      "currency": "USD",
+      "derived": false,
+      "filterable": true
+    },
+    {
+      "name": "payments_count",
+      "family": "payments",
+      "label": "Payments",
+      "description": "Number of successful charges.",
+      "format": "integer",
+      "derived": false,
+      "filterable": true
+    },
+    {
+      "name": "payments_failed",
+      "family": "payments",
+      "label": "Failed payments",
+      "description": "Number of charges that failed.",
+      "format": "integer",
+      "derived": false,
+      "filterable": true
+    },
+    {
+      "name": "units_received",
+      "family": "inventory",
+      "label": "Units received",
+      "description": "Units booked into stock.",
+      "format": "integer",
+      "derived": false,
+      "filterable": true
+    },
+    {
+      "name": "units_shipped",
+      "family": "inventory",
+      "label": "Units shipped",
+      "description": "Units dispatched from stock.",
+      "format": "integer",
+      "derived": false,
+      "filterable": true
+    },
+    {
+      "name": "units_adjusted",
+      "family": "inventory",
+      "label": "Units adjusted",
+      "description": "Units added or removed by stock corrections.",
+      "format": "integer",
+      "derived": false,
+      "filterable": true
+    },
+    {
+      "name": "sell_through",
+      "family": "inventory",
+      "label": "Sell-through",
+      "description": "Units shipped as a share of units received.",
+      "format": "percent",
+      "derived": true,
+      "filterable": false
+    },
+    {
+      "name": "carts_started",
+      "family": "carts",
+      "label": "Carts started",
+      "description": "Carts created in the period.",
+      "format": "integer",
+      "derived": false,
+      "filterable": true
+    },
+    {
+      "name": "carts_converted",
+      "family": "carts",
+      "label": "Converted carts",
+      "description": "Carts that became an order. A basket split across sellers counts once.",
+      "format": "integer",
+      "derived": false,
+      "filterable": true
+    },
+    {
+      "name": "carts_abandoned",
+      "family": "carts",
+      "label": "Abandoned carts",
+      "description": "Carts that never completed and have been untouched for longer than the store abandoned-cart window.",
+      "format": "integer",
+      "derived": false,
+      "filterable": true
+    },
+    {
+      "name": "abandoned_value",
+      "family": "carts",
+      "label": "Abandoned cart value",
+      "description": "What the abandoned carts were worth. Carts are deleted once they expire, so a range longer than the cart expiry window under-reports.",
+      "format": "money",
+      "currency": "USD",
+      "derived": false,
+      "filterable": true
+    },
+    {
+      "name": "cart_conversion_rate",
+      "family": "carts",
+      "label": "Cart conversion rate",
+      "description": "Share of carts started in the period that became orders. This counts baskets, not visits — it is not a storefront conversion rate.",
+      "format": "percent",
+      "derived": true,
+      "filterable": false
+    },
+    {
+      "name": "promotion_discounts",
+      "family": "sales",
+      "label": "Promotion discounts",
+      "description": "Money discounted by promotions, shown as a positive amount.",
+      "format": "money",
+      "currency": "USD",
+      "derived": false,
+      "filterable": true
+    },
+    {
+      "name": "promotion_redemptions",
+      "family": "sales",
+      "label": "Promotion redemptions",
+      "description": "How many checkouts used a promotion. A basket split across sellers counts once.",
+      "format": "integer",
+      "derived": false,
+      "filterable": true
+    },
+    {
+      "name": "customer_lifetime_value",
+      "family": "sales",
+      "label": "Customer lifetime value",
+      "description": "Everything a customer has ever spent, net of refunds. Ignores the report date range: the range selects which customers appear, not which of their orders count.",
+      "format": "money",
+      "currency": "USD",
+      "derived": false,
+      "filterable": true
+    },
+    {
+      "name": "orders_lifetime",
+      "family": "sales",
+      "label": "Lifetime orders",
+      "description": "How many orders a customer has ever placed. Ignores the report date range, like customer lifetime value.",
+      "format": "integer",
+      "derived": false,
+      "filterable": true
+    }
+  ],
+  "dimensions": [
+    {
+      "name": "completed_at",
+      "label": "Date",
+      "description": "When the order was placed, bucketed by day, week or month in the store timezone.",
+      "type": "time",
+      "grains": ["hour", "day", "week", "month"],
+      "filter_ops": ["eq", "in"],
+      "supports_include_empty": false,
+      "compatible_metrics": [
+        "gross_sales",
+        "discounts",
+        "returns",
+        "net_sales",
+        "shipping",
+        "duties",
+        "fees",
+        "taxes",
+        "total_sales",
+        "orders",
+        "units_sold",
+        "customers",
+        "average_order_value",
+        "cost_of_goods",
+        "gross_profit",
+        "gross_margin",
+        "commission",
+        "seller_payout",
+        "promotion_discounts",
+        "promotion_redemptions",
+        "customer_lifetime_value",
+        "orders_lifetime"
+      ]
+    },
+    {
+      "name": "payment_status",
+      "label": "Payment status",
+      "description": "Payment state of the order.",
+      "type": "value",
+      "filter_ops": ["eq", "in"],
+      "supports_include_empty": false,
+      "values": [
+        {
+          "name": "none",
+          "label": "Unpaid"
+        },
+        {
+          "name": "authorized",
+          "label": "Authorized"
+        },
+        {
+          "name": "partially_paid",
+          "label": "Partially paid"
+        },
+        {
+          "name": "paid",
+          "label": "Paid"
+        },
+        {
+          "name": "partially_refunded",
+          "label": "Partially refunded"
+        },
+        {
+          "name": "refunded",
+          "label": "Refunded"
+        },
+        {
+          "name": "overcharged",
+          "label": "Overcharged"
+        },
+        {
+          "name": "voided",
+          "label": "Voided"
+        }
+      ],
+      "compatible_metrics": [
+        "gross_sales",
+        "discounts",
+        "returns",
+        "net_sales",
+        "shipping",
+        "duties",
+        "fees",
+        "taxes",
+        "total_sales",
+        "orders",
+        "units_sold",
+        "customers",
+        "average_order_value",
+        "cost_of_goods",
+        "gross_profit",
+        "gross_margin",
+        "commission",
+        "seller_payout",
+        "promotion_discounts",
+        "promotion_redemptions",
+        "customer_lifetime_value",
+        "orders_lifetime"
+      ]
+    },
+    {
+      "name": "fulfillment_status",
+      "label": "Fulfillment status",
+      "description": "Fulfillment state of the order.",
+      "type": "value",
+      "filter_ops": ["eq", "in"],
+      "supports_include_empty": false,
+      "values": [
+        {
+          "name": "backorder",
+          "label": "Backordered"
+        },
+        {
+          "name": "canceled",
+          "label": "Canceled"
+        },
+        {
+          "name": "partial",
+          "label": "Partially fulfilled"
+        },
+        {
+          "name": "unfulfilled",
+          "label": "Unfulfilled"
+        },
+        {
+          "name": "fulfilled",
+          "label": "Fulfilled"
+        },
+        {
+          "name": "delivered",
+          "label": "Delivered"
+        }
+      ],
+      "compatible_metrics": [
+        "gross_sales",
+        "discounts",
+        "returns",
+        "net_sales",
+        "shipping",
+        "duties",
+        "fees",
+        "taxes",
+        "total_sales",
+        "orders",
+        "units_sold",
+        "customers",
+        "average_order_value",
+        "cost_of_goods",
+        "gross_profit",
+        "gross_margin",
+        "commission",
+        "seller_payout",
+        "promotion_discounts",
+        "promotion_redemptions",
+        "customer_lifetime_value",
+        "orders_lifetime"
+      ]
+    },
+    {
+      "name": "country",
+      "label": "Shipping country",
+      "description": "Country of the shipping address (ISO code).",
+      "type": "value",
+      "lookup": "country",
+      "filter_ops": ["eq", "in"],
+      "supports_include_empty": false,
+      "compatible_metrics": [
+        "gross_sales",
+        "discounts",
+        "returns",
+        "net_sales",
+        "shipping",
+        "duties",
+        "fees",
+        "taxes",
+        "total_sales",
+        "orders",
+        "units_sold",
+        "customers",
+        "average_order_value",
+        "cost_of_goods",
+        "gross_profit",
+        "gross_margin",
+        "commission",
+        "seller_payout",
+        "promotion_discounts",
+        "promotion_redemptions",
+        "customer_lifetime_value",
+        "orders_lifetime"
+      ]
+    },
+    {
+      "name": "market",
+      "label": "Market",
+      "description": "The market the order was placed in.",
+      "type": "value",
+      "lookup": "market",
+      "filter_ops": ["eq", "in"],
+      "supports_include_empty": false,
+      "compatible_metrics": [
+        "gross_sales",
+        "discounts",
+        "returns",
+        "net_sales",
+        "shipping",
+        "duties",
+        "fees",
+        "taxes",
+        "total_sales",
+        "orders",
+        "units_sold",
+        "customers",
+        "average_order_value",
+        "cost_of_goods",
+        "gross_profit",
+        "gross_margin",
+        "commission",
+        "seller_payout",
+        "promotion_discounts",
+        "promotion_redemptions",
+        "customer_lifetime_value",
+        "orders_lifetime"
+      ]
+    },
+    {
+      "name": "channel",
+      "label": "Sales channel",
+      "description": "The channel the order came through.",
+      "type": "value",
+      "lookup": "channel",
+      "filter_ops": ["eq", "in"],
+      "supports_include_empty": false,
+      "compatible_metrics": [
+        "gross_sales",
+        "discounts",
+        "returns",
+        "net_sales",
+        "shipping",
+        "duties",
+        "fees",
+        "taxes",
+        "total_sales",
+        "orders",
+        "units_sold",
+        "customers",
+        "average_order_value",
+        "cost_of_goods",
+        "gross_profit",
+        "gross_margin",
+        "commission",
+        "seller_payout",
+        "promotion_discounts",
+        "promotion_redemptions",
+        "customer_lifetime_value",
+        "orders_lifetime"
+      ]
+    },
+    {
+      "name": "customer_type",
+      "label": "Customer type",
+      "description": "Whether the buyer had placed an earlier order at the time of this one.",
+      "type": "value",
+      "filter_ops": ["eq", "in"],
+      "supports_include_empty": false,
+      "values": [
+        {
+          "name": "first_time",
+          "label": "First time"
+        },
+        {
+          "name": "returning",
+          "label": "Returning"
+        }
+      ],
+      "compatible_metrics": [
+        "gross_sales",
+        "discounts",
+        "returns",
+        "net_sales",
+        "shipping",
+        "duties",
+        "fees",
+        "taxes",
+        "total_sales",
+        "orders",
+        "units_sold",
+        "customers",
+        "average_order_value",
+        "cost_of_goods",
+        "gross_profit",
+        "gross_margin",
+        "commission",
+        "seller_payout",
+        "promotion_discounts",
+        "promotion_redemptions",
+        "customer_lifetime_value",
+        "orders_lifetime"
+      ]
+    },
+    {
+      "name": "seller",
+      "label": "Seller",
+      "description": "The seller who sold the item.",
+      "type": "value",
+      "lookup": "seller",
+      "filter_ops": ["eq", "in"],
+      "supports_include_empty": false,
+      "compatible_metrics": [
+        "gross_sales",
+        "discounts",
+        "net_sales",
+        "units_sold",
+        "cost_of_goods",
+        "gross_profit",
+        "gross_margin",
+        "commission",
+        "seller_payout",
+        "promotion_discounts",
+        "promotion_redemptions"
+      ]
+    },
+    {
+      "name": "customer",
+      "label": "Customer",
+      "description": "The customer who placed the order, by email.",
+      "type": "value",
+      "lookup": "customer",
+      "filter_ops": ["eq", "in"],
+      "supports_include_empty": false,
+      "compatible_metrics": [
+        "gross_sales",
+        "discounts",
+        "returns",
+        "net_sales",
+        "shipping",
+        "duties",
+        "fees",
+        "taxes",
+        "total_sales",
+        "orders",
+        "units_sold",
+        "customers",
+        "average_order_value",
+        "cost_of_goods",
+        "gross_profit",
+        "gross_margin",
+        "commission",
+        "seller_payout",
+        "promotion_discounts",
+        "promotion_redemptions",
+        "customer_lifetime_value",
+        "orders_lifetime"
+      ]
+    },
+    {
+      "name": "company",
+      "label": "Company",
+      "description": "The organisation the purchase was made for.",
+      "type": "value",
+      "lookup": "company",
+      "filter_ops": ["eq", "in"],
+      "supports_include_empty": false,
+      "compatible_metrics": [
+        "gross_sales",
+        "discounts",
+        "returns",
+        "net_sales",
+        "shipping",
+        "duties",
+        "fees",
+        "taxes",
+        "total_sales",
+        "orders",
+        "units_sold",
+        "customers",
+        "average_order_value",
+        "cost_of_goods",
+        "gross_profit",
+        "gross_margin",
+        "commission",
+        "seller_payout",
+        "promotion_discounts",
+        "promotion_redemptions",
+        "customer_lifetime_value",
+        "orders_lifetime"
+      ]
+    },
+    {
+      "name": "category",
+      "label": "Category",
+      "description": "The category the sold product belongs to.",
+      "type": "value",
+      "lookup": "category",
+      "filter_ops": ["eq", "in"],
+      "supports_include_empty": false,
+      "compatible_metrics": [
+        "gross_sales",
+        "discounts",
+        "net_sales",
+        "units_sold",
+        "cost_of_goods",
+        "gross_profit",
+        "gross_margin",
+        "commission",
+        "seller_payout",
+        "promotion_discounts",
+        "promotion_redemptions"
+      ]
+    },
+    {
+      "name": "variant",
+      "label": "Variant",
+      "description": "The product variant (SKU) sold.",
+      "type": "value",
+      "lookup": "variant",
+      "filter_ops": ["eq", "in"],
+      "supports_include_empty": false,
+      "compatible_metrics": [
+        "gross_sales",
+        "discounts",
+        "net_sales",
+        "units_sold",
+        "cost_of_goods",
+        "gross_profit",
+        "gross_margin",
+        "commission",
+        "seller_payout",
+        "promotion_discounts",
+        "promotion_redemptions"
+      ]
+    },
+    {
+      "name": "product",
+      "label": "Product",
+      "description": "The product sold.",
+      "type": "value",
+      "lookup": "product",
+      "filter_ops": ["eq", "in"],
+      "supports_include_empty": true,
+      "compatible_metrics": [
+        "gross_sales",
+        "discounts",
+        "net_sales",
+        "units_sold",
+        "cost_of_goods",
+        "gross_profit",
+        "gross_margin",
+        "commission",
+        "seller_payout",
+        "promotion_discounts",
+        "promotion_redemptions"
+      ]
+    },
+    {
+      "name": "started_at",
+      "label": "Cart started",
+      "description": "When the cart was started, bucketed by hour, day, week or month in the store timezone.",
+      "type": "time",
+      "grains": ["hour", "day", "week", "month"],
+      "filter_ops": ["eq", "in"],
+      "supports_include_empty": false,
+      "compatible_metrics": [
+        "carts_started",
+        "carts_converted",
+        "carts_abandoned",
+        "abandoned_value",
+        "cart_conversion_rate"
+      ]
+    },
+    {
+      "name": "cart_status",
+      "label": "Cart status",
+      "description": "Whether the cart converted into an order, was abandoned, or is still active.",
+      "type": "value",
+      "filter_ops": ["eq", "in"],
+      "supports_include_empty": false,
+      "values": [
+        {
+          "name": "active",
+          "label": "Active"
+        },
+        {
+          "name": "abandoned",
+          "label": "Abandoned"
+        },
+        {
+          "name": "converted",
+          "label": "Converted"
+        }
+      ],
+      "compatible_metrics": [
+        "carts_started",
+        "carts_converted",
+        "carts_abandoned",
+        "abandoned_value",
+        "cart_conversion_rate"
+      ]
+    },
+    {
+      "name": "cart_channel",
+      "label": "Sales channel",
+      "description": "The channel the cart was started in.",
+      "type": "value",
+      "lookup": "channel",
+      "filter_ops": ["eq", "in"],
+      "supports_include_empty": false,
+      "compatible_metrics": [
+        "carts_started",
+        "carts_converted",
+        "carts_abandoned",
+        "abandoned_value",
+        "cart_conversion_rate"
+      ]
+    },
+    {
+      "name": "promotion",
+      "label": "Promotion",
+      "description": "The promotion the discount came from.",
+      "type": "value",
+      "lookup": "promotion",
+      "filter_ops": ["eq", "in"],
+      "supports_include_empty": true,
+      "compatible_metrics": [
+        "gross_sales",
+        "discounts",
+        "net_sales",
+        "units_sold",
+        "cost_of_goods",
+        "gross_profit",
+        "gross_margin",
+        "commission",
+        "seller_payout",
+        "promotion_discounts",
+        "promotion_redemptions"
+      ]
+    },
+    {
+      "name": "coupon_code",
+      "label": "Coupon code",
+      "description": "The discount code redeemed, as recorded on the order.",
+      "type": "value",
+      "filter_ops": ["eq", "in"],
+      "supports_include_empty": false,
+      "compatible_metrics": [
+        "gross_sales",
+        "discounts",
+        "net_sales",
+        "units_sold",
+        "cost_of_goods",
+        "gross_profit",
+        "gross_margin",
+        "commission",
+        "seller_payout",
+        "promotion_discounts",
+        "promotion_redemptions"
+      ]
+    },
+    {
+      "name": "payment_method",
+      "label": "Payment method",
+      "description": "The instrument the payment was taken through.",
+      "type": "value",
+      "lookup": "payment_method",
+      "filter_ops": ["eq", "in"],
+      "supports_include_empty": false,
+      "compatible_metrics": [
+        "payments_received",
+        "payments_refunded",
+        "net_payments",
+        "payments_count",
+        "payments_failed"
+      ]
+    },
+    {
+      "name": "payment_result",
+      "label": "Payment result",
+      "description": "Whether an individual charge succeeded.",
+      "type": "value",
+      "filter_ops": ["eq", "in"],
+      "supports_include_empty": false,
+      "values": [
+        {
+          "name": "checkout",
+          "label": "Checkout"
+        },
+        {
+          "name": "processing",
+          "label": "Processing"
+        },
+        {
+          "name": "pending",
+          "label": "Pending"
+        },
+        {
+          "name": "completed",
+          "label": "Completed"
+        },
+        {
+          "name": "failed",
+          "label": "Failed"
+        },
+        {
+          "name": "void",
+          "label": "Void"
+        },
+        {
+          "name": "invalid",
+          "label": "Invalid"
+        }
+      ],
+      "compatible_metrics": [
+        "payments_received",
+        "payments_refunded",
+        "net_payments",
+        "payments_count",
+        "payments_failed"
+      ]
+    },
+    {
+      "name": "paid_at",
+      "label": "Payment date",
+      "description": "When the payment was taken, bucketed by day, week or month in the store timezone.",
+      "type": "time",
+      "grains": ["hour", "day", "week", "month"],
+      "filter_ops": ["eq", "in"],
+      "supports_include_empty": false,
+      "compatible_metrics": [
+        "payments_received",
+        "payments_refunded",
+        "net_payments",
+        "payments_count",
+        "payments_failed"
+      ]
+    },
+    {
+      "name": "moved_at",
+      "label": "Movement date",
+      "description": "When stock moved, bucketed by day, week or month in the store timezone.",
+      "type": "time",
+      "grains": ["hour", "day", "week", "month"],
+      "filter_ops": ["eq", "in"],
+      "supports_include_empty": false,
+      "compatible_metrics": ["units_received", "units_shipped", "units_adjusted", "sell_through"]
+    },
+    {
+      "name": "movement_kind",
+      "label": "Movement type",
+      "description": "What happened to the stock.",
+      "type": "value",
+      "filter_ops": ["eq", "in"],
+      "supports_include_empty": false,
+      "values": [
+        {
+          "name": "received",
+          "label": "Received"
+        },
+        {
+          "name": "allocated",
+          "label": "Allocated"
+        },
+        {
+          "name": "shipped",
+          "label": "Shipped"
+        },
+        {
+          "name": "released",
+          "label": "Released"
+        },
+        {
+          "name": "adjusted",
+          "label": "Adjusted"
+        }
+      ],
+      "compatible_metrics": ["units_received", "units_shipped", "units_adjusted", "sell_through"]
+    },
+    {
+      "name": "moved_variant",
+      "label": "Variant moved",
+      "description": "The variant whose stock moved.",
+      "type": "value",
+      "lookup": "variant",
+      "filter_ops": ["eq", "in"],
+      "supports_include_empty": false,
+      "compatible_metrics": ["units_received", "units_shipped", "units_adjusted", "sell_through"]
+    },
+    {
+      "name": "stock_location",
+      "label": "Stock location",
+      "description": "The location the stock moved in or out of.",
+      "type": "value",
+      "lookup": "stock_location",
+      "filter_ops": ["eq", "in"],
+      "supports_include_empty": false,
+      "compatible_metrics": ["units_received", "units_shipped", "units_adjusted", "sell_through"]
+    }
+  ],
+  "time_range": {
+    "presets": [
+      {
+        "name": "today",
+        "label": "Today"
+      },
+      {
+        "name": "yesterday",
+        "label": "Yesterday"
+      },
+      {
+        "name": "week_to_date",
+        "label": "Week to date"
+      },
+      {
+        "name": "month_to_date",
+        "label": "Month to date"
+      },
+      {
+        "name": "quarter_to_date",
+        "label": "Quarter to date"
+      },
+      {
+        "name": "year_to_date",
+        "label": "Year to date"
+      },
+      {
+        "name": "last_week",
+        "label": "Last week"
+      },
+      {
+        "name": "last_month",
+        "label": "Last month"
+      },
+      {
+        "name": "last_quarter",
+        "label": "Last quarter"
+      },
+      {
+        "name": "last_7_days",
+        "label": "Last 7 days"
+      },
+      {
+        "name": "last_30_days",
+        "label": "Last 30 days"
+      },
+      {
+        "name": "last_4_weeks",
+        "label": "Last 4 weeks"
+      },
+      {
+        "name": "last_90_days",
+        "label": "Last 90 days"
+      },
+      {
+        "name": "last_12_months",
+        "label": "Last 12 months"
+      }
+    ],
+    "relative": ["last_<n>_days", "last_<n>_weeks", "last_<n>_months"],
+    "absolute": "ISO 8601 dates or datetimes in `since` / `until`, resolved in the store timezone"
+  },
+  "limits": {
+    "default": 50,
+    "max": 1000,
+    "max_buckets": 2000
+  },
+  "metric_filter_ops": ["eq", "gt", "gte", "lt", "lte"],
+  "compare_modes": ["previous_period", "previous_year"]
+}

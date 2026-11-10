@@ -1,0 +1,19 @@
+{
+  "screen": "DA-SET-04",
+  "state": "failed",
+  "variant": "admin",
+  "role": null,
+  "server": "emails gem test app",
+  "theme": "dark",
+  "revision": null,
+  "path": "/<store>/settings/emails/templates",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "fullPage": false,
+  "capturedHeight": 960,
+  "intercepted": "The templates request is answered with a server error",
+  "settled": true,
+  "outside": []
+}

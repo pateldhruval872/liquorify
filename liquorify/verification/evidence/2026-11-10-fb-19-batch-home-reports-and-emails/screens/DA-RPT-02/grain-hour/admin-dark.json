@@ -1,0 +1,19 @@
+{
+  "screen": "DA-RPT-02",
+  "state": "grain-hour",
+  "variant": "admin",
+  "role": null,
+  "server": "browser-test server",
+  "theme": "dark",
+  "revision": null,
+  "path": "/<store>/reports/new",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "fullPage": true,
+  "capturedHeight": 1753,
+  "intercepted": null,
+  "settled": true,
+  "outside": []
+}

@@ -1,0 +1,14 @@
+{
+  "screen": "SF-DEV-02",
+  "state": "password-reset-text",
+  "variant": "storefront",
+  "server": "storefront development server",
+  "theme": "dark",
+  "revision": "b3202e8",
+  "path": "/dev/emails/password-reset?format=text",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "fullPage": true
+}

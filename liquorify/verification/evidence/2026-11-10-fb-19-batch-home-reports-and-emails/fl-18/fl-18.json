@@ -1,0 +1,93 @@
+{
+  "server": "emails gem test app",
+  "settings_saved": {
+    "mail_from_address": "orders@fl-18.example.com",
+    "customer_support_email": "help@fl-18.example.com",
+    "new_order_notifications_email": "ops@fl-18.example.com",
+    "email_accent_color": "#0B6E4F",
+    "mailer_logo": "attached"
+  },
+  "sent_branded": {
+    "from": "orders@fl-18.example.com",
+    "subject": "Shop Password Reset Instructions",
+    "has_change": false,
+    "subject_has_change": false,
+    "shows_support_address": true,
+    "shows_accent": true,
+    "logo": true
+  },
+  "test_email": {
+    "to": "the signed-in admin",
+    "from": "orders@fl-18.example.com",
+    "subject": "[Test] Shop Password Reset Instructions (FL-18)",
+    "has_change": true,
+    "subject_has_change": true,
+    "shows_support_address": false,
+    "shows_accent": true,
+    "logo": true
+  },
+  "sent_with_draft_only": {
+    "from": "orders@fl-18.example.com",
+    "subject": "Shop Password Reset Instructions",
+    "has_change": false,
+    "subject_has_change": false,
+    "shows_support_address": true,
+    "shows_accent": true,
+    "logo": true
+  },
+  "sent_after_publish": {
+    "from": "orders@fl-18.example.com",
+    "subject": "Shop Password Reset Instructions (FL-18)",
+    "has_change": true,
+    "subject_has_change": true,
+    "shows_support_address": true,
+    "shows_accent": true,
+    "logo": true
+  },
+  "conflict": {
+    "reached_by": "a second save through the Admin API, as another editor would make",
+    "dialog": "Someone else saved this draft",
+    "loaded": "{{ store.name }} Password Reset Instructions (FL-18) first theirs"
+  },
+  "sent_after_revert": {
+    "from": "orders@fl-18.example.com",
+    "subject": "Shop Password Reset Instructions",
+    "has_change": false,
+    "subject_has_change": false,
+    "shows_support_address": true,
+    "shows_accent": true,
+    "logo": true
+  },
+  "order_placed": {
+    "order": "R1007",
+    "notification": {
+      "to": "ops@fl-18.example.com",
+      "from": "orders@fl-18.example.com",
+      "subject": "Shop received a new order"
+    },
+    "confirmation": {
+      "to": "the customer",
+      "from": "orders@fl-18.example.com",
+      "subject": "Shop Order Confirmation #R1007",
+      "has_change": false,
+      "subject_has_change": false,
+      "shows_support_address": false,
+      "shows_accent": true,
+      "logo": true
+    }
+  },
+  "customer_emails_off": {
+    "order": "R1008",
+    "notification_sent": "Shop received a new order",
+    "order_emails_to_the_customer": 0,
+    "password_reset_emails_to_the_customer": 0
+  },
+  "put_back": {
+    "mail_from_address": true,
+    "customer_support_email": true,
+    "new_order_notifications_email": true,
+    "email_accent_color": true,
+    "send_consumer_transactional_emails": true,
+    "mailer_logo_url": true
+  }
+}

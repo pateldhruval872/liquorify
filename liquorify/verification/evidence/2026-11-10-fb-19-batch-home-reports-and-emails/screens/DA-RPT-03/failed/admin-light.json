@@ -1,0 +1,19 @@
+{
+  "screen": "DA-RPT-03",
+  "state": "failed",
+  "variant": "admin",
+  "role": null,
+  "server": "browser-test server",
+  "theme": "light",
+  "revision": null,
+  "path": "/<store>/reports/sq_qp31JYFduR",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "fullPage": false,
+  "capturedHeight": 960,
+  "intercepted": "The saved report request is answered with a server error",
+  "settled": true,
+  "outside": []
+}

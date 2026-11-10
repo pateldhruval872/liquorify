@@ -1,0 +1,24 @@
+{
+  "screen": "DA-SET-03",
+  "state": "settings",
+  "variant": "storeSettings",
+  "role": {
+    "name": "Store settings",
+    "permissions": [
+      "write_settings"
+    ]
+  },
+  "server": "browser-test server",
+  "theme": "dark",
+  "revision": null,
+  "path": "/<store>/settings/emails",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "fullPage": true,
+  "capturedHeight": 1579,
+  "intercepted": null,
+  "settled": true,
+  "outside": []
+}
