@@ -33,6 +33,9 @@ import {
  * (setting one default address gives up the other) and SD-46 (a refused tax
  * number says only "is invalid") are checked softly, after the steps that do
  * not depend on them, so each is recorded and the rest of the test still runs.
+ * A.5 fails at its last step on SD-94: a cleared note is saved as an empty
+ * paragraph, so the card is blank instead of showing its empty state. A.12
+ * records the filter chip the link opens with (SD-96) without judging it.
  * Checking a tax number with a registry needs a registered validator, which
  * the browser-test server has none of, so A.4 records that check as NOT_RUN.
  */
@@ -1073,6 +1076,12 @@ test.describe("the customer's page (P13, G-97)", () => {
       ),
     )
     const otherListed = (await page.getByRole('row').filter({ hasText: otherNumber }).count()) > 0
+    const chip = await page
+      .getByRole('button', { name: /remove filter/i })
+      .first()
+      .locator('xpath=..')
+      .innerText()
+      .catch(() => '')
     steps.push({
       step: 'followed View all',
       url: new URL(page.url()).pathname,
@@ -1080,6 +1089,7 @@ test.describe("the customer's page (P13, G-97)", () => {
       rowsOnTheCard: shownOnCard,
       listed: listed.filter(Boolean).length,
       anotherCustomersOrderListed: otherListed,
+      filterChip: chip.replace(/\s+/g, ' ').trim(),
     })
     await save(page, 'A.12-orders-view-all', steps, outside)
     expect(listed.every(Boolean), "every one of the customer's orders is listed").toBe(true)
