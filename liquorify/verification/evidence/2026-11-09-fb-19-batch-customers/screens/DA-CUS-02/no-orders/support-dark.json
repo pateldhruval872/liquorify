@@ -1,0 +1,26 @@
+{
+  "screen": "DA-CUS-02",
+  "state": "no-orders",
+  "variant": "support",
+  "role": {
+    "name": "Support",
+    "permissions": [
+      "read_orders",
+      "read_customers",
+      "read_dashboard"
+    ]
+  },
+  "theme": "dark",
+  "revision": "05b7c95b",
+  "path": "/<store>/customers/cust_5OQZnCRf8J",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "fullPage": true,
+  "capturedHeight": 1134,
+  "intercepted": null,
+  "handOff": null,
+  "settled": true,
+  "outside": []
+}

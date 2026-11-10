@@ -1,0 +1,3654 @@
+{
+  "version": "3.13.7",
+  "seed": 11294,
+  "examples": [
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/import_rows_controller_spec.rb[1:1:2]",
+      "description": "serializes the raw row data and error message",
+      "full_description": "Spree::Api::V3::Admin::ImportRowsController GET #index serializes the raw row data and error message",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/import_rows_controller_spec.rb",
+      "line_number": 26,
+      "run_time": 0.246858388,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/import_rows_controller_spec.rb[1:1:4]",
+      "description": "returns 404 for an import owned by another store",
+      "full_description": "Spree::Api::V3::Admin::ImportRowsController GET #index returns 404 for an import owned by another store",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/import_rows_controller_spec.rb",
+      "line_number": 44,
+      "run_time": 0.114073011,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/import_rows_controller_spec.rb[1:1:1]",
+      "description": "lists the rows of the import",
+      "full_description": "Spree::Api::V3::Admin::ImportRowsController GET #index lists the rows of the import",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/import_rows_controller_spec.rb",
+      "line_number": 18,
+      "run_time": 0.043130413,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/import_rows_controller_spec.rb[1:1:3]",
+      "description": "filters by status via Ransack",
+      "full_description": "Spree::Api::V3::Admin::ImportRowsController GET #index filters by status via Ransack",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/import_rows_controller_spec.rb",
+      "line_number": 37,
+      "run_time": 0.078187231,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/import_rows_controller_spec.rb[1:1:5]",
+      "description": "returns 401 without credentials",
+      "full_description": "Spree::Api::V3::Admin::ImportRowsController GET #index returns 401 without credentials",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/import_rows_controller_spec.rb",
+      "line_number": 52,
+      "run_time": 0.047362818,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/tags_controller_spec.rb[1:1:1:3]",
+      "description": "rejects a Ruby class name",
+      "full_description": "Spree::Api::V3::Admin::TagsController GET #index authenticated as an admin (JWT) rejects a Ruby class name",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/tags_controller_spec.rb",
+      "line_number": 29,
+      "run_time": 0.181998116,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/tags_controller_spec.rb[1:1:1:2]",
+      "description": "rejects an unregistered taggable type",
+      "full_description": "Spree::Api::V3::Admin::TagsController GET #index authenticated as an admin (JWT) rejects an unregistered taggable type",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/tags_controller_spec.rb",
+      "line_number": 23,
+      "run_time": 0.115034392,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/tags_controller_spec.rb[1:1:1:1]",
+      "description": "returns matching tag names for the type",
+      "full_description": "Spree::Api::V3::Admin::TagsController GET #index authenticated as an admin (JWT) returns matching tag names for the type",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/tags_controller_spec.rb",
+      "line_number": 16,
+      "run_time": 0.104066104,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/tags_controller_spec.rb[1:1:3:1]",
+      "description": "excludes another store's product tags",
+      "full_description": "Spree::Api::V3::Admin::TagsController GET #index product tag vocabulary is store-scoped excludes another store's product tags",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/tags_controller_spec.rb",
+      "line_number": 60,
+      "run_time": 0.200849096,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/tags_controller_spec.rb[1:1:4:2:1]",
+      "description": "allows listing customer tags",
+      "full_description": "Spree::Api::V3::Admin::TagsController GET #index API-key scope enforcement with a key holding read_customers allows listing customer tags",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/tags_controller_spec.rb",
+      "line_number": 87,
+      "run_time": 0.028574188,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/tags_controller_spec.rb[1:1:4:1:1]",
+      "description": "forbids listing customer tags",
+      "full_description": "Spree::Api::V3::Admin::TagsController GET #index API-key scope enforcement with a key lacking read_customers forbids listing customer tags",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/tags_controller_spec.rb",
+      "line_number": 76,
+      "run_time": 0.018000327,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/tags_controller_spec.rb[1:1:2:1]",
+      "description": "excludes another store's order tags",
+      "full_description": "Spree::Api::V3::Admin::TagsController GET #index order tag vocabulary is store-scoped excludes another store's order tags",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/tags_controller_spec.rb",
+      "line_number": 44,
+      "run_time": 0.200089547,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/wishlist_items_controller_spec.rb[1:3:1]",
+      "description": "removes item from wishlist",
+      "full_description": "Spree::Api::V3::Store::WishlistItemsController DELETE #destroy removes item from wishlist",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/wishlist_items_controller_spec.rb",
+      "line_number": 143,
+      "run_time": 0.139437969,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/wishlist_items_controller_spec.rb[1:3:2:1]",
+      "description": "returns not found for non-existent item",
+      "full_description": "Spree::Api::V3::Store::WishlistItemsController DELETE #destroy error handling returns not found for non-existent item",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/wishlist_items_controller_spec.rb",
+      "line_number": 152,
+      "run_time": 0.108741141,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/wishlist_items_controller_spec.rb[1:3:2:2]",
+      "description": "returns not found for item in other users wishlist",
+      "full_description": "Spree::Api::V3::Store::WishlistItemsController DELETE #destroy error handling returns not found for item in other users wishlist",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/wishlist_items_controller_spec.rb",
+      "line_number": 160,
+      "run_time": 0.155783173,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/wishlist_items_controller_spec.rb[1:1:1]",
+      "description": "adds item to wishlist",
+      "full_description": "Spree::Api::V3::Store::WishlistItemsController POST #create adds item to wishlist",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/wishlist_items_controller_spec.rb",
+      "line_number": 22,
+      "run_time": 0.216365845,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/wishlist_items_controller_spec.rb[1:1:2:2]",
+      "description": "returns not found for an unknown variant_id",
+      "full_description": "Spree::Api::V3::Store::WishlistItemsController POST #create validation errors returns not found for an unknown variant_id",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/wishlist_items_controller_spec.rb",
+      "line_number": 42,
+      "run_time": 0.11007726,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/wishlist_items_controller_spec.rb[1:1:2:1]",
+      "description": "returns errors for missing variant_id",
+      "full_description": "Spree::Api::V3::Store::WishlistItemsController POST #create validation errors returns errors for missing variant_id",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/wishlist_items_controller_spec.rb",
+      "line_number": 34,
+      "run_time": 0.137593247,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/wishlist_items_controller_spec.rb[1:1:4:1]",
+      "description": "returns not found for other users wishlist",
+      "full_description": "Spree::Api::V3::Store::WishlistItemsController POST #create error handling returns not found for other users wishlist",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/wishlist_items_controller_spec.rb",
+      "line_number": 70,
+      "run_time": 0.177563775,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/wishlist_items_controller_spec.rb[1:1:4:2]",
+      "description": "returns not found for non-existent wishlist",
+      "full_description": "Spree::Api::V3::Store::WishlistItemsController POST #create error handling returns not found for non-existent wishlist",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/wishlist_items_controller_spec.rb",
+      "line_number": 81,
+      "run_time": 0.155347539,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/wishlist_items_controller_spec.rb[1:1:5:1]",
+      "description": "returns unauthorized",
+      "full_description": "Spree::Api::V3::Store::WishlistItemsController POST #create without authentication returns unauthorized",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/wishlist_items_controller_spec.rb",
+      "line_number": 92,
+      "run_time": 0.183665304,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/wishlist_items_controller_spec.rb[1:1:3:2]",
+      "description": "refuses a raw integer id",
+      "full_description": "Spree::Api::V3::Store::WishlistItemsController POST #create with a variant the buyer cannot see refuses a raw integer id",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/wishlist_items_controller_spec.rb",
+      "line_number": 62,
+      "run_time": 0.16346959,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/wishlist_items_controller_spec.rb[1:1:3:1]",
+      "description": "refuses a draft product",
+      "full_description": "Spree::Api::V3::Store::WishlistItemsController POST #create with a variant the buyer cannot see refuses a draft product",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/wishlist_items_controller_spec.rb",
+      "line_number": 52,
+      "run_time": 0.206914349,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/wishlist_items_controller_spec.rb[1:2:1]",
+      "description": "updates wishlist item quantity",
+      "full_description": "Spree::Api::V3::Store::WishlistItemsController PATCH #update updates wishlist item quantity",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/wishlist_items_controller_spec.rb",
+      "line_number": 103,
+      "run_time": 0.12883357,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/wishlist_items_controller_spec.rb[1:2:3:1]",
+      "description": "returns not found for non-existent item",
+      "full_description": "Spree::Api::V3::Store::WishlistItemsController PATCH #update error handling returns not found for non-existent item",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/wishlist_items_controller_spec.rb",
+      "line_number": 121,
+      "run_time": 0.100180911,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/wishlist_items_controller_spec.rb[1:2:3:2]",
+      "description": "returns not found for item in other users wishlist",
+      "full_description": "Spree::Api::V3::Store::WishlistItemsController PATCH #update error handling returns not found for item in other users wishlist",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/wishlist_items_controller_spec.rb",
+      "line_number": 129,
+      "run_time": 0.116405376,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/wishlist_items_controller_spec.rb[1:2:2:1]",
+      "description": "returns errors for invalid quantity",
+      "full_description": "Spree::Api::V3::Store::WishlistItemsController PATCH #update validation errors returns errors for invalid quantity",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/wishlist_items_controller_spec.rb",
+      "line_number": 111,
+      "run_time": 0.128570143,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/customer_groups_spec.rb[1:2:3:1:1]",
+      "description": "returns a 204 response",
+      "full_description": "Admin Customer Groups API /api/v3/admin/customer_groups/{id} delete customer group deleted returns a 204 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/admin/customer_groups_spec.rb",
+      "line_number": null,
+      "run_time": 0.039426854,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/customer_groups_spec.rb[1:2:2:1:1]",
+      "description": "returns a 200 response",
+      "full_description": "Admin Customer Groups API /api/v3/admin/customer_groups/{id} patch customer group updated returns a 200 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/admin/customer_groups_spec.rb",
+      "line_number": null,
+      "run_time": 0.057004818,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/customer_groups_spec.rb[1:2:2:2:1]",
+      "description": "returns a 422 response",
+      "full_description": "Admin Customer Groups API /api/v3/admin/customer_groups/{id} patch validation error returns a 422 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/admin/customer_groups_spec.rb",
+      "line_number": null,
+      "run_time": 0.040661938,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/customer_groups_spec.rb[1:2:1:2:1]",
+      "description": "returns a 200 response",
+      "full_description": "Admin Customer Groups API /api/v3/admin/customer_groups/{id} get customer group with embedded customers returns a 200 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/admin/customer_groups_spec.rb",
+      "line_number": null,
+      "run_time": 0.071465451,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/customer_groups_spec.rb[1:2:1:3:1]",
+      "description": "returns a 404 response",
+      "full_description": "Admin Customer Groups API /api/v3/admin/customer_groups/{id} get customer group not found returns a 404 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/admin/customer_groups_spec.rb",
+      "line_number": null,
+      "run_time": 0.069337685,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/customer_groups_spec.rb[1:2:1:1:1]",
+      "description": "returns a 200 response",
+      "full_description": "Admin Customer Groups API /api/v3/admin/customer_groups/{id} get customer group found returns a 200 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/admin/customer_groups_spec.rb",
+      "line_number": null,
+      "run_time": 0.042336349,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/customer_groups_spec.rb[1:1:1:1:1]",
+      "description": "returns a 200 response",
+      "full_description": "Admin Customer Groups API /api/v3/admin/customer_groups get customer groups found returns a 200 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/admin/customer_groups_spec.rb",
+      "line_number": null,
+      "run_time": 0.042449452,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/customer_groups_spec.rb[1:1:1:2:1]",
+      "description": "returns a 401 response",
+      "full_description": "Admin Customer Groups API /api/v3/admin/customer_groups get unauthorized returns a 401 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/admin/customer_groups_spec.rb",
+      "line_number": null,
+      "run_time": 0.029411455,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/customer_groups_spec.rb[1:1:2:1:1]",
+      "description": "returns a 201 response",
+      "full_description": "Admin Customer Groups API /api/v3/admin/customer_groups post customer group created returns a 201 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/admin/customer_groups_spec.rb",
+      "line_number": null,
+      "run_time": 0.242183492,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/customer_groups_spec.rb[1:1:2:2:1]",
+      "description": "returns a 422 response",
+      "full_description": "Admin Customer Groups API /api/v3/admin/customer_groups post validation error returns a 422 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/admin/customer_groups_spec.rb",
+      "line_number": null,
+      "run_time": 0.102299412,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/customers/store_credits_spec.rb[1:2:2:1:1]",
+      "description": "returns a 204 response",
+      "full_description": "Admin Customer Store Credits API /api/v3/admin/customers/{customer_id}/store_credits/{id} delete store credit deleted returns a 204 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/admin/customers/store_credits_spec.rb",
+      "line_number": null,
+      "run_time": 0.065743303,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/customers/store_credits_spec.rb[1:2:1:1:1]",
+      "description": "returns a 200 response",
+      "full_description": "Admin Customer Store Credits API /api/v3/admin/customers/{customer_id}/store_credits/{id} patch store credit updated returns a 200 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/admin/customers/store_credits_spec.rb",
+      "line_number": null,
+      "run_time": 0.050943308,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/customers/store_credits_spec.rb[1:1:1:1:1]",
+      "description": "returns a 200 response",
+      "full_description": "Admin Customer Store Credits API /api/v3/admin/customers/{customer_id}/store_credits get store credits found returns a 200 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/admin/customers/store_credits_spec.rb",
+      "line_number": null,
+      "run_time": 0.050000005,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/customers/store_credits_spec.rb[1:1:2:1:1]",
+      "description": "returns a 201 response",
+      "full_description": "Admin Customer Store Credits API /api/v3/admin/customers/{customer_id}/store_credits post store credit created returns a 201 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/admin/customers/store_credits_spec.rb",
+      "line_number": null,
+      "run_time": 0.054610948,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/serializers/spree/api/v3/admin/customer_serializer_spec.rb[1:1]",
+      "description": "returns the prefixed id",
+      "full_description": "Spree::Api::V3::Admin::CustomerSerializer returns the prefixed id",
+      "status": "passed",
+      "file_path": "./spec/serializers/spree/api/v3/admin/customer_serializer_spec.rb",
+      "line_number": 12,
+      "run_time": 0.015950488,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/serializers/spree/api/v3/admin/customer_serializer_spec.rb[1:2:1]",
+      "description": "is always present, even with no membership",
+      "full_description": "Spree::Api::V3::Admin::CustomerSerializer customer_group_ids is always present, even with no membership",
+      "status": "passed",
+      "file_path": "./spec/serializers/spree/api/v3/admin/customer_serializer_spec.rb",
+      "line_number": 17,
+      "run_time": 0.014592252,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/serializers/spree/api/v3/admin/customer_serializer_spec.rb[1:2:2]",
+      "description": "exposes group membership as prefixed ids",
+      "full_description": "Spree::Api::V3::Admin::CustomerSerializer customer_group_ids exposes group membership as prefixed ids",
+      "status": "passed",
+      "file_path": "./spec/serializers/spree/api/v3/admin/customer_serializer_spec.rb",
+      "line_number": 21,
+      "run_time": 0.01831955,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/serializers/spree/api/v3/admin/customer_serializer_spec.rb[1:3:2]",
+      "description": "embeds the memberships when expanded",
+      "full_description": "Spree::Api::V3::Admin::CustomerSerializer companies embeds the memberships when expanded",
+      "status": "passed",
+      "file_path": "./spec/serializers/spree/api/v3/admin/customer_serializer_spec.rb",
+      "line_number": 41,
+      "run_time": 0.027916446,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/serializers/spree/api/v3/admin/customer_serializer_spec.rb[1:3:1]",
+      "description": "is omitted unless expanded",
+      "full_description": "Spree::Api::V3::Admin::CustomerSerializer companies is omitted unless expanded",
+      "status": "passed",
+      "file_path": "./spec/serializers/spree/api/v3/admin/customer_serializer_spec.rb",
+      "line_number": 37,
+      "run_time": 0.017231715,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/newsletter_subscribers_spec.rb[1:1:1:5:1]",
+      "description": "returns a 422 response",
+      "full_description": "Newsletter Subscribers API /api/v3/store/newsletter_subscribers post invalid email format returns a 422 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/store/newsletter_subscribers_spec.rb",
+      "line_number": null,
+      "run_time": 0.024082071,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/newsletter_subscribers_spec.rb[1:1:1:1:1]",
+      "description": "returns a 201 response",
+      "full_description": "Newsletter Subscribers API /api/v3/store/newsletter_subscribers post subscription created (or existing returned) returns a 201 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/store/newsletter_subscribers_spec.rb",
+      "line_number": null,
+      "run_time": 0.024646502,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/newsletter_subscribers_spec.rb[1:1:1:3:1]",
+      "description": "returns a 201 response",
+      "full_description": "Newsletter Subscribers API /api/v3/store/newsletter_subscribers post subscription created but redirect_url is dropped (not in allowed origins) returns a 201 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/store/newsletter_subscribers_spec.rb",
+      "line_number": null,
+      "run_time": 0.047573798,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/newsletter_subscribers_spec.rb[1:1:1:2:1]",
+      "description": "returns a 201 response",
+      "full_description": "Newsletter Subscribers API /api/v3/store/newsletter_subscribers post subscription created with a validated redirect_url returns a 201 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/store/newsletter_subscribers_spec.rb",
+      "line_number": null,
+      "run_time": 0.028457508,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/newsletter_subscribers_spec.rb[1:1:1:4:1]",
+      "description": "returns a 201 response",
+      "full_description": "Newsletter Subscribers API /api/v3/store/newsletter_subscribers post auto-verified when JWT matches subscribed email returns a 201 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/store/newsletter_subscribers_spec.rb",
+      "line_number": null,
+      "run_time": 0.05727667,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/newsletter_subscribers_spec.rb[1:2:1:1:1]",
+      "description": "returns a 200 response",
+      "full_description": "Newsletter Subscribers API /api/v3/store/newsletter_subscribers/verify post subscription verified returns a 200 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/store/newsletter_subscribers_spec.rb",
+      "line_number": null,
+      "run_time": 0.033099803,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/newsletter_subscribers_spec.rb[1:2:1:3:1]",
+      "description": "returns a 422 response",
+      "full_description": "Newsletter Subscribers API /api/v3/store/newsletter_subscribers/verify post missing token returns a 422 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/store/newsletter_subscribers_spec.rb",
+      "line_number": null,
+      "run_time": 0.025028684,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/newsletter_subscribers_spec.rb[1:2:1:2:1]",
+      "description": "returns a 422 response",
+      "full_description": "Newsletter Subscribers API /api/v3/store/newsletter_subscribers/verify post invalid or expired token returns a 422 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/store/newsletter_subscribers_spec.rb",
+      "line_number": null,
+      "run_time": 0.020649452,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/newsletter_subscribers_spec.rb[1:3:1:5:1]",
+      "description": "returns a 422 response",
+      "full_description": "Newsletter Subscribers API /api/v3/store/newsletter_subscribers/{id} delete neither token nor JWT supplied returns a 422 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/store/newsletter_subscribers_spec.rb",
+      "line_number": null,
+      "run_time": 0.018567663,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/newsletter_subscribers_spec.rb[1:3:1:7:1]",
+      "description": "returns a 422 response",
+      "full_description": "Newsletter Subscribers API /api/v3/store/newsletter_subscribers/{id} delete id in URL does not match the token's subscriber returns a 422 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/store/newsletter_subscribers_spec.rb",
+      "line_number": null,
+      "run_time": 0.021756244,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/newsletter_subscribers_spec.rb[1:3:1:8:1]",
+      "description": "returns a 422 response",
+      "full_description": "Newsletter Subscribers API /api/v3/store/newsletter_subscribers/{id} delete token for a subscriber on a different store returns a 422 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/store/newsletter_subscribers_spec.rb",
+      "line_number": null,
+      "run_time": 0.089014511,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/newsletter_subscribers_spec.rb[1:3:1:10:1]",
+      "description": "returns a 422 response",
+      "full_description": "Newsletter Subscribers API /api/v3/store/newsletter_subscribers/{id} delete JWT-authenticated but not the owner returns a 422 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/store/newsletter_subscribers_spec.rb",
+      "line_number": null,
+      "run_time": 0.064427338,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/newsletter_subscribers_spec.rb[1:3:1:6:1]",
+      "description": "returns a 422 response",
+      "full_description": "Newsletter Subscribers API /api/v3/store/newsletter_subscribers/{id} delete token is malformed returns a 422 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/store/newsletter_subscribers_spec.rb",
+      "line_number": null,
+      "run_time": 0.018323249,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/newsletter_subscribers_spec.rb[1:3:1:11:1]",
+      "description": "returns a 422 response",
+      "full_description": "Newsletter Subscribers API /api/v3/store/newsletter_subscribers/{id} delete JWT-authenticated, subscriber on a different store returns a 422 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/store/newsletter_subscribers_spec.rb",
+      "line_number": null,
+      "run_time": 0.092909529,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/newsletter_subscribers_spec.rb[1:3:1:4:1]",
+      "description": "returns a 204 response",
+      "full_description": "Newsletter Subscribers API /api/v3/store/newsletter_subscribers/{id} delete unsubscribed via JWT (owner) returns a 204 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/store/newsletter_subscribers_spec.rb",
+      "line_number": null,
+      "run_time": 0.043499885,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/newsletter_subscribers_spec.rb[1:3:1:2:1]",
+      "description": "returns a 204 response",
+      "full_description": "Newsletter Subscribers API /api/v3/store/newsletter_subscribers/{id} delete token path also flips the linked user's accepts_email_marketing flag returns a 204 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/store/newsletter_subscribers_spec.rb",
+      "line_number": null,
+      "run_time": 0.046309425,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/newsletter_subscribers_spec.rb[1:3:1:3:1]",
+      "description": "returns a 204 response",
+      "full_description": "Newsletter Subscribers API /api/v3/store/newsletter_subscribers/{id} delete leaves accepts_email_marketing alone when subscriptions remain on other stores returns a 204 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/store/newsletter_subscribers_spec.rb",
+      "line_number": null,
+      "run_time": 0.090137601,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/newsletter_subscribers_spec.rb[1:3:1:1:1]",
+      "description": "returns a 204 response",
+      "full_description": "Newsletter Subscribers API /api/v3/store/newsletter_subscribers/{id} delete unsubscribed via token returns a 204 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/store/newsletter_subscribers_spec.rb",
+      "line_number": null,
+      "run_time": 0.012150265,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/newsletter_subscribers_spec.rb[1:3:1:9:1]",
+      "description": "returns a 422 response",
+      "full_description": "Newsletter Subscribers API /api/v3/store/newsletter_subscribers/{id} delete token issued before the email was changed returns a 422 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/store/newsletter_subscribers_spec.rb",
+      "line_number": null,
+      "run_time": 0.016040393,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/newsletter_subscribers_spec.rb[1:4:1:1:1]",
+      "description": "returns a 202 response",
+      "full_description": "Newsletter Subscribers API /api/v3/store/newsletter_subscribers/request_unsubscribe post event published when the email matches a subscriber returns a 202 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/store/newsletter_subscribers_spec.rb",
+      "line_number": null,
+      "run_time": 0.026561647,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/newsletter_subscribers_spec.rb[1:4:1:3:1]",
+      "description": "returns a 202 response",
+      "full_description": "Newsletter Subscribers API /api/v3/store/newsletter_subscribers/request_unsubscribe post no event published when the email belongs to a subscriber on another store returns a 202 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/store/newsletter_subscribers_spec.rb",
+      "line_number": null,
+      "run_time": 0.079414647,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/newsletter_subscribers_spec.rb[1:4:1:4:1]",
+      "description": "returns a 202 response",
+      "full_description": "Newsletter Subscribers API /api/v3/store/newsletter_subscribers/request_unsubscribe post returns accepted even when email is missing returns a 202 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/store/newsletter_subscribers_spec.rb",
+      "line_number": null,
+      "run_time": 0.009733321,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/newsletter_subscribers_spec.rb[1:4:1:2:1]",
+      "description": "returns a 202 response",
+      "full_description": "Newsletter Subscribers API /api/v3/store/newsletter_subscribers/request_unsubscribe post no event published when the email is unknown returns a 202 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/store/newsletter_subscribers_spec.rb",
+      "line_number": null,
+      "run_time": 0.008708059,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/customers_spec.rb[1:4:1:1:1]",
+      "description": "returns a 200 response",
+      "full_description": "Admin Customers API /api/v3/admin/customers/bulk_remove_from_groups post customers removed from groups returns a 200 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/admin/customers_spec.rb",
+      "line_number": null,
+      "run_time": 0.0487253,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/customers_spec.rb[1:3:1:1:1]",
+      "description": "returns a 200 response",
+      "full_description": "Admin Customers API /api/v3/admin/customers/bulk_add_to_groups post customers added to groups returns a 200 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/admin/customers_spec.rb",
+      "line_number": null,
+      "run_time": 0.044814516,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/customers_spec.rb[1:1:2:1:1]",
+      "description": "returns a 201 response",
+      "full_description": "Admin Customers API /api/v3/admin/customers post customer created returns a 201 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/admin/customers_spec.rb",
+      "line_number": null,
+      "run_time": 0.031242367,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/customers_spec.rb[1:1:1:1:1]",
+      "description": "returns a 200 response",
+      "full_description": "Admin Customers API /api/v3/admin/customers get customers found returns a 200 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/admin/customers_spec.rb",
+      "line_number": null,
+      "run_time": 0.030434111,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/customers_spec.rb[1:5:1:1:1]",
+      "description": "returns a 200 response",
+      "full_description": "Admin Customers API /api/v3/admin/customers/bulk_add_tags post tags added returns a 200 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/admin/customers_spec.rb",
+      "line_number": null,
+      "run_time": 0.077136317,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/customers_spec.rb[1:2:1:1:1]",
+      "description": "returns a 200 response",
+      "full_description": "Admin Customers API /api/v3/admin/customers/{id} get customer found returns a 200 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/admin/customers_spec.rb",
+      "line_number": null,
+      "run_time": 0.055038333,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/customers_spec.rb[1:2:3:1:1]",
+      "description": "returns a 204 response",
+      "full_description": "Admin Customers API /api/v3/admin/customers/{id} delete customer deleted returns a 204 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/admin/customers_spec.rb",
+      "line_number": null,
+      "run_time": 0.076063506,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/customers_spec.rb[1:2:2:1:1]",
+      "description": "returns a 200 response",
+      "full_description": "Admin Customers API /api/v3/admin/customers/{id} patch customer updated returns a 200 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/admin/customers_spec.rb",
+      "line_number": null,
+      "run_time": 0.058864211,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/customers_spec.rb[1:6:1:1:1]",
+      "description": "returns a 200 response",
+      "full_description": "Admin Customers API /api/v3/admin/customers/bulk_remove_tags post tags removed returns a 200 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/admin/customers_spec.rb",
+      "line_number": null,
+      "run_time": 0.070643775,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customers/store_credits_controller_spec.rb[1:7:2]",
+      "description": "cannot show another store's credit",
+      "full_description": "Spree::Api::V3::Admin::Customers::StoreCreditsController cross-store isolation cannot show another store's credit",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customers/store_credits_controller_spec.rb",
+      "line_number": 183,
+      "run_time": 0.328876004,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customers/store_credits_controller_spec.rb[1:7:3]",
+      "description": "cannot update another store's credit",
+      "full_description": "Spree::Api::V3::Admin::Customers::StoreCreditsController cross-store isolation cannot update another store's credit",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customers/store_credits_controller_spec.rb",
+      "line_number": 189,
+      "run_time": 0.304620628,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customers/store_credits_controller_spec.rb[1:7:1]",
+      "description": "excludes other stores' credits from the index",
+      "full_description": "Spree::Api::V3::Admin::Customers::StoreCreditsController cross-store isolation excludes other stores' credits from the index",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customers/store_credits_controller_spec.rb",
+      "line_number": 175,
+      "run_time": 0.144929178,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customers/store_credits_controller_spec.rb[1:7:4]",
+      "description": "cannot delete another store's credit",
+      "full_description": "Spree::Api::V3::Admin::Customers::StoreCreditsController cross-store isolation cannot delete another store's credit",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customers/store_credits_controller_spec.rb",
+      "line_number": 196,
+      "run_time": 0.106695263,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customers/store_credits_controller_spec.rb[1:5:1]",
+      "description": "updates memo",
+      "full_description": "Spree::Api::V3::Admin::Customers::StoreCreditsController PATCH #update updates memo",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customers/store_credits_controller_spec.rb",
+      "line_number": 127,
+      "run_time": 0.041000493,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customers/store_credits_controller_spec.rb[1:5:2:1]",
+      "description": "rejects amount changes with 422",
+      "full_description": "Spree::Api::V3::Admin::Customers::StoreCreditsController PATCH #update when store credit has been used rejects amount changes with 422",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customers/store_credits_controller_spec.rb",
+      "line_number": 137,
+      "run_time": 0.036436461,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customers/store_credits_controller_spec.rb[1:5:2:2]",
+      "description": "allows memo changes",
+      "full_description": "Spree::Api::V3::Admin::Customers::StoreCreditsController PATCH #update when store credit has been used allows memo changes",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customers/store_credits_controller_spec.rb",
+      "line_number": 143,
+      "run_time": 0.038724045,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customers/store_credits_controller_spec.rb[1:1:1]",
+      "description": "returns the customer store credits",
+      "full_description": "Spree::Api::V3::Admin::Customers::StoreCreditsController GET #index returns the customer store credits",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customers/store_credits_controller_spec.rb",
+      "line_number": 14,
+      "run_time": 0.038927189,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customers/store_credits_controller_spec.rb[1:1:2:1]",
+      "description": "cannot read another customer's store credits",
+      "full_description": "Spree::Api::V3::Admin::Customers::StoreCreditsController GET #index with a limited-role admin that cannot read customers cannot read another customer's store credits",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customers/store_credits_controller_spec.rb",
+      "line_number": 30,
+      "run_time": 0.035913358,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customers/store_credits_controller_spec.rb[1:3:1:2]",
+      "description": "rejects creating a store credit with 403",
+      "full_description": "Spree::Api::V3::Admin::Customers::StoreCreditsController secret API key scope enforcement on writes with a key granting only read_store_credits rejects creating a store credit with 403",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customers/store_credits_controller_spec.rb",
+      "line_number": 84,
+      "run_time": 0.029965639,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customers/store_credits_controller_spec.rb[1:3:1:1]",
+      "description": "allows reading",
+      "full_description": "Spree::Api::V3::Admin::Customers::StoreCreditsController secret API key scope enforcement on writes with a key granting only read_store_credits allows reading",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customers/store_credits_controller_spec.rb",
+      "line_number": 78,
+      "run_time": 0.031420715,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customers/store_credits_controller_spec.rb[1:3:2:1]",
+      "description": "allows creating a store credit",
+      "full_description": "Spree::Api::V3::Admin::Customers::StoreCreditsController secret API key scope enforcement on writes with a key granting write_store_credits allows creating a store credit",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customers/store_credits_controller_spec.rb",
+      "line_number": 97,
+      "run_time": 0.036070627,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customers/store_credits_controller_spec.rb[1:2:2]",
+      "description": "cannot create a store credit on a customer it can only view",
+      "full_description": "Spree::Api::V3::Admin::Customers::StoreCreditsController write authorization with a read-only customer role cannot create a store credit on a customer it can only view",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customers/store_credits_controller_spec.rb",
+      "line_number": 53,
+      "run_time": 0.036217699,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customers/store_credits_controller_spec.rb[1:2:1]",
+      "description": "allows reading the customer's store credits",
+      "full_description": "Spree::Api::V3::Admin::Customers::StoreCreditsController write authorization with a read-only customer role allows reading the customer's store credits",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customers/store_credits_controller_spec.rb",
+      "line_number": 47,
+      "run_time": 0.040079565,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customers/store_credits_controller_spec.rb[1:4:1]",
+      "description": "creates a store credit and sets created_by",
+      "full_description": "Spree::Api::V3::Admin::Customers::StoreCreditsController POST #create creates a store credit and sets created_by",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customers/store_credits_controller_spec.rb",
+      "line_number": 108,
+      "run_time": 0.093360734,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customers/store_credits_controller_spec.rb[1:6:1]",
+      "description": "destroys an unused store credit",
+      "full_description": "Spree::Api::V3::Admin::Customers::StoreCreditsController DELETE #destroy destroys an unused store credit",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customers/store_credits_controller_spec.rb",
+      "line_number": 152,
+      "run_time": 0.053744246,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customers/store_credits_controller_spec.rb[1:6:2:1]",
+      "description": "returns 422",
+      "full_description": "Spree::Api::V3::Admin::Customers::StoreCreditsController DELETE #destroy when store credit has been used returns 422",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customers/store_credits_controller_spec.rb",
+      "line_number": 161,
+      "run_time": 0.044454269,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/exports_controller_spec.rb[1:5:1]",
+      "description": "deletes the export",
+      "full_description": "Spree::Api::V3::Admin::ExportsController DELETE #destroy deletes the export",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/exports_controller_spec.rb",
+      "line_number": 263,
+      "run_time": 0.03659624,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/exports_controller_spec.rb[1:3:7]",
+      "description": "rejects unregistered export types",
+      "full_description": "Spree::Api::V3::Admin::ExportsController POST #create rejects unregistered export types",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/exports_controller_spec.rb",
+      "line_number": 214,
+      "run_time": 0.027244669,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/exports_controller_spec.rb[1:3:1]",
+      "description": "creates a Products export with a Ransack search_params hash",
+      "full_description": "Spree::Api::V3::Admin::ExportsController POST #create creates a Products export with a Ransack search_params hash",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/exports_controller_spec.rb",
+      "line_number": 115,
+      "run_time": 0.030201175,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/exports_controller_spec.rb[1:3:3]",
+      "description": "creates an Orders export",
+      "full_description": "Spree::Api::V3::Admin::ExportsController POST #create creates an Orders export",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/exports_controller_spec.rb",
+      "line_number": 157,
+      "run_time": 0.031745599,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/exports_controller_spec.rb[1:3:6]",
+      "description": "clears search_params when record_selection is \"all\"",
+      "full_description": "Spree::Api::V3::Admin::ExportsController POST #create clears search_params when record_selection is \"all\"",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/exports_controller_spec.rb",
+      "line_number": 200,
+      "run_time": 0.02875393,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/exports_controller_spec.rb[1:3:4]",
+      "description": "creates a Customers export",
+      "full_description": "Spree::Api::V3::Admin::ExportsController POST #create creates a Customers export",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/exports_controller_spec.rb",
+      "line_number": 164,
+      "run_time": 0.030071814,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/exports_controller_spec.rb[1:3:2:1]",
+      "description": "creates the export filtered to the list",
+      "full_description": "Spree::Api::V3::Admin::ExportsController POST #create for a price list creates the export filtered to the list",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/exports_controller_spec.rb",
+      "line_number": 137,
+      "run_time": 0.041914138,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/exports_controller_spec.rb[1:3:2:2]",
+      "description": "is refused without a list of this store",
+      "full_description": "Spree::Api::V3::Admin::ExportsController POST #create for a price list is refused without a list of this store",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/exports_controller_spec.rb",
+      "line_number": 146,
+      "run_time": 0.094409438,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/exports_controller_spec.rb[1:3:5:1]",
+      "description": "stores it when it matches an allowed origin",
+      "full_description": "Spree::Api::V3::Admin::ExportsController POST #create with a results_url stores it when it matches an allowed origin",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/exports_controller_spec.rb",
+      "line_number": 172,
+      "run_time": 0.035348541,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/exports_controller_spec.rb[1:3:5:2]",
+      "description": "silently drops it when it does not match an allowed origin",
+      "full_description": "Spree::Api::V3::Admin::ExportsController POST #create with a results_url silently drops it when it does not match an allowed origin",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/exports_controller_spec.rb",
+      "line_number": 187,
+      "run_time": 0.03176439,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/exports_controller_spec.rb[1:4:3]",
+      "description": "returns 404 for an unknown id",
+      "full_description": "Spree::Api::V3::Admin::ExportsController GET #download returns 404 for an unknown id",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/exports_controller_spec.rb",
+      "line_number": 254,
+      "run_time": 0.023116427,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/exports_controller_spec.rb[1:4:2:1]",
+      "description": "streams the CSV with attachment disposition",
+      "full_description": "Spree::Api::V3::Admin::ExportsController GET #download when the export is done streams the CSV with attachment disposition",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/exports_controller_spec.rb",
+      "line_number": 243,
+      "run_time": 0.032061752,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/exports_controller_spec.rb[1:4:1:1]",
+      "description": "returns 422 with export_not_ready code",
+      "full_description": "Spree::Api::V3::Admin::ExportsController GET #download when the export is not done yet returns 422 with export_not_ready code",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/exports_controller_spec.rb",
+      "line_number": 227,
+      "run_time": 0.02960019,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/exports_controller_spec.rb[1:1:2]",
+      "description": "omits exports from other stores",
+      "full_description": "Spree::Api::V3::Admin::ExportsController GET #index omits exports from other stores",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/exports_controller_spec.rb",
+      "line_number": 24,
+      "run_time": 0.123574334,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/exports_controller_spec.rb[1:1:4]",
+      "description": "serializes status fields",
+      "full_description": "Spree::Api::V3::Admin::ExportsController GET #index serializes status fields",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/exports_controller_spec.rb",
+      "line_number": 61,
+      "run_time": 0.036192987,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/exports_controller_spec.rb[1:1:1]",
+      "description": "returns exports for the current store",
+      "full_description": "Spree::Api::V3::Admin::ExportsController GET #index returns exports for the current store",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/exports_controller_spec.rb",
+      "line_number": 17,
+      "run_time": 0.046314573,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/exports_controller_spec.rb[1:1:3:3]",
+      "description": "takes the indexed list form",
+      "full_description": "Spree::Api::V3::Admin::ExportsController GET #index filtering by type takes the indexed list form",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/exports_controller_spec.rb",
+      "line_number": 48,
+      "run_time": 0.040245253,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/exports_controller_spec.rb[1:1:3:1]",
+      "description": "takes the same shorthand the response carries",
+      "full_description": "Spree::Api::V3::Admin::ExportsController GET #index filtering by type takes the same shorthand the response carries",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/exports_controller_spec.rb",
+      "line_number": 36,
+      "run_time": 0.037520463,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/exports_controller_spec.rb[1:1:3:4]",
+      "description": "takes a shorthand inside a filter group",
+      "full_description": "Spree::Api::V3::Admin::ExportsController GET #index filtering by type takes a shorthand inside a filter group",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/exports_controller_spec.rb",
+      "line_number": 54,
+      "run_time": 0.037596676,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/exports_controller_spec.rb[1:1:3:2]",
+      "description": "takes a list of shorthands",
+      "full_description": "Spree::Api::V3::Admin::ExportsController GET #index filtering by type takes a list of shorthands",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/exports_controller_spec.rb",
+      "line_number": 42,
+      "run_time": 0.043617955,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/exports_controller_spec.rb[1:2:3]",
+      "description": "returns 404 for an unknown id",
+      "full_description": "Spree::Api::V3::Admin::ExportsController GET #show returns 404 for an unknown id",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/exports_controller_spec.rb",
+      "line_number": 108,
+      "run_time": 0.030012975,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/exports_controller_spec.rb[1:2:1]",
+      "description": "returns the export",
+      "full_description": "Spree::Api::V3::Admin::ExportsController GET #show returns the export",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/exports_controller_spec.rb",
+      "line_number": 74,
+      "run_time": 0.033594574,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/exports_controller_spec.rb[1:2:2:2]",
+      "description": "exposes download_url as the API download endpoint path",
+      "full_description": "Spree::Api::V3::Admin::ExportsController GET #show when the export has a generated attachment exposes download_url as the API download endpoint path",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/exports_controller_spec.rb",
+      "line_number": 99,
+      "run_time": 0.042901071,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/exports_controller_spec.rb[1:2:2:1]",
+      "description": "reports done with filename and byte_size",
+      "full_description": "Spree::Api::V3::Admin::ExportsController GET #show when the export has a generated attachment reports done with filename and byte_size",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/exports_controller_spec.rb",
+      "line_number": 90,
+      "run_time": 0.043375127,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/exports_controller_spec.rb[1:6:1:1]",
+      "description": "returns 401 unauthorized",
+      "full_description": "Spree::Api::V3::Admin::ExportsController authentication without any credential returns 401 unauthorized",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/exports_controller_spec.rb",
+      "line_number": 275,
+      "run_time": 0.022890422,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/exports_controller_spec.rb[1:6:2:6]",
+      "description": "allows downloading an export of a readable type",
+      "full_description": "Spree::Api::V3::Admin::ExportsController authentication with a secret API key allows downloading an export of a readable type",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/exports_controller_spec.rb",
+      "line_number": 329,
+      "run_time": 0.04022713,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/exports_controller_spec.rb[1:6:2:1]",
+      "description": "allows creating a Products export with read_products",
+      "full_description": "Spree::Api::V3::Admin::ExportsController authentication with a secret API key allows creating a Products export with read_products",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/exports_controller_spec.rb",
+      "line_number": 290,
+      "run_time": 0.050624103,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/exports_controller_spec.rb[1:6:2:3]",
+      "description": "gates price-list exports by the products scope",
+      "full_description": "Spree::Api::V3::Admin::ExportsController authentication with a secret API key gates price-list exports by the products scope",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/exports_controller_spec.rb",
+      "line_number": 302,
+      "run_time": 0.031192715,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/exports_controller_spec.rb[1:6:2:2]",
+      "description": "rejects creating a Customers export without read_customers",
+      "full_description": "Spree::Api::V3::Admin::ExportsController authentication with a secret API key rejects creating a Customers export without read_customers",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/exports_controller_spec.rb",
+      "line_number": 295,
+      "run_time": 0.021589163,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/exports_controller_spec.rb[1:6:2:4]",
+      "description": "filters the index to export types the key can read",
+      "full_description": "Spree::Api::V3::Admin::ExportsController authentication with a secret API key filters the index to export types the key can read",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/exports_controller_spec.rb",
+      "line_number": 310,
+      "run_time": 0.02869587,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/exports_controller_spec.rb[1:6:2:5]",
+      "description": "hides exports of unreadable types from member actions",
+      "full_description": "Spree::Api::V3::Admin::ExportsController authentication with a secret API key hides exports of unreadable types from member actions",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/exports_controller_spec.rb",
+      "line_number": 321,
+      "run_time": 0.025716416,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/exports_controller_spec.rb[1:6:2:7:1]",
+      "description": "gates coupon-code exports by the promotions scope",
+      "full_description": "Spree::Api::V3::Admin::ExportsController authentication with a secret API key with a promotions-scoped key gates coupon-code exports by the promotions scope",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/exports_controller_spec.rb",
+      "line_number": 342,
+      "run_time": 0.027004385,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/data_request_downloads_controller_spec.rb[1:1:2]",
+      "description": "refuses while the export is still being built",
+      "full_description": "Spree::Api::V3::Store::DataRequestDownloadsController GET #show refuses while the export is still being built",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/data_request_downloads_controller_spec.rb",
+      "line_number": 50,
+      "run_time": 0.034320053,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/data_request_downloads_controller_spec.rb[1:1:3]",
+      "description": "refuses an unknown token",
+      "full_description": "Spree::Api::V3::Store::DataRequestDownloadsController GET #show refuses an unknown token",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/data_request_downloads_controller_spec.rb",
+      "line_number": 56,
+      "run_time": 0.005764228,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/data_request_downloads_controller_spec.rb[1:1:1:3]",
+      "description": "tells caches not to keep it",
+      "full_description": "Spree::Api::V3::Store::DataRequestDownloadsController GET #show once the export is ready tells caches not to keep it",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/data_request_downloads_controller_spec.rb",
+      "line_number": 27,
+      "run_time": 0.076374973,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/data_request_downloads_controller_spec.rb[1:1:1:5]",
+      "description": "refuses once the request has expired",
+      "full_description": "Spree::Api::V3::Store::DataRequestDownloadsController GET #show once the export is ready refuses once the request has expired",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/data_request_downloads_controller_spec.rb",
+      "line_number": 41,
+      "run_time": 0.064218484,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/data_request_downloads_controller_spec.rb[1:1:1:1]",
+      "description": "hands over the file itself",
+      "full_description": "Spree::Api::V3::Store::DataRequestDownloadsController GET #show once the export is ready hands over the file itself",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/data_request_downloads_controller_spec.rb",
+      "line_number": 12,
+      "run_time": 0.052994101,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/data_request_downloads_controller_spec.rb[1:1:1:2]",
+      "description": "offers it as a download rather than rendering it",
+      "full_description": "Spree::Api::V3::Store::DataRequestDownloadsController GET #show once the export is ready offers it as a download rather than rendering it",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/data_request_downloads_controller_spec.rb",
+      "line_number": 19,
+      "run_time": 0.087431537,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/data_request_downloads_controller_spec.rb[1:1:1:4]",
+      "description": "needs no signed-in session, because the link arrives by email",
+      "full_description": "Spree::Api::V3::Store::DataRequestDownloadsController GET #show once the export is ready needs no signed-in session, because the link arrives by email",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/data_request_downloads_controller_spec.rb",
+      "line_number": 33,
+      "run_time": 0.082642082,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/customer/data_requests_controller_spec.rb[1:3:1]",
+      "description": "404s on another person's request",
+      "full_description": "Spree::Api::V3::Store::Customer::DataRequestsController GET #show 404s on another person's request",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/customer/data_requests_controller_spec.rb",
+      "line_number": 82,
+      "run_time": 0.043261578,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/customer/data_requests_controller_spec.rb[1:2:1]",
+      "description": "lists the customer's own requests",
+      "full_description": "Spree::Api::V3::Store::Customer::DataRequestsController GET #index lists the customer's own requests",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/customer/data_requests_controller_spec.rb",
+      "line_number": 65,
+      "run_time": 0.043510126,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/customer/data_requests_controller_spec.rb[1:2:2]",
+      "description": "never shows another person's request",
+      "full_description": "Spree::Api::V3::Store::Customer::DataRequestsController GET #index never shows another person's request",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/customer/data_requests_controller_spec.rb",
+      "line_number": 72,
+      "run_time": 0.04771438,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/customer/data_requests_controller_spec.rb[1:4:1]",
+      "description": "refuses to open a request",
+      "full_description": "Spree::Api::V3::Store::Customer::DataRequestsController without a signed-in customer refuses to open a request",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/customer/data_requests_controller_spec.rb",
+      "line_number": 92,
+      "run_time": 0.024013852,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/customer/data_requests_controller_spec.rb[1:1:2]",
+      "description": "queues the build",
+      "full_description": "Spree::Api::V3::Store::Customer::DataRequestsController POST #create queues the build",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/customer/data_requests_controller_spec.rb",
+      "line_number": 22,
+      "run_time": 0.032091304,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/customer/data_requests_controller_spec.rb[1:1:3]",
+      "description": "returns the request already in flight rather than starting another",
+      "full_description": "Spree::Api::V3::Store::Customer::DataRequestsController POST #create returns the request already in flight rather than starting another",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/customer/data_requests_controller_spec.rb",
+      "line_number": 28,
+      "run_time": 0.03463806,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/customer/data_requests_controller_spec.rb[1:1:1]",
+      "description": "accepts an access request without doing the work inline",
+      "full_description": "Spree::Api::V3::Store::Customer::DataRequestsController POST #create accepts an access request without doing the work inline",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/customer/data_requests_controller_spec.rb",
+      "line_number": 14,
+      "run_time": 0.029497482,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/customer/data_requests_controller_spec.rb[1:1:4:3]",
+      "description": "accepts the request when the password is right",
+      "full_description": "Spree::Api::V3::Store::Customer::DataRequestsController POST #create an erasure request accepts the request when the password is right",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/customer/data_requests_controller_spec.rb",
+      "line_number": 52,
+      "run_time": 0.034106497,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/customer/data_requests_controller_spec.rb[1:1:4:2]",
+      "description": "refuses the wrong password",
+      "full_description": "Spree::Api::V3::Store::Customer::DataRequestsController POST #create an erasure request refuses the wrong password",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/customer/data_requests_controller_spec.rb",
+      "line_number": 46,
+      "run_time": 0.033802591,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/customer/data_requests_controller_spec.rb[1:1:4:1]",
+      "description": "asks for the account password",
+      "full_description": "Spree::Api::V3::Store::Customer::DataRequestsController POST #create an erasure request asks for the account password",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/customer/data_requests_controller_spec.rb",
+      "line_number": 39,
+      "run_time": 0.039432261,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/wishlists_spec.rb[1:3:1:1:1]",
+      "description": "returns a 201 response",
+      "full_description": "Wishlists API /api/v3/store/wishlists/{wishlist_id}/items post item added returns a 201 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/store/wishlists_spec.rb",
+      "line_number": null,
+      "run_time": 0.157592787,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/wishlists_spec.rb[1:2:1:2:1]",
+      "description": "returns a 404 response",
+      "full_description": "Wishlists API /api/v3/store/wishlists/{id} get wishlist not found returns a 404 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/store/wishlists_spec.rb",
+      "line_number": null,
+      "run_time": 0.081769464,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/wishlists_spec.rb[1:2:1:1:1]",
+      "description": "returns a 200 response",
+      "full_description": "Wishlists API /api/v3/store/wishlists/{id} get wishlist found returns a 200 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/store/wishlists_spec.rb",
+      "line_number": null,
+      "run_time": 0.088238284,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/wishlists_spec.rb[1:2:3:1:1]",
+      "description": "returns a 204 response",
+      "full_description": "Wishlists API /api/v3/store/wishlists/{id} delete wishlist deleted returns a 204 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/store/wishlists_spec.rb",
+      "line_number": null,
+      "run_time": 0.094742546,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/wishlists_spec.rb[1:2:2:1:1]",
+      "description": "returns a 200 response",
+      "full_description": "Wishlists API /api/v3/store/wishlists/{id} patch wishlist updated returns a 200 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/store/wishlists_spec.rb",
+      "line_number": null,
+      "run_time": 0.084939979,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/wishlists_spec.rb[1:1:2:1:1]",
+      "description": "returns a 201 response",
+      "full_description": "Wishlists API /api/v3/store/wishlists post wishlist created returns a 201 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/store/wishlists_spec.rb",
+      "line_number": null,
+      "run_time": 0.077910421,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/wishlists_spec.rb[1:1:2:2:1]",
+      "description": "returns a 422 response",
+      "full_description": "Wishlists API /api/v3/store/wishlists post validation error returns a 422 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/store/wishlists_spec.rb",
+      "line_number": null,
+      "run_time": 0.108769656,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/wishlists_spec.rb[1:1:1:2:1]",
+      "description": "returns a 401 response",
+      "full_description": "Wishlists API /api/v3/store/wishlists get unauthorized returns a 401 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/store/wishlists_spec.rb",
+      "line_number": null,
+      "run_time": 0.075402617,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/wishlists_spec.rb[1:1:1:1:1]",
+      "description": "returns a 200 response",
+      "full_description": "Wishlists API /api/v3/store/wishlists get wishlists found returns a 200 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/store/wishlists_spec.rb",
+      "line_number": null,
+      "run_time": 0.081288569,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/wishlists_spec.rb[1:4:2:2:1]",
+      "description": "returns a 404 response",
+      "full_description": "Wishlists API /api/v3/store/wishlists/{wishlist_id}/items/{id} delete item not found returns a 404 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/store/wishlists_spec.rb",
+      "line_number": null,
+      "run_time": 0.083304386,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/wishlists_spec.rb[1:4:2:1:1]",
+      "description": "returns a 204 response",
+      "full_description": "Wishlists API /api/v3/store/wishlists/{wishlist_id}/items/{id} delete item removed returns a 204 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/store/wishlists_spec.rb",
+      "line_number": null,
+      "run_time": 0.096981864,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/wishlists_spec.rb[1:4:1:1:1]",
+      "description": "returns a 200 response",
+      "full_description": "Wishlists API /api/v3/store/wishlists/{wishlist_id}/items/{id} patch item updated returns a 200 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/store/wishlists_spec.rb",
+      "line_number": null,
+      "run_time": 0.114203006,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/data_requests_spec.rb[1:1:2:1:1]",
+      "description": "returns a 202 response",
+      "full_description": "Data Requests API /api/v3/store/customers/me/data_requests post request accepted returns a 202 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/store/data_requests_spec.rb",
+      "line_number": null,
+      "run_time": 0.048484068,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/data_requests_spec.rb[1:1:2:2:1]",
+      "description": "returns a 422 response",
+      "full_description": "Data Requests API /api/v3/store/customers/me/data_requests post erasure without the account password returns a 422 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/store/data_requests_spec.rb",
+      "line_number": null,
+      "run_time": 0.040184846,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/data_requests_spec.rb[1:1:1:1:1]",
+      "description": "returns a 200 response",
+      "full_description": "Data Requests API /api/v3/store/customers/me/data_requests get data requests found returns a 200 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/store/data_requests_spec.rb",
+      "line_number": null,
+      "run_time": 0.068507158,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/data_requests_spec.rb[1:2:1:1:1]",
+      "description": "returns a 200 response",
+      "full_description": "Data Requests API /api/v3/store/customers/me/data_requests/{id} get data request found returns a 200 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/store/data_requests_spec.rb",
+      "line_number": null,
+      "run_time": 0.057546931,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/store/data_requests_spec.rb[1:2:1:2:1]",
+      "description": "returns a 404 response",
+      "full_description": "Data Requests API /api/v3/store/customers/me/data_requests/{id} get not found returns a 404 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/store/data_requests_spec.rb",
+      "line_number": null,
+      "run_time": 0.04392827,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customer_groups_controller_spec.rb[1:3:2]",
+      "description": "attaches customers when customer_ids is given (decodes prefixed IDs)",
+      "full_description": "Spree::Api::V3::Admin::CustomerGroupsController POST #create attaches customers when customer_ids is given (decodes prefixed IDs)",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customer_groups_controller_spec.rb",
+      "line_number": 87,
+      "run_time": 0.059750977,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customer_groups_controller_spec.rb[1:3:4]",
+      "description": "returns 422 when name is duplicated within the same store",
+      "full_description": "Spree::Api::V3::Admin::CustomerGroupsController POST #create returns 422 when name is duplicated within the same store",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customer_groups_controller_spec.rb",
+      "line_number": 103,
+      "run_time": 0.032486041,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customer_groups_controller_spec.rb[1:3:3]",
+      "description": "returns 422 when name is missing",
+      "full_description": "Spree::Api::V3::Admin::CustomerGroupsController POST #create returns 422 when name is missing",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customer_groups_controller_spec.rb",
+      "line_number": 98,
+      "run_time": 0.02992508,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customer_groups_controller_spec.rb[1:3:1]",
+      "description": "creates a group scoped to the current store",
+      "full_description": "Spree::Api::V3::Admin::CustomerGroupsController POST #create creates a group scoped to the current store",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customer_groups_controller_spec.rb",
+      "line_number": 77,
+      "run_time": 0.038296402,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customer_groups_controller_spec.rb[1:4:4]",
+      "description": "returns 404 for a group from another store",
+      "full_description": "Spree::Api::V3::Admin::CustomerGroupsController PATCH #update returns 404 for a group from another store",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customer_groups_controller_spec.rb",
+      "line_number": 140,
+      "run_time": 0.102714392,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customer_groups_controller_spec.rb[1:4:1]",
+      "description": "updates name and description",
+      "full_description": "Spree::Api::V3::Admin::CustomerGroupsController PATCH #update updates name and description",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customer_groups_controller_spec.rb",
+      "line_number": 110,
+      "run_time": 0.030744462,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customer_groups_controller_spec.rb[1:4:2]",
+      "description": "reconciles customer_ids on update (adds + removes)",
+      "full_description": "Spree::Api::V3::Admin::CustomerGroupsController PATCH #update reconciles customer_ids on update (adds + removes)",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customer_groups_controller_spec.rb",
+      "line_number": 119,
+      "run_time": 0.056878871,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customer_groups_controller_spec.rb[1:4:3]",
+      "description": "clears membership when an empty array is sent",
+      "full_description": "Spree::Api::V3::Admin::CustomerGroupsController PATCH #update clears membership when an empty array is sent",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customer_groups_controller_spec.rb",
+      "line_number": 131,
+      "run_time": 0.040698097,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customer_groups_controller_spec.rb[1:5:2]",
+      "description": "returns 404 for a group from another store",
+      "full_description": "Spree::Api::V3::Admin::CustomerGroupsController DELETE #destroy returns 404 for a group from another store",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customer_groups_controller_spec.rb",
+      "line_number": 159,
+      "run_time": 0.090759108,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customer_groups_controller_spec.rb[1:5:1]",
+      "description": "soft-deletes the customer group",
+      "full_description": "Spree::Api::V3::Admin::CustomerGroupsController DELETE #destroy soft-deletes the customer group",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customer_groups_controller_spec.rb",
+      "line_number": 149,
+      "run_time": 0.034488579,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customer_groups_controller_spec.rb[1:1:3]",
+      "description": "does not embed customers in the list payload",
+      "full_description": "Spree::Api::V3::Admin::CustomerGroupsController GET #index does not embed customers in the list payload",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customer_groups_controller_spec.rb",
+      "line_number": 33,
+      "run_time": 0.034604892,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customer_groups_controller_spec.rb[1:1:1]",
+      "description": "returns customer groups in the current store",
+      "full_description": "Spree::Api::V3::Admin::CustomerGroupsController GET #index returns customer groups in the current store",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customer_groups_controller_spec.rb",
+      "line_number": 15,
+      "run_time": 0.025957831,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customer_groups_controller_spec.rb[1:1:2]",
+      "description": "excludes groups from other stores",
+      "full_description": "Spree::Api::V3::Admin::CustomerGroupsController GET #index excludes groups from other stores",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customer_groups_controller_spec.rb",
+      "line_number": 23,
+      "run_time": 0.098961574,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customer_groups_controller_spec.rb[1:2:3]",
+      "description": "returns 404 for a group from another store",
+      "full_description": "Spree::Api::V3::Admin::CustomerGroupsController GET #show returns 404 for a group from another store",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customer_groups_controller_spec.rb",
+      "line_number": 66,
+      "run_time": 0.128471157,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customer_groups_controller_spec.rb[1:2:1]",
+      "description": "returns the group without customers by default",
+      "full_description": "Spree::Api::V3::Admin::CustomerGroupsController GET #show returns the group without customers by default",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customer_groups_controller_spec.rb",
+      "line_number": 46,
+      "run_time": 0.037019194,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customer_groups_controller_spec.rb[1:2:2]",
+      "description": "embeds customers when expand=customers is passed",
+      "full_description": "Spree::Api::V3::Admin::CustomerGroupsController GET #show embeds customers when expand=customers is passed",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customer_groups_controller_spec.rb",
+      "line_number": 55,
+      "run_time": 0.046185901,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customers_gdpr_spec.rb[1:2:1]",
+      "description": "erases the customer",
+      "full_description": "Spree::Api::V3::Admin::CustomersController POST #anonymize erases the customer",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customers_gdpr_spec.rb",
+      "line_number": 132,
+      "run_time": 0.0871255,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customers_gdpr_spec.rb[1:2:2]",
+      "description": "reports the erasure in the response",
+      "full_description": "Spree::Api::V3::Admin::CustomersController POST #anonymize reports the erasure in the response",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customers_gdpr_spec.rb",
+      "line_number": 140,
+      "run_time": 0.065273226,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customers_gdpr_spec.rb[1:2:6]",
+      "description": "keeps a completed order the customer placed",
+      "full_description": "Spree::Api::V3::Admin::CustomersController POST #anonymize keeps a completed order the customer placed",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customers_gdpr_spec.rb",
+      "line_number": 174,
+      "run_time": 0.282076048,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customers_gdpr_spec.rb[1:2:3]",
+      "description": "records the request it answered",
+      "full_description": "Spree::Api::V3::Admin::CustomersController POST #anonymize records the request it answered",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customers_gdpr_spec.rb",
+      "line_number": 149,
+      "run_time": 0.07316545,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customers_gdpr_spec.rb[1:2:4]",
+      "description": "marks that record completed",
+      "full_description": "Spree::Api::V3::Admin::CustomersController POST #anonymize marks that record completed",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customers_gdpr_spec.rb",
+      "line_number": 155,
+      "run_time": 0.085983473,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customers_gdpr_spec.rb[1:2:5]",
+      "description": "erases a customer again, since data can come back afterwards",
+      "full_description": "Spree::Api::V3::Admin::CustomersController POST #anonymize erases a customer again, since data can come back afterwards",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customers_gdpr_spec.rb",
+      "line_number": 164,
+      "run_time": 0.130061386,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customers_gdpr_spec.rb[1:1:2]",
+      "description": "includes the sections a subject access request has to answer",
+      "full_description": "Spree::Api::V3::Admin::CustomersController GET #export includes the sections a subject access request has to answer",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customers_gdpr_spec.rb",
+      "line_number": 20,
+      "run_time": 0.047851409,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customers_gdpr_spec.rb[1:1:5]",
+      "description": "leaves a record that the request was answered",
+      "full_description": "Spree::Api::V3::Admin::CustomersController GET #export leaves a record that the request was answered",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customers_gdpr_spec.rb",
+      "line_number": 62,
+      "run_time": 0.043799795,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customers_gdpr_spec.rb[1:1:10]",
+      "description": "404s for a customer that does not exist",
+      "full_description": "Spree::Api::V3::Admin::CustomersController GET #export 404s for a customer that does not exist",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customers_gdpr_spec.rb",
+      "line_number": 124,
+      "run_time": 0.027421136,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customers_gdpr_spec.rb[1:1:1]",
+      "description": "returns the data the store holds about the customer",
+      "full_description": "Spree::Api::V3::Admin::CustomersController GET #export returns the data the store holds about the customer",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customers_gdpr_spec.rb",
+      "line_number": 13,
+      "run_time": 0.043482583,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customers_gdpr_spec.rb[1:1:8]",
+      "description": "records a staff marketing change as the staff member's, not the customer's",
+      "full_description": "Spree::Api::V3::Admin::CustomersController GET #export records a staff marketing change as the staff member's, not the customer's",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customers_gdpr_spec.rb",
+      "line_number": 109,
+      "run_time": 0.047574702,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customers_gdpr_spec.rb[1:1:4]",
+      "description": "leaves a request the customer already made alone",
+      "full_description": "Spree::Api::V3::Admin::CustomersController GET #export leaves a request the customer already made alone",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customers_gdpr_spec.rb",
+      "line_number": 51,
+      "run_time": 0.045727021,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customers_gdpr_spec.rb[1:1:9]",
+      "description": "erases through the swappable workflow, not the class",
+      "full_description": "Spree::Api::V3::Admin::CustomersController GET #export erases through the swappable workflow, not the class",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customers_gdpr_spec.rb",
+      "line_number": 118,
+      "run_time": 0.055633746,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customers_gdpr_spec.rb[1:1:3:1]",
+      "description": "runs on the admin export too",
+      "full_description": "Spree::Api::V3::Admin::CustomersController GET #export the payload extension hook runs on the admin export too",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customers_gdpr_spec.rb",
+      "line_number": 35,
+      "run_time": 0.070896816,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customers_gdpr_spec.rb[1:1:3:2]",
+      "description": "still includes what Spree knows",
+      "full_description": "Spree::Api::V3::Admin::CustomersController GET #export the payload extension hook still includes what Spree knows",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customers_gdpr_spec.rb",
+      "line_number": 41,
+      "run_time": 0.049224054,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customers_gdpr_spec.rb[1:1:6:1]",
+      "description": "refuses the export and says which permission is missing",
+      "full_description": "Spree::Api::V3::Admin::CustomersController GET #export when the caller may read customers but not orders refuses the export and says which permission is missing",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customers_gdpr_spec.rb",
+      "line_number": 82,
+      "run_time": 0.029299675,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customers_gdpr_spec.rb[1:1:7:1]",
+      "description": "refuses the export and names the first permission it lacks",
+      "full_description": "Spree::Api::V3::Admin::CustomersController GET #export when the caller may read customers and orders but nothing else refuses the export and names the first permission it lacks",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customers_gdpr_spec.rb",
+      "line_number": 101,
+      "run_time": 0.024729867,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/newsletter_subscribers_controller_spec.rb[1:2:4:1]",
+      "description": "returns 202 accepted (anti-enumeration)",
+      "full_description": "Spree::Api::V3::Store::NewsletterSubscribersController POST #request_unsubscribe when email is missing returns 202 accepted (anti-enumeration)",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/newsletter_subscribers_controller_spec.rb",
+      "line_number": 107,
+      "run_time": 0.009887848,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/newsletter_subscribers_controller_spec.rb[1:2:1:2]",
+      "description": "publishes newsletter_subscriber.unsubscribe_requested with the unsubscribe_token",
+      "full_description": "Spree::Api::V3::Store::NewsletterSubscribersController POST #request_unsubscribe when the email matches a subscriber on the current store publishes newsletter_subscriber.unsubscribe_requested with the unsubscribe_token",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/newsletter_subscribers_controller_spec.rb",
+      "line_number": 44,
+      "run_time": 0.012940367,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/newsletter_subscribers_controller_spec.rb[1:2:1:1]",
+      "description": "returns 202 accepted",
+      "full_description": "Spree::Api::V3::Store::NewsletterSubscribersController POST #request_unsubscribe when the email matches a subscriber on the current store returns 202 accepted",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/newsletter_subscribers_controller_spec.rb",
+      "line_number": 38,
+      "run_time": 0.011740225,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/newsletter_subscribers_controller_spec.rb[1:2:1:3:2:1]",
+      "description": "silently drops redirect_url",
+      "full_description": "Spree::Api::V3::Store::NewsletterSubscribersController POST #request_unsubscribe when the email matches a subscriber on the current store with redirect_url when the store has no allowed origins silently drops redirect_url",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/newsletter_subscribers_controller_spec.rb",
+      "line_number": 73,
+      "run_time": 0.012308182,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/newsletter_subscribers_controller_spec.rb[1:2:1:3:1:2]",
+      "description": "silently drops redirect_url when it does not match allowed origins",
+      "full_description": "Spree::Api::V3::Store::NewsletterSubscribersController POST #request_unsubscribe when the email matches a subscriber on the current store with redirect_url when redirect_url is in the store allowed origins silently drops redirect_url when it does not match allowed origins",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/newsletter_subscribers_controller_spec.rb",
+      "line_number": 62,
+      "run_time": 0.014158995,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/newsletter_subscribers_controller_spec.rb[1:2:1:3:1:1]",
+      "description": "includes redirect_url in the event payload",
+      "full_description": "Spree::Api::V3::Store::NewsletterSubscribersController POST #request_unsubscribe when the email matches a subscriber on the current store with redirect_url when redirect_url is in the store allowed origins includes redirect_url in the event payload",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/newsletter_subscribers_controller_spec.rb",
+      "line_number": 55,
+      "run_time": 0.016419605,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/newsletter_subscribers_controller_spec.rb[1:2:3:1]",
+      "description": "returns 202 accepted and does not publish an event",
+      "full_description": "Spree::Api::V3::Store::NewsletterSubscribersController POST #request_unsubscribe when the email belongs to a subscriber on a different store returns 202 accepted and does not publish an event",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/newsletter_subscribers_controller_spec.rb",
+      "line_number": 97,
+      "run_time": 0.068957177,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/newsletter_subscribers_controller_spec.rb[1:2:2:1]",
+      "description": "returns 202 accepted (anti-enumeration)",
+      "full_description": "Spree::Api::V3::Store::NewsletterSubscribersController POST #request_unsubscribe when the email is unknown returns 202 accepted (anti-enumeration)",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/newsletter_subscribers_controller_spec.rb",
+      "line_number": 84,
+      "run_time": 0.010570901,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/newsletter_subscribers_controller_spec.rb[1:1:1]",
+      "description": "destroys the subscription and clears the customer opt-in when none remain",
+      "full_description": "Spree::Api::V3::Store::NewsletterSubscribersController DELETE #destroy destroys the subscription and clears the customer opt-in when none remain",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/newsletter_subscribers_controller_spec.rb",
+      "line_number": 22,
+      "run_time": 0.02637749,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/store_credits_controller_spec.rb[1:2:2]",
+      "description": "404s for a credit in another store",
+      "full_description": "Spree::Api::V3::Admin::StoreCreditsController GET #show 404s for a credit in another store",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/store_credits_controller_spec.rb",
+      "line_number": 177,
+      "run_time": 0.121295281,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/store_credits_controller_spec.rb[1:2:1]",
+      "description": "returns the credit",
+      "full_description": "Spree::Api::V3::Admin::StoreCreditsController GET #show returns the credit",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/store_credits_controller_spec.rb",
+      "line_number": 169,
+      "run_time": 0.044918261,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/store_credits_controller_spec.rb[1:3:1]",
+      "description": "has no create, update or destroy route",
+      "full_description": "Spree::Api::V3::Admin::StoreCreditsController write actions has no create, update or destroy route",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/store_credits_controller_spec.rb",
+      "line_number": 187,
+      "run_time": 0.030516188,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/store_credits_controller_spec.rb[1:1:2]",
+      "description": "excludes store credits from other stores",
+      "full_description": "Spree::Api::V3::Admin::StoreCreditsController GET #index excludes store credits from other stores",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/store_credits_controller_spec.rb",
+      "line_number": 22,
+      "run_time": 0.113167071,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/store_credits_controller_spec.rb[1:1:1]",
+      "description": "returns store credits in the current store",
+      "full_description": "Spree::Api::V3::Admin::StoreCreditsController GET #index returns store credits in the current store",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/store_credits_controller_spec.rb",
+      "line_number": 16,
+      "run_time": 0.040271338,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/store_credits_controller_spec.rb[1:1:6]",
+      "description": "leaves the originator null for a credit an admin issued by hand",
+      "full_description": "Spree::Api::V3::Admin::StoreCreditsController GET #index leaves the originator null for a credit an admin issued by hand",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/store_credits_controller_spec.rb",
+      "line_number": 60,
+      "run_time": 0.06106572,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/store_credits_controller_spec.rb[1:1:3]",
+      "description": "exposes the authorized amount and its display string",
+      "full_description": "Spree::Api::V3::Admin::StoreCreditsController GET #index exposes the authorized amount and its display string",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/store_credits_controller_spec.rb",
+      "line_number": 29,
+      "run_time": 0.049290815,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/store_credits_controller_spec.rb[1:1:4]",
+      "description": "reports the originator as a polymorphic shorthand with a prefixed id",
+      "full_description": "Spree::Api::V3::Admin::StoreCreditsController GET #index reports the originator as a polymorphic shorthand with a prefixed id",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/store_credits_controller_spec.rb",
+      "line_number": 37,
+      "run_time": 0.05507985,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/store_credits_controller_spec.rb[1:1:5]",
+      "description": "reports the originator id without loading the originator",
+      "full_description": "Spree::Api::V3::Admin::StoreCreditsController GET #index reports the originator id without loading the originator",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/store_credits_controller_spec.rb",
+      "line_number": 50,
+      "run_time": 0.218566324,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/store_credits_controller_spec.rb[1:1:8:5]",
+      "description": "filters by the memo",
+      "full_description": "Spree::Api::V3::Admin::StoreCreditsController GET #index filters filters by the memo",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/store_credits_controller_spec.rb",
+      "line_number": 158,
+      "run_time": 0.067053246,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/store_credits_controller_spec.rb[1:1:8:3]",
+      "description": "filters by the customer email through the association",
+      "full_description": "Spree::Api::V3::Admin::StoreCreditsController GET #index filters filters by the customer email through the association",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/store_credits_controller_spec.rb",
+      "line_number": 139,
+      "run_time": 0.071562003,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/store_credits_controller_spec.rb[1:1:8:2]",
+      "description": "narrows to spent credits when outstanding is false",
+      "full_description": "Spree::Api::V3::Admin::StoreCreditsController GET #index filters narrows to spent credits when outstanding is false",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/store_credits_controller_spec.rb",
+      "line_number": 131,
+      "run_time": 0.052854773,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/store_credits_controller_spec.rb[1:1:8:4]",
+      "description": "filters by whether a gift card issued the credit",
+      "full_description": "Spree::Api::V3::Admin::StoreCreditsController GET #index filters filters by whether a gift card issued the credit",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/store_credits_controller_spec.rb",
+      "line_number": 149,
+      "run_time": 0.09621165,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/store_credits_controller_spec.rb[1:1:8:1]",
+      "description": "narrows to credits with money left via the outstanding scope",
+      "full_description": "Spree::Api::V3::Admin::StoreCreditsController GET #index filters narrows to credits with money left via the outstanding scope",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/store_credits_controller_spec.rb",
+      "line_number": 123,
+      "run_time": 0.079886958,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/store_credits_controller_spec.rb[1:1:7:1]",
+      "description": "sums one row per currency over the whole scope",
+      "full_description": "Spree::Api::V3::Admin::StoreCreditsController GET #index meta.totals sums one row per currency over the whole scope",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/store_credits_controller_spec.rb",
+      "line_number": 70,
+      "run_time": 0.064473818,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/store_credits_controller_spec.rb[1:1:7:3]",
+      "description": "counts every match, not only the current page",
+      "full_description": "Spree::Api::V3::Admin::StoreCreditsController GET #index meta.totals counts every match, not only the current page",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/store_credits_controller_spec.rb",
+      "line_number": 91,
+      "run_time": 0.062363066,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/store_credits_controller_spec.rb[1:1:7:4]",
+      "description": "is an empty list when nothing matches",
+      "full_description": "Spree::Api::V3::Admin::StoreCreditsController GET #index meta.totals is an empty list when nothing matches",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/store_credits_controller_spec.rb",
+      "line_number": 98,
+      "run_time": 0.067538846,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/store_credits_controller_spec.rb[1:1:7:5]",
+      "description": "does not double-count when the filter joins an association",
+      "full_description": "Spree::Api::V3::Admin::StoreCreditsController GET #index meta.totals does not double-count when the filter joins an association",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/store_credits_controller_spec.rb",
+      "line_number": 107,
+      "run_time": 0.060474595,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/store_credits_controller_spec.rb[1:1:7:2]",
+      "description": "follows the active filter rather than the whole store",
+      "full_description": "Spree::Api::V3::Admin::StoreCreditsController GET #index meta.totals follows the active filter rather than the whole store",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/store_credits_controller_spec.rb",
+      "line_number": 83,
+      "run_time": 0.053682365,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb[1:1:1]",
+      "description": "returns imports for the current store",
+      "full_description": "Spree::Api::V3::Admin::ImportsController GET #index returns imports for the current store",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line_number": 23,
+      "run_time": 0.056235874,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb[1:1:2]",
+      "description": "omits imports owned by other stores",
+      "full_description": "Spree::Api::V3::Admin::ImportsController GET #index omits imports owned by other stores",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line_number": 29,
+      "run_time": 0.134913558,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb[1:2:2]",
+      "description": "returns 404 for an unknown id",
+      "full_description": "Spree::Api::V3::Admin::ImportsController GET #show returns 404 for an unknown id",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line_number": 64,
+      "run_time": 0.04542142,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb[1:2:1:1]",
+      "description": "returns poll counters without the mapping payload",
+      "full_description": "Spree::Api::V3::Admin::ImportsController GET #show while processing returns poll counters without the mapping payload",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line_number": 48,
+      "run_time": 0.055232777,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb[1:3:1]",
+      "description": "creates a Products import from a signed blob id and advances into mapping",
+      "full_description": "Spree::Api::V3::Admin::ImportsController POST #create creates a Products import from a signed blob id and advances into mapping",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line_number": 71,
+      "run_time": 0.156536684,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb[1:3:2]",
+      "description": "accepts a preferred delimiter",
+      "full_description": "Spree::Api::V3::Admin::ImportsController POST #create accepts a preferred delimiter",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line_number": 100,
+      "run_time": 0.167524408,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb[1:3:5]",
+      "description": "rejects unregistered import types",
+      "full_description": "Spree::Api::V3::Admin::ImportsController POST #create rejects unregistered import types",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line_number": 185,
+      "run_time": 0.041059781,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb[1:3:6]",
+      "description": "rejects an invalid attachment signed id",
+      "full_description": "Spree::Api::V3::Admin::ImportsController POST #create rejects an invalid attachment signed id",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line_number": 192,
+      "run_time": 0.031188904,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb[1:3:8]",
+      "description": "marks the import failed when the CSV is unparseable",
+      "full_description": "Spree::Api::V3::Admin::ImportsController POST #create marks the import failed when the CSV is unparseable",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line_number": 208,
+      "run_time": 0.065600607,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb[1:3:7]",
+      "description": "rejects a non-CSV attachment",
+      "full_description": "Spree::Api::V3::Admin::ImportsController POST #create rejects a non-CSV attachment",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line_number": 198,
+      "run_time": 0.040903577,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb[1:3:3:2]",
+      "description": "is refused without a list",
+      "full_description": "Spree::Api::V3::Admin::ImportsController POST #create for a price list is refused without a list",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line_number": 127,
+      "run_time": 0.043347201,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb[1:3:3:1]",
+      "description": "binds the import to the store's list and reports it back",
+      "full_description": "Spree::Api::V3::Admin::ImportsController POST #create for a price list binds the import to the store's list and reports it back",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line_number": 118,
+      "run_time": 0.067814836,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb[1:3:3:3]",
+      "description": "returns 404 for another store's list",
+      "full_description": "Spree::Api::V3::Admin::ImportsController POST #create for a price list returns 404 for another store's list",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line_number": 133,
+      "run_time": 0.093365909,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb[1:3:3:4]",
+      "description": "ignores the list on a type that has none",
+      "full_description": "Spree::Api::V3::Admin::ImportsController POST #create for a price list ignores the list on a type that has none",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line_number": 141,
+      "run_time": 0.138673261,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb[1:3:4:1]",
+      "description": "stores it when it matches an allowed origin",
+      "full_description": "Spree::Api::V3::Admin::ImportsController POST #create with a results_url stores it when it matches an allowed origin",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line_number": 155,
+      "run_time": 0.355213915,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb[1:3:4:2]",
+      "description": "silently drops it when it does not match an allowed origin",
+      "full_description": "Spree::Api::V3::Admin::ImportsController POST #create with a results_url silently drops it when it does not match an allowed origin",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line_number": 171,
+      "run_time": 0.187682264,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb[1:10:2]",
+      "description": "refuses to delete a processing import",
+      "full_description": "Spree::Api::V3::Admin::ImportsController DELETE #destroy refuses to delete a processing import",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line_number": 433,
+      "run_time": 0.044804598,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb[1:10:1]",
+      "description": "deletes a completed import",
+      "full_description": "Spree::Api::V3::Admin::ImportsController DELETE #destroy deletes a completed import",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line_number": 423,
+      "run_time": 0.042922797,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb[1:7:1]",
+      "description": "streams the originally uploaded CSV for auditing",
+      "full_description": "Spree::Api::V3::Admin::ImportsController GET #download streams the originally uploaded CSV for auditing",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line_number": 363,
+      "run_time": 0.037503472,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb[1:7:2]",
+      "description": "returns 404 for an unknown id",
+      "full_description": "Spree::Api::V3::Admin::ImportsController GET #download returns 404 for an unknown id",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line_number": 372,
+      "run_time": 0.035384278,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb[1:11:1:1]",
+      "description": "returns 401 unauthorized",
+      "full_description": "Spree::Api::V3::Admin::ImportsController authentication without any credential returns 401 unauthorized",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line_number": 447,
+      "run_time": 0.028188903,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb[1:11:2:5]",
+      "description": "hides imports of unwritable types from member actions",
+      "full_description": "Spree::Api::V3::Admin::ImportsController authentication with a secret API key hides imports of unwritable types from member actions",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line_number": 498,
+      "run_time": 0.045340174,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb[1:11:2:4]",
+      "description": "filters the index to import types the key can write",
+      "full_description": "Spree::Api::V3::Admin::ImportsController authentication with a secret API key filters the index to import types the key can write",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line_number": 488,
+      "run_time": 0.049847583,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb[1:11:2:3]",
+      "description": "gates price-list imports by the products scope",
+      "full_description": "Spree::Api::V3::Admin::ImportsController authentication with a secret API key gates price-list imports by the products scope",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line_number": 478,
+      "run_time": 0.073013543,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb[1:11:2:1]",
+      "description": "allows creating a Products import with write_products, attributed to the key creator",
+      "full_description": "Spree::Api::V3::Admin::ImportsController authentication with a secret API key allows creating a Products import with write_products, attributed to the key creator",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line_number": 457,
+      "run_time": 0.13945811,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb[1:11:2:2]",
+      "description": "rejects creating a Customers import without write_customers",
+      "full_description": "Spree::Api::V3::Admin::ImportsController authentication with a secret API key rejects creating a Customers import without write_customers",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line_number": 469,
+      "run_time": 0.047287406,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb[1:11:2:6:1]",
+      "description": "rejects create with a user presence error",
+      "full_description": "Spree::Api::V3::Admin::ImportsController authentication with a secret API key when the key has no admin creator rejects create with a user presence error",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line_number": 509,
+      "run_time": 0.040900934,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb[1:9:2]",
+      "description": "returns 404 for a type with no example file",
+      "full_description": "Spree::Api::V3::Admin::ImportsController GET #example returns 404 for a type with no example file",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line_number": 407,
+      "run_time": 0.034074864,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb[1:9:3]",
+      "description": "returns 404 for an unknown type",
+      "full_description": "Spree::Api::V3::Admin::ImportsController GET #example returns 404 for an unknown type",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line_number": 415,
+      "run_time": 0.031119957,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb[1:9:1]",
+      "description": "redirects to the example CSV for the installed version",
+      "full_description": "Spree::Api::V3::Admin::ImportsController GET #example redirects to the example CSV for the installed version",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line_number": 399,
+      "run_time": 0.030506248,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb[1:6:2]",
+      "description": "returns 422 when there are no failed rows",
+      "full_description": "Spree::Api::V3::Admin::ImportsController PATCH #retry_failed_rows returns 422 when there are no failed rows",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line_number": 354,
+      "run_time": 0.037002869,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb[1:6:1:1]",
+      "description": "re-enters processing and re-dispatches the rows",
+      "full_description": "Spree::Api::V3::Admin::ImportsController PATCH #retry_failed_rows with failed rows re-enters processing and re-dispatches the rows",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line_number": 344,
+      "run_time": 0.043053516,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb[1:5:1]",
+      "description": "appears in the operator's list",
+      "full_description": "Spree::Api::V3::Admin::ImportsController a seller's import appears in the operator's list",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line_number": 301,
+      "run_time": 0.06366299,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb[1:5:4]",
+      "description": "cannot be retried by the operator",
+      "full_description": "Spree::Api::V3::Admin::ImportsController a seller's import cannot be retried by the operator",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line_number": 322,
+      "run_time": 0.052405393,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb[1:5:5]",
+      "description": "cannot be deleted by the operator",
+      "full_description": "Spree::Api::V3::Admin::ImportsController a seller's import cannot be deleted by the operator",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line_number": 328,
+      "run_time": 0.06323731,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb[1:5:2]",
+      "description": "names the seller, so the list can say whose it is",
+      "full_description": "Spree::Api::V3::Admin::ImportsController a seller's import names the seller, so the list can say whose it is",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line_number": 307,
+      "run_time": 0.061430627,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb[1:5:3]",
+      "description": "is readable in full",
+      "full_description": "Spree::Api::V3::Admin::ImportsController a seller's import is readable in full",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line_number": 314,
+      "run_time": 0.055568216,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb[1:4:4]",
+      "description": "returns 422 when the import is not in the mapping state",
+      "full_description": "Spree::Api::V3::Admin::ImportsController PATCH #complete_mapping returns 422 when the import is not in the mapping state",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line_number": 285,
+      "run_time": 0.035157418,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb[1:4:2:2]",
+      "description": "returns 422 listing missing required fields when left unmapped",
+      "full_description": "Spree::Api::V3::Admin::ImportsController PATCH #complete_mapping when a required column needs manual mapping returns 422 listing missing required fields when left unmapped",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line_number": 261,
+      "run_time": 0.132238746,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb[1:4:2:1]",
+      "description": "applies submitted mappings before completing",
+      "full_description": "Spree::Api::V3::Admin::ImportsController PATCH #complete_mapping when a required column needs manual mapping applies submitted mappings before completing",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line_number": 248,
+      "run_time": 0.151744941,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb[1:4:3:1]",
+      "description": "returns 422 with the mapping validation error",
+      "full_description": "Spree::Api::V3::Admin::ImportsController PATCH #complete_mapping when a file column is assigned twice returns 422 with the mapping validation error",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line_number": 273,
+      "run_time": 0.167521793,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb[1:4:1:1]",
+      "description": "transitions into completed_mapping and enqueues row creation",
+      "full_description": "Spree::Api::V3::Admin::ImportsController PATCH #complete_mapping when every required field auto-mapped transitions into completed_mapping and enqueues row creation",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line_number": 235,
+      "run_time": 0.205329747,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb[1:8:1]",
+      "description": "returns a CSV header row for the type schema",
+      "full_description": "Spree::Api::V3::Admin::ImportsController GET #template returns a CSV header row for the type schema",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line_number": 380,
+      "run_time": 0.049712676,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb[1:8:2]",
+      "description": "returns 422 for an unknown type",
+      "full_description": "Spree::Api::V3::Admin::ImportsController GET #template returns 422 for an unknown type",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/imports_controller_spec.rb",
+      "line_number": 389,
+      "run_time": 0.046026137,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/customers/addresses_spec.rb[1:2:1:1:1]",
+      "description": "returns a 200 response",
+      "full_description": "Admin Customer Addresses API /api/v3/admin/customers/{customer_id}/addresses/{id} patch address updated returns a 200 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/admin/customers/addresses_spec.rb",
+      "line_number": null,
+      "run_time": 0.067434959,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/customers/addresses_spec.rb[1:2:2:1:1]",
+      "description": "returns a 204 response",
+      "full_description": "Admin Customer Addresses API /api/v3/admin/customers/{customer_id}/addresses/{id} delete address deleted returns a 204 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/admin/customers/addresses_spec.rb",
+      "line_number": null,
+      "run_time": 0.061221893,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/customers/addresses_spec.rb[1:1:1:1:1]",
+      "description": "returns a 200 response",
+      "full_description": "Admin Customer Addresses API /api/v3/admin/customers/{customer_id}/addresses get addresses found returns a 200 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/admin/customers/addresses_spec.rb",
+      "line_number": null,
+      "run_time": 0.057987601,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/customers/addresses_spec.rb[1:1:2:1:1]",
+      "description": "returns a 201 response",
+      "full_description": "Admin Customer Addresses API /api/v3/admin/customers/{customer_id}/addresses post address created returns a 201 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/admin/customers/addresses_spec.rb",
+      "line_number": null,
+      "run_time": 0.063969644,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customers/addresses_controller_spec.rb[1:4:1]",
+      "description": "destroys the address when not referenced by completed orders",
+      "full_description": "Spree::Api::V3::Admin::Customers::AddressesController DELETE #destroy destroys the address when not referenced by completed orders",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customers/addresses_controller_spec.rb",
+      "line_number": 146,
+      "run_time": 0.057843771,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customers/addresses_controller_spec.rb[1:4:2:1]",
+      "description": "soft-deletes the address, keeping the shipment association intact",
+      "full_description": "Spree::Api::V3::Admin::Customers::AddressesController DELETE #destroy when the address is referenced by a shipment soft-deletes the address, keeping the shipment association intact",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customers/addresses_controller_spec.rb",
+      "line_number": 156,
+      "run_time": 0.0820141,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customers/addresses_controller_spec.rb[1:4:3:2:1:1]",
+      "description": "soft-deletes the address, keeping the order association intact",
+      "full_description": "Spree::Api::V3::Admin::Customers::AddressesController DELETE #destroy when the address is referenced by a completed order as the bill address behaves like soft-deletes the referenced address soft-deletes the address, keeping the order association intact",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customers/addresses_controller_spec.rb",
+      "line_number": 169,
+      "run_time": 0.218526264,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customers/addresses_controller_spec.rb[1:4:3:1:1:1]",
+      "description": "soft-deletes the address, keeping the order association intact",
+      "full_description": "Spree::Api::V3::Admin::Customers::AddressesController DELETE #destroy when the address is referenced by a completed order as the ship address behaves like soft-deletes the referenced address soft-deletes the address, keeping the order association intact",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customers/addresses_controller_spec.rb",
+      "line_number": 169,
+      "run_time": 0.188729777,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customers/addresses_controller_spec.rb[1:1:1]",
+      "description": "returns the customer addresses",
+      "full_description": "Spree::Api::V3::Admin::Customers::AddressesController GET #index returns the customer addresses",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customers/addresses_controller_spec.rb",
+      "line_number": 14,
+      "run_time": 0.050899771,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customers/addresses_controller_spec.rb[1:1:2:1]",
+      "description": "cannot read another customer's addresses",
+      "full_description": "Spree::Api::V3::Admin::Customers::AddressesController GET #index with a limited-role admin that cannot read customers cannot read another customer's addresses",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customers/addresses_controller_spec.rb",
+      "line_number": 31,
+      "run_time": 0.034890044,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customers/addresses_controller_spec.rb[1:2:2]",
+      "description": "ignores the legacy firstname and lastname spellings",
+      "full_description": "Spree::Api::V3::Admin::Customers::AddressesController POST #create ignores the legacy firstname and lastname spellings",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customers/addresses_controller_spec.rb",
+      "line_number": 63,
+      "run_time": 0.045263844,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customers/addresses_controller_spec.rb[1:2:1]",
+      "description": "creates a new address for the customer",
+      "full_description": "Spree::Api::V3::Admin::Customers::AddressesController POST #create creates a new address for the customer",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customers/addresses_controller_spec.rb",
+      "line_number": 56,
+      "run_time": 0.050137149,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customers/addresses_controller_spec.rb[1:2:3:1]",
+      "description": "sets the customer default billing address",
+      "full_description": "Spree::Api::V3::Admin::Customers::AddressesController POST #create with is_default_billing flag sets the customer default billing address",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customers/addresses_controller_spec.rb",
+      "line_number": 71,
+      "run_time": 0.048889149,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customers/addresses_controller_spec.rb[1:2:4:1]",
+      "description": "sets the customer default shipping address",
+      "full_description": "Spree::Api::V3::Admin::Customers::AddressesController POST #create with is_default_shipping flag sets the customer default shipping address",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customers/addresses_controller_spec.rb",
+      "line_number": 81,
+      "run_time": 0.047100433,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customers/addresses_controller_spec.rb[1:3:2]",
+      "description": "rotates the default billing flag",
+      "full_description": "Spree::Api::V3::Admin::Customers::AddressesController PATCH #update rotates the default billing flag",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customers/addresses_controller_spec.rb",
+      "line_number": 99,
+      "run_time": 0.081155792,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customers/addresses_controller_spec.rb[1:3:1]",
+      "description": "updates the address",
+      "full_description": "Spree::Api::V3::Admin::Customers::AddressesController PATCH #update updates the address",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customers/addresses_controller_spec.rb",
+      "line_number": 92,
+      "run_time": 0.068818896,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customers/addresses_controller_spec.rb[1:3:3:1]",
+      "description": "edits a copy instead of mutating the historical order address in place",
+      "full_description": "Spree::Api::V3::Admin::Customers::AddressesController PATCH #update when the address is referenced by a completed order edits a copy instead of mutating the historical order address in place",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customers/addresses_controller_spec.rb",
+      "line_number": 113,
+      "run_time": 0.279177201,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/imports_spec.rb[1:1:1:1:1]",
+      "description": "returns a 200 response",
+      "full_description": "Admin Imports API /api/v3/admin/imports get imports found returns a 200 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/admin/imports_spec.rb",
+      "line_number": null,
+      "run_time": 0.073966901,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/imports_spec.rb[1:1:2:1:1]",
+      "description": "returns a 201 response",
+      "full_description": "Admin Imports API /api/v3/admin/imports post import created in mapping state returns a 201 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/admin/imports_spec.rb",
+      "line_number": null,
+      "run_time": 0.189884837,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/imports_spec.rb[1:1:2:2:1]",
+      "description": "returns a 422 response",
+      "full_description": "Admin Imports API /api/v3/admin/imports post unknown import type returns a 422 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/admin/imports_spec.rb",
+      "line_number": null,
+      "run_time": 0.040237399,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/imports_spec.rb[1:5:1:1:1]",
+      "description": "returns a 200 response",
+      "full_description": "Admin Imports API /api/v3/admin/imports/{id}/download get CSV file returns a 200 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/admin/imports_spec.rb",
+      "line_number": null,
+      "run_time": 0.04322159,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/imports_spec.rb[1:7:1:1:1]",
+      "description": "returns a 200 response",
+      "full_description": "Admin Imports API /api/v3/admin/imports/{id}/retry_failed_rows patch retry queued returns a 200 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/admin/imports_spec.rb",
+      "line_number": null,
+      "run_time": 0.071563694,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/imports_spec.rb[1:4:1:1:1]",
+      "description": "returns a 200 response",
+      "full_description": "Admin Imports API /api/v3/admin/imports/{id} get import found returns a 200 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/admin/imports_spec.rb",
+      "line_number": null,
+      "run_time": 0.047929807,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/imports_spec.rb[1:4:2:1:1]",
+      "description": "returns a 204 response",
+      "full_description": "Admin Imports API /api/v3/admin/imports/{id} delete import deleted returns a 204 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/admin/imports_spec.rb",
+      "line_number": null,
+      "run_time": 0.040656244,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/imports_spec.rb[1:2:1:1:1]",
+      "description": "returns a 200 response",
+      "full_description": "Admin Imports API /api/v3/admin/imports/template get CSV template returns a 200 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/admin/imports_spec.rb",
+      "line_number": null,
+      "run_time": 0.042716091,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/imports_spec.rb[1:8:1:1:1]",
+      "description": "returns a 200 response",
+      "full_description": "Admin Imports API /api/v3/admin/imports/{import_id}/rows get rows found returns a 200 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/admin/imports_spec.rb",
+      "line_number": null,
+      "run_time": 0.041706942,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/imports_spec.rb[1:3:1:1:1]",
+      "description": "returns a 302 response",
+      "full_description": "Admin Imports API /api/v3/admin/imports/example get Redirect to the example CSV returns a 302 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/admin/imports_spec.rb",
+      "line_number": null,
+      "run_time": 0.032892882,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/imports_spec.rb[1:6:1:1:1]",
+      "description": "returns a 200 response",
+      "full_description": "Admin Imports API /api/v3/admin/imports/{id}/complete_mapping patch mapping completed, processing queued returns a 200 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/admin/imports_spec.rb",
+      "line_number": null,
+      "run_time": 0.16324385,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/customer_privacy_spec.rb[1:2:1:1:1]",
+      "description": "returns a 200 response",
+      "full_description": "Admin Customer Privacy API /api/v3/admin/customers/{id}/anonymize post customer anonymized returns a 200 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/admin/customer_privacy_spec.rb",
+      "line_number": null,
+      "run_time": 0.074074859,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/customer_privacy_spec.rb[1:4:1:1:1]",
+      "description": "returns a 200 response",
+      "full_description": "Admin Customer Privacy API /api/v3/admin/data_requests get data requests found returns a 200 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/admin/customer_privacy_spec.rb",
+      "line_number": null,
+      "run_time": 0.043942345,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/customer_privacy_spec.rb[1:4:2:1:1]",
+      "description": "returns a 202 response",
+      "full_description": "Admin Customer Privacy API /api/v3/admin/data_requests post data request recorded returns a 202 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/admin/customer_privacy_spec.rb",
+      "line_number": null,
+      "run_time": 0.042878902,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/customer_privacy_spec.rb[1:3:1:1:1]",
+      "description": "returns a 200 response",
+      "full_description": "Admin Customer Privacy API /api/v3/admin/consent_records get consent records found returns a 200 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/admin/customer_privacy_spec.rb",
+      "line_number": null,
+      "run_time": 0.058493609,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/customer_privacy_spec.rb[1:1:1:2:1]",
+      "description": "returns a 404 response",
+      "full_description": "Admin Customer Privacy API /api/v3/admin/customers/{id}/export get not found returns a 404 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/admin/customer_privacy_spec.rb",
+      "line_number": null,
+      "run_time": 0.051021623,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/customer_privacy_spec.rb[1:1:1:1:1]",
+      "description": "returns a 200 response",
+      "full_description": "Admin Customer Privacy API /api/v3/admin/customers/{id}/export get customer data returns a 200 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/admin/customer_privacy_spec.rb",
+      "line_number": null,
+      "run_time": 0.063006234,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/exports_spec.rb[1:1:2:1:1]",
+      "description": "returns a 201 response",
+      "full_description": "Admin Exports API /api/v3/admin/exports post export queued returns a 201 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/admin/exports_spec.rb",
+      "line_number": null,
+      "run_time": 0.032315174,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/exports_spec.rb[1:1:1:1:1]",
+      "description": "returns a 200 response",
+      "full_description": "Admin Exports API /api/v3/admin/exports get exports found returns a 200 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/admin/exports_spec.rb",
+      "line_number": null,
+      "run_time": 0.03285242,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/exports_spec.rb[1:2:1:1:1]",
+      "description": "returns a 200 response",
+      "full_description": "Admin Exports API /api/v3/admin/exports/{id} get export found returns a 200 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/admin/exports_spec.rb",
+      "line_number": null,
+      "run_time": 0.036305719,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/exports_spec.rb[1:2:2:1:1]",
+      "description": "returns a 204 response",
+      "full_description": "Admin Exports API /api/v3/admin/exports/{id} delete export deleted returns a 204 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/admin/exports_spec.rb",
+      "line_number": null,
+      "run_time": 0.027587894,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/exports_spec.rb[1:3:1:1:1]",
+      "description": "returns a 200 response",
+      "full_description": "Admin Exports API /api/v3/admin/exports/{id}/download get CSV file returns a 200 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/admin/exports_spec.rb",
+      "line_number": null,
+      "run_time": 0.047075891,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customers_controller_spec.rb[1:5:1]",
+      "description": "destroys a customer with no orders",
+      "full_description": "Spree::Api::V3::Admin::CustomersController DELETE #destroy destroys a customer with no orders",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customers_controller_spec.rb",
+      "line_number": 233,
+      "run_time": 0.045646391,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customers_controller_spec.rb[1:5:2:1]",
+      "description": "returns 422 with error",
+      "full_description": "Spree::Api::V3::Admin::CustomersController DELETE #destroy when customer has completed orders returns 422 with error",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customers_controller_spec.rb",
+      "line_number": 247,
+      "run_time": 0.149795258,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customers_controller_spec.rb[1:4:1]",
+      "description": "updates the customer",
+      "full_description": "Spree::Api::V3::Admin::CustomersController PATCH #update updates the customer",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customers_controller_spec.rb",
+      "line_number": 172,
+      "run_time": 0.036566016,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customers_controller_spec.rb[1:4:2]",
+      "description": "replaces tags (not append)",
+      "full_description": "Spree::Api::V3::Admin::CustomersController PATCH #update replaces tags (not append)",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customers_controller_spec.rb",
+      "line_number": 179,
+      "run_time": 0.071290919,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customers_controller_spec.rb[1:4:3:2]",
+      "description": "clears membership with an empty array",
+      "full_description": "Spree::Api::V3::Admin::CustomersController PATCH #update with customer_group_ids clears membership with an empty array",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customers_controller_spec.rb",
+      "line_number": 204,
+      "run_time": 0.054458764,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customers_controller_spec.rb[1:4:3:1]",
+      "description": "replaces group membership using prefixed ids",
+      "full_description": "Spree::Api::V3::Admin::CustomersController PATCH #update with customer_group_ids replaces group membership using prefixed ids",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customers_controller_spec.rb",
+      "line_number": 192,
+      "run_time": 0.050352237,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customers_controller_spec.rb[1:4:4:1]",
+      "description": "updates profile fields without touching the existing credential",
+      "full_description": "Spree::Api::V3::Admin::CustomersController PATCH #update without password updates profile fields without touching the existing credential",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customers_controller_spec.rb",
+      "line_number": 219,
+      "run_time": 0.037501043,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customers_controller_spec.rb[1:3:1]",
+      "description": "creates a customer",
+      "full_description": "Spree::Api::V3::Admin::CustomersController POST #create creates a customer",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customers_controller_spec.rb",
+      "line_number": 128,
+      "run_time": 0.049805912,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customers_controller_spec.rb[1:3:3:2]",
+      "description": "leaves the customer with no usable credential",
+      "full_description": "Spree::Api::V3::Admin::CustomersController POST #create without password leaves the customer with no usable credential",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customers_controller_spec.rb",
+      "line_number": 162,
+      "run_time": 0.031679608,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customers_controller_spec.rb[1:3:3:1]",
+      "description": "creates the customer",
+      "full_description": "Spree::Api::V3::Admin::CustomersController POST #create without password creates the customer",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customers_controller_spec.rb",
+      "line_number": 155,
+      "run_time": 0.036565066,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customers_controller_spec.rb[1:3:2:1]",
+      "description": "returns validation errors for missing email",
+      "full_description": "Spree::Api::V3::Admin::CustomersController POST #create with invalid params returns validation errors for missing email",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customers_controller_spec.rb",
+      "line_number": 139,
+      "run_time": 0.031289065,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customers_controller_spec.rb[1:6:1]",
+      "description": "adds the listed customers to every listed group",
+      "full_description": "Spree::Api::V3::Admin::CustomersController POST #bulk_add_to_groups adds the listed customers to every listed group",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customers_controller_spec.rb",
+      "line_number": 261,
+      "run_time": 0.059148462,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customers_controller_spec.rb[1:6:2]",
+      "description": "is idempotent \u2014 re-adding existing members is a no-op",
+      "full_description": "Spree::Api::V3::Admin::CustomersController POST #bulk_add_to_groups is idempotent \u2014 re-adding existing members is a no-op",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customers_controller_spec.rb",
+      "line_number": 273,
+      "run_time": 0.042330239,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customers_controller_spec.rb[1:6:3]",
+      "description": "ignores customer groups from other stores",
+      "full_description": "Spree::Api::V3::Admin::CustomersController POST #bulk_add_to_groups ignores customer groups from other stores",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customers_controller_spec.rb",
+      "line_number": 284,
+      "run_time": 0.111719356,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customers_controller_spec.rb[1:2:2]",
+      "description": "returns 404 for unknown id",
+      "full_description": "Spree::Api::V3::Admin::CustomersController GET #show returns 404 for unknown id",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customers_controller_spec.rb",
+      "line_number": 84,
+      "run_time": 0.025095513,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customers_controller_spec.rb[1:2:1]",
+      "description": "returns the customer with computed stats",
+      "full_description": "Spree::Api::V3::Admin::CustomersController GET #show returns the customer with computed stats",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customers_controller_spec.rb",
+      "line_number": 73,
+      "run_time": 0.043072932,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customers_controller_spec.rb[1:2:4]",
+      "description": "expands orders for a caller who can read them",
+      "full_description": "Spree::Api::V3::Admin::CustomersController GET #show expands orders for a caller who can read them",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customers_controller_spec.rb",
+      "line_number": 107,
+      "run_time": 0.177506429,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customers_controller_spec.rb[1:2:3:1]",
+      "description": "drops expansions into orders and store credits",
+      "full_description": "Spree::Api::V3::Admin::CustomersController GET #show with a key that reads customers only drops expansions into orders and store credits",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customers_controller_spec.rb",
+      "line_number": 96,
+      "run_time": 0.14140524,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customers_controller_spec.rb[1:1:1]",
+      "description": "returns customers",
+      "full_description": "Spree::Api::V3::Admin::CustomersController GET #index returns customers",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customers_controller_spec.rb",
+      "line_number": 13,
+      "run_time": 0.030795119,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customers_controller_spec.rb[1:1:3:1]",
+      "description": "returns members of the node and of its ancestors",
+      "full_description": "Spree::Api::V3::Admin::CustomersController GET #index filtering by company standing returns members of the node and of its ancestors",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customers_controller_spec.rb",
+      "line_number": 52,
+      "run_time": 0.049595029,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customers_controller_spec.rb[1:1:3:2]",
+      "description": "returns nothing for a company belonging to another store",
+      "full_description": "Spree::Api::V3::Admin::CustomersController GET #index filtering by company standing returns nothing for a company belonging to another store",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customers_controller_spec.rb",
+      "line_number": 60,
+      "run_time": 0.134049291,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customers_controller_spec.rb[1:1:2:2]",
+      "description": "filters by email_cont",
+      "full_description": "Spree::Api::V3::Admin::CustomersController GET #index with ransack search filters by email_cont",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customers_controller_spec.rb",
+      "line_number": 31,
+      "run_time": 0.08442523,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customers_controller_spec.rb[1:1:2:1]",
+      "description": "filters by search scope",
+      "full_description": "Spree::Api::V3::Admin::CustomersController GET #index with ransack search filters by search scope",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customers_controller_spec.rb",
+      "line_number": 24,
+      "run_time": 0.069754769,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customers_controller_spec.rb[1:7:1]",
+      "description": "removes the listed customers from every listed group",
+      "full_description": "Spree::Api::V3::Admin::CustomersController POST #bulk_remove_from_groups removes the listed customers from every listed group",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customers_controller_spec.rb",
+      "line_number": 304,
+      "run_time": 0.071466894,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customers_controller_spec.rb[1:7:2]",
+      "description": "is a no-op for non-members",
+      "full_description": "Spree::Api::V3::Admin::CustomersController POST #bulk_remove_from_groups is a no-op for non-members",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customers_controller_spec.rb",
+      "line_number": 313,
+      "run_time": 0.076640456,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customers_controller_spec.rb[1:8:1]",
+      "description": "adds the listed tags to every listed customer",
+      "full_description": "Spree::Api::V3::Admin::CustomersController POST #bulk_add_tags adds the listed tags to every listed customer",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customers_controller_spec.rb",
+      "line_number": 329,
+      "run_time": 0.071652297,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customers_controller_spec.rb[1:8:2]",
+      "description": "is idempotent \u2014 re-adding the same tag does not duplicate it",
+      "full_description": "Spree::Api::V3::Admin::CustomersController POST #bulk_add_tags is idempotent \u2014 re-adding the same tag does not duplicate it",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customers_controller_spec.rb",
+      "line_number": 341,
+      "run_time": 0.077069612,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customers_controller_spec.rb[1:8:3]",
+      "description": "silently drops unreachable IDs",
+      "full_description": "Spree::Api::V3::Admin::CustomersController POST #bulk_add_tags silently drops unreachable IDs",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customers_controller_spec.rb",
+      "line_number": 357,
+      "run_time": 0.061118543,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customers_controller_spec.rb[1:8:4]",
+      "description": "is a no-op when tags is empty",
+      "full_description": "Spree::Api::V3::Admin::CustomersController POST #bulk_add_tags is a no-op when tags is empty",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customers_controller_spec.rb",
+      "line_number": 366,
+      "run_time": 0.06704492,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customers_controller_spec.rb[1:9:2]",
+      "description": "is a no-op for customers without the tag",
+      "full_description": "Spree::Api::V3::Admin::CustomersController POST #bulk_remove_tags is a no-op for customers without the tag",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customers_controller_spec.rb",
+      "line_number": 398,
+      "run_time": 0.090105826,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customers_controller_spec.rb[1:9:1]",
+      "description": "removes the listed tags from every listed customer",
+      "full_description": "Spree::Api::V3::Admin::CustomersController POST #bulk_remove_tags removes the listed tags from every listed customer",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customers_controller_spec.rb",
+      "line_number": 385,
+      "run_time": 0.082759254,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/customers/tax_identifiers_spec.rb[1:2:1:1:1]",
+      "description": "returns a 200 response",
+      "full_description": "Admin Customer Tax Identifiers API /api/v3/admin/customers/{customer_id}/tax_identifiers/{id} patch registration updated returns a 200 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/admin/customers/tax_identifiers_spec.rb",
+      "line_number": null,
+      "run_time": 0.477317017,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/integration/spree/api/v3/admin/customers/tax_identifiers_spec.rb[1:1:1:1:1]",
+      "description": "returns a 200 response",
+      "full_description": "Admin Customer Tax Identifiers API /api/v3/admin/customers/{customer_id}/tax_identifiers get registrations found returns a 200 response",
+      "status": "passed",
+      "file_path": "./spec/integration/spree/api/v3/admin/customers/tax_identifiers_spec.rb",
+      "line_number": null,
+      "run_time": 0.059551945,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customers/tax_identifiers_controller_spec.rb[1:3:1]",
+      "description": "updates the number",
+      "full_description": "Spree::Api::V3::Admin::Customers::TaxIdentifiersController PATCH #update updates the number",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customers/tax_identifiers_controller_spec.rb",
+      "line_number": 55,
+      "run_time": 0.052872685,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customers/tax_identifiers_controller_spec.rb[1:1:2]",
+      "description": "reports whether this installation can check the kind at all",
+      "full_description": "Spree::Api::V3::Admin::Customers::TaxIdentifiersController GET #index reports whether this installation can check the kind at all",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customers/tax_identifiers_controller_spec.rb",
+      "line_number": 27,
+      "run_time": 0.049930363,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customers/tax_identifiers_controller_spec.rb[1:1:1]",
+      "description": "lists the customer registrations with their verdict",
+      "full_description": "Spree::Api::V3::Admin::Customers::TaxIdentifiersController GET #index lists the customer registrations with their verdict",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customers/tax_identifiers_controller_spec.rb",
+      "line_number": 15,
+      "run_time": 0.044272115,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customers/tax_identifiers_controller_spec.rb[1:5:2:1]",
+      "description": "says so rather than queueing a job with nothing to do",
+      "full_description": "Spree::Api::V3::Admin::Customers::TaxIdentifiersController POST #validate when nothing here can check the kind says so rather than queueing a job with nothing to do",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customers/tax_identifiers_controller_spec.rb",
+      "line_number": 91,
+      "run_time": 0.041836807,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customers/tax_identifiers_controller_spec.rb[1:5:1:1]",
+      "description": "queues a fresh registry check",
+      "full_description": "Spree::Api::V3::Admin::Customers::TaxIdentifiersController POST #validate when a validator is registered for the kind queues a fresh registry check",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customers/tax_identifiers_controller_spec.rb",
+      "line_number": 80,
+      "run_time": 0.044094709,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customers/tax_identifiers_controller_spec.rb[1:4:1]",
+      "description": "removes the registration",
+      "full_description": "Spree::Api::V3::Admin::Customers::TaxIdentifiersController DELETE #destroy removes the registration",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customers/tax_identifiers_controller_spec.rb",
+      "line_number": 66,
+      "run_time": 0.041227179,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customers/tax_identifiers_controller_spec.rb[1:2:2]",
+      "description": "normalizes what was typed",
+      "full_description": "Spree::Api::V3::Admin::Customers::TaxIdentifiersController POST #create normalizes what was typed",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customers/tax_identifiers_controller_spec.rb",
+      "line_number": 45,
+      "run_time": 0.061353499,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/admin/customers/tax_identifiers_controller_spec.rb[1:2:1]",
+      "description": "adds a registration to the customer",
+      "full_description": "Spree::Api::V3::Admin::Customers::TaxIdentifiersController POST #create adds a registration to the customer",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/admin/customers/tax_identifiers_controller_spec.rb",
+      "line_number": 35,
+      "run_time": 0.052857031,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/wishlists_controller_spec.rb[1:2:1]",
+      "description": "returns the wishlist",
+      "full_description": "Spree::Api::V3::Store::WishlistsController GET #show returns the wishlist",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/wishlists_controller_spec.rb",
+      "line_number": 54,
+      "run_time": 0.050565978,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/wishlists_controller_spec.rb[1:2:2:1]",
+      "description": "returns not found for non-existent wishlist",
+      "full_description": "Spree::Api::V3::Store::WishlistsController GET #show error handling returns not found for non-existent wishlist",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/wishlists_controller_spec.rb",
+      "line_number": 63,
+      "run_time": 0.042977966,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/wishlists_controller_spec.rb[1:2:2:2]",
+      "description": "returns not found for other users wishlist",
+      "full_description": "Spree::Api::V3::Store::WishlistsController GET #show error handling returns not found for other users wishlist",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/wishlists_controller_spec.rb",
+      "line_number": 71,
+      "run_time": 0.056310116,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/wishlists_controller_spec.rb[1:5:1]",
+      "description": "deletes the wishlist",
+      "full_description": "Spree::Api::V3::Store::WishlistsController DELETE #destroy deletes the wishlist",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/wishlists_controller_spec.rb",
+      "line_number": 160,
+      "run_time": 0.048446224,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/wishlists_controller_spec.rb[1:5:2:2]",
+      "description": "returns not found for other users wishlist",
+      "full_description": "Spree::Api::V3::Store::WishlistsController DELETE #destroy error handling returns not found for other users wishlist",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/wishlists_controller_spec.rb",
+      "line_number": 177,
+      "run_time": 0.054797735,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/wishlists_controller_spec.rb[1:5:2:1]",
+      "description": "returns not found for non-existent wishlist",
+      "full_description": "Spree::Api::V3::Store::WishlistsController DELETE #destroy error handling returns not found for non-existent wishlist",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/wishlists_controller_spec.rb",
+      "line_number": 169,
+      "run_time": 0.043545735,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/wishlists_controller_spec.rb[1:3:2]",
+      "description": "associates wishlist with current user",
+      "full_description": "Spree::Api::V3::Store::WishlistsController POST #create associates wishlist with current user",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/wishlists_controller_spec.rb",
+      "line_number": 93,
+      "run_time": 0.049991703,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/wishlists_controller_spec.rb[1:3:3]",
+      "description": "associates wishlist with current store",
+      "full_description": "Spree::Api::V3::Store::WishlistsController POST #create associates wishlist with current store",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/wishlists_controller_spec.rb",
+      "line_number": 99,
+      "run_time": 0.081142032,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/wishlists_controller_spec.rb[1:3:1]",
+      "description": "creates a new wishlist",
+      "full_description": "Spree::Api::V3::Store::WishlistsController POST #create creates a new wishlist",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/wishlists_controller_spec.rb",
+      "line_number": 84,
+      "run_time": 0.103008231,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/wishlists_controller_spec.rb[1:3:5:1]",
+      "description": "returns unauthorized",
+      "full_description": "Spree::Api::V3::Store::WishlistsController POST #create without authentication returns unauthorized",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/wishlists_controller_spec.rb",
+      "line_number": 119,
+      "run_time": 0.079161505,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/wishlists_controller_spec.rb[1:3:4:1]",
+      "description": "returns errors for blank name",
+      "full_description": "Spree::Api::V3::Store::WishlistsController POST #create validation errors returns errors for blank name",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/wishlists_controller_spec.rb",
+      "line_number": 106,
+      "run_time": 0.110322351,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/wishlists_controller_spec.rb[1:4:1]",
+      "description": "updates the wishlist name",
+      "full_description": "Spree::Api::V3::Store::WishlistsController PATCH #update updates the wishlist name",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/wishlists_controller_spec.rb",
+      "line_number": 129,
+      "run_time": 0.178013518,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/wishlists_controller_spec.rb[1:4:3:1]",
+      "description": "returns not found for other users wishlist",
+      "full_description": "Spree::Api::V3::Store::WishlistsController PATCH #update error handling returns not found for other users wishlist",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/wishlists_controller_spec.rb",
+      "line_number": 147,
+      "run_time": 0.079743868,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/wishlists_controller_spec.rb[1:4:2:1]",
+      "description": "returns errors for blank name",
+      "full_description": "Spree::Api::V3::Store::WishlistsController PATCH #update validation errors returns errors for blank name",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/wishlists_controller_spec.rb",
+      "line_number": 137,
+      "run_time": 0.063690613,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/wishlists_controller_spec.rb[1:1:2]",
+      "description": "does not return other users wishlists",
+      "full_description": "Spree::Api::V3::Store::WishlistsController GET #index does not return other users wishlists",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/wishlists_controller_spec.rb",
+      "line_number": 24,
+      "run_time": 0.064539553,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/wishlists_controller_spec.rb[1:1:3]",
+      "description": "returns pagination metadata",
+      "full_description": "Spree::Api::V3::Store::WishlistsController GET #index returns pagination metadata",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/wishlists_controller_spec.rb",
+      "line_number": 34,
+      "run_time": 0.052004622,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/wishlists_controller_spec.rb[1:1:1]",
+      "description": "returns user wishlists",
+      "full_description": "Spree::Api::V3::Store::WishlistsController GET #index returns user wishlists",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/wishlists_controller_spec.rb",
+      "line_number": 16,
+      "run_time": 0.050776456,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/controllers/spree/api/v3/store/wishlists_controller_spec.rb[1:1:4:1]",
+      "description": "returns unauthorized",
+      "full_description": "Spree::Api::V3::Store::WishlistsController GET #index without authentication returns unauthorized",
+      "status": "passed",
+      "file_path": "./spec/controllers/spree/api/v3/store/wishlists_controller_spec.rb",
+      "line_number": 43,
+      "run_time": 0.039226634,
+      "pending_message": null
+    }
+  ],
+  "summary": {
+    "duration": 25.639619798,
+    "example_count": 364,
+    "failure_count": 0,
+    "pending_count": 0,
+    "errors_outside_of_examples_count": 0
+  },
+  "summary_line": "364 examples, 0 failures"
+}

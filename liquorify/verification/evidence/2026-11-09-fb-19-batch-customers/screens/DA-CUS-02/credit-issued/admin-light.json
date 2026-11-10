@@ -1,0 +1,19 @@
+{
+  "screen": "DA-CUS-02",
+  "state": "credit-issued",
+  "variant": "admin",
+  "role": null,
+  "theme": "light",
+  "revision": "05b7c95b",
+  "path": "/<store>/customers/cust_5OQZnCRf8J",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "fullPage": false,
+  "capturedHeight": 960,
+  "intercepted": null,
+  "handOff": "Catalog part 3, G-81: the credit issued from a customer’s page, on its card and in the figures",
+  "settled": true,
+  "outside": []
+}

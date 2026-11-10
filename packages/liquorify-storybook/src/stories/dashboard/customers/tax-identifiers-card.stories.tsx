@@ -4,20 +4,12 @@ import { fn, screen, userEvent, within } from 'storybook/test'
 import { TaxIdentifiersCard } from '../../../../../dashboard/src/components/spree/tax-identifiers-card'
 import { storeParameters, withStore } from '../../../decorators/store'
 import { customerIdentifiers } from '../../../fixtures/admin/customers'
+import { formatRefusalBody } from '../../../mocks/handlers/admin/customers'
 
 const saved = () => Promise.resolve()
 
 /** Spree's refusal of an EU VAT number whose format its core check rejects. */
-const formatRefused = new SpreeError(
-  {
-    error: {
-      code: 'validation_error',
-      message: 'Number does not look like a valid EU VAT registration',
-      details: { value: ['does not look like a valid EU VAT registration'] },
-    },
-  },
-  422,
-)
+const formatRefused = new SpreeError(formatRefusalBody, 422)
 
 /**
  * The shared tax registrations card wired to the admin dashboard's errors
@@ -71,6 +63,9 @@ export const Refused: Story = {
     await userEvent.click(await screen.findByRole('option', { name: 'EU VAT' }))
     await userEvent.type(within(sheet).getByRole('textbox', { name: 'Number' }), 'DE12345')
     await userEvent.click(within(sheet).getByRole('button', { name: 'Save' }))
-    await within(sheet).findAllByText(/does not look like a valid EU VAT registration/)
+    // The code's generic text, not the server's wording (SD-46).
+    await within(sheet).findByText('is invalid')
+    // Focus stays on Save or leaves it depending on how fast the refusal comes back.
+    ;(document.activeElement as HTMLElement | null)?.blur()
   },
 }

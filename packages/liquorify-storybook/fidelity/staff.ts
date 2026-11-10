@@ -106,6 +106,12 @@ export const roles = {
     name: 'Loyalty viewer',
     permissions: ['read_promotions', 'read_gift_cards', 'read_store_credits', 'read_customers'],
   },
+  /**
+   * Write on `customers` and nothing on orders or store credits: no template
+   * holds write on customers, so this is the role a store would make for the
+   * person who keeps its customer records, as batch 10 maps them.
+   */
+  customerManager: { name: 'Customer manager', permissions: ['write_customers'] },
 } as const
 
 export type RoleKey = keyof typeof roles
@@ -216,6 +222,12 @@ export const teammates: Record<
     role: 'loyaltyViewer',
     first: 'Lou',
     last: 'Viewer',
+  },
+  customerManager: {
+    email: 'fidelity-customer-manager@example.com',
+    role: 'customerManager',
+    first: 'Cam',
+    last: 'Records',
   },
 }
 

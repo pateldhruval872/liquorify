@@ -75,5 +75,7 @@ export const EmailTaken: Story = {
     await userEvent.type(email, newCustomer.email as string)
     await userEvent.click(within(sheet).getByRole('button', { name: 'Save' }))
     await within(sheet).findAllByText(/already been taken/)
+    // Focus stays on Save or leaves it depending on how fast the refusal comes back.
+    ;(document.activeElement as HTMLElement | null)?.blur()
   },
 }

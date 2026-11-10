@@ -62,6 +62,9 @@ import { defineConfig } from '@playwright/test'
  * `fl-06-storefront.spec.ts` follow an order to the storefront;
  * `sd-31-gift-card.spec.ts`, `sd-36-canceled-fulfilment.spec.ts` and
  * `digital-delivery.spec.ts` check single findings (see each file).
+ * Batch 10 (customers) keeps its captures and comparison in
+ * `screens-batch-10.spec.ts` and `compare-batch-10.spec.ts`, seeding through
+ * `customers.ts`.
  * `FIDELITY_BASE_URL` points the scripts at a dashboard served on another
  * port, beside a server started with `E2E_RAILS_PORT`.
  */
@@ -76,6 +79,8 @@ export default defineConfig({
     'compare-batch-8.spec.ts',
     'screens-batch-8-part-2.spec.ts',
     'compare-batch-8-part-2.spec.ts',
+    'screens-batch-10.spec.ts',
+    'compare-batch-10.spec.ts',
     'sd-31-gift-card.spec.ts',
     'sd-36-canceled-fulfilment.spec.ts',
     'payment-link.spec.ts',

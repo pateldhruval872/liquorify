@@ -101,7 +101,10 @@ export const Refused: Story = {
     await userEvent.click(await screen.findByRole('option', { name: 'EU VAT' }))
     await userEvent.type(within(sheet).getByRole('textbox', { name: 'Number' }), 'DE12345')
     await userEvent.click(within(sheet).getByRole('button', { name: 'Save' }))
-    await within(sheet).findAllByText(/does not look like a valid EU VAT registration/)
+    // The code's generic text, not the server's wording (SD-46).
+    await within(sheet).findByText('is invalid')
+    // Focus stays on Save or leaves it depending on how fast the refusal comes back.
+    ;(document.activeElement as HTMLElement | null)?.blur()
   },
 }
 

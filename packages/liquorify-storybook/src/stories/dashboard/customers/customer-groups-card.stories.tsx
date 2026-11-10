@@ -94,6 +94,8 @@ export const Refused: Story = {
     await removeWholesale(sheet)
     await userEvent.click(within(sheet).getByRole('button', { name: 'Save' }))
     await within(sheet).findByRole('alert')
+    // Focus stays on Save or leaves it depending on how fast the refusal comes back.
+    ;(document.activeElement as HTMLElement | null)?.blur()
   },
 }
 

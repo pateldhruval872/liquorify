@@ -4,20 +4,13 @@ import { customerIdentifiers, regularCustomer } from '../../../fixtures/admin/cu
 import { customerGroups } from '../../../fixtures/admin/merchandising'
 import { tagList } from './catalog'
 import { countries } from './countries'
+import { refusal } from './developers'
 import { searchList } from './merchandising'
 
 const admin = '/api/v3/admin'
 
 /** The tags the store's customers carry. */
 export const customerTags = ['Local pickup', 'Regular', 'Trade', 'Wholesale lead']
-
-/** Spree's answer to a request it validated and refused, with one message per field. */
-function refused(message: string, details: Record<string, string[]>) {
-  return HttpResponse.json(
-    { error: { code: 'validation_error', message, details } },
-    { status: 422 },
-  )
-}
 
 /**
  * What a customer's cards write, as Spree answers them: the profile, note and
@@ -79,7 +72,7 @@ export function customerRequests(customer: Customer = regularCustomer) {
 export const profileEmailTaken = [
   http.patch(`${admin}/customers/:customerId`, async () => {
     await delay(200)
-    return refused('Email has already been taken', { email: ['has already been taken'] })
+    return refusal('email', 'taken', 'has already been taken', 'Email has already been taken')
   }),
 ]
 
@@ -98,18 +91,34 @@ export const customerWriteForbidden = [
   http.patch(`${admin}/customers/:customerId`, async () => {
     await delay(200)
     return HttpResponse.json(
-      { error: { code: 'access_denied', message: 'You are not authorized to access this page.' } },
+      {
+        error: {
+          code: 'access_denied',
+          message: 'Missing permission: write_customers',
+          details: { required_permission: 'write_customers' },
+        },
+      },
       { status: 403 },
     )
   }),
 ]
 
-/** The customer's export, refused as Spree refuses a teammate who may not export it. */
+/**
+ * The customer's export refused as Spree refuses a role that may read
+ * customers but not everything the file holds: the support template has no
+ * `read_payments` (`Admin::CustomersController::EXPORT_PERMISSIONS`).
+ */
 export const exportRefused = [
   http.get(`${admin}/customers/:customerId/export`, async () => {
     await delay(200)
     return HttpResponse.json(
-      { error: { code: 'access_denied', message: 'You are not authorized to access this page.' } },
+      {
+        error: {
+          code: 'access_denied',
+          message: 'Missing permission: read_payments',
+          details: { required_permission: 'read_payments' },
+        },
+      },
       { status: 403 },
     )
   }),
@@ -167,13 +176,30 @@ export const taxIdentifiersHeld = [
 
 /**
  * Spree's refusal of an EU VAT number whose format its core check rejects,
- * in the words of `spree.activerecord.errors…tax_identifier.value.invalid`.
+ * as its Admin API answers it: the model's own wording, under the generic
+ * `invalid` code and marked not specific, so the sheet shows the code's
+ * generic text instead (SD-46).
  */
+export const formatRefusalBody = {
+  error: {
+    code: 'validation_error',
+    message: 'Number does not look like a valid EU VAT registration',
+    details: {
+      value: [
+        {
+          kind: 'EU VAT',
+          code: 'invalid',
+          message: 'does not look like a valid EU VAT registration',
+          specific: false,
+        },
+      ],
+    },
+  },
+}
+
 export const taxIdentifierRefused = [
   http.post(`${admin}/customers/:customerId/tax_identifiers`, async () => {
     await delay(200)
-    return refused('Number does not look like a valid EU VAT registration', {
-      value: ['does not look like a valid EU VAT registration'],
-    })
+    return HttpResponse.json(formatRefusalBody, { status: 422 })
   }),
 ]
