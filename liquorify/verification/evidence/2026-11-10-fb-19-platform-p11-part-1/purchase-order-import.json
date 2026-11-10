@@ -1,0 +1,37 @@
+{
+  "test": "purchase-order-import",
+  "revision": "69bb4eef",
+  "stamp": "mwa872au",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "ran a file of 3 rows for 2 orders through the wizard",
+      "summary": "3 rows imported · 0 failed"
+    },
+    {
+      "step": "reloaded the list and searched for the two references",
+      "units": [
+        "0 / 8",
+        "0 / 8"
+      ]
+    },
+    {
+      "step": "opened PO1003",
+      "reference": "P11 import order one mwa872au",
+      "status": "Draft",
+      "lines": [
+        "P11 Import glass mwa872au\nP11-IMPORT-GLASS-mwa872au\n\t5\t0\t0\t$4.50\t$22.50",
+        "P11 Import coaster mwa872au\nP11-IMPORT-COASTER-mwa872au\n\t3\t0\t0\t$1.25\t$3.75"
+      ]
+    },
+    {
+      "step": "opened PO1002",
+      "reference": "P11 import order two mwa872au",
+      "status": "Draft",
+      "lines": [
+        "P11 Import glass mwa872au\nP11-IMPORT-GLASS-mwa872au\n\t8\t0\t0\t$4.25\t$34.00"
+      ]
+    }
+  ],
+  "outside": []
+}

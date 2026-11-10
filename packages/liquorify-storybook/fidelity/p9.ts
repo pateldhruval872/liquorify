@@ -12,27 +12,27 @@ import { animationsFinished } from './animations'
 import { admin } from './staff'
 
 /**
- * What the platform batch's step P9 scripts share: where each writes its
- * results, the run's stamp and revision, blocking requests that would leave
- * the local servers, and the sabotaged run that shows each test failing when
- * what it checks does not happen.
+ * What the platform batch's step P9 and P11 scripts share: where each writes
+ * its results, the run's stamp and revision, blocking requests that would
+ * leave the local servers, and the sabotaged run that shows each test failing
+ * when what it checks does not happen.
  *
- * With `P9_SABOTAGE=1`, each test marks itself as expected to fail and makes
- * the browser undo the change it then looks for. The run passes only if every
- * test fails, and each failure is read to check it came from the assertion
- * that checks that change.
+ * With `P9_SABOTAGE=1` (or `P11_SABOTAGE=1`), each test marks itself as
+ * expected to fail and makes the browser undo the change it then looks for.
+ * The run passes only if every test fails, and each failure is read to check
+ * it came from the assertion that checks that change.
  */
 
-export const sabotaged = process.env.P9_SABOTAGE === '1'
+export const sabotaged = process.env.P9_SABOTAGE === '1' || process.env.P11_SABOTAGE === '1'
 export const revision = process.env.FIDELITY_REVISION ?? null
-export const stamp = process.env.P9_STAMP ?? Date.now().toString(36)
+export const stamp = process.env.P9_STAMP ?? process.env.P11_STAMP ?? Date.now().toString(36)
 
 export type Steps = Record<string, unknown>[]
 export type Headers = Record<string, string>
 
-/** The folder a P9 script writes to, apart for a sabotaged run. */
-export const resultsFor = (part: string) =>
-  new URL(`./results/p9/${sabotaged ? `${part}-checks` : part}/`, import.meta.url).pathname
+/** The folder a P9 or P11 script writes to, apart for a sabotaged run. */
+export const resultsFor = (part: string, step = 'p9') =>
+  new URL(`./results/${step}/${sabotaged ? `${part}-checks` : part}/`, import.meta.url).pathname
 
 /** Blocks and records every request to a host other than the local servers. */
 export async function blockOutside(page: Page): Promise<string[]> {
@@ -50,8 +50,8 @@ export async function blockOutside(page: Page): Promise<string[]> {
 }
 
 /** A screenshot and a JSON file of what each step showed, for one test. */
-export function recorder(part: string) {
-  const results = resultsFor(part)
+export function recorder(part: string, step = 'p9') {
+  const results = resultsFor(part, step)
   const snap = async (page: Page, name: string, options: { mask?: string } = {}) => {
     mkdirSync(results, { recursive: true })
     // Some states keep an animation running, such as a toast held beneath a
