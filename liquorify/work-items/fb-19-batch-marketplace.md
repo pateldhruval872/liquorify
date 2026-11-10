@@ -419,11 +419,11 @@ The numbering is part 2's §2.3. The order rows start from a two-seller order, p
 | # | Behaviour | What the check does | Expected result |
 |---|---|---|---|
 | 1 | Fulfilling an order | Opens the order and fulfils its items, with a tracking number | The fulfilment reads shipped with its tracking number, the server's fulfilment matches, and the shipping email reaches the customer |
-| 2 | Splitting a parcel | Splits one item off into a new parcel | Two parcels hold the items between them, and the order's total and amount due are unchanged. **Expected to fail on SD-72**, which part 2 saw add an amount due. The row stays failing while SD-72 is open, and the check claims nothing about a processor's charge |
+| 2 | Splitting a parcel | Splits one item off into a new parcel | Two parcels hold the items between them, and the order's total and amount due are unchanged. **Expected to fail on SD-72**, which part 2 saw add an amount due. The check asserts this intended result, and the row stays FAIL while SD-72 is open. It claims nothing about a processor's charge. An explicit baseline exception, approved by the owner on 2026-11-10 (§11.4) |
 | 3 | Recording a delivery and uploading a label | Records a delivery on a parcel, and uploads a label file through the label dialog | The delivery and the label appear on the parcel, and on the server. The dialog's raw key is SD-85's, which this check does not judge |
 | 4 | Creating, receiving and refunding a return | Opens a new return for one item, receives it and refunds it | The return reads refunded, the refund's amount matches the item's, and the server's return, refund and seller transfer reversal match |
 | 5 | A claim | Opens a claim for one item, then approves it and resolves it. On a second claim, it chooses Deny | The first claim reads resolved and the second denied, on the screen and on the server. A claim's replacement is not driven: it is SD-73's and G-112's |
-| 6 | Exchanges | Starts an exchange from the order page | **Expected to fail on SD-73.** The Seller API refuses exchanges, and the check records the panel's answer, the server's refusal and that no exchange exists. The row stays failing while SD-73 is open. G-112 stays BLOCKED and is not completed by this row |
+| 6 | Exchanges | Starts an exchange from the order page for one item, choosing a replacement | The exchange is created and shows on the order, and the server's exchange and its replacement match. **Expected to fail on SD-73**, because the Seller API refuses exchanges. The check asserts this intended result, never the refusal, and the row stays FAIL while SD-73 is open. The run records the panel's answer and the server's refusal as the failure's evidence. Steps past the refusal stay NOT_RUN under G-112, which stays BLOCKED and is not completed by this row. An explicit baseline exception, approved by the owner on 2026-11-10 (§11.4) |
 | 7 | Cancelling an order | Cancels an unfulfilled order and gives a reason | The order reads cancelled with its reason, the server's order is cancelled, and the seller's balance changes to match |
 | 8 | An order's instructions, note and address | Edits the special instructions, the internal note and the shipping address | Each shows its new value after a reload, and the server's order matches |
 | 9 | Taking a product down and archiving it | Takes a live product down and confirms, then archives it | The product reads taken down, then archived, on the screen and on the server, and the storefront no longer offers it |
@@ -444,7 +444,7 @@ A behaviour's check **passes** only if all of these hold:
 - the server's read-back matched;
 - it did so in two runs in a row, each on a freshly started server.
 
-Before the first recorded run, each check is also shown to fail against a deliberately wrong expected result, so that a pass means the check looked.
+Before the first recorded run, each check is also shown to fail, so that a pass means the check looked. The failure is made by changing what the application does or what the server serves, such as a stand-in answer or altered data, while the check's assertions stay exactly as recorded. A check is never shown to fail by changing its assertions.
 
 A check that **fails** keeps its behaviour unverified:
 
@@ -463,8 +463,9 @@ As P10 allows, an expected result may be corrected before the first recorded run
 **Closing.** Under the owner's delegation, as delegated acceptance, not the owner's review:
 
 - G-105 closes when all 14 of §11.2 pass.
-- G-114 closes when all 16 of §11.3 pass.
-- A behaviour still failing on an open defect keeps its gap open, unless the owner accepts that row as an explicit exception. Behaviours 2 and 6 of §11.3 are expected to need that answer.
+- G-114 may close only after both recorded runs have completed, when the other 14 behaviours of §11.3 pass and behaviours 2 and 6 fail solely on SD-72 and SD-73. On 2026-11-10 the owner approved those two rows as explicit baseline exceptions, covering SD-72 and SD-73 only ([part 2's record §15](../verification/2026-11-10-fb-19-batch-marketplace-part-2.md#15-the-owners-answers-later-on-2026-11-10)). G-114 cannot close before the checks run. If either row fails for any other reason, or any other row fails, G-114 stays open.
+- Under those exceptions, the two tests stay FAIL, SD-72 and SD-73 stay open as High defects, and the capabilities they affect stay PARTIAL. The exceptions do not authorize releasing the affected workflows.
+- No other behaviour has an exception. A behaviour still failing on an open defect keeps its gap open unless the owner accepts that row as an explicit exception.
 - Nothing unverified becomes PASS.
 
 **What the checks claim nothing about:**
