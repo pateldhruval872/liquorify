@@ -12,7 +12,7 @@ updated: 2026-11-10
 
 Batch 13 in [LIQ-004's proposed order](../LIQ-004-foundation-backlog.md#proposed-order-of-the-remaining-batches): [LIQ-006 §10](../LIQ-006-product-capability-baseline.md#10-marketplace)'s CAP-10-01 to CAP-10-09, "the operator's seller screens, then the seller panel, with the dashboard's seller-submitted products, their review controls and the product list's seller filter". It reproduces what Spree already has for running a marketplace: admitting and managing sellers, their onboarding checklist, commission rates, what each seller earned and the payouts that settle it, the marketplace settings, a seller's product under review, and an order split between sellers. It also takes in the marketplace parts that batches 5, 8 and 11 left here. Nothing here changes Spree's code or the storefront's, or adds a Liquorify feature.
 
-**Status.** PROPOSED on 2026-11-10, under the owner's delegation of 2026-11-04 ([record](../verification/2026-11-04-delegated-acceptance-and-merging.md)) and the owner's instructions of 2026-11-10 to continue the Spree-first baseline and start eligible remaining work within the three-lane limit. It depends on orders and payments, as LIQ-004's row 13 says: batch 7 merged on 2026-11-04 and batch 8 on 2026-11-08 ([merge record](../verification/2026-11-08-fb-19-batch-orders-returns-and-fulfilment-part-2-merge.md)). It takes one of the three lanes. It has no question that needs the owner now: its choices are planning within the batch's scope and are recorded in §7 as decided under the delegation, never as the owner's answers. Three things read in the code or earlier records while preparing it change how the batch is run, and are checked on the running stack (§2.7). It follows the batch rules of [LIQ-010 0.4](../LIQ-010-design-system-reproduction-architecture.md#121-each-batch) and has the same shape as [batch 8](fb-19-batch-orders-returns-and-fulfilment.md) and [batch 11](fb-19-batch-home-reports-and-emails.md). This work item stays PROPOSED until it is accepted under D5. Part 1 was built in #98 ([record](../verification/2026-11-10-fb-19-batch-marketplace-part-1.md)) and merged on 2026-11-10 with its delegated acceptance ([merge record](../verification/2026-11-10-fb-19-batch-marketplace-part-1-merge.md)).
+**Status.** PROPOSED on 2026-11-10, under the owner's delegation of 2026-11-04 ([record](../verification/2026-11-04-delegated-acceptance-and-merging.md)) and the owner's instructions of 2026-11-10 to continue the Spree-first baseline and start eligible remaining work within the three-lane limit. It depends on orders and payments, as LIQ-004's row 13 says: batch 7 merged on 2026-11-04 and batch 8 on 2026-11-08 ([merge record](../verification/2026-11-08-fb-19-batch-orders-returns-and-fulfilment-part-2-merge.md)). It takes one of the three lanes. It has no question that needs the owner now: its choices are planning within the batch's scope and are recorded in §7 as decided under the delegation, never as the owner's answers. Three things read in the code or earlier records while preparing it change how the batch is run, and are checked on the running stack (§2.7). It follows the batch rules of [LIQ-010 0.4](../LIQ-010-design-system-reproduction-architecture.md#121-each-batch) and has the same shape as [batch 8](fb-19-batch-orders-returns-and-fulfilment.md) and [batch 11](fb-19-batch-home-reports-and-emails.md). This work item stays PROPOSED until it is accepted under D5. Part 1 was built in #98 ([record](../verification/2026-11-10-fb-19-batch-marketplace-part-1.md)) and merged on 2026-11-10 with its delegated acceptance ([merge record](../verification/2026-11-10-fb-19-batch-marketplace-part-1-merge.md)). Part 2's scope and criteria are set out in §10. Part 2 was built in #101 ([record](../verification/2026-11-10-fb-19-batch-marketplace-part-2.md)).
 
 Liquorify's own direction is not decided here. LIQ-006 marks every §10 capability "not needed yet", because the specification gives each merchant its own store and does not use a marketplace. The baseline still reproduces and verifies what Spree has, so that a later decision starts from evidence. Nothing in this batch makes merchants sellers or chooses a tenancy option.
 
@@ -22,7 +22,7 @@ Every marketplace screen in the dashboard, and then in the seller panel, has Sto
 
 - **In two parts** (§7, choice 1). Part 1 is the operator's side in the dashboard: sellers, their onboarding, commission rates, transfers and payouts, the marketplace settings and seller requirements, and the marketplace parts of the product, order, home and report screens. Part 2 is the seller panel. Each part is one implementation pull request with its own merge record.
 - **Bounded, part 1:** 8 screens of their own, the marketplace states of 6 screens other batches captured, 3 flows' operator steps, 5 emails, 6 browser test files with 25 tests, and 19 new components.
-- **Part 2** is set out in §10 when part 1 merges, with its own scope and criteria, as part 2 of the catalog batch was. It holds the seller panel's 26 screens and 2 overlays, the seller's steps of FL-11 to FL-13, EM-S-02 and the 28 seller panel components (CMP-SP-G), with the parts of earlier gaps that need a seller's screens (§2.6).
+- **Part 2** is set out in §10, with its own scope and criteria, as part 2 of the catalog batch was. It holds the seller panel's 22 screens and 2 overlays, the seller's steps of FL-11 to FL-13, EM-S-02 and the 28 seller panel components (CMP-SP-G), 27 of them without stories, with the parts of earlier gaps that need a seller's screens (§2.6).
 - **Same shape as batches 8 and 11:** screens, flows, permissions, meaningful states and running-screen evidence progress alongside component coverage, with what the interface shows kept apart from what the server enforces.
 - **Spree stays unchanged:** only Storybook files, mocks, scripts, evidence and records change.
 - **Function, where it is checked:** inside the dashboard, by Spree's browser tests and specs; on the running stack, by the batch's own scripted checks of what these screens decide and save, which are evidence and not browser tests (criterion 16). Behaviours no browser test drives are listed for the owner's answer, as G-87's, G-90's, G-92's and G-100's were.
@@ -255,4 +255,120 @@ Recorded now so none is lost. The record says which it closes. Gap numbers are g
 
 ## 10. Part 2: the seller panel
 
-Set out when part 1 merges, in its own commit to this work item, with the same sections as part 1: its screens and states, the seller's steps of FL-11 to FL-13, EM-S-02, its permission variants, its components, the earlier gaps it takes (§2.6) and its acceptance criteria.
+Set out on 2026-11-10, after part 1 merged at `e7fd2953` ([merge record](../verification/2026-11-10-fb-19-batch-marketplace-part-1-merge.md)), from the code at `main` `48e33669`. It has the same shape as part 1, and the choices in §7 hold unless this section says otherwise.
+
+### 10.1 Scope
+
+LIQ-006 §10's seller capabilities, every seller panel screen and overlay in [LIQ-008](../LIQ-008-spree-screen-inventory.md), the seller's steps of the three marketplace flows, the storefront's checkout of a cart holding two sellers' products, and the parts of earlier gaps that need a seller's screens (§2.6).
+
+| Capability | Screens | Flows | Emails | Browser tests |
+|---|---|---|---|---|
+| CAP-10-03 The seller panel: signing in, the seller picker, home, profile, settings and team | SP-AUTH-01 to SP-AUTH-04; SP-SHELL-01; SP-HOME-01; SP-PRF-01; SP-SET-01, SP-SET-04, SP-SET-06; SP-OVL-01, SP-OVL-02 | FL-11, the seller's steps | EM-S-02; EM-S-03 for a teammate, mapped | `seller-panel-home.spec.ts` (6 tests), `seller-invitation-acceptance.spec.ts` (2), `seller-panel-settings.spec.ts`'s profile, policies, team and settings tests |
+| CAP-10-02 Seller requirements and onboarding, the seller's side | SP-ONB-01; SP-OVL-01's onboarding badge | FL-11 | None | `seller-panel-home.spec.ts`: "accepting the marketplace terms ticks that step off"; `seller-package-types.spec.ts` (1) |
+| CAP-10-04 Product submissions and review, the seller's side | SP-PRD-01 to SP-PRD-03, with the product list's import and export | FL-12, the seller's steps | None | `seller-panel-products.spec.ts` (3), `seller-catalog.spec.ts` (1) |
+| CAP-10-05 Orders split by seller, the seller's and the shopper's side | SP-ORD-01, SP-ORD-02; on the storefront, the cart, checkout and the order placed page for a cart holding two sellers' products (SF-SHOP-05, SF-CHK-01, SF-CHK-03) | FL-13, the seller's and the shopper's steps | EM-C-04, mapped from part 1 | `seller-catalog.spec.ts`'s orders step, `seller-panel-earnings.spec.ts`'s order test; on the storefront, none for a seller's cart |
+| CAP-10-07 Seller earnings, transfers and payouts, the seller's side | SP-FIN-01 to SP-FIN-03 | FL-13 | None | `seller-panel-earnings.spec.ts` (3) |
+| CAP-10-09 The seller's own delivery, packaging and stock | SP-SET-02, SP-SET-03, SP-SET-05 | None | None | `seller-delivery-methods.spec.ts` (1), `seller-package-types.spec.ts` (1), `seller-panel-settings.spec.ts`'s stock locations test |
+
+Taken from earlier gaps (§2.6): G-85's seller stock locations (SP-SET-05); batch 7's seller delivery methods and package types (SP-SET-02, SP-SET-03), and its stories held by G-65 and G-67 that these screens show; catalog part 2's seller imports and exports (SP-PRD-01); SD-3's open question, whether a real order reaches a seller without addresses, checked on the order FL-13 places; G-73's storefront stories that a seller's checkout shows; and G-107's question, what a suspended seller's team can still do, seen in the panel.
+
+### 10.2 Screens and their states
+
+Every state LIQ-008 lists for the 22 screens and 2 overlays, and these besides, each captured in light and dark:
+
+- **Signing in (SP-AUTH-01 to SP-AUTH-04):** empty, a wrong password, a reset requested, a reset link opened, and refused as invalid; an invitation opened by someone signed out, by its own invitee, and as invalid or used.
+- **The seller picker and the chrome (SP-SHELL-01, SP-OVL-01, SP-OVL-02):** one seller, which opens directly, and several; the onboarding badge while requirements are outstanding and gone when done; the account dialog.
+- **Home (SP-HOME-01) and onboarding (SP-ONB-01):** a seller in each status a workflow reaches, from invited to approved, rejected and suspended; requirements outstanding, submitted, sent back with the operator's reason, accepted and waived; a submission for review refused while a requirement blocks.
+- **Products (SP-PRD-01 to SP-PRD-03):** draft, proposed, active, rejected with its reason, archived, a product withdrawn from review, field errors on a new product, and the import and export dialogs. A suspended seller's products as the panel shows them.
+- **Orders (SP-ORD-01, SP-ORD-02):** a new order from FL-13 with its earnings card; fulfilled in part and in full, split, with a label and a delivery recorded; a return and a cancellation, where the Seller API reaches them; an order with no addresses (SD-3).
+- **Money (SP-FIN-01 to SP-FIN-03):** a balance with sales and a reversal; payouts pending and completed, and one opened. Other payout statuses need a real provider and stay with P4.
+- **Profile and settings (SP-PRF-01, SP-SET-01 to SP-SET-06):** the profile with every card filled and empty, its sheets and their field errors; the settings index; each settings page empty, listed and with its sheet open; the team with a pending invitation, a colleague and the last member kept.
+- **Loading, failed and empty states** across the panel, reached by holding or failing a request in the browser, which each capture says (as G-108).
+
+**The storefront:** the cart holding two sellers' products, checkout's delivery step with each seller's rates, and the order placed page showing the order group's per-seller orders, at both widths, on the storefront at its `main` against the browser-test server, as batch 9 ran it.
+
+### 10.3 Permission variants
+
+Every member of a seller's team holds that seller's own role, which carries the whole seller vocabulary: Spree's Seller API offers no narrower seller role ("No custom roles" in `team_controller.rb`), and this batch does not make one, since that would change a role's permissions. So the variants are who is signed in and which seller they reach, not roles:
+
+| Variant | What it shows |
+|---|---|
+| A member of one approved seller | Every screen with every control |
+| A member of two sellers | The seller picker, the switcher, and each seller's own records only |
+| A member of a seller still onboarding, rejected or suspended | What the panel lets each do; for a suspended seller, what its team can still do (G-107) |
+| An invited person before accepting, and a signed-out visitor | The public screens, and the redirect from a panel address |
+| A store staff member with no seller | Refused at sign-in or shown no seller, as the Seller API answers |
+
+### 10.4 Flows
+
+The seller's steps of FL-11, FL-12 and FL-13, traced step by step with the browser tests above, as §2.3 traced the operator's. FL-13 is placed on the storefront this time, with two sellers' products and Spree's Check method, so the seller's order, earnings and payout come from a real order group; if the storefront cannot complete such a checkout against the browser-test server, the record says so and the Store API order of part 1's method is used instead.
+
+### 10.5 Checked where it takes effect
+
+| What | Where it is checked |
+|---|---|
+| A product the seller submits, approved or sent back by the operator | Its status and the operator's reason on SP-PRD-03; whether it reaches the store (SD-61) |
+| A requirement completed by the seller | The operator's onboarding card, and the operator sending it back, seen again in the panel |
+| A delivery method, package type and stock location the seller adds | Offered at the storefront's checkout for that seller's product, and the package type completing its requirement |
+| Fulfilling, splitting and recording a delivery | The operator's order page and the shopper's order in the storefront account |
+| A return or cancellation the seller records | The transfer reversal on the seller's balance and on the operator's transfers list |
+| The seller's profile and policies | Where the storefront shows a seller's details, if it does; otherwise recorded as not shown |
+| A teammate invited and revoked | EM-S-03 read as sent, and the revoked invitation refused at SP-AUTH-04 |
+| A suspended seller | What the panel and the Seller API still allow its team (G-107), and its product at the storefront's checkout (SD-60) |
+
+### 10.6 Emails
+
+| Email | This part |
+|---|---|
+| EM-S-02 Seller user password reset | Rendered from Spree's mailer, in the emails gem's test app as part 1 rendered the seller emails, and read as sent after a reset is requested on SP-AUTH-02 there |
+| EM-S-03 Invitation, for a teammate | Mapped to staff access part 1 and part 1 of this batch; read as sent when a teammate is invited from SP-SET-06 |
+| EM-C-04 Order group confirmation | Mapped to part 1; whether the storefront's checkout sends it joins G-110 |
+
+### 10.7 Components
+
+27 seller panel components have no stories yet: `orders/` (CMP-SP-G-02), 16, and the top level (CMP-SP-G-03), 11. `balance-summary` (CMP-SP-G-01) has its story already. The pages in `packages/seller-dashboard/src/pages/` and the panel chrome are screens, captured as their states, as LIQ-010 §10 ties stories to component files. Everything else the panel uses comes from `@spree/dashboard-core` and `@spree/dashboard-ui` and has its story from an earlier batch, among them the shared settings, package type and stock location pages, the fulfilment, return and claim dialogs, the product form's cards, the import wizard and the export button; any the first step finds without one is added and listed. The seller panel story group needs the panel's own providers (its seller, permission and routing context) in Storybook, added beside the dashboard's.
+
+**Earlier stories:** the comparison follow-up's share for the seller panel runs inside this part, as §3.1 did for part 1: every story held by a gap that a part 2 running screen shows is compared and leaves its gap, among them batch 7's delivery method and package type stories (G-65, G-67), batch 6's stock location stories (G-85), batch 8's fulfilment and post-sale dialogs (G-88, G-93) and batch 9's checkout stories a seller's cart shows (G-73).
+
+**Size, estimated from part 1:** about 90 stories and 180 reference images, and about 130 running-screen captures, with about 15 storefront captures.
+
+### 10.8 Delivery
+
+- **One backend pull request** with the stories, fixtures, mocks, reference images, scripts and records, followed by its merge record, as part 1. The storefront's captures are made by a script in the backend's fidelity folder against the storefront at its `main`; the storefront repository is not changed.
+- **Running screens:** the seller panel built at the pull request's revision against the browser-test server, as part 1 ran the dashboard, and the storefront's development server against the same server.
+
+### 10.9 Acceptance criteria for part 2
+
+Part 1's criteria (§5), read for the seller panel and the storefront's seller checkout. Each result is recorded as PASS, FAIL, BLOCKED or NOT_RUN.
+
+| # | Criterion | Evidence |
+|---|---|---|
+| 1 | Every in-scope capability of §10.1 is mapped to its screens, flow steps, permission scope, meaningful states, components, browser tests and emails, with no SP ID left unmapped | The map in the verification record, checked against LIQ-006, LIQ-008 and LIQ-009 |
+| 2 | Every component the seller panel uses has a story for each meaningful state, in light and dark, with a reference image; components already covered are listed, not redone | Coverage report and image review list |
+| 3 | Every screen and overlay is captured on the running seller panel, at the pinned revision, in each state in §10.2, and the storefront's seller checkout at both widths | Running-screen captures, indexed by screen ID and state |
+| 4 | Each variant in §10.3 is captured, showing what the interface does for it | Captures per variant |
+| 5 | The seller's steps of FL-11 to FL-13 are traced step by step to their screens, and the browser tests covering them pass on the batch's revision; a step no test covers is recorded as a gap | Flow map with test titles and the run |
+| 6 | The diagnostic comparison finds no unexplained difference between each new story and its running screen. A defect is fixed in the story, its providers or its mocks, never in Spree's component | Side-by-side images and computed styles |
+| 7 | A state no running screen shows is recorded as a coverage gap, with the check made instead. A state reached by answering a request in the browser says so, and claims nothing about the server | Gap list in the record |
+| 8 | The visual check passes twice in CI on the same revision under the agreed tolerance, every part of each run; Tests and Packages pass; the check stays advisory | CI runs, named in the merge record |
+| 9 | Spree's code, the storefront and every workflow outside Storybook are unchanged, and nothing carries Liquorify branding or features | The pull request's file list, and the storefront unchanged at its `main` |
+| 10 | The records are updated: a verification record, LIQ-009's Storybook column, LIQ-004's FB-19 status and the README index, with every link checked; LIQ-008 corrected where the captures show it is wrong | The pull request |
+| 11 | The reference images, the screen evidence and fidelity are accepted | By delegated acceptance, under the owner's delegation of 2026-11-04, recorded in the merge record; never described as the owner's review |
+| 12 | Backend authorization is recorded separately from criterion 4: the record names Spree's own specs for the Seller API's endpoints and the seller audience's permissions, runs them at the batch's revision, and lists what they exercise. What no spec exercises is NOT_RUN, never inferred from the interface | The spec run: the Seller API controller specs (auth, me, profile, onboarding, requirement submissions, products, imports, exports, orders and their fulfilments, deliveries, labels, notes, returns, exchanges and claims, balances, transfers, payouts, policies, team, invitations, delivery methods, profiles and zones, package types, stock locations and tax identifiers) and the seller integration specs, with the core specs for the seller audience's permissions |
+| 13 | Tenant isolation is NOT_RUN for the batch, with links to the open isolation findings. No check reads or writes another store's records; a check that one seller's member cannot reach another seller's records is a seller-scope check within one store, recorded as such and not as isolation. A new isolation defect is reported to the owner privately and is not published while it is open | The record's isolation section |
+| 14 | Every name, address, email and reference in stories and captures is invented, and no credential appears in any committed file, checked by a search of the pull request's files before each push. Publishable keys, tokens, reset and invitation links in a captured email or page are masked in every capture and replaced in every record | The search's result in the record |
+| 15 | Behaviours on the seller panel that no browser test drives are listed for the owner's answer, as G-105's were. None is counted as tested | The record's list |
+| 16 | Each row of §10.5 is checked where it takes effect, with captures or the read values of both sides and the result recorded per row. A row that cannot be reached on the running stack is recorded with the check made instead | Captures and the record |
+| 17 | EM-S-02 is rendered from Spree's mailer and read as sent, EM-S-03 is read as sent for a teammate, and EM-C-04 stays mapped to part 1 | The emails section |
+| 18 | The comparison follow-up's share (§10.7): every earlier story a part 2 running screen shows is compared and leaves its gap, and LIQ-004's comparison follow-up records what batch 13 leaves | The image review list's earlier stories section and LIQ-004 |
+
+### 10.10 Choices made under the owner's delegation
+
+As §7, with these for part 2. Each is recorded as decided under the delegation, never as the owner's answer.
+
+1. **One implementation pull request for part 2.** The seller panel's 27 components are fewer than part 1's screens' share of shared components, and its screens share one set of providers.
+2. **No narrower seller role is made** (§10.3): Spree offers none, and making one would change a role's permissions, which the owner's rules keep as they are.
+3. **The storefront's seller checkout is captured, not changed,** with the storefront at its `main` against the browser-test server.
+4. **Spree's built-in payout provider only;** real providers stay with P4.
+
+What stays with the owner: SD-60 to SD-70 and G-105 to G-111 from part 1, the answers to the gaps part 2 records, and anything it finds that would change scope, a defect or a criterion. New numbers come only from the defect register's allocating thread. Tenant isolation stays NOT_RUN.

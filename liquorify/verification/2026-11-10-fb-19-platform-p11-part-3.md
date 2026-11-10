@@ -184,6 +184,27 @@ The expected results are not predictions of what Spree does, but what each answe
 
 Every result stays an observation for the owner's product review. Nothing is numbered as a defect or approved as intended until the owner has read it.
 
+### 4.5 What the bounded check found
+
+The check is `packages/liquorify-storybook/fidelity/held-replacement.spec.ts`. It ran twice in a row in the pinned Playwright image at `7a7eb507`, with Spree's code as on `main`, each time on a freshly started browser-test server. Both runs gave the same results ([run 1](evidence/2026-11-10-fb-19-platform-p11-part-3/held-replacement/run-1.txt), [run 2](evidence/2026-11-10-fb-19-platform-p11-part-3/held-replacement/run-2.txt); each order's readings after every step are in `run-1/` and `run-2/`). Each product cost $20.00 with $5.00 delivery, and each refund was $20.00 to the original cheque payment. The check asserts only that each request it makes is answered; it does not assert the results below, so it was not run sabotaged.
+
+| Order | Lines | Refunds | Total | Paid | Amount due | Payment status | The replacement, shipped without force |
+|---|---|---|---|---|---|---|---|
+| A, the same item | 1 unit | $20.00 | $25.00 | $5.00 | $0.00 | Partially refunded | Refused, 422, "This order is not paid for yet" |
+| B1, other claims, the same line | 2 units | $20.00 | $45.00 | $25.00 | $0.00 | Partially refunded | Refused, 422, "This order is not paid for yet" |
+| B2, other claims, other lines | 1 unit and 1 unit | $20.00 | $45.00 | $25.00 | $0.00 | Partially refunded | Refused, 422, "This order is not paid for yet" |
+| C, the control | 1 unit | None | $25.00 | $25.00 | $0.00 | Paid | Shipped |
+
+What it shows:
+
+- **C ships**, so the hold comes from the refund.
+- **A, B1 and B2 are all held.** In each the refund lowers what has been paid by $20.00 below the total, and the replacement is refused for that alone. The hold therefore does not tell a refund and a replacement for the same item from a refund on one claim and a legitimate replacement on another. Read in the code, Spree ships without force only when what has been captured, net of refunds, covers what was due at checkout (`spree/core/app/workflows/spree/fulfillments/fulfill.rb`, `ensure_ready_to_hand_over`).
+- **Nothing tells staff why.** In each held order the amount due reads $0.00 while the server says the order is not paid for. The order page offers Mark as fulfilled on the replacement, with no notice; the refusal appears only when staff try it, as the first try in §4.3 found.
+- No line's quantity changed, and each order's total stayed what was charged.
+- Each resolved claim reads a refund total of $0.00 after a $20.00 refund. The claim's refund total is the refund agreed for its lines when the claim was opened, which the check left empty; the money refunded is the refund's own row.
+
+These stay observations for the owner's product review, as asked. Nothing is numbered as a defect or approved as intended, and nothing was changed.
+
 ## 5. Nothing else claimed
 
 - Buying a return label (3.11), a carrier's rates and statuses, and labels bought or refunded through a provider stay with P4.
@@ -205,4 +226,4 @@ Of the 14 actions tested:
 
 G-92 stays OPEN until the owner answers on SD-71. If the owner records SD-71 as a defect, G-92 stays open for 3.11 alone, DEFERRED to P4. All three parts of P11 have now run. P11 is not complete while G-87, G-90 and G-92 stay open.
 
-**The owner's answer, 2026-11-10** ([record](2026-11-10-fb-19-platform-p11-owner-decisions.md)). SD-71 is accepted as a Medium existing defect, with its fix deferred, and 3.12 is kept failing. G-92 stays OPEN for 3.11 alone, DEFERRED to P4. The tally above is corrected to ten. The held replacement stays an observation until §4.4 has run.
+**The owner's answer, 2026-11-10** ([record](2026-11-10-fb-19-platform-p11-owner-decisions.md)). SD-71 is accepted as a Medium existing defect, with its fix deferred, and 3.12 is kept failing. G-92 stays OPEN for 3.11 alone, DEFERRED to P4. The tally above is corrected to ten. The held replacement stays an observation until §4.4 has run. It ran on 2026-11-10 (§4.5): a refund holds every later replacement on the order, for the same item or not, and the owner's product decision on it is awaited.

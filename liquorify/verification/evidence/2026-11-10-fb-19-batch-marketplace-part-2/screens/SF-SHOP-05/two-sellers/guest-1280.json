@@ -1,0 +1,15 @@
+{
+  "screen": "SF-SHOP-05",
+  "state": "two-sellers",
+  "variant": "guest",
+  "server": "browser-test server",
+  "app": "storefront",
+  "revision": "1342549c",
+  "path": "/us/en/cart",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "fullPage": true,
+  "intercepted": null
+}

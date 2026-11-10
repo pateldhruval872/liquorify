@@ -61,7 +61,9 @@ import { defineConfig } from '@playwright/test'
  * are captured by `order-emails.spec.ts`, and `payment-link.spec.ts` and
  * `fl-06-storefront.spec.ts` follow an order to the storefront;
  * `sd-31-gift-card.spec.ts`, `sd-36-canceled-fulfilment.spec.ts` and
- * `digital-delivery.spec.ts` check single findings (see each file).
+ * `digital-delivery.spec.ts` check single findings, and `held-replacement.spec.ts`
+ * is P11 part 3's bounded check of a replacement held after a refund (see each
+ * file).
  * Batch 10 (customers) keeps its captures and comparison in
  * `screens-batch-10.spec.ts` and `compare-batch-10.spec.ts`, seeding through
  * `customers.ts`.
@@ -94,6 +96,11 @@ export default defineConfig({
     'compare-batch-11.spec.ts',
     'screens-batch-13.spec.ts',
     'compare-batch-13.spec.ts',
+    'screens-batch-13-part-2.spec.ts',
+    'compare-batch-13-part-2.spec.ts',
+    'screens-batch-13-part-2-storefront.spec.ts',
+    'seller-panel-checks.spec.ts',
+    'seller-panel-mail.spec.ts',
     'marketplace-checks.spec.ts',
     'fl-22.spec.ts',
     'fl-18.spec.ts',
@@ -148,6 +155,7 @@ export default defineConfig({
     'order-actions.spec.ts',
     'fulfilment-actions.spec.ts',
     'after-sale-actions.spec.ts',
+    'held-replacement.spec.ts',
   ],
   outputDir: './results/test-output',
   workers: 1,

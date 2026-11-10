@@ -1,0 +1,71 @@
+{
+  "revision": "1342549c",
+  "check": "profile-on-storefront",
+  "answers": [
+    {
+      "step": "store seller",
+      "status": 200,
+      "body": {
+        "id": "sel_AXs1igzRC6",
+        "name": "Harbour Cask Co.",
+        "slug": "harbour-cask-co",
+        "about": "Small-batch rum and whisky, aged in the harbour warehouses since 1998.",
+        "about_html": "Small-batch rum and whisky, aged in the harbour warehouses since 1998.",
+        "logo_url": null,
+        "square_logo_url": null,
+        "cover_photo_url": null
+      }
+    },
+    {
+      "step": "store policies",
+      "status": 200,
+      "body": {
+        "data": [
+          {
+            "id": "pol_gbHJdmfrXB",
+            "name": "Privacy Policy",
+            "slug": "privacy-policy",
+            "body": "",
+            "body_html": "",
+            "updated_at": "2026-11-10T09:56:38.457Z"
+          },
+          {
+            "id": "pol_EfhxLZ9ck8",
+            "name": "Returns Policy",
+            "slug": "returns-policy",
+            "body": "",
+            "body_html": "",
+            "updated_at": "2026-11-10T09:56:38.464Z"
+          },
+          {
+            "id": "pol_VqXmZF31wY",
+            "name": "Shipping Policy",
+            "slug": "shipping-policy",
+            "body": "",
+            "body_html": "",
+            "updated_at": "2026-11-10T09:56:38.472Z"
+          },
+          {
+            "id": "pol_UkLWZg9DAJ",
+            "name": "Terms of Service",
+            "slug": "terms-of-service",
+            "body": "",
+            "body_html": "",
+            "updated_at": "2026-11-10T09:56:38.446Z"
+          }
+        ],
+        "meta": {
+          "page": 1,
+          "limit": 25,
+          "count": 4,
+          "pages": 1,
+          "from": 1,
+          "to": 4,
+          "in": 4,
+          "previous": null,
+          "next": null
+        }
+      }
+    }
+  ]
+}

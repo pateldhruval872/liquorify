@@ -1,0 +1,15 @@
+{
+  "screen": "SF-CHK-03",
+  "state": "order-group-placed",
+  "variant": "guest",
+  "server": "browser-test server",
+  "app": "storefront",
+  "revision": "1342549c",
+  "path": "/us/en/order-placed/<order>",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "fullPage": true,
+  "intercepted": null
+}

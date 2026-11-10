@@ -1,0 +1,20 @@
+{
+  "screen": "SP-ONB-01",
+  "state": "status-rejected",
+  "variant": "rejected",
+  "signedInAs": "elin.voss@northgate.example.com",
+  "server": "browser-test server",
+  "panel": "seller panel",
+  "theme": "dark",
+  "revision": "1342549c",
+  "path": "/sel_p6klVeMgbn/onboarding",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "fullPage": true,
+  "capturedHeight": 960,
+  "intercepted": null,
+  "settled": true,
+  "outside": []
+}
