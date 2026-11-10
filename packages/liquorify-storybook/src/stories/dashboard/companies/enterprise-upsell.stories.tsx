@@ -15,7 +15,7 @@ const meta = {
     description:
       'Members you add here can buy for this company and manage its directory. Roles, approval workflows and spending limits come with Spree Enterprise.',
   },
-  parameters: { liquorify: { column: 'inSheet' } },
+  parameters: { liquorify: { column: 'inDialog' } },
 } satisfies Meta<typeof EnterpriseUpsell>
 
 export default meta

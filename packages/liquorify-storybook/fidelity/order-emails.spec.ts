@@ -12,8 +12,9 @@ import { test } from '@playwright/test'
  * as its text, is drawn as `<site>`, as `order-emails.rb` writes Spree's. Each
  * capture is saved as `results/emails-batch-8/<id>-<width>.png`, or in the
  * folder `EMAILS_RESULTS` names; batch 10 names `emails-batch-10` for the
- * emails `customer-emails.rb` writes, and batch 13 names
- * `emails-batch-13-captures` for the emails `marketplace-emails.rb` writes.
+ * emails `customer-emails.rb` writes, batch 13 names
+ * `emails-batch-13-captures` for the emails `marketplace-emails.rb` writes,
+ * and batch 12 names `emails-batch-12` for the one `company-emails.rb` writes.
  */
 
 const folder = process.env.EMAILS_DIR ?? ''
