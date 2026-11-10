@@ -1,0 +1,26 @@
+{
+  "screen": "DA-SEL-03",
+  "state": "listed",
+  "variant": "sellerViewer",
+  "role": {
+    "name": "Seller viewer",
+    "permissions": [
+      "read_sellers",
+      "read_commissions",
+      "read_payouts"
+    ]
+  },
+  "server": "browser-test server",
+  "theme": "dark",
+  "revision": "6b163aad",
+  "path": "/<store>/sellers/commission-rates",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "fullPage": false,
+  "capturedHeight": 960,
+  "intercepted": null,
+  "settled": true,
+  "outside": []
+}

@@ -1,0 +1,25 @@
+{
+  "screen": "DA-SEL-05",
+  "state": "direct-visit",
+  "variant": "commissionManager",
+  "role": {
+    "name": "Commission manager",
+    "permissions": [
+      "read_sellers",
+      "write_commissions"
+    ]
+  },
+  "server": "browser-test server",
+  "theme": "dark",
+  "revision": "6b163aad",
+  "path": "/<store>/sellers/payouts",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "fullPage": false,
+  "capturedHeight": 960,
+  "intercepted": null,
+  "settled": true,
+  "outside": []
+}

@@ -1,0 +1,19 @@
+{
+  "screen": "DA-SEL-02",
+  "state": "failed",
+  "variant": "admin",
+  "role": null,
+  "server": "browser-test server",
+  "theme": "light",
+  "revision": "6b163aad",
+  "path": "/<store>/sellers/sel_AXs1igzRC6",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "fullPage": false,
+  "capturedHeight": 960,
+  "intercepted": "The seller is answered with a server error",
+  "settled": true,
+  "outside": []
+}

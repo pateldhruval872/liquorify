@@ -1,0 +1,19 @@
+{
+  "screen": "DA-SEL-03",
+  "state": "create-sheet",
+  "variant": "admin",
+  "role": null,
+  "server": "browser-test server",
+  "theme": "dark",
+  "revision": "6b163aad",
+  "path": "/<store>/sellers/commission-rates",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "fullPage": true,
+  "capturedHeight": 1200,
+  "intercepted": null,
+  "settled": true,
+  "outside": []
+}

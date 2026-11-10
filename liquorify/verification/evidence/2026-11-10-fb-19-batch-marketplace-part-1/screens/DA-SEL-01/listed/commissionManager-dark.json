@@ -1,0 +1,25 @@
+{
+  "screen": "DA-SEL-01",
+  "state": "listed",
+  "variant": "commissionManager",
+  "role": {
+    "name": "Commission manager",
+    "permissions": [
+      "read_sellers",
+      "write_commissions"
+    ]
+  },
+  "server": "browser-test server",
+  "theme": "dark",
+  "revision": "6b163aad",
+  "path": "/<store>/sellers",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "fullPage": true,
+  "capturedHeight": 960,
+  "intercepted": null,
+  "settled": true,
+  "outside": []
+}

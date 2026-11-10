@@ -1,0 +1,27 @@
+{
+  "screen": "DA-PRD-03",
+  "state": "proposed",
+  "variant": "merchandiser",
+  "role": {
+    "name": "Merchandiser",
+    "permissions": [
+      "write_products",
+      "write_categories",
+      "write_collections",
+      "write_stock"
+    ]
+  },
+  "server": "browser-test server",
+  "theme": "dark",
+  "revision": "6b163aad",
+  "path": "/<store>/products/prod_ROeNhrwyV9",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "fullPage": true,
+  "capturedHeight": 2573,
+  "intercepted": null,
+  "settled": true,
+  "outside": []
+}

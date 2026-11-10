@@ -1,0 +1,19 @@
+{
+  "screen": "DA-SEL-06",
+  "state": "pending",
+  "variant": "admin",
+  "role": null,
+  "server": "browser-test server",
+  "theme": "dark",
+  "revision": "6b163aad",
+  "path": "/<store>/sellers/payouts/vpo_VqXmZF31wY",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "fullPage": true,
+  "capturedHeight": 1200,
+  "intercepted": null,
+  "settled": true,
+  "outside": []
+}

@@ -132,6 +132,23 @@ export const roles = {
   emailEditor: { name: 'Email editor', permissions: ['read_settings', 'write_email_templates'] },
   /** Read on email templates and on settings, and write on neither. */
   emailViewer: { name: 'Email viewer', permissions: ['read_settings', 'read_email_templates'] },
+  /** Write on sellers, with the products and orders they sell: who admits and manages sellers (batch 13). */
+  sellerManager: {
+    name: 'Seller manager',
+    permissions: ['write_sellers', 'read_products', 'read_orders'],
+  },
+  /** Read on all three seller scopes, and write on none. */
+  sellerViewer: {
+    name: 'Seller viewer',
+    permissions: ['read_sellers', 'read_commissions', 'read_payouts'],
+  },
+  /** Write on payouts and read on sellers: who marks payouts paid. */
+  payoutsClerk: { name: 'Payouts clerk', permissions: ['read_sellers', 'write_payouts'] },
+  /** Write on commissions and read on sellers: who sets the marketplace's commission. */
+  commissionManager: {
+    name: 'Commission manager',
+    permissions: ['read_sellers', 'write_commissions'],
+  },
 } as const
 
 export type RoleKey = keyof typeof roles
@@ -266,6 +283,30 @@ export const teammates: Record<
     role: 'emailViewer',
     first: 'Eve',
     last: 'Reader',
+  },
+  sellerManager: {
+    email: 'fidelity-seller-manager@example.com',
+    role: 'sellerManager',
+    first: 'Selma',
+    last: 'Manager',
+  },
+  sellerViewer: {
+    email: 'fidelity-seller-viewer@example.com',
+    role: 'sellerViewer',
+    first: 'Seb',
+    last: 'Viewer',
+  },
+  payoutsClerk: {
+    email: 'fidelity-payouts-clerk@example.com',
+    role: 'payoutsClerk',
+    first: 'Pia',
+    last: 'Payouts',
+  },
+  commissionManager: {
+    email: 'fidelity-commission-manager@example.com',
+    role: 'commissionManager',
+    first: 'Cam',
+    last: 'Commission',
   },
 }
 

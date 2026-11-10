@@ -1,0 +1,19 @@
+{
+  "screen": "DA-SEL-04",
+  "state": "none",
+  "variant": "admin",
+  "role": null,
+  "server": "browser-test server",
+  "theme": "dark",
+  "revision": "6b163aad",
+  "path": "/<store>/sellers/transfers",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "fullPage": false,
+  "capturedHeight": 960,
+  "intercepted": "The seller transfers list is answered with no rows",
+  "settled": true,
+  "outside": []
+}
