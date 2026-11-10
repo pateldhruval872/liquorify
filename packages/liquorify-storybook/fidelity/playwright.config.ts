@@ -122,6 +122,7 @@ export default defineConfig({
     'multi-store-actions.spec.ts',
     'catalog-actions.spec.ts',
     'loyalty-actions.spec.ts',
+    'inventory-actions.spec.ts',
   ],
   outputDir: './results/test-output',
   workers: 1,
