@@ -737,7 +737,7 @@ test.describe('suppliers (P11, G-87)', () => {
   test('1.9 saving a supplier with a name already used in the store', async ({ page, baseURL }) => {
     const outside = await blockOutside(page)
     expectFailureWhenSabotaged()
-    const taken = await seeded(baseURL, (seed) => supplier(seed, 'Taken supplier name'))
+    const taken = await seeded(baseURL, (seed) => supplier(seed, 'Duplicate supplier name'))
     // Sabotaged, a name nobody has is typed, so nothing is refused.
     const typed = sabotaged ? `${taken.name} unused` : taken.name
 
@@ -752,9 +752,11 @@ test.describe('suppliers (P11, G-87)', () => {
     await page.waitForLoadState('networkidle')
     await page.waitForTimeout(1_000)
     const sheetOpen = await page.getByRole('heading', { name: /^new supplier$/i }).isVisible()
-    const messageText = /already been taken|taken/i
-    const messageExists = (await page.getByText(messageText).count()) > 0
-    const messageOnTop = messageExists ? await onTop(page, 'taken') : false
+    // Spree's refusal reads "has already been taken"; the supplier's own name
+    // must not contain the word, or the list behind the sheet would match.
+    const refusal = 'already been taken'
+    const messageExists = (await page.getByText(refusal).count()) > 0
+    const messageOnTop = messageExists ? await onTop(page, refusal) : false
     const steps: Steps = [
       {
         step: 'typed a name another supplier has and pressed Save',
