@@ -1,0 +1,19 @@
+{
+  "screen": "DA-CUS-02",
+  "state": "credit-delete",
+  "variant": "admin",
+  "role": null,
+  "theme": "light",
+  "revision": "05b7c95b",
+  "path": "/<store>/customers/cust_gbHJdmfrXB",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "fullPage": false,
+  "capturedHeight": 960,
+  "intercepted": null,
+  "handOff": null,
+  "settled": true,
+  "outside": []
+}
