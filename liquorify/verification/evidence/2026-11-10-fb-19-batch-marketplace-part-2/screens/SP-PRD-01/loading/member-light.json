@@ -1,0 +1,20 @@
+{
+  "screen": "SP-PRD-01",
+  "state": "loading",
+  "variant": "member",
+  "signedInAs": "ines.carvalho@harbour-cask.example.com",
+  "server": "browser-test server",
+  "panel": "seller panel",
+  "theme": "light",
+  "revision": "1342549c",
+  "path": "/sel_AXs1igzRC6/products?<query>",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "fullPage": false,
+  "capturedHeight": 960,
+  "intercepted": "The product list request was held unanswered in the browser.",
+  "settled": null,
+  "outside": []
+}
