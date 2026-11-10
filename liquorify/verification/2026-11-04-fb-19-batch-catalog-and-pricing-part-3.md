@@ -302,6 +302,8 @@ The comparison found no defect in a story, and no story was changed. No key is m
 
 Each is how Spree works at `ffc9f5e0`, whose dashboard is the code the work item names. The part reproduces it and changes nothing.
 
+On 2026-11-09 the owner answered row 36 for these behaviours. Some are now tracked as defects and the rest stay recorded observations, as [that record](2026-11-09-row-36-recorded-behaviours.md) lists. The table below is as it was recorded.
+
 | # | Behaviour | Where seen |
 |---|---|---|
 | B1 | A teammate who may read promotions but not change them gets a promotion page that reads "Loading…" without end. Spree answers the promotion's rules and actions with 404, because those two controllers find their promotion among the ones the teammate may update (`promotion_rules_controller.rb`, line 53; `promotion_actions_controller.rb`, line 79), and the form waits for the promotion, its rules and its actions before it draws anything (`promotion-form.tsx`, line 248) | DA-PRM-03 rules-and-actions and summaries-running, loyalty viewer, with the two 404s in their notes; Promotion form: Read-only role, which shows what the form would draw |

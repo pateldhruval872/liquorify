@@ -4,7 +4,7 @@ record: verification
 work_item: FB-19
 date: 2026-11-05
 verifier: Claude (automated session, thread "Add P9 browser tests"); not independent review
-result: Forty-two browser tests for G-84's promotion, gift card and store credit behaviours from part 3 of the catalog and pricing batch, apart from the three that need a narrower role, which are P10's. Each is driven through the running dashboard as the admin and asserts what the screen shows and, where something is kept, what a reload shows. Run twice in a row in the pinned Playwright image at `4a78cd88`, on freshly started servers, with Spree's code as on `main` at `303d3410`. Forty passed both times. Two failed both times, each only at the check of a behaviour part 3 recorded and did not count as a defect. A promotion whose request fails reads "Loading…" without end and never says it could not be loaded (part 3's B2). A partly redeemed gift card's sheet names its customer by a raw identifier, `cust_…`, not by email (part 3's B14). The baseline audit numbered them SD-26 and SD-27, at Low, held for the owner's answer to row 36 of the decision brief; they are not approved defects. Each of the 42 was shown to fail when what it checks does not happen. Three tests reach their state by answering a request in the browser: they are simulated coverage, not functional verification. G-84 stays OPEN until the owner answers row 36. Tenant isolation stays NOT_RUN. P9 is not complete
+result: Forty-two browser tests for G-84's promotion, gift card and store credit behaviours from part 3 of the catalog and pricing batch, apart from the three that need a narrower role, which are P10's. Each is driven through the running dashboard as the admin and asserts what the screen shows and, where something is kept, what a reload shows. Run twice in a row in the pinned Playwright image at `4a78cd88`, on freshly started servers, with Spree's code as on `main` at `303d3410`. Forty passed both times. Two failed both times, each only at the check of a behaviour part 3 recorded and did not count as a defect. A promotion whose request fails reads "Loading…" without end and never says it could not be loaded (part 3's B2). A partly redeemed gift card's sheet names its customer by a raw identifier, `cust_…`, not by email (part 3's B14). The baseline audit numbered them SD-26 and SD-27, at Low, held for the owner's answer to row 36 of the decision brief; they are not approved defects. Each of the 42 was shown to fail when what it checks does not happen. Three tests reach their state by answering a request in the browser: they are simulated coverage, not functional verification. G-84 stays OPEN until the owner answers row 36. Tenant isolation stays NOT_RUN. P9 is not complete. Since 2026-11-09 (§8): the owner accepted SD-26 and SD-27 as Low-severity defects with their fixes deferred, and their documented failures as baseline exceptions for G-84 under P9's closure rule. G-84 closed on this record that day, as delegated acceptance, not the owner's review of the tests. Tests 21 and 28 are kept and still fail, CAP-05-12 and CAP-05-13 stay PARTIAL, each with a failing part, and P9 is complete
 ---
 
 # FB-19 platform batch, step P9, part 4, browser tests for promotions, gift cards and store credit
@@ -163,6 +163,8 @@ Test 42 shows the Edit dialog locks a used credit's amount, so the dashboard nev
 
 ## 4. Failures kept, held for the owner's answer to row 36
 
+Since 2026-11-09 both are defects the owner accepted at Low, with their fixes deferred and their failures accepted as baseline exceptions for G-84 ([§8](#8-the-owners-answer-to-row-36-2026-11-09)). This section gives them as they stood when this record was made.
+
 Both failures are behaviours part 3 of the catalog and pricing batch recorded as Spree's, not as defects: B2 and B14 ([part 3's record](2026-11-04-fb-19-batch-catalog-and-pricing-part-3.md)). Row 36 of the owner decision brief asks the owner whether batch 9's B18 becomes a defect, and the other behaviours batch 9 and part 3 recorded ([record](2026-11-04-owner-decision-brief-answers-3.md)); it is not answered. The baseline audit numbered the two SD-26 and SD-27 on 2026-11-05, at Low, held for that answer. They are in LIQ-004 as held, not as approved defects, and are not reported to Spree.
 
 | # | Behaviour | Severity, as numbered | Seen |
@@ -195,7 +197,7 @@ Seen again and not new: the filter panel offering neither Starts nor Expires (pa
 | Closed | Nothing. G-84 stays OPEN: every behaviour of item 1.6 has a test, but tests 21 and 28 fail on SD-26 and SD-27, which are held for the owner's answer to row 36, not defects recorded under criterion 4 |
 | Not accepted here | Whether B2 and B14 are defects, which is row 36's; SD-26's and SD-27's severity, which follows that answer; and the three simulated tests as functional verification, which they are not |
 
-What stays open:
+What stays open, as it stood at the merge. Since 2026-11-09 G-84 is closed and P9 is complete ([§8](#8-the-owners-answer-to-row-36-2026-11-09)):
 
 - **G-84 is OPEN**, for behaviour 13 and behaviour 16's partly redeemed sheet, until the owner answers row 36. Its other behaviours, 1 to 10, 14, 15, the rest of 16, and 17 to 21, have tests that pass, with behaviour 19's empty and failing history as simulated coverage only.
 - **SD-26 and SD-27 are held** in LIQ-004 for the owner's answer to row 36, and tests 21 and 28 fail while the behaviours stand.
@@ -206,3 +208,24 @@ What stays open:
 ## 7. Evidence
 
 The [evidence folder](evidence/2026-11-05-fb-19-platform-p9-part-4/) holds each test's JSON file and screenshot from the second recorded run at `4a78cd88`, and the screenshots five tests take of a refusal or a dialog before their reload. `checks.json` gives, for the check run at `4a78cd88`, each test's outcome, the first line of each assertion it failed at, and that assertion's lines in the test. Each JSON file names its test, the revision, the run's stamp and every request blocked because it would have left the local servers; none was. Records are named with the run's stamp. No token, download link, store id or password is recorded.
+
+## 8. The owner's answer to row 36, 2026-11-09
+
+On 2026-11-09 the owner answered row 36 of the decision brief for SD-26 and SD-27, in these words:
+
+> SD-26 and SD-27: Accept both as Low-severity defects and keep their fixes deferred. Accept their documented failures as baseline exceptions for G-84 under P9's existing closure rule. Record that decision explicitly, retain the failing tests and keep affected functional results FAIL/PARTIAL.
+
+The answer is listed with that day's other decisions in [the owner's fourth set of answers](2026-11-09-owner-decision-brief-answers-4.md). It answers row 36 only for SD-26 and SD-27. The owner answered the rest of row 36, batch 9's B18 and the other behaviours batch 9 and part 3 recorded, later the same day ([record](2026-11-09-row-36-recorded-behaviours.md)).
+
+| What | Since 2026-11-09 |
+|---|---|
+| SD-26 (part 3's B2, test 21) | A defect at Low, accepted by the owner. It stays open in LIQ-004, and its fix is deferred until after the baseline, in its own pull request. It is not reported to Spree, by the owner's standing instruction ([decisions 21 and 37](2026-11-04-owner-decision-brief-answers.md)) |
+| SD-27 (part 3's B14, test 28) | The same: a defect at Low, accepted by the owner, open, with its fix deferred and not reported to Spree |
+| Their failures | Tests 21 and 28 fail as §2 and §4 document them. The owner accepted those failures as baseline exceptions for G-84, under P9's closure rule, criterion 7 of [P9](../work-items/fb-19-batch-platform.md#p9-untested-actions-in-settings-the-catalog-and-multi-store-administration) |
+| Tests 21 and 28 | Kept as they are, unchanged and not weakened. They keep failing while SD-26 and SD-27 stand. Test 21 stays simulated coverage: the browser answered the promotion's request with a server error, and the server was not made to fail |
+| G-84 | **CLOSED** on 2026-11-09 on this record. Each of the 19 behaviours left to P9 has a test that passes, or fails only on a defect now recorded under criterion 4, SD-26 or SD-27. P10 met behaviours 11, 12 and 22. The closing is delegated acceptance under the owner's delegation of 2026-11-04, on the results this record gives. The owner decided how the two failures count; the owner did not review the tests |
+| CAP-05-12 and CAP-05-13 | Stay PARTIAL, now each with a failing part: SD-26 for CAP-05-12, on the promotion page, and SD-27 for CAP-05-13, on the gift card sheet. Tenant isolation, which both also wait on, stays NOT_RUN |
+| FL-16 and FL-17 | Stay PARTIAL |
+| P9 | **Complete** on 2026-11-09. All seven of its criteria hold. Every gap it holds has closed on a P9 record: G-69, G-37 and G-68 on part 1's, G-72 on part 2's, G-61 on part 3's, G-84 on this one, and G-75 on part 5's. Its failing tests are kept on SD-7, SD-24, SD-18, SD-25, SD-26 and SD-27, all still open. This is delegated acceptance, not the owner's review |
+
+Nothing was run again for this section. The results are those of §2, at `4a78cd88`, and no test changed. Simulated coverage stays distinct from functional verification. Real providers stay with P4, and tenant isolation stays NOT_RUN, with ISO-1 to ISO-7 open.
