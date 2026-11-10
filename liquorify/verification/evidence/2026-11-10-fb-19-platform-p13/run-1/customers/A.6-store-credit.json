@@ -1,0 +1,26 @@
+{
+  "test": "A.6-store-credit",
+  "revision": "4a269571",
+  "stamp": "mwazxqf1",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "the store credit card",
+      "card": "Store credit 2 Issue store credit Amount Used Remaining Memo $10.00 $10.00 $0.00 P13 used credit mwazxqf1 Actions $12.00 $0.00 $12.00 P13 unused credit mwazxqf1 Actions"
+    },
+    {
+      "step": "deleted the unused credit; after a reload",
+      "card": "Store credit 1 Issue store credit Amount Used Remaining Memo $10.00 $10.00 $0.00 P13 used credit mwazxqf1 Actions"
+    },
+    {
+      "step": "tried to delete the used credit",
+      "messageShown": true,
+      "toasts": "Cannot delete a store credit that has already been used"
+    },
+    {
+      "step": "after a reload",
+      "card": "Store credit 1 Issue store credit Amount Used Remaining Memo $10.00 $10.00 $0.00 P13 used credit mwazxqf1 Actions"
+    }
+  ],
+  "outside": []
+}

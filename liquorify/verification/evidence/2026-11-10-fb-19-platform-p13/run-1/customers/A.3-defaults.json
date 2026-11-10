@@ -1,0 +1,28 @@
+{
+  "test": "A.3-defaults",
+  "revision": "4a269571",
+  "stamp": "mwazwiyb",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "set Studio as the default billing; after a reload",
+      "rows": {
+        "studio": "Studio Default billing Robin Ashby mwazwiyb Studio Street Portland, OR, 97205 United States 5035550142",
+        "home": "Home Robin Ashby mwazwiyb Home Street Portland, OR, 97205 United States 5035550142"
+      }
+    },
+    {
+      "step": "set Home as the default shipping; after a reload",
+      "rows": {
+        "studio": "Studio Default billing Robin Ashby mwazwiyb Studio Street Portland, OR, 97205 United States 5035550142",
+        "home": "Home Default shipping Robin Ashby mwazwiyb Home Street Portland, OR, 97205 United States 5035550142"
+      }
+    },
+    {
+      "step": "the other default stayed where it was (SD-45)",
+      "shippingKept": false,
+      "billingKept": true
+    }
+  ],
+  "outside": []
+}

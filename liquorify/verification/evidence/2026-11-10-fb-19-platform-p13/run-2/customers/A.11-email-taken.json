@@ -1,0 +1,20 @@
+{
+  "test": "A.11-email-taken",
+  "revision": "4a269571",
+  "stamp": "mwb01f49",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "saved the profile with a taken email",
+      "underEmail": "has already been taken"
+    },
+    {
+      "step": "created a customer with the taken email",
+      "underEmail": "has already been taken"
+    },
+    {
+      "step": "the list holds one customer with that email"
+    }
+  ],
+  "outside": []
+}

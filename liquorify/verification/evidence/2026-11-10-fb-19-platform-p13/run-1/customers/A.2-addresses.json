@@ -1,0 +1,28 @@
+{
+  "test": "A.2-addresses",
+  "revision": "4a269571",
+  "stamp": "mwazwiyb",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "edited the Spare address",
+      "street": "mwazwiyb Edited Avenue",
+      "city": "Salem"
+    },
+    {
+      "step": "deleted the Old address"
+    },
+    {
+      "step": "deleted the Home address, which the completed order used"
+    },
+    {
+      "step": "after a reload, the addresses card",
+      "text": "Addresses 1 Add address Spare Default billing Default shipping Robin Ashby mwazwiyb Edited Avenue Salem, OR, 97205 United States 5035550142"
+    },
+    {
+      "step": "the completed order's page keeps its address",
+      "kept": true
+    }
+  ],
+  "outside": []
+}
