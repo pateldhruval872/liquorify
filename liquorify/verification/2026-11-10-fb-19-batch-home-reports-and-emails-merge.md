@@ -4,7 +4,7 @@ record: verification
 work_item: FB-19 (CAP-11-01 to CAP-11-05, FL-18, FL-22), G-100 to G-104 (gaps), SD-51 to SD-56 (defects)
 date: 2026-11-10
 verifier: Claude (automated session, the thread for batch 11); not independent review
-result: Delegated acceptance, under the owner's delegation of 2026-11-04, of batch 11 in #89 at `3b6c8a7b`. Criteria 1 to 7 and 9 to 17 stand as the verification record gives them. All 45 checks on the final commit passed or were skipped as on every pull request, both full visual runs among them with 3,896 of 3,896 comparisons each, and the merge commit `0950e2de` holds exactly that revision. The owner's answers of 2026-11-10 on SD-51 to SD-56 and G-100 to G-104 are the owner's, recorded in the verification record's §14, and are not part of this acceptance. Tenant isolation stays NOT_RUN. This is not the owner's review
+result: Delegated acceptance, under the owner's delegation of 2026-11-04, of batch 11 in #89 at `3b6c8a7b`. Criteria 1 to 7 and 9 to 17 stand as the verification record gives them. All 45 checks on the final commit passed or were skipped as on every pull request, both full visual runs among them with 3,896 of 3,896 comparisons each, and the merge commit `0950e2de` holds exactly that revision. On `main`, Packages and the visual check started by hand both passed. The owner's answers of 2026-11-10 on SD-51 to SD-56 and G-100 to G-104 are the owner's, recorded in the verification record's §14, and are not part of this acceptance. Tenant isolation stays NOT_RUN. This is not the owner's review
 ---
 
 # FB-19 batch 11, home figures, reports and emails, merged with its delegated acceptance
@@ -59,7 +59,11 @@ The 3,896 comparisons are batch 11's 174 and the 3,722 of the batches merged bef
 
 ## 4. Workflows on `main`
 
-Storybook runs only on pull requests and when started by hand, so it was started by hand on `main` at `0950e2de` after the merge. Its result is recorded in the pull request that adds this record. Packages runs on the push to `main` because the merge changed files under `packages/`. Tests does not start, since the merge changed nothing under `spree/` and not its own workflow.
+| Workflow | Run | Result |
+|---|---|---|
+| Packages: typecheck, tests and builds of the TypeScript packages, the dashboard's browser tests and the scaffolded app | [42761344878](https://github.com/pateldhruval872/liquorify/actions/runs/42761344878) | Passed, 05:18 to 05:31 UTC, on its first attempt. The release jobs were skipped |
+| Storybook's visual check, started by hand on `main` at `0950e2de`, because batch 11 adds stories and reference images | [42761356905](https://github.com/pateldhruval872/liquorify/actions/runs/42761356905) | Passed, 05:18 to 05:43 UTC: all four parts, 3,896 of 3,896 comparisons |
+| Tests: the backend's builds and Spree's test suites, and Brakeman | None | Did not start, as expected: on a push to `main` it runs only when `spree/` or its own workflow file changes, and #89 changes neither. It passed on #89's final commit |
 
 ## 5. What stays open
 
