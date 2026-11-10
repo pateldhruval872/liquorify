@@ -336,3 +336,19 @@ SD-78 is an observation for product review, not a defect. That the server accept
 | G-115 | The seller panel stories load the panel's own translations, the affected references are looked at again and the comparisons repeated. Done in this pull request (§4.4) |
 
 **Before merging,** the owner asked for the G-115 correction, a corrected comparison headline and a corrected SD-21 statement (§11). All three are made in this pull request, and it merges only once the acceptance criteria, both visual runs, Tests and Packages pass.
+
+## 15. The owner's answers later on 2026-11-10
+
+After the merge, the owner answered three more questions in the project chat. They are recorded here as given, and LIQ-004's rows and the work item link to this section. The same message's answers on P13 (SD-94 to SD-96, G-97 and G-99) and #110 belong to P13's record, not to this one.
+
+**G-114: two explicit baseline exceptions.**
+
+- The owner approved explicit baseline exceptions for seller behaviours 2 and 6 of the work item's §11.3, covering SD-72 and SD-73 only.
+- G-114 may close after both recorded runs have completed, when the other 14 behaviours pass and those two fail solely on the approved defects. It cannot close before the checks run.
+- The affected tests stay FAIL, the High defects stay open and the capabilities stay PARTIAL. The exchange steps the check cannot reach stay NOT_RUN under G-112. This acceptance does not authorize releasing the affected workflows.
+- The tests assert the intended successful behaviour. SD-73's refusal is never turned into a passing expectation.
+- A check is shown to fail by changing the application's behaviour or the state the server serves, while its assertions stay as recorded.
+
+**SD-85: accepted as Low.** The seller panel's stories keep loading the panel's own translations (G-115), so this defect stays visible in them. It stays open, and its fix waits until after the baseline. A future fix comes with a meaningful regression test.
+
+**P14 and SD-70: no exception.** G-114's exceptions do not extend to P14's failing control on SD-70 (row 14.8). P14's recorded closure criteria apply, and G-106 stays open while that control fails.
