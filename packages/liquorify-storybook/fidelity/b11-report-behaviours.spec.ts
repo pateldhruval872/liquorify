@@ -305,19 +305,25 @@ test.describe('Batch 11 verification: reports and the home page (behaviours 10 t
       await datePicker().click()
       await page.getByRole('button', { name: 'Last 7 days' }).click()
     })
-    // A custom range: one click on a day of the complete range moves its
-    // start there (B5), as batch 11's capture made it; the end stays today.
-    const start = new Date()
-    start.setUTCDate(Math.max(1, start.getUTCDate() - 5))
+    // A custom range: with Last 7 days chosen, one click on a day before its
+    // start moves the start there and keeps today as the end (B5), so the
+    // range differs from the preset and still holds the fixtures' orders. The
+    // calendar opens on the preset's first month, so the day stays in it.
+    const today = new Date()
+    const start = new Date(today)
+    start.setUTCDate(Math.max(1, today.getUTCDate() - 8))
     const dayName = new RegExp(
       `${start.toLocaleString('en-US', { month: 'long', timeZone: 'UTC' })} ${start.getUTCDate()}(st|nd|rd|th), ${start.getUTCFullYear()}`,
     )
     await checkRange('custom-range', async () => {
       await datePicker().click()
-      await page.getByRole('button', { name: dayName }).last().click()
+      await page.getByRole('button', { name: dayName }).first().click()
       await page.getByRole('button', { name: 'Apply' }).click()
     })
 
+    // The rankings are read over the page's default range, which holds orders.
+    await page.goto(`/${session.store_id}`)
+    await expect(page.getByText('Operations', { exact: true })).toBeVisible({ timeout: 20_000 })
     // Each rankings tab shows its rows or its empty message, never an error.
     const rankings = page
       .locator('[data-slot="card"]')
