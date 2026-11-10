@@ -1,0 +1,8 @@
+servers up 09:53:45 at 6ca5e70, backend LIQUORIFY_REVISION=e7fd295356b8deb8150f915eb029e8eed952a4ed
+
+Running 1 test using 1 worker
+
+  ✓  1 [chromium] › e2e/order-tracking.spec.ts:130:7 › the shopper's order page › a shipped order shows its status and tracking (41.3s)
+
+  1 passed (43.0s)
+done 09:54:29

@@ -1,0 +1,28 @@
+{
+  "test": "delivered",
+  "revision": "f467aeb6",
+  "stamp": "p11p3r2",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "marked the fulfilment delivered, then reloaded",
+      "panels": [
+        {
+          "status": "Delivered",
+          "text": "Delivered Shop location Fulfilled less than a minute ago Actions P11 Delivered Ground p11p3r2 $5.00 P11 Delivered p11p3r2 $20.00 × 1"
+        }
+      ]
+    },
+    {
+      "step": "marked one of two consignments arrived, then reloaded",
+      "before": "Fulfilled Shop location Fulfilled less than a minute ago Actions P11 Delivered Ground p11p3r2 $5.00 UPS: 1Z999AA10123456786 Awaiting Carrier Actions UPS: 1Z999AA10123456787 Awaiting Carrier Actions P11 Delivered p11p3r2 $20.00 × 1 Mark as delivered Add tracking",
+      "panels": [
+        {
+          "status": "Fulfilled",
+          "text": "Fulfilled Shop location Fulfilled less than a minute ago Actions P11 Delivered Ground p11p3r2 $5.00 UPS: 1Z999AA10123456786 Delivered Actions UPS: 1Z999AA10123456787 Awaiting Carrier Actions P11 Delivered p11p3r2 $20.00 × 1 Mark as delivered Add tracking"
+        }
+      ]
+    }
+  ],
+  "outside": []
+}

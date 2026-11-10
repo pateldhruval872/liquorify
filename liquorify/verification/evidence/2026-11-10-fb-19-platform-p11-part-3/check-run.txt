@@ -1,0 +1,20 @@
+server up 09:39:17
+
+Running 13 tests using 1 worker
+
+  ✘   1 fidelity/after-sale-actions.spec.ts:135:3 › returns (P11, G-92) › 3.10 a return's location, partial and not resellable receipts, refund with tax, nothing owed, and cancel (18.8s)
+  ✘   2 fidelity/after-sale-actions.spec.ts:319:3 › exchanges (P11, G-92) › 3.12 an exchange opened, approved, received and its dearer replacement shipped, and another canceled (15.5s)
+  ✘   3 fidelity/after-sale-actions.spec.ts:469:3 › claims (P11, G-92) › 3.13 claims resolved by refund, by store credit and by replacement, and another canceled (9.2s)
+  ✘   4 fidelity/after-sale-actions.spec.ts:613:3 › the returns, exchanges and claims lists (P11, G-92) › 3.14 the returns list's search and status filter, and the exchanges and claims lists' search (22.7s)
+  ✘   5 fidelity/fulfilment-actions.spec.ts:113:3 › fulfilling (P11, G-92) › 3.1 fulfilling every unit, then some units, with tracking, a carrier and the notify switch (8.4s)
+  ✘   6 fidelity/fulfilment-actions.spec.ts:197:3 › canceling and adding fulfilments (P11, G-92) › 3.2 adding a fulfilment for units no fulfilment holds, after one is canceled (4.4s)
+  ✘   7 fidelity/fulfilment-actions.spec.ts:245:3 › canceling and adding fulfilments (P11, G-92) › 3.7 canceling a fulfilment (8.6s)
+  ✘   8 fidelity/fulfilment-actions.spec.ts:318:3 › tracking and deliveries (P11, G-92) › 3.3 adding, editing and removing tracking, before and after the parcel ships (6.1s)
+  ✘   9 fidelity/fulfilment-actions.spec.ts:373:3 › tracking and deliveries (P11, G-92) › 3.4 marking a fulfilment delivered, and one of its consignments delivered (20.8s)
+  ✘  10 fidelity/fulfilment-actions.spec.ts:432:3 › editing and splitting fulfilments (P11, G-92) › 3.5 editing a fulfilment's origin and delivery method, with Move and re-quote (19.8s)
+  ✘  11 fidelity/fulfilment-actions.spec.ts:483:3 › editing and splitting fulfilments (P11, G-92) › 3.6 splitting a fulfilment, and a split that would empty it (6.6s)
+  ✘  12 fidelity/fulfilment-actions.spec.ts:536:3 › labels and the packing slip (P11, G-92) › 3.8 deleting an uploaded label (6.3s)
+  ✘  13 fidelity/fulfilment-actions.spec.ts:582:3 › labels and the packing slip (P11, G-92) › 3.9 printing the packing slip (4.9s)
+
+  13 passed (2.6m)
+done 09:41:51
