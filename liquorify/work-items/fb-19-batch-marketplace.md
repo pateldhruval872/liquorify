@@ -372,3 +372,105 @@ As §7, with these for part 2. Each is recorded as decided under the delegation,
 4. **Spree's built-in payout provider only;** real providers stay with P4.
 
 What stays with the owner: SD-60 to SD-70 and G-105 to G-111 from part 1, the answers to the gaps part 2 records, and anything it finds that would change scope, a defect or a criterion. New numbers come only from the defect register's allocating thread. Tenant isolation stays NOT_RUN.
+
+## 11. The marketplace follow-up: the browser checks of G-105 and G-114, and the refusals of G-106
+
+On 2026-11-10 the owner answered both parts' gaps ([record §14](../verification/2026-11-10-fb-19-batch-marketplace-part-2.md#14-the-owners-answers-of-2026-11-10)). Three of the answers need checks that have not run yet:
+
+- **G-105 and G-114:** bounded browser checks are scheduled for the operator's 14 behaviours and the seller panel's 16. The behaviours stay unverified until those checks run.
+- **G-106:** linked to G-11 through a named authorization follow-up, with the exact refusals and the successful controls recorded first. That follow-up is the platform batch's step [P14](fb-19-batch-platform.md#p14-the-marketplace-refusals-a-follow-up-to-p10), and its requests, refusals and controls are recorded there.
+
+This section sets the scope of the browser checks. It is written before any of their scripts. The checks themselves run later, in a lane of their own, in their own pull request.
+
+### 11.1 How the browser checks run
+
+- **Where they run.** Liquorify's own Playwright scripts in `packages/liquorify-storybook/fidelity/`, against Spree's browser-test server started freshly with its own fixtures (`stack.spec.ts`). The operator's checks run in the built dashboard. The seller's checks run in the built seller panel, and the storefront is used only where a behaviour needs a shopper's order. Spree's code, Spree's tests, the workflows and the storefront are not changed.
+- **The callers.** The operator's checks sign in as the admin, except where a row names part 1's seller manager. The seller's checks sign in as a member of an approved seller, reached through the seller's supported lifecycle, invited and accepted, as G-113 requires. A member given access by the seed is not used.
+- **The records.** Each run adds its own records through the Admin API and the Seller API, as the admin or as the seller, each marked with the run's stamp. They are the sellers, requirements, products, orders and balances each row names. No behaviour depends on a record another run left.
+- **What a check drives.** The check signs in through the sign-in form and then uses only the visible controls: labels, buttons and menus, found by their role and name. It does not send the behaviour's request itself.
+- **What a check asserts.** First, what the screen shows afterwards. Then the server's state, read back through the API as the admin, so the result does not rest on the screen alone. The run saves a lossless WebP capture of the final state, with local addresses masked as `<site>`.
+- **Mail.** Where a behaviour sends mail, the check reads the message from the server's mail folder, by subject and recipient. A rendered message shows that the mail was sent on the event. It does not show a provider's delivery, which stays with G-110.
+
+### 11.2 The operator's 14 behaviours (G-105)
+
+The numbering is part 1's §2.3.
+
+| # | Behaviour | What the check does | Expected result |
+|---|---|---|---|
+| 1 | Approving a seller with nothing outstanding | Opens a seller that is ready for review with every requirement met, and chooses Approve | No confirmation is asked. The status reads approved, and the server's seller is approved. The approval email reaches the seller's contact |
+| 2 | Approving with requirements outstanding | Opens a seller with a blocking requirement and chooses Approve. Then it chooses Approve again, this time with the override | Without the override, the server refuses, the screen shows its message, and the seller stays ready for review. With the override, the seller is approved, and the event names what was outstanding |
+| 3 | Suspending a seller | Opens More actions on an approved seller, chooses Suspend, gives a reason and confirms | The status reads suspended, and the server's seller is suspended. Whether the seller's products can still be bought is SD-60's, and this check does not judge it |
+| 4 | Reinstating a suspended seller | Chooses Reinstate on a suspended seller and confirms | The status reads approved, and the server's seller is approved |
+| 5 | Rejecting a seller | Rejects a seller that has not been admitted, giving a reason. Then it looks at an approved seller | The first seller reads rejected, and no reason reaches the seller. The approved seller offers no Reject, or the server refuses it and the seller stays approved |
+| 6 | Sending a seller back to onboarding | Chooses Send back on a seller that is ready for review, with a note | The status reads onboarding, the server's seller is back in onboarding, and the note is kept |
+| 7 | Deciding an onboarding requirement | Accepts one submission, sends back one with a reason, and waives one requirement | Each row shows its new state, and the server's submissions and requirement match. The checklist's progress changes to match |
+| 8 | Approving a seller's product | Opens the proposed product, chooses Approve and confirms | The product's review status reads approved, on the screen and on the server |
+| 9 | Sending a seller's product back | Chooses Send back on a proposed product and gives a reason | The product reads sent back, and the server keeps the reason for the seller |
+| 10 | Filtering products and orders by seller | Filters the product list and then the order list by the run's seller | Each list shows the run's seller's records and none of another seller's. The filter survives a reload of the page |
+| 11 | A marketplace order's cards | Opens an order holding two sellers' items | The marketplace, commission and seller transfers cards show the order group, each seller's commission and each transfer, with amounts that match the server's. SD-62 and SD-63 concern the order manager, who is not this check's caller |
+| 12 | Settling a seller by hand | Opens the balance card of a seller with a balance on the `manual` interval, chooses Settle and confirms | A payout for the balance is created, and the balance reads what is left. Part 1 opened this dialog but did not answer it |
+| 13 | Automatic approval of sellers and products | Turns on automatic approval of sellers, then of their products, in the marketplace settings. Submits a new seller for review and a seller's product for review | Each is approved without an operator's action, on the screen and on the server. With the settings off again, a new submission waits for review |
+| 14 | The sellers ranking and the payouts report | Opens the sellers ranking and the seller payouts report for the run's period | The run's seller appears with figures that match the server's orders and payouts for that period |
+
+### 11.3 The seller panel's 16 behaviours (G-114)
+
+The numbering is part 2's §2.3. The order rows start from a two-seller order, placed through the storefront by a guest, with the seller's items paid for.
+
+| # | Behaviour | What the check does | Expected result |
+|---|---|---|---|
+| 1 | Fulfilling an order | Opens the order and fulfils its items, with a tracking number | The fulfilment reads shipped with its tracking number, the server's fulfilment matches, and the shipping email reaches the customer |
+| 2 | Splitting a parcel | Splits one item off into a new parcel | Two parcels hold the items between them, and the order's total and amount due are unchanged. **Expected to fail on SD-72**, which part 2 saw add an amount due. The row stays failing while SD-72 is open, and the check claims nothing about a processor's charge |
+| 3 | Recording a delivery and uploading a label | Records a delivery on a parcel, and uploads a label file through the label dialog | The delivery and the label appear on the parcel, and on the server. The dialog's raw key is SD-85's, which this check does not judge |
+| 4 | Creating, receiving and refunding a return | Opens a new return for one item, receives it and refunds it | The return reads refunded, the refund's amount matches the item's, and the server's return, refund and seller transfer reversal match |
+| 5 | A claim | Opens a claim for one item, then approves it and resolves it. On a second claim, it chooses Deny | The first claim reads resolved and the second denied, on the screen and on the server. A claim's replacement is not driven: it is SD-73's and G-112's |
+| 6 | Exchanges | Starts an exchange from the order page | **Expected to fail on SD-73.** The Seller API refuses exchanges, and the check records the panel's answer, the server's refusal and that no exchange exists. The row stays failing while SD-73 is open. G-112 stays BLOCKED and is not completed by this row |
+| 7 | Cancelling an order | Cancels an unfulfilled order and gives a reason | The order reads cancelled with its reason, the server's order is cancelled, and the seller's balance changes to match |
+| 8 | An order's instructions, note and address | Edits the special instructions, the internal note and the shipping address | Each shows its new value after a reload, and the server's order matches |
+| 9 | Taking a product down and archiving it | Takes a live product down and confirms, then archives it | The product reads taken down, then archived, on the screen and on the server, and the storefront no longer offers it |
+| 10 | Importing and exporting products | Imports a small product file, then exports the catalog | The import finishes with its rows on the seller's own products only. The export's file holds the seller's products and no other seller's |
+| 11 | The profile's addresses and tax registration | Saves the billing address and the returns address, and adds a tax registration | Each shows its new value after a reload, and the server's seller matches |
+| 12 | The account dialog | Changes the member's name, photo and language, with a first name given | Each shows after a reload, and the panel's language changes. Whether a blank first name should be accepted is SD-78's observation, for product review, and is not judged here |
+| 13 | Switching between two sellers | Signs in as a member of two sellers and switches from one to the other | The panel shows the second seller's name, orders and products, and none of the first seller's |
+| 14 | Submitting for review | As a seller still in onboarding, meets the last requirement and chooses Submit for review | The button is enabled only once nothing blocks it. After submitting, the seller reads ready for review, on the screen and on the server |
+| 15 | Choosing a new password | Opens the reset link from the reset email and chooses a new password | The new password signs in and the old one is refused. The link cannot be used a second time |
+| 16 | A store staff member at sign-in | Signs in to the seller panel as a store teammate who belongs to no seller | Sign-in is refused with the panel's message, and no seller data is shown |
+
+### 11.4 When the checks pass, and how G-105 and G-114 close
+
+A behaviour's check **passes** only if all of these hold:
+
+- it drove the behaviour through the visible controls;
+- the screen showed the expected result;
+- the server's read-back matched;
+- it did so in two runs in a row, each on a freshly started server.
+
+Before the first recorded run, each check is also shown to fail against a deliberately wrong expected result, so that a pass means the check looked.
+
+A check that **fails** keeps its behaviour unverified:
+
+- A failure on an open defect is recorded against that defect. These are SD-72 for behaviour 2 of §11.3 and SD-73 for behaviour 6.
+- Any other failure is a new defect, with a number requested from the audit thread, brought to the owner with a proposed severity, and not fixed.
+
+As P10 allows, an expected result may be corrected before the first recorded run, and only where Spree's code or documentation gives the reason. The record lists each correction with that reason. A result that loses a record, changes the wrong one, or shows one seller's data to another is never corrected into an expected result.
+
+**The record.** A verification record lists, for each behaviour:
+
+- its result in both runs;
+- its captures;
+- the server's read-back;
+- each correction made before the first recorded run.
+
+**Closing.** Under the owner's delegation, as delegated acceptance, not the owner's review:
+
+- G-105 closes when all 14 of §11.2 pass.
+- G-114 closes when all 16 of §11.3 pass.
+- A behaviour still failing on an open defect keeps its gap open, unless the owner accepts that row as an explicit exception. Behaviours 2 and 6 of §11.3 are expected to need that answer.
+- Nothing unverified becomes PASS.
+
+**What the checks claim nothing about:**
+
+- Tenant isolation, which stays FB-03's validation, NOT_RUN, with ISO-1 to ISO-7 open.
+- G-106's refusals, which P14 sends.
+- A provider's delivery of mail (G-110).
+- A real payout provider (G-109, with P4).
+- What a suspended seller may do (G-107).
