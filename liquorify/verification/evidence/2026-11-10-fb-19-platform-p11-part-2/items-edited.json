@@ -1,0 +1,28 @@
+{
+  "test": "items-edited",
+  "revision": "759e1832",
+  "stamp": "mwac83h6",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "opened the edit page",
+      "totals": "Totals Subtotal $49.00 Tax (additional) $0.00 Total $49.00 Totals are recalculated by the server after you save."
+    },
+    {
+      "step": "set the first line to 3, removed the second and added a product, before saving",
+      "totals": "Totals Subtotal $49.00 $67.00 Tax (additional) $0.00 Total $49.00 $67.00 Confirmed by the server when you save."
+    },
+    {
+      "step": "saved, then reloaded the order",
+      "items": "Fulfillments 1 Unfulfilled Unfulfilled Shop location Actions P11 Edit kept mwac83h6 $20.00 × 3 P11 Edit added mwac83h6 $7.00 × 1 Mark as fulfilled",
+      "summaryRows": {
+        "Subtotal": 67,
+        "Tax (additional)": 0,
+        "Total": 67,
+        "Payment total": 49,
+        "Outstanding balance": 18
+      }
+    }
+  ],
+  "outside": []
+}

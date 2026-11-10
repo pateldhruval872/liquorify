@@ -1,0 +1,36 @@
+{
+  "test": "discount-code",
+  "revision": "759e1832",
+  "stamp": "mwac5jei",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "read the draft before the code",
+      "total": 40
+    },
+    {
+      "step": "applied the code, then reloaded",
+      "sidebar": "Discounts & Credit Discount code p11offmwac5jei Remove Gift card None applied Apply",
+      "total": 34,
+      "summaryRows": {
+        "Subtotal": 40,
+        "Promotions": -6,
+        "Adjustments": -6,
+        "Total": 34,
+        "Payment total": 0,
+        "Outstanding balance": 34
+      },
+      "rowsAddUp": false
+    },
+    {
+      "step": "removed the code, then reloaded",
+      "total": 40
+    },
+    {
+      "step": "entered a code nobody has",
+      "dialog": "Apply Discount Code Enter a code or pick one of the coupon promotions. Code Coupon promotions P11 Code promotion mwac5jei p11offmwac5jei The coupon code you entered doesn't exist. Please try again. Cancel Apply Close",
+      "totalAfterReload": 40
+    }
+  ],
+  "outside": []
+}

@@ -1,0 +1,39 @@
+{
+  "test": "discounts-added",
+  "revision": "759e1832",
+  "stamp": "mwac5jei",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "read the draft before any discount",
+      "total": 40
+    },
+    {
+      "step": "added $5.00 off and 10% off, then reloaded",
+      "discounts": "Discounts Add discount Description Source Code Amount P11 goodwill Manual — -$5.00 P11 trial Manual — -$3.50 ",
+      "total": 31.5,
+      "summaryRows": {
+        "Subtotal": 40,
+        "Adjustments": -8.5,
+        "Total": 31.5,
+        "Payment total": 0,
+        "Outstanding balance": 31.5
+      },
+      "rowsAddUp": true
+    },
+    {
+      "step": "deleted the $5.00 discount, then reloaded",
+      "discounts": "Discounts Add discount Description Source Code Amount P11 trial Manual — -$3.50 ",
+      "total": 36.5,
+      "summaryRows": {
+        "Subtotal": 40,
+        "Adjustments": -3.5,
+        "Total": 36.5,
+        "Payment total": 0,
+        "Outstanding balance": 36.5
+      },
+      "rowsAddUp": true
+    }
+  ],
+  "outside": []
+}

@@ -1,0 +1,23 @@
+{
+  "test": "payment-added",
+  "revision": "759e1832",
+  "stamp": "mwac5jei",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "added a cheque payment of $7.50 and reloaded",
+      "paymentsOf750": 1
+    },
+    {
+      "step": "chose the test gateway for a customer with no saved card",
+      "saysNoSavedCards": true,
+      "addEnabled": false
+    },
+    {
+      "step": "chose the test gateway on an order with no customer",
+      "saysAssignACustomer": true,
+      "addEnabled": false
+    }
+  ],
+  "outside": []
+}

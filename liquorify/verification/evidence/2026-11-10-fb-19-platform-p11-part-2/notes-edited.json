@@ -1,0 +1,14 @@
+{
+  "test": "notes-edited",
+  "revision": "759e1832",
+  "stamp": "mwac6ztk",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "edited both notes and reloaded",
+      "specialInstructions": "Special Instructions\n\nRing twice, mwac6ztk.",
+      "internalNote": "Internal Note\n\nCalled back on Tuesday, mwac6ztk."
+    }
+  ],
+  "outside": []
+}

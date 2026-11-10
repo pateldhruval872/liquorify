@@ -1,0 +1,24 @@
+{
+  "test": "downloads-reset-and-resent",
+  "revision": "759e1832",
+  "stamp": "mwac83h6",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "read the order's downloads after one download",
+      "downloads": "Downloads Resend email File Item Downloads used Expires Status p11-guide-mwac83h6.pdf P11 Digital mwac83h6 1 November 17th, 2026 6:57 AM Available Reset",
+      "downloadsUsed": "1",
+      "link": true
+    },
+    {
+      "step": "reset the link, then reloaded",
+      "downloads": "Downloads Resend email File Item Downloads used Expires Status p11-guide-mwac83h6.pdf P11 Digital mwac83h6 0 November 17th, 2026 6:57 AM Available Reset",
+      "downloadsUsed": "0"
+    },
+    {
+      "step": "chose Resend email",
+      "downloadEmailSent": true
+    }
+  ],
+  "outside": []
+}
