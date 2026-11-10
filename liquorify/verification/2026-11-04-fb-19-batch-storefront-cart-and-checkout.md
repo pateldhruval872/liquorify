@@ -285,6 +285,8 @@ Neither email's address, token or signing secret is recorded. The captures show 
 
 Each is recorded as the storefront at `8865498` or Spree at `06ccfbce` behaves; nothing was changed. Whether any becomes a defect is the owner's decision, with the other recorded behaviours still pending (row 22 of the owner decision brief).
 
+On 2026-11-09 the owner answered row 36 for these behaviours. Some are now tracked as defects and the rest stay recorded observations, as [that record](2026-11-09-row-36-recorded-behaviours.md) lists. The table below is as it was recorded.
+
 | # | Behaviour | Where seen |
 |---|---|---|
 | B1 | When a cart request does not arrive, the toaster shows "Failed to fetch", the browser's own words for a lost request, in English and whatever the page's language, rather than a message of the storefront's | SF-OVL-02 "add failed", "update failed" and "remove failed"; SF-SHOP-05 "update failed"; the toaster's comparison (§4) |
