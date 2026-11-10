@@ -2,7 +2,7 @@
   "id": "CMP-SP-G-02",
   "story": "seller-panel-orders-fulfillments-card--partly-shipped",
   "theme": "dark",
-  "revision": "1342549c",
+  "revision": "8f79e738 with the G-115 correction",
   "screenWidth": 635.328125,
   "storyWidth": 635,
   "compared": 39,

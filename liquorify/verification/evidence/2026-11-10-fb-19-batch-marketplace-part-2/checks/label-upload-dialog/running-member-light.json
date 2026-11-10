@@ -1,0 +1,12 @@
+{
+  "screen": "SP-ORD-02",
+  "order": "the new order, its fulfillment menu, Upload label",
+  "variant": "member",
+  "theme": "light",
+  "window": [
+    1280,
+    960
+  ],
+  "saved": false,
+  "shows": "The submit button reads the raw key admin.orders.detail.fulfillments.upload_label (SD-85)"
+}

@@ -2,7 +2,7 @@
   "id": "CMP-CORE-PG-01",
   "story": "dashboard-core-pages-package-types--none",
   "theme": "dark",
-  "revision": "1342549c",
+  "revision": "8f79e738 with the G-115 correction",
   "screenWidth": 890,
   "storyWidth": 890,
   "compared": 23,

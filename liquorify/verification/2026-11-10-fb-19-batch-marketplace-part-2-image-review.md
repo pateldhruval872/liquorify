@@ -22,6 +22,8 @@ Stories use invented sellers, products, people, addresses and references. The ru
 
 **Counts.** 117 stories for the 27 components of the work item's §10.7, 234 reference images: 28 compared, 21 seen in a capture and 68 checked against their source only. Inventory IDs: CMP-SP-G-02 for `orders/` (78 stories) and CMP-SP-G-03 for the top-level components (39).
 
+**Written again on 2026-11-10 (G-115).** Once the seller panel stories loaded the panel's own translations, P11, P12 and P62's images changed: their submit buttons now show the raw keys the running panel shows (SD-85 and SD-74). Each was looked at again in light and dark ([record §4.4](2026-11-10-fb-19-batch-marketplace-part-2.md#44-the-panels-own-translations-g-115)).
+
 | # | Inventory ID | Story | Reference images | Running screen | Status |
 |---|---|---|---|---|---|
 | P1 | CMP-SP-G-02 | Fulfillment deliveries: Awaiting the carrier | [light](../../packages/liquorify-storybook/visual/__screenshots__/seller-panel-orders-fulfillment-deliveries--pending/light.png) · [dark](../../packages/liquorify-storybook/visual/__screenshots__/seller-panel-orders-fulfillment-deliveries--pending/dark.png) | Seen in a capture: [SP-ORD-02 returned](evidence/2026-11-10-fb-19-batch-marketplace-part-2/screens/SP-ORD-02/returned/member-light.webp), two deliveries awaiting the carrier | DELEGATED ACCEPTANCE |

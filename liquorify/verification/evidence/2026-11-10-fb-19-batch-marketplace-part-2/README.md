@@ -24,7 +24,7 @@ The captures, comparisons, checks, emails and backend results behind the [verifi
 | `emails/` | EM-S-02 and EM-S-03's HTML as the server wrote them, captured at 390 and 1280 pixels, and `emails.json` with each subject and link |
 | `backend/` | Spree's spec results as RSpec JSON: `seller-api-specs.json` (585 examples, the Seller API's controller and integration specs) and `core-permission-specs.json` (74, the core permission specs). Gem paths are written as `<gems>/` |
 
-The capture and comparison runs' console logs were not kept. Their counts are in the record §10: the 162 seller panel captures (81 states and variants, each in two themes) and the 2 storefront tests passed, and 64 comparisons passed, of which 14 were run again after the story corrections of the record §4.3.
+The capture and comparison runs' console logs were not kept. Their counts are in the record §10: the 162 seller panel captures (81 states and variants, each in two themes) and the 2 storefront tests passed, and 64 comparisons passed, of which 14 were run again after the story corrections of the record §4.3. After the seller panel stories were given the panel's own translations (G-115, the record §4.4), all 64 comparisons were run again on a fresh browser-test database and passed, and the images and styles in `comparison/` are from that run. `checks/label-upload-dialog/` is the running panel's label upload dialog, opened from the new order's fulfillment and left unanswered, which shows SD-85.
 
 ## Comparison with running screens, light and dark
 

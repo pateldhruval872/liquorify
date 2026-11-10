@@ -2,7 +2,7 @@
   "id": "CMP-DUI-C-23",
   "story": "dashboard-ui-composed-fulfill-items-form--all-units",
   "theme": "light",
-  "revision": "1342549c",
+  "revision": "8f79e738 with the G-115 correction",
   "screenWidth": 583.328125,
   "storyWidth": 609,
   "compared": 28,

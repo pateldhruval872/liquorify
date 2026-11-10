@@ -2,7 +2,7 @@
   "id": "CMP-SP-G-02",
   "story": "seller-panel-orders-order-cancel-dialog--open",
   "theme": "light",
-  "revision": "1342549c",
+  "revision": "8f79e738 with the G-115 correction",
   "screenWidth": 500,
   "storyWidth": 500,
   "compared": 29,

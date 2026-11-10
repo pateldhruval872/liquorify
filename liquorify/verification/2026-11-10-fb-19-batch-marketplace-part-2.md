@@ -4,7 +4,7 @@ record: verification
 work_item: FB-19
 date: 2026-11-10
 verifier: Claude (automated session); not independent review
-result: PASS for the map, the 117 stories and their images, the running-screen captures of the seller panel and the storefront's seller checkout, the comparison with running screens, 28 cases and 4 earlier stories in both themes with every difference explained, and Spree's own specs for the Seller API and the seller audience's permissions, 659 examples with no failures. 80 states of the 22 screens, 2 overlays and 3 storefront screens are captured in 84 captures; the states no capture reached are recorded with the check made instead (G-116), and 5 states were reached by answering a request in the browser. The seller's steps of FL-11, FL-12 and FL-13 are traced, FL-13 with a purchase placed on the storefront. PASS for the eight rows of §10.5, each checked where it takes effect, with what could not be reached recorded. PASS for the emails: EM-S-02 and EM-S-03 read as sent by the browser-test server. Tenant isolation is NOT_RUN. Ten existing defects (SD-72 to SD-81) and five gaps (G-112 to G-116) are recorded for the owner. Criterion 8 counts CI on the final commit, named in the merge record
+result: PASS for the map, the 117 stories and their images, the running-screen captures of the seller panel and the storefront's seller checkout, the comparison with running screens, 28 cases and 4 earlier stories in both themes, run again after the G-115 correction, with the three remaining differences explained by focus and by data, and Spree's own specs for the Seller API and the seller audience's permissions, 659 examples with no failures. 80 states of the 22 screens, 2 overlays and 3 storefront screens are captured in 84 captures; the states no capture reached are recorded with the check made instead (G-116), and 5 states were reached by answering a request in the browser. The seller's steps of FL-11, FL-12 and FL-13 are traced, FL-13 with a purchase placed on the storefront. PASS for the eight rows of §10.5, each checked where it takes effect, with what could not be reached recorded. PASS for the emails: EM-S-02 and EM-S-03 read as sent by the browser-test server. Tenant isolation is NOT_RUN. Ten existing defects (SD-72 to SD-81) and five gaps (G-112 to G-116) were recorded for the owner, who answered them on 2026-11-10 (§14). Correcting G-115 on that answer gave the seller panel stories the panel's own translations, wrote 26 images again, repeated the comparison, and found an eleventh defect, SD-85, held for the owner. Criterion 8 counts CI on the final commit, named in the merge record
 ---
 
 # FB-19 batch 13 part 2, the seller panel
@@ -29,7 +29,7 @@ result: PASS for the map, the 117 stories and their images, the running-screen c
 | 3 | Every screen and overlay is captured on the running seller panel, at the pinned revision, in each state in §10.2, and the storefront's seller checkout at both widths | PASS for every state the browser-test server reaches: 80 states in 84 captures, each in light and dark or at 1280 and 390 pixels, 174 images (§2.1). The states it does not reach are recorded with the check made instead (§7, G-113 and G-116). 5 states were reached by answering a request in the browser, and say so |
 | 4 | Each variant in §10.3 is captured, showing what the interface does for it | PASS as evidence of what the interface shows (§3.1): a member of one approved seller on every screen, a member of two sellers, members of a seller onboarding, ready, rejected and suspended, a signed-out visitor and a store staff member. The pending and invited sellers have no member to sign in as (G-113) |
 | 5 | The seller's steps of FL-11 to FL-13 are traced step by step to their screens, and the browser tests covering them pass on the batch's revision; a step no test covers is recorded as a gap | PASS. The steps are traced in §2.2, FL-13 with two purchases placed on the storefront. The steps with browser tests map to Spree's `seller-panel-home.spec.ts`, `seller-invitation-acceptance.spec.ts`, `seller-panel-products.spec.ts`, `seller-catalog.spec.ts`, `seller-panel-earnings.spec.ts`, `seller-panel-settings.spec.ts`, `seller-delivery-methods.spec.ts` and `seller-package-types.spec.ts`, which run in CI at the pull request's revision (§10). The steps no browser test drives are listed under criterion 15 (G-114) |
-| 6 | The diagnostic comparison finds no unexplained difference between each new story and its running screen. A defect is fixed in the story, its providers or its mocks, never in Spree's component | PASS (§4): 28 cases of this part's stories and 4 earlier stories were compared in both themes, 64 comparisons. 29 match with no difference; the other three are explained by focus, by data and by SD-74. Seven stories were corrected to the column or frame the running panel draws them in, and their comparisons run again (§4.3) |
+| 6 | The diagnostic comparison finds no unexplained difference between each new story and its running screen. A defect is fixed in the story, its providers or its mocks, never in Spree's component | PASS (§4): 28 cases of this part's stories and 4 earlier stories were compared in both themes, 64 comparisons. 29 match with no difference; the other three are explained, one by the close button's focus and two by the data the story and the running order hold. All 64 were run again after the G-115 correction (§4.4). Seven stories were corrected to the column or frame the running panel draws them in, and their comparisons run again (§4.3) |
 | 7 | A state no running screen shows is recorded as a coverage gap, with the check made instead. A state reached by answering a request in the browser says so, and claims nothing about the server | PASS: 89 of the 117 stories were not compared by the script; 21 show a state seen in a capture and 68 were checked against their source only, each with its reason (image review list). They and the states no capture reached are G-116 (§7). Every capture whose state was reached in the browser names how in its note |
 | 8 | The visual check passes twice in CI on the same revision under the agreed tolerance, every part of each run; Tests and Packages pass; the check stays advisory | Recorded in the merge record, which names the two full runs on the final commit (§10). Nothing is merged unless both pass with Tests and Packages |
 | 9 | Spree's code, the storefront and every workflow outside Storybook are unchanged, and nothing carries Liquorify branding or features | PASS: the pull request changes only `packages/liquorify-storybook/` and `liquorify/`. No workflow, lockfile or Spree file changes, and the storefront repository has no new commit |
@@ -180,7 +180,7 @@ NOT_RUN for the batch. The open isolation findings ISO-1 to ISO-7 ([LIQ-004](../
 
 - **No difference:** 29 cases, among them the order's summary, customer, payment, notes, earnings, fulfillments, returns and claims cards, the fulfil form, the cancel dialog, the product status card, the business, tax and returns address cards, the balance summary, the switcher and the setup badge, and the package types page's two earlier stories.
 - **b13p2-account-dialog (3 elements in each theme):** the close button's focus ring. The story's dialog opens with the close button focused and showing its ring; on the running panel the dialog was opened from the user menu with the pointer, and the browser shows no ring. Layout, text and colours otherwise match.
-- **b13p2-new-return (3 elements in each theme):** heights. The running dialog's submit button reads the raw key `orders.post_sale.returns.create_submit`, which wraps onto two lines and makes the footer taller (SD-74); the story's Storybook translations hold the key's English, which is how the defect stayed hidden there (G-115).
+- **b13p2-new-return (3 elements in each theme):** heights, from the data. The running order has two items to choose from and the story's order one, so the item list, the dialog's body and the dialog are taller on the running screen. Both submit buttons read the raw key `admin.pages.orders.detail.returns.actions.create` (SD-74). Before the G-115 correction the story read "New return", and this record wrongly put the difference down to the key wrapping onto two lines (§4.4).
 - **b13p2-earlier-fulfill-items-form-all-units (6 elements in each theme):** data. The dashboard-ui story has two products with pictures and an option line, the running order one product with no picture, so the rows' heights differ and the story draws a divider between its two rows. It is drawn at the dashboard's card width (609 pixels) where the seller panel nests it in a fulfillment card (583).
 
 ### 4.2 Earlier stories
@@ -196,15 +196,30 @@ The first comparison run found seven stories drawn in a different column or fram
 - The fulfil form, the deliveries list and the label row were drawn at a main card's inner width (609 pixels); the panel draws them inside a fulfillment's own card within the Fulfillments card (583). The story providers gained that width.
 - The balance case compared one card on the screen with the whole summary in the story; the case now compares the summary on both sides.
 
+### 4.4 The panel's own translations (G-115)
+
+On the owner's answer of 2026-11-10, the seller panel stories now load the translations the running seller panel loads: the framework's English with the panel's own laid over it, and nothing of the admin dashboard's. Before, both panels' English was merged into one set in Storybook, so a key only the admin dashboard defines read correctly in a seller panel story while the running panel showed the raw key. The first attempt, which rebuilt the set for each story, was not enough, because the merge had already written each panel's words into the other's imported files. The stories now take copies of the three files before either panel loads.
+
+The full visual check was then run against the corrected Storybook, 4,270 images, and 26 images of 13 stories changed. Each was looked at and written again:
+
+| Stories | What changed | Why |
+|---|---|---|
+| Seller panel/Orders/Post-sale create dialogs: New return | The submit button reads the raw key `admin.pages.orders.detail.returns.actions.create`, as on the running panel | SD-74, now shown in the story |
+| Seller panel/Orders/Fulfillment label upload dialog: Open and Saved with no file | The submit button reads the raw key `admin.orders.detail.fulfillments.upload_label` | A defect the merged translations had hidden, SD-85 (§5). It was confirmed on the running panel (`checks/label-upload-dialog/`) |
+| Dashboard core/Export button: Choosing all records, Dialog count unknown, Dialog filtered, Dialog no filter | "Ignore filters and export everything in this store" in place of "…all of your records" | These admin stories had been showing the seller panel's wording; they now show the admin dashboard's own. A correction to the stories, not a defect |
+| Dashboard core/Pages/Settings index: Every card, Order manager, Settings viewer, and On a phone, searched, and nothing found | "Manage your store, selling setup and team." in place of "Manage fulfillment, legal documents and your team." | The same: the admin page had been showing the seller panel's wording. A correction to the stories, not a defect |
+
+No other image changed: 4,244 passed. The comparison of §4.1 was then run again in full on a fresh browser-test database, 64 of 64. Its results are the same as before except for b13p2-new-return. That case still differs, but now only because of its data, and §4.1 corrects how it was explained before. SD-74's key was also recorded wrongly at first: the capture shows `admin.pages.orders.detail.returns.actions.create`, not `orders.post_sale.returns.create_submit`. §5 and LIQ-004 are corrected.
+
 ## 5. Behaviour found, recorded and not changed
 
-Each is an existing defect in Spree's code at `1342549c`, recorded for the owner and not fixed. The numbers are the defect register's.
+Each is an existing defect in Spree's code at `1342549c`, recorded for the owner and not fixed. The numbers are the defect register's. The owner set their severities on 2026-11-10 (§14): SD-72 and SD-73 High, SD-81 Medium, SD-74 to SD-77, SD-79 and SD-80 Low, and SD-78 an observation for product review rather than a defect.
 
 | ID | What happens | Evidence |
 |---|---|---|
 | SD-72 | Splitting a paid parcel adds a second delivery charge after payment, so the order is left partly paid and fulfilling the moved unit is refused: R1014, paid 90.50, became 97.00 with 6.50 due, and the fulfil answered 422 "This order is not paid for yet" | `checks/split-after-payment/answers.json` |
 | SD-73 | The Seller API refuses every exchange on the seller's own products, answering 404 `variant_not_found`, because it looks the replacement up by a seller column Spree leaves blank on a product the seller owns; a claim's replacement uses the same lookup | `seller-panel.ts`'s exchange request, its answer kept in `checks/seed-state.json` (`exchangeRefused`); the claim's lookup read in `claims_controller.rb`, not sent |
-| SD-74 | The New return dialog's submit button shows the raw key `orders.post_sale.returns.create_submit` | SP-ORD-02 new-return-dialog; §4.1 |
+| SD-74 | The New return dialog's submit button shows the raw key `admin.pages.orders.detail.returns.actions.create`. Dashboard-ui's shared dialog reads a key that only the admin dashboard's locale files define. This record first gave the key wrongly as `orders.post_sale.returns.create_submit`; the capture always showed this one | SP-ORD-02 new-return-dialog; §4.4 |
 | SD-75 | Saving the label upload dialog with no tracking number shows the form library's raw message, "Too small: expected string to have >=1 characters" | the label upload dialog's "Saved with no file" story, which runs Spree's own dialog and its own form check in the browser; checked against its source |
 | SD-76 | Untranslated wording: the seller picker shows statuses as stored ("approved"), and the order's note card is titled "Internal Note" | SP-SHELL-01 two-sellers; SP-ORD-02 new |
 | SD-77 | Clearing the business name in Edit your profile outlines the field in red with no message | SP-PRF-01 edit-profile-name-cleared |
@@ -212,6 +227,7 @@ Each is an existing defect in Spree's code at `1342549c`, recorded for the owner
 | SD-79 | An order that does not exist reads "Something went wrong" rather than saying it was not found | SP-ORD-02 not-found |
 | SD-80 | The storefront's order placed page for a two-seller purchase shows only the group's number, not each seller's order | SF-CHK-03 order-group-placed |
 | SD-81 | The storefront checkout's payment method radio has no accessible name | SF-CHK-01; the storefront script waits for the method's text instead |
+| SD-85 | The label upload dialog's submit button shows the raw key `admin.orders.detail.fulfillments.upload_label`. Dashboard-ui's shared dialog reads a key only the admin dashboard's locale files define. Found when G-115 was corrected; proposed Low and held for the owner's answer | `checks/label-upload-dialog/`, the running panel; the dialog's two stories (§4.4) |
 
 Seen again and given no new number: a failed list shows its empty state rather than an error (part 1's B17, SP-PRD-01 failed, which reads "No products yet"); a suspended seller's team can still edit and create products, and the shopper still sees them (G-107, SD-60); the storefront's checkout sends no order group confirmation the server writes (G-110).
 
@@ -223,6 +239,8 @@ LIQ-008 is corrected where the captures show it is wrong:
 - **SP-ORD-02:** the order page also opens and works claims, and shows an exchanges card only while an order has an exchange; added to its tasks and states.
 
 ## 7. Gaps
+
+The owner answered each gap on 2026-11-10 (§14); the register holds the answers. The "Proposed" column is what this record proposed before then.
 
 | ID | Gap | Proposed |
 |---|---|---|
@@ -263,6 +281,7 @@ Both are captured at 390 and 1280 pixels from the HTML the server wrote, rendere
 
 - **Local, at `1342549c` with the pull request's stories and scripts, on a fresh browser-test database:** the seller panel captures, 162 passed; the storefront captures, 2 passed; the comparison, 64 passed, 14 of them run again after the corrections of §4.3; the checks of §8, 9 passed; the emails, 1 passed, and their captures, 4 images.
 - **Spree's specs:** 585 Seller API and 74 core permission examples, 0 failures (§3.2).
+- **After the G-115 correction (§4.4), on a fresh browser-test database:** the full visual check, 4,244 passed and 26 changed; those 26 written again (98 passed); the comparison, 64 passed.
 - **The visual check, locally in the pinned image:** the 234 new references written, and the changed stories' references written again after §4.3 (34 and 28 passed). The full suite runs in CI.
 - **CI:** the two full visual runs, Tests and Packages on the final commit are named in the merge record. Spree's seller panel browser tests run in Tests.
 - **Before each push:** every added line searched for the shapes of keys, tokens, passwords, personal addresses and machine paths; the image conversion checked pixel for pixel; the record's links checked.
@@ -272,7 +291,7 @@ Both are captured at 390 and 1280 pixels from the HTML the server wrote, rendere
 - The comparison is diagnostic and covers 28 of the 117 stories; the rest are seen in a capture or checked against their source (G-116).
 - The captures show what the interface does; they claim nothing about the server beyond the answers recorded in §8.
 - The pending and invited sellers, payouts beyond pending and completed, and carrier and label states need a member, a real provider or a carrier, and are not shown (G-113, P4).
-- The storefront was captured as a guest; a signed-in customer's checkout stays blocked by SD-21.
+- The storefront was captured as a guest only. A signed-in customer's two-seller checkout was not captured. SD-21, which once stopped every signed-in checkout, was fixed in storefront #26 and closed on 2026-11-05, so this is a limit of this part's coverage, not a known defect.
 - The run logs of the captures and the comparison were not kept; their counts are in §10, and every capture and comparison has its own note.
 
 ## 12. Evidence
@@ -281,4 +300,39 @@ The [evidence index](evidence/2026-11-10-fb-19-batch-marketplace-part-2/README.m
 
 ## 13. Delegated acceptance
 
-Criterion 11 is met by delegated acceptance, under the owner's delegation of 2026-11-04 ([record](2026-11-04-delegated-acceptance-and-merging.md)), at #101's final commit, once the acceptance criteria, both visual runs, Tests and Packages pass. That is not the owner's review. SD-72 to SD-81 and G-112 to G-116 stay for the owner's answers, with SD-60 to SD-70 and G-105 to G-111 from part 1. Tenant isolation stays NOT_RUN, ISO-1 to ISO-7 stay open, FB-03 stays paused and the multi-tenant release block stays. These deferrals do not mark unverified behaviour PASS.
+Criterion 11 is met by delegated acceptance, under the owner's delegation of 2026-11-04 ([record](2026-11-04-delegated-acceptance-and-merging.md)), at #101's final commit, once the acceptance criteria, both visual runs, Tests and Packages pass. That is not the owner's review. The owner answered SD-60 to SD-81 and G-105 to G-116 on 2026-11-10 (§14): the approved defects stay open with their fixes deferred, and G-115 was corrected in this pull request before it merged. Tenant isolation stays NOT_RUN, ISO-1 to ISO-7 stay open, FB-03 stays paused and the multi-tenant release block stays. These deferrals do not mark unverified behaviour PASS.
+
+## 14. The owner's answers of 2026-11-10
+
+The owner answered the marketplace defects and gaps of both parts on 2026-11-10, in the project chat, as the third, fourth and fifth items of a longer message. They are recorded here as given, and LIQ-004's rows link to this section.
+
+**Severities.** These are approved defects. They stay open and their fixes wait until after the baseline. The High items are fixed before the workflows they affect are released.
+
+| Severity | Defects |
+|---|---|
+| High | SD-60, SD-72, SD-73 |
+| Medium | SD-61, SD-68, SD-81 |
+| Low | SD-62 to SD-67, SD-69, SD-70, SD-74 to SD-77, SD-79, SD-80 |
+
+SD-78 is an observation for product review, not a defect. That the server accepts a blank first name does not by itself show that the existing contract requires one. The number SD-78 is released as a defect number and never reused.
+
+**The limits of the evidence stay as recorded:**
+- SD-72 shows an additional amount due on the order. It does not show an additional charge by a payment processor.
+- SD-73's exchanges were sent and refused. That claim replacements fail the same way was read in the code, not sent.
+
+**Gaps:**
+
+| Gap | The owner's answer |
+|---|---|
+| G-105, G-114 | Bounded browser checks are scheduled for the operator's 14 behaviours and the seller panel's 16. The behaviours stay unverified until those checks run |
+| G-106 | Linked to G-11 through a named authorization follow-up. The exact refusals and the successful controls are recorded first |
+| G-107 | The documented requirement that suspension prevents new purchases stays (SD-60). A suspended seller's other powers wait for a proposal that sets a policy action by action. They are not approved wholesale as intended |
+| G-108 | Accepted as simulated interface-state coverage only |
+| G-109 | Deferred to P4. The existing provider implementation is identified first. Any missing implementation stays a named gap |
+| G-110 | Linked to G-16 and G-77. Rendering, sending on an event and a provider's delivery stay separate checks |
+| G-111, G-116 | Every remaining story and every state no capture reached goes to the final comparison follow-up or to an explicit exception |
+| G-112 | Stays BLOCKED, with source-only coverage, linked to SD-73. Approving SD-73 does not complete the missing comparison with a running screen |
+| G-113 | Captured in supported lifecycle states. A member given access by the seed, if needed, is diagnostic coverage only. Part 1's operator captures do not show how the seller panel behaves |
+| G-115 | The seller panel stories load the panel's own translations, the affected references are looked at again and the comparisons repeated. Done in this pull request (§4.4) |
+
+**Before merging,** the owner asked for the G-115 correction, a corrected comparison headline and a corrected SD-21 statement (§11). All three are made in this pull request, and it merges only once the acceptance criteria, both visual runs, Tests and Packages pass.
