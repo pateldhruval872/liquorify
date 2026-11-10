@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
-import { fn, screen, userEvent } from 'storybook/test'
+import { expect, fn, screen, userEvent, waitFor } from 'storybook/test'
 import { FulfillmentEditDialog } from '../../../../../dashboard/src/components/spree/orders/fulfillment-edit-dialog'
 import { withStore } from '../../../decorators/store'
 import {
@@ -30,8 +30,11 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 const moveTo = async (name: string) => {
-  await userEvent.click(await screen.findByRole('combobox', { name: 'Ships from' }))
+  const origin = await screen.findByRole('combobox', { name: 'Ships from' })
+  await userEvent.click(origin)
   await userEvent.click(await screen.findByRole('option', { name }))
+  // The select takes focus back once its list has closed, which can come after the next click.
+  await waitFor(() => expect(origin).toHaveFocus())
 }
 
 export const Default: Story = {
