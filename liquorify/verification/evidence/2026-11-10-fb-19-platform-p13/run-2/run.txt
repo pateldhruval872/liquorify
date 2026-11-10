@@ -1,0 +1,128 @@
+== run-2: the browser-test server was started afresh with a new database and answered its readiness request (401, signed out) at 18:02:44 UTC
+== run-2 start 2026-11-10T18:02:44Z
+
+Running 1 test using 1 worker
+
+  ✓  1 fidelity/one-store-checks.spec.ts:927:1 › each kind of assertion fails against a stand-in server that answers wrongly (330ms)
+
+  1 passed (1.1s)
+== run-2 end 2026-11-10T18:02:46Z exit 0
+== run-2 start 2026-11-10T18:02:46Z
+
+Running 1 test using 1 worker
+
+  ✓  1 fidelity/p13-admin.spec.ts:414:1 › the Admin API refuses the customer requests a role does not allow, within one store (13.0s)
+
+  1 passed (13.8s)
+== run-2 end 2026-11-10T18:03:01Z exit 0
+== run-2 start 2026-11-10T18:03:01Z
+
+Running 14 tests using 1 worker
+
+  ✓   1 fidelity/p13-customers.spec.ts:222:3 › a customer's privacy and data (P13, G-97) › A.1 exports a customer's data from the privacy card (4.4s)
+  ✓   2 fidelity/p13-customers.spec.ts:289:3 › a customer's privacy and data (P13, G-97) › A.2 edits an address and deletes another, keeping the one a completed order used (10.3s)
+  ✘   3 fidelity/p13-customers.spec.ts:378:3 › a customer's privacy and data (P13, G-97) › A.3 sets a default billing address, then a default shipping address, from the row menu (6.1s)
+  ✘   4 fidelity/p13-customers.spec.ts:428:3 › a customer's privacy and data (P13, G-97) › A.4 adds, edits and deletes a tax registration, with a refused number and a typed kind (12.8s)
+  ✘   5 fidelity/p13-customers.spec.ts:542:3 › a customer's privacy and data (P13, G-97) › A.5 edits the internal note, then clears it (21.0s)
+  ✓   6 fidelity/p13-customers.spec.ts:577:3 › a customer's privacy and data (P13, G-97) › A.6 deletes an unused store credit, and is refused deleting a used one (7.8s)
+  ✓   7 fidelity/p13-customers.spec.ts:653:3 › the customer list (P13, G-97) › A.7 removes customers from a group, and removes a tag, in bulk (8.6s)
+  ✓   8 fidelity/p13-customers.spec.ts:741:3 › the customer list (P13, G-97) › A.8 filters the list by group, company, tags and erased customers (8.6s)
+  ✓   9 fidelity/p13-customers.spec.ts:843:3 › importing and exporting customers (P13, G-97) › A.9 imports a customer file through the wizard, to the end (11.8s)
+  ✓  10 fidelity/p13-customers.spec.ts:910:3 › importing and exporting customers (P13, G-97) › A.10 exports the customer list (5.4s)
+  ✓  11 fidelity/p13-customers.spec.ts:955:3 › the customer's page (P13, G-97) › A.11 refuses a profile and a new customer with an email another customer has (7.4s)
+  ✓  12 fidelity/p13-customers.spec.ts:1036:3 › the customer's page (P13, G-97) › A.12 the orders card's View all link lists only the customer's orders (12.8s)
+  ✓  13 fidelity/p13-customers.spec.ts:1100:3 › the customer's page (P13, G-97) › A.13 the JSON drawer shows the customer's record (3.1s)
+  ✓  14 fidelity/p13-customers.spec.ts:1134:3 › the customer's page (P13, G-97) › A.14 fills a customer field on a customer's page (4.1s)
+
+
+  1) fidelity/p13-customers.spec.ts:378:3 › a customer's privacy and data (P13, G-97) › A.3 sets a default billing address, then a default shipping address, from the row menu 
+
+    Error: Studio keeps the default shipping (SD-45)
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+      420 |     await save(page, 'A.3-defaults', steps, outside)
+      421 |     expect(outside).toEqual([])
+    > 422 |     expect.soft(shippingKept, 'Studio keeps the default shipping (SD-45)').toBe(true)
+          |                                                                            ^
+      423 |     expect.soft(billingKept, 'Studio keeps the default billing').toBe(true)
+      424 |   })
+      425 |
+        at packages/liquorify-storybook/fidelity/p13-customers.spec.ts:422:76
+
+    Error Context: fidelity/results/test-output/p13-customers-a-customer-s-3412d-g-address-from-the-row-menu/error-context.md
+
+  2) fidelity/p13-customers.spec.ts:428:3 › a customer's privacy and data (P13, G-97) › A.4 adds, edits and deletes a tax registration, with a refused number and a typed kind 
+
+    Error: the refusal says what is wrong (SD-46)
+
+    expect(received).toMatch(expected)
+
+    Expected pattern: /valid EU VAT/i
+    Received string:  "is invalid"
+
+      534 |     await save(page, 'A.4-tax-registrations', steps, outside)
+      535 |     expect(outside).toEqual([])
+    > 536 |     expect.soft(refusalText, 'the refusal says what is wrong (SD-46)').toMatch(/valid EU VAT/i)
+          |                                                                        ^
+      537 |     expect.soft(typedKind, 'the typed kind stays in its field (SD-44)').toBe('nz_gst')
+      538 |   })
+      539 |
+        at packages/liquorify-storybook/fidelity/p13-customers.spec.ts:536:72
+
+    Error: the typed kind stays in its field (SD-44)
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "nz_gst"
+    Received: ""
+
+      535 |     expect(outside).toEqual([])
+      536 |     expect.soft(refusalText, 'the refusal says what is wrong (SD-46)').toMatch(/valid EU VAT/i)
+    > 537 |     expect.soft(typedKind, 'the typed kind stays in its field (SD-44)').toBe('nz_gst')
+          |                                                                         ^
+      538 |   })
+      539 |
+      540 |   // --- A.5: the internal note -----------------------------------------------
+        at packages/liquorify-storybook/fidelity/p13-customers.spec.ts:537:73
+
+    Error Context: fidelity/results/test-output/p13-customers-a-customer-s-9b9dc-sed-number-and-a-typed-kind/error-context.md
+
+  3) fidelity/p13-customers.spec.ts:542:3 › a customer's privacy and data (P13, G-97) › A.5 edits the internal note, then clears it 
+
+    Error: the empty state
+
+    expect(locator).toContainText(expected) failed
+
+    Locator: locator('[data-slot="card"]').filter({ has: locator('[data-slot="card-title"]').filter({ hasText: /^internal note$/i }) }).first()
+    Expected pattern: /no internal notes/i
+    Received string:  "Internal note"
+    Timeout: 15000ms
+
+    Call log:
+      - the empty state locator('[data-slot="card"]').filter({ has: locator('[data-slot="card-title"]').filter({ hasText: /^internal note$/i }) }).first() with timeout 15000ms
+      - waiting for locator('[data-slot="card"]').filter({ has: locator('[data-slot="card-title"]').filter({ hasText: /^internal note$/i }) }).first()
+        34 × locator resolved to <div data-slot="card" data-variant="default" class="group/card flex flex-col min-w-0 overflow-x-clip break-words text-card-foreground shadow-xs rounded-xl border border-border-card bg-card">…</div>
+           - unexpected value "Internal note"
+
+
+      566 |     await expect(editor()).toBeHidden({ timeout: 15_000 })
+      567 |     await reload(page)
+    > 568 |     await expect(note, 'the empty state').toContainText(/no internal notes/i, { timeout: 15_000 })
+          |                                           ^
+      569 |     steps.push({ step: 'cleared the note; after a reload', card: await textOf(note) })
+      570 |
+      571 |     await save(page, 'A.5-note', steps, outside)
+        at packages/liquorify-storybook/fidelity/p13-customers.spec.ts:568:43
+
+    Error Context: fidelity/results/test-output/p13-customers-a-customer-s-edd8a-nternal-note-then-clears-it/error-context.md
+
+  3 failed
+    fidelity/p13-customers.spec.ts:378:3 › a customer's privacy and data (P13, G-97) › A.3 sets a default billing address, then a default shipping address, from the row menu 
+    fidelity/p13-customers.spec.ts:428:3 › a customer's privacy and data (P13, G-97) › A.4 adds, edits and deletes a tax registration, with a refused number and a typed kind 
+    fidelity/p13-customers.spec.ts:542:3 › a customer's privacy and data (P13, G-97) › A.5 edits the internal note, then clears it 
+  11 passed (2.1m)
+== run-2 end 2026-11-10T18:05:08Z exit 0

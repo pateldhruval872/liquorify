@@ -1,0 +1,18 @@
+{
+  "test": "A.12-orders-view-all",
+  "revision": "4a269571",
+  "stamp": "mwazxqf1",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "followed View all",
+      "url": "/store_UkLWZg9DAJ/orders",
+      "ordersOfTheCustomer": 11,
+      "rowsOnTheCard": 10,
+      "listed": 11,
+      "anotherCustomersOrderListed": false,
+      "filterChip": "customer_id equals cust_3uWpPTcf5W"
+    }
+  ],
+  "outside": []
+}

@@ -1,0 +1,14 @@
+{
+  "test": "A.13-json-drawer",
+  "revision": "4a269571",
+  "stamp": "mwazxqf1",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "opened the JSON drawer",
+      "carriesId": true,
+      "carriesEmail": true
+    }
+  ],
+  "outside": []
+}

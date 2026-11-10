@@ -1,0 +1,43 @@
+== Deliberate-failure run of part A, P13_SABOTAGE=1, scripts at 4a269571
+== First run: on its own freshly started server, which answered its readiness request (401, signed out) at 17:53:31 UTC
+== 'passed' below means the test failed, as it is marked to when sabotaged
+== check-run start 2026-11-10T17:53:31Z
+
+Running 14 tests using 1 worker
+
+  ✘   1 fidelity/p13-customers.spec.ts:222:3 › a customer's privacy and data (P13, G-97) › A.1 exports a customer's data from the privacy card (5.2s)
+  ✘   2 fidelity/p13-customers.spec.ts:289:3 › a customer's privacy and data (P13, G-97) › A.2 edits an address and deletes another, keeping the one a completed order used (13.7s)
+  ✘   3 fidelity/p13-customers.spec.ts:378:3 › a customer's privacy and data (P13, G-97) › A.3 sets a default billing address, then a default shipping address, from the row menu (17.6s)
+  ✘   4 fidelity/p13-customers.spec.ts:428:3 › a customer's privacy and data (P13, G-97) › A.4 adds, edits and deletes a tax registration, with a refused number and a typed kind (17.7s)
+  ✘   5 fidelity/p13-customers.spec.ts:542:3 › a customer's privacy and data (P13, G-97) › A.5 edits the internal note, then clears it (19.1s)
+  ✘   6 fidelity/p13-customers.spec.ts:577:3 › a customer's privacy and data (P13, G-97) › A.6 deletes an unused store credit, and is refused deleting a used one (19.3s)
+  ✘   7 fidelity/p13-customers.spec.ts:653:3 › the customer list (P13, G-97) › A.7 removes customers from a group, and removes a tag, in bulk (11.5s)
+  ✘   8 fidelity/p13-customers.spec.ts:741:3 › the customer list (P13, G-97) › A.8 filters the list by group, company, tags and erased customers (3.4s)
+  ✘   9 fidelity/p13-customers.spec.ts:843:3 › importing and exporting customers (P13, G-97) › A.9 imports a customer file through the wizard, to the end (3.0m)
+  ✘  10 fidelity/p13-customers.spec.ts:910:3 › importing and exporting customers (P13, G-97) › A.10 exports the customer list (5.1s)
+  ✘  11 fidelity/p13-customers.spec.ts:955:3 › the customer's page (P13, G-97) › A.11 refuses a profile and a new customer with an email another customer has (17.8s)
+  ✘  12 fidelity/p13-customers.spec.ts:1036:3 › the customer's page (P13, G-97) › A.12 the orders card's View all link lists only the customer's orders (13.3s)
+  ✘  13 fidelity/p13-customers.spec.ts:1100:3 › the customer's page (P13, G-97) › A.13 the JSON drawer shows the customer's record (8.0s)
+  ✘  14 fidelity/p13-customers.spec.ts:1134:3 › the customer's page (P13, G-97) › A.14 fills a customer field on a customer's page (17.7s)
+
+  Slow test file: fidelity/p13-customers.spec.ts (5.9m)
+  Consider running tests from slow files in parallel. See: https://playwright.dev/docs/test-parallel
+  14 passed (5.9m)
+== check-run end 2026-11-10T17:59:26Z exit 0
+
+== Second run: 18:05:40 to 18:11:31 UTC, on the server run-2 had used, with the JSON report kept to read each test's first failing assertion
+== test, expected status, actual status, first failing assertion @ line of p13-customers.spec.ts
+A.1	expected=failed	actual=failed	Error: the profile @256
+A.2	expected=failed	actual=failed	Error: the edited street @356
+A.3	expected=failed	actual=failed	Error: expect(locator).toBeVisible() failed @402
+A.4	expected=failed	actual=failed	Error: the refusal under Number @456
+A.5	expected=failed	actual=failed	Error: the saved note @558
+A.6	expected=failed	actual=failed	Error: expect(locator).toHaveCount(expected) failed @617
+A.7	expected=failed	actual=failed	Error: p13-bulk-one-mwb03may@example.com left the group @716
+A.8	expected=failed	actual=failed	Error: group leaves out member @784
+A.9	expected=failed	actual=failed	Error: expect(locator).toBeVisible() failed @875
+A.10	expected=failed	actual=failed	Error: the file holds the store's customers @944
+A.11	expected=failed	actual=failed	Error: expect(locator).toBeVisible() failed @991
+A.12	expected=failed	actual=failed	Error: another customer's order is not listed @1096
+A.13	expected=failed	actual=failed	Error: the email @1128
+A.14	expected=failed	actual=failed	Error: expect(locator).toBeVisible() failed @1173

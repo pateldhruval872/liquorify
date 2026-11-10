@@ -1,0 +1,72 @@
+{
+  "test": "A.8-filters",
+  "revision": "4a269571",
+  "stamp": "mwb01f49",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "filtered by group",
+      "listed": {
+        "grouped": 1,
+        "member": 0,
+        "tagged": 0,
+        "erased": 0
+      }
+    },
+    {
+      "step": "cleared the group filter",
+      "listed": {
+        "grouped": 1,
+        "member": 1,
+        "tagged": 1,
+        "erased": 0
+      }
+    },
+    {
+      "step": "filtered by company",
+      "listed": {
+        "grouped": 0,
+        "member": 1,
+        "tagged": 0,
+        "erased": 0
+      }
+    },
+    {
+      "step": "cleared the company filter",
+      "listed": {
+        "grouped": 1,
+        "member": 1,
+        "tagged": 1,
+        "erased": 0
+      }
+    },
+    {
+      "step": "filtered by tags",
+      "listed": {
+        "grouped": 0,
+        "member": 0,
+        "tagged": 1,
+        "erased": 0
+      }
+    },
+    {
+      "step": "cleared the tags filter",
+      "listed": {
+        "grouped": 1,
+        "member": 1,
+        "tagged": 1,
+        "erased": 0
+      }
+    },
+    {
+      "step": "filtered by erased",
+      "listed": {
+        "grouped": 0,
+        "member": 0,
+        "tagged": 0,
+        "erased": 1
+      }
+    }
+  ],
+  "outside": []
+}
