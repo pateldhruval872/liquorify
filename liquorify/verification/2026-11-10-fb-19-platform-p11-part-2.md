@@ -143,3 +143,5 @@ Whether the confirmation, cancellation and download emails are delivered stays w
 ## 6. Closing
 
 Under the owner's delegation, as delegated acceptance, not the owner's review. G-90 closes when every action 2.1 to 2.21 has a test that passes in both recorded runs or fails only on SD-34 or another defect recorded under criterion 4, and action 2.21 follows the owner's answer to row 39. Thirteen pass, and 2.8 fails only on SD-34. G-90 stays OPEN because 2.3 is NOT_RUN, row 39 is unanswered, and 2.9, 2.15, 2.17, 2.19 and 2.20 fail on behaviours held for the owner.
+
+**The owner's answer, 2026-11-10** ([record](2026-11-10-fb-19-platform-p11-owner-decisions.md)). SD-32 is accepted as a High defect, an incomplete payment-link capability, and FL-08's payment steps stay failing or unavailable. SD-58 and SD-59 are accepted as Low. B10 and B13 are recorded as SD-82 and SD-83, Low, and B14 as SD-84, Medium. Every failing test is kept. G-90 stays OPEN for 2.3 alone, DEFERRED to P4.
