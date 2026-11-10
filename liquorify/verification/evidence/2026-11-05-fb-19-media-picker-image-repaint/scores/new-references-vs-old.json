@@ -1,0 +1,38 @@
+{
+ "old": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": false,
+   "counted": 34,
+   "changed": 99,
+   "largest": 34,
+   "failsAt25": true,
+   "failsAt60": false
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": false,
+   "counted": 25,
+   "changed": 107,
+   "largest": 32,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ },
+ "repaint1": {
+  "dashboard-core-media-picker-sheet--two-picked/light.png": {
+   "identical": true,
+   "counted": 0,
+   "changed": 0,
+   "largest": 0,
+   "failsAt25": false,
+   "failsAt60": false
+  },
+  "dashboard-core-media-picker-sheet--two-picked/dark.png": {
+   "identical": true,
+   "counted": 0,
+   "changed": 0,
+   "largest": 0,
+   "failsAt25": false,
+   "failsAt60": false
+  }
+ }
+}
