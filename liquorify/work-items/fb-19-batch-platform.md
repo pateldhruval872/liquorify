@@ -736,6 +736,17 @@ A **control** is the same request from a caller who may make it, in the same run
 
 G-11 closes only when G-99 has closed with the other gaps linked to it. Until a gap closes, the functional verification it names stays open, and no capability it touches is described as passing for it.
 
+#### P13-R: the registry check
+
+P13 ran on 2026-11-10 ([record](../verification/2026-11-10-fb-19-platform-p13.md)). G-99 closed. G-97 met its closing condition for every behaviour except A.4's registry check, which was NOT_RUN because the browser-test server registers no tax number validator. On 2026-11-10 the owner kept G-97 open for that check, with this named follow-up ([record §8](../verification/2026-11-10-fb-19-platform-p13.md#8-the-owners-answers-2026-11-10)). The three failing tests, A.3, A.4 and A.5, and their results stay as P13 recorded them.
+
+| What | Detail |
+|---|---|
+| Behaviour | Checking a customer's tax registration number with a registry, from the tax registration card |
+| Expected result | The check runs, and the card shows the registry's verdict for the number after a reload |
+| Dependency | A validator registered on the server the tests use, by a means the owner approves. No real registry is called, and nothing leaves the test environment |
+| Closing | G-97 closes when this check passes in two recorded runs on freshly started servers, and is shown to fail when the verdict is not shown |
+
 ### P14: the marketplace refusals, a follow-up to P10
 
 P10 and P12 did not send the marketplace's requests. Batch 13's part 1 (#98) recorded them as G-106: what the server refuses to the narrower seller roles beyond Spree's own specs, such as the seller viewer's refusals beyond the balances, the order manager's refusals on the commission and transfer endpoints, and a store settings role on the seller endpoints ([part 1's record §3.2](../verification/2026-11-10-fb-19-batch-marketplace-part-1.md#32-what-the-server-refuses)). On 2026-11-10 the owner linked G-106 to G-11 through a named authorization follow-up, with the exact refusals and the successful controls recorded first ([record §14](../verification/2026-11-10-fb-19-batch-marketplace-part-2.md#14-the-owners-answers-of-2026-11-10)). P14 is that follow-up. P10's and P12's records are unchanged and claim nothing about these requests.

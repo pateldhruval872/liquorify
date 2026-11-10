@@ -1,0 +1,7 @@
+== Kept apart from P13's two recorded runs. A.9 tests a row with no email, not a malformed one, so this is SD-95's own evidence.
+== Spree's code as on main at 0057cc53. Each POST sends only email, first_name and last_name; ids are not kept.
+== SD-95 reproduction through the Admin API, 2026-11-10T20:00:31.807Z, as the browser tests' admin, on a freshly started browser-test server
+{"request":"POST /api/v3/admin/customers","sentEmail":"p13-sd95-no-at-sign.example.com","status":201,"error":null,"details":null,"created":true,"emailReadBack":"p13-sd95-no-at-sign.example.com"}
+{"request":"POST /api/v3/admin/customers","sentEmail":"p13 sd95 spaces@example","status":201,"error":null,"details":null,"created":true,"emailReadBack":"p13 sd95 spaces@example"}
+{"request":"POST /api/v3/admin/customers","sentEmail":"","status":422,"error":"validation_error","details":{"email":[{"code":"blank","message":"can't be blank","specific":false}]},"created":false,"emailReadBack":null}
+== Control: the empty email is refused, so the server does check the field; it accepts the two malformed addresses and reads them back unchanged.
