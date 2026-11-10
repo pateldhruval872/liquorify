@@ -1,0 +1,3322 @@
+{
+  "revision": "8e2e5482",
+  "run": 1794261604957,
+  "store": "default",
+  "gaps": {
+    "G-91": {
+      "cases": 27,
+      "attempts": 50,
+      "passed": 27,
+      "failed": []
+    },
+    "G-95": {
+      "cases": 21,
+      "attempts": 24,
+      "passed": 21,
+      "failed": []
+    }
+  },
+  "cases": [
+    {
+      "gap": "G-91",
+      "area": "orders",
+      "title": "1.1 Save an order's contact email",
+      "request": "PATCH /api/v3/admin/orders/<id>",
+      "attempts": [
+        {
+          "caller": "support",
+          "permissionKeys": [
+            "read_dashboard",
+            "read_orders",
+            "read_customers"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": true
+        },
+        {
+          "caller": "packer",
+          "permissionKeys": [
+            "read_orders",
+            "read_fulfillments",
+            "write_fulfillments"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "orderManager",
+        "permissionKeys": [
+          "read_orders",
+          "write_orders",
+          "read_payments",
+          "write_payments",
+          "read_fulfillments",
+          "write_fulfillments",
+          "read_refunds",
+          "write_refunds",
+          "read_customers",
+          "read_gift_cards",
+          "write_gift_cards",
+          "read_store_credits",
+          "write_store_credits"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-91",
+      "area": "orders",
+      "title": "1.2 Save an order's notes",
+      "request": "PATCH /api/v3/admin/orders/<id>",
+      "attempts": [
+        {
+          "caller": "support",
+          "permissionKeys": [
+            "read_dashboard",
+            "read_orders",
+            "read_customers"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": true
+        },
+        {
+          "caller": "packer",
+          "permissionKeys": [
+            "read_orders",
+            "read_fulfillments",
+            "write_fulfillments"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "orderManager",
+        "permissionKeys": [
+          "read_orders",
+          "write_orders",
+          "read_payments",
+          "write_payments",
+          "read_fulfillments",
+          "write_fulfillments",
+          "read_refunds",
+          "write_refunds",
+          "read_customers",
+          "read_gift_cards",
+          "write_gift_cards",
+          "read_store_credits",
+          "write_store_credits"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-91",
+      "area": "orders",
+      "title": "1.3 Save an order's shipping and billing address",
+      "request": "PATCH /api/v3/admin/orders/<id>",
+      "attempts": [
+        {
+          "caller": "support",
+          "permissionKeys": [
+            "read_dashboard",
+            "read_orders",
+            "read_customers"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": true
+        },
+        {
+          "caller": "packer",
+          "permissionKeys": [
+            "read_orders",
+            "read_fulfillments",
+            "write_fulfillments"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "orderManager",
+        "permissionKeys": [
+          "read_orders",
+          "write_orders",
+          "read_payments",
+          "write_payments",
+          "read_fulfillments",
+          "write_fulfillments",
+          "read_refunds",
+          "write_refunds",
+          "read_customers",
+          "read_gift_cards",
+          "write_gift_cards",
+          "read_store_credits",
+          "write_store_credits"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-91",
+      "area": "orders",
+      "title": "1.4 Add a discount",
+      "request": "POST /api/v3/admin/orders/<id>/discounts",
+      "attempts": [
+        {
+          "caller": "support",
+          "permissionKeys": [
+            "read_dashboard",
+            "read_orders",
+            "read_customers"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": true
+        },
+        {
+          "caller": "packer",
+          "permissionKeys": [
+            "read_orders",
+            "read_fulfillments",
+            "write_fulfillments"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "orderManager",
+        "permissionKeys": [
+          "read_orders",
+          "write_orders",
+          "read_payments",
+          "write_payments",
+          "read_fulfillments",
+          "write_fulfillments",
+          "read_refunds",
+          "write_refunds",
+          "read_customers",
+          "read_gift_cards",
+          "write_gift_cards",
+          "read_store_credits",
+          "write_store_credits"
+        ],
+        "expectedStatus": 201,
+        "status": 201,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-91",
+      "area": "orders",
+      "title": "1.5 Change a discount",
+      "request": "PATCH /api/v3/admin/orders/<id>/discounts/<id>",
+      "attempts": [
+        {
+          "caller": "support",
+          "permissionKeys": [
+            "read_dashboard",
+            "read_orders",
+            "read_customers"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": true
+        },
+        {
+          "caller": "packer",
+          "permissionKeys": [
+            "read_orders",
+            "read_fulfillments",
+            "write_fulfillments"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "orderManager",
+        "permissionKeys": [
+          "read_orders",
+          "write_orders",
+          "read_payments",
+          "write_payments",
+          "read_fulfillments",
+          "write_fulfillments",
+          "read_refunds",
+          "write_refunds",
+          "read_customers",
+          "read_gift_cards",
+          "write_gift_cards",
+          "read_store_credits",
+          "write_store_credits"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-91",
+      "area": "orders",
+      "title": "1.6 Remove a discount",
+      "request": "DELETE /api/v3/admin/orders/<id>/discounts/<id>",
+      "attempts": [
+        {
+          "caller": "support",
+          "permissionKeys": [
+            "read_dashboard",
+            "read_orders",
+            "read_customers"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": true
+        },
+        {
+          "caller": "packer",
+          "permissionKeys": [
+            "read_orders",
+            "read_fulfillments",
+            "write_fulfillments"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "orderManager",
+        "permissionKeys": [
+          "read_orders",
+          "write_orders",
+          "read_payments",
+          "write_payments",
+          "read_fulfillments",
+          "write_fulfillments",
+          "read_refunds",
+          "write_refunds",
+          "read_customers",
+          "read_gift_cards",
+          "write_gift_cards",
+          "read_store_credits",
+          "write_store_credits"
+        ],
+        "expectedStatus": 204,
+        "status": 204,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-91",
+      "area": "orders",
+      "title": "1.7 Add a fee",
+      "request": "POST /api/v3/admin/orders/<id>/fees",
+      "attempts": [
+        {
+          "caller": "support",
+          "permissionKeys": [
+            "read_dashboard",
+            "read_orders",
+            "read_customers"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": true
+        },
+        {
+          "caller": "packer",
+          "permissionKeys": [
+            "read_orders",
+            "read_fulfillments",
+            "write_fulfillments"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "orderManager",
+        "permissionKeys": [
+          "read_orders",
+          "write_orders",
+          "read_payments",
+          "write_payments",
+          "read_fulfillments",
+          "write_fulfillments",
+          "read_refunds",
+          "write_refunds",
+          "read_customers",
+          "read_gift_cards",
+          "write_gift_cards",
+          "read_store_credits",
+          "write_store_credits"
+        ],
+        "expectedStatus": 201,
+        "status": 201,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-91",
+      "area": "orders",
+      "title": "1.8 Change a fee",
+      "request": "PATCH /api/v3/admin/orders/<id>/fees/<id>",
+      "attempts": [
+        {
+          "caller": "support",
+          "permissionKeys": [
+            "read_dashboard",
+            "read_orders",
+            "read_customers"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": true
+        },
+        {
+          "caller": "packer",
+          "permissionKeys": [
+            "read_orders",
+            "read_fulfillments",
+            "write_fulfillments"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "orderManager",
+        "permissionKeys": [
+          "read_orders",
+          "write_orders",
+          "read_payments",
+          "write_payments",
+          "read_fulfillments",
+          "write_fulfillments",
+          "read_refunds",
+          "write_refunds",
+          "read_customers",
+          "read_gift_cards",
+          "write_gift_cards",
+          "read_store_credits",
+          "write_store_credits"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-91",
+      "area": "orders",
+      "title": "1.9 Remove a fee",
+      "request": "DELETE /api/v3/admin/orders/<id>/fees/<id>",
+      "attempts": [
+        {
+          "caller": "support",
+          "permissionKeys": [
+            "read_dashboard",
+            "read_orders",
+            "read_customers"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": true
+        },
+        {
+          "caller": "packer",
+          "permissionKeys": [
+            "read_orders",
+            "read_fulfillments",
+            "write_fulfillments"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "orderManager",
+        "permissionKeys": [
+          "read_orders",
+          "write_orders",
+          "read_payments",
+          "write_payments",
+          "read_fulfillments",
+          "write_fulfillments",
+          "read_refunds",
+          "write_refunds",
+          "read_customers",
+          "read_gift_cards",
+          "write_gift_cards",
+          "read_store_credits",
+          "write_store_credits"
+        ],
+        "expectedStatus": 204,
+        "status": 204,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-91",
+      "area": "orders",
+      "title": "1.10 Add a payment from the payments card",
+      "request": "POST /api/v3/admin/orders/<id>/payments",
+      "attempts": [
+        {
+          "caller": "support",
+          "permissionKeys": [
+            "read_dashboard",
+            "read_orders",
+            "read_customers"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_payments"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_payments"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": true
+        },
+        {
+          "caller": "packer",
+          "permissionKeys": [
+            "read_orders",
+            "read_fulfillments",
+            "write_fulfillments"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_payments"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_payments"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "admin",
+        "permissionKeys": [
+          "read_dashboard",
+          "read_reports",
+          "write_reports",
+          "read_orders",
+          "write_orders",
+          "read_payments",
+          "write_payments",
+          "read_fulfillments",
+          "write_fulfillments",
+          "read_refunds",
+          "write_refunds",
+          "read_products",
+          "write_products",
+          "read_product_types",
+          "write_product_types",
+          "read_publishing",
+          "write_publishing",
+          "read_media",
+          "write_media",
+          "read_categories",
+          "write_categories",
+          "read_collections",
+          "write_collections",
+          "read_stock",
+          "write_stock",
+          "read_purchasing",
+          "write_purchasing",
+          "read_customers",
+          "write_customers",
+          "read_sellers",
+          "write_sellers",
+          "read_commissions",
+          "write_commissions",
+          "read_payouts",
+          "write_payouts",
+          "read_gift_cards",
+          "write_gift_cards",
+          "read_store_credits",
+          "write_store_credits",
+          "read_promotions",
+          "write_promotions",
+          "read_settings",
+          "write_settings",
+          "read_delivery_methods",
+          "write_delivery_methods",
+          "read_package_types",
+          "write_package_types",
+          "read_webhooks",
+          "write_webhooks",
+          "read_email_templates",
+          "write_email_templates",
+          "read_integrations",
+          "write_integrations",
+          "read_api_keys",
+          "write_api_keys",
+          "read_oauth_applications",
+          "write_oauth_applications",
+          "read_staff",
+          "write_staff"
+        ],
+        "expectedStatus": 201,
+        "status": 201,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-91",
+      "area": "orders",
+      "title": "1.11 Capture an authorized payment",
+      "request": "PATCH /api/v3/admin/orders/<id>/payments/<id>/capture",
+      "attempts": [
+        {
+          "caller": "support",
+          "permissionKeys": [
+            "read_dashboard",
+            "read_orders",
+            "read_customers"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_payments"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_payments"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": true
+        },
+        {
+          "caller": "packer",
+          "permissionKeys": [
+            "read_orders",
+            "read_fulfillments",
+            "write_fulfillments"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_payments"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_payments"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "orderManager",
+        "permissionKeys": [
+          "read_orders",
+          "write_orders",
+          "read_payments",
+          "write_payments",
+          "read_fulfillments",
+          "write_fulfillments",
+          "read_refunds",
+          "write_refunds",
+          "read_customers",
+          "read_gift_cards",
+          "write_gift_cards",
+          "read_store_credits",
+          "write_store_credits"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-91",
+      "area": "orders",
+      "title": "1.12 Void an authorized payment",
+      "request": "PATCH /api/v3/admin/orders/<id>/payments/<id>/void",
+      "attempts": [
+        {
+          "caller": "support",
+          "permissionKeys": [
+            "read_dashboard",
+            "read_orders",
+            "read_customers"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_payments"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_payments"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": true
+        },
+        {
+          "caller": "packer",
+          "permissionKeys": [
+            "read_orders",
+            "read_fulfillments",
+            "write_fulfillments"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_payments"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_payments"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "orderManager",
+        "permissionKeys": [
+          "read_orders",
+          "write_orders",
+          "read_payments",
+          "write_payments",
+          "read_fulfillments",
+          "write_fulfillments",
+          "read_refunds",
+          "write_refunds",
+          "read_customers",
+          "read_gift_cards",
+          "write_gift_cards",
+          "read_store_credits",
+          "write_store_credits"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-91",
+      "area": "orders",
+      "title": "1.13 Apply a discount code",
+      "request": "POST /api/v3/admin/orders/<id>/discount_codes",
+      "attempts": [
+        {
+          "caller": "support",
+          "permissionKeys": [
+            "read_dashboard",
+            "read_orders",
+            "read_customers"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": true
+        },
+        {
+          "caller": "packer",
+          "permissionKeys": [
+            "read_orders",
+            "read_fulfillments",
+            "write_fulfillments"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "orderManager",
+        "permissionKeys": [
+          "read_orders",
+          "write_orders",
+          "read_payments",
+          "write_payments",
+          "read_fulfillments",
+          "write_fulfillments",
+          "read_refunds",
+          "write_refunds",
+          "read_customers",
+          "read_gift_cards",
+          "write_gift_cards",
+          "read_store_credits",
+          "write_store_credits"
+        ],
+        "expectedStatus": 201,
+        "status": 201,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-91",
+      "area": "orders",
+      "title": "1.14 Remove a discount code",
+      "request": "DELETE /api/v3/admin/orders/<id>/discount_codes/p12code1794261604957",
+      "attempts": [
+        {
+          "caller": "support",
+          "permissionKeys": [
+            "read_dashboard",
+            "read_orders",
+            "read_customers"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": true
+        },
+        {
+          "caller": "packer",
+          "permissionKeys": [
+            "read_orders",
+            "read_fulfillments",
+            "write_fulfillments"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "orderManager",
+        "permissionKeys": [
+          "read_orders",
+          "write_orders",
+          "read_payments",
+          "write_payments",
+          "read_fulfillments",
+          "write_fulfillments",
+          "read_refunds",
+          "write_refunds",
+          "read_customers",
+          "read_gift_cards",
+          "write_gift_cards",
+          "read_store_credits",
+          "write_store_credits"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-91",
+      "area": "orders",
+      "title": "1.15 Apply a gift card",
+      "request": "POST /api/v3/admin/orders/<id>/gift_cards",
+      "attempts": [
+        {
+          "caller": "support",
+          "permissionKeys": [
+            "read_dashboard",
+            "read_orders",
+            "read_customers"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": true
+        },
+        {
+          "caller": "packer",
+          "permissionKeys": [
+            "read_orders",
+            "read_fulfillments",
+            "write_fulfillments"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "orderManager",
+        "permissionKeys": [
+          "read_orders",
+          "write_orders",
+          "read_payments",
+          "write_payments",
+          "read_fulfillments",
+          "write_fulfillments",
+          "read_refunds",
+          "write_refunds",
+          "read_customers",
+          "read_gift_cards",
+          "write_gift_cards",
+          "read_store_credits",
+          "write_store_credits"
+        ],
+        "expectedStatus": 201,
+        "status": 201,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-91",
+      "area": "orders",
+      "title": "1.16 Remove the gift card",
+      "request": "DELETE /api/v3/admin/orders/<id>/gift_cards/<id>",
+      "attempts": [
+        {
+          "caller": "support",
+          "permissionKeys": [
+            "read_dashboard",
+            "read_orders",
+            "read_customers"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": true
+        },
+        {
+          "caller": "packer",
+          "permissionKeys": [
+            "read_orders",
+            "read_fulfillments",
+            "write_fulfillments"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "orderManager",
+        "permissionKeys": [
+          "read_orders",
+          "write_orders",
+          "read_payments",
+          "write_payments",
+          "read_fulfillments",
+          "write_fulfillments",
+          "read_refunds",
+          "write_refunds",
+          "read_customers",
+          "read_gift_cards",
+          "write_gift_cards",
+          "read_store_credits",
+          "write_store_credits"
+        ],
+        "expectedStatus": 204,
+        "status": 204,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-91",
+      "area": "orders",
+      "title": "1.17 Add an item",
+      "request": "POST /api/v3/admin/orders/<id>/items",
+      "attempts": [
+        {
+          "caller": "support",
+          "permissionKeys": [
+            "read_dashboard",
+            "read_orders",
+            "read_customers"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": true
+        },
+        {
+          "caller": "packer",
+          "permissionKeys": [
+            "read_orders",
+            "read_fulfillments",
+            "write_fulfillments"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "orderManager",
+        "permissionKeys": [
+          "read_orders",
+          "write_orders",
+          "read_payments",
+          "write_payments",
+          "read_fulfillments",
+          "write_fulfillments",
+          "read_refunds",
+          "write_refunds",
+          "read_customers",
+          "read_gift_cards",
+          "write_gift_cards",
+          "read_store_credits",
+          "write_store_credits"
+        ],
+        "expectedStatus": 201,
+        "status": 201,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-91",
+      "area": "orders",
+      "title": "1.18 Change an item's quantity",
+      "request": "PATCH /api/v3/admin/orders/<id>/items/<id>",
+      "attempts": [
+        {
+          "caller": "support",
+          "permissionKeys": [
+            "read_dashboard",
+            "read_orders",
+            "read_customers"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": true
+        },
+        {
+          "caller": "packer",
+          "permissionKeys": [
+            "read_orders",
+            "read_fulfillments",
+            "write_fulfillments"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "orderManager",
+        "permissionKeys": [
+          "read_orders",
+          "write_orders",
+          "read_payments",
+          "write_payments",
+          "read_fulfillments",
+          "write_fulfillments",
+          "read_refunds",
+          "write_refunds",
+          "read_customers",
+          "read_gift_cards",
+          "write_gift_cards",
+          "read_store_credits",
+          "write_store_credits"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-91",
+      "area": "orders",
+      "title": "1.19 Remove an item",
+      "request": "DELETE /api/v3/admin/orders/<id>/items/<id>",
+      "attempts": [
+        {
+          "caller": "support",
+          "permissionKeys": [
+            "read_dashboard",
+            "read_orders",
+            "read_customers"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": true
+        },
+        {
+          "caller": "packer",
+          "permissionKeys": [
+            "read_orders",
+            "read_fulfillments",
+            "write_fulfillments"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "orderManager",
+        "permissionKeys": [
+          "read_orders",
+          "write_orders",
+          "read_payments",
+          "write_payments",
+          "read_fulfillments",
+          "write_fulfillments",
+          "read_refunds",
+          "write_refunds",
+          "read_customers",
+          "read_gift_cards",
+          "write_gift_cards",
+          "read_store_credits",
+          "write_store_credits"
+        ],
+        "expectedStatus": 204,
+        "status": 204,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-91",
+      "area": "orders",
+      "title": "1.20 Create a draft from the new order page",
+      "request": "POST /api/v3/admin/orders",
+      "attempts": [
+        {
+          "caller": "support",
+          "permissionKeys": [
+            "read_dashboard",
+            "read_orders",
+            "read_customers"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": true
+        },
+        {
+          "caller": "packer",
+          "permissionKeys": [
+            "read_orders",
+            "read_fulfillments",
+            "write_fulfillments"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "orderManager",
+        "permissionKeys": [
+          "read_orders",
+          "write_orders",
+          "read_payments",
+          "write_payments",
+          "read_fulfillments",
+          "write_fulfillments",
+          "read_refunds",
+          "write_refunds",
+          "read_customers",
+          "read_gift_cards",
+          "write_gift_cards",
+          "read_store_credits",
+          "write_store_credits"
+        ],
+        "expectedStatus": 201,
+        "status": 201,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-91",
+      "area": "orders",
+      "title": "1.21 Cancel a placed order",
+      "request": "PATCH /api/v3/admin/orders/<id>/cancel",
+      "attempts": [
+        {
+          "caller": "support",
+          "permissionKeys": [
+            "read_dashboard",
+            "read_orders",
+            "read_customers"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": true
+        },
+        {
+          "caller": "packer",
+          "permissionKeys": [
+            "read_orders",
+            "read_fulfillments",
+            "write_fulfillments"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "orderManager",
+        "permissionKeys": [
+          "read_orders",
+          "write_orders",
+          "read_payments",
+          "write_payments",
+          "read_fulfillments",
+          "write_fulfillments",
+          "read_refunds",
+          "write_refunds",
+          "read_customers",
+          "read_gift_cards",
+          "write_gift_cards",
+          "read_store_credits",
+          "write_store_credits"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-91",
+      "area": "orders",
+      "title": "1.22 Read an order's payments",
+      "request": "GET /api/v3/admin/orders/<id>/payments",
+      "attempts": [
+        {
+          "caller": "support",
+          "permissionKeys": [
+            "read_dashboard",
+            "read_orders",
+            "read_customers"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_payments"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_payments"
+          },
+          "asExpected": true,
+          "exposureChecked": 2,
+          "exposed": [],
+          "unchanged": null
+        },
+        {
+          "caller": "packer",
+          "permissionKeys": [
+            "read_orders",
+            "read_fulfillments",
+            "write_fulfillments"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_payments"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_payments"
+          },
+          "asExpected": true,
+          "exposureChecked": 2,
+          "exposed": [],
+          "unchanged": null
+        }
+      ],
+      "control": {
+        "caller": "orderManager",
+        "permissionKeys": [
+          "read_orders",
+          "write_orders",
+          "read_payments",
+          "write_payments",
+          "read_fulfillments",
+          "write_fulfillments",
+          "read_refunds",
+          "write_refunds",
+          "read_customers",
+          "read_gift_cards",
+          "write_gift_cards",
+          "read_store_credits",
+          "write_store_credits"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": true,
+        "changed": null
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-91",
+      "area": "orders",
+      "title": "1.23 Read one payment",
+      "request": "GET /api/v3/admin/orders/<id>/payments/<id>",
+      "attempts": [
+        {
+          "caller": "support",
+          "permissionKeys": [
+            "read_dashboard",
+            "read_orders",
+            "read_customers"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_payments"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_payments"
+          },
+          "asExpected": true,
+          "exposureChecked": 2,
+          "exposed": [],
+          "unchanged": null
+        },
+        {
+          "caller": "packer",
+          "permissionKeys": [
+            "read_orders",
+            "read_fulfillments",
+            "write_fulfillments"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_payments"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_payments"
+          },
+          "asExpected": true,
+          "exposureChecked": 2,
+          "exposed": [],
+          "unchanged": null
+        }
+      ],
+      "control": {
+        "caller": "orderManager",
+        "permissionKeys": [
+          "read_orders",
+          "write_orders",
+          "read_payments",
+          "write_payments",
+          "read_fulfillments",
+          "write_fulfillments",
+          "read_refunds",
+          "write_refunds",
+          "read_customers",
+          "read_gift_cards",
+          "write_gift_cards",
+          "read_store_credits",
+          "write_store_credits"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": true,
+        "changed": null
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-91",
+      "area": "orders",
+      "title": "1.24 Read the store's cancellation reasons",
+      "request": "GET /api/v3/admin/order_cancellation_reasons?limit=100",
+      "attempts": [
+        {
+          "caller": "orderManager",
+          "permissionKeys": [
+            "read_orders",
+            "write_orders",
+            "read_payments",
+            "write_payments",
+            "read_fulfillments",
+            "write_fulfillments",
+            "read_refunds",
+            "write_refunds",
+            "read_customers",
+            "read_gift_cards",
+            "write_gift_cards",
+            "read_store_credits",
+            "write_store_credits"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_settings"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_settings"
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": null
+        }
+      ],
+      "control": {
+        "caller": "settingsViewer",
+        "permissionKeys": [
+          "read_settings"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": true,
+        "changed": null
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-91",
+      "area": "orders",
+      "title": "1.25 Read the order list",
+      "request": "GET /api/v3/admin/orders?limit=100",
+      "attempts": [
+        {
+          "caller": "merchandiser",
+          "permissionKeys": [
+            "read_products",
+            "write_products",
+            "read_categories",
+            "write_categories",
+            "read_collections",
+            "write_collections",
+            "read_stock",
+            "write_stock"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_orders"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_orders"
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": null
+        }
+      ],
+      "control": {
+        "caller": "support",
+        "permissionKeys": [
+          "read_dashboard",
+          "read_orders",
+          "read_customers"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": true,
+        "changed": null
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-91",
+      "area": "orders",
+      "title": "1.26 Read the draft list",
+      "request": "GET /api/v3/admin/orders?incomplete=1&limit=100",
+      "attempts": [
+        {
+          "caller": "merchandiser",
+          "permissionKeys": [
+            "read_products",
+            "write_products",
+            "read_categories",
+            "write_categories",
+            "read_collections",
+            "write_collections",
+            "read_stock",
+            "write_stock"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_orders"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_orders"
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": null
+        }
+      ],
+      "control": {
+        "caller": "support",
+        "permissionKeys": [
+          "read_dashboard",
+          "read_orders",
+          "read_customers"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": true,
+        "changed": null
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-91",
+      "area": "orders",
+      "title": "1.27 Read an order",
+      "request": "GET /api/v3/admin/orders/<id>",
+      "attempts": [
+        {
+          "caller": "merchandiser",
+          "permissionKeys": [
+            "read_products",
+            "write_products",
+            "read_categories",
+            "write_categories",
+            "read_collections",
+            "write_collections",
+            "read_stock",
+            "write_stock"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_orders"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_orders"
+          },
+          "asExpected": true,
+          "exposureChecked": 2,
+          "exposed": [],
+          "unchanged": null
+        }
+      ],
+      "control": {
+        "caller": "support",
+        "permissionKeys": [
+          "read_dashboard",
+          "read_orders",
+          "read_customers"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": true,
+        "changed": null
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-95",
+      "area": "after the sale",
+      "title": "2.1 Create a fulfilment for waiting units",
+      "request": "POST /api/v3/admin/orders/<id>/fulfillments",
+      "attempts": [
+        {
+          "caller": "support",
+          "permissionKeys": [
+            "read_dashboard",
+            "read_orders",
+            "read_customers"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_fulfillments"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_fulfillments"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "admin",
+        "permissionKeys": [
+          "read_dashboard",
+          "read_reports",
+          "write_reports",
+          "read_orders",
+          "write_orders",
+          "read_payments",
+          "write_payments",
+          "read_fulfillments",
+          "write_fulfillments",
+          "read_refunds",
+          "write_refunds",
+          "read_products",
+          "write_products",
+          "read_product_types",
+          "write_product_types",
+          "read_publishing",
+          "write_publishing",
+          "read_media",
+          "write_media",
+          "read_categories",
+          "write_categories",
+          "read_collections",
+          "write_collections",
+          "read_stock",
+          "write_stock",
+          "read_purchasing",
+          "write_purchasing",
+          "read_customers",
+          "write_customers",
+          "read_sellers",
+          "write_sellers",
+          "read_commissions",
+          "write_commissions",
+          "read_payouts",
+          "write_payouts",
+          "read_gift_cards",
+          "write_gift_cards",
+          "read_store_credits",
+          "write_store_credits",
+          "read_promotions",
+          "write_promotions",
+          "read_settings",
+          "write_settings",
+          "read_delivery_methods",
+          "write_delivery_methods",
+          "read_package_types",
+          "write_package_types",
+          "read_webhooks",
+          "write_webhooks",
+          "read_email_templates",
+          "write_email_templates",
+          "read_integrations",
+          "write_integrations",
+          "read_api_keys",
+          "write_api_keys",
+          "read_oauth_applications",
+          "write_oauth_applications",
+          "read_staff",
+          "write_staff"
+        ],
+        "expectedStatus": 201,
+        "status": 201,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-95",
+      "area": "after the sale",
+      "title": "2.2 Save a fulfilment's tracking",
+      "request": "PATCH /api/v3/admin/orders/<id>/fulfillments/<id>",
+      "attempts": [
+        {
+          "caller": "support",
+          "permissionKeys": [
+            "read_dashboard",
+            "read_orders",
+            "read_customers"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_fulfillments"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_fulfillments"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "orderManager",
+        "permissionKeys": [
+          "read_orders",
+          "write_orders",
+          "read_payments",
+          "write_payments",
+          "read_fulfillments",
+          "write_fulfillments",
+          "read_refunds",
+          "write_refunds",
+          "read_customers",
+          "read_gift_cards",
+          "write_gift_cards",
+          "read_store_credits",
+          "write_store_credits"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-95",
+      "area": "after the sale",
+      "title": "2.3 Split a fulfilment",
+      "request": "PATCH /api/v3/admin/orders/<id>/fulfillments/<id>/split",
+      "attempts": [
+        {
+          "caller": "support",
+          "permissionKeys": [
+            "read_dashboard",
+            "read_orders",
+            "read_customers"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_fulfillments"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_fulfillments"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "orderManager",
+        "permissionKeys": [
+          "read_orders",
+          "write_orders",
+          "read_payments",
+          "write_payments",
+          "read_fulfillments",
+          "write_fulfillments",
+          "read_refunds",
+          "write_refunds",
+          "read_customers",
+          "read_gift_cards",
+          "write_gift_cards",
+          "read_store_credits",
+          "write_store_credits"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-95",
+      "area": "after the sale",
+      "title": "2.4 Mark a fulfilment as fulfilled",
+      "request": "PATCH /api/v3/admin/orders/<id>/fulfillments/<id>/fulfill",
+      "attempts": [
+        {
+          "caller": "support",
+          "permissionKeys": [
+            "read_dashboard",
+            "read_orders",
+            "read_customers"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_fulfillments"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_fulfillments"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "orderManager",
+        "permissionKeys": [
+          "read_orders",
+          "write_orders",
+          "read_payments",
+          "write_payments",
+          "read_fulfillments",
+          "write_fulfillments",
+          "read_refunds",
+          "write_refunds",
+          "read_customers",
+          "read_gift_cards",
+          "write_gift_cards",
+          "read_store_credits",
+          "write_store_credits"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-95",
+      "area": "after the sale",
+      "title": "2.5 Cancel a fulfilment",
+      "request": "PATCH /api/v3/admin/orders/<id>/fulfillments/<id>/cancel",
+      "attempts": [
+        {
+          "caller": "support",
+          "permissionKeys": [
+            "read_dashboard",
+            "read_orders",
+            "read_customers"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_fulfillments"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_fulfillments"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "orderManager",
+        "permissionKeys": [
+          "read_orders",
+          "write_orders",
+          "read_payments",
+          "write_payments",
+          "read_fulfillments",
+          "write_fulfillments",
+          "read_refunds",
+          "write_refunds",
+          "read_customers",
+          "read_gift_cards",
+          "write_gift_cards",
+          "read_store_credits",
+          "write_store_credits"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-95",
+      "area": "after the sale",
+      "title": "2.6 Mark a shipped fulfilment as delivered",
+      "request": "PATCH /api/v3/admin/orders/<id>/fulfillments/<id>/mark_delivered",
+      "attempts": [
+        {
+          "caller": "support",
+          "permissionKeys": [
+            "read_dashboard",
+            "read_orders",
+            "read_customers"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_fulfillments"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_fulfillments"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "orderManager",
+        "permissionKeys": [
+          "read_orders",
+          "write_orders",
+          "read_payments",
+          "write_payments",
+          "read_fulfillments",
+          "write_fulfillments",
+          "read_refunds",
+          "write_refunds",
+          "read_customers",
+          "read_gift_cards",
+          "write_gift_cards",
+          "read_store_credits",
+          "write_store_credits"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-95",
+      "area": "after the sale",
+      "title": "2.7 Add tracking (a consignment)",
+      "request": "POST /api/v3/admin/orders/<id>/fulfillments/<id>/deliveries",
+      "attempts": [
+        {
+          "caller": "support",
+          "permissionKeys": [
+            "read_dashboard",
+            "read_orders",
+            "read_customers"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "orderManager",
+        "permissionKeys": [
+          "read_orders",
+          "write_orders",
+          "read_payments",
+          "write_payments",
+          "read_fulfillments",
+          "write_fulfillments",
+          "read_refunds",
+          "write_refunds",
+          "read_customers",
+          "read_gift_cards",
+          "write_gift_cards",
+          "read_store_credits",
+          "write_store_credits"
+        ],
+        "expectedStatus": 201,
+        "status": 201,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-95",
+      "area": "after the sale",
+      "title": "2.8 Edit a consignment",
+      "request": "PATCH /api/v3/admin/orders/<id>/fulfillments/<id>/deliveries/<id>",
+      "attempts": [
+        {
+          "caller": "support",
+          "permissionKeys": [
+            "read_dashboard",
+            "read_orders",
+            "read_customers"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "orderManager",
+        "permissionKeys": [
+          "read_orders",
+          "write_orders",
+          "read_payments",
+          "write_payments",
+          "read_fulfillments",
+          "write_fulfillments",
+          "read_refunds",
+          "write_refunds",
+          "read_customers",
+          "read_gift_cards",
+          "write_gift_cards",
+          "read_store_credits",
+          "write_store_credits"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-95",
+      "area": "after the sale",
+      "title": "2.9 Mark a consignment arrived",
+      "request": "PATCH /api/v3/admin/orders/<id>/fulfillments/<id>/deliveries/<id>/mark_delivered",
+      "attempts": [
+        {
+          "caller": "support",
+          "permissionKeys": [
+            "read_dashboard",
+            "read_orders",
+            "read_customers"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "orderManager",
+        "permissionKeys": [
+          "read_orders",
+          "write_orders",
+          "read_payments",
+          "write_payments",
+          "read_fulfillments",
+          "write_fulfillments",
+          "read_refunds",
+          "write_refunds",
+          "read_customers",
+          "read_gift_cards",
+          "write_gift_cards",
+          "read_store_credits",
+          "write_store_credits"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-95",
+      "area": "after the sale",
+      "title": "2.10 Delete a consignment",
+      "request": "DELETE /api/v3/admin/orders/<id>/fulfillments/<id>/deliveries/<id>",
+      "attempts": [
+        {
+          "caller": "support",
+          "permissionKeys": [
+            "read_dashboard",
+            "read_orders",
+            "read_customers"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "orderManager",
+        "permissionKeys": [
+          "read_orders",
+          "write_orders",
+          "read_payments",
+          "write_payments",
+          "read_fulfillments",
+          "write_fulfillments",
+          "read_refunds",
+          "write_refunds",
+          "read_customers",
+          "read_gift_cards",
+          "write_gift_cards",
+          "read_store_credits",
+          "write_store_credits"
+        ],
+        "expectedStatus": 204,
+        "status": 204,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-95",
+      "area": "after the sale",
+      "title": "2.11 Upload a label bought elsewhere",
+      "request": "POST /api/v3/admin/orders/<id>/fulfillments/<id>/labels",
+      "attempts": [
+        {
+          "caller": "support",
+          "permissionKeys": [
+            "read_dashboard",
+            "read_orders",
+            "read_customers"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "orderManager",
+        "permissionKeys": [
+          "read_orders",
+          "write_orders",
+          "read_payments",
+          "write_payments",
+          "read_fulfillments",
+          "write_fulfillments",
+          "read_refunds",
+          "write_refunds",
+          "read_customers",
+          "read_gift_cards",
+          "write_gift_cards",
+          "read_store_credits",
+          "write_store_credits"
+        ],
+        "expectedStatus": 201,
+        "status": 201,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-95",
+      "area": "after the sale",
+      "title": "2.12 Delete an uploaded label",
+      "request": "DELETE /api/v3/admin/orders/<id>/fulfillments/<id>/labels/<id>",
+      "attempts": [
+        {
+          "caller": "support",
+          "permissionKeys": [
+            "read_dashboard",
+            "read_orders",
+            "read_customers"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "orderManager",
+        "permissionKeys": [
+          "read_orders",
+          "write_orders",
+          "read_payments",
+          "write_payments",
+          "read_fulfillments",
+          "write_fulfillments",
+          "read_refunds",
+          "write_refunds",
+          "read_customers",
+          "read_gift_cards",
+          "write_gift_cards",
+          "read_store_credits",
+          "write_store_credits"
+        ],
+        "expectedStatus": 204,
+        "status": 204,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-95",
+      "area": "after the sale",
+      "title": "2.13 Open a return",
+      "request": "POST /api/v3/admin/orders/<id>/returns",
+      "attempts": [
+        {
+          "caller": "support",
+          "permissionKeys": [
+            "read_dashboard",
+            "read_orders",
+            "read_customers"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": true
+        },
+        {
+          "caller": "packer",
+          "permissionKeys": [
+            "read_orders",
+            "read_fulfillments",
+            "write_fulfillments"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "orderManager",
+        "permissionKeys": [
+          "read_orders",
+          "write_orders",
+          "read_payments",
+          "write_payments",
+          "read_fulfillments",
+          "write_fulfillments",
+          "read_refunds",
+          "write_refunds",
+          "read_customers",
+          "read_gift_cards",
+          "write_gift_cards",
+          "read_store_credits",
+          "write_store_credits"
+        ],
+        "expectedStatus": 201,
+        "status": 201,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-95",
+      "area": "after the sale",
+      "title": "2.14 Open an exchange",
+      "request": "POST /api/v3/admin/orders/<id>/exchanges",
+      "attempts": [
+        {
+          "caller": "support",
+          "permissionKeys": [
+            "read_dashboard",
+            "read_orders",
+            "read_customers"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": true
+        },
+        {
+          "caller": "packer",
+          "permissionKeys": [
+            "read_orders",
+            "read_fulfillments",
+            "write_fulfillments"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "orderManager",
+        "permissionKeys": [
+          "read_orders",
+          "write_orders",
+          "read_payments",
+          "write_payments",
+          "read_fulfillments",
+          "write_fulfillments",
+          "read_refunds",
+          "write_refunds",
+          "read_customers",
+          "read_gift_cards",
+          "write_gift_cards",
+          "read_store_credits",
+          "write_store_credits"
+        ],
+        "expectedStatus": 201,
+        "status": 201,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-95",
+      "area": "after the sale",
+      "title": "2.15 Open a claim",
+      "request": "POST /api/v3/admin/orders/<id>/claims",
+      "attempts": [
+        {
+          "caller": "support",
+          "permissionKeys": [
+            "read_dashboard",
+            "read_orders",
+            "read_customers"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": true
+        },
+        {
+          "caller": "packer",
+          "permissionKeys": [
+            "read_orders",
+            "read_fulfillments",
+            "write_fulfillments"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "orderManager",
+        "permissionKeys": [
+          "read_orders",
+          "write_orders",
+          "read_payments",
+          "write_payments",
+          "read_fulfillments",
+          "write_fulfillments",
+          "read_refunds",
+          "write_refunds",
+          "read_customers",
+          "read_gift_cards",
+          "write_gift_cards",
+          "read_store_credits",
+          "write_store_credits"
+        ],
+        "expectedStatus": 201,
+        "status": 201,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-95",
+      "area": "after the sale",
+      "title": "2.16 Approve a requested return",
+      "request": "PATCH /api/v3/admin/orders/<id>/returns/<id>/approve",
+      "attempts": [
+        {
+          "caller": "packer",
+          "permissionKeys": [
+            "read_orders",
+            "read_fulfillments",
+            "write_fulfillments"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "orderManager",
+        "permissionKeys": [
+          "read_orders",
+          "write_orders",
+          "read_payments",
+          "write_payments",
+          "read_fulfillments",
+          "write_fulfillments",
+          "read_refunds",
+          "write_refunds",
+          "read_customers",
+          "read_gift_cards",
+          "write_gift_cards",
+          "read_store_credits",
+          "write_store_credits"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-95",
+      "area": "after the sale",
+      "title": "2.17 Cancel a requested return",
+      "request": "PATCH /api/v3/admin/orders/<id>/returns/<id>/cancel",
+      "attempts": [
+        {
+          "caller": "packer",
+          "permissionKeys": [
+            "read_orders",
+            "read_fulfillments",
+            "write_fulfillments"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_orders"
+          },
+          "asExpected": true,
+          "exposureChecked": 0,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "orderManager",
+        "permissionKeys": [
+          "read_orders",
+          "write_orders",
+          "read_payments",
+          "write_payments",
+          "read_fulfillments",
+          "write_fulfillments",
+          "read_refunds",
+          "write_refunds",
+          "read_customers",
+          "read_gift_cards",
+          "write_gift_cards",
+          "read_store_credits",
+          "write_store_credits"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-95",
+      "area": "after the sale",
+      "title": "2.18 Read an order",
+      "request": "GET /api/v3/admin/orders/<id>",
+      "attempts": [
+        {
+          "caller": "merchandiser",
+          "permissionKeys": [
+            "read_products",
+            "write_products",
+            "read_categories",
+            "write_categories",
+            "read_collections",
+            "write_collections",
+            "read_stock",
+            "write_stock"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_orders"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_orders"
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": null
+        }
+      ],
+      "control": {
+        "caller": "support",
+        "permissionKeys": [
+          "read_dashboard",
+          "read_orders",
+          "read_customers"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": true,
+        "changed": null
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-95",
+      "area": "after the sale",
+      "title": "2.19 Read the returns list",
+      "request": "GET /api/v3/admin/returns?limit=100",
+      "attempts": [
+        {
+          "caller": "merchandiser",
+          "permissionKeys": [
+            "read_products",
+            "write_products",
+            "read_categories",
+            "write_categories",
+            "read_collections",
+            "write_collections",
+            "read_stock",
+            "write_stock"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_orders"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_orders"
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": null
+        }
+      ],
+      "control": {
+        "caller": "support",
+        "permissionKeys": [
+          "read_dashboard",
+          "read_orders",
+          "read_customers"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": true,
+        "changed": null
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-95",
+      "area": "after the sale",
+      "title": "2.20 Read the exchanges list",
+      "request": "GET /api/v3/admin/exchanges?limit=100",
+      "attempts": [
+        {
+          "caller": "merchandiser",
+          "permissionKeys": [
+            "read_products",
+            "write_products",
+            "read_categories",
+            "write_categories",
+            "read_collections",
+            "write_collections",
+            "read_stock",
+            "write_stock"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_orders"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_orders"
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": null
+        }
+      ],
+      "control": {
+        "caller": "support",
+        "permissionKeys": [
+          "read_dashboard",
+          "read_orders",
+          "read_customers"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": true,
+        "changed": null
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-95",
+      "area": "after the sale",
+      "title": "2.21 Read the claims list",
+      "request": "GET /api/v3/admin/claims?limit=100",
+      "attempts": [
+        {
+          "caller": "merchandiser",
+          "permissionKeys": [
+            "read_products",
+            "write_products",
+            "read_categories",
+            "write_categories",
+            "read_collections",
+            "write_collections",
+            "read_stock",
+            "write_stock"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_orders"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_orders"
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": null
+        }
+      ],
+      "control": {
+        "caller": "support",
+        "permissionKeys": [
+          "read_dashboard",
+          "read_orders",
+          "read_customers"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": true,
+        "changed": null
+      },
+      "failures": [],
+      "result": "PASS"
+    }
+  ],
+  "observations": [
+    {
+      "title": "The order manager adds a payment (row 1.10)",
+      "caller": "orderManager",
+      "request": "POST /api/v3/admin/orders/<id>/payments",
+      "status": 404,
+      "code": "record_not_found",
+      "requiredPermission": null
+    },
+    {
+      "title": "The order manager creates a fulfilment (row 2.1)",
+      "caller": "orderManager",
+      "request": "POST /api/v3/admin/orders/<id>/fulfillments",
+      "status": 404,
+      "code": "record_not_found",
+      "requiredPermission": null
+    },
+    {
+      "title": "The packer marks a fulfilment as fulfilled",
+      "caller": "packer",
+      "request": "PATCH /api/v3/admin/orders/<id>/fulfillments/<id>/fulfill",
+      "status": 403,
+      "code": "access_denied",
+      "requiredPermission": null
+    },
+    {
+      "title": "The packer adds tracking",
+      "caller": "packer",
+      "request": "POST /api/v3/admin/orders/<id>/fulfillments/<id>/deliveries",
+      "status": 403,
+      "code": "access_denied",
+      "requiredPermission": "write_orders"
+    }
+  ]
+}
