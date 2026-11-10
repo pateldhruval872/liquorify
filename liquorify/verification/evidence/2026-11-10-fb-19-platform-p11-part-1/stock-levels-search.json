@@ -1,0 +1,24 @@
+{
+  "test": "stock-levels-search",
+  "revision": "69bb4eef",
+  "stamp": "mwa872au",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "searched for one product",
+      "shows": "P11 Juniper carafe mwa872au"
+    },
+    {
+      "step": "searched for nothing the location holds",
+      "shows": "No stock levels match your search."
+    },
+    {
+      "step": "cleared the search",
+      "shows": [
+        "P11 Juniper carafe mwa872au",
+        "P11 Rowan carafe mwa872au"
+      ]
+    }
+  ],
+  "outside": []
+}

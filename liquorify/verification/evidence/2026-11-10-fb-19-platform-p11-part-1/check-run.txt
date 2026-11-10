@@ -1,0 +1,19 @@
+server up 04:59:58
+
+Running 12 tests using 1 worker
+
+  ✘   1 fidelity/inventory-actions.spec.ts:273:3 › the inventory list after stock arrives (P11, G-87) › 1.1 receiving a transfer, then opening the inventory list (20.0s)
+  ✘   2 fidelity/inventory-actions.spec.ts:322:3 › the inventory list after stock arrives (P11, G-87) › 1.2 receiving a purchase order's delivery, then opening the inventory list (18.4s)
+  ✘   3 fidelity/inventory-actions.spec.ts:373:3 › a location's stock levels and history (P11, G-87) › 1.3 correcting a row's on-hand count and backorder setting (6.4s)
+  ✘   4 fidelity/inventory-actions.spec.ts:418:3 › a location's stock levels and history (P11, G-87) › 1.4 searching the stock levels panel (8.6s)
+  ✘   5 fidelity/inventory-actions.spec.ts:466:3 › a location's stock levels and history (P11, G-87) › 1.5 a location's stock history after a stock change there (19.5s)
+  ✘   6 fidelity/inventory-actions.spec.ts:523:3 › importing and exporting purchase orders (P11, G-87) › 1.6 importing a purchase order file through the wizard (12.2s)
+  ✘   7 fidelity/inventory-actions.spec.ts:614:3 › importing and exporting purchase orders (P11, G-87) › 1.7 exporting purchase orders (5.8s)
+  ✘   8 fidelity/inventory-actions.spec.ts:686:3 › suppliers (P11, G-87) › 1.8 the row menu of a supplier with purchasing history (3.3s)
+  ✘   9 fidelity/inventory-actions.spec.ts:737:3 › suppliers (P11, G-87) › 1.9 saving a supplier with a name already used in the store (5.4s)
+  ✘  10 fidelity/inventory-actions.spec.ts:792:3 › transfers and purchase orders (P11, G-87) › 1.10 receiving more than was sent, and more than was ordered (18.1s)
+  ✘  11 fidelity/inventory-actions.spec.ts:847:3 › transfers and purchase orders (P11, G-87) › 1.11 the purchase order list's Overdue and Past cancel-by filters, and its columns menu (5.8s)
+  ✘  12 fidelity/inventory-actions.spec.ts:955:3 › transfers and purchase orders (P11, G-87) › 1.12 taking a transfer and a placed purchase order back to draft (6.9s)
+
+  12 passed (2.2m)
+done 05:02:10

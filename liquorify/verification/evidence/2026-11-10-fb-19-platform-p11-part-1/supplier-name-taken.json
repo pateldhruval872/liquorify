@@ -1,0 +1,20 @@
+{
+  "test": "supplier-name-taken",
+  "revision": "69bb4eef",
+  "stamp": "mwa872au",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "typed a name another supplier has and pressed Save",
+      "sheetOpen": true,
+      "refusalInThePage": true,
+      "refusalReadable": false,
+      "fieldError": 0
+    },
+    {
+      "step": "reloaded the suppliers searched for the name",
+      "suppliersWithTheName": 1
+    }
+  ],
+  "outside": []
+}
