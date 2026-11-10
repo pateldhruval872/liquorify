@@ -1,6 +1,6 @@
 import { type APIRequestContext, expect, request, test } from '@playwright/test'
 import { getCredentials } from '../../dashboard/e2e/helpers'
-import { EMAILS_URL, emailsAdmin, expectedToFail, RESET, record, SABOTAGE } from './b11'
+import { EMAILS_URL, emailsAdmin, expectedToFail, RESET, record, sabotaged } from './b11'
 import { type AdminCredentials, admin, PASSWORD, roles, seed, teammates } from './staff'
 
 /**
@@ -414,7 +414,8 @@ test('G-103: what the server answers the narrower roles of batch 11', async () =
       const error = (answer.body.error ?? {}) as { code?: string; message?: string }
       const extra = check.body && answer.status < 300 ? check.body(answer.body) : undefined
       const matches =
-        answer.status === check.expected.status &&
+        // Sabotaged, every check expects a status no server answers (§7).
+        answer.status === sabotaged(check.expected.status, 599) &&
         (check.expected.code === undefined || error.code === check.expected.code) &&
         (check.expected.message === undefined ||
           (error.message ?? '').includes(check.expected.message)) &&
@@ -469,8 +470,6 @@ test('G-103: what the server answers the narrower roles of batch 11', async () =
   })
   expect(targetUnchanged, 'the saved report the analyst was refused changing').toBe(true)
   const mismatched = answers.filter((answer) => !answer.matches).map((answer) => answer.id)
-  expect(mismatched, 'requests whose answer differs from the expected one').toEqual(
-    SABOTAGE ? ['impossible'] : [],
-  )
+  expect(mismatched, 'requests whose answer differs from the expected one').toEqual([])
   expect(answers).toHaveLength(checks.length)
 })
