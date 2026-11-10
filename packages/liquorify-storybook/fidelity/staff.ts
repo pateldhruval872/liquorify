@@ -294,8 +294,17 @@ export interface Seeded {
   roleChangeId: string
 }
 
-export async function admin(api: APIRequestContext) {
-  const creds = getCredentials()
+/** The admin a server was seeded with, and its store. */
+export type AdminCredentials = Pick<
+  ReturnType<typeof getCredentials>,
+  'admin_email' | 'admin_password' | 'store_id' | 'store_name'
+>
+
+/**
+ * Signs in as the server's admin: the browser-test server's, or another
+ * server's when its credentials are given.
+ */
+export async function admin(api: APIRequestContext, creds: AdminCredentials = getCredentials()) {
   const res = await api.post('/api/v3/admin/auth/login', {
     data: { email: creds.admin_email, password: creds.admin_password },
   })
@@ -378,10 +387,10 @@ export async function join(
   }
 }
 
-export async function seed(baseURL: string): Promise<Seeded> {
+export async function seed(baseURL: string, credentials?: AdminCredentials): Promise<Seeded> {
   const api = await request.newContext({ baseURL })
   try {
-    const { creds, headers } = await admin(api)
+    const { creds, headers } = await admin(api, credentials)
     const existing = (
       (await (await api.get('/api/v3/admin/roles?limit=100', { headers })).json()) as {
         data: { id: string; name: string }[]
