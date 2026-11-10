@@ -1,7 +1,14 @@
 import { existsSync, readFileSync, writeFileSync } from 'node:fs'
 import { expect, request } from '@playwright/test'
 import { runRailsBootstrap } from '../../dashboard/e2e/rails'
-import { type Marketplace, SELLER_PASSWORD, seedMarketplace, send, sellerHeaders, shopper } from './marketplace'
+import {
+  type Marketplace,
+  SELLER_PASSWORD,
+  seedMarketplace,
+  sellerHeaders,
+  send,
+  shopper,
+} from './marketplace'
 import type { Json } from './orders'
 import { admin } from './staff'
 
@@ -80,7 +87,9 @@ export async function seedSellerPanel(baseURL: string): Promise<SellerPanel> {
     const call = (method: 'get' | 'post' | 'patch', path: string, data?: object) =>
       send(api, seller, method, `seller/${path}`, data)
     const harbourOrder = async (placed: Json) => {
-      const ids = ((placed.orders as Json[] | undefined) ?? [placed]).map((each) => each.id as string)
+      const ids = ((placed.orders as Json[] | undefined) ?? [placed]).map(
+        (each) => each.id as string,
+      )
       const mine = rows(await call('get', 'orders?limit=100')).map((each) => each.id)
       const id = ids.find((each) => mine.includes(each))
       expect(id, "Harbour Cask's share of the purchase").toBeTruthy()
