@@ -1,0 +1,9 @@
+
+Running 4 tests using 1 worker
+
+  ✓  1 fidelity/comparison.ts:154:7 › CMP-DUI-P-19 b11v-date-range-picker-year-to-date light (4.8s)
+  ✓  2 fidelity/comparison.ts:154:7 › CMP-DUI-P-12 b11v-code-editor-suggesting-filters light (4.6s)
+  ✓  3 fidelity/comparison.ts:154:7 › CMP-DUI-P-19 b11v-date-range-picker-year-to-date dark (4.8s)
+  ✓  4 fidelity/comparison.ts:154:7 › CMP-DUI-P-12 b11v-code-editor-suggesting-filters dark (4.7s)
+
+  4 passed (20.0s)

@@ -1,0 +1,7 @@
+{
+  "badge": "Draft — customers receive the published version",
+  "reset_email": {
+    "subject": "Shop Password Reset Instructions",
+    "holds_draft_text": false
+  }
+}

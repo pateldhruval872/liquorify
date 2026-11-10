@@ -1,0 +1,428 @@
+{
+  "stores": "each request names its own server’s default store; none names another",
+  "answers": [
+    {
+      "id": "support-counters",
+      "role": "Support (read_orders, read_customers, read_dashboard)",
+      "server": "browser-test server",
+      "request": "GET /api/v3/admin/dashboard/counters",
+      "expected": {
+        "status": 200
+      },
+      "answer": {
+        "status": 200,
+        "counters": [
+          "orders_to_fulfill",
+          "payments_to_collect",
+          "open_returns",
+          "open_exchanges",
+          "open_claims"
+        ],
+        "has_order_counters": true,
+        "has_stock_counters": false
+      },
+      "matches": true
+    },
+    {
+      "id": "support-query",
+      "role": "Support (read_orders, read_customers, read_dashboard)",
+      "server": "browser-test server",
+      "request": "POST /api/v3/admin/reporting/query",
+      "expected": {
+        "status": 403,
+        "code": "access_denied"
+      },
+      "answer": {
+        "status": 403,
+        "code": "access_denied",
+        "message": "Missing permission: read_reports"
+      },
+      "matches": true
+    },
+    {
+      "id": "support-saved-reports",
+      "role": "Support (read_orders, read_customers, read_dashboard)",
+      "server": "browser-test server",
+      "request": "GET /api/v3/admin/reporting/saved_reports",
+      "expected": {
+        "status": 403,
+        "code": "access_denied"
+      },
+      "answer": {
+        "status": 403,
+        "code": "access_denied",
+        "message": "Missing permission: read_reports"
+      },
+      "matches": true
+    },
+    {
+      "id": "merchandiser-counters",
+      "role": "Merchandiser (write_products, write_categories, write_collections, write_stock)",
+      "server": "browser-test server",
+      "request": "GET /api/v3/admin/dashboard/counters",
+      "expected": {
+        "status": 403,
+        "code": "access_denied"
+      },
+      "answer": {
+        "status": 403,
+        "code": "access_denied",
+        "message": "Missing permission: read_dashboard"
+      },
+      "matches": true
+    },
+    {
+      "id": "merchandiser-query",
+      "role": "Merchandiser (write_products, write_categories, write_collections, write_stock)",
+      "server": "browser-test server",
+      "request": "POST /api/v3/admin/reporting/query",
+      "expected": {
+        "status": 403,
+        "code": "access_denied"
+      },
+      "answer": {
+        "status": 403,
+        "code": "access_denied",
+        "message": "Missing permission: read_reports"
+      },
+      "matches": true
+    },
+    {
+      "id": "analyst-query",
+      "role": "Analyst (read_dashboard, read_reports, read_orders, read_products, read_categories, read_customers)",
+      "server": "browser-test server",
+      "request": "POST /api/v3/admin/reporting/query",
+      "expected": {
+        "status": 200
+      },
+      "answer": {
+        "status": 200
+      },
+      "matches": true
+    },
+    {
+      "id": "analyst-save",
+      "role": "Analyst (read_dashboard, read_reports, read_orders, read_products, read_categories, read_customers)",
+      "server": "browser-test server",
+      "request": "POST /api/v3/admin/reporting/saved_reports",
+      "expected": {
+        "status": 403,
+        "code": "access_denied",
+        "message": "Missing permission: write_reports"
+      },
+      "answer": {
+        "status": 403,
+        "code": "access_denied",
+        "message": "Missing permission: write_reports"
+      },
+      "matches": true
+    },
+    {
+      "id": "analyst-rename",
+      "role": "Analyst (read_dashboard, read_reports, read_orders, read_products, read_categories, read_customers)",
+      "server": "browser-test server",
+      "request": "PATCH /api/v3/admin/reporting/saved_reports/{saved report}",
+      "expected": {
+        "status": 403,
+        "code": "access_denied"
+      },
+      "answer": {
+        "status": 404,
+        "code": "record_not_found",
+        "message": "Saved report not found"
+      },
+      "matches": false
+    },
+    {
+      "id": "analyst-delete",
+      "role": "Analyst (read_dashboard, read_reports, read_orders, read_products, read_categories, read_customers)",
+      "server": "browser-test server",
+      "request": "DELETE /api/v3/admin/reporting/saved_reports/{saved report}",
+      "expected": {
+        "status": 403,
+        "code": "access_denied"
+      },
+      "answer": {
+        "status": 404,
+        "code": "record_not_found",
+        "message": "Saved report not found"
+      },
+      "matches": false
+    },
+    {
+      "id": "analyst-export",
+      "role": "Analyst (read_dashboard, read_reports, read_orders, read_products, read_categories, read_customers)",
+      "server": "browser-test server",
+      "request": "POST /api/v3/admin/exports",
+      "expected": {
+        "status": 403,
+        "code": "access_denied"
+      },
+      "answer": {
+        "status": 403,
+        "code": "access_denied",
+        "message": "You are not authorized to access this page."
+      },
+      "matches": true
+    },
+    {
+      "id": "report-builder-create",
+      "role": "Report builder (read_dashboard, write_reports, read_orders)",
+      "server": "browser-test server",
+      "request": "POST /api/v3/admin/reporting/saved_reports",
+      "expected": {
+        "status": 201
+      },
+      "answer": {
+        "status": 201
+      },
+      "matches": true
+    },
+    {
+      "id": "report-builder-rename",
+      "role": "Report builder (read_dashboard, write_reports, read_orders)",
+      "server": "browser-test server",
+      "request": "PATCH /api/v3/admin/reporting/saved_reports/{report builder’s report}",
+      "expected": {
+        "status": 200
+      },
+      "answer": {
+        "status": 200
+      },
+      "matches": true
+    },
+    {
+      "id": "report-builder-delete",
+      "role": "Report builder (read_dashboard, write_reports, read_orders)",
+      "server": "browser-test server",
+      "request": "DELETE /api/v3/admin/reporting/saved_reports/{report builder’s report}",
+      "expected": {
+        "status": 204
+      },
+      "answer": {
+        "status": 204
+      },
+      "matches": true
+    },
+    {
+      "id": "report-builder-export",
+      "role": "Report builder (read_dashboard, write_reports, read_orders)",
+      "server": "browser-test server",
+      "request": "POST /api/v3/admin/exports",
+      "expected": {
+        "status": 201
+      },
+      "answer": {
+        "status": 201
+      },
+      "matches": true
+    },
+    {
+      "id": "report-builder-query-by-product",
+      "role": "Report builder (read_dashboard, write_reports, read_orders)",
+      "server": "browser-test server",
+      "request": "POST /api/v3/admin/reporting/query",
+      "expected": {
+        "status": 403,
+        "code": "access_denied"
+      },
+      "answer": {
+        "status": 403,
+        "code": "access_denied",
+        "message": "Missing permission: read_products"
+      },
+      "matches": true
+    },
+    {
+      "id": "store-settings-sender",
+      "role": "Store settings (write_settings)",
+      "server": "browser-test server",
+      "request": "PATCH /api/v3/admin/store",
+      "expected": {
+        "status": 200
+      },
+      "answer": {
+        "status": 200
+      },
+      "matches": true
+    },
+    {
+      "id": "store-settings-templates",
+      "role": "Store settings (write_settings)",
+      "server": "emails gem test app",
+      "request": "GET /api/v3/admin/email_templates",
+      "expected": {
+        "status": 403,
+        "code": "access_denied"
+      },
+      "answer": {
+        "status": 403,
+        "code": "access_denied",
+        "message": "Missing permission: read_email_templates"
+      },
+      "matches": true
+    },
+    {
+      "id": "email-editor-sender",
+      "role": "Email editor (read_settings, write_email_templates)",
+      "server": "browser-test server",
+      "request": "PATCH /api/v3/admin/store",
+      "expected": {
+        "status": 403,
+        "code": "access_denied"
+      },
+      "answer": {
+        "status": 403,
+        "code": "access_denied",
+        "message": "Missing permission: write_settings"
+      },
+      "matches": true
+    },
+    {
+      "id": "email-editor-draft",
+      "role": "Email editor (read_settings, write_email_templates)",
+      "server": "emails gem test app",
+      "request": "PUT /api/v3/admin/email_templates/spree.customer_mailer.password_reset_email/draft",
+      "expected": {
+        "status": 200
+      },
+      "answer": {
+        "status": 200
+      },
+      "matches": true
+    },
+    {
+      "id": "email-editor-publication",
+      "role": "Email editor (read_settings, write_email_templates)",
+      "server": "emails gem test app",
+      "request": "POST /api/v3/admin/email_templates/spree.customer_mailer.password_reset_email/publication",
+      "expected": {
+        "status": 201
+      },
+      "answer": {
+        "status": 201
+      },
+      "matches": true
+    },
+    {
+      "id": "email-editor-test-email",
+      "role": "Email editor (read_settings, write_email_templates)",
+      "server": "emails gem test app",
+      "request": "POST /api/v3/admin/email_templates/spree.customer_mailer.password_reset_email/test_email",
+      "expected": {
+        "status": 202
+      },
+      "answer": {
+        "status": 202
+      },
+      "matches": true
+    },
+    {
+      "id": "email-viewer-templates",
+      "role": "Email viewer (read_settings, read_email_templates)",
+      "server": "emails gem test app",
+      "request": "GET /api/v3/admin/email_templates",
+      "expected": {
+        "status": 200
+      },
+      "answer": {
+        "status": 200
+      },
+      "matches": true
+    },
+    {
+      "id": "email-viewer-revisions",
+      "role": "Email viewer (read_settings, read_email_templates)",
+      "server": "emails gem test app",
+      "request": "GET /api/v3/admin/email_templates/spree.customer_mailer.password_reset_email/revisions?language=en",
+      "expected": {
+        "status": 200
+      },
+      "answer": {
+        "status": 200
+      },
+      "matches": true
+    },
+    {
+      "id": "email-viewer-sender",
+      "role": "Email viewer (read_settings, read_email_templates)",
+      "server": "browser-test server",
+      "request": "PATCH /api/v3/admin/store",
+      "expected": {
+        "status": 403,
+        "code": "access_denied"
+      },
+      "answer": {
+        "status": 403,
+        "code": "access_denied",
+        "message": "Missing permission: write_settings"
+      },
+      "matches": true
+    },
+    {
+      "id": "email-viewer-draft",
+      "role": "Email viewer (read_settings, read_email_templates)",
+      "server": "emails gem test app",
+      "request": "PUT /api/v3/admin/email_templates/spree.customer_mailer.password_reset_email/draft",
+      "expected": {
+        "status": 403,
+        "code": "access_denied"
+      },
+      "answer": {
+        "status": 403,
+        "code": "access_denied",
+        "message": "Missing permission: write_email_templates"
+      },
+      "matches": true
+    },
+    {
+      "id": "email-viewer-preview",
+      "role": "Email viewer (read_settings, read_email_templates)",
+      "server": "emails gem test app",
+      "request": "POST /api/v3/admin/email_templates/spree.customer_mailer.password_reset_email/preview",
+      "expected": {
+        "status": 403,
+        "code": "access_denied"
+      },
+      "answer": {
+        "status": 403,
+        "code": "access_denied",
+        "message": "Missing permission: write_email_templates"
+      },
+      "matches": true
+    },
+    {
+      "id": "email-viewer-publication",
+      "role": "Email viewer (read_settings, read_email_templates)",
+      "server": "emails gem test app",
+      "request": "POST /api/v3/admin/email_templates/spree.customer_mailer.password_reset_email/publication",
+      "expected": {
+        "status": 403,
+        "code": "access_denied"
+      },
+      "answer": {
+        "status": 403,
+        "code": "access_denied",
+        "message": "Missing permission: write_email_templates"
+      },
+      "matches": true
+    },
+    {
+      "id": "email-viewer-test-email",
+      "role": "Email viewer (read_settings, read_email_templates)",
+      "server": "emails gem test app",
+      "request": "POST /api/v3/admin/email_templates/spree.customer_mailer.password_reset_email/test_email",
+      "expected": {
+        "status": 403,
+        "code": "access_denied"
+      },
+      "answer": {
+        "status": 403,
+        "code": "access_denied",
+        "message": "Missing permission: write_email_templates"
+      },
+      "matches": true
+    }
+  ],
+  "analyst_left_saved_report_unchanged": true
+}

@@ -2,7 +2,7 @@
 title: FB-19 batch 11 verification, home figures, reports and emails
 record: work item
 work_item: FB-19
-status: PROPOSED
+status: DONE
 owner: the owner reviews and accepts; an automated Claude session implements, under the owner's delegation of 2026-11-04
 created: 2026-11-10
 updated: 2026-11-10
@@ -10,7 +10,7 @@ updated: 2026-11-10
 
 # FB-19 batch 11 verification: home figures, reports and emails
 
-**Status.** PROPOSED on 2026-11-10, at the owner's answer of the same day to G-100 and G-103 ([batch 11 record §14](../verification/2026-11-10-fb-19-batch-home-reports-and-emails.md#14-the-owners-answers-2026-11-10)). It is bounded to batch 11's screens. Each expected result and closure condition below is recorded before anything is built, as the owner asked. Nothing here changes Spree's code or the storefront, and nothing in it marks an unverified behaviour PASS before its evidence exists.
+**Status.** DONE on 2026-11-10 ([verification record](../verification/2026-11-10-fb-19-batch-home-reports-and-emails-verification.md)): G-100 closed, with behaviours 10 and 12 keeping SD-52's and SD-51's failing parts; G-103's 28 answers recorded, 26 as expected and two recorded as G-117 at the owner's choice; 43 of the 54 stories sent here compared. IN PROGRESS from 2026-11-10 (§7 was settled and committed before any test was written). PROPOSED on 2026-11-10, at the owner's answer of the same day to G-100 and G-103 ([batch 11 record §14](../verification/2026-11-10-fb-19-batch-home-reports-and-emails.md#14-the-owners-answers-2026-11-10)). It is bounded to batch 11's screens. Each expected result and closure condition below is recorded before anything is built, as the owner asked. Nothing here changes Spree's code or the storefront, and nothing in it marks an unverified behaviour PASS before its evidence exists.
 
 ## 1. Outcome
 
@@ -88,3 +88,32 @@ The exact success codes for the email editor's writes are taken from Spree's con
 ## 6. Size and risk
 
 About 12 browser tests in one file per screen group, one permission script of about 30 requests, and their records. Low risk: test and record files only, run against local test servers.
+
+## 7. Settled before the run
+
+Committed on 2026-11-10 before any test of this work item was written or run, so the expected answers cannot follow the results. Nothing in §3 or §4 changes; this section only pins what they left to be read from Spree's code.
+
+**The email editor's success codes,** from Spree's controller specs at `main` (`spree/api/spec/controllers/spree/api/v3/admin/email_templates/`): saving a draft (`PUT …/draft`) answers 200, a publication (`POST …/publication`) 201, and a test email (`POST …/test_email`) 202. A preview (`POST …/preview`), which §4 expects the email viewer to be refused, answers 200 to a caller allowed to make it. The test asserts these four codes.
+
+**The roles the run signs in with** are the ones `staff.ts` creates, unchanged. One differs from §4's list: the analyst also holds `read_orders`, as batch 11's captures used it. No expected answer in §4 depends on it, so none changes; the record names the role's actual keys.
+
+**Where each request goes.** The reporting, saved report, export, counter and store requests go to the browser-test server, and every change they make is undone: the saved reports the report builder creates are deleted, and the sender address the store settings role saves is put back. The email template requests go to the emails gem's test app, and the drafts and publications they make are reverted to Spree's default at the end. Each request names the store it is sent for in `X-Spree-Store-Id`, and no request names another store.
+
+**What each behaviour test asserts,** as §3 gives it:
+
+| # | The assertions |
+|---|---|
+| 1 | After typing, "Unsaved changes" shows. Back opens "Leave without saving?". Stay closes it with the typed text still in the editor. Leave returns to the templates list, and the template opened again shows no "Unsaved changes" and not the typed text |
+| 2 | Save draft shows "Draft saved" and the "Draft" badge. A password reset requested through the Store API is read from the mail folder, and its body does not hold the draft's text |
+| 3 | Send test email shows "Test email sent to" the admin's address. The admin's mail folder holds one more email, whose subject starts "[Test]" and whose body holds the draft's text |
+| 4 | Publish shows "Published." and the "Draft" badge is gone. The next password reset holds the change |
+| 5 | The History sheet lists the published version marked "Latest". Restore opens "Restore this version?"; confirming shows "Version restored into the draft", the "Draft" badge, and the restored version's text in the editor |
+| 6 | After a second save through the Admin API, as another editor's, Save draft shows "Someone else saved this draft"; "Load their version" puts their subject in the editor |
+| 7 | Revert to default opens "Revert to Spree's default?"; confirming shows "Reverted to Spree's default", the editor holds Spree's default subject, and the next password reset holds neither change |
+| 8 | Choosing a completed order in "Preview with record" shows "Subject:" with that order's number. Clicking a variable's insert button puts its Liquid tag in the editor where the cursor was, and shows "Unsaved changes" |
+| 9 | DA-SET-04 lists the eleven customer emails of `Spree.editable_email_templates` and the email layout, each opening its editor; after behaviour 4's publish the password reset row carries "Customized" |
+| 10 | Export CSV shows "Export downloaded"; EM-S-05 reaches the admin's mail folder within 60 seconds; the CSV's rows match the report's rows on screen. A check that the email links to the file is kept and fails on SD-52 |
+| 11 | Save a copy, with a new name, opens a saved report under that name whose figures equal the built-in's; a search narrows the list to names that match; sorting by name puts the rows in name order |
+| 12 | Last 7 days and a custom range each set total sales and orders to what the Admin API's completed orders give for the range the page sends. Each rankings tab shows its list or its empty message. Each operations link opens a list whose count equals the card's. Payments to collect's check is kept and fails on SD-51 |
+
+**Showing that each test fails when it should.** As P11 did, a run with `B11_SABOTAGE=1` marks every behaviour test and permission check as expected to fail, and makes each look for something that is not there at its first key check. That run passes only if every test fails, and each failure is read to confirm it came from that check.
