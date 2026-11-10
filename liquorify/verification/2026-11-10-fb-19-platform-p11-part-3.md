@@ -152,7 +152,7 @@ The same code serves exchanges and claim replacements. With the replacement stoc
 
 ### 4.3 Observations, not numbered
 
-- After a claim is refunded to the original payment, the order reads Partially Refunded, and a replacement fulfilment then says "This order is not paid for yet" and is not shipped. The customer paid in full, and the refund was for a damaged unit. 3.13 therefore resolves the replacement claim before the refunds. The owner may wish to number this.
+- A replacement is held after a refund to the original payment, which is recorded for the owner's product review. It is neither approved as correct nor called a defect. In a first try, one claim on the order was refunded to the original payment. The order then read Partially Refunded, and another claim's replacement fulfilment said "This order is not paid for yet" and was not shipped. Spree may intend to hold a replacement until the order is paid again, since a customer who is both refunded and sent a replacement is paid back twice. Only the owner can say whether that is right here. 3.13 therefore resolves the replacement claim before the refunds.
 - A return owed nothing, once completed, reads Refunded with "Refunded $0.00".
 - The returns, exchanges and claims lists search by the record's own number only: an order's number finds nothing.
 - The packing slip opens in a new window.
