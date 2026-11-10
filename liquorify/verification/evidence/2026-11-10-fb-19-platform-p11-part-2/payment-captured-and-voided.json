@@ -1,0 +1,21 @@
+{
+  "test": "payment-captured-and-voided",
+  "revision": "759e1832",
+  "stamp": "mwac5jei",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "captured the first order's authorized payment, then reloaded",
+      "before": "R1005-P1 Fidelity cheque, collected later Pending $20.00 Actions",
+      "after": "R1005-P1 Fidelity cheque, collected later Completed $20.00 Actions",
+      "paymentStatus": "paid"
+    },
+    {
+      "step": "voided the second order's authorized payment, then reloaded",
+      "before": "R1006-P1 Fidelity cheque, collected later Pending $20.00 Actions",
+      "after": "R1006-P1 Fidelity cheque, collected later Void $20.00 Actions",
+      "paymentStatus": "none"
+    }
+  ],
+  "outside": []
+}

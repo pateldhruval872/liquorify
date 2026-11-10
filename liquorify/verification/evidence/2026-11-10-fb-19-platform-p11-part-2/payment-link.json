@@ -1,0 +1,13 @@
+{
+  "test": "payment-link",
+  "revision": "759e1832",
+  "stamp": "mwac9wcr",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "looked on the draft's page and menu for a way to send a payment link",
+      "offered": 0
+    }
+  ],
+  "outside": []
+}

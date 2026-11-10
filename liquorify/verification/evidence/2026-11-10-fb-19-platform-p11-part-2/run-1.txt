@@ -1,0 +1,175 @@
+server up 06:51:12
+
+Running 20 tests using 1 worker
+
+  ✓   1 fidelity/order-actions.spec.ts:246:3 › drafts and cancellation (P11, G-90) › 2.1 completing a draft from its page (11.3s)
+  ✓   2 fidelity/order-actions.spec.ts:298:3 › drafts and cancellation (P11, G-90) › 2.2 canceling a placed order with a reason, a note, a refund and the email choice (7.0s)
+  ✓   3 fidelity/order-actions.spec.ts:361:3 › payments (P11, G-90) › 2.4 capturing an authorized payment, and voiding another (10.6s)
+  ✓   4 fidelity/order-actions.spec.ts:415:3 › payments (P11, G-90) › 2.5 adding a payment, and choosing a method that needs a saved card (9.5s)
+  ✓   5 fidelity/order-actions.spec.ts:504:3 › discounts, fees and codes (P11, G-90) › 2.6 adding a manual discount by amount and by percent, then deleting one (9.7s)
+  ✓   6 fidelity/order-actions.spec.ts:588:3 › discounts, fees and codes (P11, G-90) › 2.7 adding a fee, then deleting it (8.3s)
+  ✘   7 fidelity/order-actions.spec.ts:644:3 › discounts, fees and codes (P11, G-90) › 2.8 applying a discount code, removing it, and entering a code that is refused (10.4s)
+  ✓   8 fidelity/order-actions.spec.ts:729:3 › the order page (P11, G-90) › 2.11 editing the special instructions and the internal note (8.0s)
+  ✓   9 fidelity/order-actions.spec.ts:767:3 › the order page (P11, G-90) › 2.13 editing the purchase order number and document on a placed order (7.6s)
+  ✘  10 fidelity/order-actions.spec.ts:803:3 › the order page (P11, G-90) › 2.15 the header's Resend Confirmation and Preview Order (16.2s)
+  ✘  11 fidelity/order-actions.spec.ts:862:3 › gift cards and store credit (P11, G-90) › 2.9 applying a gift card, removing it, and entering a card that is refused (18.6s)
+  ✓  12 fidelity/order-actions.spec.ts:954:3 › gift cards and store credit (P11, G-90) › 2.10 applying store credit (15.3s)
+  ✓  13 fidelity/order-actions.spec.ts:1050:3 › the customer card and downloads (P11, G-90) › 2.12 editing the billing address from the customer card (8.5s)
+  ✓  14 fidelity/order-actions.spec.ts:1087:3 › the customer card and downloads (P11, G-90) › 2.14 resetting and resending a digital order's download links (10.6s)
+  ✓  15 fidelity/order-actions.spec.ts:1195:3 › editing an order (P11, G-90) › 2.16 editing a placed order's items, with the totals preview (10.4s)
+  ✘  16 fidelity/order-actions.spec.ts:1263:3 › editing an order (P11, G-90) › 2.17 setting a quantity below what has shipped (7.9s)
+  ✘  17 fidelity/order-actions.spec.ts:1311:3 › editing an order (P11, G-90) › 2.20 leaving the edit page by a link with unsaved item edits (8.5s)
+  ✓  18 fidelity/order-actions.spec.ts:1360:3 › the orders list and new orders (P11, G-90) › 2.18 the orders list's payment status, channel and tags filters, and its export (14.8s)
+  ✘  19 fidelity/order-actions.spec.ts:1455:3 › the orders list and new orders (P11, G-90) › 2.19 the new order page with default addresses, a company, a coupon code and a channel (8.6s)
+  ✘  20 fidelity/order-actions.spec.ts:1565:3 › the payment link (P11, G-90) › 2.21 sending a payment link from a draft (4.8s)
+
+
+  1) fidelity/order-actions.spec.ts:644:3 › discounts, fees and codes (P11, G-90) › 2.8 applying a discount code, removing it, and entering a code that is refused 
+
+    Error: the Summary card's rows add up to its total
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+      720 |     )
+      721 |     expect(afterRefused).toBeCloseTo(before, 2)
+    > 722 |     expect(addsUp(rowsWithCode), "the Summary card's rows add up to its total").toBe(true)
+          |                                                                                 ^
+      723 |   })
+      724 | })
+      725 |
+        at /work/packages/liquorify-storybook/fidelity/order-actions.spec.ts:722:81
+
+    Error Context: fidelity/results/test-output/order-actions-discounts-fe-49db5-ring-a-code-that-is-refused/error-context.md
+
+  2) fidelity/order-actions.spec.ts:803:3 › the order page (P11, G-90) › 2.15 the header's Resend Confirmation and Preview Order 
+
+    Error: Preview opens the order as the customer sees it
+
+    expect(received).not.toBeNull()
+
+    Received: null
+
+      836 |     await save(page, 'header-actions', steps, outside)
+      837 |     expect(sent, 'the resend is accepted and the screen says so').toBe(true)
+    > 838 |     expect(previewUrl, 'Preview opens the order as the customer sees it').not.toBeNull()
+          |                                                                               ^
+      839 |   })
+      840 | })
+      841 |
+        at /work/packages/liquorify-storybook/fidelity/order-actions.spec.ts:838:79
+
+    Error Context: fidelity/results/test-output/order-actions-the-order-pa-6fb4e-firmation-and-Preview-Order/error-context.md
+
+  3) fidelity/order-actions.spec.ts:862:3 › gift cards and store credit (P11, G-90) › 2.9 applying a gift card, removing it, and entering a card that is refused 
+
+    Error: the dialog says why the card is refused
+
+    expect(received).toMatch(expected)
+
+    Expected pattern: /not found|doesn't exist|does not exist|invalid|not valid|refused|cannot|can't/i
+    Received string:  "Apply Gift Card Enter a gift card code to apply to this order. Code Cancel Add Close"
+
+      947 |     expect(dueRefused).toBeCloseTo(dueBefore, 2)
+      948 |     // Part 1's B10: the dialog stays open with nothing said.
+    > 949 |     expect(refusedDialog, 'the dialog says why the card is refused').toMatch(
+          |                                                                      ^
+      950 |       /not found|doesn't exist|does not exist|invalid|not valid|refused|cannot|can't/i,
+      951 |     )
+      952 |   })
+        at /work/packages/liquorify-storybook/fidelity/order-actions.spec.ts:949:70
+
+    Error Context: fidelity/results/test-output/order-actions-gift-cards-a-facbb-ring-a-card-that-is-refused/error-context.md
+
+  4) fidelity/order-actions.spec.ts:1263:3 › editing an order (P11, G-90) › 2.17 setting a quantity below what has shipped 
+
+    Error: the page says why the save is refused
+
+    expect(received).toMatch(expected)
+
+    Expected pattern: /shipped|fulfilled/i
+    Received string:  ""
+
+      1306 |     expect(kept, 'the line keeps its quantity').toBe('3')
+      1307 |     // Part 1's B13: only the browser's own check of the field stops it.
+    > 1308 |     expect(shownMessage, 'the page says why the save is refused').toMatch(/shipped|fulfilled/i)
+           |                                                                   ^
+      1309 |   })
+      1310 |
+      1311 |   test('2.20 leaving the edit page by a link with unsaved item edits', async ({
+        at /work/packages/liquorify-storybook/fidelity/order-actions.spec.ts:1308:67
+
+    Error Context: fidelity/results/test-output/order-actions-editing-an-o-735fe-tity-below-what-has-shipped/error-context.md
+
+  5) fidelity/order-actions.spec.ts:1311:3 › editing an order (P11, G-90) › 2.20 leaving the edit page by a link with unsaved item edits 
+
+    Error: the dashboard warns before leaving
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+      1351 |     expect(lines, 'the edits are not saved').not.toMatch(/×\s*4|\b4\s*×/)
+      1352 |     // Part 1's B14: no warning is shown.
+    > 1353 |     expect(warned, 'the dashboard warns before leaving').toBe(true)
+           |                                                          ^
+      1354 |   })
+      1355 | })
+      1356 |
+        at /work/packages/liquorify-storybook/fidelity/order-actions.spec.ts:1353:58
+
+    Error Context: fidelity/results/test-output/order-actions-editing-an-o-95b20-ink-with-unsaved-item-edits/error-context.md
+
+  6) fidelity/order-actions.spec.ts:1455:3 › the orders list and new orders (P11, G-90) › 2.19 the new order page with default addresses, a company, a coupon code and a channel 
+
+    Error: the order page shows the draft's company
+
+    expect(received).toContain(expected) // indexOf
+
+    Expected substring: "P11 Company mwac463l"
+    Received string:    "Settings Store Store Emails Policies AI Agents Sales channels Custom fields Integrations Selling Markets Payment methods Taxes Shipping & delivery Delivery profiles Stock locations Package types Product types Returns & reasons Marketplace Settings Seller requirements Users & permissions Staff Roles Developer API keys OAuth clients Webhooks Allowed origins Imports R1024 None Unfulfilled Edit order Complete Order Fulfillments 1 Unfulfilled Unfulfilled Shop location Actions P11 New order mwac463l $20.00 × 1 Payments None Add No payments yet. Taxes No taxes on this order yet. Discounts Add discount Description Source Code Amount Promotion (P11 New order code mwac463l) Promotion p11newmwac463l -$3.00 Fees Add fee No fees on this order yet. Summary Created by admin@example.com Created at Nov 10, 2026, 6:54 AM Sales channel P11 New order channel mwac463l Market United States Locale EN — English Currency USD Subtotal $20.00 Promotions -$3.00 Adjustments -$3.00 Total $17.00 Payment total $0.00 Outstanding balance $17.00 Custom fields No custom fields yet Track structured details like material, fit, or care instructions. Set up custom fields Manage in settings Metadata No metadata Apps and integrations populate this automatically. Customer Actions PO P11 New order p11-new-order-mwac463l@example.com Shipping address River Okafor 214 Larkspur Lane Portland, OR, 97205 United States 5035550142 Billing address River Okafor 214 Larkspur Lane Portland, OR, 97205 United States 5035550142 Tags None Discounts & Credit Discount code p11newmwac463l Remove Gift card None applied Apply Purchase order None Special Instructions None Internal Note None"
+
+      1556 |     expect(kept.company_name, 'the draft keeps the company').toBe(companyName)
+      1557 |     // SD-59, held: the order page shows an order's company nowhere.
+    > 1558 |     expect(pageText, "the order page shows the draft's company").toContain(companyName)
+           |                                                                  ^
+      1559 |   })
+      1560 | })
+      1561 |
+        at /work/packages/liquorify-storybook/fidelity/order-actions.spec.ts:1558:66
+
+    Error Context: fidelity/results/test-output/order-actions-the-orders-l-7259b-a-coupon-code-and-a-channel/error-context.md
+
+  7) fidelity/order-actions.spec.ts:1565:3 › the payment link (P11, G-90) › 2.21 sending a payment link from a draft 
+
+    Error: the draft offers to send a payment link
+
+    expect(received).toBeGreaterThan(expected)
+
+    Expected: > 0
+    Received:   0
+
+      1591 |     await save(page, 'payment-link', steps, outside)
+      1592 |     // SD-32, held: nothing sends the payment link, and its link does not open checkout.
+    > 1593 |     expect(found, 'the draft offers to send a payment link').toBeGreaterThan(0)
+           |                                                              ^
+      1594 |   })
+      1595 | })
+      1596 |
+        at /work/packages/liquorify-storybook/fidelity/order-actions.spec.ts:1593:62
+
+    Error Context: fidelity/results/test-output/order-actions-the-payment--e96a9-a-payment-link-from-a-draft/error-context.md
+
+  7 failed
+    fidelity/order-actions.spec.ts:644:3 › discounts, fees and codes (P11, G-90) › 2.8 applying a discount code, removing it, and entering a code that is refused 
+    fidelity/order-actions.spec.ts:803:3 › the order page (P11, G-90) › 2.15 the header's Resend Confirmation and Preview Order 
+    fidelity/order-actions.spec.ts:862:3 › gift cards and store credit (P11, G-90) › 2.9 applying a gift card, removing it, and entering a card that is refused 
+    fidelity/order-actions.spec.ts:1263:3 › editing an order (P11, G-90) › 2.17 setting a quantity below what has shipped 
+    fidelity/order-actions.spec.ts:1311:3 › editing an order (P11, G-90) › 2.20 leaving the edit page by a link with unsaved item edits 
+    fidelity/order-actions.spec.ts:1455:3 › the orders list and new orders (P11, G-90) › 2.19 the new order page with default addresses, a company, a coupon code and a channel 
+    fidelity/order-actions.spec.ts:1565:3 › the payment link (P11, G-90) › 2.21 sending a payment link from a draft 
+  13 passed (3.5m)
+done 06:54:45

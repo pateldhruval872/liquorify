@@ -1,0 +1,50 @@
+server up 06:44:30
+
+Running 20 tests using 1 worker
+
+  ✘   1 fidelity/order-actions.spec.ts:246:3 › drafts and cancellation (P11, G-90) › 2.1 completing a draft from its page (20.4s)
+  ✘   2 fidelity/order-actions.spec.ts:298:3 › drafts and cancellation (P11, G-90) › 2.2 canceling a placed order with a reason, a note, a refund and the email choice (6.6s)
+  ✘   3 fidelity/order-actions.spec.ts:361:3 › payments (P11, G-90) › 2.4 capturing an authorized payment, and voiding another (10.6s)
+  ✘   4 fidelity/order-actions.spec.ts:415:3 › payments (P11, G-90) › 2.5 adding a payment, and choosing a method that needs a saved card (8.9s)
+  ✘   5 fidelity/order-actions.spec.ts:504:3 › discounts, fees and codes (P11, G-90) › 2.6 adding a manual discount by amount and by percent, then deleting one (6.5s)
+  ✘   6 fidelity/order-actions.spec.ts:588:3 › discounts, fees and codes (P11, G-90) › 2.7 adding a fee, then deleting it (5.4s)
+  ✘   7 fidelity/order-actions.spec.ts:644:3 › discounts, fees and codes (P11, G-90) › 2.8 applying a discount code, removing it, and entering a code that is refused (5.9s)
+  ✘   8 fidelity/order-actions.spec.ts:729:3 › the order page (P11, G-90) › 2.11 editing the special instructions and the internal note (6.8s)
+  ✘   9 fidelity/order-actions.spec.ts:767:3 › the order page (P11, G-90) › 2.13 editing the purchase order number and document on a placed order (6.5s)
+  ✘  10 fidelity/order-actions.spec.ts:803:3 › the order page (P11, G-90) › 2.15 the header's Resend Confirmation and Preview Order (30.7s)
+  ✘  11 fidelity/order-actions.spec.ts:862:3 › gift cards and store credit (P11, G-90) › 2.9 applying a gift card, removing it, and entering a card that is refused (7.3s)
+  ✘  12 fidelity/order-actions.spec.ts:954:3 › gift cards and store credit (P11, G-90) › 2.10 applying store credit (8.1s)
+  ✘  13 fidelity/order-actions.spec.ts:1050:3 › the customer card and downloads (P11, G-90) › 2.12 editing the billing address from the customer card (7.8s)
+  ✘  14 fidelity/order-actions.spec.ts:1087:3 › the customer card and downloads (P11, G-90) › 2.14 resetting and resending a digital order's download links (10.3s)
+  ✘  15 fidelity/order-actions.spec.ts:1195:3 › editing an order (P11, G-90) › 2.16 editing a placed order's items, with the totals preview (9.5s)
+  ✘  16 fidelity/order-actions.spec.ts:1263:3 › editing an order (P11, G-90) › 2.17 setting a quantity below what has shipped (3.0m)
+  ✘  17 fidelity/order-actions.spec.ts:1311:3 › editing an order (P11, G-90) › 2.20 leaving the edit page by a link with unsaved item edits (7.5s)
+  ✘  18 fidelity/order-actions.spec.ts:1360:3 › the orders list and new orders (P11, G-90) › 2.18 the orders list's payment status, channel and tags filters, and its export (14.2s)
+  ✘  19 fidelity/order-actions.spec.ts:1455:3 › the orders list and new orders (P11, G-90) › 2.19 the new order page with default addresses, a company, a coupon code and a channel (8.3s)
+  ✘  20 fidelity/order-actions.spec.ts:1565:3 › the payment link (P11, G-90) › 2.21 sending a payment link from a draft (4.6s)
+
+
+  1) fidelity/order-actions.spec.ts:1263:3 › editing an order (P11, G-90) › 2.17 setting a quantity below what has shipped 
+
+    Test timeout of 180000ms exceeded.
+
+    Error: locator.inputValue: Test timeout of 180000ms exceeded.
+    Call log:
+      - waiting for getByLabel('Quantity of P11 Below shipped mwabrn6b')
+
+
+      1294 |     await snap(page, 'below-shipped-refused')
+      1295 |     await openEdit(page, order)
+    > 1296 |     const kept = await page.getByLabel(`Quantity of ${item.name}`).inputValue()
+           |                                                                    ^
+      1297 |     const steps: Steps = [
+      1298 |       {
+      1299 |         step: `typed ${typed} for a line of 3 with 2 shipped and pressed Save`,
+        at /work/packages/liquorify-storybook/fidelity/order-actions.spec.ts:1296:68
+
+    Error Context: fidelity/results/test-output/order-actions-editing-an-o-735fe-tity-below-what-has-shipped/error-context.md
+
+  1 failed
+    fidelity/order-actions.spec.ts:1263:3 › editing an order (P11, G-90) › 2.17 setting a quantity below what has shipped 
+  19 passed (6.1m)
+done 06:50:39

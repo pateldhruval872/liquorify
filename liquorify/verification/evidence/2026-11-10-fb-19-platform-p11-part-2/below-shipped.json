@@ -1,0 +1,18 @@
+{
+  "test": "below-shipped",
+  "revision": "759e1832",
+  "stamp": "mwac83h6",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "typed 1 for a line of 3 with 2 shipped and pressed Save",
+      "browsersOwnCheck": "Value must be greater than or equal to 2.",
+      "messageOnThePage": ""
+    },
+    {
+      "step": "opened the edit page again",
+      "quantity": "3"
+    }
+  ],
+  "outside": []
+}

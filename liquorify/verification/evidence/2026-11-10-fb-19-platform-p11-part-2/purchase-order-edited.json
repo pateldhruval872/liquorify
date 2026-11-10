@@ -1,0 +1,13 @@
+{
+  "test": "purchase-order-edited",
+  "revision": "759e1832",
+  "stamp": "mwac6ztk",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "set the PO number and attached a document, then reloaded",
+      "card": "Purchase order P11-PO-mwac6ztk p11-purchase-order-mwac6ztk.pdf"
+    }
+  ],
+  "outside": []
+}

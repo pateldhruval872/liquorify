@@ -1,0 +1,14 @@
+{
+  "test": "billing-address-edited",
+  "revision": "759e1832",
+  "stamp": "mwac83h6",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "changed the billing street, then reloaded",
+      "shippingAddress": "Shipping address River Okafor 214 Larkspur Lane Portland, OR, 97205 United States 5035550142",
+      "billingAddress": "Billing address River Okafor 8 Billing Row mwac83h6 Portland, OR, 97205 United States 5035550142"
+    }
+  ],
+  "outside": []
+}
