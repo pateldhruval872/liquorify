@@ -1,0 +1,19 @@
+{
+  "screen": "DA-RPT-02",
+  "state": "filter-added",
+  "variant": "admin",
+  "role": null,
+  "server": "browser-test server",
+  "theme": "light",
+  "revision": null,
+  "path": "/<store>/reports/new",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "fullPage": true,
+  "capturedHeight": 1921,
+  "intercepted": null,
+  "settled": true,
+  "outside": []
+}

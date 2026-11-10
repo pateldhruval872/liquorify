@@ -1,0 +1,20 @@
+{
+  "test": "draft-completed",
+  "revision": "759e1832",
+  "stamp": "mwac5jei",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "completed the draft from its page and reloaded it",
+      "number": "R1003",
+      "completedShown": true,
+      "completeStillOffered": false
+    },
+    {
+      "step": "searched the drafts and the orders for its number",
+      "inDrafts": 0,
+      "inOrders": 1
+    }
+  ],
+  "outside": []
+}

@@ -1,0 +1,26 @@
+{
+  "screen": "DA-RPT-01",
+  "state": "direct-visit",
+  "variant": "support",
+  "role": {
+    "name": "Support",
+    "permissions": [
+      "read_orders",
+      "read_customers",
+      "read_dashboard"
+    ]
+  },
+  "server": "browser-test server",
+  "theme": "light",
+  "revision": null,
+  "path": "/<store>/reports",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "fullPage": false,
+  "capturedHeight": 960,
+  "intercepted": null,
+  "settled": true,
+  "outside": []
+}

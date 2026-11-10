@@ -36,6 +36,23 @@ for (const key of Object.keys(pixelAllowances)) {
   }
 }
 
+/**
+ * Stories whose page is painted once more before the capture. In the media
+ * picker sheet each tile's photo had its rounded top corners shaded one of two
+ * ways from run to run, by up to 34 counted pixels; painting the page again
+ * after the story's clicks shades them the same way every run. Recorded, with
+ * the owner's approval, in
+ * liquorify/verification/2026-11-05-fb-19-media-picker-image-repaint.md.
+ */
+const repaintBeforeCapture: ReadonlySet<string> = new Set([
+  'dashboard-core-media-picker-sheet--two-picked',
+])
+for (const id of repaintBeforeCapture) {
+  if (!stories.some((story) => story.id === id)) {
+    throw new Error(`The repaint before capture for ${id} names no captured story`)
+  }
+}
+
 declare global {
   interface Window {
     __STORYBOOK_PREVIEW__?: {
@@ -94,6 +111,18 @@ async function stableScreenshot(target: Page | Locator): Promise<Buffer> {
     previous = current
   }
   throw new Error('The story kept changing between screenshots')
+}
+
+/** Paints the whole page again, by changing its opacity for a moment. */
+async function repaint(page: Page) {
+  await page.evaluate(() => {
+    document.body.style.opacity = '0.999'
+  })
+  await page.waitForTimeout(200)
+  await page.evaluate(() => {
+    document.body.style.opacity = ''
+  })
+  await page.waitForTimeout(200)
 }
 
 function findFile(directory: string, suffix: string): string | undefined {
@@ -276,6 +305,7 @@ for (const story of stories) {
       }
       const target = capture === 'viewport' ? page : page.locator('#storybook-root')
       const name = [story.id, `${mode.name}.png`]
+      if (repaintBeforeCapture.has(story.id)) await repaint(page)
 
       // Playwright writes nothing for a missing reference when it may not
       // update references, as in CI, so the image is saved for a person to

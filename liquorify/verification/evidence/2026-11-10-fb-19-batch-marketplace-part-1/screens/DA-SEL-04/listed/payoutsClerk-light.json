@@ -1,0 +1,25 @@
+{
+  "screen": "DA-SEL-04",
+  "state": "listed",
+  "variant": "payoutsClerk",
+  "role": {
+    "name": "Payouts clerk",
+    "permissions": [
+      "read_sellers",
+      "write_payouts"
+    ]
+  },
+  "server": "browser-test server",
+  "theme": "light",
+  "revision": "6b163aad",
+  "path": "/<store>/sellers/transfers",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "fullPage": true,
+  "capturedHeight": 960,
+  "intercepted": null,
+  "settled": true,
+  "outside": []
+}

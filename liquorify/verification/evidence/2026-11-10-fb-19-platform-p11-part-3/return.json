@@ -1,0 +1,65 @@
+{
+  "test": "return",
+  "revision": "f467aeb6",
+  "stamp": "p11p3r2",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "read the stock before",
+      "stock": {
+        "shop": 46,
+        "destination": 50
+      }
+    },
+    {
+      "step": "opened a return of 2 to the destination warehouse, then reloaded",
+      "return": "Requested RET1004 Actions No return label yet. Buy return label P11 Return p11p3r2 ×2 Returning to E2E Destination Warehouse Refund total $44.00"
+    },
+    {
+      "step": "approved it, then reloaded",
+      "return": "Approved RET1004 Actions No return label yet. Buy return label P11 Return p11p3r2 ×2 Returning to E2E Destination Warehouse Refund total $44.00"
+    },
+    {
+      "step": "received 1 of the 2, resellable, then reloaded",
+      "return": "Received RET1004 Actions P11 Return p11p3r2 1 of 2 received ×2 Returning to E2E Destination Warehouse Refund total $22.00"
+    },
+    {
+      "step": "refunded it to the original payment, then reloaded",
+      "dialog": "Refund return Amount $ The full amount includes $2.00 of tax. A smaller amount gives back tax in the same proportion. Refund to Original payment Cancel Refund Close",
+      "return": "Refunded RET1004 P11 Return p11p3r2 1 of 2 received ×2 Returning to E2E Destination Warehouse Refunded $22.00",
+      "payments": "Payments 1 Partially Refunded Add Number Method State Amount R1003-P1 Fidelity cheque Completed $93.00 Actions",
+      "refunds": [
+        {
+          "amount": "22.00",
+          "againstAPayment": true
+        }
+      ]
+    },
+    {
+      "step": "received another return as not resellable, then reloaded",
+      "return": "Received RET1001 Actions P11 Return p11p3r2 Not resellable ×1 Returning to Shop location Refund total $22.00"
+    },
+    {
+      "step": "canceled the third return, then reloaded",
+      "return": "Canceled RET1002 P11 Return p11p3r2 ×1 Returning to Shop location Refund total $22.00"
+    },
+    {
+      "step": "read the stock after",
+      "stock": {
+        "shop": 46,
+        "destination": 51
+      }
+    },
+    {
+      "step": "received the return of a unit sold for $0.00, then reloaded",
+      "return": "Received RET1003 Actions P11 Return free p11p3r2 ×1 Returning to Shop location Refund total $0.00"
+    },
+    {
+      "step": "completed it, then reloaded",
+      "dialog": "Complete return Nothing is owed on this return, so no money goes back. Completing it closes the return. Cancel Complete return Close",
+      "return": "Refunded RET1003 P11 Return free p11p3r2 ×1 Returning to Shop location Refunded $0.00",
+      "refunds": []
+    }
+  ],
+  "outside": []
+}

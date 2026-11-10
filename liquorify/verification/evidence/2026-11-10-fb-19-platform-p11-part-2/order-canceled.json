@@ -1,0 +1,17 @@
+{
+  "test": "order-canceled",
+  "revision": "759e1832",
+  "stamp": "mwac5jei",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "canceled the order with a reason, a note, a refund and no email, then reloaded it",
+      "emailChosen": false,
+      "canceledShown": true,
+      "reasonShown": true,
+      "noteShown": true,
+      "payments": "Payments 1 None Add Number Method State Amount R1004-P1 Fidelity cheque Void $20.00 Actions"
+    }
+  ],
+  "outside": []
+}

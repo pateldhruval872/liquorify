@@ -1,0 +1,19 @@
+{
+  "screen": "DA-SET-05",
+  "state": "direct-visit",
+  "variant": "admin",
+  "role": null,
+  "server": "browser-test server",
+  "theme": "light",
+  "revision": null,
+  "path": "/<store>/settings/emails/templates/spree.customer_mailer.password_reset_email",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "fullPage": false,
+  "capturedHeight": 960,
+  "intercepted": null,
+  "settled": true,
+  "outside": []
+}

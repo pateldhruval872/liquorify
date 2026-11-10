@@ -1,0 +1,25 @@
+{
+  "screen": "DA-SET-05",
+  "state": "default",
+  "variant": "emailViewer",
+  "role": {
+    "name": "Email viewer",
+    "permissions": [
+      "read_settings",
+      "read_email_templates"
+    ]
+  },
+  "server": "emails gem test app",
+  "theme": "dark",
+  "revision": null,
+  "path": "/<store>/settings/emails/templates/spree.customer_mailer.password_reset_email",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "fullPage": true,
+  "capturedHeight": 1197,
+  "intercepted": null,
+  "settled": true,
+  "outside": []
+}

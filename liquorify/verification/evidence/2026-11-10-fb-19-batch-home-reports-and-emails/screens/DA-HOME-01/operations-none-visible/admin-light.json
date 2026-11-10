@@ -1,0 +1,19 @@
+{
+  "screen": "DA-HOME-01",
+  "state": "operations-none-visible",
+  "variant": "admin",
+  "role": null,
+  "server": "browser-test server",
+  "theme": "light",
+  "revision": null,
+  "path": "/<store>",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "fullPage": false,
+  "capturedHeight": 960,
+  "intercepted": "The counters answer has its counters taken out",
+  "settled": true,
+  "outside": []
+}

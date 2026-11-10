@@ -1,0 +1,29 @@
+{
+  "screen": "DA-HOME-01",
+  "state": "figures",
+  "variant": "analyst",
+  "role": {
+    "name": "Analyst",
+    "permissions": [
+      "read_dashboard",
+      "read_reports",
+      "read_orders",
+      "read_products",
+      "read_categories",
+      "read_customers"
+    ]
+  },
+  "server": "browser-test server",
+  "theme": "light",
+  "revision": null,
+  "path": "/<store>",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "fullPage": true,
+  "capturedHeight": 1519,
+  "intercepted": null,
+  "settled": true,
+  "outside": []
+}

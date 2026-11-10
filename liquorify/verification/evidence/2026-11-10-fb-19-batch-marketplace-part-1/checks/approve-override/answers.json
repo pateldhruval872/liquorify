@@ -1,0 +1,246 @@
+{
+  "revision": null,
+  "check": "approve-override",
+  "answers": [
+    {
+      "step": "onboarding",
+      "status": 200,
+      "body": {
+        "status": "rejected",
+        "progress": {
+          "done": 0,
+          "total": 9
+        },
+        "requirements": [
+          {
+            "id": "selreq_UkLWZg9DAJ",
+            "kind": "accept_terms",
+            "name": "Accept terms",
+            "description": "Read and accept the marketplace terms",
+            "required": true,
+            "position": 1,
+            "status": "incomplete",
+            "action_url": null,
+            "blocker": null,
+            "blocking": true,
+            "required_policy_name": null
+          },
+          {
+            "id": "selreq_gbHJdmfrXB",
+            "kind": "complete_profile",
+            "name": "Complete profile",
+            "description": "Fill in the public profile shoppers see",
+            "required": true,
+            "position": 2,
+            "status": "incomplete",
+            "action_url": null,
+            "blocker": null,
+            "blocking": true,
+            "required_policy_name": null
+          },
+          {
+            "id": "selreq_EfhxLZ9ck8",
+            "kind": "billing_address",
+            "name": "Billing address",
+            "description": "The address your payouts are billed from",
+            "required": true,
+            "position": 3,
+            "status": "incomplete",
+            "action_url": null,
+            "blocker": null,
+            "blocking": true,
+            "required_policy_name": null
+          },
+          {
+            "id": "selreq_VqXmZF31wY",
+            "kind": "returns_address",
+            "name": "Returns address",
+            "description": "The address customer returns are sent to",
+            "required": true,
+            "position": 4,
+            "status": "incomplete",
+            "action_url": null,
+            "blocker": null,
+            "blocking": true,
+            "required_policy_name": null
+          },
+          {
+            "id": "selreq_uw2YK1rnl0",
+            "kind": "delivery_method",
+            "name": "Delivery method",
+            "description": "Offer at least one way to ship your orders",
+            "required": true,
+            "position": 5,
+            "status": "incomplete",
+            "action_url": null,
+            "blocker": null,
+            "blocking": true,
+            "required_policy_name": null
+          },
+          {
+            "id": "selreq_OIJLhNcSbf",
+            "kind": "package_type",
+            "name": "Shipping box",
+            "description": "Tell us the size and weight of the box you ship orders in",
+            "required": true,
+            "position": 6,
+            "status": "incomplete",
+            "action_url": null,
+            "blocker": null,
+            "blocking": true,
+            "required_policy_name": null
+          },
+          {
+            "id": "selreq_AXs1igzRC6",
+            "kind": "minimum_products",
+            "name": "Minimum products",
+            "description": "List at least this many products",
+            "required": true,
+            "position": 7,
+            "status": "incomplete",
+            "action_url": null,
+            "blocker": null,
+            "blocking": true,
+            "required_policy_name": null
+          },
+          {
+            "id": "selreq_ed6l8wVqSM",
+            "kind": "attestation",
+            "name": "Confirm you can ship within two working days",
+            "description": "Confirm this yourself before you are approved",
+            "required": true,
+            "position": 8,
+            "status": "incomplete",
+            "action_url": null,
+            "blocker": null,
+            "blocking": true,
+            "required_policy_name": null
+          },
+          {
+            "id": "selreq_s18jaGonyx",
+            "kind": "operator_review",
+            "name": "Marketplace background check",
+            "description": "The marketplace checks this by hand before approving you",
+            "required": true,
+            "position": 9,
+            "status": "incomplete",
+            "action_url": null,
+            "blocker": null,
+            "blocking": true,
+            "required_policy_name": null
+          }
+        ]
+      }
+    },
+    {
+      "step": "without the override",
+      "status": 422,
+      "body": {
+        "error": {
+          "code": "validation_error",
+          "message": "Requirements Accept terms is not complete, Requirements Complete profile is not complete, Requirements Billing address is not complete, Requirements Returns address is not complete, Requirements Delivery method is not complete, Requirements Shipping box is not complete, Requirements Minimum products is not complete, Requirements Confirm you can ship within two working days is not complete, and Requirements Marketplace background check is not complete",
+          "details": {
+            "requirements": [
+              {
+                "code": "incomplete",
+                "message": "Accept terms is not complete",
+                "specific": false
+              },
+              {
+                "code": "incomplete",
+                "message": "Complete profile is not complete",
+                "specific": false
+              },
+              {
+                "code": "incomplete",
+                "message": "Billing address is not complete",
+                "specific": false
+              },
+              {
+                "code": "incomplete",
+                "message": "Returns address is not complete",
+                "specific": false
+              },
+              {
+                "code": "incomplete",
+                "message": "Delivery method is not complete",
+                "specific": false
+              },
+              {
+                "code": "incomplete",
+                "message": "Shipping box is not complete",
+                "specific": false
+              },
+              {
+                "code": "incomplete",
+                "message": "Minimum products is not complete",
+                "specific": false
+              },
+              {
+                "code": "incomplete",
+                "message": "Confirm you can ship within two working days is not complete",
+                "specific": false
+              },
+              {
+                "code": "incomplete",
+                "message": "Marketplace background check is not complete",
+                "specific": false
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "step": "after the override",
+      "status": 200,
+      "body": {
+        "id": "sel_EfhxLZ9ck8",
+        "name": "Fennel & Oak Provisions",
+        "slug": "fennel-oak-provisions",
+        "about": "",
+        "about_html": "",
+        "logo_url": null,
+        "square_logo_url": null,
+        "cover_photo_url": null,
+        "status": "approved",
+        "contact_email": "hello@fennel-oak.example.com",
+        "billing_email": null,
+        "tax_remittance": "seller",
+        "payouts_schedule_interval": null,
+        "metadata": {},
+        "holiday_mode_until": null,
+        "terms_accepted_at": null,
+        "created_at": "2026-11-10T06:24:00.607Z",
+        "updated_at": "2026-11-10T06:52:26.007Z",
+        "deleted_at": null,
+        "minimum_payout_amount": null,
+        "on_holiday": false,
+        "sellable": true,
+        "products_count": 0,
+        "users_count": 0,
+        "onboarding_progress": {
+          "done": 0,
+          "total": 9
+        },
+        "onboarding_complete": false,
+        "legal_name": null,
+        "registration_number": null
+      }
+    },
+    {
+      "step": "shopper after the override",
+      "status": 200,
+      "body": {
+        "id": "sel_EfhxLZ9ck8",
+        "name": "Fennel & Oak Provisions",
+        "slug": "fennel-oak-provisions",
+        "about": "",
+        "about_html": "",
+        "logo_url": null,
+        "square_logo_url": null,
+        "cover_photo_url": null
+      }
+    }
+  ]
+}

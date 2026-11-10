@@ -1,0 +1,25 @@
+{
+  "screen": "DA-SEL-06",
+  "state": "pending",
+  "variant": "payoutsClerk",
+  "role": {
+    "name": "Payouts clerk",
+    "permissions": [
+      "read_sellers",
+      "write_payouts"
+    ]
+  },
+  "server": "browser-test server",
+  "theme": "light",
+  "revision": "6b163aad",
+  "path": "/<store>/sellers/payouts/vpo_VqXmZF31wY",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "fullPage": true,
+  "capturedHeight": 960,
+  "intercepted": null,
+  "settled": true,
+  "outside": []
+}

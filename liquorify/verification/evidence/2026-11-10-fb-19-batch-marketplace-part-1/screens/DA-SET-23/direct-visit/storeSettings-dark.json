@@ -1,0 +1,24 @@
+{
+  "screen": "DA-SET-23",
+  "state": "direct-visit",
+  "variant": "storeSettings",
+  "role": {
+    "name": "Store settings",
+    "permissions": [
+      "write_settings"
+    ]
+  },
+  "server": "browser-test server",
+  "theme": "dark",
+  "revision": "6b163aad",
+  "path": "/<store>/settings/seller-requirements",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "fullPage": false,
+  "capturedHeight": 960,
+  "intercepted": null,
+  "settled": true,
+  "outside": []
+}

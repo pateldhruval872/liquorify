@@ -1,0 +1,5 @@
+
+Running 1 test using 1 worker
+
+[1/1] fidelity/one-store-checks.spec.ts:927:1 › each kind of assertion fails against a stand-in server that answers wrongly
+  1 passed (888ms)

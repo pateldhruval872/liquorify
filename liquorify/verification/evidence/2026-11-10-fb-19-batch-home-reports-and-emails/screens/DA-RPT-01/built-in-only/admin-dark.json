@@ -1,0 +1,19 @@
+{
+  "screen": "DA-RPT-01",
+  "state": "built-in-only",
+  "variant": "admin",
+  "role": null,
+  "server": "browser-test server",
+  "theme": "dark",
+  "revision": null,
+  "path": "/<store>/reports",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "fullPage": false,
+  "capturedHeight": 960,
+  "intercepted": "The saved reports answer keeps the built-in reports alone",
+  "settled": true,
+  "outside": []
+}

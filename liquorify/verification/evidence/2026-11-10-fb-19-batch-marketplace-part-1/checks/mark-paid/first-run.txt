@@ -1,0 +1,10 @@
+The first run marked the payout paid through DA-SEL-06; answers.json is from a
+second run, which found it already paid and read the same records again. The
+first run's answers, as read then (the transfers filter in that run used a key
+the API ignores, so its transfer list is not quoted):
+
+balance before   earned 356.95, payable 356.95, paid 153.00, balance 203.95
+payout before    vpo_VqXmZF31wY pending, reference none, amount 42.50
+payout after     completed, reference FID-PAY-1310, transfers_count 2
+balance after    earned 356.95, payable 356.95, paid 195.50, balance 161.45
+completing again 200, still completed, reference FID-PAY-1310 (the new reference FID-PAY-AGAIN was not stored)

@@ -1,0 +1,49 @@
+{
+  "test": "lists",
+  "revision": "f467aeb6",
+  "stamp": "p11p3r2",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "searched the returns list for the first record's number, then cleared it",
+      "searched": [
+        "RET1005"
+      ],
+      "cleared": [
+        "RET1005",
+        "RET1006"
+      ]
+    },
+    {
+      "step": "searched the exchanges list for the first record's number, then cleared it",
+      "searched": [
+        "EX1004"
+      ],
+      "cleared": [
+        "EX1004",
+        "EX1005"
+      ]
+    },
+    {
+      "step": "searched the claims list for the first record's number, then cleared it",
+      "searched": [
+        "CLM1005"
+      ],
+      "cleared": [
+        "CLM1005",
+        "CLM1006"
+      ]
+    },
+    {
+      "step": "kept only the Canceled status, then opened the list again",
+      "filtered": [
+        "RET1006"
+      ],
+      "cleared": [
+        "RET1005",
+        "RET1006"
+      ]
+    }
+  ],
+  "outside": []
+}

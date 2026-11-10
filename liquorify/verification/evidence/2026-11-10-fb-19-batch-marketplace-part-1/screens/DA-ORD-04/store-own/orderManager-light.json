@@ -1,0 +1,30 @@
+{
+  "screen": "DA-ORD-04",
+  "state": "store-own",
+  "variant": "orderManager",
+  "role": {
+    "name": "Order manager",
+    "permissions": [
+      "write_orders",
+      "write_payments",
+      "write_fulfillments",
+      "write_refunds",
+      "write_gift_cards",
+      "write_store_credits",
+      "read_customers"
+    ]
+  },
+  "server": "browser-test server",
+  "theme": "light",
+  "revision": "6b163aad",
+  "path": "/<store>/orders/or_AXs1igzRC6",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "fullPage": true,
+  "capturedHeight": 2396,
+  "intercepted": null,
+  "settled": true,
+  "outside": []
+}

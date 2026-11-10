@@ -1,0 +1,19 @@
+{
+  "screen": "DA-HOME-01",
+  "state": "sellers-ranking-none",
+  "variant": "admin",
+  "role": null,
+  "server": "browser-test server",
+  "theme": "light",
+  "revision": "6b163aad",
+  "path": "/<store>",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "fullPage": false,
+  "capturedHeight": 960,
+  "intercepted": "The sellers ranking query is answered with no rows",
+  "settled": true,
+  "outside": []
+}

@@ -1,0 +1,40 @@
+{
+  "test": "orders-list",
+  "revision": "759e1832",
+  "stamp": "mwac9ej8",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "searched the list for the run's orders",
+      "paid": 1,
+      "authorized": 1
+    },
+    {
+      "step": "kept only the Authorized payment status",
+      "paid": 0,
+      "authorized": 1
+    },
+    {
+      "step": "filtered by the second order's channel",
+      "paid": 0,
+      "authorized": 1
+    },
+    {
+      "step": "filtered by the first order's tag",
+      "paid": 1,
+      "authorized": 0
+    },
+    {
+      "step": "opened the list again with no filter",
+      "paid": 1,
+      "authorized": 1
+    },
+    {
+      "step": "exported the orders",
+      "downloaded": true,
+      "holdsPaid": true,
+      "holdsAuthorized": true
+    }
+  ],
+  "outside": []
+}

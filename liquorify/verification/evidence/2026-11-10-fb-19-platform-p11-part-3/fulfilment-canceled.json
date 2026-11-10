@@ -1,0 +1,28 @@
+{
+  "test": "fulfilment-canceled",
+  "revision": "f467aeb6",
+  "stamp": "p11p3r2",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "read the inventory row before",
+      "row": "P11 Cancel fulfilment p11p3r2 P11-CANCEL-FULFILMENT-p11p3r2 Shop location 2 0 48 50 0"
+    },
+    {
+      "step": "canceled the fulfilment from its menu, then reloaded",
+      "panels": [
+        {
+          "status": "Canceled",
+          "text": "Canceled Shop location Actions P11 Cancel fulfilment Ground p11p3r2 $5.00 P11 Cancel fulfilment p11p3r2 $20.00 × 2"
+        }
+      ],
+      "card": "Fulfillments 1 Unfulfilled Canceled Shop location Actions P11 Cancel fulfilment Ground p11p3r2 $5.00 P11 Cancel fulfilment p11p3r2 $20.00 × 2",
+      "addFulfillmentOffered": false
+    },
+    {
+      "step": "read the inventory row after",
+      "row": "P11 Cancel fulfilment p11p3r2 P11-CANCEL-FULFILMENT-p11p3r2 Shop location 0 0 50 50 0"
+    }
+  ],
+  "outside": []
+}

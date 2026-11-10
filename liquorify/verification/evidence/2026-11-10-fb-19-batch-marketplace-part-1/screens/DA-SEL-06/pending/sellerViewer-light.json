@@ -1,0 +1,26 @@
+{
+  "screen": "DA-SEL-06",
+  "state": "pending",
+  "variant": "sellerViewer",
+  "role": {
+    "name": "Seller viewer",
+    "permissions": [
+      "read_sellers",
+      "read_commissions",
+      "read_payouts"
+    ]
+  },
+  "server": "browser-test server",
+  "theme": "light",
+  "revision": "6b163aad",
+  "path": "/<store>/sellers/payouts/vpo_VqXmZF31wY",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "fullPage": true,
+  "capturedHeight": 960,
+  "intercepted": null,
+  "settled": true,
+  "outside": []
+}

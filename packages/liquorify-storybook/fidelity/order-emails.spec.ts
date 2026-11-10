@@ -10,14 +10,15 @@ import { test } from '@playwright/test'
  * to the browser-test server's port 3000, where nothing runs, so they are
  * fetched from the server's own port. A local address a link names, or shows
  * as its text, is drawn as `<site>`, as `order-emails.rb` writes Spree's. Each
- * capture is saved as `results/emails-batch-<n>/<id>-<width>.png`, where
- * `EMAILS_BATCH` gives the batch, 8 unless set: batch 10's customer emails,
- * written by `customer-emails.rb`, are captured the same way.
+ * capture is saved as `results/emails-batch-8/<id>-<width>.png`, or in the
+ * folder `EMAILS_RESULTS` names; batch 10 names `emails-batch-10` for the
+ * emails `customer-emails.rb` writes, and batch 13 names
+ * `emails-batch-13-captures` for the emails `marketplace-emails.rb` writes.
  */
 
 const folder = process.env.EMAILS_DIR ?? ''
 const results = new URL(
-  `./results/emails-batch-${process.env.EMAILS_BATCH ?? '8'}/`,
+  `./results/${process.env.EMAILS_RESULTS ?? 'emails-batch-8'}/`,
   import.meta.url,
 ).pathname
 const filesFrom = new URL(process.env.FIDELITY_API_URL ?? 'http://localhost:3010').origin

@@ -1,0 +1,15 @@
+{
+  "screen": "SF-DEV-01",
+  "state": "not-found-in-production",
+  "variant": "storefront",
+  "server": "storefront production build",
+  "theme": "light",
+  "revision": "b3202e8",
+  "path": "/dev/emails",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "fullPage": true,
+  "status": 200
+}

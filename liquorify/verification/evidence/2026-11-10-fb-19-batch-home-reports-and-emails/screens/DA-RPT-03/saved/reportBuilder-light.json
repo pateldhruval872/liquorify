@@ -1,0 +1,26 @@
+{
+  "screen": "DA-RPT-03",
+  "state": "saved",
+  "variant": "reportBuilder",
+  "role": {
+    "name": "Report builder",
+    "permissions": [
+      "read_dashboard",
+      "write_reports",
+      "read_orders"
+    ]
+  },
+  "server": "browser-test server",
+  "theme": "light",
+  "revision": null,
+  "path": "/<store>/reports/sq_qp31JYFduR",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "fullPage": true,
+  "capturedHeight": 1614,
+  "intercepted": null,
+  "settled": true,
+  "outside": []
+}

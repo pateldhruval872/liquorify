@@ -1,0 +1,17 @@
+{
+  "test": "new-order",
+  "revision": "759e1832",
+  "stamp": "mwac9ej8",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "chose the company, its customer, a product, the coupon code and the channel, then created the draft and reloaded it",
+      "customerCard": "Customer Actions PO P11 New order p11-new-order-mwac9ej8@example.com Shipping address River Okafor 214 Larkspur Lane Portland, OR, 97205 United States 5035550142 Billing address River Okafor 214 Larkspur Lane Portland, OR, 97205 United States 5035550142",
+      "discountsSidebar": "Discounts & Credit Discount code p11newmwac9ej8 Remove Gift card None applied Apply",
+      "summary": "Summary Created by admin@example.com Created at Nov 10, 2026, 6:58 AM Sales channel P11 New order channel mwac9ej8 Market United States Locale EN — English Currency USD Subtotal $20.00 Promotions -$3.00 Adjustments -$3.00 Total $17.00 Payment total $0.00 Outstanding balance $17.00",
+      "companyShownOnThePage": false,
+      "companyKeptByTheServer": "P11 Company mwac9ej8"
+    }
+  ],
+  "outside": []
+}

@@ -1,0 +1,40 @@
+{
+  "test": "split",
+  "revision": "f467aeb6",
+  "stamp": "p11p3r2",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "moved 1 of 3 units into a new fulfilment, then reloaded",
+      "panels": [
+        {
+          "status": "Unfulfilled",
+          "text": "Unfulfilled Shop location Actions P11 Split Ground p11p3r2 $5.00 P11 Split p11p3r2 $20.00 × 2 Mark as fulfilled"
+        },
+        {
+          "status": "Unfulfilled",
+          "text": "Unfulfilled Shop location Actions P11 Split Ground p11p3r2 $5.00 P11 Split p11p3r2 $20.00 × 1 Mark as fulfilled"
+        }
+      ]
+    },
+    {
+      "step": "tried to move the only unit of the new fulfilment",
+      "says": "Leave at least one unit behind, or change the origin of the whole fulfillment instead.",
+      "splitEnabled": false
+    },
+    {
+      "step": "reloaded",
+      "panels": [
+        {
+          "status": "Unfulfilled",
+          "text": "Unfulfilled Shop location Actions P11 Split Ground p11p3r2 $5.00 P11 Split p11p3r2 $20.00 × 2 Mark as fulfilled"
+        },
+        {
+          "status": "Unfulfilled",
+          "text": "Unfulfilled Shop location Actions P11 Split Ground p11p3r2 $5.00 P11 Split p11p3r2 $20.00 × 1 Mark as fulfilled"
+        }
+      ]
+    }
+  ],
+  "outside": []
+}

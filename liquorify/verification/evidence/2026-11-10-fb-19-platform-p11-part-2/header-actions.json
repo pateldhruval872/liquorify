@@ -1,0 +1,17 @@
+{
+  "test": "header-actions",
+  "revision": "759e1832",
+  "stamp": "mwac6ztk",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "chose Resend Confirmation",
+      "confirmationSent": true
+    },
+    {
+      "step": "chose Preview Order",
+      "openedPage": null
+    }
+  ],
+  "outside": []
+}

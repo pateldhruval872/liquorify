@@ -1,0 +1,19 @@
+{
+  "test": "stock-history",
+  "revision": "69bb4eef",
+  "stamp": "mwa872au",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "adjusted the count by +7, reason Count, on the inventory list"
+    },
+    {
+      "step": "opened the location's sheet; its stock history",
+      "rows": [
+        "less than a minute ago\t\nP11 History decanter mwa872au\nP11-HISTORY-DECANTER-mwa872au\n\tP11 History location mwa872au\t+7\t\nAdjusted\tCount",
+        "less than a minute ago\t\nP11 History decanter mwa872au\nP11-HISTORY-DECANTER-mwa872au\n\tP11 History location mwa872au\t+5\t\nAdjusted\tInventory feed"
+      ]
+    }
+  ],
+  "outside": []
+}

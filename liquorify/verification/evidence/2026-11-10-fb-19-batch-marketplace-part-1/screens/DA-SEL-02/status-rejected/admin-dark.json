@@ -1,0 +1,19 @@
+{
+  "screen": "DA-SEL-02",
+  "state": "status-rejected",
+  "variant": "admin",
+  "role": null,
+  "server": "browser-test server",
+  "theme": "dark",
+  "revision": "6b163aad",
+  "path": "/<store>/sellers/sel_p6klVeMgbn",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "fullPage": true,
+  "capturedHeight": 1213,
+  "intercepted": null,
+  "settled": true,
+  "outside": []
+}

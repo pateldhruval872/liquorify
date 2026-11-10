@@ -1,0 +1,45 @@
+{
+  "test": "claim",
+  "revision": "f467aeb6",
+  "stamp": "p11p3r2",
+  "sabotaged": false,
+  "steps": [
+    {
+      "step": "approved the first claim, then reloaded",
+      "claim": "Approved CLM1001 Actions P11 Claim p11p3r2 ×1 Refund total $0.00"
+    },
+    {
+      "step": "resolved the third claim with a replacement, reloaded, shipped the replacement and reloaded",
+      "dialog": "Resolve claim How to resolve Replacement Send a replacement for P11 Claim p11p3r2 ×1 Cancel Resolve Close",
+      "claim": "Resolved CLM1003 P11 Claim p11p3r2 ×1 Refund total $0.00",
+      "fulfilments": "Fulfillments 2 Fulfilled Fulfilled Shop location Fulfilled less than a minute ago Actions P11 Claim Ground p11p3r2 $5.00 P11 Claim p11p3r2 $20.00 × 4 Mark as delivered Add tracking Fulfilled Shop location Fulfilled less than a minute ago Actions P11 Claim Ground p11p3r2 $0.00 UPS: 1Z999AA10123456788 Awaiting Carrier Actions P11 Claim p11p3r2 $20.00 × 1 Mark as delivered Add tracking"
+    },
+    {
+      "step": "resolved it with a $12.00 refund to the original payment, then reloaded",
+      "dialog": "Resolve claim How to resolve Refund Refund amount $ Refund to Original payment Cancel Resolve Close",
+      "claim": "Resolved CLM1001 P11 Claim p11p3r2 ×1 Refund total $0.00",
+      "refunds": [
+        {
+          "amount": "12.00",
+          "againstAPayment": true
+        }
+      ]
+    },
+    {
+      "step": "resolved the second with store credit, reloaded, and opened the customer",
+      "dialog": "Resolve claim How to resolve Refund Refund amount $ Refund to Store credit Cancel Resolve Close",
+      "claim": "Resolved CLM1002 P11 Claim p11p3r2 ×1 Refund total $0.00",
+      "customer": "Settings Store Store Emails Policies AI Agents Sales channels Custom fields Integrations Selling Markets Payment methods Taxes Shipping & delivery Delivery profiles Stock locations Package types Product types Returns & reasons Marketplace Settings Seller requirements Users & permissions Staff Roles Developer API keys OAuth clients Webhooks Allowed origins Imports P11 Claim Portland, US Total spent $85.00 Orders 1 Avg order value $85.00 Store credit $20.00 Customer since less than a minute ago Last order placed #R1006 Partially Refunded Fulfilled less than a minute ago $85.00 P11 Claim p11p3r2 ×4 $80.00 Orders 1 Order Date Status Total #R1006 less than a minute ago Placed Partially Refunded Fulfilled $85.00 Store credit 1 Issue store credit Amount Used Remaining Memo $20.00 $0.00 $20.00 Claim CLM1002 Actions Custom fields No custom fields yet Track structured details like material, fit, or care instructions. Set up custom fields Manage in settings Metadata No metadata Apps and integrations populate this automatically. Profile p11-claim-p11p3r2@example.com 5035550142 Not subscribed to marketing Customer since less than a minute ago Customer groups Not in any groups Addresses 1 Add address Default billing Default shipping River Okafor 214 Larkspur Lane Portland, OR, 97205 United States 5035550142 Tax registration Add registration No tax registration on file Internal note No internal notes Privacy and data Answer a data protection request. The customer's orders and balances are kept; their personal details are removed everywhere the shop holds them. Marketing consent last changed November 10th, 2026 9:47 AM Export data Erase personal data"
+    },
+    {
+      "step": "canceled the fourth claim, then reloaded",
+      "confirmation": "Are you sure? Cancel this return? Nothing will be restocked and no money will move. Keep claim Cancel claim",
+      "claim": "Canceled CLM1004 P11 Claim p11p3r2 ×1 Refund total $0.00"
+    },
+    {
+      "step": "read the refunded claim's card",
+      "claim": "Resolved CLM1001 P11 Claim p11p3r2 ×1 Refund total $0.00"
+    }
+  ],
+  "outside": []
+}

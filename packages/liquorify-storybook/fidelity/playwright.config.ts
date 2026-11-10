@@ -65,6 +65,15 @@ import { defineConfig } from '@playwright/test'
  * Batch 10 (customers) keeps its captures and comparison in
  * `screens-batch-10.spec.ts` and `compare-batch-10.spec.ts`, seeding through
  * `customers.ts`.
+ * Batch 11 (home figures, reports and email templates) keeps its captures and
+ * comparison in `screens-batch-11.spec.ts` and `compare-batch-11.spec.ts`,
+ * which open the email templates on the emails gem's test app that
+ * `emails-stack.spec.ts` holds open (its own config). `fl-22.spec.ts` builds
+ * and exports a report and checks the home and report figures against the
+ * orders, against a server started as for `mail.spec.ts`; `fl-18.spec.ts`
+ * edits, publishes and reverts an email template and its settings on the
+ * emails app, and `sf-dev-emails.spec.ts` captures the storefront's development
+ * email previews (see each file).
  * `FIDELITY_BASE_URL` points the scripts at a dashboard served on another
  * port, beside a server started with `E2E_RAILS_PORT`.
  */
@@ -81,6 +90,14 @@ export default defineConfig({
     'compare-batch-8-part-2.spec.ts',
     'screens-batch-10.spec.ts',
     'compare-batch-10.spec.ts',
+    'screens-batch-11.spec.ts',
+    'compare-batch-11.spec.ts',
+    'screens-batch-13.spec.ts',
+    'compare-batch-13.spec.ts',
+    'marketplace-checks.spec.ts',
+    'fl-22.spec.ts',
+    'fl-18.spec.ts',
+    'sf-dev-emails.spec.ts',
     'sd-31-gift-card.spec.ts',
     'sd-36-canceled-fulfilment.spec.ts',
     'payment-link.spec.ts',
@@ -119,6 +136,7 @@ export default defineConfig({
     'one-store-checks.spec.ts',
     'p10-admin.spec.ts',
     'p10-shoppers.spec.ts',
+    'p12-admin.spec.ts',
     'catalog-behaviours.spec.ts',
     'multi-store.spec.ts',
     'getting-started-tasks.spec.ts',
@@ -126,6 +144,10 @@ export default defineConfig({
     'multi-store-actions.spec.ts',
     'catalog-actions.spec.ts',
     'loyalty-actions.spec.ts',
+    'inventory-actions.spec.ts',
+    'order-actions.spec.ts',
+    'fulfilment-actions.spec.ts',
+    'after-sale-actions.spec.ts',
   ],
   outputDir: './results/test-output',
   workers: 1,

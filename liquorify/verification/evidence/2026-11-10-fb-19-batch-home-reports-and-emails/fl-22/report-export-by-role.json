@@ -1,0 +1,10 @@
+{
+  "checked": "2026-11-09",
+  "server": "Spree browser-test server (spree/api/spec/dummy), port 3010",
+  "request": "POST /api/v3/admin/exports {\"type\":\"report\",\"search_params\":{\"query\":{\"metrics\":[\"total_sales\"],\"time_range\":{\"preset\":\"last_7_days\"}}}}",
+  "answers": [
+    { "role": "Report builder (read_dashboard, write_reports, read_orders)", "status": 201, "type": "report", "done": false },
+    { "role": "Analyst (read on dashboard, reports, products, categories, customers)", "status": 403, "code": "access_denied", "message": "You are not authorized to access this page." }
+  ],
+  "reading": "A report export needs write on reports. The report builder's export is accepted, so SD-28 (every other export type is refused short of a full admin) does not apply to report exports. The analyst, who may only read reports, is refused, and the report page hides Export from that role."
+}

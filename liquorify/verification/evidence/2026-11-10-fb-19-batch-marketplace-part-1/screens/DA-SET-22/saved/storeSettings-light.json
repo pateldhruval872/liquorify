@@ -1,0 +1,24 @@
+{
+  "screen": "DA-SET-22",
+  "state": "saved",
+  "variant": "storeSettings",
+  "role": {
+    "name": "Store settings",
+    "permissions": [
+      "write_settings"
+    ]
+  },
+  "server": "browser-test server",
+  "theme": "light",
+  "revision": "6b163aad",
+  "path": "/<store>/settings/marketplace",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "fullPage": true,
+  "capturedHeight": 1149,
+  "intercepted": null,
+  "settled": true,
+  "outside": []
+}

@@ -1,0 +1,164 @@
+{
+  "revision": null,
+  "check": "products-on-a-channel",
+  "answers": [
+    {
+      "step": "approved product with its channels",
+      "status": 200,
+      "body": {
+        "id": "prod_ROeNhrwyV9",
+        "name": "Harbour Cask 12 Year Single Malt",
+        "slug": "harbour-cask-12-year-single-malt",
+        "meta_title": null,
+        "meta_description": null,
+        "meta_keywords": null,
+        "variant_count": 1,
+        "available_on": null,
+        "preorder_ships_at": null,
+        "purchasable": false,
+        "preorder": false,
+        "in_stock": false,
+        "backorderable": false,
+        "available": true,
+        "description": null,
+        "description_html": null,
+        "default_variant_id": "variant_ROeNhrwyV9",
+        "buy_box_variant_id": "variant_ROeNhrwyV9",
+        "thumbnail_url": null,
+        "tags": [],
+        "price": {
+          "id": "price_ROeNhrwyV9",
+          "currency": "USD",
+          "amount": "64.00",
+          "compare_at_amount": null,
+          "price_list_id": null,
+          "min_quantity": 1,
+          "variant_id": "variant_ROeNhrwyV9",
+          "created_at": "2026-11-10T06:24:01.700Z",
+          "updated_at": "2026-11-10T06:24:01.700Z"
+        },
+        "original_price": null,
+        "seller_id": "sel_AXs1igzRC6",
+        "external_references": {},
+        "status": "active",
+        "metadata": {},
+        "deleted_at": null,
+        "created_at": "2026-11-10T06:24:01.583Z",
+        "updated_at": "2026-11-10T06:53:47.796Z",
+        "delivery_profile_id": "fp_UkLWZg9DAJ",
+        "seller_name": "Harbour Cask Co.",
+        "product_type_id": null,
+        "tax_category_id": "taxcat_UkLWZg9DAJ",
+        "channels": []
+      }
+    },
+    {
+      "step": "channels",
+      "status": 200,
+      "body": {
+        "data": [
+          {
+            "id": "ch_UkLWZg9DAJ",
+            "name": "Online Store",
+            "code": "online",
+            "active": true,
+            "default": true,
+            "storefront_access": null,
+            "guest_checkout": null,
+            "created_at": "2026-11-10T06:23:28.410Z",
+            "updated_at": "2026-11-10T06:24:03.665Z",
+            "order_routing_strategy": null,
+            "stock_location_ids": [],
+            "default_catalog_id": null
+          },
+          {
+            "id": "ch_gbHJdmfrXB",
+            "name": "Wholesale",
+            "code": "wholesale",
+            "active": true,
+            "default": false,
+            "storefront_access": "login_required",
+            "guest_checkout": false,
+            "created_at": "2026-11-10T06:23:28.573Z",
+            "updated_at": "2026-11-10T06:24:03.672Z",
+            "order_routing_strategy": null,
+            "stock_location_ids": [],
+            "default_catalog_id": null
+          },
+          {
+            "id": "ch_EfhxLZ9ck8",
+            "name": "E2E Bulk Channel",
+            "code": "e2e-bulk",
+            "active": true,
+            "default": false,
+            "storefront_access": null,
+            "guest_checkout": null,
+            "created_at": "2026-11-10T06:23:30.940Z",
+            "updated_at": "2026-11-10T06:24:03.675Z",
+            "order_routing_strategy": null,
+            "stock_location_ids": [],
+            "default_catalog_id": null
+          }
+        ],
+        "meta": {
+          "page": 1,
+          "limit": 100,
+          "count": 3,
+          "pages": 1,
+          "from": 1,
+          "to": 3,
+          "in": 3,
+          "previous": null,
+          "next": null
+        }
+      }
+    },
+    {
+      "step": "operator adds it to the default channel",
+      "status": 200,
+      "body": {
+        "product_count": 1,
+        "channel_count": 1
+      }
+    },
+    {
+      "step": "shopper reads it",
+      "status": 200,
+      "body": {
+        "id": "prod_ROeNhrwyV9",
+        "name": "Harbour Cask 12 Year Single Malt",
+        "slug": "harbour-cask-12-year-single-malt",
+        "meta_title": null,
+        "meta_description": null,
+        "meta_keywords": null,
+        "variant_count": 1,
+        "available_on": null,
+        "preorder_ships_at": null,
+        "purchasable": false,
+        "preorder": false,
+        "in_stock": false,
+        "backorderable": false,
+        "available": true,
+        "description": null,
+        "description_html": null,
+        "default_variant_id": "variant_ROeNhrwyV9",
+        "buy_box_variant_id": "variant_ROeNhrwyV9",
+        "thumbnail_url": null,
+        "tags": [],
+        "price": {
+          "id": "price_ROeNhrwyV9",
+          "currency": "USD",
+          "amount": "64.00",
+          "compare_at_amount": null,
+          "amount_in_cents": 6400,
+          "compare_at_amount_in_cents": null,
+          "display_amount": "$64.00",
+          "display_compare_at_amount": null,
+          "price_list_id": null
+        },
+        "original_price": null,
+        "seller_id": "sel_AXs1igzRC6"
+      }
+    }
+  ]
+}

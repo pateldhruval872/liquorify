@@ -1,0 +1,133 @@
+{
+  "emails": [
+    {
+      "email": "EM-O-03",
+      "about": "Juniper Row Distillers",
+      "subject": "You're approved to sell on Shop",
+      "parts": [
+        "text/plain; charset=UTF-8",
+        "text/html; charset=UTF-8"
+      ],
+      "recipients": 2,
+      "links": [
+        "<site>",
+        "mailto:support@example.com"
+      ]
+    },
+    {
+      "email": "EM-O-04",
+      "about": "Northgate Vintners",
+      "subject": "Your application to sell on Shop",
+      "parts": [
+        "text/plain; charset=UTF-8",
+        "text/html; charset=UTF-8"
+      ],
+      "recipients": 1,
+      "links": [
+        "<site>",
+        "mailto:support@example.com"
+      ]
+    },
+    {
+      "email": "EM-O-05",
+      "about": "Copperline Brewing",
+      "subject": "Your Shop account has been suspended",
+      "parts": [
+        "text/plain; charset=UTF-8",
+        "text/html; charset=UTF-8"
+      ],
+      "recipients": 2,
+      "links": [
+        "<site>",
+        "mailto:support@example.com"
+      ]
+    },
+    {
+      "email": "EM-C-04",
+      "about": "R1008",
+      "subject": "Shop Order Confirmation #R1008",
+      "parts": [
+        "text/plain; charset=UTF-8",
+        "text/html; charset=UTF-8"
+      ],
+      "recipients": 1,
+      "links": [
+        "<site>",
+        "<site>/products/harbour-cask-navy-strength-rum",
+        "<site>/products/saltmarsh-coastal-gin",
+        "mailto:support@example.com"
+      ]
+    },
+    {
+      "email": "EM-O-02",
+      "about": "R1008",
+      "subject": "Shop received a new order",
+      "parts": [
+        "text/plain; charset=UTF-8",
+        "text/html; charset=UTF-8"
+      ],
+      "recipients": 1,
+      "links": [
+        "<site>",
+        "<site>/products/harbour-cask-navy-strength-rum",
+        "<site>/products/saltmarsh-coastal-gin",
+        "mailto:support@example.com"
+      ]
+    },
+    {
+      "email": "EM-S-03",
+      "about": "Larkspur Ciderworks",
+      "subject": "Invitation to join Larkspur Ciderworks",
+      "parts": [
+        "text/plain; charset=UTF-8",
+        "text/html; charset=UTF-8"
+      ],
+      "recipients": 1,
+      "links": [
+        "<site>",
+        "<site>/accept-invitation/inv_so8jaGonyx?token=<token>",
+        "mailto:support@example.com"
+      ]
+    }
+  ],
+  "sent": [
+    {
+      "step": "approve a suspended seller, seller emails on",
+      "succeeded": true,
+      "delivered": [
+        {
+          "subject": "You're approved to sell on Shop",
+          "recipients": 2,
+          "template": null
+        }
+      ]
+    },
+    {
+      "step": "suspend it again, seller emails on",
+      "succeeded": true,
+      "delivered": [
+        {
+          "subject": "Your Shop account has been suspended",
+          "recipients": 2,
+          "template": null
+        }
+      ]
+    },
+    {
+      "step": "approve it, seller emails off",
+      "succeeded": true,
+      "delivered": []
+    },
+    {
+      "step": "invite someone to the seller (EM-S-03)",
+      "succeeded": true,
+      "delivered": [
+        {
+          "subject": "Invitation to join Larkspur Ciderworks",
+          "recipients": 1,
+          "template": null
+        }
+      ]
+    }
+  ]
+}
