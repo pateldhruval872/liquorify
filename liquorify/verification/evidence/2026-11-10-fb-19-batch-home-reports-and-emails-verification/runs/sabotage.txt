@@ -1,0 +1,36 @@
+revision d78e0491, 2026-11-10T15:49:13Z to 2026-11-10T15:51:16Z
+
+### emails
+
+Running 9 tests using 1 worker
+
+  ✘  1 fidelity/b11-email-behaviours.spec.ts:176:3 › Batch 11 verification: the email template editor (behaviours 1 to 9) › 1. Editing a template, with the leave confirmation (7.0s)
+  ✘  2 fidelity/b11-email-behaviours.spec.ts:215:3 › Batch 11 verification: the email template editor (behaviours 1 to 9) › 2. Saving a draft, which does not reach customers (2.7s)
+  ✘  3 fidelity/b11-email-behaviours.spec.ts:236:3 › Batch 11 verification: the email template editor (behaviours 1 to 9) › 3. Sending a test email (5.3s)
+  ✘  4 fidelity/b11-email-behaviours.spec.ts:262:3 › Batch 11 verification: the email template editor (behaviours 1 to 9) › 4. Publishing, and the change reaching customers (2.4s)
+  ✘  5 fidelity/b11-email-behaviours.spec.ts:282:3 › Batch 11 verification: the email template editor (behaviours 1 to 9) › 9. The templates list (1.2s)
+  ✘  6 fidelity/b11-email-behaviours.spec.ts:321:3 › Batch 11 verification: the email template editor (behaviours 1 to 9) › 5. The history, and restoring a version (7.6s)
+  ✘  7 fidelity/b11-email-behaviours.spec.ts:364:3 › Batch 11 verification: the email template editor (behaviours 1 to 9) › 6. The conflict when another editor saved first (17.2s)
+  ✘  8 fidelity/b11-email-behaviours.spec.ts:402:3 › Batch 11 verification: the email template editor (behaviours 1 to 9) › 7. Reverting to Spree's default (7.3s)
+  ✘  9 fidelity/b11-email-behaviours.spec.ts:428:3 › Batch 11 verification: the email template editor (behaviours 1 to 9) › 8. Choosing a record for the preview, and inserting a variable (17.1s)
+
+  9 passed (1.2m)
+
+### reports
+
+Running 3 tests using 1 worker
+
+  ✘  1 fidelity/b11-report-behaviours.spec.ts:85:3 › Batch 11 verification: reports and the home page (behaviours 10 to 12) › 10. Exporting a report, and its email (19.3s)
+  ✘  2 fidelity/b11-report-behaviours.spec.ts:160:3 › Batch 11 verification: reports and the home page (behaviours 10 to 12) › 11. Saving a copy of a built-in report, and searching and sorting the reports list (17.4s)
+  ✘  3 fidelity/b11-report-behaviours.spec.ts:259:3 › Batch 11 verification: reports and the home page (behaviours 10 to 12) › 12. The home page's date range, rankings tabs and operations links (3.5s)
+
+  3 passed (44.2s)
+
+### permissions
+
+Running 1 test using 1 worker
+
+  ✘  1 fidelity/b11-permissions.spec.ts:81:1 › G-103: what the server answers the narrower roles of batch 11 (4.3s)
+
+  1 passed (5.1s)
+

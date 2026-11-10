@@ -1,0 +1,64 @@
+{
+  "id": "CMP-DA-G-08",
+  "story": "admin-dashboard-email-templates-email-preview-frame--plain-text",
+  "theme": "dark",
+  "revision": null,
+  "screenWidth": 411,
+  "storyWidth": 410,
+  "compared": 1,
+  "onlyOnScreen": [],
+  "onlyInStory": [],
+  "differences": [],
+  "styles": {
+    "screen": {
+      "pre||min-h-96 overflow-auto whitespace-pre-wrap rounded-md border border-border bg-card p-4 font-mono text-xs h-[36rem]": {
+        "color": "oklch(0.95 0 0)",
+        "background-color": "oklch(0.216 0 0)",
+        "font-family": "\"Geist Mono Variable\", ui-monospace, monospace",
+        "font-size": "12px",
+        "font-weight": "400",
+        "line-height": "16px",
+        "letter-spacing": "normal",
+        "border-top-width": "1px",
+        "border-top-style": "solid",
+        "border-top-color": "oklch(1 0 0 / 0.16)",
+        "border-bottom-width": "1px",
+        "border-bottom-color": "oklch(1 0 0 / 0.16)",
+        "border-top-left-radius": "8px",
+        "padding-top": "16px",
+        "padding-right": "16px",
+        "padding-bottom": "16px",
+        "padding-left": "16px",
+        "height": "576px",
+        "box-shadow": "none",
+        "opacity": "1",
+        "gap": "normal"
+      }
+    },
+    "story": {
+      "pre||min-h-96 overflow-auto whitespace-pre-wrap rounded-md border border-border bg-card p-4 font-mono text-xs h-[36rem]": {
+        "color": "oklch(0.95 0 0)",
+        "background-color": "oklch(0.216 0 0)",
+        "font-family": "\"Geist Mono Variable\", ui-monospace, monospace",
+        "font-size": "12px",
+        "font-weight": "400",
+        "line-height": "16px",
+        "letter-spacing": "normal",
+        "border-top-width": "1px",
+        "border-top-style": "solid",
+        "border-top-color": "oklch(1 0 0 / 0.16)",
+        "border-bottom-width": "1px",
+        "border-bottom-color": "oklch(1 0 0 / 0.16)",
+        "border-top-left-radius": "8px",
+        "padding-top": "16px",
+        "padding-right": "16px",
+        "padding-bottom": "16px",
+        "padding-left": "16px",
+        "height": "576px",
+        "box-shadow": "none",
+        "opacity": "1",
+        "gap": "normal"
+      }
+    }
+  }
+}

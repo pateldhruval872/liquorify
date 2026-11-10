@@ -1,0 +1,144 @@
+[
+  {
+    "test": "1. Editing a template, with the leave confirmation",
+    "expected_to_fail": true,
+    "result": "failed",
+    "failed_at": [
+      "Error: expect(locator).toBeVisible() failed",
+      "Locator: getByText('Saved changes', { exact: true })",
+      "Expected: visible",
+      "Timeout: 5000ms"
+    ]
+  },
+  {
+    "test": "2. Saving a draft, which does not reach customers",
+    "expected_to_fail": true,
+    "result": "failed",
+    "failed_at": [
+      "Error: expect(received).not.toContain(expected) // indexOf",
+      "Expected substring: not \"<\"",
+      "Received string:        \"<!doctype html><html lang=\\\"en\\\" dir=\\\"auto\\\" xmlns=\\\"http://www.w3.org/1999/xhtml\\\" xmlns:v=\\\"urn:schemas-microsoft-com:vml\\\" xmlns:o=\\\"urn:schemas-microsoft-com:office:office\\\"><head><title>Shop Password Reset Instructions</title><!--[if !mso]><!--><meta http-equiv=\\\"X-UA-Compatible\\\" content=\\\"IE=edge\\\"><!--<![endif]--><meta http-equiv=\\\"Content-Type\\\" content=\\\"text/html; charset=UTF-8\\\"><meta name=\\\"viewport\\\" content=\\\"width=device-width, initial-scale=1\\\">",
+      "<style type=\\\"text/css\\\">"
+    ]
+  },
+  {
+    "test": "3. Sending a test email",
+    "expected_to_fail": true,
+    "result": "failed",
+    "failed_at": [
+      "Error: expect(received).toBe(expected) // Object.is equality",
+      "Expected: true",
+      "Received: false"
+    ]
+  },
+  {
+    "test": "4. Publishing, and the change reaching customers",
+    "expected_to_fail": true,
+    "result": "failed",
+    "failed_at": [
+      "Error: expect(received).toContain(expected) // indexOf",
+      "Expected substring: \"B11 first change 1794326335372 sabotaged\"",
+      "Received string:    \"<!doctype html><html lang=\\\"en\\\" dir=\\\"auto\\\" xmlns=\\\"http://www.w3.org/1999/xhtml\\\" xmlns:v=\\\"urn:schemas-microsoft-com:vml\\\" xmlns:o=\\\"urn:schemas-microsoft-com:office:office\\\"><head><title>Shop Password Reset Instructions (B11 1794326335372)</title><!--[if !mso]><!--><meta http-equiv=\\\"X-UA-Compatible\\\" content=\\\"IE=edge\\\"><!--<![endif]--><meta http-equiv=\\\"Content-Type\\\" content=\\\"text/html; charset=UTF-8\\\"><meta name=\\\"viewport\\\" content=\\\"width=device-width, initial-scale=1\\\">\u00b7",
+      "<style type=\\\"text/css\\\">\u00b7"
+    ]
+  },
+  {
+    "test": "9. The templates list",
+    "expected_to_fail": true,
+    "result": "failed",
+    "failed_at": [
+      "Error: expect(received).toHaveLength(expected)",
+      "Expected length: 12",
+      "Received length: 11",
+      "Received array:  [[Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], \u2026]"
+    ]
+  },
+  {
+    "test": "5. The history, and restoring a version",
+    "expected_to_fail": true,
+    "result": "failed",
+    "failed_at": [
+      "Error: expect(locator).toHaveCount(expected) failed",
+      "Locator:  getByRole('dialog', { name: 'History' }).getByRole('button', { name: 'Restore' })",
+      "Expected: 3",
+      "Received: 20"
+    ]
+  },
+  {
+    "test": "6. The conflict when another editor saved first",
+    "expected_to_fail": true,
+    "result": "failed",
+    "failed_at": [
+      "Error: expect(locator).toBeVisible() failed",
+      "Locator: getByText('Nobody else saved this draft')",
+      "Expected: visible",
+      "Timeout: 15000ms"
+    ]
+  },
+  {
+    "test": "7. Reverting to Spree's default",
+    "expected_to_fail": true,
+    "result": "failed",
+    "failed_at": [
+      "Error: expect(locator).toHaveValue(expected) failed",
+      "Locator:  getByRole('textbox', { name: 'Subject', exact: true })",
+      "Expected: \"{{ store.name }} Password Reset Instructions!\"",
+      "Received: \"{{ store.name }} Password Reset Instructions\""
+    ]
+  },
+  {
+    "test": "8. Choosing a record for the preview, and inserting a variable",
+    "expected_to_fail": true,
+    "result": "failed",
+    "failed_at": [
+      "Error: expect(locator).toBeVisible() failed",
+      "Locator: getByText(/^Subject: .*R0\\b/)",
+      "Expected: visible",
+      "Timeout: 15000ms"
+    ]
+  },
+  {
+    "test": "G-103: what the server answers the narrower roles of batch 11",
+    "expected_to_fail": true,
+    "result": "failed",
+    "failed_at": [
+      "Error: requests whose answer differs from the expected one",
+      "expect(received).toEqual(expected) // deep equality",
+      "- Expected  -  1",
+      "+ Received  + 30"
+    ]
+  },
+  {
+    "test": "10. Exporting a report, and its email",
+    "expected_to_fail": true,
+    "result": "failed",
+    "failed_at": [
+      "Error: expect(locator).toBeVisible() failed",
+      "Locator: getByText('Export refused')",
+      "Expected: visible",
+      "Timeout: 15000ms"
+    ]
+  },
+  {
+    "test": "11. Saving a copy of a built-in report, and searching and sorting the reports list",
+    "expected_to_fail": true,
+    "result": "failed",
+    "failed_at": [
+      "Error: expect(locator).toBeVisible() failed",
+      "Locator: getByRole('heading', { name: 'B11 copy 1794326407586!' })",
+      "Expected: visible",
+      "Timeout: 15000ms"
+    ]
+  },
+  {
+    "test": "12. The home page's date range, rankings tabs and operations links",
+    "expected_to_fail": true,
+    "result": "failed",
+    "failed_at": [
+      "Error: preset-last-7-days",
+      "expect(received).toEqual(expected) // deep equality",
+      "- Expected  - 1",
+      "+ Received  + 1"
+    ]
+  }
+]
