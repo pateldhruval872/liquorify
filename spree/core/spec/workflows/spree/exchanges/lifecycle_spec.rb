@@ -157,6 +157,31 @@ RSpec.describe 'Spree::Exchanges workflows' do
       expect(units).to all(have_attributes(replacement: true, fulfillment_id: be_present))
     end
 
+    # Stock planning was asked for the whole line's quantity rather than the
+    # replacement's, so with a second shelf to draw on it planned one unit
+    # from each and the swap was refused as out of stock.
+    context 'when one unit of a larger line is swapped for goods stocked at two locations' do
+      let(:order) { create(:shipped_order, store: store, line_items_count: 1) }
+      let(:exchange) { create(:received_exchange, order: order, store: store) }
+
+      before do
+        line_item = order.line_items.first
+        line_item.update_columns(quantity: 3)
+        line_item.fulfillment_items.update_all(quantity: 3)
+        new_variant = exchange.exchange_line_items.first.new_variant
+        new_variant.stock_levels.first.set_count_on_hand(10)
+        create(:stock_location, store: store).stock_level_or_create(new_variant).set_count_on_hand(10)
+      end
+
+      it 'ships the one replacement unit' do
+        result = Spree::Exchanges::Fulfill.call(exchange: exchange)
+        new_variant = exchange.exchange_line_items.first.new_variant
+
+        expect(result).to be_success
+        expect(exchange.order.fulfillment_items.reload.where(variant: new_variant).sum(:quantity)).to eq(1)
+      end
+    end
+
     it 'adds a unit when the exchanged line is raised afterwards' do
       line = exchange.exchange_line_items.first
       line_item = line.line_item
