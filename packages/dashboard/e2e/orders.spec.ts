@@ -300,6 +300,81 @@ test.describe('order gift cards', () => {
   })
 })
 
+test.describe('order summary', () => {
+  test('counts a promotion once beside a fee, so the rows add up to the total', async ({
+    page,
+  }) => {
+    const creds = await login(page)
+    const stamp = Date.now()
+    const code = `e2esummary${stamp}`
+    await adminRequest(page, creds, 'post', '/promotions', {
+      name: `E2E summary promotion ${stamp}`,
+      kind: 'coupon_code',
+      code,
+      starts_at: new Date(stamp - 86_400_000).toISOString(),
+      actions: [
+        {
+          type: 'create_adjustment',
+          calculator: { type: 'flat_rate', preferences: { amount: '6.00' } },
+        },
+      ],
+    })
+
+    await page.goto(NEW_ORDER_PATH(creds.store_id))
+    await expect(page.getByRole('heading', { name: CTA })).toBeVisible({ timeout: 15_000 })
+    await fillNewOrderForm(page, `e2e-summary-${stamp}@example.com`)
+    await page.locator('button[type="submit"]').click()
+    await expect(page).toHaveURL(new RegExp(`/${creds.store_id}/orders/or_[^/]+$`), {
+      timeout: 15_000,
+    })
+
+    const cardTitled = (title: RegExp) =>
+      page
+        .locator('[data-slot="card"]')
+        .filter({ has: page.locator('[data-slot="card-title"]', { hasText: title }) })
+        .first()
+
+    const discounts = cardTitled(/^discounts & credit$/i)
+    await discounts
+      .getByRole('button', { name: /^apply$/i })
+      .first()
+      .click()
+    await page.getByRole('dialog').locator('#coupon-code').fill(code)
+    await page
+      .getByRole('dialog')
+      .getByRole('button', { name: /^apply$/i })
+      .click()
+    await expect(discounts.getByText(code)).toBeVisible({ timeout: 15_000 })
+
+    const fees = cardTitled(/^fees$/i)
+    await fees.getByRole('button', { name: /add fee/i }).click()
+    await page
+      .getByRole('dialog')
+      .getByLabel(/^label$/i)
+      .fill('E2E gift wrap')
+    await page
+      .getByRole('dialog')
+      .getByLabel(/^amount$/i)
+      .fill('4.50')
+    await page
+      .getByRole('dialog')
+      .getByRole('button', { name: /^add fee$/i })
+      .click()
+    await expect(fees.getByText('E2E gift wrap')).toBeVisible({ timeout: 15_000 })
+
+    const summary = cardTitled(/^summary$/i)
+    const row = (label: string) =>
+      summary
+        .locator('div')
+        .filter({ has: page.getByText(label, { exact: true }) })
+        .last()
+    await expect(row('Promotions')).toContainText('-$6.00')
+    // Adjustments holds only what has no row of its own: here, the fee.
+    await expect(row('Adjustments')).toContainText('$4.50')
+    await expect(row('Adjustments')).not.toContainText('-$1.50')
+  })
+})
+
 test.describe('order editing', () => {
   // Editing is a detour from the order, so saving hands the merchant back the
   // view that shows what the edit did rather than leaving them on the form.
