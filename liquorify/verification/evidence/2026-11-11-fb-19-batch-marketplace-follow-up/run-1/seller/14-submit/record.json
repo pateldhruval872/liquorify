@@ -1,0 +1,14 @@
+{
+  "revision": "72bd337c",
+  "run": "mwbow9d0",
+  "sabotage": false,
+  "check": "14-submit",
+  "entries": [
+    {
+      "step": "server seller",
+      "body": {
+        "status": "ready_for_review"
+      }
+    }
+  ]
+}

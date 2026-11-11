@@ -1,0 +1,403 @@
+{
+  "revision": "72bd337c",
+  "run": "mwbos6sq",
+  "sabotage": false,
+  "check": "07-requirements",
+  "entries": [
+    {
+      "step": "before",
+      "body": {
+        "status": "onboarding",
+        "progress": {
+          "done": 0,
+          "total": 9
+        },
+        "requirements": [
+          {
+            "id": "selreq_UkLWZg9DAJ",
+            "kind": "accept_terms",
+            "name": "Accept terms",
+            "description": "Read and accept the marketplace terms",
+            "required": true,
+            "position": 1,
+            "status": "incomplete",
+            "action_url": null,
+            "blocker": null,
+            "blocking": true,
+            "required_policy_name": null
+          },
+          {
+            "id": "selreq_gbHJdmfrXB",
+            "kind": "complete_profile",
+            "name": "Complete profile",
+            "description": "Fill in the public profile shoppers see",
+            "required": true,
+            "position": 2,
+            "status": "incomplete",
+            "action_url": null,
+            "blocker": null,
+            "blocking": true,
+            "required_policy_name": null
+          },
+          {
+            "id": "selreq_EfhxLZ9ck8",
+            "kind": "billing_address",
+            "name": "Billing address",
+            "description": "The address your payouts are billed from",
+            "required": true,
+            "position": 3,
+            "status": "incomplete",
+            "action_url": null,
+            "blocker": null,
+            "blocking": true,
+            "required_policy_name": null
+          },
+          {
+            "id": "selreq_VqXmZF31wY",
+            "kind": "returns_address",
+            "name": "Returns address",
+            "description": "The address customer returns are sent to",
+            "required": true,
+            "position": 4,
+            "status": "incomplete",
+            "action_url": null,
+            "blocker": null,
+            "blocking": true,
+            "required_policy_name": null
+          },
+          {
+            "id": "selreq_uw2YK1rnl0",
+            "kind": "delivery_method",
+            "name": "Delivery method",
+            "description": "Offer at least one way to ship your orders",
+            "required": true,
+            "position": 5,
+            "status": "incomplete",
+            "action_url": null,
+            "blocker": null,
+            "blocking": true,
+            "required_policy_name": null
+          },
+          {
+            "id": "selreq_OIJLhNcSbf",
+            "kind": "package_type",
+            "name": "Shipping box",
+            "description": "Tell us the size and weight of the box you ship orders in",
+            "required": true,
+            "position": 6,
+            "status": "incomplete",
+            "action_url": null,
+            "blocker": null,
+            "blocking": true,
+            "required_policy_name": null
+          },
+          {
+            "id": "selreq_AXs1igzRC6",
+            "kind": "minimum_products",
+            "name": "Minimum products",
+            "description": "List at least this many products",
+            "required": true,
+            "position": 7,
+            "status": "incomplete",
+            "action_url": null,
+            "blocker": null,
+            "blocking": true,
+            "required_policy_name": null
+          },
+          {
+            "id": "selreq_ed6l8wVqSM",
+            "kind": "operator_review",
+            "name": "Premises licence mwbos6sq-1",
+            "description": "The marketplace checks this by hand before approving you",
+            "required": true,
+            "position": 8,
+            "status": "pending",
+            "action_url": null,
+            "blocker": null,
+            "blocking": true,
+            "required_policy_name": null,
+            "submission": {
+              "id": "selsub_UkLWZg9DAJ",
+              "status": "pending",
+              "note": "Submitted for Premises licence mwbos6sq-1.",
+              "review_note": null,
+              "reference": null,
+              "metadata": {},
+              "reviewed_at": null,
+              "created_at": "2026-11-11T05:36:40.869Z",
+              "updated_at": "2026-11-11T05:36:40.869Z",
+              "seller_id": "sel_98FqgRua4h",
+              "requirement_id": "selreq_ed6l8wVqSM",
+              "requirement_name": "Premises licence mwbos6sq-1",
+              "file_url": null,
+              "file_name": null
+            }
+          },
+          {
+            "id": "selreq_s18jaGonyx",
+            "kind": "operator_review",
+            "name": "Duty registration mwbos6sq-2",
+            "description": "The marketplace checks this by hand before approving you",
+            "required": true,
+            "position": 9,
+            "status": "pending",
+            "action_url": null,
+            "blocker": null,
+            "blocking": true,
+            "required_policy_name": null,
+            "submission": {
+              "id": "selsub_gbHJdmfrXB",
+              "status": "pending",
+              "note": "Submitted for Duty registration mwbos6sq-2.",
+              "review_note": null,
+              "reference": null,
+              "metadata": {},
+              "reviewed_at": null,
+              "created_at": "2026-11-11T05:36:40.911Z",
+              "updated_at": "2026-11-11T05:36:40.911Z",
+              "seller_id": "sel_98FqgRua4h",
+              "requirement_id": "selreq_s18jaGonyx",
+              "requirement_name": "Duty registration mwbos6sq-2",
+              "file_url": null,
+              "file_name": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "step": "a field for the reason in the confirmation",
+      "body": false
+    },
+    {
+      "step": "after",
+      "body": {
+        "status": "onboarding",
+        "progress": {
+          "done": 2,
+          "total": 9
+        },
+        "requirements": [
+          {
+            "id": "selreq_UkLWZg9DAJ",
+            "kind": "accept_terms",
+            "name": "Accept terms",
+            "description": "Read and accept the marketplace terms",
+            "required": true,
+            "position": 1,
+            "status": "incomplete",
+            "action_url": null,
+            "blocker": null,
+            "blocking": true,
+            "required_policy_name": null
+          },
+          {
+            "id": "selreq_gbHJdmfrXB",
+            "kind": "complete_profile",
+            "name": "Complete profile",
+            "description": "Fill in the public profile shoppers see",
+            "required": true,
+            "position": 2,
+            "status": "incomplete",
+            "action_url": null,
+            "blocker": null,
+            "blocking": true,
+            "required_policy_name": null
+          },
+          {
+            "id": "selreq_EfhxLZ9ck8",
+            "kind": "billing_address",
+            "name": "Billing address",
+            "description": "The address your payouts are billed from",
+            "required": true,
+            "position": 3,
+            "status": "incomplete",
+            "action_url": null,
+            "blocker": null,
+            "blocking": true,
+            "required_policy_name": null
+          },
+          {
+            "id": "selreq_VqXmZF31wY",
+            "kind": "returns_address",
+            "name": "Returns address",
+            "description": "The address customer returns are sent to",
+            "required": true,
+            "position": 4,
+            "status": "incomplete",
+            "action_url": null,
+            "blocker": null,
+            "blocking": true,
+            "required_policy_name": null
+          },
+          {
+            "id": "selreq_uw2YK1rnl0",
+            "kind": "delivery_method",
+            "name": "Delivery method",
+            "description": "Offer at least one way to ship your orders",
+            "required": true,
+            "position": 5,
+            "status": "incomplete",
+            "action_url": null,
+            "blocker": null,
+            "blocking": true,
+            "required_policy_name": null
+          },
+          {
+            "id": "selreq_OIJLhNcSbf",
+            "kind": "package_type",
+            "name": "Shipping box",
+            "description": "Tell us the size and weight of the box you ship orders in",
+            "required": true,
+            "position": 6,
+            "status": "complete",
+            "action_url": null,
+            "blocker": null,
+            "blocking": false,
+            "required_policy_name": null,
+            "submission": {
+              "id": "selsub_EfhxLZ9ck8",
+              "status": "waived",
+              "note": null,
+              "review_note": null,
+              "reference": null,
+              "metadata": {},
+              "reviewed_at": "2026-11-11T05:36:43.333Z",
+              "created_at": "2026-11-11T05:36:43.334Z",
+              "updated_at": "2026-11-11T05:36:43.334Z",
+              "seller_id": "sel_98FqgRua4h",
+              "requirement_id": "selreq_OIJLhNcSbf",
+              "requirement_name": "Shipping box",
+              "file_url": null,
+              "file_name": null
+            }
+          },
+          {
+            "id": "selreq_AXs1igzRC6",
+            "kind": "minimum_products",
+            "name": "Minimum products",
+            "description": "List at least this many products",
+            "required": true,
+            "position": 7,
+            "status": "incomplete",
+            "action_url": null,
+            "blocker": null,
+            "blocking": true,
+            "required_policy_name": null
+          },
+          {
+            "id": "selreq_ed6l8wVqSM",
+            "kind": "operator_review",
+            "name": "Premises licence mwbos6sq-1",
+            "description": "The marketplace checks this by hand before approving you",
+            "required": true,
+            "position": 8,
+            "status": "complete",
+            "action_url": null,
+            "blocker": null,
+            "blocking": false,
+            "required_policy_name": null,
+            "submission": {
+              "id": "selsub_UkLWZg9DAJ",
+              "status": "accepted",
+              "note": "Submitted for Premises licence mwbos6sq-1.",
+              "review_note": null,
+              "reference": null,
+              "metadata": {},
+              "reviewed_at": "2026-11-11T05:36:42.568Z",
+              "created_at": "2026-11-11T05:36:40.869Z",
+              "updated_at": "2026-11-11T05:36:42.571Z",
+              "seller_id": "sel_98FqgRua4h",
+              "requirement_id": "selreq_ed6l8wVqSM",
+              "requirement_name": "Premises licence mwbos6sq-1",
+              "file_url": null,
+              "file_name": null
+            }
+          },
+          {
+            "id": "selreq_s18jaGonyx",
+            "kind": "operator_review",
+            "name": "Duty registration mwbos6sq-2",
+            "description": "The marketplace checks this by hand before approving you",
+            "required": true,
+            "position": 9,
+            "status": "rejected",
+            "action_url": null,
+            "blocker": null,
+            "blocking": true,
+            "required_policy_name": null,
+            "submission": {
+              "id": "selsub_gbHJdmfrXB",
+              "status": "rejected",
+              "note": "Submitted for Duty registration mwbos6sq-2.",
+              "review_note": null,
+              "reference": null,
+              "metadata": {},
+              "reviewed_at": "2026-11-11T05:36:42.913Z",
+              "created_at": "2026-11-11T05:36:40.911Z",
+              "updated_at": "2026-11-11T05:36:42.923Z",
+              "seller_id": "sel_98FqgRua4h",
+              "requirement_id": "selreq_s18jaGonyx",
+              "requirement_name": "Duty registration mwbos6sq-2",
+              "file_url": null,
+              "file_name": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "step": "submissions",
+      "body": [
+        {
+          "id": "selsub_UkLWZg9DAJ",
+          "status": "accepted",
+          "note": "Submitted for Premises licence mwbos6sq-1.",
+          "review_note": null,
+          "reference": null,
+          "metadata": {},
+          "reviewed_at": "2026-11-11T05:36:42.568Z",
+          "created_at": "2026-11-11T05:36:40.869Z",
+          "updated_at": "2026-11-11T05:36:42.571Z",
+          "seller_id": "sel_98FqgRua4h",
+          "requirement_id": "selreq_ed6l8wVqSM",
+          "requirement_name": "Premises licence mwbos6sq-1",
+          "file_url": null,
+          "file_name": null
+        },
+        {
+          "id": "selsub_gbHJdmfrXB",
+          "status": "rejected",
+          "note": "Submitted for Duty registration mwbos6sq-2.",
+          "review_note": null,
+          "reference": null,
+          "metadata": {},
+          "reviewed_at": "2026-11-11T05:36:42.913Z",
+          "created_at": "2026-11-11T05:36:40.911Z",
+          "updated_at": "2026-11-11T05:36:42.923Z",
+          "seller_id": "sel_98FqgRua4h",
+          "requirement_id": "selreq_s18jaGonyx",
+          "requirement_name": "Duty registration mwbos6sq-2",
+          "file_url": null,
+          "file_name": null
+        },
+        {
+          "id": "selsub_EfhxLZ9ck8",
+          "status": "waived",
+          "note": null,
+          "review_note": null,
+          "reference": null,
+          "metadata": {},
+          "reviewed_at": "2026-11-11T05:36:43.333Z",
+          "created_at": "2026-11-11T05:36:43.334Z",
+          "updated_at": "2026-11-11T05:36:43.334Z",
+          "seller_id": "sel_98FqgRua4h",
+          "requirement_id": "selreq_OIJLhNcSbf",
+          "requirement_name": "Shipping box",
+          "file_url": null,
+          "file_name": null
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,123 @@
+{
+  "revision": "72bd337c",
+  "run": "mwboudtz",
+  "sabotage": false,
+  "check": "04-return",
+  "entries": [
+    {
+      "step": "server return",
+      "body": {
+        "id": "ret_UkLWZg9DAJ",
+        "number": "RET1001",
+        "status": "refunded",
+        "order_id": "or_ed6l8wVqSM",
+        "reason_id": "rar_VqXmZF31wY",
+        "refund_total": "32.00",
+        "refund_tax_total": "0.00",
+        "approved_at": "2026-11-11T05:38:38Z",
+        "received_at": "2026-11-11T05:38:38Z",
+        "refunded_at": "2026-11-11T05:38:39Z",
+        "canceled_at": null,
+        "memo": null,
+        "stock_location_id": "sloc_K95Q8YFGzd",
+        "refunded_total": "32.00",
+        "refundable_total": "0.00"
+      }
+    },
+    {
+      "step": "server refunds",
+      "body": [
+        {
+          "id": "re_UkLWZg9DAJ",
+          "transaction_id": null,
+          "amount": "32.00",
+          "payment_id": "py_nJqfPa3Cpe",
+          "refund_reason_id": "rr_UkLWZg9DAJ",
+          "originator_id": "ret_UkLWZg9DAJ",
+          "originator_type": "return",
+          "metadata": {},
+          "created_at": "2026-11-11T05:38:39.203Z",
+          "updated_at": "2026-11-11T05:38:39.203Z",
+          "tax_amount": "0.00",
+          "refunder_id": "adm_msx3nOJap6",
+          "refunder_type": "admin_user"
+        }
+      ]
+    },
+    {
+      "step": "server seller transfers",
+      "body": {
+        "before": [
+          {
+            "id": "vtr_OIJLhNcSbf",
+            "kind": "earning",
+            "status": "completed",
+            "currency": "USD",
+            "reference": null,
+            "metadata": {},
+            "created_at": "2026-11-11T05:38:35.418Z",
+            "updated_at": "2026-11-11T05:38:35.420Z",
+            "amount": "38.50",
+            "settled_amount": "38.50",
+            "settled_currency": "USD",
+            "converted": false,
+            "seller_id": "sel_D6Psx31WaT",
+            "order_id": "or_ed6l8wVqSM",
+            "payout_id": null,
+            "reversed_from_id": null,
+            "refund_id": null,
+            "seller_name": "Aspen North mwboudtz-6",
+            "order_number": "R1010-1",
+            "provider": "system"
+          }
+        ],
+        "after": [
+          {
+            "id": "vtr_OIJLhNcSbf",
+            "kind": "earning",
+            "status": "completed",
+            "currency": "USD",
+            "reference": null,
+            "metadata": {},
+            "created_at": "2026-11-11T05:38:35.418Z",
+            "updated_at": "2026-11-11T05:38:35.420Z",
+            "amount": "38.50",
+            "settled_amount": "38.50",
+            "settled_currency": "USD",
+            "converted": false,
+            "seller_id": "sel_D6Psx31WaT",
+            "order_id": "or_ed6l8wVqSM",
+            "payout_id": null,
+            "reversed_from_id": null,
+            "refund_id": null,
+            "seller_name": "Aspen North mwboudtz-6",
+            "order_number": "R1010-1",
+            "provider": "system"
+          },
+          {
+            "id": "vtr_AXs1igzRC6",
+            "kind": "refund_reversal",
+            "status": "completed",
+            "currency": "USD",
+            "reference": null,
+            "metadata": {},
+            "created_at": "2026-11-11T05:38:39.471Z",
+            "updated_at": "2026-11-11T05:38:39.473Z",
+            "amount": "-32.00",
+            "settled_amount": "-32.00",
+            "settled_currency": "USD",
+            "converted": false,
+            "seller_id": "sel_D6Psx31WaT",
+            "order_id": "or_ed6l8wVqSM",
+            "payout_id": null,
+            "reversed_from_id": "vtr_OIJLhNcSbf",
+            "refund_id": "re_UkLWZg9DAJ",
+            "seller_name": "Aspen North mwboudtz-6",
+            "order_number": "R1010-1",
+            "provider": "system"
+          }
+        ]
+      }
+    }
+  ]
+}

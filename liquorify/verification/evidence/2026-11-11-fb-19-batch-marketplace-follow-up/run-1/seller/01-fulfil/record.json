@@ -1,0 +1,22 @@
+{
+  "revision": "72bd337c",
+  "run": "mwbotwfy",
+  "sabotage": false,
+  "check": "01-fulfil",
+  "entries": [
+    {
+      "step": "server fulfilment",
+      "body": {
+        "status": "fulfilled",
+        "tracking": "1ZMWBOTWFY0001"
+      }
+    },
+    {
+      "step": "mail to the customer",
+      "body": [
+        "Shop Order Confirmation #R1007",
+        "Shop Fulfillment Notification #R1007-1"
+      ]
+    }
+  ]
+}

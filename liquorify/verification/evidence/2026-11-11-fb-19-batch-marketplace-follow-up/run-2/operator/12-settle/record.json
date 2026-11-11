@@ -1,0 +1,96 @@
+{
+  "revision": "72bd337c",
+  "run": "mwboy0vb",
+  "sabotage": false,
+  "check": "12-settle",
+  "entries": [
+    {
+      "step": "server balance before",
+      "body": [
+        {
+          "currency": "USD",
+          "settlement_currency": "USD",
+          "converted": false,
+          "seller_id": "sel_GZUcnUYI5A",
+          "earned": "38.50",
+          "pending": "0.00",
+          "payable": "38.50",
+          "paid": "0.00",
+          "balance": "38.50"
+        }
+      ]
+    },
+    {
+      "step": "server payouts",
+      "body": [
+        {
+          "id": "vpo_EfhxLZ9ck8",
+          "status": "pending",
+          "currency": "USD",
+          "reference": null,
+          "metadata": {},
+          "period_start": "2026-11-11T05:42:07.111Z",
+          "period_end": "2026-11-11T05:42:08.937Z",
+          "created_at": "2026-11-11T05:42:08.944Z",
+          "updated_at": "2026-11-11T05:42:08.944Z",
+          "amount": "38.50",
+          "seller_id": "sel_GZUcnUYI5A",
+          "seller_name": "Settle mwboy0vb-20",
+          "transfers_count": 1,
+          "provider": "system"
+        }
+      ]
+    },
+    {
+      "step": "server balance after",
+      "body": [
+        {
+          "currency": "USD",
+          "settlement_currency": "USD",
+          "converted": false,
+          "seller_id": "sel_GZUcnUYI5A",
+          "earned": "38.50",
+          "pending": "0.00",
+          "payable": "38.50",
+          "paid": "0.00",
+          "balance": "38.50"
+        }
+      ]
+    },
+    {
+      "step": "server payout after marking paid",
+      "body": {
+        "id": "vpo_EfhxLZ9ck8",
+        "status": "completed",
+        "currency": "USD",
+        "reference": "BACS-mwboy0vb",
+        "metadata": {},
+        "period_start": "2026-11-11T05:42:07.111Z",
+        "period_end": "2026-11-11T05:42:08.937Z",
+        "created_at": "2026-11-11T05:42:08.944Z",
+        "updated_at": "2026-11-11T05:42:11.863Z",
+        "amount": "38.50",
+        "seller_id": "sel_GZUcnUYI5A",
+        "seller_name": "Settle mwboy0vb-20",
+        "transfers_count": 1,
+        "provider": "system"
+      }
+    },
+    {
+      "step": "server balance after marking paid",
+      "body": [
+        {
+          "currency": "USD",
+          "settlement_currency": "USD",
+          "converted": false,
+          "seller_id": "sel_GZUcnUYI5A",
+          "earned": "38.50",
+          "pending": "0.00",
+          "payable": "38.50",
+          "paid": "38.50",
+          "balance": "0.00"
+        }
+      ]
+    }
+  ]
+}
