@@ -29906,6 +29906,17 @@ components:
           type: array
           items:
             "$ref": "#/components/schemas/CustomField"
+        next_price_break_quantity:
+          type: number
+          nullable: true
+          description: 'With `expand=next_price_break`: the smallest quantity above
+            one at which this buyer''s unit price drops, or null when buying more
+            never lowers it.'
+        next_price_break_price:
+          type: string
+          nullable: true
+          description: 'With `expand=next_price_break`: the unit price from next_price_break_quantity
+            on, or null when there is no break.'
         prior_price:
           allOf:
           - "$ref": "#/components/schemas/PriceHistory"

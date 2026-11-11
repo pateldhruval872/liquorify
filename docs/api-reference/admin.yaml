@@ -17966,6 +17966,9 @@ paths:
                   pre_tax_amount: '20.00'
                   discounted_amount: '20.00'
                   compare_at_amount:
+                  price_list_id:
+                  next_price_break_quantity:
+                  next_price_break_price:
                   thumbnail_url:
                   option_values:
                   - id: optval_UkLWZg9DAJ
@@ -17987,7 +17990,6 @@ paths:
                   created_at: '2026-01-15T12:00:00.000Z'
                   updated_at: '2026-01-15T12:00:00.000Z'
                   catalog_price: '19.99'
-                  price_list_id:
                   price_list_name:
                   catalog_id:
                   catalog_name:
@@ -18075,6 +18077,9 @@ paths:
                 pre_tax_amount: '59.97'
                 discounted_amount: '59.97'
                 compare_at_amount:
+                price_list_id:
+                next_price_break_quantity:
+                next_price_break_price:
                 thumbnail_url:
                 option_values:
                 - id: optval_gbHJdmfrXB
@@ -18096,7 +18101,6 @@ paths:
                 created_at: '2026-01-15T12:00:00.000Z'
                 updated_at: '2026-01-15T12:00:00.000Z'
                 catalog_price: '19.99'
-                price_list_id:
                 price_list_name:
                 catalog_id:
                 catalog_name:
@@ -18198,6 +18202,9 @@ paths:
                 pre_tax_amount: '20.00'
                 discounted_amount: '20.00'
                 compare_at_amount:
+                price_list_id:
+                next_price_break_quantity:
+                next_price_break_price:
                 thumbnail_url:
                 option_values:
                 - id: optval_UkLWZg9DAJ
@@ -18219,7 +18226,6 @@ paths:
                 created_at: '2026-01-15T12:00:00.000Z'
                 updated_at: '2026-01-15T12:00:00.000Z'
                 catalog_price: '19.99'
-                price_list_id:
                 price_list_name:
                 catalog_id:
                 catalog_name:
@@ -18302,6 +18308,9 @@ paths:
                 pre_tax_amount: '99.95'
                 discounted_amount: '99.95'
                 compare_at_amount:
+                price_list_id:
+                next_price_break_quantity:
+                next_price_break_price:
                 thumbnail_url:
                 option_values:
                 - id: optval_UkLWZg9DAJ
@@ -18323,7 +18332,6 @@ paths:
                 created_at: '2026-01-15T12:00:00.000Z'
                 updated_at: '2026-01-15T12:00:00.000Z'
                 catalog_price: '19.99'
-                price_list_id:
                 price_list_name:
                 catalog_id:
                 catalog_name:
@@ -62414,6 +62422,21 @@ components:
           nullable: true
           description: The compare-at price times quantity, or null when the variant
             has none.
+        price_list_id:
+          type: string
+          nullable: true
+          description: The price list that priced this line, or null when it is at
+            the catalog price.
+        next_price_break_quantity:
+          type: number
+          nullable: true
+          description: The smallest quantity at which this line's unit price drops,
+            or null when buying more never lowers it.
+        next_price_break_price:
+          type: string
+          nullable: true
+          description: The unit price from next_price_break_quantity on, or null when
+            there is no break.
         thumbnail_url:
           type: string
           nullable: true
@@ -62443,9 +62466,6 @@ components:
         updated_at:
           type: string
         catalog_price:
-          type: string
-          nullable: true
-        price_list_id:
           type: string
           nullable: true
         price_list_name:
@@ -62487,6 +62507,9 @@ components:
       - pre_tax_amount
       - discounted_amount
       - compare_at_amount
+      - price_list_id
+      - next_price_break_quantity
+      - next_price_break_price
       - thumbnail_url
       - option_values
       - digital_links
@@ -62496,7 +62519,6 @@ components:
       - created_at
       - updated_at
       - catalog_price
-      - price_list_id
       - price_list_name
       - catalog_id
       - catalog_name
@@ -73330,6 +73352,17 @@ components:
           type: array
           items:
             "$ref": "#/components/schemas/CustomField"
+        next_price_break_quantity:
+          type: number
+          nullable: true
+          description: 'With `expand=next_price_break`: the smallest quantity above
+            one at which this buyer''s unit price drops, or null when buying more
+            never lowers it.'
+        next_price_break_price:
+          type: string
+          nullable: true
+          description: 'With `expand=next_price_break`: the unit price from next_price_break_quantity
+            on, or null when there is no break.'
         prior_price:
           allOf:
           - "$ref": "#/components/schemas/PriceHistory"

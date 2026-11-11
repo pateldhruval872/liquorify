@@ -864,6 +864,35 @@ module Spree
       Spree::Pricing::PriceResolution.call(context)
     end
 
+    # The smallest quantity above the one being priced at which this buyer
+    # pays a lower unit price, and that price: what a "buy more, pay less"
+    # hint may promise. The thresholds come from the store's price lists —
+    # volume rule minimums, quantity break rows and adjustment bands — and the
+    # price at each is asked of the same resolution that prices the line, so
+    # the hint never names a quantity or a price checkout would not charge.
+    #
+    # @param context [Spree::Pricing::Context] the context the line or listing
+    #   is priced with; its quantity is the one being bought (one when absent)
+    # @return [Spree::Price, nil] an unsaved, readonly price whose
+    #   +min_quantity+ is the break, or nil when buying more never lowers it
+    def next_price_break(context)
+      current = price_for(context)
+      return if current&.amount.nil?
+
+      quantity = [context.quantity.to_i, 1].max
+      price_break_quantities(context, quantity).each do |candidate|
+        price = price_for(pricing_context_at(context, candidate))
+        next if price&.amount.nil? || price.amount >= current.amount
+
+        return Spree::Price.new(
+          variant_id: id, currency: price.currency, amount: price.amount,
+          price_list_id: price.price_list_id, min_quantity: candidate
+        ).tap(&:readonly!)
+      end
+
+      nil
+    end
+
     # Sets the count at a location. The correction goes through an `adjusted`
     # movement so it shows up in the stock history like every other change.
     # A count below zero is refused whatever the variant's backorder settings
@@ -1105,6 +1134,26 @@ module Spree
     end
 
     private
+
+    def price_break_quantities(context, quantity)
+      price_list_ids = Spree::PriceList.for_store(context.store).with_status(:active, :scheduled).ids
+      return [] if price_list_ids.empty?
+
+      volume_minimums = Spree::PriceRules::VolumeRule.where(price_list_id: price_list_ids).map(&:preferred_min_quantity)
+      band_minimums = Spree::PriceAdjustmentTier.where(price_list_id: price_list_ids).pluck(:min_quantity)
+      row_minimums = prices.where(price_list_id: price_list_ids, currency: context.currency.to_s.upcase).pluck(:min_quantity)
+
+      (volume_minimums + band_minimums + row_minimums).map(&:to_i).select { |minimum| minimum > quantity }.
+        uniq.sort.first(Spree::Price::MAXIMUM_BREAKS_PER_VARIANT)
+    end
+
+    def pricing_context_at(context, quantity)
+      Spree::Pricing::Context.new(
+        variant: self, currency: context.currency, store: context.store, country: context.country,
+        market: context.market, channel: context.channel, user: context.user, quantity: quantity,
+        date: context.date, order: context.order, company: context.company
+      )
+    end
 
     def order_multiple_fits_cartons
       return if order_multiple.to_i.zero? || units_per_carton.to_i.zero?

@@ -761,6 +761,63 @@ describe Spree::Variant, type: :model do
     end
   end
 
+  describe '#next_price_break' do
+    let(:currency) { 'USD' }
+    let(:buyer) { create(:user) }
+    let(:group) { create(:customer_group, store: store) }
+    let(:price_list) { create(:price_list, :active, store: store) }
+
+    def context_for(user, quantity = nil)
+      Spree::Pricing::Context.new(variant: variant, currency: currency, store: store, user: user, quantity: quantity)
+    end
+
+    before { variant.set_price(currency, 10) }
+
+    context 'with a members-only list from a minimum quantity' do
+      before do
+        create(:price, variant: variant, currency: currency, amount: 6, price_list: price_list)
+        create(:volume_price_rule, price_list: price_list, min_quantity: 5)
+        create(:customer_group_price_rule, price_list: price_list, customer_group_ids: [group.id])
+        group.add_customers([buyer.id])
+      end
+
+      it "answers the list's minimum and the price it charges there" do
+        price_break = variant.next_price_break(context_for(buyer, 2))
+
+        expect(price_break.min_quantity).to eq(5)
+        expect(price_break.amount).to eq(6)
+        expect(price_break.price_list_id).to eq(price_list.id)
+        expect(price_break.amount).to eq(variant.price_for(context_for(buyer, 5)).amount)
+      end
+
+      it 'answers nothing once the line already reaches it' do
+        expect(variant.next_price_break(context_for(buyer, 5))).to be_nil
+      end
+
+      it 'answers nothing to a buyer the list does not admit' do
+        expect(variant.next_price_break(context_for(create(:user), 2))).to be_nil
+      end
+    end
+
+    context 'with a ladder of quantity breaks' do
+      before do
+        create(:price, variant: variant, currency: currency, amount: 9, price_list: price_list, min_quantity: 1)
+        create(:price, variant: variant, currency: currency, amount: 8, price_list: price_list, min_quantity: 24)
+        create(:price, variant: variant, currency: currency, amount: 7, price_list: price_list, min_quantity: 96)
+      end
+
+      it 'answers the next rung above the quantity being bought' do
+        expect(variant.next_price_break(context_for(nil, 1)).min_quantity).to eq(24)
+        expect(variant.next_price_break(context_for(nil, 24)).min_quantity).to eq(96)
+        expect(variant.next_price_break(context_for(nil, 96))).to be_nil
+      end
+    end
+
+    it 'answers nothing when no price list prices more for less' do
+      expect(variant.next_price_break(context_for(buyer, 1))).to be_nil
+    end
+  end
+
   describe '#on_sale?' do
     subject { variant.on_sale?(currency) }
 

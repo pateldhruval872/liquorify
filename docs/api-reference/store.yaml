@@ -2278,6 +2278,9 @@ paths:
                     display_discounted_amount: "$10.00"
                     display_compare_at_amount: "$0.00"
                     compare_at_amount:
+                    price_list_id:
+                    next_price_break_quantity:
+                    next_price_break_price:
                     thumbnail_url:
                     option_values: []
                     digital_links: []
@@ -2399,6 +2402,9 @@ paths:
                     display_discounted_amount: "$10.00"
                     display_compare_at_amount: "$0.00"
                     compare_at_amount:
+                    price_list_id:
+                    next_price_break_quantity:
+                    next_price_break_price:
                     thumbnail_url:
                     option_values: []
                     digital_links: []
@@ -2931,6 +2937,9 @@ paths:
                   display_discounted_amount: "$10.00"
                   display_compare_at_amount: "$0.00"
                   compare_at_amount:
+                  price_list_id:
+                  next_price_break_quantity:
+                  next_price_break_price:
                   thumbnail_url:
                   option_values: []
                   digital_links: []
@@ -3155,6 +3164,9 @@ paths:
                   display_discounted_amount: "$10.00"
                   display_compare_at_amount: "$0.00"
                   compare_at_amount:
+                  price_list_id:
+                  next_price_break_quantity:
+                  next_price_break_price:
                   thumbnail_url:
                   option_values: []
                   digital_links: []
@@ -3395,6 +3407,9 @@ paths:
                   display_discounted_amount: "$10.00"
                   display_compare_at_amount: "$0.00"
                   compare_at_amount:
+                  price_list_id:
+                  next_price_break_quantity:
+                  next_price_break_price:
                   thumbnail_url:
                   option_values: []
                   digital_links: []
@@ -3714,6 +3729,9 @@ paths:
                   display_discounted_amount: "$10.00"
                   display_compare_at_amount: "$0.00"
                   compare_at_amount:
+                  price_list_id:
+                  next_price_break_quantity:
+                  next_price_break_price:
                   thumbnail_url:
                   option_values: []
                   digital_links: []
@@ -3909,6 +3927,9 @@ paths:
                   display_discounted_amount: "$10.00"
                   display_compare_at_amount: "$0.00"
                   compare_at_amount:
+                  price_list_id:
+                  next_price_break_quantity:
+                  next_price_break_price:
                   thumbnail_url:
                   option_values: []
                   digital_links: []
@@ -4098,6 +4119,9 @@ paths:
                   display_discounted_amount: "$10.00"
                   display_compare_at_amount: "$0.00"
                   compare_at_amount:
+                  price_list_id:
+                  next_price_break_quantity:
+                  next_price_break_price:
                   thumbnail_url:
                   option_values: []
                   digital_links: []
@@ -4418,6 +4442,9 @@ paths:
                   display_discounted_amount: "$10.00"
                   display_compare_at_amount: "$0.00"
                   compare_at_amount:
+                  price_list_id:
+                  next_price_break_quantity:
+                  next_price_break_price:
                   thumbnail_url:
                   option_values: []
                   digital_links: []
@@ -4662,6 +4689,9 @@ paths:
                   display_discounted_amount: "$10.00"
                   display_compare_at_amount: "$0.00"
                   compare_at_amount:
+                  price_list_id:
+                  next_price_break_quantity:
+                  next_price_break_price:
                   thumbnail_url:
                   option_values: []
                   digital_links: []
@@ -4854,6 +4884,9 @@ paths:
                   display_discounted_amount: "$10.00"
                   display_compare_at_amount: "$0.00"
                   compare_at_amount:
+                  price_list_id:
+                  next_price_break_quantity:
+                  next_price_break_price:
                   thumbnail_url:
                   option_values: []
                   digital_links: []
@@ -4885,6 +4918,9 @@ paths:
                   display_discounted_amount: "$19.99"
                   display_compare_at_amount: "$0.00"
                   compare_at_amount:
+                  price_list_id:
+                  next_price_break_quantity:
+                  next_price_break_price:
                   thumbnail_url:
                   option_values: []
                   digital_links: []
@@ -5101,6 +5137,9 @@ paths:
                   display_discounted_amount: "$10.00"
                   display_compare_at_amount: "$0.00"
                   compare_at_amount:
+                  price_list_id:
+                  next_price_break_quantity:
+                  next_price_break_price:
                   thumbnail_url:
                   option_values: []
                   digital_links: []
@@ -5909,6 +5948,9 @@ paths:
                   display_discounted_amount: "$10.00"
                   display_compare_at_amount: "$0.00"
                   compare_at_amount:
+                  price_list_id:
+                  next_price_break_quantity:
+                  next_price_break_price:
                   thumbnail_url:
                   option_values: []
                   digital_links: []
@@ -6094,6 +6136,9 @@ paths:
                   display_discounted_amount: "$10.00"
                   display_compare_at_amount: "$0.00"
                   compare_at_amount:
+                  price_list_id:
+                  next_price_break_quantity:
+                  next_price_break_price:
                   thumbnail_url:
                   option_values: []
                   digital_links: []
@@ -6454,6 +6499,9 @@ paths:
                   display_discounted_amount: "$10.00"
                   display_compare_at_amount: "$0.00"
                   compare_at_amount:
+                  price_list_id:
+                  next_price_break_quantity:
+                  next_price_break_price:
                   thumbnail_url:
                   option_values: []
                   digital_links: []
@@ -7803,6 +7851,9 @@ paths:
                     display_discounted_amount: "$10.00"
                     display_compare_at_amount: "$0.00"
                     compare_at_amount:
+                    price_list_id:
+                    next_price_break_quantity:
+                    next_price_break_price:
                     thumbnail_url:
                     option_values: []
                     digital_links: []
@@ -8129,6 +8180,9 @@ paths:
                   display_discounted_amount: "$10.00"
                   display_compare_at_amount: "$0.00"
                   compare_at_amount:
+                  price_list_id:
+                  next_price_break_quantity:
+                  next_price_break_price:
                   thumbnail_url:
                   option_values: []
                   digital_links: []
@@ -12421,6 +12475,9 @@ paths:
                     display_discounted_amount: "$10.00"
                     display_compare_at_amount: "$0.00"
                     compare_at_amount:
+                    price_list_id:
+                    next_price_break_quantity:
+                    next_price_break_price:
                     thumbnail_url:
                     option_values: []
                   fulfillments:
@@ -17533,6 +17590,21 @@ components:
           nullable: true
           description: The compare-at price times quantity, or null when the variant
             has none.
+        price_list_id:
+          type: string
+          nullable: true
+          description: The price list that priced this line, or null when it is at
+            the catalog price.
+        next_price_break_quantity:
+          type: number
+          nullable: true
+          description: The smallest quantity at which this line's unit price drops,
+            or null when buying more never lowers it.
+        next_price_break_price:
+          type: string
+          nullable: true
+          description: The unit price from next_price_break_quantity on, or null when
+            there is no break.
         thumbnail_url:
           type: string
           nullable: true
@@ -17579,6 +17651,9 @@ components:
       - display_discounted_amount
       - display_compare_at_amount
       - compare_at_amount
+      - price_list_id
+      - next_price_break_quantity
+      - next_price_break_price
       - thumbnail_url
       - option_values
       x-typelizer: true
@@ -22653,6 +22728,17 @@ components:
           type: array
           items:
             "$ref": "#/components/schemas/CustomField"
+        next_price_break_quantity:
+          type: number
+          nullable: true
+          description: 'With `expand=next_price_break`: the smallest quantity above
+            one at which this buyer''s unit price drops, or null when buying more
+            never lowers it.'
+        next_price_break_price:
+          type: string
+          nullable: true
+          description: 'With `expand=next_price_break`: the unit price from next_price_break_quantity
+            on, or null when there is no break.'
         prior_price:
           allOf:
           - "$ref": "#/components/schemas/PriceHistory"

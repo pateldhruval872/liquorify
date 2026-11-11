@@ -19,6 +19,9 @@ module Spree
 
       # The full-size image; emails show the thumbnail in `image_url`.
       attributes :thumbnail_url, if: proc { false }
+
+      # Price breaks nudge a shopper still filling a cart; an email has no use for them.
+      attributes :price_list_id, :next_price_break_quantity, :next_price_break_price, if: proc { false }
     end
   end
 end

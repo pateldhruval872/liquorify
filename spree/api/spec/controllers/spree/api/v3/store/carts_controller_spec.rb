@@ -329,6 +329,48 @@ RSpec.describe Spree::Api::V3::Store::CartsController, type: :controller do
   end
 
   describe 'GET #show' do
+    # Each line looks up its next price break, so the cost must stay a small
+    # fixed number of queries per line rather than grow with the price lists.
+    context 'with several lines under quantity price lists' do
+      before do
+        request.headers['Authorization'] = "Bearer #{jwt_token}"
+        @price_lists = create_list(:price_list, 3, :active, store: store).each do |price_list|
+          create(:volume_price_rule, price_list: price_list, min_quantity: 50)
+        end
+      end
+
+      def cart_with_breaks(line_count)
+        create(:cart_with_line_items, customer: user, store: store, line_items_count: line_count).tap do |cart|
+          cart.line_items.each do |line_item|
+            @price_lists.each { |price_list| create(:price, variant: line_item.variant, currency: cart.currency, amount: 1, price_list: price_list) }
+          end
+        end
+      end
+
+      def queries_for_show(cart)
+        queries = 0
+        counter = ->(*, payload) { queries += 1 unless payload[:name] == 'SCHEMA' || payload[:sql].match?(/\A(BEGIN|COMMIT|SAVEPOINT|RELEASE)/) }
+        ActiveSupport::Notifications.subscribed(counter, 'sql.active_record') { get :show, params: { id: cart.prefixed_id } }
+        expect(response).to have_http_status(:ok)
+        queries
+      end
+
+      it 'adds a bounded number of queries per line' do
+        one_line = cart_with_breaks(1)
+        queries_for_show(one_line)
+        baseline = queries_for_show(one_line)
+
+        four_lines = cart_with_breaks(4)
+        queries_for_show(four_lines)
+        expect(json_response['items'].size).to eq(4)
+        expect(json_response['items'].map { |item| item['next_price_break_quantity'] }).to all(eq(50))
+
+        # Measured at 17 per line, of which the break is 6; a lookup that grew with
+        # the number of price lists or rows would break this.
+        expect((queries_for_show(four_lines) - baseline) / 3.0).to be <= 18
+      end
+    end
+
     context 'with x-spree-token header' do
       let(:cart) { create(:cart_with_line_items, store: store) }
 

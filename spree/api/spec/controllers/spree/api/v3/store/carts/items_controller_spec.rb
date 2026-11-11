@@ -92,6 +92,53 @@ RSpec.describe Spree::Api::V3::Store::Carts::ItemsController, type: :controller 
       expect(line_item.quantity).to eq(1)
     end
 
+    # The storefront used to assume every trade price started at 10; the line
+    # now says which list priced it and where the next break is.
+    context 'with a members-only quantity price list' do
+      let(:group) { create(:customer_group, store: store) }
+      let(:price_list) { create(:price_list, :active, store: store) }
+
+      before do
+        variant.set_price(store.default_currency, 10)
+        create(:price, variant: variant, currency: store.default_currency, amount: 6, price_list: price_list)
+        create(:volume_price_rule, price_list: price_list, min_quantity: 5)
+        create(:customer_group_price_rule, price_list: price_list, customer_group_ids: [group.id])
+      end
+
+      context 'for a member' do
+        before { group.add_customers([user.id]) }
+
+        it 'shows the break below its minimum' do
+          post :create, params: { cart_id: order.prefixed_id, variant_id: variant.prefixed_id, quantity: 2 }
+
+          item = json_response['items'].first
+          expect(item['price_list_id']).to be_nil
+          expect(item['next_price_break_quantity']).to eq(5)
+          expect(item['next_price_break_price']).to eq('6.00')
+        end
+
+        it 'names the list once the line reaches it' do
+          post :create, params: { cart_id: order.prefixed_id, variant_id: variant.prefixed_id, quantity: 5 }
+
+          item = json_response['items'].first
+          expect(item['price']).to eq('6.00')
+          expect(item['price_list_id']).to eq(price_list.prefixed_id)
+          expect(item['next_price_break_quantity']).to be_nil
+          expect(item['next_price_break_price']).to be_nil
+        end
+      end
+
+      it 'offers a non-member neither the list nor its break' do
+        post :create, params: { cart_id: order.prefixed_id, variant_id: variant.prefixed_id, quantity: 5 }
+
+        item = json_response['items'].first
+        expect(item['price']).to eq('10.00')
+        expect(item['price_list_id']).to be_nil
+        expect(item['next_price_break_quantity']).to be_nil
+        expect(item['next_price_break_price']).to be_nil
+      end
+    end
+
     # A completion attempt fixed the cart's totals and is off at the gateway —
     # a mutation landing in that window would complete the cart with different
     # totals than the ones being charged.
