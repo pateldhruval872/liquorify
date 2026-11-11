@@ -1,8 +1,10 @@
 import { expect, test } from '@playwright/test'
 import {
+  FIXTURE_SELLER_PASSWORD,
   FIXTURE_SELLER_WRITER_EMAIL,
   openRowMenu,
   rowButton,
+  SELLER_PANEL,
   sellerLogin,
   waitForToastsToClear,
 } from './helpers'
@@ -84,6 +86,43 @@ test.describe('seller panel — stock locations', () => {
     await page.getByRole('button', { name: /create stock location/i }).click()
 
     await expect(rowButton(page, name)).toBeVisible({ timeout: 15_000 })
+  })
+
+  // Returns go to the default location among those that accept them, so the
+  // card has to show and edit that one: picking the first in list order showed
+  // "not added" and saved onto a location returns never reach.
+  test('shows the address returns are actually sent to', async ({ page }) => {
+    const home = await sellerLogin(page, FIXTURE_SELLER_WRITER_EMAIL)
+    const sellerId = home.split('/').pop() as string
+    const login = await page.request.post(`${SELLER_PANEL}/api/v3/seller/auth/login`, {
+      data: { email: FIXTURE_SELLER_WRITER_EMAIL, password: FIXTURE_SELLER_PASSWORD },
+    })
+    const { token } = await login.json()
+    const headers = { Authorization: `Bearer ${token}`, 'X-Spree-Seller-Id': sellerId }
+    const stamp = Date.now()
+    const create = async (data: object) => {
+      const res = await page.request.post(`${SELLER_PANEL}/api/v3/seller/stock_locations`, {
+        headers,
+        data,
+      })
+      expect(res.ok(), await res.text()).toBeTruthy()
+    }
+    // First by name, but neither the default nor given an address.
+    await create({ name: `0 E2E Returns shelf ${stamp}`, returns_enabled: true })
+    await create({
+      name: `E2E Returns warehouse ${stamp}`,
+      returns_enabled: true,
+      default: true,
+      address1: `${stamp} Harbour Road`,
+      city: 'Portland',
+      zipcode: '97201',
+      country_code: 'US',
+      state_code: 'OR',
+      phone: '5035550100',
+    })
+
+    await page.goto(`${home}/profile`)
+    await expect(page.getByText(`${stamp} Harbour Road`)).toBeVisible({ timeout: 15_000 })
   })
 })
 
