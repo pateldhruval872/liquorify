@@ -1,0 +1,11 @@
+{
+  "screen": "SF-CHK-01",
+  "state": "wholesale-delivery-and-payment",
+  "variant": "buyer",
+  "theme": "light",
+  "width": 1280,
+  "revision": "e9d80d5",
+  "path": "/us/en/checkout/cart_RgJeNhrwyV",
+  "observed": "Rates: Store Pickup $0.00; Standard $5.00; Express $15.00. The payment section read: \"Payment Method All transactions are secure and encrypted. E2E Stripe Test card: 4242 4242 4242 4242 (any future expiry, any CVC) Loading payment form... Check Same as shipping address\". The order summary read: \"11 Pedestal Fan 40cm Color: White $395.89 Subtotal $395.89 Shipping $5.00 Total USD $400.89 Apply\".",
+  "note": null
+}

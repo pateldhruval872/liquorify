@@ -1,0 +1,11 @@
+{
+  "screen": "SF-WHL-02",
+  "state": "submitting",
+  "variant": "applicant",
+  "theme": "light",
+  "width": 390,
+  "revision": "e9d80d5",
+  "path": "/us/en/wholesale/apply",
+  "observed": null,
+  "note": "The registration request is held in the browser, so the form stays submitting. It uses another email, since the held request still reaches Spree once the run lets it go."
+}

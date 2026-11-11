@@ -1,0 +1,11 @@
+{
+  "screen": "SF-WHL-06",
+  "state": "one-row-and-several",
+  "variant": "buyer",
+  "theme": "light",
+  "width": 390,
+  "revision": "e9d80d5",
+  "path": "/us/en/wholesale/quick-order",
+  "observed": "The page has 5 rows.",
+  "note": "Two rows added to the three the page starts with."
+}

@@ -1,0 +1,11 @@
+{
+  "screen": "SF-WHL-06",
+  "state": "adding-failed",
+  "variant": "buyer",
+  "theme": "light",
+  "width": 390,
+  "revision": "e9d80d5",
+  "path": "/us/en/wholesale/quick-order",
+  "observed": "The rows read: \"Couldn't add this item. Please try again.\"; \"\"; \"\". Toasts: none.",
+  "note": "The request that adds to the cart is cut off in the browser, as a dropped connection reaches the page."
+}

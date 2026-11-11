@@ -1,0 +1,71 @@
+
+Running 6 tests using 1 worker
+
+  ✘  1 visual/fidelity/compare.spec.ts:2224:9 › CMP-SF-PG-05 wholesale-application-pending desktop (31.7s)
+  ✘  2 visual/fidelity/compare.spec.ts:2224:9 › CMP-SF-PG-05 wholesale-application-pending mobile (31.3s)
+  ✓  3 visual/fidelity/compare.spec.ts:2224:9 › CMP-SF-PG-12 wholesale-sku-suggestions desktop (33.6s)
+  ✓  4 visual/fidelity/compare.spec.ts:2224:9 › CMP-SF-PG-12 wholesale-sku-suggestions mobile (33.4s)
+  ✓  5 visual/fidelity/compare.spec.ts:2224:9 › CMP-SF-PG-10 wholesale-cart desktop (32.7s)
+  ✓  6 visual/fidelity/compare.spec.ts:2224:9 › CMP-SF-PG-10 wholesale-cart mobile (32.7s)
+
+
+  1) visual/fidelity/compare.spec.ts:2224:9 › CMP-SF-PG-05 wholesale-application-pending desktop ───
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByText('Application received')
+    Expected: visible
+    Timeout: 30000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 30000ms
+      - waiting for getByText('Application received')
+
+
+      2010 |       await page.getByLabel("Password", { exact: true }).fill("spree123!");
+      2011 |       await page.getByRole("button", { name: "Submit application" }).click();
+    > 2012 |       await expect(page.getByText("Application received")).toBeVisible({
+           |                                                            ^
+      2013 |         timeout: 30_000,
+      2014 |       });
+      2015 |       await storefrontPage(page, "/wholesale");
+        at Object.screen (/work/visual/fidelity/compare.spec.ts:2012:60)
+        at /work/visual/fidelity/compare.spec.ts:2229:24
+
+    Error Context: visual/fidelity/results/test-output/compare-CMP-SF-PG-05-wholesale-application-pending-desktop/error-context.md
+
+    Error Context: visual/fidelity/results/test-output/compare-CMP-SF-PG-05-wholesale-application-pending-desktop/error-context.md
+
+  2) visual/fidelity/compare.spec.ts:2224:9 › CMP-SF-PG-05 wholesale-application-pending mobile ────
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByText('Application received')
+    Expected: visible
+    Timeout: 30000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 30000ms
+      - waiting for getByText('Application received')
+
+
+      2010 |       await page.getByLabel("Password", { exact: true }).fill("spree123!");
+      2011 |       await page.getByRole("button", { name: "Submit application" }).click();
+    > 2012 |       await expect(page.getByText("Application received")).toBeVisible({
+           |                                                            ^
+      2013 |         timeout: 30_000,
+      2014 |       });
+      2015 |       await storefrontPage(page, "/wholesale");
+        at Object.screen (/work/visual/fidelity/compare.spec.ts:2012:60)
+        at /work/visual/fidelity/compare.spec.ts:2229:24
+
+    Error Context: visual/fidelity/results/test-output/compare-CMP-SF-PG-05-wholesale-application-pending-mobile/error-context.md
+
+    Error Context: visual/fidelity/results/test-output/compare-CMP-SF-PG-05-wholesale-application-pending-mobile/error-context.md
+
+  2 failed
+    visual/fidelity/compare.spec.ts:2224:9 › CMP-SF-PG-05 wholesale-application-pending desktop ────
+    visual/fidelity/compare.spec.ts:2224:9 › CMP-SF-PG-05 wholesale-application-pending mobile ─────
+  4 passed (3.3m)

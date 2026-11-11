@@ -1,0 +1,261 @@
+[WebServer] 
+[WebServer] > nextjs-starter-spree@0.1.0 dev <storefront>
+[WebServer] > next dev -p 3001 --turbopack
+[WebServer] 
+[WebServer] ▲ Next.js 16.3.8 (Turbopack)
+[WebServer] - Local:         http://localhost:3001
+[WebServer] - Network:       http://<host>:3001
+[WebServer] ✓ Ready in 463ms
+[WebServer] ✓ Running next.config.ts took 421ms
+[WebServer] - Cache Components enabled
+[WebServer] - Experiments (use with caution):
+[WebServer]   · optimizePackageImports
+[WebServer] 
+[WebServer] ✓ Generated CLAUDE.md for AI agents. Set `agentRules: false` in next.config to disable.
+
+Running 7 tests using 1 worker
+
+[WebServer]  GET /us/en 200 in 3.0s (next.js: 670ms, proxy.ts: 202ms, generate-params: 802ms, application-code: 1306ms)
+[WebServer]  GET /us/en/account/register 200 in 914ms (next.js: 35ms, proxy.ts: 7ms, generate-params: 628ms, application-code: 243ms)
+[WebServer] Error: Route "/[country]/[locale]": Next.js encountered runtime data during prerendering or a navigation.
+[WebServer] 
+[WebServer] `cookies()`, `headers()`, `params`, or `searchParams` accessed outside of `<Suspense>` prevents the route from being prerendered or the navigation from being instant, leading to a slower user experience.
+[WebServer] 
+[WebServer] Ways to fix this:
+[WebServer]   - [stream] Provide a placeholder with `<Suspense fallback={...}>` around the data access
+[WebServer]   - [block] Set `export const instant = false` to allow a blocking route
+[WebServer] 
+[WebServer] Learn more: https://nextjs.org/docs/messages/blocking-prerender-runtime
+[WebServer]     at getLocaleOptions (src/lib/spree/locale.ts:18:38)
+[WebServer]     at getMarkets (src/lib/data/markets.ts:41:61)
+[WebServer]     at resolveCurrency (src/lib/data/markets.ts:63:35)
+[WebServer]     at HomePage (src/app/[country]/[locale]/(storefront)/page.tsx:25:41)
+[WebServer]   16 |
+[WebServer]   17 |   try {
+[WebServer] > 18 |     const cookieStore = await cookies();
+[WebServer]      |                                      ^
+[WebServer]   19 |
+[WebServer]   20 |     const country = cookieStore.get(
+[WebServer]   21 |       config.countryCookieName ?? DEFAULT_COUNTRY_COOKIE,
+[WebServer]  POST /us/en/account/register 200 in 319ms (next.js: 9ms, proxy.ts: 8ms, generate-params: 46ms, application-code: 256ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 3ms src/lib/data/cart.ts
+[WebServer]  POST /us/en/account/register 200 in 299ms (next.js: 8ms, proxy.ts: 10ms, generate-params: 0.0ms, application-code: 281ms)
+[WebServer]   └─ ƒ syncSession() in 4ms src/lib/data/customer.ts
+[WebServer]  POST /us/en/account/register 200 in 247ms (next.js: 17ms, proxy.ts: 9ms, generate-params: 0.1ms, application-code: 221ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 1ms src/lib/data/cart.ts
+[WebServer]  POST /us/en/account/register 200 in 105ms (next.js: 12ms, proxy.ts: 10ms, generate-params: 0.0ms, application-code: 82ms)
+[WebServer]   └─ ƒ syncSession() in 1ms src/lib/data/customer.ts
+[WebServer]  POST /us/en/account/register 200 in 704ms (next.js: 9ms, proxy.ts: 7ms, generate-params: 34ms, application-code: 653ms)
+[WebServer]   └─ ƒ register({"email":"e2e-1794374084895-3590@example.com","first_name":"E2E","last_name":"Customer","...":"2 items not stringified"}) in 342ms src/lib/data/customer.ts
+[WebServer]  GET /us/en/account/register 200 in 260ms (next.js: 74ms, proxy.ts: 11ms, generate-params: 0.1ms, application-code: 174ms)
+[WebServer]  GET /us/en/account 200 in 886ms (next.js: 32ms, proxy.ts: 13ms, generate-params: 611ms, application-code: 230ms)
+[WebServer]  GET /us/en/account 200 in 143ms (next.js: 16ms, proxy.ts: 5ms, generate-params: 26ms, application-code: 95ms)
+[WebServer]  POST /us/en/account 200 in 198ms (next.js: 13ms, proxy.ts: 35ms, generate-params: 0.1ms, application-code: 149ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 39ms src/lib/data/cart.ts
+[WebServer]  GET /us/en/products/pedestal-fan 200 in 1160ms (next.js: 27ms, proxy.ts: 4ms, generate-params: 594ms, application-code: 535ms)
+  ✓  1 [store settings] › e2e/storefront-access.spec.ts:116:7 › a store open to everyone › shows a guest the price and Add to Cart (2.1s)
+[WebServer] Error: Route "/[country]/[locale]/products/[slug]": Next.js encountered runtime data during prerendering or a navigation.
+[WebServer] 
+[WebServer] `cookies()`, `headers()`, `params`, or `searchParams` accessed outside of `<Suspense>` prevents the route from being prerendered or the navigation from being instant, leading to a slower user experience.
+[WebServer] 
+[WebServer] Ways to fix this:
+[WebServer]   - [stream] Provide a placeholder with `<Suspense fallback={...}>` around the data access
+[WebServer]   - [block] Set `export const instant = false` to allow a blocking route
+[WebServer] 
+[WebServer] Learn more: https://nextjs.org/docs/messages/blocking-prerender-runtime
+[WebServer]     at ProductPage (src/app/[country]/[locale]/(storefront)/products/[slug]/page.tsx:52:37)
+[WebServer]   50 |   searchParams,
+[WebServer]   51 | }: ProductPageProps) {
+[WebServer] > 52 |   const { country, locale, slug } = await params;
+[WebServer]      |                                     ^
+[WebServer]   53 |   const { category_id } = await searchParams;
+[WebServer]   54 |   const basePath = `/${country}/${locale}`;
+[WebServer]   55 |
+[WebServer]  POST /us/en/products/pedestal-fan 200 in 641ms (next.js: 9ms, proxy.ts: 6ms, generate-params: 41ms, application-code: 584ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 2ms src/lib/data/cart.ts
+[WebServer]  POST /us/en/products/pedestal-fan 200 in 740ms (next.js: 20ms, proxy.ts: 20ms, generate-params: 0.0ms, application-code: 700ms)
+[WebServer]   └─ ƒ syncSession() in 8ms src/lib/data/customer.ts
+[WebServer]  POST /us/en/products/pedestal-fan 200 in 533ms (next.js: 5ms, proxy.ts: 39ms, generate-params: 0.0ms, application-code: 489ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 1ms src/lib/data/cart.ts
+[WebServer]  POST /us/en/products/pedestal-fan 200 in 403ms (next.js: 19ms, proxy.ts: 10ms, generate-params: 0.0ms, application-code: 375ms)
+[WebServer]   └─ ƒ syncSession() in 7ms src/lib/data/customer.ts
+[WebServer]  GET /us/en/products/tower-fan 200 in 624ms (next.js: 18ms, proxy.ts: 9ms, generate-params: 0.0ms, application-code: 597ms)
+  ✓  2 [store settings] › e2e/storefront-access.spec.ts:131:7 › a store that hides prices from guests › shows a signed-in customer the price and Add to Cart (1.7s)
+[WebServer] Error: Route "/[country]/[locale]/products/[slug]": Next.js encountered runtime data during prerendering or a navigation.
+[WebServer] 
+[WebServer] `cookies()`, `headers()`, `params`, or `searchParams` accessed outside of `<Suspense>` prevents the route from being prerendered or the navigation from being instant, leading to a slower user experience.
+[WebServer] 
+[WebServer] Ways to fix this:
+[WebServer]   - [stream] Provide a placeholder with `<Suspense fallback={...}>` around the data access
+[WebServer]   - [block] Set `export const instant = false` to allow a blocking route
+[WebServer] 
+[WebServer] Learn more: https://nextjs.org/docs/messages/blocking-prerender-runtime
+[WebServer]     at ProductPage (src/app/[country]/[locale]/(storefront)/products/[slug]/page.tsx:52:37)
+[WebServer]   50 |   searchParams,
+[WebServer]   51 | }: ProductPageProps) {
+[WebServer] > 52 |   const { country, locale, slug } = await params;
+[WebServer]      |                                     ^
+[WebServer]   53 |   const { category_id } = await searchParams;
+[WebServer]   54 |   const basePath = `/${country}/${locale}`;
+[WebServer]   55 |
+[WebServer]  POST /us/en/products/tower-fan 200 in 228ms (next.js: 9ms, proxy.ts: 5ms, generate-params: 38ms, application-code: 176ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 66ms src/lib/data/cart.ts
+[WebServer]  POST /us/en/products/tower-fan 200 in 261ms (next.js: 8ms, proxy.ts: 11ms, generate-params: 0.0ms, application-code: 242ms)
+[WebServer]   └─ ƒ syncSession() in 52ms src/lib/data/customer.ts
+[WebServer]  POST /us/en/products/tower-fan 200 in 355ms (next.js: 12ms, proxy.ts: 6ms, generate-params: 0.0ms, application-code: 336ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 40ms src/lib/data/cart.ts
+[WebServer]  POST /us/en/products/tower-fan 200 in 263ms (next.js: 75ms, proxy.ts: 13ms, generate-params: 35ms, application-code: 140ms)
+[WebServer]   └─ ƒ syncSession() in 33ms src/lib/data/customer.ts
+[WebServer]  GET /us/en/products?q=Steam%20Iron 200 in 1185ms (next.js: 48ms, proxy.ts: 9ms, generate-params: 634ms, application-code: 495ms)
+  ✓  3 [store settings] › e2e/storefront-access.spec.ts:141:7 › a store that hides prices from guests › lists the signed-in customer's prices on a search (2.2s)
+[WebServer] Error: Route "/[country]/[locale]/products": Next.js encountered runtime data during prerendering or a navigation.
+[WebServer] 
+[WebServer] `cookies()`, `headers()`, `params`, or `searchParams` accessed outside of `<Suspense>` prevents the route from being prerendered or the navigation from being instant, leading to a slower user experience.
+[WebServer] 
+[WebServer] Ways to fix this:
+[WebServer]   - [stream] Provide a placeholder with `<Suspense fallback={...}>` around the data access
+[WebServer]   - [block] Set `export const instant = false` to allow a blocking route
+[WebServer] 
+[WebServer] Learn more: https://nextjs.org/docs/messages/blocking-prerender-runtime
+[WebServer]     at ProductsPage (src/app/[country]/[locale]/(storefront)/products/page.tsx:31:27)
+[WebServer]   29 | }: ProductsPageProps) {
+[WebServer]   30 |   const { country, locale } = await params;
+[WebServer] > 31 |   const rawSearchParams = await searchParams;
+[WebServer]      |                           ^
+[WebServer]   32 |   const basePath = `/${country}/${locale}`;
+[WebServer]   33 |   const [currency, pricesHidden] = await Promise.all([
+[WebServer]   34 |     resolveCurrency(country),
+[WebServer]  POST /us/en/products?q=Steam%20Iron 200 in 671ms (next.js: 8ms, proxy.ts: 7ms, generate-params: 41ms, application-code: 614ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 46ms src/lib/data/cart.ts
+[WebServer]  POST /us/en/products?q=Steam%20Iron 200 in 721ms (next.js: 17ms, proxy.ts: 25ms, generate-params: 0.0ms, application-code: 679ms)
+[WebServer]   └─ ƒ syncSession() in 65ms src/lib/data/customer.ts
+[WebServer]  GET /us/en/products/food-processor-3l 200 in 698ms (next.js: 32ms, proxy.ts: 13ms, generate-params: 30ms, application-code: 623ms)
+[WebServer]  POST /us/en/products?q=Steam%20Iron 200 in 1239ms (next.js: 254ms, proxy.ts: 16ms, generate-params: 0.0ms, application-code: 969ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 141ms src/lib/data/cart.ts
+[WebServer] Error: Route "/[country]/[locale]/products/[slug]": Next.js encountered runtime data during prerendering or a navigation.
+[WebServer] 
+[WebServer] `cookies()`, `headers()`, `params`, or `searchParams` accessed outside of `<Suspense>` prevents the route from being prerendered or the navigation from being instant, leading to a slower user experience.
+[WebServer] 
+[WebServer] Ways to fix this:
+[WebServer]   - [stream] Provide a placeholder with `<Suspense fallback={...}>` around the data access
+[WebServer]   - [block] Set `export const instant = false` to allow a blocking route
+[WebServer] 
+[WebServer] Learn more: https://nextjs.org/docs/messages/blocking-prerender-runtime
+[WebServer]     at ProductPage (src/app/[country]/[locale]/(storefront)/products/[slug]/page.tsx:52:37)
+[WebServer]   50 |   searchParams,
+[WebServer]   51 | }: ProductPageProps) {
+[WebServer] > 52 |   const { country, locale, slug } = await params;
+[WebServer]      |                                     ^
+[WebServer]   53 |   const { category_id } = await searchParams;
+[WebServer]   54 |   const basePath = `/${country}/${locale}`;
+[WebServer]   55 |
+[WebServer]  POST /us/en/products?q=Steam%20Iron 200 in 716ms (next.js: 39ms, proxy.ts: 132ms, generate-params: 43ms, application-code: 502ms)
+[WebServer]   └─ ƒ syncSession() in 72ms src/lib/data/customer.ts
+  ✓  4 [store settings] › e2e/storefront-access.spec.ts:154:7 › a store that hides prices from guests › shows a guest a sign-in prompt instead of the price (2.3s)
+[WebServer]  POST /us/en/products/food-processor-3l 200 in 429ms (next.js: 7ms, proxy.ts: 11ms, generate-params: 35ms, application-code: 376ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 7ms src/lib/data/cart.ts
+[WebServer]  POST /us/en/products/food-processor-3l 200 in 201ms (next.js: 14ms, proxy.ts: 9ms, generate-params: 0.0ms, application-code: 177ms)
+[WebServer]   └─ ƒ syncSession() in 2ms src/lib/data/customer.ts
+[WebServer]  GET /us/en/products/personal-blender 200 in 928ms (next.js: 10ms, proxy.ts: 5ms, generate-params: 0.0ms, application-code: 913ms)
+[WebServer]  POST /us/en/products/food-processor-3l 200 in 850ms (next.js: 10ms, proxy.ts: 6ms, generate-params: 0.0ms, application-code: 834ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 2ms src/lib/data/cart.ts
+[WebServer]  POST /us/en/products/food-processor-3l 200 in 676ms (next.js: 230ms, proxy.ts: 41ms, generate-params: 43ms, application-code: 361ms)
+[WebServer]   └─ ƒ syncSession() in 2ms src/lib/data/customer.ts
+[WebServer] Error: Route "/[country]/[locale]/products/[slug]": Next.js encountered runtime data during prerendering or a navigation.
+[WebServer] 
+[WebServer] `cookies()`, `headers()`, `params`, or `searchParams` accessed outside of `<Suspense>` prevents the route from being prerendered or the navigation from being instant, leading to a slower user experience.
+[WebServer] 
+[WebServer] Ways to fix this:
+[WebServer]   - [stream] Provide a placeholder with `<Suspense fallback={...}>` around the data access
+[WebServer]   - [block] Set `export const instant = false` to allow a blocking route
+[WebServer] 
+[WebServer] Learn more: https://nextjs.org/docs/messages/blocking-prerender-runtime
+[WebServer]     at ProductPage (src/app/[country]/[locale]/(storefront)/products/[slug]/page.tsx:52:37)
+[WebServer]   50 |   searchParams,
+[WebServer]   51 | }: ProductPageProps) {
+[WebServer] > 52 |   const { country, locale, slug } = await params;
+[WebServer]      |                                     ^
+[WebServer]   53 |   const { category_id } = await searchParams;
+[WebServer]   54 |   const basePath = `/${country}/${locale}`;
+[WebServer]   55 |
+[WebServer]  GET /us/en/products/personal-blender 200 in 619ms (next.js: 7ms, proxy.ts: 9ms, generate-params: 35ms, application-code: 568ms)
+[WebServer]  POST /us/en/products/personal-blender 200 in 723ms (next.js: 33ms, proxy.ts: 38ms, generate-params: 0.0ms, application-code: 652ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 137ms src/lib/data/cart.ts
+[WebServer]  POST /us/en/products/personal-blender 200 in 443ms (next.js: 132ms, proxy.ts: 16ms, generate-params: 0.1ms, application-code: 296ms)
+[WebServer]   └─ ƒ syncSession() in 52ms src/lib/data/customer.ts
+  ✓  5 [store settings] › e2e/storefront-access.spec.ts:167:7 › a store that hides prices from guests › does not show a guest the price a customer was shown (3.5s)
+[WebServer] Error: Route "/[country]/[locale]/products/[slug]": Next.js encountered runtime data during prerendering or a navigation.
+[WebServer] 
+[WebServer] `cookies()`, `headers()`, `params`, or `searchParams` accessed outside of `<Suspense>` prevents the route from being prerendered or the navigation from being instant, leading to a slower user experience.
+[WebServer] 
+[WebServer] Ways to fix this:
+[WebServer]   - [stream] Provide a placeholder with `<Suspense fallback={...}>` around the data access
+[WebServer]   - [block] Set `export const instant = false` to allow a blocking route
+[WebServer] 
+[WebServer] Learn more: https://nextjs.org/docs/messages/blocking-prerender-runtime
+[WebServer]     at ProductPage (src/app/[country]/[locale]/(storefront)/products/[slug]/page.tsx:52:37)
+[WebServer]   50 |   searchParams,
+[WebServer]   51 | }: ProductPageProps) {
+[WebServer] > 52 |   const { country, locale, slug } = await params;
+[WebServer]      |                                     ^
+[WebServer]   53 |   const { category_id } = await searchParams;
+[WebServer]   54 |   const basePath = `/${country}/${locale}`;
+[WebServer]   55 |
+[WebServer]  POST /us/en/products/personal-blender 200 in 485ms (next.js: 18ms, proxy.ts: 13ms, generate-params: 40ms, application-code: 414ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 82ms src/lib/data/cart.ts
+[WebServer]  POST /us/en/products/personal-blender 200 in 169ms (next.js: 19ms, proxy.ts: 23ms, generate-params: 0.0ms, application-code: 127ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 3ms src/lib/data/cart.ts
+[WebServer]  POST /us/en/products/personal-blender 200 in 529ms (next.js: 7ms, proxy.ts: 4ms, generate-params: 0.0ms, application-code: 518ms)
+[WebServer]   └─ ƒ syncSession() in 11ms src/lib/data/customer.ts
+[WebServer]  POST /us/en/products/personal-blender 200 in 663ms (next.js: 98ms, proxy.ts: 16ms, generate-params: 0.0ms, application-code: 549ms)
+[WebServer]   └─ ƒ syncSession() in 150ms src/lib/data/customer.ts
+[WebServer]  GET /us/en/products/high-speed-blender 200 in 581ms (next.js: 12ms, proxy.ts: 11ms, generate-params: 0.0ms, application-code: 558ms)
+[WebServer]  POST /us/en/products/personal-blender 200 in 724ms (next.js: 58ms, proxy.ts: 32ms, generate-params: 43ms, application-code: 592ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 3ms src/lib/data/cart.ts
+[WebServer]  POST /us/en/products/personal-blender 200 in 421ms (next.js: 102ms, proxy.ts: 32ms, generate-params: 0.0ms, application-code: 286ms)
+[WebServer]   └─ ƒ syncSession() in 14ms src/lib/data/customer.ts
+[WebServer] Error: Route "/[country]/[locale]/products/[slug]": Next.js encountered runtime data during prerendering or a navigation.
+[WebServer] 
+[WebServer] `cookies()`, `headers()`, `params`, or `searchParams` accessed outside of `<Suspense>` prevents the route from being prerendered or the navigation from being instant, leading to a slower user experience.
+[WebServer] 
+[WebServer] Ways to fix this:
+[WebServer]   - [stream] Provide a placeholder with `<Suspense fallback={...}>` around the data access
+[WebServer]   - [block] Set `export const instant = false` to allow a blocking route
+[WebServer] 
+[WebServer] Learn more: https://nextjs.org/docs/messages/blocking-prerender-runtime
+[WebServer]     at ProductPage (src/app/[country]/[locale]/(storefront)/products/[slug]/page.tsx:52:37)
+[WebServer]   50 |   searchParams,
+[WebServer]   51 | }: ProductPageProps) {
+[WebServer] > 52 |   const { country, locale, slug } = await params;
+[WebServer]      |                                     ^
+[WebServer]   53 |   const { category_id } = await searchParams;
+[WebServer]   54 |   const basePath = `/${country}/${locale}`;
+[WebServer]   55 |
+  ✓  6 [store settings] › e2e/storefront-access.spec.ts:188:7 › a store that requires sign-in › lets a signed-in customer open a product, with its price (2.0s)
+[WebServer]  POST /us/en/products/high-speed-blender 200 in 295ms (next.js: 5ms, proxy.ts: 4ms, generate-params: 38ms, application-code: 249ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 35ms src/lib/data/cart.ts
+[WebServer]  POST /us/en/products/high-speed-blender 200 in 508ms (next.js: 29ms, proxy.ts: 4ms, generate-params: 0.0ms, application-code: 475ms)
+[WebServer]   └─ ƒ syncSession() in 109ms src/lib/data/customer.ts
+[WebServer]  GET /us/en/products/air-purifier-tower 200 in 496ms (next.js: 5ms, proxy.ts: 3ms, generate-params: 0.0ms, application-code: 488ms)
+[WebServer]  POST /us/en/products/high-speed-blender 200 in 690ms (next.js: 35ms, proxy.ts: 43ms, generate-params: 0.0ms, application-code: 611ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 75ms src/lib/data/cart.ts
+[WebServer]  POST /us/en/products/high-speed-blender 200 in 356ms (next.js: 24ms, proxy.ts: 10ms, generate-params: 33ms, application-code: 289ms)
+[WebServer]   └─ ƒ syncSession() in 65ms src/lib/data/customer.ts
+[WebServer] Error: Route "/[country]/[locale]/products/[slug]": Could not validate `instant` because an error prevented the target segment from rendering.
+[WebServer]     at ignore-listed frames {
+[WebServer]   [cause]: Error: NEXT_HTTP_ERROR_FALLBACK;404
+[WebServer]       at ProductPage (src/app/[country]/[locale]/(storefront)/products/[slug]/page.tsx:60:13)
+[WebServer]     58 |     product = await getCachedProduct(slug, PRODUCT_PAGE_EXPAND);
+[WebServer]     59 |   } catch {
+[WebServer]   > 60 |     notFound();
+[WebServer]        |             ^
+[WebServer]     61 |   }
+[WebServer]     62 |   const pricesHidden = await isGuestWithPricesHidden();
+[WebServer]     63 | {
+[WebServer]     environmentName: 'Prefetch',
+[WebServer]     digest: 'NEXT_HTTP_ERROR_FALLBACK;404'
+[WebServer]   }
+[WebServer] }
+  ✓  7 [store settings] › e2e/storefront-access.spec.ts:198:7 › a store that requires sign-in › does not show a guest the product (2.0s)
+
+  7 passed (28.0s)
