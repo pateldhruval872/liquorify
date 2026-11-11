@@ -118,6 +118,17 @@ module Spree
             end
           end
 
+          # DELETE /api/v3/admin/orders/:id
+          def destroy
+            result = Spree.order_destroy_workflow.call(order: @resource)
+
+            if result.success?
+              head :no_content
+            else
+              render_result_error(result)
+            end
+          end
+
           # PATCH /api/v3/admin/orders/:id/complete
           #
           # An order holding several sellers' goods divides into one order per
