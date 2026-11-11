@@ -1,0 +1,10 @@
+off     /us/en/wholesale                         404
+off     /us/en/wholesale/quick-order             404
+off     /us/en/wholesale/products/any-product    404
+off     /us/en/no-such-section                   404
+off     /us/en/products/automatic-espresso-machine 200
+on      /us/en/wholesale                         200
+on      /us/en/wholesale/sign-in                 200
+on      /us/en/wholesale/apply                   200
+on      /us/en/products/automatic-espresso-machine 200
+on      /us/en/no-such-section                   404

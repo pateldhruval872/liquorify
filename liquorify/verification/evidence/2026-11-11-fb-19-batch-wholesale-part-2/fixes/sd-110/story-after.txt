@@ -1,0 +1,9 @@
+
+Running 2 tests using 2 workers
+
+A snapshot doesn't exist at /work/visual/__screenshots__/storefront-wholesale-quick-order-view--suggestions/mobile.png, writing actual.
+  ✓  2 visual/stories.spec.ts:73:9 › Storefront/Wholesale/Quick order view / Suggestions / mobile (1.7s)
+A snapshot doesn't exist at /work/visual/__screenshots__/storefront-wholesale-quick-order-view--suggestions/desktop.png, writing actual.
+  ✓  1 visual/stories.spec.ts:73:9 › Storefront/Wholesale/Quick order view / Suggestions / desktop (1.8s)
+
+  2 passed (3.1s)

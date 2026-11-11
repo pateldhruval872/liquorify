@@ -199,8 +199,10 @@ Two cases were first set against the wrong story: the cart against "below the mi
 | SD-9, High | Storefront #32: the signed-in customer's token sent with the store's own product, category and search requests, never cached across customers | 5 browser tests and 2 unit tests fail before and pass after; 2 guest controls; 7 of 7 pass twice | Recorded with P10's rows in FB-23 |
 | SD-104, Medium | Storefront #33: the cart's add tells its caller whether Spree added the item; #34: a failed SKU lookup ends the row with "Couldn't add this item. Please try again." | Quick order's tests: 2 of 3 fail before #33 and 3 of 3 pass after; 1 of 4 fails before #34 and 4 of 4 pass after; the successful add is the control, the refused and failed adds the refusals | The buyer's run passed twice on fresh servers at both widths: a refused quantity shows Spree's reason, a dropped connection shows the retry message, and the order is placed |
 | SD-105, High | Storefront #35: the purchase order number field at checkout, shown when the buyer's company requires one or the cart carries one, saved to the cart before payment | Browser tests: the regression and the refusal fail before (no field) and all three pass after, twice; the control checks out with no field | The member's run passed twice on fresh servers at both widths: an empty required number is refused at the field, 4 of 4, and the numbers given were recorded on orders R1035 to R1038, each read back exactly |
+| SD-110, Medium | Storefront #37: quick order's suggestions are at least 20rem wide at phone width, up to the screen's width, and wrap a long name or SKU instead of cutting it | A phone-width story types "mug" and checks that each suggestion reads in full and nothing is clipped: its check fails before the fix at 390 and passes after it; the desktop story is the control; the visual check passed 718 of 718 | The buyer's run passed twice on fresh production builds of `b3a27ec` at 390 and 1280 wide: at 390 every suggestion's name and SKU read in full |
+| SD-111, Low | Storefront #37: the storefront answers 404 before rendering for the wholesale pages when wholesale is off and for any path no page serves | Unit tests for the proxy, and a browser test where four such paths answer 404, with a real product page at 200 as the control | The status check passed twice on fresh production builds of `b3a27ec`, wholesale off and on (`fixes/sd-111/`). Fixed in part: an unknown or catalog-hidden product, category or policy page, and an unknown wholesale product with wholesale on, still answer 200 with noindex, so monitoring and caches see 200 for those pages. The baseline audit thread accepted this limitation on 2026-11-11 |
 
-Each fix's before and after runs are in `fixes/<defect>/`. Each defect stays open until FB-23 §2's closure conditions are met ([fix log](../work-items/fb-23-remediation-ledger.md#9-fix-log)).
+Each fix's before and after runs are in `fixes/<defect>/`. SD-110's and SD-111's closing checks ran against the storefront's browser-test backend with the closed-catalog change applied, the change this record's update ships with. The buyer is a member of the Wholesale group, so the change does not affect what the buyer sees. Each defect stays open until FB-23 §2's closure conditions are met ([fix log](../work-items/fb-23-remediation-ledger.md#9-fix-log)).
 
 ## 8. Checked where it takes effect (criterion 16)
 
@@ -228,6 +230,7 @@ No email belongs to FL-10's buyer steps. Neither the storefront nor Spree, read 
 - **CI:** the merge record names #36's runs on its final commit, and each fix's CI on its final commit is in its pull request.
 - **Search before each push:** the pull requests' files were searched for keys, tokens, absolute paths and addresses; none was found, and the evidence's run logs have local paths and the host's address replaced.
 - **Links:** every link in the changed records was checked.
+- **The records pull request (#131):** the dashboard's browser-test shard 3 failed all three tries on `71adbd8` in one products, prices and inventory test, which this records-only change does not touch. It passed on `23d06ca3`, after main moved, and the final commit's run was green. This is recorded so that a recurrence can be traced.
 
 ## 11. Gaps
 
@@ -237,6 +240,7 @@ No email belongs to FL-10's buyer steps. Neither the storefront nor Spree, read 
 | G-132 | The 16 portal behaviours no browser test drives (§2.3) | The owner's answer, as G-123 |
 | G-133 | Portal states reached only by holding or failing a request in the browser: quick order searching, adding failed and answered with a server error | V2, with G-124 |
 | G-134 | 24 stories not compared with a running screen, each checked against its running capture or its source ([image review list](2026-11-11-fb-19-batch-wholesale-part-2-image-review.md)) | V2, with G-125 |
+| G-135 | The sample trade price list still picks its buyers with Spree's deprecated customer-group rule (LIQ-004) | Product review |
 
 G-128 closes (§8).
 
