@@ -86,7 +86,10 @@ test('4.18 the payout providers, and the marketplace settings before Stripe is s
     'Stripe Connect pays sellers through its payment method, which is not active on this store yet.',
   )
   await expect(page.getByText('Paid through')).toBeVisible({ timeout: 15_000 })
-  const hintShown = await hint.isVisible()
+  const hintShown = await hint
+    .waitFor({ state: 'visible', timeout: 15_000 })
+    .then(() => true)
+    .catch(() => false)
   await page.locator('#payout-provider').click()
   const option = page.getByRole('option', { name: 'Connect Stripe Connect to use it' })
   const optionShown = await option.isVisible()
