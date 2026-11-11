@@ -3353,6 +3353,7 @@
               "resolve_refund": "Mit Erstattung lösen",
               "resolve_replacement": "Mit Ersatz lösen"
             },
+            "claimed_total": "Geforderter Betrag",
             "confirm": {
               "cancel_confirm": "Reklamation stornieren",
               "cancel_dismiss": "Reklamation behalten",

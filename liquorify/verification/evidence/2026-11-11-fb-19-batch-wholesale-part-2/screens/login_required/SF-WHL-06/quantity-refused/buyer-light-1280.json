@@ -1,0 +1,11 @@
+{
+  "screen": "SF-WHL-06",
+  "state": "quantity-refused",
+  "variant": "buyer",
+  "theme": "light",
+  "width": 1280,
+  "revision": "e9d80d5",
+  "path": "/us/en/wholesale/quick-order",
+  "observed": "The rows read: \"Quantity selected of \"Pedestal Fan 40cm (Color: White)\" is not available.\"; \"\"; \"\". Toasts: \"Quantity selected of \"Pedestal Fan 40cm (Color: White)\" is not available.\". The cart drawer is closed.",
+  "note": "6,000 of PEDESTAL-FAN-WHITE, more than the store holds; Spree refuses to add them."
+}

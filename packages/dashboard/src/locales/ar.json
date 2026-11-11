@@ -3381,6 +3381,7 @@
               "resolve_refund": "الحل بالاسترداد",
               "resolve_replacement": "الحل بالاستبدال"
             },
+            "claimed_total": "المبلغ المطالب به",
             "confirm": {
               "cancel_confirm": "إلغاء المطالبة",
               "cancel_dismiss": "الإبقاء على المطالبة",

@@ -21,6 +21,7 @@ export const ClaimSchema = z.object({
   canceled_at: z.string().nullable(),
   reason: ClaimReasonSchema.optional(),
   claim_line_items: z.array(ClaimLineItemSchema).optional(),
+  refunded_total: z.string(),
   memo: z.string().nullable(),
   metadata: z.record(z.string(), z.unknown()),
   created_at: z.string(),
@@ -44,6 +45,7 @@ export const ClaimSchema = z.object({
   canceled_at: z.ZodType<Claim['canceled_at']>;
   reason: z.ZodOptional<z.ZodType<Exclude<Claim['reason'], undefined>>>;
   claim_line_items: z.ZodOptional<z.ZodType<Exclude<Claim['claim_line_items'], undefined>>>;
+  refunded_total: z.ZodType<Claim['refunded_total']>;
   memo: z.ZodType<Claim['memo']>;
   metadata: z.ZodType<Claim['metadata']>;
   created_at: z.ZodType<Claim['created_at']>;

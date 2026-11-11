@@ -1,0 +1,11 @@
+{
+  "screen": "SF-WHL-02",
+  "state": "reached-signed-in",
+  "variant": "applicant",
+  "theme": "light",
+  "width": 390,
+  "revision": "e9d80d5",
+  "path": "/us/en/wholesale/apply",
+  "observed": "Arrived at /us/en/wholesale/apply.",
+  "note": "The apply page opened by a customer who is already signed in."
+}

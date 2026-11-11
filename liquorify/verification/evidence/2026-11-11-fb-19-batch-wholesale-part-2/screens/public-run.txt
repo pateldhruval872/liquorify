@@ -1,0 +1,16 @@
+
+Running 10 tests using 1 worker
+
+  ✓   1 visual/fidelity/wholesale-screens.spec.ts:1334:9 › guest 390 (1.7m)
+  ✓   2 visual/fidelity/wholesale-screens.spec.ts:1345:9 › applicant 390 (41.5s)
+  -   3 visual/fidelity/wholesale-screens.spec.ts:1363:9 › company invitation 390
+  -   4 visual/fidelity/wholesale-screens.spec.ts:1378:9 › company member 390
+  ✓   5 visual/fidelity/wholesale-screens.spec.ts:1399:9 › buyer 390 (33.3s)
+  ✓   6 visual/fidelity/wholesale-screens.spec.ts:1334:9 › guest 1280 (40.0s)
+  ✓   7 visual/fidelity/wholesale-screens.spec.ts:1345:9 › applicant 1280 (35.5s)
+  -   8 visual/fidelity/wholesale-screens.spec.ts:1363:9 › company invitation 1280
+  -   9 visual/fidelity/wholesale-screens.spec.ts:1378:9 › company member 1280
+  ✓  10 visual/fidelity/wholesale-screens.spec.ts:1399:9 › buyer 1280 (33.3s)
+
+  4 skipped
+  6 passed (4.8m)

@@ -1,0 +1,11 @@
+{
+  "screen": "SF-WHL-01",
+  "state": "sign-in-wall-on-an-ordering-page",
+  "variant": "guest",
+  "theme": "light",
+  "width": 390,
+  "revision": "e9d80d5",
+  "path": "/us/en/wholesale/quick-order",
+  "observed": "The wall was shown at /us/en/wholesale/quick-order.",
+  "note": "A guest opening quick order directly. The wall is shown in place of the page, at its address."
+}

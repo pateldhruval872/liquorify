@@ -16,6 +16,15 @@ RSpec.describe Spree::Orders::Destroy do
     end
   end
 
+  context 'when something rolls the deletion back without a reason' do
+    before { allow(order).to receive(:destroy).and_return(false) }
+
+    it 'refuses with a reason the caller can show' do
+      expect(result).to be_failure
+      expect(order.errors.full_messages).to include(I18n.t('spree.order_could_not_be_deleted'))
+    end
+  end
+
   context 'for a draft with a gift card applied' do
     before do
       expect(Spree::GiftCards::Apply.call(gift_card: gift_card, order: order)).to be_success

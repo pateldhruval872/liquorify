@@ -168,6 +168,10 @@ module Spree
 
         # Convenience method for service result errors
         def render_service_error(error, code: ERROR_CODES[:processing_error], status: :unprocessable_content)
+          # A result's error arrives wrapped; a workflow's rejection symbol is
+          # unwrapped so it is translated below rather than printed raw.
+          error = error.value if error.is_a?(Spree::ServiceModule::ResultError) && error.value.is_a?(Symbol)
+
           if error.is_a?(ActiveModel::Errors)
             render_validation_error(error, code: code)
           elsif error.is_a?(String)

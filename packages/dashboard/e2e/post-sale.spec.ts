@@ -104,6 +104,39 @@ test.describe('post-sale', () => {
     })
   })
 
+  test('shows what a resolved claim paid back, not what was claimed', async ({ page }) => {
+    const creds = await login(page)
+    const order = await createShippedOrder(page, creds.accessToken, 1)
+    await page.goto(`/${creds.store_id}/orders/${order.id}`)
+
+    const claims = card(page, /^claims/i)
+    await claims.getByRole('button', { name: /new claim/i }).click({ timeout: 15_000 })
+    const dialog = page.getByRole('dialog')
+    await dialog.getByRole('spinbutton', { name: new RegExp(FIXTURE_PROMO_PRODUCT) }).fill('1')
+    await dialog.locator('#reason-claim-reasons').click()
+    await page.getByRole('option', { name: 'Never arrived' }).click()
+    await dialog.getByRole('button', { name: /new claim/i }).click()
+    await expect(claims.getByText(/^open$/i)).toBeVisible({ timeout: 15_000 })
+    await expect(
+      claims.locator('[data-slot="card-footer"]').getByText(/^amount claimed$/i),
+    ).toBeVisible()
+
+    await recordAction(page, /^claims/i, /^approve$/i)
+    await expect(claims.getByText(/^approved$/i)).toBeVisible({ timeout: 15_000 })
+
+    await recordAction(page, /^claims/i, /^resolve$/i)
+    await page.locator('#claim-resolve-amount').fill('1.00')
+    await page
+      .getByRole('dialog')
+      .getByRole('button', { name: /^resolve$/i })
+      .click()
+    await expect(claims.getByText(/^resolved$/i)).toBeVisible({ timeout: 15_000 })
+
+    const footer = claims.locator('[data-slot="card-footer"]')
+    await expect(footer.getByText(/^refunded$/i)).toBeVisible()
+    await expect(footer).toContainText('$1.00')
+  })
+
   test('lists exchanges store-wide', async ({ page }) => {
     const creds = await login(page)
     await page.goto(`/${creds.store_id}/exchanges`)

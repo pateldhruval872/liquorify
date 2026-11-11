@@ -3391,6 +3391,7 @@
               "resolve_refund": "Rozwiąż zwrotem płatności",
               "resolve_replacement": "Rozwiąż zamiennikiem"
             },
+            "claimed_total": "Kwota roszczenia",
             "confirm": {
               "cancel_confirm": "Anuluj reklamację",
               "cancel_dismiss": "Zachowaj reklamację",

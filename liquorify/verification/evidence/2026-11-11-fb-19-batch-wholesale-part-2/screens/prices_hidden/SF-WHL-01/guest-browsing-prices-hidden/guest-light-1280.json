@@ -1,0 +1,11 @@
+{
+  "screen": "SF-WHL-01",
+  "state": "guest-browsing-prices-hidden",
+  "variant": "guest",
+  "theme": "light",
+  "width": 1280,
+  "revision": "e9d80d5",
+  "path": "/us/en/wholesale",
+  "observed": "The catalog listed 12 products, first Automatic Espresso Machine, Semi-Automatic Espresso Machine, Drip Coffee Maker 1.5L; prices shown: none. 12 \"Sign in for pricing\" prompts; the first leads to /us/en/wholesale/sign-in?redirect=%2Fus%2Fen%2Fwholesale.",
+  "note": null
+}

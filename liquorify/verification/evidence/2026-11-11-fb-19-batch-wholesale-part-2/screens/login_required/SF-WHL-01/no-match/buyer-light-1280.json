@@ -1,0 +1,11 @@
+{
+  "screen": "SF-WHL-01",
+  "state": "no-match",
+  "variant": "buyer",
+  "theme": "light",
+  "width": 1280,
+  "revision": "e9d80d5",
+  "path": "/us/en/wholesale",
+  "observed": "The page read: \"Wholesale Catalog Your trade pricing is applied automatically at checkout. All catalog prices shown are trade prices, applied on orders of 10+ per item. 0 products Sort No products found No products match \"nothing-matches-this\".\".",
+  "note": null
+}

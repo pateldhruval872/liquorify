@@ -186,8 +186,8 @@ test('2. Splitting a parcel (SD-72)', async ({ page }) => {
   record.note('server order before', {
     total: before.total,
     payment_total: before.payment_total,
-    outstanding: before.outstanding_balance,
-    payment_state: before.payment_state,
+    amount_due: before.amount_due,
+    payment_status: before.payment_status,
   })
   await sabotage(page, standIn(/\/fulfillments\/[^/]+\/split$/))
 
@@ -213,8 +213,8 @@ test('2. Splitting a parcel (SD-72)', async ({ page }) => {
   record.note('server order after', {
     total: after.total,
     payment_total: after.payment_total,
-    outstanding: after.outstanding_balance,
-    payment_state: after.payment_state,
+    amount_due: after.amount_due,
+    payment_status: after.payment_status,
   })
   expect(parcels).toHaveLength(2)
   // The intended result: the order's total and amount due are unchanged.
@@ -222,7 +222,14 @@ test('2. Splitting a parcel (SD-72)', async ({ page }) => {
   await expect(summary(page)).toContainText(/Outstanding balance\s*\$0\.00/)
   record.save()
   expect(after.total).toBe(before.total)
-  expect(after.outstanding_balance).toBe(before.outstanding_balance)
+  // The Admin API's own names: a misspelt field reads undefined on both
+  // sides and would pass whatever the balance was.
+  for (const order of [before, after]) {
+    expect(order.amount_due).toBeDefined()
+    expect(order.payment_status).toBeDefined()
+  }
+  expect(after.amount_due).toBe(before.amount_due)
+  expect(after.payment_status).toBe(before.payment_status)
 })
 
 test('3. Recording a delivery and uploading a label', async ({ page }) => {

@@ -1,0 +1,15 @@
+
+Randomized with seed 18551
+...*.............................................................................................................................................................................................................................................................................
+
+Pending: (Failures listed here are expected and do not affect your suite's status)
+
+  1) Spree::Company behaves like metadata can query records by metadata properties
+     # No reason given
+     # ./lib/spree/testing_support/metadata.rb:43
+
+Finished in 24.22 seconds (files took 5.55 seconds to load)
+273 examples, 0 failures, 1 pending
+
+Randomized with seed 18551
+

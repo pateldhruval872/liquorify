@@ -1,0 +1,508 @@
+[WebServer] 
+[WebServer] > nextjs-starter-spree@0.1.0 dev <storefront>
+[WebServer] > next dev -p 3001 --turbopack
+[WebServer] 
+[WebServer] ▲ Next.js 16.3.8 (Turbopack)
+[WebServer] - Local:         http://localhost:3001
+[WebServer] - Network:       http://<host>:3001
+[WebServer] ✓ Ready in 396ms
+[WebServer] ✓ Running next.config.ts took 390ms
+[WebServer] - Cache Components enabled
+[WebServer] - Experiments (use with caution):
+[WebServer]   · optimizePackageImports
+[WebServer] 
+[WebServer] ✓ Generated CLAUDE.md for AI agents. Set `agentRules: false` in next.config to disable.
+
+Running 7 tests using 1 worker
+
+[WebServer]  GET /us/en 200 in 2.8s (next.js: 600ms, proxy.ts: 190ms, generate-params: 707ms, application-code: 1348ms)
+[WebServer]  GET /us/en/account/register 200 in 1097ms (next.js: 37ms, proxy.ts: 5ms, generate-params: 756ms, application-code: 298ms)
+[WebServer] Error: Route "/[country]/[locale]": Next.js encountered runtime data during prerendering or a navigation.
+[WebServer] 
+[WebServer] `cookies()`, `headers()`, `params`, or `searchParams` accessed outside of `<Suspense>` prevents the route from being prerendered or the navigation from being instant, leading to a slower user experience.
+[WebServer] 
+[WebServer] Ways to fix this:
+[WebServer]   - [stream] Provide a placeholder with `<Suspense fallback={...}>` around the data access
+[WebServer]   - [block] Set `export const instant = false` to allow a blocking route
+[WebServer] 
+[WebServer] Learn more: https://nextjs.org/docs/messages/blocking-prerender-runtime
+[WebServer]     at getLocaleOptions (src/lib/spree/locale.ts:18:38)
+[WebServer]     at getMarkets (src/lib/data/markets.ts:41:61)
+[WebServer]     at resolveCurrency (src/lib/data/markets.ts:63:35)
+[WebServer]     at HomePage (src/app/[country]/[locale]/(storefront)/page.tsx:25:41)
+[WebServer]   16 |
+[WebServer]   17 |   try {
+[WebServer] > 18 |     const cookieStore = await cookies();
+[WebServer]      |                                      ^
+[WebServer]   19 |
+[WebServer]   20 |     const country = cookieStore.get(
+[WebServer]   21 |       config.countryCookieName ?? DEFAULT_COUNTRY_COOKIE,
+[WebServer]  POST /us/en/account/register 200 in 181ms (next.js: 14ms, proxy.ts: 12ms, generate-params: 42ms, application-code: 114ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 5ms src/lib/data/cart.ts
+[WebServer]  POST /us/en/account/register 200 in 105ms (next.js: 11ms, proxy.ts: 6ms, generate-params: 0.0ms, application-code: 88ms)
+[WebServer]   └─ ƒ syncSession() in 3ms src/lib/data/customer.ts
+[WebServer]  POST /us/en/account/register 200 in 83ms (next.js: 6ms, proxy.ts: 6ms, generate-params: 0.0ms, application-code: 71ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 2ms src/lib/data/cart.ts
+[WebServer]  POST /us/en/account/register 200 in 91ms (next.js: 12ms, proxy.ts: 12ms, generate-params: 0.0ms, application-code: 67ms)
+[WebServer]   └─ ƒ syncSession() in 5ms src/lib/data/customer.ts
+[WebServer]  POST /us/en/account/register 200 in 470ms (next.js: 7ms, proxy.ts: 6ms, generate-params: 23ms, application-code: 435ms)
+[WebServer]   └─ ƒ register({"email":"e2e-1794373082107-305021@example.com","first_name":"E2E","last_name":"Customer","...":"2 items not stringified"}) in 347ms src/lib/data/customer.ts
+[WebServer]  GET /us/en/account/register 200 in 166ms (next.js: 10ms, proxy.ts: 7ms, generate-params: 0.1ms, application-code: 149ms)
+[WebServer]  GET /us/en/account 200 in 986ms (next.js: 116ms, proxy.ts: 7ms, generate-params: 659ms, application-code: 204ms)
+[WebServer]  GET /us/en/account 200 in 128ms (next.js: 14ms, proxy.ts: 7ms, generate-params: 22ms, application-code: 86ms)
+[WebServer]  POST /us/en/account 200 in 179ms (next.js: 17ms, proxy.ts: 10ms, generate-params: 0.0ms, application-code: 152ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 36ms src/lib/data/cart.ts
+[WebServer]  GET /us/en/products/pedestal-fan 200 in 1154ms (next.js: 33ms, proxy.ts: 3ms, generate-params: 691ms, application-code: 426ms)
+  ✓  1 [chromium] › e2e/storefront-access.spec.ts:115:7 › a store open to everyone › shows a guest the price and Add to Cart (2.0s)
+[WebServer]  POST /us/en/products/pedestal-fan 200 in 321ms (next.js: 11ms, proxy.ts: 11ms, generate-params: 24ms, application-code: 274ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 3ms src/lib/data/cart.ts
+[WebServer] Error: Route "/[country]/[locale]/products/[slug]": Next.js encountered runtime data during prerendering or a navigation.
+[WebServer] 
+[WebServer] `cookies()`, `headers()`, `params`, or `searchParams` accessed outside of `<Suspense>` prevents the route from being prerendered or the navigation from being instant, leading to a slower user experience.
+[WebServer] 
+[WebServer] Ways to fix this:
+[WebServer]   - [stream] Provide a placeholder with `<Suspense fallback={...}>` around the data access
+[WebServer]   - [block] Set `export const instant = false` to allow a blocking route
+[WebServer] 
+[WebServer] Learn more: https://nextjs.org/docs/messages/blocking-prerender-runtime
+[WebServer]     at ProductPage (src/app/[country]/[locale]/(storefront)/products/[slug]/page.tsx:50:37)
+[WebServer]   48 |   searchParams,
+[WebServer]   49 | }: ProductPageProps) {
+[WebServer] > 50 |   const { country, locale, slug } = await params;
+[WebServer]      |                                     ^
+[WebServer]   51 |   const { category_id } = await searchParams;
+[WebServer]   52 |   const basePath = `/${country}/${locale}`;
+[WebServer]   53 |
+[WebServer]  POST /us/en/products/pedestal-fan 200 in 197ms (next.js: 20ms, proxy.ts: 32ms, generate-params: 0.0ms, application-code: 144ms)
+[WebServer]   └─ ƒ syncSession() in 2ms src/lib/data/customer.ts
+[WebServer]  POST /us/en/products/pedestal-fan 200 in 733ms (next.js: 11ms, proxy.ts: 11ms, generate-params: 0.0ms, application-code: 711ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 2ms src/lib/data/cart.ts
+[WebServer]  GET /us/en/products/tower-fan 200 in 569ms (next.js: 19ms, proxy.ts: 17ms, generate-params: 0.0ms, application-code: 533ms)
+[WebServer]  POST /us/en/products/pedestal-fan 200 in 713ms (next.js: 195ms, proxy.ts: 5ms, generate-params: 24ms, application-code: 489ms)
+[WebServer]   └─ ƒ syncSession() in 12ms src/lib/data/customer.ts
+[WebServer] Error: Route "/[country]/[locale]/products/[slug]": Next.js encountered runtime data during prerendering or a navigation.
+[WebServer] 
+[WebServer] `cookies()`, `headers()`, `params`, or `searchParams` accessed outside of `<Suspense>` prevents the route from being prerendered or the navigation from being instant, leading to a slower user experience.
+[WebServer] 
+[WebServer] Ways to fix this:
+[WebServer]   - [stream] Provide a placeholder with `<Suspense fallback={...}>` around the data access
+[WebServer]   - [block] Set `export const instant = false` to allow a blocking route
+[WebServer] 
+[WebServer] Learn more: https://nextjs.org/docs/messages/blocking-prerender-runtime
+[WebServer]     at ProductPage (src/app/[country]/[locale]/(storefront)/products/[slug]/page.tsx:50:37)
+[WebServer]   48 |   searchParams,
+[WebServer]   49 | }: ProductPageProps) {
+[WebServer] > 50 |   const { country, locale, slug } = await params;
+[WebServer]      |                                     ^
+[WebServer]   51 |   const { category_id } = await searchParams;
+[WebServer]   52 |   const basePath = `/${country}/${locale}`;
+[WebServer]   53 |
+[WebServer]  POST /us/en/products/tower-fan 200 in 197ms (next.js: 6ms, proxy.ts: 7ms, generate-params: 26ms, application-code: 158ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 39ms src/lib/data/cart.ts
+[WebServer]  POST /us/en/products/tower-fan 200 in 199ms (next.js: 8ms, proxy.ts: 5ms, generate-params: 0.0ms, application-code: 186ms)
+[WebServer]   └─ ƒ syncSession() in 44ms src/lib/data/customer.ts
+[WebServer]  POST /us/en/products/tower-fan 200 in 153ms (next.js: 9ms, proxy.ts: 6ms, generate-params: 0.0ms, application-code: 139ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 33ms src/lib/data/cart.ts
+[WebServer]  POST /us/en/products/tower-fan 200 in 132ms (next.js: 7ms, proxy.ts: 4ms, generate-params: 0.0ms, application-code: 121ms)
+[WebServer]   └─ ƒ syncSession() in 32ms src/lib/data/customer.ts
+  ✘  2 [chromium] › e2e/storefront-access.spec.ts:130:7 › a store that hides prices from guests › shows a signed-in customer the price and Add to Cart (7.0s)
+[WebServer]  GET /us/en/account/register 200 in 238ms (next.js: 12ms, proxy.ts: 7ms, generate-params: 14ms, application-code: 205ms)
+[WebServer]  POST /us/en/account/register 200 in 97ms (next.js: 7ms, proxy.ts: 4ms, generate-params: 11ms, application-code: 75ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 2ms src/lib/data/cart.ts
+[WebServer]  POST /us/en/account/register 200 in 83ms (next.js: 10ms, proxy.ts: 4ms, generate-params: 0.0ms, application-code: 70ms)
+[WebServer]   └─ ƒ syncSession() in 1ms src/lib/data/customer.ts
+[WebServer]  POST /us/en/account/register 200 in 137ms (next.js: 15ms, proxy.ts: 6ms, generate-params: 0.0ms, application-code: 117ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 10ms src/lib/data/cart.ts
+[WebServer]  POST /us/en/account/register 200 in 143ms (next.js: 8ms, proxy.ts: 4ms, generate-params: 0.0ms, application-code: 131ms)
+[WebServer]   └─ ƒ syncSession() in 4ms src/lib/data/customer.ts
+[WebServer]  POST /us/en/account/register 200 in 415ms (next.js: 10ms, proxy.ts: 6ms, generate-params: 0.0ms, application-code: 399ms)
+[WebServer]   └─ ƒ register({"email":"e2e-1794373097626-979721@example.com","first_name":"E2E","last_name":"Customer","...":"2 items not stringified"}) in 337ms src/lib/data/customer.ts
+[WebServer]  GET /us/en/account/register 200 in 416ms (next.js: 10ms, proxy.ts: 5ms, generate-params: 14ms, application-code: 386ms)
+[WebServer]  GET /us/en/account 200 in 420ms (next.js: 132ms, proxy.ts: 6ms, generate-params: 16ms, application-code: 267ms)
+[WebServer]  GET /us/en/account 200 in 172ms (next.js: 41ms, proxy.ts: 13ms, generate-params: 0.0ms, application-code: 119ms)
+[WebServer]  POST /us/en/account 200 in 139ms (next.js: 18ms, proxy.ts: 31ms, generate-params: 0.1ms, application-code: 90ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 32ms src/lib/data/cart.ts
+[WebServer]  GET /us/en/products?q=Steam%20Iron 200 in 4.1s (next.js: 2.9s, proxy.ts: 5ms, generate-params: 680ms, application-code: 504ms)
+[WebServer]  POST /us/en/products?q=Steam%20Iron 200 in 268ms (next.js: 17ms, proxy.ts: 14ms, generate-params: 34ms, application-code: 204ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 33ms src/lib/data/cart.ts
+[WebServer]  POST /us/en/products?q=Steam%20Iron 200 in 195ms (next.js: 11ms, proxy.ts: 7ms, generate-params: 0.1ms, application-code: 177ms)
+[WebServer]   └─ ƒ syncSession() in 52ms src/lib/data/customer.ts
+[WebServer] Error: Route "/[country]/[locale]/products": Next.js encountered runtime data during prerendering or a navigation.
+[WebServer] 
+[WebServer] `cookies()`, `headers()`, `params`, or `searchParams` accessed outside of `<Suspense>` prevents the route from being prerendered or the navigation from being instant, leading to a slower user experience.
+[WebServer] 
+[WebServer] Ways to fix this:
+[WebServer]   - [stream] Provide a placeholder with `<Suspense fallback={...}>` around the data access
+[WebServer]   - [block] Set `export const instant = false` to allow a blocking route
+[WebServer] 
+[WebServer] Learn more: https://nextjs.org/docs/messages/blocking-prerender-runtime
+[WebServer]     at ProductsPage (src/app/[country]/[locale]/(storefront)/products/page.tsx:29:27)
+[WebServer]   27 | }: ProductsPageProps) {
+[WebServer]   28 |   const { country, locale } = await params;
+[WebServer] > 29 |   const rawSearchParams = await searchParams;
+[WebServer]      |                           ^
+[WebServer]   30 |   const basePath = `/${country}/${locale}`;
+[WebServer]   31 |   const currency = await resolveCurrency(country);
+[WebServer]   32 |
+[WebServer]  POST /us/en/products?q=Steam%20Iron 200 in 171ms (next.js: 24ms, proxy.ts: 6ms, generate-params: 0.0ms, application-code: 141ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 37ms src/lib/data/cart.ts
+[WebServer]  POST /us/en/products?q=Steam%20Iron 200 in 135ms (next.js: 7ms, proxy.ts: 6ms, generate-params: 0.0ms, application-code: 122ms)
+[WebServer]   └─ ƒ syncSession() in 35ms src/lib/data/customer.ts
+  ✘  3 [chromium] › e2e/storefront-access.spec.ts:140:7 › a store that hides prices from guests › lists the signed-in customer's prices on a search (34.9s)
+[WebServer]  GET /us/en/account/register 200 in 310ms (next.js: 14ms, proxy.ts: 7ms, generate-params: 17ms, application-code: 273ms)
+[WebServer]  POST /us/en/account/register 200 in 126ms (next.js: 6ms, proxy.ts: 4ms, generate-params: 19ms, application-code: 97ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 2ms src/lib/data/cart.ts
+[WebServer]  POST /us/en/account/register 200 in 103ms (next.js: 9ms, proxy.ts: 14ms, generate-params: 0.1ms, application-code: 81ms)
+[WebServer]   └─ ƒ syncSession() in 2ms src/lib/data/customer.ts
+[WebServer]  POST /us/en/account/register 200 in 178ms (next.js: 7ms, proxy.ts: 4ms, generate-params: 0.0ms, application-code: 168ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 1ms src/lib/data/cart.ts
+[WebServer]  POST /us/en/account/register 200 in 217ms (next.js: 5ms, proxy.ts: 5ms, generate-params: 0.0ms, application-code: 206ms)
+[WebServer]   └─ ƒ syncSession() in 2ms src/lib/data/customer.ts
+[WebServer]  POST /us/en/account/register 200 in 436ms (next.js: 8ms, proxy.ts: 5ms, generate-params: 17ms, application-code: 407ms)
+[WebServer]   └─ ƒ register({"email":"e2e-1794373137496-943091@example.com","first_name":"E2E","last_name":"Customer","...":"2 items not stringified"}) in 344ms src/lib/data/customer.ts
+[WebServer]  GET /us/en/account 200 in 330ms (next.js: 76ms, proxy.ts: 8ms, generate-params: 14ms, application-code: 232ms)
+[WebServer]  GET /us/en/account/register 200 in 333ms (next.js: 17ms, proxy.ts: 7ms, generate-params: 0.0ms, application-code: 310ms)
+[WebServer]  GET /us/en/account 200 in 133ms (next.js: 23ms, proxy.ts: 9ms, generate-params: 0.0ms, application-code: 101ms)
+[WebServer]  POST /us/en/account 200 in 202ms (next.js: 41ms, proxy.ts: 7ms, generate-params: 0.0ms, application-code: 154ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 44ms src/lib/data/cart.ts
+[WebServer]  GET /us/en/products/food-processor-3l 200 in 548ms (next.js: 12ms, proxy.ts: 4ms, generate-params: 16ms, application-code: 516ms)
+[WebServer] Error: Route "/[country]/[locale]/products/[slug]": Next.js encountered runtime data during prerendering or a navigation.
+[WebServer] 
+[WebServer] `cookies()`, `headers()`, `params`, or `searchParams` accessed outside of `<Suspense>` prevents the route from being prerendered or the navigation from being instant, leading to a slower user experience.
+[WebServer] 
+[WebServer] Ways to fix this:
+[WebServer]   - [stream] Provide a placeholder with `<Suspense fallback={...}>` around the data access
+[WebServer]   - [block] Set `export const instant = false` to allow a blocking route
+[WebServer] 
+[WebServer] Learn more: https://nextjs.org/docs/messages/blocking-prerender-runtime
+[WebServer]     at ProductPage (src/app/[country]/[locale]/(storefront)/products/[slug]/page.tsx:50:37)
+[WebServer]   48 |   searchParams,
+[WebServer]   49 | }: ProductPageProps) {
+[WebServer] > 50 |   const { country, locale, slug } = await params;
+[WebServer]      |                                     ^
+[WebServer]   51 |   const { category_id } = await searchParams;
+[WebServer]   52 |   const basePath = `/${country}/${locale}`;
+[WebServer]   53 |
+[WebServer]  POST /us/en/products/food-processor-3l 200 in 166ms (next.js: 6ms, proxy.ts: 11ms, generate-params: 17ms, application-code: 131ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 2ms src/lib/data/cart.ts
+[WebServer]  POST /us/en/products/food-processor-3l 200 in 131ms (next.js: 11ms, proxy.ts: 6ms, generate-params: 0.0ms, application-code: 114ms)
+[WebServer]   └─ ƒ syncSession() in 2ms src/lib/data/customer.ts
+[WebServer]  POST /us/en/products/food-processor-3l 200 in 246ms (next.js: 7ms, proxy.ts: 6ms, generate-params: 0.0ms, application-code: 233ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 2ms src/lib/data/cart.ts
+[WebServer]  POST /us/en/products/food-processor-3l 200 in 137ms (next.js: 8ms, proxy.ts: 4ms, generate-params: 0.0ms, application-code: 125ms)
+[WebServer]   └─ ƒ syncSession() in 2ms src/lib/data/customer.ts
+  ✘  4 [chromium] › e2e/storefront-access.spec.ts:153:7 › a store that hides prices from guests › shows a guest a sign-in prompt instead of the price (6.5s)
+[WebServer]  GET /us/en/account/register 200 in 195ms (next.js: 6ms, proxy.ts: 5ms, generate-params: 15ms, application-code: 169ms)
+[WebServer]  POST /us/en/account/register 200 in 129ms (next.js: 13ms, proxy.ts: 7ms, generate-params: 19ms, application-code: 90ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 2ms src/lib/data/cart.ts
+[WebServer]  POST /us/en/account/register 200 in 108ms (next.js: 8ms, proxy.ts: 5ms, generate-params: 0.0ms, application-code: 94ms)
+[WebServer]   └─ ƒ syncSession() in 2ms src/lib/data/customer.ts
+[WebServer]  POST /us/en/account/register 200 in 84ms (next.js: 6ms, proxy.ts: 4ms, generate-params: 0.0ms, application-code: 73ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 8ms src/lib/data/cart.ts
+[WebServer]  POST /us/en/account/register 200 in 76ms (next.js: 8ms, proxy.ts: 4ms, generate-params: 0.0ms, application-code: 65ms)
+[WebServer]   └─ ƒ syncSession() in 2ms src/lib/data/customer.ts
+[WebServer]  POST /us/en/account/register 200 in 467ms (next.js: 6ms, proxy.ts: 4ms, generate-params: 17ms, application-code: 441ms)
+[WebServer]   └─ ƒ register({"email":"e2e-1794373149410-528154@example.com","first_name":"E2E","last_name":"Customer","...":"2 items not stringified"}) in 347ms src/lib/data/customer.ts
+[WebServer]  GET /us/en/account/register 200 in 339ms (next.js: 11ms, proxy.ts: 8ms, generate-params: 0.0ms, application-code: 320ms)
+[WebServer]  GET /us/en/account 200 in 338ms (next.js: 88ms, proxy.ts: 9ms, generate-params: 25ms, application-code: 216ms)
+[WebServer]  GET /us/en/account 200 in 126ms (next.js: 11ms, proxy.ts: 10ms, generate-params: 0.0ms, application-code: 104ms)
+[WebServer]  POST /us/en/account 200 in 259ms (next.js: 9ms, proxy.ts: 3ms, generate-params: 0.0ms, application-code: 246ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 49ms src/lib/data/cart.ts
+[WebServer]  GET /us/en/products/personal-blender 200 in 539ms (next.js: 8ms, proxy.ts: 7ms, generate-params: 22ms, application-code: 503ms)
+[WebServer] Error: Route "/[country]/[locale]/products/[slug]": Next.js encountered runtime data during prerendering or a navigation.
+[WebServer] 
+[WebServer] `cookies()`, `headers()`, `params`, or `searchParams` accessed outside of `<Suspense>` prevents the route from being prerendered or the navigation from being instant, leading to a slower user experience.
+[WebServer] 
+[WebServer] Ways to fix this:
+[WebServer]   - [stream] Provide a placeholder with `<Suspense fallback={...}>` around the data access
+[WebServer]   - [block] Set `export const instant = false` to allow a blocking route
+[WebServer] 
+[WebServer] Learn more: https://nextjs.org/docs/messages/blocking-prerender-runtime
+[WebServer]     at ProductPage (src/app/[country]/[locale]/(storefront)/products/[slug]/page.tsx:50:37)
+[WebServer]   48 |   searchParams,
+[WebServer]   49 | }: ProductPageProps) {
+[WebServer] > 50 |   const { country, locale, slug } = await params;
+[WebServer]      |                                     ^
+[WebServer]   51 |   const { category_id } = await searchParams;
+[WebServer]   52 |   const basePath = `/${country}/${locale}`;
+[WebServer]   53 |
+[WebServer]  POST /us/en/products/personal-blender 200 in 192ms (next.js: 6ms, proxy.ts: 6ms, generate-params: 15ms, application-code: 164ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 37ms src/lib/data/cart.ts
+[WebServer]  POST /us/en/products/personal-blender 200 in 138ms (next.js: 6ms, proxy.ts: 5ms, generate-params: 0.0ms, application-code: 127ms)
+[WebServer]   └─ ƒ syncSession() in 33ms src/lib/data/customer.ts
+[WebServer]  POST /us/en/products/personal-blender 200 in 188ms (next.js: 7ms, proxy.ts: 4ms, generate-params: 0.0ms, application-code: 178ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 32ms src/lib/data/cart.ts
+[WebServer]  POST /us/en/products/personal-blender 200 in 154ms (next.js: 9ms, proxy.ts: 5ms, generate-params: 0.0ms, application-code: 140ms)
+[WebServer]   └─ ƒ syncSession() in 39ms src/lib/data/customer.ts
+  ✘  5 [chromium] › e2e/storefront-access.spec.ts:166:7 › a store that hides prices from guests › does not show a guest the price a customer was shown (6.3s)
+[WebServer]  GET /us/en/account/register 200 in 224ms (next.js: 4ms, proxy.ts: 4ms, generate-params: 15ms, application-code: 201ms)
+[WebServer]  POST /us/en/account/register 200 in 129ms (next.js: 7ms, proxy.ts: 6ms, generate-params: 20ms, application-code: 97ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 11ms src/lib/data/cart.ts
+[WebServer]  POST /us/en/account/register 200 in 125ms (next.js: 9ms, proxy.ts: 5ms, generate-params: 0.0ms, application-code: 111ms)
+[WebServer]   └─ ƒ syncSession() in 2ms src/lib/data/customer.ts
+[WebServer]  POST /us/en/account/register 200 in 111ms (next.js: 7ms, proxy.ts: 5ms, generate-params: 0.0ms, application-code: 98ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 2ms src/lib/data/cart.ts
+[WebServer]  POST /us/en/account/register 200 in 113ms (next.js: 10ms, proxy.ts: 5ms, generate-params: 0.0ms, application-code: 98ms)
+[WebServer]   └─ ƒ syncSession() in 3ms src/lib/data/customer.ts
+[WebServer]  POST /us/en/account/register 200 in 470ms (next.js: 6ms, proxy.ts: 5ms, generate-params: 22ms, application-code: 437ms)
+[WebServer]   └─ ƒ register({"email":"e2e-1794373161000-276191@example.com","first_name":"E2E","last_name":"Customer","...":"2 items not stringified"}) in 350ms src/lib/data/customer.ts
+[WebServer]  GET /us/en/account/register 200 in 291ms (next.js: 9ms, proxy.ts: 6ms, generate-params: 0.1ms, application-code: 276ms)
+[WebServer]  GET /us/en/account 200 in 299ms (next.js: 74ms, proxy.ts: 6ms, generate-params: 15ms, application-code: 204ms)
+[WebServer]  GET /us/en/account 200 in 136ms (next.js: 16ms, proxy.ts: 8ms, generate-params: 0.0ms, application-code: 112ms)
+[WebServer]  POST /us/en/account 200 in 130ms (next.js: 13ms, proxy.ts: 5ms, generate-params: 0.0ms, application-code: 112ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 39ms src/lib/data/cart.ts
+[WebServer]  GET /us/en/products/high-speed-blender 200 in 380ms (next.js: 15ms, proxy.ts: 6ms, generate-params: 19ms, application-code: 341ms)
+[WebServer] Error: Route "/[country]/[locale]/products/[slug]": Could not validate `instant` because an error prevented the target segment from rendering.
+[WebServer]     at ignore-listed frames {
+[WebServer]   [cause]: Error: NEXT_HTTP_ERROR_FALLBACK;404
+[WebServer]       at ProductPage (src/app/[country]/[locale]/(storefront)/products/[slug]/page.tsx:58:13)
+[WebServer]     56 |     product = await getCachedProduct(slug, PRODUCT_PAGE_EXPAND);
+[WebServer]     57 |   } catch {
+[WebServer]   > 58 |     notFound();
+[WebServer]        |             ^
+[WebServer]     59 |   }
+[WebServer]     60 |
+[WebServer]     61 |   const storeUrl = getStoreUrl(); {
+[WebServer]     environmentName: 'Prefetch',
+[WebServer]     digest: 'NEXT_HTTP_ERROR_FALLBACK;404'
+[WebServer]   }
+[WebServer] }
+  ✘  6 [chromium] › e2e/storefront-access.spec.ts:187:7 › a store that requires sign-in › lets a signed-in customer open a product, with its price (31.4s)
+[WebServer]  GET /us/en/account/register 200 in 214ms (next.js: 5ms, proxy.ts: 4ms, generate-params: 16ms, application-code: 188ms)
+[WebServer]  POST /us/en/account/register 200 in 154ms (next.js: 9ms, proxy.ts: 14ms, generate-params: 0.1ms, application-code: 131ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 2ms src/lib/data/cart.ts
+[WebServer]  POST /us/en/account/register 200 in 345ms (next.js: 23ms, proxy.ts: 11ms, generate-params: 27ms, application-code: 284ms)
+[WebServer]   └─ ƒ syncSession() in 2ms src/lib/data/customer.ts
+[WebServer]  POST /us/en/account/register 200 in 145ms (next.js: 25ms, proxy.ts: 12ms, generate-params: 0.0ms, application-code: 109ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 1ms src/lib/data/cart.ts
+[WebServer]  POST /us/en/account/register 200 in 87ms (next.js: 7ms, proxy.ts: 5ms, generate-params: 0.0ms, application-code: 74ms)
+[WebServer]   └─ ƒ syncSession() in 2ms src/lib/data/customer.ts
+[WebServer]  POST /us/en/account/register 200 in 432ms (next.js: 7ms, proxy.ts: 9ms, generate-params: 23ms, application-code: 392ms)
+[WebServer]   └─ ƒ register({"email":"e2e-1794373197884-919246@example.com","first_name":"E2E","last_name":"Customer","...":"2 items not stringified"}) in 326ms src/lib/data/customer.ts
+[WebServer]  GET /us/en/account 200 in 465ms (next.js: 76ms, proxy.ts: 5ms, generate-params: 17ms, application-code: 367ms)
+[WebServer]  GET /us/en/account/register 200 in 468ms (next.js: 10ms, proxy.ts: 5ms, generate-params: 0.0ms, application-code: 453ms)
+[WebServer]  GET /us/en/account 200 in 260ms (next.js: 60ms, proxy.ts: 18ms, generate-params: 0.0ms, application-code: 182ms)
+[WebServer]  POST /us/en/account 200 in 123ms (next.js: 5ms, proxy.ts: 6ms, generate-params: 0.0ms, application-code: 112ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 28ms src/lib/data/cart.ts
+[WebServer]  GET /us/en/products/air-purifier-tower 200 in 303ms (next.js: 6ms, proxy.ts: 4ms, generate-params: 18ms, application-code: 275ms)
+[WebServer] Error: Route "/[country]/[locale]/products/[slug]": Could not validate `instant` because an error prevented the target segment from rendering.
+[WebServer]     at ignore-listed frames {
+[WebServer]   [cause]: Error: NEXT_HTTP_ERROR_FALLBACK;404
+[WebServer]       at ProductPage (src/app/[country]/[locale]/(storefront)/products/[slug]/page.tsx:58:13)
+[WebServer]     56 |     product = await getCachedProduct(slug, PRODUCT_PAGE_EXPAND);
+[WebServer]     57 |   } catch {
+[WebServer]   > 58 |     notFound();
+[WebServer]        |             ^
+[WebServer]     59 |   }
+[WebServer]     60 |
+[WebServer]     61 |   const storeUrl = getStoreUrl(); {
+[WebServer]     environmentName: 'Prefetch',
+[WebServer]     digest: 'NEXT_HTTP_ERROR_FALLBACK;404'
+[WebServer]   }
+[WebServer] }
+  ✘  7 [chromium] › e2e/storefront-access.spec.ts:197:7 › a store that requires sign-in › does not show a guest the product (31.3s)
+
+
+  1) [chromium] › e2e/storefront-access.spec.ts:130:7 › a store that hides prices from guests › shows a signed-in customer the price and Add to Cart 
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator: getByRole('main').getByText(/\$\d/).first()
+    Expected pattern: /\$89\.99/
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toHaveText" with timeout 5000ms
+      - waiting for getByRole('main').getByText(/\$\d/).first()
+
+
+      134 |     await openProduct(page, "tower-fan", "Tower Fan 100cm");
+      135 |
+    > 136 |     await expect(price(page)).toHaveText(/\$89\.99/);
+          |                               ^
+      137 |     await expect(addToCart(page)).toBeVisible();
+      138 |   });
+      139 |
+        at <storefront>/e2e/storefront-access.spec.ts:136:31
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/storefront-access-a-store--2a7bc-r-the-price-and-Add-to-Cart-chromium/test-failed-2.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/storefront-access-a-store--2a7bc-r-the-price-and-Add-to-Cart-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/storefront-access-a-store--2a7bc-r-the-price-and-Add-to-Cart-chromium/error-context.md
+
+    Error Context: test-results/storefront-access-a-store--2a7bc-r-the-price-and-Add-to-Cart-chromium/error-context.md
+
+  2) [chromium] › e2e/storefront-access.spec.ts:140:7 › a store that hides prices from guests › lists the signed-in customer's prices on a search 
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: getByRole('main').locator('div.group').filter({ has: getByRole('link', { name: 'Steam Iron 2400W' }) })
+    Expected substring: "$59.99"
+    Received string:    "Steam Iron 2400W"
+    Timeout: 30000ms
+
+    Call log:
+      - Expect "toContainText" with timeout 30000ms
+      - waiting for getByRole('main').locator('div.group').filter({ has: getByRole('link', { name: 'Steam Iron 2400W' }) })
+        63 × locator resolved to <div class="group relative">…</div>
+           - unexpected value "Steam Iron 2400W"
+
+
+      148 |       .locator("div.group")
+      149 |       .filter({ has: page.getByRole("link", { name: "Steam Iron 2400W" }) });
+    > 150 |     await expect(card).toContainText("$59.99", { timeout: 30_000 });
+          |                        ^
+      151 |   });
+      152 |
+      153 |   test("shows a guest a sign-in prompt instead of the price", async ({
+        at <storefront>/e2e/storefront-access.spec.ts:150:24
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/storefront-access-a-store--09bae-stomer-s-prices-on-a-search-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/storefront-access-a-store--09bae-stomer-s-prices-on-a-search-chromium/error-context.md
+
+    Error Context: test-results/storefront-access-a-store--09bae-stomer-s-prices-on-a-search-chromium/error-context.md
+
+  3) [chromium] › e2e/storefront-access.spec.ts:153:7 › a store that hides prices from guests › shows a guest a sign-in prompt instead of the price 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('link', { name: 'Sign in to order' })
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 5000ms
+      - waiting for getByRole('link', { name: 'Sign in to order' })
+
+
+      159 |     await expect(
+      160 |       page.getByRole("link", { name: "Sign in to order" }),
+    > 161 |     ).toBeVisible();
+          |       ^
+      162 |     await expect(addToCart(page)).toHaveCount(0);
+      163 |     await expect(page.getByRole("main").getByText("$149.99")).toHaveCount(0);
+      164 |   });
+        at <storefront>/e2e/storefront-access.spec.ts:161:7
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/storefront-access-a-store--2e0c6-prompt-instead-of-the-price-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/storefront-access-a-store--2e0c6-prompt-instead-of-the-price-chromium/error-context.md
+
+    Error Context: test-results/storefront-access-a-store--2e0c6-prompt-instead-of-the-price-chromium/error-context.md
+
+  4) [chromium] › e2e/storefront-access.spec.ts:166:7 › a store that hides prices from guests › does not show a guest the price a customer was shown 
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator: getByRole('main').getByText(/\$\d/).first()
+    Expected pattern: /\$49\.99/
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toHaveText" with timeout 5000ms
+      - waiting for getByRole('main').getByText(/\$\d/).first()
+
+
+      169 |     const customer = await asCustomer(browser);
+      170 |     await openProduct(customer, "personal-blender", "Personal Blender 600ml");
+    > 171 |     await expect(price(customer)).toHaveText(/\$49\.99/);
+          |                                   ^
+      172 |
+      173 |     const guest = await asGuest(browser);
+      174 |     await openProduct(guest, "personal-blender", "Personal Blender 600ml");
+        at <storefront>/e2e/storefront-access.spec.ts:171:35
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/storefront-access-a-store--a13b2--price-a-customer-was-shown-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/storefront-access-a-store--a13b2--price-a-customer-was-shown-chromium/error-context.md
+
+    Error Context: test-results/storefront-access-a-store--a13b2--price-a-customer-was-shown-chromium/error-context.md
+
+  5) [chromium] › e2e/storefront-access.spec.ts:187:7 › a store that requires sign-in › lets a signed-in customer open a product, with its price 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('heading', { name: 'High Speed Blender 2.0L', level: 1 })
+    Expected: visible
+    Timeout: 30000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 30000ms
+      - waiting for getByRole('heading', { name: 'High Speed Blender 2.0L', level: 1 })
+
+
+      80 | async function openProduct(page: Page, slug: string, name: string) {
+      81 |   await page.goto(`${BASE_PATH}/products/${slug}`);
+    > 82 |   await expect(page.getByRole("heading", { level: 1, name })).toBeVisible({
+         |                                                               ^
+      83 |     timeout: 30_000,
+      84 |   });
+      85 | }
+        at openProduct (<storefront>/e2e/storefront-access.spec.ts:82:63)
+        at <storefront>/e2e/storefront-access.spec.ts:191:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/storefront-access-a-store--5beb8-en-a-product-with-its-price-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/storefront-access-a-store--5beb8-en-a-product-with-its-price-chromium/error-context.md
+
+    Error Context: test-results/storefront-access-a-store--5beb8-en-a-product-with-its-price-chromium/error-context.md
+
+  6) [chromium] › e2e/storefront-access.spec.ts:197:7 › a store that requires sign-in › does not show a guest the product 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator:  getByText(/not found/i).first()
+    Expected: visible
+    Received: hidden
+    Timeout:  30000ms
+
+    Call log:
+      - Expect "toBeVisible" with timeout 30000ms
+      - waiting for getByText(/not found/i).first()
+        63 × locator resolved to <title>Product Not Found | Spree Store</title>
+           - unexpected value "hidden"
+
+
+      199 |     await page.goto(`${BASE_PATH}/products/air-purifier-tower`);
+      200 |
+    > 201 |     await expect(page.getByText(/not found/i).first()).toBeVisible({
+          |                                                        ^
+      202 |       timeout: 30_000,
+      203 |     });
+      204 |     await expect(
+        at <storefront>/e2e/storefront-access.spec.ts:201:56
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/storefront-access-a-store--2d503-ot-show-a-guest-the-product-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/storefront-access-a-store--2d503-ot-show-a-guest-the-product-chromium/error-context.md
+
+    Error Context: test-results/storefront-access-a-store--2d503-ot-show-a-guest-the-product-chromium/error-context.md
+
+  6 failed
+    [chromium] › e2e/storefront-access.spec.ts:130:7 › a store that hides prices from guests › shows a signed-in customer the price and Add to Cart 
+    [chromium] › e2e/storefront-access.spec.ts:140:7 › a store that hides prices from guests › lists the signed-in customer's prices on a search 
+    [chromium] › e2e/storefront-access.spec.ts:153:7 › a store that hides prices from guests › shows a guest a sign-in prompt instead of the price 
+    [chromium] › e2e/storefront-access.spec.ts:166:7 › a store that hides prices from guests › does not show a guest the price a customer was shown 
+    [chromium] › e2e/storefront-access.spec.ts:187:7 › a store that requires sign-in › lets a signed-in customer open a product, with its price 
+    [chromium] › e2e/storefront-access.spec.ts:197:7 › a store that requires sign-in › does not show a guest the product 
+  1 passed (2.6m)

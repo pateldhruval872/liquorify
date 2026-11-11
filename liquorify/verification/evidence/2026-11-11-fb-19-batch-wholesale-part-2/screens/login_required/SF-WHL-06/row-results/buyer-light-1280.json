@@ -1,0 +1,11 @@
+{
+  "screen": "SF-WHL-06",
+  "state": "row-results",
+  "variant": "buyer",
+  "theme": "light",
+  "width": 1280,
+  "revision": "e9d80d5",
+  "path": "/us/en/wholesale/quick-order",
+  "observed": "The rows read: \"Added Pedestal Fan 40cm\"; \"No product found for this SKU.\"; \"This item is not available to purchase.\".",
+  "note": "Three typed SKUs: PEDESTAL-FAN-WHITE, one that does not exist, and E2E-TEE-BLACK-L, which is sold out."
+}

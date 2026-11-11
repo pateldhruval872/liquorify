@@ -1,0 +1,11 @@
+{
+  "screen": "SF-WHL-06",
+  "state": "searching",
+  "variant": "buyer",
+  "theme": "light",
+  "width": 1280,
+  "revision": "e9d80d5",
+  "path": "/us/en/wholesale/quick-order",
+  "observed": null,
+  "note": "The search request is held in the browser, so the field stays searching."
+}

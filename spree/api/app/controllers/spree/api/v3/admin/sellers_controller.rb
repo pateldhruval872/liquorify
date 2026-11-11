@@ -115,8 +115,6 @@ module Spree
           # a handful of queries per seller, which a list of twenty-five must
           # not pay for a column most operators are not looking at.
           def onboarding
-            authorize_resource!(@resource, :show)
-
             requirements = Spree::Sellers::Requirements.new(@resource)
 
             render json: {
@@ -212,6 +210,12 @@ module Spree
           # `onboarding` is a read of the seller — it changes nothing.
           def read_actions
             super + %w[onboarding]
+          end
+
+          # A read action needs only what reading the seller needs, so a role
+          # that may read sellers but not change them can see the checklist.
+          def authorize_resource!(resource = @resource, action = nil)
+            super(resource, action || (read_actions.include?(action_name) ? :show : action_name.to_sym))
           end
 
           private

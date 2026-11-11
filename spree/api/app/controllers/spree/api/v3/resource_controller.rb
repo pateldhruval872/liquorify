@@ -341,13 +341,16 @@ module Spree
 
           if sort_value.present?
             rp = rp.dup unless rp.is_a?(Hash)
+            # One entry per field: Ransack reads a single comma-joined string
+            # as one field, so every field after the first was dropped and
+            # the first lost its direction.
             rp['s'] = sort_value.split(',').map { |field|
               if field.start_with?('-')
                 "#{field[1..]} desc"
               else
                 "#{field} asc"
               end
-            }.join(',')
+            }
           end
 
           rp

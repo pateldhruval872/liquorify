@@ -1,0 +1,11 @@
+{
+  "screen": "SF-WHL-01",
+  "state": "application-pending",
+  "variant": "applicant",
+  "theme": "light",
+  "width": 390,
+  "revision": "e9d80d5",
+  "path": "/us/en/wholesale",
+  "observed": "The page read: \"(no main landmark) Your application is under review Thanks for applying. Your account is set up, but wholesale access is still pending approval. Name Riley Morgan Email riley.morgan+mwbyhge5@example.com Our team reviews new wholesale applications and enables trade pricing once approved. You'll be able to sign in here as soon as your account is activated. Questions? Contact wholesale@example.com Back to store Sign out\".",
+  "note": null
+}

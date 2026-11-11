@@ -1,0 +1,73 @@
+
+Running 10 tests using 1 worker
+
+  ✘   1 visual/fidelity/wholesale-screens.spec.ts:1331:9 › guest 390 (2.6m)
+  ✓   2 visual/fidelity/wholesale-screens.spec.ts:1342:9 › applicant 390 (1.8m)
+  ✓   3 visual/fidelity/wholesale-screens.spec.ts:1360:9 › company invitation 390 (44.8s)
+  ✓   4 visual/fidelity/wholesale-screens.spec.ts:1375:9 › company member 390 (4.3m)
+  ✓   5 visual/fidelity/wholesale-screens.spec.ts:1396:9 › buyer 390 (12.0m)
+  ✘   6 visual/fidelity/wholesale-screens.spec.ts:1331:9 › guest 1280 (1.2m)
+  ✓   7 visual/fidelity/wholesale-screens.spec.ts:1342:9 › applicant 1280 (1.2m)
+  ✓   8 visual/fidelity/wholesale-screens.spec.ts:1360:9 › company invitation 1280 (44.7s)
+  ✓   9 visual/fidelity/wholesale-screens.spec.ts:1375:9 › company member 1280 (4.8m)
+  ✓  10 visual/fidelity/wholesale-screens.spec.ts:1396:9 › buyer 1280 (11.6m)
+
+
+  1) visual/fidelity/wholesale-screens.spec.ts:1331:9 › guest 390 ──────────────────────────────────
+
+    Error: every state was captured
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 3
+
+    - Array []
+    + Array [
+    +   "SF-SHOP-01 with-wholesale-section 390: locator.scrollIntoViewIfNeeded: Timeout 30000ms exceeded.",
+    + ]
+
+      1264 | test.afterEach(() => {
+      1265 |   const found = failures.splice(0);
+    > 1266 |   expect(found, "every state was captured").toEqual([]);
+           |                                             ^
+      1267 | });
+      1268 |
+      1269 | const everySetting: Access[] = ["login_required", "prices_hidden", "public"];
+        at /work/visual/fidelity/wholesale-screens.spec.ts:1266:45
+
+    Error Context: visual/fidelity/results/test-output/wholesale-screens-guest-390/error-context.md
+
+    Error Context: visual/fidelity/results/test-output/wholesale-screens-guest-390/error-context.md
+
+  2) visual/fidelity/wholesale-screens.spec.ts:1331:9 › guest 1280 ─────────────────────────────────
+
+    Error: every state was captured
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 3
+
+    - Array []
+    + Array [
+    +   "SF-SHOP-01 with-wholesale-section 1280: locator.scrollIntoViewIfNeeded: Timeout 30000ms exceeded.",
+    + ]
+
+      1264 |   }
+      1265 | }
+    > 1266 |
+           | ^
+      1267 | test.afterEach(() => {
+      1268 |   const found = failures.splice(0);
+      1269 |   expect(found, "every state was captured").toEqual([]);
+        at /work/visual/fidelity/wholesale-screens.spec.ts:1266:45
+
+    Error Context: visual/fidelity/results/test-output/wholesale-screens-guest-1280/error-context.md
+
+    Error Context: visual/fidelity/results/test-output/wholesale-screens-guest-1280/error-context.md
+
+  2 failed
+    visual/fidelity/wholesale-screens.spec.ts:1331:9 › guest 390 ───────────────────────────────────
+    visual/fidelity/wholesale-screens.spec.ts:1331:9 › guest 1280 ──────────────────────────────────
+  8 passed (41.2m)
