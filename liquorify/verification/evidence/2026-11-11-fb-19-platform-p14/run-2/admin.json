@@ -1,0 +1,2534 @@
+{
+  "revision": "5dcbf7ec",
+  "run": 1794371162929,
+  "store": "default",
+  "callers": {
+    "admin": [
+      "read_dashboard",
+      "read_reports",
+      "write_reports",
+      "read_orders",
+      "write_orders",
+      "read_payments",
+      "write_payments",
+      "read_fulfillments",
+      "write_fulfillments",
+      "read_refunds",
+      "write_refunds",
+      "read_products",
+      "write_products",
+      "read_product_types",
+      "write_product_types",
+      "read_publishing",
+      "write_publishing",
+      "read_media",
+      "write_media",
+      "read_categories",
+      "write_categories",
+      "read_collections",
+      "write_collections",
+      "read_stock",
+      "write_stock",
+      "read_purchasing",
+      "write_purchasing",
+      "read_customers",
+      "write_customers",
+      "read_sellers",
+      "write_sellers",
+      "read_commissions",
+      "write_commissions",
+      "read_payouts",
+      "write_payouts",
+      "read_gift_cards",
+      "write_gift_cards",
+      "read_store_credits",
+      "write_store_credits",
+      "read_promotions",
+      "write_promotions",
+      "read_settings",
+      "write_settings",
+      "read_delivery_methods",
+      "write_delivery_methods",
+      "read_package_types",
+      "write_package_types",
+      "read_webhooks",
+      "write_webhooks",
+      "read_email_templates",
+      "write_email_templates",
+      "read_integrations",
+      "write_integrations",
+      "read_api_keys",
+      "write_api_keys",
+      "read_oauth_applications",
+      "write_oauth_applications",
+      "read_staff",
+      "write_staff"
+    ],
+    "sellerManager": [
+      "read_orders",
+      "read_products",
+      "read_sellers",
+      "write_sellers"
+    ],
+    "sellerViewer": [
+      "read_sellers",
+      "read_commissions",
+      "read_payouts"
+    ],
+    "payoutsClerk": [
+      "read_sellers",
+      "read_payouts",
+      "write_payouts"
+    ],
+    "commissionManager": [
+      "read_sellers",
+      "read_commissions",
+      "write_commissions"
+    ],
+    "merchandiser": [
+      "read_products",
+      "write_products",
+      "read_categories",
+      "write_categories",
+      "read_collections",
+      "write_collections",
+      "read_stock",
+      "write_stock"
+    ],
+    "orderManager": [
+      "read_orders",
+      "write_orders",
+      "read_payments",
+      "write_payments",
+      "read_fulfillments",
+      "write_fulfillments",
+      "read_refunds",
+      "write_refunds",
+      "read_customers",
+      "read_gift_cards",
+      "write_gift_cards",
+      "read_store_credits",
+      "write_store_credits"
+    ],
+    "storeSettings": [
+      "read_settings",
+      "write_settings"
+    ]
+  },
+  "gaps": {
+    "G-106": {
+      "cases": 26,
+      "attempts": 73,
+      "passed": 25,
+      "failed": [
+        "14.8 Read a seller's onboarding"
+      ]
+    }
+  },
+  "cases": [
+    {
+      "gap": "G-106",
+      "area": "marketplace",
+      "title": "14.1 List sellers",
+      "request": "GET /api/v3/admin/sellers?limit=100",
+      "attempts": [
+        {
+          "caller": "storeSettings",
+          "permissionKeys": [
+            "read_settings",
+            "write_settings"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_sellers"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_sellers"
+          },
+          "asExpected": true,
+          "exposureChecked": 6,
+          "exposed": [],
+          "unchanged": null
+        },
+        {
+          "caller": "orderManager",
+          "permissionKeys": [
+            "read_orders",
+            "write_orders",
+            "read_payments",
+            "write_payments",
+            "read_fulfillments",
+            "write_fulfillments",
+            "read_refunds",
+            "write_refunds",
+            "read_customers",
+            "read_gift_cards",
+            "write_gift_cards",
+            "read_store_credits",
+            "write_store_credits"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_sellers"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_sellers"
+          },
+          "asExpected": true,
+          "exposureChecked": 6,
+          "exposed": [],
+          "unchanged": null
+        },
+        {
+          "caller": "merchandiser",
+          "permissionKeys": [
+            "read_products",
+            "write_products",
+            "read_categories",
+            "write_categories",
+            "read_collections",
+            "write_collections",
+            "read_stock",
+            "write_stock"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_sellers"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_sellers"
+          },
+          "asExpected": true,
+          "exposureChecked": 6,
+          "exposed": [],
+          "unchanged": null
+        }
+      ],
+      "control": {
+        "caller": "sellerViewer",
+        "permissionKeys": [
+          "read_sellers",
+          "read_commissions",
+          "read_payouts"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": true,
+        "changed": null
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-106",
+      "area": "marketplace",
+      "title": "14.2 Read a seller",
+      "request": "GET /api/v3/admin/sellers/<id>",
+      "attempts": [
+        {
+          "caller": "storeSettings",
+          "permissionKeys": [
+            "read_settings",
+            "write_settings"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_sellers"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_sellers"
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": null
+        },
+        {
+          "caller": "orderManager",
+          "permissionKeys": [
+            "read_orders",
+            "write_orders",
+            "read_payments",
+            "write_payments",
+            "read_fulfillments",
+            "write_fulfillments",
+            "read_refunds",
+            "write_refunds",
+            "read_customers",
+            "read_gift_cards",
+            "write_gift_cards",
+            "read_store_credits",
+            "write_store_credits"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_sellers"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_sellers"
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": null
+        }
+      ],
+      "control": {
+        "caller": "sellerViewer",
+        "permissionKeys": [
+          "read_sellers",
+          "read_commissions",
+          "read_payouts"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": true,
+        "changed": null
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-106",
+      "area": "marketplace",
+      "title": "14.3 Save a seller's contact email",
+      "request": "PATCH /api/v3/admin/sellers/<id>",
+      "attempts": [
+        {
+          "caller": "sellerViewer",
+          "permissionKeys": [
+            "read_sellers",
+            "read_commissions",
+            "read_payouts"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_sellers"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_sellers"
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": true
+        },
+        {
+          "caller": "payoutsClerk",
+          "permissionKeys": [
+            "read_sellers",
+            "read_payouts",
+            "write_payouts"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_sellers"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_sellers"
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": true
+        },
+        {
+          "caller": "commissionManager",
+          "permissionKeys": [
+            "read_sellers",
+            "read_commissions",
+            "write_commissions"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_sellers"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_sellers"
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "sellerManager",
+        "permissionKeys": [
+          "read_orders",
+          "read_products",
+          "read_sellers",
+          "write_sellers"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-106",
+      "area": "marketplace",
+      "title": "14.4 Approve the seller ready for review",
+      "request": "PATCH /api/v3/admin/sellers/<id>/approve",
+      "attempts": [
+        {
+          "caller": "sellerViewer",
+          "permissionKeys": [
+            "read_sellers",
+            "read_commissions",
+            "read_payouts"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_sellers"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_sellers"
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": true
+        },
+        {
+          "caller": "payoutsClerk",
+          "permissionKeys": [
+            "read_sellers",
+            "read_payouts",
+            "write_payouts"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_sellers"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_sellers"
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": true
+        },
+        {
+          "caller": "commissionManager",
+          "permissionKeys": [
+            "read_sellers",
+            "read_commissions",
+            "write_commissions"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_sellers"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_sellers"
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "sellerManager",
+        "permissionKeys": [
+          "read_orders",
+          "read_products",
+          "read_sellers",
+          "write_sellers"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-106",
+      "area": "marketplace",
+      "title": "14.5 Suspend the approved seller",
+      "request": "PATCH /api/v3/admin/sellers/<id>/suspend",
+      "attempts": [
+        {
+          "caller": "sellerViewer",
+          "permissionKeys": [
+            "read_sellers",
+            "read_commissions",
+            "read_payouts"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_sellers"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_sellers"
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": true
+        },
+        {
+          "caller": "payoutsClerk",
+          "permissionKeys": [
+            "read_sellers",
+            "read_payouts",
+            "write_payouts"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_sellers"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_sellers"
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": true
+        },
+        {
+          "caller": "commissionManager",
+          "permissionKeys": [
+            "read_sellers",
+            "read_commissions",
+            "write_commissions"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_sellers"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_sellers"
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "sellerManager",
+        "permissionKeys": [
+          "read_orders",
+          "read_products",
+          "read_sellers",
+          "write_sellers"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-106",
+      "area": "marketplace",
+      "title": "14.6 Reject the seller not yet admitted",
+      "request": "PATCH /api/v3/admin/sellers/<id>/reject",
+      "attempts": [
+        {
+          "caller": "sellerViewer",
+          "permissionKeys": [
+            "read_sellers",
+            "read_commissions",
+            "read_payouts"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_sellers"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_sellers"
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": true
+        },
+        {
+          "caller": "payoutsClerk",
+          "permissionKeys": [
+            "read_sellers",
+            "read_payouts",
+            "write_payouts"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_sellers"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_sellers"
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": true
+        },
+        {
+          "caller": "commissionManager",
+          "permissionKeys": [
+            "read_sellers",
+            "read_commissions",
+            "write_commissions"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_sellers"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_sellers"
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "sellerManager",
+        "permissionKeys": [
+          "read_orders",
+          "read_products",
+          "read_sellers",
+          "write_sellers"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-106",
+      "area": "marketplace",
+      "title": "14.7 Send the seller ready for review back",
+      "request": "PATCH /api/v3/admin/sellers/<id>/reopen_onboarding",
+      "attempts": [
+        {
+          "caller": "sellerViewer",
+          "permissionKeys": [
+            "read_sellers",
+            "read_commissions",
+            "read_payouts"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_sellers"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_sellers"
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": true
+        },
+        {
+          "caller": "payoutsClerk",
+          "permissionKeys": [
+            "read_sellers",
+            "read_payouts",
+            "write_payouts"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_sellers"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_sellers"
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": true
+        },
+        {
+          "caller": "commissionManager",
+          "permissionKeys": [
+            "read_sellers",
+            "read_commissions",
+            "write_commissions"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_sellers"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_sellers"
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "sellerManager",
+        "permissionKeys": [
+          "read_orders",
+          "read_products",
+          "read_sellers",
+          "write_sellers"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-106",
+      "area": "marketplace",
+      "title": "14.8 Read a seller's onboarding",
+      "request": "GET /api/v3/admin/sellers/<id>/onboarding",
+      "attempts": [
+        {
+          "caller": "storeSettings",
+          "permissionKeys": [
+            "read_settings",
+            "write_settings"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_sellers"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_sellers"
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": null
+        },
+        {
+          "caller": "orderManager",
+          "permissionKeys": [
+            "read_orders",
+            "write_orders",
+            "read_payments",
+            "write_payments",
+            "read_fulfillments",
+            "write_fulfillments",
+            "read_refunds",
+            "write_refunds",
+            "read_customers",
+            "read_gift_cards",
+            "write_gift_cards",
+            "read_store_credits",
+            "write_store_credits"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_sellers"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_sellers"
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": null
+        }
+      ],
+      "control": {
+        "caller": "sellerManager",
+        "permissionKeys": [
+          "read_orders",
+          "read_products",
+          "read_sellers",
+          "write_sellers"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": true,
+        "changed": null
+      },
+      "failures": [
+        "second control: the allowed caller sellerViewer got 403, expected 200",
+        "second control: the allowed answer did not carry the values the check looks for"
+      ],
+      "result": "FAIL",
+      "secondControl": {
+        "caller": "sellerViewer",
+        "permissionKeys": [
+          "read_sellers",
+          "read_commissions",
+          "read_payouts"
+        ],
+        "expectedStatus": 200,
+        "status": 403,
+        "succeeded": false,
+        "carried": false,
+        "changed": null
+      },
+      "secondControlAnswer": {
+        "status": 403,
+        "code": "access_denied",
+        "requiredPermission": null
+      }
+    },
+    {
+      "gap": "G-106",
+      "area": "marketplace",
+      "title": "14.9 Invite a team member",
+      "request": "POST /api/v3/admin/sellers/<id>/invite",
+      "attempts": [
+        {
+          "caller": "sellerViewer",
+          "permissionKeys": [
+            "read_sellers",
+            "read_commissions",
+            "read_payouts"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_sellers"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_sellers"
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": true
+        },
+        {
+          "caller": "payoutsClerk",
+          "permissionKeys": [
+            "read_sellers",
+            "read_payouts",
+            "write_payouts"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_sellers"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_sellers"
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": true
+        },
+        {
+          "caller": "commissionManager",
+          "permissionKeys": [
+            "read_sellers",
+            "read_commissions",
+            "write_commissions"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_sellers"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_sellers"
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "sellerManager",
+        "permissionKeys": [
+          "read_orders",
+          "read_products",
+          "read_sellers",
+          "write_sellers"
+        ],
+        "expectedStatus": 201,
+        "status": 201,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-106",
+      "area": "marketplace",
+      "title": "14.10 List a seller's team and invitations",
+      "request": "GET /api/v3/admin/sellers/<id>/team?limit=100; GET /api/v3/admin/sellers/<id>/invitations?limit=100",
+      "attempts": [
+        {
+          "caller": "storeSettings",
+          "permissionKeys": [
+            "read_settings",
+            "write_settings"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_sellers"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_sellers"
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": null
+        },
+        {
+          "caller": "orderManager",
+          "permissionKeys": [
+            "read_orders",
+            "write_orders",
+            "read_payments",
+            "write_payments",
+            "read_fulfillments",
+            "write_fulfillments",
+            "read_refunds",
+            "write_refunds",
+            "read_customers",
+            "read_gift_cards",
+            "write_gift_cards",
+            "read_store_credits",
+            "write_store_credits"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_sellers"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_sellers"
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": null
+        },
+        {
+          "caller": "storeSettings",
+          "permissionKeys": [
+            "read_settings",
+            "write_settings"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_sellers"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_sellers"
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": null
+        },
+        {
+          "caller": "orderManager",
+          "permissionKeys": [
+            "read_orders",
+            "write_orders",
+            "read_payments",
+            "write_payments",
+            "read_fulfillments",
+            "write_fulfillments",
+            "read_refunds",
+            "write_refunds",
+            "read_customers",
+            "read_gift_cards",
+            "write_gift_cards",
+            "read_store_credits",
+            "write_store_credits"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_sellers"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_sellers"
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": null
+        }
+      ],
+      "control": {
+        "caller": "sellerViewer",
+        "permissionKeys": [
+          "read_sellers",
+          "read_commissions",
+          "read_payouts"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": true,
+        "changed": null
+      },
+      "failures": [],
+      "result": "PASS",
+      "secondRequest": {
+        "request": "GET /api/v3/admin/sellers/<id>/invitations?limit=100",
+        "control": {
+          "caller": "sellerViewer",
+          "permissionKeys": [
+            "read_sellers",
+            "read_commissions",
+            "read_payouts"
+          ],
+          "expectedStatus": 200,
+          "status": 200,
+          "succeeded": true,
+          "carried": true,
+          "changed": null
+        }
+      }
+    },
+    {
+      "gap": "G-106",
+      "area": "marketplace",
+      "title": "14.11 Read an invitation's acceptance link",
+      "request": "GET /api/v3/admin/sellers/<id>/invitations/<id>/acceptance_link",
+      "attempts": [
+        {
+          "caller": "sellerViewer",
+          "permissionKeys": [
+            "read_sellers",
+            "read_commissions",
+            "read_payouts"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_sellers"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_sellers"
+          },
+          "asExpected": true,
+          "exposureChecked": 2,
+          "exposed": [],
+          "unchanged": null
+        },
+        {
+          "caller": "payoutsClerk",
+          "permissionKeys": [
+            "read_sellers",
+            "read_payouts",
+            "write_payouts"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_sellers"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_sellers"
+          },
+          "asExpected": true,
+          "exposureChecked": 2,
+          "exposed": [],
+          "unchanged": null
+        },
+        {
+          "caller": "commissionManager",
+          "permissionKeys": [
+            "read_sellers",
+            "read_commissions",
+            "write_commissions"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_sellers"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_sellers"
+          },
+          "asExpected": true,
+          "exposureChecked": 2,
+          "exposed": [],
+          "unchanged": null
+        }
+      ],
+      "control": {
+        "caller": "sellerManager",
+        "permissionKeys": [
+          "read_orders",
+          "read_products",
+          "read_sellers",
+          "write_sellers"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": true,
+        "changed": null
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-106",
+      "area": "marketplace",
+      "title": "14.12 Read a seller's balances",
+      "request": "GET /api/v3/admin/sellers/<id>/balances",
+      "attempts": [
+        {
+          "caller": "sellerManager",
+          "permissionKeys": [
+            "read_orders",
+            "read_products",
+            "read_sellers",
+            "write_sellers"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_payouts"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_payouts"
+          },
+          "asExpected": true,
+          "exposureChecked": 3,
+          "exposed": [],
+          "unchanged": null
+        },
+        {
+          "caller": "commissionManager",
+          "permissionKeys": [
+            "read_sellers",
+            "read_commissions",
+            "write_commissions"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_payouts"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_payouts"
+          },
+          "asExpected": true,
+          "exposureChecked": 3,
+          "exposed": [],
+          "unchanged": null
+        }
+      ],
+      "control": {
+        "caller": "sellerViewer",
+        "permissionKeys": [
+          "read_sellers",
+          "read_commissions",
+          "read_payouts"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": true,
+        "changed": null
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-106",
+      "area": "marketplace",
+      "title": "14.13 Settle the seller by hand",
+      "request": "POST /api/v3/admin/sellers/<id>/payouts",
+      "attempts": [
+        {
+          "caller": "sellerViewer",
+          "permissionKeys": [
+            "read_sellers",
+            "read_commissions",
+            "read_payouts"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_payouts"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_payouts"
+          },
+          "asExpected": true,
+          "exposureChecked": 3,
+          "exposed": [],
+          "unchanged": true
+        },
+        {
+          "caller": "sellerManager",
+          "permissionKeys": [
+            "read_orders",
+            "read_products",
+            "read_sellers",
+            "write_sellers"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_payouts"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_payouts"
+          },
+          "asExpected": true,
+          "exposureChecked": 3,
+          "exposed": [],
+          "unchanged": true
+        },
+        {
+          "caller": "commissionManager",
+          "permissionKeys": [
+            "read_sellers",
+            "read_commissions",
+            "write_commissions"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_payouts"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_payouts"
+          },
+          "asExpected": true,
+          "exposureChecked": 3,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "payoutsClerk",
+        "permissionKeys": [
+          "read_sellers",
+          "read_payouts",
+          "write_payouts"
+        ],
+        "expectedStatus": 201,
+        "status": 201,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-106",
+      "area": "marketplace",
+      "title": "14.14 List the requirements",
+      "request": "GET /api/v3/admin/seller_requirements?limit=100",
+      "attempts": [
+        {
+          "caller": "storeSettings",
+          "permissionKeys": [
+            "read_settings",
+            "write_settings"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_sellers"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_sellers"
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": null
+        },
+        {
+          "caller": "orderManager",
+          "permissionKeys": [
+            "read_orders",
+            "write_orders",
+            "read_payments",
+            "write_payments",
+            "read_fulfillments",
+            "write_fulfillments",
+            "read_refunds",
+            "write_refunds",
+            "read_customers",
+            "read_gift_cards",
+            "write_gift_cards",
+            "read_store_credits",
+            "write_store_credits"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_sellers"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_sellers"
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": null
+        }
+      ],
+      "control": {
+        "caller": "sellerViewer",
+        "permissionKeys": [
+          "read_sellers",
+          "read_commissions",
+          "read_payouts"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": true,
+        "changed": null
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-106",
+      "area": "marketplace",
+      "title": "14.15 Add a requirement",
+      "request": "POST /api/v3/admin/seller_requirements",
+      "attempts": [
+        {
+          "caller": "sellerViewer",
+          "permissionKeys": [
+            "read_sellers",
+            "read_commissions",
+            "read_payouts"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_sellers"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_sellers"
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": true
+        },
+        {
+          "caller": "payoutsClerk",
+          "permissionKeys": [
+            "read_sellers",
+            "read_payouts",
+            "write_payouts"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_sellers"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_sellers"
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": true
+        },
+        {
+          "caller": "commissionManager",
+          "permissionKeys": [
+            "read_sellers",
+            "read_commissions",
+            "write_commissions"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_sellers"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_sellers"
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "sellerManager",
+        "permissionKeys": [
+          "read_orders",
+          "read_products",
+          "read_sellers",
+          "write_sellers"
+        ],
+        "expectedStatus": 201,
+        "status": 201,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-106",
+      "area": "marketplace",
+      "title": "14.16 Accept a submission",
+      "request": "PATCH /api/v3/admin/sellers/<id>/requirement_submissions/<id>/accept",
+      "attempts": [
+        {
+          "caller": "sellerViewer",
+          "permissionKeys": [
+            "read_sellers",
+            "read_commissions",
+            "read_payouts"
+          ],
+          "expected": {
+            "status": 404,
+            "code": "record_not_found",
+            "requiredPermission": null
+          },
+          "actual": {
+            "status": 404,
+            "code": "record_not_found",
+            "requiredPermission": null
+          },
+          "asExpected": true,
+          "exposureChecked": 2,
+          "exposed": [],
+          "unchanged": true
+        },
+        {
+          "caller": "payoutsClerk",
+          "permissionKeys": [
+            "read_sellers",
+            "read_payouts",
+            "write_payouts"
+          ],
+          "expected": {
+            "status": 404,
+            "code": "record_not_found",
+            "requiredPermission": null
+          },
+          "actual": {
+            "status": 404,
+            "code": "record_not_found",
+            "requiredPermission": null
+          },
+          "asExpected": true,
+          "exposureChecked": 2,
+          "exposed": [],
+          "unchanged": true
+        },
+        {
+          "caller": "commissionManager",
+          "permissionKeys": [
+            "read_sellers",
+            "read_commissions",
+            "write_commissions"
+          ],
+          "expected": {
+            "status": 404,
+            "code": "record_not_found",
+            "requiredPermission": null
+          },
+          "actual": {
+            "status": 404,
+            "code": "record_not_found",
+            "requiredPermission": null
+          },
+          "asExpected": true,
+          "exposureChecked": 2,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "sellerManager",
+        "permissionKeys": [
+          "read_orders",
+          "read_products",
+          "read_sellers",
+          "write_sellers"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-106",
+      "area": "marketplace",
+      "title": "14.17 List commission rates",
+      "request": "GET /api/v3/admin/commission_rates?limit=100",
+      "attempts": [
+        {
+          "caller": "sellerManager",
+          "permissionKeys": [
+            "read_orders",
+            "read_products",
+            "read_sellers",
+            "write_sellers"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_commissions"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_commissions"
+          },
+          "asExpected": true,
+          "exposureChecked": 2,
+          "exposed": [],
+          "unchanged": null
+        },
+        {
+          "caller": "orderManager",
+          "permissionKeys": [
+            "read_orders",
+            "write_orders",
+            "read_payments",
+            "write_payments",
+            "read_fulfillments",
+            "write_fulfillments",
+            "read_refunds",
+            "write_refunds",
+            "read_customers",
+            "read_gift_cards",
+            "write_gift_cards",
+            "read_store_credits",
+            "write_store_credits"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_commissions"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_commissions"
+          },
+          "asExpected": true,
+          "exposureChecked": 2,
+          "exposed": [],
+          "unchanged": null
+        },
+        {
+          "caller": "storeSettings",
+          "permissionKeys": [
+            "read_settings",
+            "write_settings"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_commissions"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_commissions"
+          },
+          "asExpected": true,
+          "exposureChecked": 2,
+          "exposed": [],
+          "unchanged": null
+        }
+      ],
+      "control": {
+        "caller": "sellerViewer",
+        "permissionKeys": [
+          "read_sellers",
+          "read_commissions",
+          "read_payouts"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": true,
+        "changed": null
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-106",
+      "area": "marketplace",
+      "title": "14.18 Add a commission rate",
+      "request": "POST /api/v3/admin/commission_rates",
+      "attempts": [
+        {
+          "caller": "sellerViewer",
+          "permissionKeys": [
+            "read_sellers",
+            "read_commissions",
+            "read_payouts"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_commissions"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_commissions"
+          },
+          "asExpected": true,
+          "exposureChecked": 2,
+          "exposed": [],
+          "unchanged": true
+        },
+        {
+          "caller": "payoutsClerk",
+          "permissionKeys": [
+            "read_sellers",
+            "read_payouts",
+            "write_payouts"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_commissions"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_commissions"
+          },
+          "asExpected": true,
+          "exposureChecked": 2,
+          "exposed": [],
+          "unchanged": true
+        },
+        {
+          "caller": "sellerManager",
+          "permissionKeys": [
+            "read_orders",
+            "read_products",
+            "read_sellers",
+            "write_sellers"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_commissions"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_commissions"
+          },
+          "asExpected": true,
+          "exposureChecked": 2,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "commissionManager",
+        "permissionKeys": [
+          "read_sellers",
+          "read_commissions",
+          "write_commissions"
+        ],
+        "expectedStatus": 201,
+        "status": 201,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-106",
+      "area": "marketplace",
+      "title": "14.19 Change a commission rate",
+      "request": "PATCH /api/v3/admin/commission_rates/<id>",
+      "attempts": [
+        {
+          "caller": "sellerViewer",
+          "permissionKeys": [
+            "read_sellers",
+            "read_commissions",
+            "read_payouts"
+          ],
+          "expected": {
+            "status": 404,
+            "code": "record_not_found",
+            "requiredPermission": null
+          },
+          "actual": {
+            "status": 404,
+            "code": "record_not_found",
+            "requiredPermission": null
+          },
+          "asExpected": true,
+          "exposureChecked": 2,
+          "exposed": [],
+          "unchanged": true
+        },
+        {
+          "caller": "payoutsClerk",
+          "permissionKeys": [
+            "read_sellers",
+            "read_payouts",
+            "write_payouts"
+          ],
+          "expected": {
+            "status": 404,
+            "code": "record_not_found",
+            "requiredPermission": null
+          },
+          "actual": {
+            "status": 404,
+            "code": "record_not_found",
+            "requiredPermission": null
+          },
+          "asExpected": true,
+          "exposureChecked": 2,
+          "exposed": [],
+          "unchanged": true
+        },
+        {
+          "caller": "sellerManager",
+          "permissionKeys": [
+            "read_orders",
+            "read_products",
+            "read_sellers",
+            "write_sellers"
+          ],
+          "expected": {
+            "status": 404,
+            "code": "record_not_found",
+            "requiredPermission": null
+          },
+          "actual": {
+            "status": 404,
+            "code": "record_not_found",
+            "requiredPermission": null
+          },
+          "asExpected": true,
+          "exposureChecked": 2,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "commissionManager",
+        "permissionKeys": [
+          "read_sellers",
+          "read_commissions",
+          "write_commissions"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-106",
+      "area": "marketplace",
+      "title": "14.20 List commission lines",
+      "request": "GET /api/v3/admin/commission_lines?limit=100",
+      "attempts": [
+        {
+          "caller": "orderManager",
+          "permissionKeys": [
+            "read_orders",
+            "write_orders",
+            "read_payments",
+            "write_payments",
+            "read_fulfillments",
+            "write_fulfillments",
+            "read_refunds",
+            "write_refunds",
+            "read_customers",
+            "read_gift_cards",
+            "write_gift_cards",
+            "read_store_credits",
+            "write_store_credits"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_commissions"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_commissions"
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": null
+        },
+        {
+          "caller": "sellerManager",
+          "permissionKeys": [
+            "read_orders",
+            "read_products",
+            "read_sellers",
+            "write_sellers"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_commissions"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_commissions"
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": null
+        }
+      ],
+      "control": {
+        "caller": "sellerViewer",
+        "permissionKeys": [
+          "read_sellers",
+          "read_commissions",
+          "read_payouts"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": true,
+        "changed": null
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-106",
+      "area": "marketplace",
+      "title": "14.21 List seller transfers",
+      "request": "GET /api/v3/admin/seller_transfers?limit=100",
+      "attempts": [
+        {
+          "caller": "orderManager",
+          "permissionKeys": [
+            "read_orders",
+            "write_orders",
+            "read_payments",
+            "write_payments",
+            "read_fulfillments",
+            "write_fulfillments",
+            "read_refunds",
+            "write_refunds",
+            "read_customers",
+            "read_gift_cards",
+            "write_gift_cards",
+            "read_store_credits",
+            "write_store_credits"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_payouts"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_payouts"
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": null
+        },
+        {
+          "caller": "sellerManager",
+          "permissionKeys": [
+            "read_orders",
+            "read_products",
+            "read_sellers",
+            "write_sellers"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_payouts"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_payouts"
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": null
+        },
+        {
+          "caller": "commissionManager",
+          "permissionKeys": [
+            "read_sellers",
+            "read_commissions",
+            "write_commissions"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_payouts"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_payouts"
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": null
+        }
+      ],
+      "control": {
+        "caller": "sellerViewer",
+        "permissionKeys": [
+          "read_sellers",
+          "read_commissions",
+          "read_payouts"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": true,
+        "changed": null
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-106",
+      "area": "marketplace",
+      "title": "14.22 List seller payouts",
+      "request": "GET /api/v3/admin/seller_payouts?limit=100",
+      "attempts": [
+        {
+          "caller": "orderManager",
+          "permissionKeys": [
+            "read_orders",
+            "write_orders",
+            "read_payments",
+            "write_payments",
+            "read_fulfillments",
+            "write_fulfillments",
+            "read_refunds",
+            "write_refunds",
+            "read_customers",
+            "read_gift_cards",
+            "write_gift_cards",
+            "read_store_credits",
+            "write_store_credits"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_payouts"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_payouts"
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": null
+        },
+        {
+          "caller": "sellerManager",
+          "permissionKeys": [
+            "read_orders",
+            "read_products",
+            "read_sellers",
+            "write_sellers"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_payouts"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_payouts"
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": null
+        },
+        {
+          "caller": "commissionManager",
+          "permissionKeys": [
+            "read_sellers",
+            "read_commissions",
+            "write_commissions"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_payouts"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_payouts"
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": null
+        }
+      ],
+      "control": {
+        "caller": "sellerViewer",
+        "permissionKeys": [
+          "read_sellers",
+          "read_commissions",
+          "read_payouts"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": true,
+        "changed": null
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-106",
+      "area": "marketplace",
+      "title": "14.23 Mark a payout paid",
+      "request": "PATCH /api/v3/admin/seller_payouts/<id>/complete",
+      "attempts": [
+        {
+          "caller": "sellerViewer",
+          "permissionKeys": [
+            "read_sellers",
+            "read_commissions",
+            "read_payouts"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_payouts"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_payouts"
+          },
+          "asExpected": true,
+          "exposureChecked": 4,
+          "exposed": [],
+          "unchanged": true
+        },
+        {
+          "caller": "commissionManager",
+          "permissionKeys": [
+            "read_sellers",
+            "read_commissions",
+            "write_commissions"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_payouts"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_payouts"
+          },
+          "asExpected": true,
+          "exposureChecked": 4,
+          "exposed": [],
+          "unchanged": true
+        },
+        {
+          "caller": "sellerManager",
+          "permissionKeys": [
+            "read_orders",
+            "read_products",
+            "read_sellers",
+            "write_sellers"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_payouts"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_payouts"
+          },
+          "asExpected": true,
+          "exposureChecked": 4,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "payoutsClerk",
+        "permissionKeys": [
+          "read_sellers",
+          "read_payouts",
+          "write_payouts"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-106",
+      "area": "marketplace",
+      "title": "14.24 List order groups",
+      "request": "GET /api/v3/admin/order_groups?limit=100",
+      "attempts": [
+        {
+          "caller": "storeSettings",
+          "permissionKeys": [
+            "read_settings",
+            "write_settings"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_orders"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_orders"
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": null
+        },
+        {
+          "caller": "merchandiser",
+          "permissionKeys": [
+            "read_products",
+            "write_products",
+            "read_categories",
+            "write_categories",
+            "read_collections",
+            "write_collections",
+            "read_stock",
+            "write_stock"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_orders"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "read_orders"
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": null
+        }
+      ],
+      "control": {
+        "caller": "orderManager",
+        "permissionKeys": [
+          "read_orders",
+          "write_orders",
+          "read_payments",
+          "write_payments",
+          "read_fulfillments",
+          "write_fulfillments",
+          "read_refunds",
+          "write_refunds",
+          "read_customers",
+          "read_gift_cards",
+          "write_gift_cards",
+          "read_store_credits",
+          "write_store_credits"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": true,
+        "changed": null
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-106",
+      "area": "marketplace",
+      "title": "14.25 Approve the seller's proposed product",
+      "request": "PATCH /api/v3/admin/products/<id>/approve",
+      "attempts": [
+        {
+          "caller": "sellerManager",
+          "permissionKeys": [
+            "read_orders",
+            "read_products",
+            "read_sellers",
+            "write_sellers"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_products"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_products"
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": true
+        },
+        {
+          "caller": "orderManager",
+          "permissionKeys": [
+            "read_orders",
+            "write_orders",
+            "read_payments",
+            "write_payments",
+            "read_fulfillments",
+            "write_fulfillments",
+            "read_refunds",
+            "write_refunds",
+            "read_customers",
+            "read_gift_cards",
+            "write_gift_cards",
+            "read_store_credits",
+            "write_store_credits"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_products"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_products"
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": true
+        },
+        {
+          "caller": "sellerViewer",
+          "permissionKeys": [
+            "read_sellers",
+            "read_commissions",
+            "read_payouts"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_products"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_products"
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "merchandiser",
+        "permissionKeys": [
+          "read_products",
+          "write_products",
+          "read_categories",
+          "write_categories",
+          "read_collections",
+          "write_collections",
+          "read_stock",
+          "write_stock"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "gap": "G-106",
+      "area": "marketplace",
+      "title": "14.26 Send a proposed product back",
+      "request": "PATCH /api/v3/admin/products/<id>/reject",
+      "attempts": [
+        {
+          "caller": "sellerManager",
+          "permissionKeys": [
+            "read_orders",
+            "read_products",
+            "read_sellers",
+            "write_sellers"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_products"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_products"
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": true
+        },
+        {
+          "caller": "orderManager",
+          "permissionKeys": [
+            "read_orders",
+            "write_orders",
+            "read_payments",
+            "write_payments",
+            "read_fulfillments",
+            "write_fulfillments",
+            "read_refunds",
+            "write_refunds",
+            "read_customers",
+            "read_gift_cards",
+            "write_gift_cards",
+            "read_store_credits",
+            "write_store_credits"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_products"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_products"
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": true
+        },
+        {
+          "caller": "sellerViewer",
+          "permissionKeys": [
+            "read_sellers",
+            "read_commissions",
+            "read_payouts"
+          ],
+          "expected": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_products"
+          },
+          "actual": {
+            "status": 403,
+            "code": "access_denied",
+            "requiredPermission": "write_products"
+          },
+          "asExpected": true,
+          "exposureChecked": 1,
+          "exposed": [],
+          "unchanged": true
+        }
+      ],
+      "control": {
+        "caller": "merchandiser",
+        "permissionKeys": [
+          "read_products",
+          "write_products",
+          "read_categories",
+          "write_categories",
+          "read_collections",
+          "write_collections",
+          "read_stock",
+          "write_stock"
+        ],
+        "expectedStatus": 200,
+        "status": 200,
+        "succeeded": true,
+        "carried": null,
+        "changed": true
+      },
+      "failures": [],
+      "result": "PASS"
+    }
+  ]
+}
