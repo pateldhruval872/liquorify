@@ -676,7 +676,13 @@ test("11. The profile's addresses and tax registration (SD-103)", async ({ page 
   await dialog(page).getByRole('button', { name: 'Save' }).click()
   await expect(dialog(page)).toBeHidden({ timeout: 20_000 })
 
-  await page.getByRole('button', { name: 'Add address' }).click()
+  // The card shows the location returns are sent to: the default one, which
+  // already has an address here, so it offers Edit rather than Add address.
+  await page
+    .locator('[data-slot="card"]')
+    .filter({ has: page.locator('[data-slot="card-title"]', { hasText: /^Returns address/ }) })
+    .getByRole('button', { name: /^(Edit|Add address)$/ })
+    .click()
   await expect(dialog(page)).toHaveAccessibleName('Returns address')
   await dialog(page).getByLabel('Company').fill(owner.name)
   await dialog(page).getByLabel('Address', { exact: true }).fill(returnsStreet)
