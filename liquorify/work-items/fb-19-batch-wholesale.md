@@ -227,6 +227,8 @@ Recorded now so none is lost. The record says which it closes.
 
 Set out on 2026-11-11, after part 1 merged at `e3af0d59` ([merge record](../verification/2026-11-10-fb-19-batch-wholesale-merge.md)), from the backend at `main` `f9894eaf` and the storefront at its `main` `4a4324e`. It has the same shape as part 1, and the choices in §7 hold unless this section says otherwise. It runs in the storefront's repository, with its records in this one.
 
+**The owner's instruction of 2026-11-11.** Later the same day the owner replaced the instruction to defer defect fixes until after the baseline, and widened the delegation to the decisions on defects and gaps (relayed by the coordinator). Under it, the baseline audit thread decided on 2026-11-11 that SD-86 is confirmed High and SD-9 stays High, that both are fixed in this lane, each in its own storefront pull request with a regression test that fails before the fix, and that G-128 is Spree's intended behaviour on one condition this part checks (§10.5). Those decisions are recorded in the audit's remediation ledger and are the delegation's, never the owner's answers. This section was amended for them before it merged.
+
 ### 10.1 Scope
 
 LIQ-006 §9's buyer side: every wholesale screen in [LIQ-008](../LIQ-008-spree-screen-inventory.md), the home page's wholesale section, FL-10's buyer steps, and the pieces part 1 left here (§2.3, §2.6).
@@ -235,11 +237,12 @@ LIQ-006 §9's buyer side: every wholesale screen in [LIQ-008](../LIQ-008-spree-s
 |---|---|---|---|---|
 | CAP-09-02 The wholesale portal: trade-price catalog, product pages, wholesale cart and quick order by SKU | SF-WHL-01, SF-WHL-04, SF-WHL-05, SF-WHL-06; SF-CHK-01 and SF-CHK-03 for a wholesale cart; SF-OVL-01's wholesale link, mapped to the shop batch | FL-10, the buyer's ordering steps | EM-C-01 and EM-SF-01 for the wholesale order, mapped to batch 9 | None |
 | CAP-09-03 Wholesale application and approval, the buyer's side | SF-WHL-02, SF-WHL-03; SF-WHL-01 pending and approved; SF-SHOP-01's wholesale section | FL-10, the buyer's application and sign-in steps | None (§10.6) | None |
-| CAP-09-04 Gated channels, the buyer's side | SF-WHL-01, SF-WHL-04 to SF-WHL-06 under each access setting of the wholesale channel; SF-SHOP-01 to SF-SHOP-04 under the store's own setting, for SD-9 | None | None | None for the wholesale channel; the shop batch's for the store's pages |
+| CAP-09-04 Gated channels, the buyer's side | SF-WHL-01, SF-WHL-04 to SF-WHL-06 under each access setting of the wholesale channel; SF-SHOP-01 to SF-SHOP-04 under the store's own setting, before and after SD-9's fix | None | None | None for the wholesale channel; SD-9's new regression tests for the store's pages (§10.12) |
+| CAP-09-01 The company invitation, the buyer's side | The new page at `/account/company-invitation` that SD-86's fix adds, with EM-C-11's link followed to it | FL-10's invitation step | EM-C-11, mapped to part 1 | SD-86's new regression tests (§10.12) |
 
 The storefront has no wholesale browser test at its `main`: `e2e/` holds account, sign-in, cart, catalog, checkout, order tracking and product tests, and `src/lib/__tests__/wholesale.test.ts` unit-tests only the portal's sign-in link. Every buyer step is therefore a gap for the owner's answer (§10.4, criterion 15).
 
-Taken from part 1 (§2.3, §2.6): whether a catalog's or a price list's prices reach a buyer, shown on the storefront; CAP-09-04's storefront access for a signed-in customer, SD-9 checked again; the company invitation's link, SD-86 checked again at the storefront's revision; and the buyer's own checkout for a company that requires a purchase order number, which part 1 checked through the Store API (§6 of its record).
+Taken from part 1 (§2.3, §2.6): whether a catalog's or a price list's prices reach a buyer, shown on the storefront, with G-128's condition; CAP-09-04's storefront access for a signed-in customer, SD-9, now fixed here; the company invitation's link, SD-86, now fixed here; and the buyer's own checkout for a company that requires a purchase order number, which part 1 checked through the Store API (§6 of its record).
 
 ### 10.2 Screens and their states
 
@@ -254,6 +257,7 @@ Every state LIQ-008 lists for the six screens and the home page's section, and t
 - **Quick order (SF-WHL-06):** one row and several; the SKU search searching, with suggestions and with none; a SKU not found; a variant that cannot be bought; added; adding failed, reached by failing the request in the browser, which its capture says.
 - **Checkout and the order placed page (SF-CHK-01, SF-CHK-03)** for a wholesale cart, with the wholesale channel's delivery and payment and its trade prices; a company that requires a purchase order number, as the buyer's checkout shows it.
 - **The home page's wholesale section (SF-SHOP-01):** shown, at both widths, and its links followed.
+- **The company invitation page (SD-86's fix):** a guest creating the account to accept; a signed-in invitee accepting; accepted; an invitation that is expired, already used or revoked, and a customer signed in with another email, each refused with the message the page shows.
 - **Loading and failed states** across the portal, reached by holding or failing a request in the browser, which each capture says (as G-124).
 
 ### 10.3 Variants
@@ -297,11 +301,11 @@ Each is made or saved on its screen and seen, or not, where it takes effect, wit
 | The Wholesale price list's prices and minimum quantity (DA-PRD-14, DA-PRD-15) | The prices on SF-WHL-01, SF-WHL-04, SF-WHL-05 and SF-WHL-06 below and at the minimum; then the minimum changed in the dashboard and the storefront's own note and nudge read again, since the storefront states the minimum as a fixed number (`WHOLESALE_MIN_QUANTITY` in `src/lib/wholesale.ts`) |
 | The wholesale channel's access setting (DA-SET-08) | Each screen for each visitor in §10.3, beside what the Store API answers the same visitor for the same request on the wholesale channel |
 | A signed-in customer not in the Wholesale group | What the Store API gives that customer on the wholesale channel when the storefront's pending page is bypassed: products, prices and cart, recorded as the server's answer and not as an isolation check |
-| A company with its own catalog, and a buyer who is its member and in the Wholesale group (DA-CUS-05, DA-PRD-13) | The products and prices the portal shows that buyer, beside part 1's Store API reading (§8 of its record). How the two combine stays with the owner (G-128); the batch records what shows and claims nothing about intent |
+| A company with its own catalog, and a buyer who is its member and in the Wholesale group (DA-CUS-05, DA-PRD-13) | G-128's condition. By Spree's documented contract (`docs/developer/core-concepts/catalogs.mdx`, "How pricing resolves") the catalog's assortment limits what the company's buyers can buy, and prices resolve from the catalog's own price list, then any price list whose rules match, then the base price. The portal is captured for that buyer with three products: one outside the assortment (not offered, by design); one inside it that the catalog prices (the catalog's price); and one inside it that the catalog does not price (the Wholesale price, at and above its minimum quantity). If the third shows the base price, that is a defect, numbered SD-101 by the audit thread and fixed in this lane. G-128 closes on this evidence either way |
 | A company that requires a purchase order number (DA-CUS-05) | The member buyer's checkout of a wholesale cart on SF-CHK-01: whether the storefront asks for a purchase order number, and what the buyer sees when Spree refuses the order without one |
 | A wholesale order placed (SF-CHK-03) | The order on DA-ORD-04: its channel, its trade prices and its customer; and the wholesale channel's guest checkout setting, with a guest's cart refused as the screen shows it |
-| SD-9, the store's access setting (DA-SET-02) | SF-SHOP-01 to SF-SHOP-04 for a signed-in customer under prices hidden and sign-in required, at the storefront's revision; SD-9 stays open unless they show prices and let the customer through |
-| SD-86, the company invitation's link | The link EM-C-11 builds, followed on the storefront at its revision; SD-86 stays with the owner, and no acceptance page is added (§10.10) |
+| SD-9, the store's access setting (DA-SET-02) | SF-SHOP-01 to SF-SHOP-04 for a signed-in customer and a guest under prices hidden and sign-in required, on the storefront at its `main` and again with SD-9's fix (§10.12) |
+| SD-86, the company invitation (DA-CUS-05) | An invitation sent from the company page, EM-C-11's link followed on the storefront at its `main` and again with SD-86's fix, accepted, and the membership seen on DA-CUS-05 and through the Store API (§10.12) |
 
 ### 10.6 Emails
 
@@ -319,7 +323,7 @@ The wholesale section of CMP-SF-G-05 has its story already (`Storefront/Home/Who
 
 ### 10.8 Delivery
 
-- **One storefront pull request** with the stories, fixtures and mocks, reference images, and the capture and comparison additions in `visual/fidelity/`. It builds on storefront `main`, and changes no application code.
+- **Three storefront pull requests,** each on storefront `main`: SD-86's fix, then SD-9's fix, each with its regression tests and nothing else (§10.12); and the batch's stories, fixtures and mocks, reference images, and the capture and comparison additions in `visual/fidelity/`, which changes no application code. The captures are made with both fixes in place, and the "before" states of SD-9 and SD-86 at `main` `4a4324e`.
 - **One backend records pull request** after it: the verification record, the published evidence, the image review list, LIQ-009's storefront column, LIQ-004's FB-19 status and the README index, then its merge record. This section is committed and merged on its own first, before anything is built.
 - **Running screens:** the storefront built for production at its `main`, once with `SPREE_WHOLESALE_CHANNEL=wholesale` and once without, against the backend's browser-test server at `main`, in this session's own checkout, database and ports. Spree's sample catalog is loaded with Spree's own task, which seeds the wholesale channel, the Wholesale group and price list; every buyer, company and catalog in a capture is invented and made through the storefront or the Admin API.
 - **Captures:** in the storefront's pinned Playwright image, at 390 and 1280 pixels, with the fonts served offline. Evidence logs are saved as `.txt`.
@@ -338,7 +342,7 @@ Part 1's criteria (§5), read for the storefront's portal, with the storefront b
 | 6 | The diagnostic comparison finds no unexplained difference between each new story and its running screen. A defect is fixed in the story, its fixtures or its mocks, never in the storefront's component | Side-by-side images and computed styles |
 | 7 | A state no running screen shows is recorded as a coverage gap, with the check made instead. A state reached by answering a request in the browser says so, and claims nothing about the server | Gap list in the record |
 | 8 | The visual check passes twice in CI on the same revision; the storefront's lint, type check, unit tests and browser tests pass; the check stays advisory | CI runs, named in the merge record |
-| 9 | The storefront's application code, Spree's code and every workflow outside Storybook and the fidelity scripts are unchanged, and nothing carries Liquorify branding or features | The pull requests' file lists |
+| 9 | Spree's code and every workflow are unchanged; the storefront's application code changes only for SD-86's and SD-9's fixes, each in its own pull request; nothing carries Liquorify branding or features | The pull requests' file lists |
 | 10 | The records are updated: a verification record, LIQ-009's storefront column, LIQ-004's FB-19 status and the README index, with every link checked; LIQ-008 corrected where the captures show it is wrong | The records pull request |
 | 11 | The reference images, the screen evidence and fidelity are accepted | By delegated acceptance, under the owner's delegation of 2026-11-04, recorded in the merge record; never described as the owner's review |
 | 12 | What the server refuses or gives each visitor is recorded apart from criterion 4: the record names Spree's own specs, runs them at the batch's revision, and lists what they exercise. What no spec exercises is NOT_RUN, never inferred from the interface | The spec run: the Store API specs for products, channels, customers (registration), carts and their items and orders on a channel, with storefront gating and price gating; the channel gating spec; the price list, price rule and customer group pricing specs |
@@ -348,18 +352,20 @@ Part 1's criteria (§5), read for the storefront's portal, with the storefront b
 | 16 | Each row of §10.5 is checked where it takes effect, with captures or the read values of both sides and the result recorded per row. A row that cannot be reached on the running stack is recorded with the check made instead | Captures and the record |
 | 17 | §10.6's reading of the emails is recorded, and EM-C-01 and EM-SF-01 stay mapped to batch 9 | The emails section |
 | 18 | The comparison follow-up's share (§10.7): every earlier story a part 2 running screen shows is compared and leaves its gap, and LIQ-004's comparison follow-up records what batch 12 leaves | The image review list's earlier stories section and LIQ-004 |
+| 19 | SD-86 and SD-9 are fixed as §10.12 sets out: each regression test fails at storefront `main` and passes with the fix, its controls succeed and its refusals are refused, in CI on the fix's final commit, and each defect's register and LIQ-004 rows record the fix and its evidence | The two fix pull requests, their CI runs and the records |
+| 20 | G-128 closes on §10.5's evidence: the product inside the assortment that the catalog does not price shows the Wholesale price, or SD-101 is recorded and fixed with the same test rule | The captures, the price readings and the records |
 
 ### 10.10 Choices made under the owner's delegation
 
 As §7, with these for part 2. Each is recorded as decided under the delegation, never as the owner's answer, and the owner may change any of them.
 
 1. **One storefront pull request and one records pull request,** as batch 9 delivered the storefront's checkout: the stories and capture scripts belong with the storefront's own visual check.
-2. **No company invitation page is added.** SD-86 is held for the owner, and adding a page to accept invitations would be a storefront feature, which the baseline does not build. Part 2 follows the link again and records what it shows.
-3. **Trade prices are shown for a buyer in the Wholesale group who belongs to no company with its own catalog.** That is the case Spree's sample data and the storefront are built for, and it does not depend on G-128. A company member's portal is captured as it shows and recorded for G-128, which stays with the owner.
+2. **The company invitation page is added as SD-86's fix,** decided by the audit thread under the owner's instruction of 2026-11-11: Spree's mailer and Store API already define the page's address and its accept endpoint, so the fix completes Spree's contract and adds no Liquorify feature.
+3. **Trade prices are shown first for a buyer in the Wholesale group who belongs to no company with its own catalog,** the case Spree's sample data and the storefront are built for; the company member's portal is then captured for G-128's condition (§10.5).
 4. **No browser tests are added for the portal.** Adding them would be platform batch work; the record lists the behaviours for the owner's answer (criterion 15).
 5. **Spree's Check method pays for the wholesale order,** as batch 13 placed its marketplace order; real payment providers stay with P4 and G-130.
 
-What stays with the owner: SD-86 to SD-89 and G-123 to G-128 from part 1, the answers to the gaps part 2 records, and anything it finds that would change scope, a defect or a criterion, which comes back to the owner before it is settled. New numbers come only from the defect register's allocating thread, from SD-101 and G-131. Tenant isolation stays NOT_RUN.
+Under the owner's instruction of 2026-11-11, decisions on defects and gaps found here are made in the project and recorded with their reasons, by the audit thread; the owner is asked only for credentials, a purchase or contract, a change to payment responsibility or a destructive production action. New numbers come only from the defect register's allocating thread, from SD-101 and G-131. Tenant isolation stays NOT_RUN.
 
 ### 10.11 Gaps known before the work starts
 
@@ -368,6 +374,17 @@ What stays with the owner: SD-86 to SD-89 and G-123 to G-128 from part 1, the an
 | FL-10's buyer steps, which no browser test drives (§10.4) | Captured and run end to end; listed for the owner's answer (criterion 15) |
 | States reached only by answering a request in the browser, such as loading and a failed quick order add | Recorded as simulated interface-state coverage, as G-124 |
 | `WholesaleGate`, if no story can hold a server component that reads the session | Recorded under its U-code, with the running screens as its evidence |
-| How a company's catalog and the Wholesale price list combine (G-128) | The owner's answer; part 2 records what the portal shows |
-| The company invitation's acceptance (SD-86) | The owner's answer; part 2 records the link at the storefront's revision |
+| How a company's catalog and the Wholesale price list combine (G-128) | §10.5's condition checked; closes on that evidence, or SD-101 is fixed |
+| The company invitation's acceptance (SD-86) | SD-86's fix and its tests (§10.12) |
+| Signed-in customers treated as guests under gated access (SD-9) | SD-9's fix and its tests (§10.12) |
 | Tenant isolation (criterion 13) | FB-03's validation and the fixes for ISO-1 to ISO-7 |
+
+### 10.12 The two fixes in this lane
+
+Each fix is its own storefront pull request, with only the change and its tests, reviewed and merged on its own before the captures depend on it. Each regression test is shown failing at storefront `main` `4a4324e` and passing with the fix, and the record keeps both runs.
+
+| Defect | The fix | Tests |
+|---|---|---|
+| SD-86, High: the company invitation email's link goes to a storefront page that does not exist | A page at `/account/company-invitation` that reads the token from the link, looks the invitation up through the Store API and shows the company being joined, then accepts it through the existing accept endpoint: a guest creates the account with the invited email, as the endpoint expects, and a signed-in invitee accepts directly. No backend change: Spree's mailer and Store API already define both ends | A browser test that opens the link and accepts it (fails at `main` with not found); controls: a valid invitation accepted by a guest who creates the account, and by a signed-in invitee; refusals: an expired, already used and revoked invitation, which Spree does not find, and a customer signed in with another email, whom Spree refuses, each shown as refused with no membership made |
+| SD-9, High: the storefront treats every shopper as a guest under prices hidden and sign-in required | Send the signed-in customer's token with the store's own product, category and search requests, as the wholesale pages already do, without letting one customer's answer be cached for another | Browser tests: a signed-in customer sees prices under prices hidden and browses under sign-in required (both fail at `main`); controls: a guest under public, and the customer's prices matching the product page; refusals: a guest under prices hidden sees no price and under sign-in required is refused, and a guest after a customer's visit gets no customer's answer from the cache |
+
