@@ -1,0 +1,21 @@
+{
+  "revision": "72bd337c",
+  "run": "mwbp0fa3",
+  "sabotage": false,
+  "check": "05-claim",
+  "entries": [
+    {
+      "step": "server claims",
+      "body": [
+        {
+          "number": "CLM1001",
+          "status": "resolved"
+        },
+        {
+          "number": "CLM1002",
+          "status": "denied"
+        }
+      ]
+    }
+  ]
+}

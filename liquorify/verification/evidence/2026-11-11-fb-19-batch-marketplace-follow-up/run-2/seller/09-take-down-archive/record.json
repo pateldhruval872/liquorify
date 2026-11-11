@@ -1,0 +1,26 @@
+{
+  "revision": "72bd337c",
+  "run": "mwbp1gzp",
+  "sabotage": false,
+  "check": "09-take-down-archive",
+  "entries": [
+    {
+      "step": "storefront before",
+      "body": {
+        "status": 200
+      }
+    },
+    {
+      "step": "server product",
+      "body": {
+        "status": "archived"
+      }
+    },
+    {
+      "step": "storefront after",
+      "body": {
+        "status": 404
+      }
+    }
+  ]
+}

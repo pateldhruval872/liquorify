@@ -1,0 +1,20 @@
+{
+  "revision": "72bd337c",
+  "run": "mwbp1gzp",
+  "sabotage": false,
+  "check": "10-import-export",
+  "entries": [
+    {
+      "step": "seller products",
+      "body": [
+        "Bramble mwbp1gzp-13 Starter bottle",
+        "Bramble mwbp1gzp-13 Pot Still Gin",
+        "Bramble mwbp1gzp-13 Barrel Rye"
+      ]
+    },
+    {
+      "step": "export holds",
+      "body": 4
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "revision": "72bd337c",
+  "run": "mwbozx6f",
+  "sabotage": false,
+  "check": "02-split",
+  "entries": [
+    {
+      "step": "server order before",
+      "body": {
+        "total": "70.50",
+        "payment_total": "70.50"
+      }
+    },
+    {
+      "step": "server parcels",
+      "body": [
+        {
+          "id": "ful_L3pHOn63Vw"
+        },
+        {
+          "id": "ful_C9SrJgpzQ4"
+        }
+      ]
+    },
+    {
+      "step": "server order after",
+      "body": {
+        "total": "77.00",
+        "payment_total": "70.50"
+      }
+    }
+  ]
+}

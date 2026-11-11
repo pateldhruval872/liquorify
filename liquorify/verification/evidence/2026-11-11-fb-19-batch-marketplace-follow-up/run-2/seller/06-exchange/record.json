@@ -1,0 +1,26 @@
+{
+  "revision": "72bd337c",
+  "run": "mwbp0fa3",
+  "sabotage": false,
+  "check": "06-exchange",
+  "entries": [
+    {
+      "step": "the Seller API answer to an exchange",
+      "status": 404,
+      "body": {
+        "error": {
+          "code": "variant_not_found",
+          "message": "Variant not found"
+        }
+      }
+    },
+    {
+      "step": "the order menu offers",
+      "body": [
+        "Copy number",
+        "Copy ID",
+        "Cancel order"
+      ]
+    }
+  ]
+}

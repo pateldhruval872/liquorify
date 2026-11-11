@@ -1,0 +1,68 @@
+{
+  "revision": "72bd337c",
+  "run": "mwbp0fa3",
+  "sabotage": false,
+  "check": "03-delivery-label",
+  "entries": [
+    {
+      "step": "server deliveries",
+      "body": [
+        {
+          "id": "dlv_uw2YK1rnl0",
+          "tracking_number": "9400MWBP0FA3",
+          "carrier": null,
+          "carrier_name": null,
+          "service": null,
+          "status": "pending",
+          "tracking_url": null,
+          "estimated_delivery_at": null,
+          "delivered_at": null,
+          "created_at": "2026-11-11T05:43:10.996Z",
+          "updated_at": "2026-11-11T05:43:10.996Z",
+          "shipping_label_id": null
+        },
+        {
+          "id": "dlv_OIJLhNcSbf",
+          "tracking_number": "1ZMWBP0FA30003",
+          "carrier": null,
+          "carrier_name": null,
+          "service": null,
+          "status": "pending",
+          "tracking_url": null,
+          "estimated_delivery_at": null,
+          "delivered_at": null,
+          "created_at": "2026-11-11T05:43:11.634Z",
+          "updated_at": "2026-11-11T05:43:11.634Z",
+          "shipping_label_id": "lbl_UkLWZg9DAJ"
+        }
+      ]
+    },
+    {
+      "step": "server labels",
+      "body": [
+        {
+          "id": "lbl_UkLWZg9DAJ",
+          "source": "uploaded",
+          "status": "purchased",
+          "carrier": null,
+          "carrier_name": null,
+          "service": null,
+          "tracking_number": "1ZMWBP0FA30003",
+          "currency": "USD",
+          "format": "pdf",
+          "external_id": null,
+          "metadata": {},
+          "refunded_at": null,
+          "created_at": "2026-11-11T05:43:11.620Z",
+          "updated_at": "2026-11-11T05:43:11.657Z",
+          "owner_id": "ful_F0GX8NaP3Y",
+          "owner_type": "fulfillment",
+          "cost": "7.25",
+          "integration_id": null,
+          "file_pending": false,
+          "download_url": "/api/v3/seller/orders/or_2KY5XM6frI/fulfillments/ful_F0GX8NaP3Y/labels/lbl_UkLWZg9DAJ/download"
+        }
+      ]
+    }
+  ]
+}
