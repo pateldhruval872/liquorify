@@ -15,6 +15,10 @@ const taxEngineInitializer = new URL(
   '../../../spree/api/spec/dummy/config/initializers/zz_liquorify_tax_engine.rb',
   import.meta.url,
 )
+const providersInitializer = new URL(
+  '../../../spree/api/spec/dummy/config/initializers/zz_liquorify_providers.rb',
+  import.meta.url,
+)
 
 /**
  * Starts the dashboard browser tests' own Rails server, database and fixtures,
@@ -34,6 +38,17 @@ const taxEngineInitializer = new URL(
  * shows its note for P9 (`settings-actions.spec.ts`). The stand-in works out
  * tax exactly as Spree's own engine does and calls nothing outside; it is not
  * a real provider, which stays P4's.
+ *
+ * With `LIQUORIFY_PROVIDERS=1`, for P4, the server is started with
+ * `BUNDLE_GEMFILE=fidelity/providers/Gemfile`, which adds the Stripe, EasyPost
+ * and Meilisearch gems to its bundle. Stripe's library ignores the
+ * environment's proxy and trusts only its own certificate list, and Ruby's
+ * HTTP client, which EasyPost uses, reads the proxy from `http_proxy` alone, so
+ * the server is pointed at the proxy and certificates the environment names.
+ * The keys themselves never reach the server: the proxy adds them to each
+ * request. With `MEILISEARCH_URL` also set, products are searched through
+ * Meilisearch at that address instead of the database, as an app's own
+ * initializer would choose it.
  */
 test('Spree browser-test server', async () => {
   rmSync(stopFile, { force: true })
@@ -71,6 +86,29 @@ test('Spree browser-test server', async () => {
       ].join('\n'),
     )
   }
+  if (process.env.LIQUORIFY_PROVIDERS === '1') {
+    writeFileSync(
+      providersInitializer,
+      [
+        '# Written by packages/liquorify-storybook/fidelity/stack.spec.ts — safe to delete.',
+        "if ENV['DASHBOARD_E2E'] == '1' && ENV['LIQUORIFY_PROVIDERS'] == '1'",
+        "  Stripe.proxy = ENV['HTTPS_PROXY'] if ENV['HTTPS_PROXY'].present?",
+        "  Stripe.ca_bundle_path = ENV['SSL_CERT_FILE'] if ENV['SSL_CERT_FILE'].present?",
+        '  # Net::HTTP, which EasyPost uses, reads its proxy from `http_proxy` even for https.',
+        "  ENV['http_proxy'] ||= ENV['HTTPS_PROXY'] if ENV['HTTPS_PROXY'].present?",
+        '  # The providers report a failed call and carry on; the log keeps what they reported.',
+        '  Rails.error.subscribe(Class.new do',
+        '    def report(error, handled:, severity:, context:, source: nil)',
+        '      Rails.logger.warn("[P4 reported] #{source} #{error.class}: #{error.message}")',
+        '    end',
+        '  end.new)',
+        '  # Meilisearch search, when the server is pointed at a running Meilisearch.',
+        "  Spree.search_provider = 'SpreeMeilisearch::SearchProvider' if ENV['MEILISEARCH_URL'].present?",
+        'end',
+        '',
+      ].join('\n'),
+    )
+  }
   await globalSetup()
   try {
     while (!existsSync(stopFile)) await new Promise((resolve) => setTimeout(resolve, 1000))
@@ -79,6 +117,7 @@ test('Spree browser-test server', async () => {
     rmSync(stopFile, { force: true })
     rmSync(mailInitializer, { force: true })
     rmSync(taxEngineInitializer, { force: true })
+    rmSync(providersInitializer, { force: true })
   }
 })
 
