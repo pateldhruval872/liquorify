@@ -45,8 +45,9 @@ export function SellerReturnsLocationCard({ headless = false }: { headless?: boo
   // wins outright, and only then does default and name decide. A seller with
   // more locations than one page holds would otherwise see one address while
   // the server sent their returns to another, with nothing on screen saying
-  // so — and they would edit the wrong one.
-  const activeParams = { active_eq: true, limit: 1 }
+  // so — and they would edit the wrong one. The order is the server's too:
+  // without it the first location in list order stood in for the default.
+  const activeParams = { active_eq: true, limit: 1, sort: '-default,name' } as const
   const { data: takesReturns, isError: returnsFailed } = useQuery({
     queryKey: ['seller', sellerId, 'stock-locations', 'returns'],
     queryFn: () =>
