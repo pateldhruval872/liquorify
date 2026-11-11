@@ -238,13 +238,13 @@ export const TwoLines: Story = {
   ...claims([twoLineClaim]),
 }
 
-// The card shows the refund the claim asked for, whatever the resolution paid.
+// The card shows what the resolution paid back, less than the claim asked for.
 export const ResolvedByRefund: Story = {
   name: 'Claim resolved by refund',
   ...claims([resolvedRefundClaim]),
 }
 
-// Settled with a replacement, yet the card still reads as a refund total.
+// Settled with a replacement, so the card shows nothing paid back.
 export const ResolvedByReplacement: Story = {
   name: 'Claim resolved by replacement',
   ...claims([resolvedReplacementClaim]),
