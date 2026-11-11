@@ -95,6 +95,7 @@ function SellerBody({ seller }: { seller: Seller }) {
   const canApprove = ['onboarding', 'ready_for_review', 'suspended', 'rejected'].includes(status)
   const canSuspend = ['approved', 'onboarding', 'ready_for_review'].includes(status)
   const canReject = ['pending', 'invited', 'onboarding', 'ready_for_review'].includes(status)
+  const reinstating = status === 'suspended'
 
   const busy =
     approveMutation.isPending || suspendMutation.isPending || rejectMutation.isPending || !canEdit
@@ -131,6 +132,13 @@ function SellerBody({ seller }: { seller: Seller }) {
   // say they mean it. The server refuses without the override, so this dialog
   // is the only way past it.
   async function handleApprove() {
+    // Lifting a suspension undoes it rather than admitting the seller again,
+    // so the server does not re-measure the checklist and there is nothing
+    // to override.
+    if (reinstating) {
+      await approveMutation.mutateAsync(undefined).catch(() => undefined)
+      return
+    }
     if (!onboarding) return
 
     // `blocking` comes from the server, which is also what the approval gate
@@ -176,10 +184,8 @@ function SellerBody({ seller }: { seller: Seller }) {
           query leaves `isPending` false with no data, which is why this gates
           on the data rather than the loading flag. */}
       {canApprove && (
-        <Button disabled={busy || !onboarding} onClick={handleApprove}>
-          {status === 'suspended'
-            ? t('admin.sellers.actions.reinstate')
-            : t('admin.sellers.actions.approve')}
+        <Button disabled={busy || (!reinstating && !onboarding)} onClick={handleApprove}>
+          {reinstating ? t('admin.sellers.actions.reinstate') : t('admin.sellers.actions.approve')}
         </Button>
       )}
       {canInvite && (

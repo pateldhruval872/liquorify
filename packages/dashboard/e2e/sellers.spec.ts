@@ -3,6 +3,7 @@ import {
   adminRequest,
   deleteSeededRecords,
   escapeRegex,
+  FIXTURE_SUSPENDED_SELLER,
   gotoIndex,
   invitationAcceptancePath,
   login,
@@ -185,6 +186,42 @@ test.describe('sellers', () => {
     await page.reload()
     await expect(page.getByText('billing@example.com').first()).toBeVisible({ timeout: 15_000 })
     await expect(page.getByText('40.0')).toBeVisible()
+  })
+
+  // SD-69: the server does not re-measure the checklist when it lifts a
+  // suspension, so reinstating asks nothing about requirements.
+  test('reinstates a suspended seller without an override warning', async ({ page }) => {
+    const session = await login(page)
+    const found = await adminRequest<{ data: { id: string; name: string; status: string }[] }>(
+      page,
+      session,
+      'get',
+      '/sellers?limit=100',
+    )
+    const seller = found.data.find((each) => each.name === FIXTURE_SUSPENDED_SELLER)
+    if (!seller) throw new Error(`${FIXTURE_SUSPENDED_SELLER} is not seeded`)
+    if (seller.status === 'approved') {
+      await adminRequest(page, session, 'patch', `/sellers/${seller.id}/suspend`, {})
+    }
+    const onboarding = await adminRequest<{ requirements: { blocking: boolean }[] }>(
+      page,
+      session,
+      'get',
+      `/sellers/${seller.id}/onboarding`,
+    )
+    expect(onboarding.requirements.some((requirement) => requirement.blocking)).toBe(true)
+
+    await page.goto(`/${session.store_id}/sellers/${seller.id}`)
+    await expect(page.getByRole('heading', { name: FIXTURE_SUSPENDED_SELLER })).toBeVisible({
+      timeout: 15_000,
+    })
+    await page.getByRole('button', { name: /^reinstate$/i }).click()
+
+    await expect(page.getByText('Approved', { exact: true }).first()).toBeVisible({
+      timeout: 15_000,
+    })
+    await expect(page.getByRole('alertdialog')).toHaveCount(0)
+    await expect(page.getByRole('dialog')).toHaveCount(0)
   })
 
   test('deletes a seller from the list', async ({ page }) => {

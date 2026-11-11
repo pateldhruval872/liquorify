@@ -189,6 +189,8 @@ export const FIXTURE_SELLER_USER_EMAIL = 'e2e-ledger-seller@example.com'
 export const FIXTURE_SELLER_WRITER_EMAIL = 'e2e-panel-seller@example.com'
 export const FIXTURE_SELLER_PASSWORD = 'spree123'
 export const FIXTURE_PANEL_SELLER = 'E2E Panel Seller'
+/** A suspended seller whose checklist is unfinished, for reinstating. */
+export const FIXTURE_SUSPENDED_SELLER = 'E2E Suspended Seller'
 
 /** The marketplace seller panel, its own app on its own origin (see playwright.config.ts). */
 export const SELLER_PANEL = `http://localhost:${process.env.E2E_SELLER_VITE_PORT || '5175'}`
