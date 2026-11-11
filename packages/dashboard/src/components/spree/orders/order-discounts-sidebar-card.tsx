@@ -288,7 +288,13 @@ function ApplyGiftCardDialog({
   }
 
   return (
-    <Dialog open={open} onOpenChange={onOpenChange}>
+    <Dialog
+      open={open}
+      onOpenChange={(next) => {
+        if (!next) mutation.reset()
+        onOpenChange(next)
+      }}
+    >
       <DialogContent>
         <DialogHeader>
           <DialogTitle>{t('admin.orders.detail.gift_card_section.apply_dialog_title')}</DialogTitle>
@@ -307,8 +313,14 @@ function ApplyGiftCardDialog({
                   placeholder={t('admin.orders.detail.gift_card_section.code_placeholder')}
                   required
                   autoFocus
+                  aria-invalid={mutation.isError || undefined}
                 />
               </Field>
+              {mutation.isError && (
+                <p role="alert" className="text-sm text-destructive">
+                  {(mutation.error as Error).message}
+                </p>
+              )}
             </FieldGroup>
           </DialogBody>
           <DialogFooter>

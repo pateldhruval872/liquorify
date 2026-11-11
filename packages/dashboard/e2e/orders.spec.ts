@@ -246,6 +246,60 @@ test.describe('new order', () => {
   })
 })
 
+test.describe('order gift cards', () => {
+  test('says why a gift card code was refused, then applies a valid one', async ({ page }) => {
+    const creds = await login(page)
+    const stamp = Date.now()
+    const euroCode = `E2E-EURO-CARD-${stamp}`
+    const validCode = `E2E-VALID-CARD-${stamp}`
+    await adminRequest(page, creds, 'post', '/gift_cards', {
+      code: euroCode,
+      amount: '1.00',
+      currency: 'EUR',
+    })
+    await adminRequest(page, creds, 'post', '/gift_cards', {
+      code: validCode,
+      amount: '1.00',
+      currency: 'USD',
+    })
+
+    await page.goto(NEW_ORDER_PATH(creds.store_id))
+    await expect(page.getByRole('heading', { name: CTA })).toBeVisible({ timeout: 15_000 })
+    await fillNewOrderForm(page, `e2e-card-refused-${stamp}@example.com`)
+    await page.locator('button[type="submit"]').click()
+    await expect(page).toHaveURL(new RegExp(`/${creds.store_id}/orders/or_[^/]+$`), {
+      timeout: 15_000,
+    })
+
+    const discounts = page
+      .locator('[data-slot="card"]')
+      .filter({
+        has: page.locator('[data-slot="card-title"]', { hasText: /^discounts & credit$/i }),
+      })
+      .first()
+    await discounts
+      .getByRole('button', { name: /^apply$/i })
+      .last()
+      .click()
+    const dialog = page.getByRole('dialog')
+
+    await dialog.locator('#gift-card-code').fill(`E2E-NO-SUCH-CARD-${stamp}`)
+    await dialog.getByRole('button', { name: /^add$/i }).click()
+    await expect(dialog.getByRole('alert')).toHaveText('The Gift Card was not found.')
+
+    await dialog.locator('#gift-card-code').fill(euroCode)
+    await dialog.getByRole('button', { name: /^add$/i }).click()
+    await expect(dialog.getByRole('alert')).toHaveText(
+      'Gift Card cannot be applied with current currency.',
+    )
+
+    await dialog.locator('#gift-card-code').fill(validCode)
+    await dialog.getByRole('button', { name: /^add$/i }).click()
+    await expect(dialog).toHaveCount(0)
+    await expect(discounts.getByText(new RegExp(validCode, 'i'))).toBeVisible({ timeout: 15_000 })
+  })
+})
+
 test.describe('order editing', () => {
   // Editing is a detour from the order, so saving hands the merchant back the
   // view that shows what the edit did rather than leaving them on the form.
