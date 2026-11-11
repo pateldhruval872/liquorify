@@ -317,12 +317,13 @@ jobs:
       - name: Install Playwright browsers
         if: steps.playwright-cache.outputs.cache-hit != 'true'
         working-directory: packages/dashboard
-        run: pnpm exec playwright install --with-deps chromium
+        run: pnpm exec playwright install chromium
 
-      # Even on a cache hit Playwright still wants the OS-level deps installed
-      # (libnss, libxkbcommon, …). `install-deps` is the cheap part.
+      # The runner image already carries Chromium's libraries, so an apt
+      # mirror outage must not stop the suite: a missing library still fails
+      # the tests below, at browser launch.
       - name: Install Playwright OS deps
-        if: steps.playwright-cache.outputs.cache-hit == 'true'
+        continue-on-error: true
         working-directory: packages/dashboard
         run: pnpm exec playwright install-deps chromium
 
