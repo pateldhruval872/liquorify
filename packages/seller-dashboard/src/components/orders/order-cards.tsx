@@ -3,6 +3,7 @@ import {
   formatMoney,
   formatStoreDateTime,
   isPositiveMoney,
+  otherAdjustmentTotal,
   useMoneyLocale,
 } from '@spree/dashboard-core'
 import {
@@ -136,10 +137,10 @@ export function OrderSummaryCard({ order }: { order: Order }) {
           <SummaryRow label={t('orders.summary.promotions')} value={money(order.discount_total)} />
         )}
 
-        {!isZeroMoney(order.adjustment_total) && (
+        {!isZeroMoney(otherAdjustmentTotal(order)) && (
           <SummaryRow
             label={t('orders.summary.adjustments')}
-            value={money(order.adjustment_total)}
+            value={money(otherAdjustmentTotal(order))}
           />
         )}
 
