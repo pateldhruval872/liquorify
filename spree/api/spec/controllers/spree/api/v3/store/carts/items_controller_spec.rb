@@ -112,7 +112,7 @@ RSpec.describe Spree::Api::V3::Store::Carts::ItemsController, type: :controller 
           post :create, params: { cart_id: order.prefixed_id, variant_id: variant.prefixed_id, quantity: 2 }
 
           item = json_response['items'].first
-          expect(item['price_list_id']).to be_nil
+          expect(item['price_list_applied']).to be(false)
           expect(item['next_price_break_quantity']).to eq(5)
           expect(item['next_price_break_price']).to eq('6.00')
         end
@@ -122,7 +122,7 @@ RSpec.describe Spree::Api::V3::Store::Carts::ItemsController, type: :controller 
 
           item = json_response['items'].first
           expect(item['price']).to eq('6.00')
-          expect(item['price_list_id']).to eq(price_list.prefixed_id)
+          expect(item['price_list_applied']).to be(true)
           expect(item['next_price_break_quantity']).to be_nil
           expect(item['next_price_break_price']).to be_nil
         end
@@ -133,7 +133,7 @@ RSpec.describe Spree::Api::V3::Store::Carts::ItemsController, type: :controller 
 
         item = json_response['items'].first
         expect(item['price']).to eq('10.00')
-        expect(item['price_list_id']).to be_nil
+        expect(item['price_list_applied']).to be(false)
         expect(item['next_price_break_quantity']).to be_nil
         expect(item['next_price_break_price']).to be_nil
       end

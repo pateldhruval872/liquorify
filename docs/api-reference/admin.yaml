@@ -17966,7 +17966,7 @@ paths:
                   pre_tax_amount: '20.00'
                   discounted_amount: '20.00'
                   compare_at_amount:
-                  price_list_id:
+                  price_list_applied: false
                   next_price_break_quantity:
                   next_price_break_price:
                   thumbnail_url:
@@ -17990,6 +17990,7 @@ paths:
                   created_at: '2026-01-15T12:00:00.000Z'
                   updated_at: '2026-01-15T12:00:00.000Z'
                   catalog_price: '19.99'
+                  price_list_id:
                   price_list_name:
                   catalog_id:
                   catalog_name:
@@ -18077,7 +18078,7 @@ paths:
                 pre_tax_amount: '59.97'
                 discounted_amount: '59.97'
                 compare_at_amount:
-                price_list_id:
+                price_list_applied: false
                 next_price_break_quantity:
                 next_price_break_price:
                 thumbnail_url:
@@ -18101,6 +18102,7 @@ paths:
                 created_at: '2026-01-15T12:00:00.000Z'
                 updated_at: '2026-01-15T12:00:00.000Z'
                 catalog_price: '19.99'
+                price_list_id:
                 price_list_name:
                 catalog_id:
                 catalog_name:
@@ -18202,7 +18204,7 @@ paths:
                 pre_tax_amount: '20.00'
                 discounted_amount: '20.00'
                 compare_at_amount:
-                price_list_id:
+                price_list_applied: false
                 next_price_break_quantity:
                 next_price_break_price:
                 thumbnail_url:
@@ -18226,6 +18228,7 @@ paths:
                 created_at: '2026-01-15T12:00:00.000Z'
                 updated_at: '2026-01-15T12:00:00.000Z'
                 catalog_price: '19.99'
+                price_list_id:
                 price_list_name:
                 catalog_id:
                 catalog_name:
@@ -18308,7 +18311,7 @@ paths:
                 pre_tax_amount: '99.95'
                 discounted_amount: '99.95'
                 compare_at_amount:
-                price_list_id:
+                price_list_applied: false
                 next_price_break_quantity:
                 next_price_break_price:
                 thumbnail_url:
@@ -18332,6 +18335,7 @@ paths:
                 created_at: '2026-01-15T12:00:00.000Z'
                 updated_at: '2026-01-15T12:00:00.000Z'
                 catalog_price: '19.99'
+                price_list_id:
                 price_list_name:
                 catalog_id:
                 catalog_name:
@@ -62422,11 +62426,11 @@ components:
           nullable: true
           description: The compare-at price times quantity, or null when the variant
             has none.
-        price_list_id:
-          type: string
+        price_list_applied:
+          type: boolean
           nullable: true
-          description: The price list that priced this line, or null when it is at
-            the catalog price.
+          description: Whether a price list (a trade or volume price) priced this
+            line rather than the catalog price; null when prices are hidden.
         next_price_break_quantity:
           type: number
           nullable: true
@@ -62468,6 +62472,9 @@ components:
         catalog_price:
           type: string
           nullable: true
+        price_list_id:
+          type: string
+          nullable: true
         price_list_name:
           type: string
           nullable: true
@@ -62507,7 +62514,7 @@ components:
       - pre_tax_amount
       - discounted_amount
       - compare_at_amount
-      - price_list_id
+      - price_list_applied
       - next_price_break_quantity
       - next_price_break_price
       - thumbnail_url
@@ -62519,6 +62526,7 @@ components:
       - created_at
       - updated_at
       - catalog_price
+      - price_list_id
       - price_list_name
       - catalog_id
       - catalog_name

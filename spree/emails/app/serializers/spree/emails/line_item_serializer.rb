@@ -21,7 +21,7 @@ module Spree
       attributes :thumbnail_url, if: proc { false }
 
       # Price breaks nudge a shopper still filling a cart; an email has no use for them.
-      attributes :price_list_id, :next_price_break_quantity, :next_price_break_price, if: proc { false }
+      attributes :price_list_applied, :next_price_break_quantity, :next_price_break_price, if: proc { false }
     end
   end
 end

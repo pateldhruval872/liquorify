@@ -134,13 +134,12 @@ module Spree
     end
 
     # The next quantity at which this line's unit price drops, priced the way
-    # the line itself is (same buyer, channel, currency and store). A placed
-    # order's money is settled, so it offers none.
+    # the line itself is (same buyer, channel, currency and store). Only a
+    # cart still being filled offers one: an order's money is settled.
     #
     # @return [Spree::Price, nil] see {Spree::Variant#next_price_break}
     def next_price_break
-      return if variant.nil? || owner.nil?
-      return if owner.is_a?(Spree::Order) && owner.completed?
+      return if variant.nil? || !owner.is_a?(Spree::Cart) || owner.completed?
 
       variant.next_price_break(Spree::Pricing::Context.from_order(variant, owner, quantity: quantity))
     end

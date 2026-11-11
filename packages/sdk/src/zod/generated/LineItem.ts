@@ -34,7 +34,7 @@ export const LineItemSchema = z.object({
   display_discounted_amount: z.string().nullable(),
   display_compare_at_amount: z.string().nullable(),
   compare_at_amount: z.string().nullable(),
-  price_list_id: z.string().nullable(),
+  price_list_applied: z.boolean().nullable(),
   next_price_break_quantity: z.number().nullable(),
   next_price_break_price: z.string().nullable(),
   thumbnail_url: z.string().nullable(),

@@ -6,7 +6,7 @@ module Spree
                  options_text: :string, compare_at_amount: [:string, nullable: true, comment: 'The compare-at price times quantity, or null when the variant has none.'],
                  thumbnail_url: [:string, nullable: true], preorder: :boolean,
                  preorder_ships_at: [:string, nullable: true], seller_id: [:string, nullable: true],
-                 price_list_id: [:string, nullable: true, comment: 'The price list that priced this line, or null when it is at the catalog price.'],
+                 price_list_applied: [:boolean, nullable: true, comment: 'Whether a price list (a trade or volume price) priced this line rather than the catalog price; null when prices are hidden.'],
                  next_price_break_quantity: [:number, nullable: true, comment: 'The smallest quantity at which this line\'s unit price drops, or null when buying more never lowers it.'],
                  next_price_break_price: [:string, nullable: true, comment: 'The unit price from next_price_break_quantity on, or null when there is no break.']
 
@@ -60,8 +60,10 @@ module Spree
           amount.present? && amount.positive? ? Spree::Money::Rounding.format(amount, line_item.currency, unit_price: true) : nil
         end
 
-        attribute :price_list_id do |line_item|
-          Spree::PriceList.prefixed_id_for(line_item.price_list_id) unless params[:hide_prices]
+        # Which list it was stays back-office provenance; the shopper only
+        # learns that one applied.
+        attribute :price_list_applied do |line_item|
+          line_item.price_list_id.present? unless params[:hide_prices]
         end
 
         attribute :next_price_break_quantity do |line_item|
