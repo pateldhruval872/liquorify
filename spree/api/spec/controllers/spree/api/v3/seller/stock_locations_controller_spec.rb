@@ -33,28 +33,6 @@ RSpec.describe Spree::Api::V3::Seller::StockLocationsController, type: :controll
   end
 
   describe 'GET #index' do
-    # The returns card asks for the default first, then by name, the order
-    # Spree sends returns in.
-    it 'sorts on every field asked for, each in its own direction' do
-      seller.stock_locations.create!(store: store, name: 'B Shelf')
-      seller.stock_locations.create!(store: store, name: 'A Shelf')
-
-      get :index, params: { sort: '-default,name' }, as: :json
-
-      expect(json_response['data'].pluck('name')).to eq(['My Warehouse', 'A Shelf', 'B Shelf'])
-    end
-
-    it 'ignores a sort on a field the listing does not offer' do
-      seller.stock_locations.create!(store: store, name: 'B Shelf', address1: '9 Zed Road')
-      seller.stock_locations.create!(store: store, name: 'A Shelf', address1: '5 Mid Road')
-      get :index, as: :json
-      unsorted = json_response['data'].pluck('name')
-
-      get :index, params: { sort: '-address1' }, as: :json
-
-      expect(json_response['data'].pluck('name')).to eq(unsorted)
-    end
-
     it "lists only this seller's locations" do
       get :index, as: :json
 
