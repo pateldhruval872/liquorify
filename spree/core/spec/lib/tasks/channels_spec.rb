@@ -56,3 +56,36 @@ describe 'spree:channels:backfill_product_publication_dates' do
     expect(publication.reload.published_at).to eq(custom_date)
   end
 end
+
+describe 'spree:channels:restrict_wholesale_to_members' do
+  subject { Rake::Task[task_name] }
+
+  let(:task_name) { 'spree:channels:restrict_wholesale_to_members' }
+
+  before(:all) do
+    Rake::Task.define_task(:environment)
+    load Spree::Core::Engine.root.join('lib', 'tasks', 'channels.rake') unless Rake::Task.task_defined?('spree:channels:restrict_wholesale_to_members')
+  end
+
+  before { subject.reenable }
+
+  let(:store) { Spree::Store.default || create(:store, default: true) }
+  let!(:wholesale) { create(:channel, store: store, code: 'wholesale', name: 'Wholesale') }
+  let!(:group) { create(:customer_group, store: store, name: 'Wholesale') }
+
+  it 'makes an existing Wholesale channel members-only' do
+    expect { subject.invoke }.to output(/members only/).to_stdout
+
+    expect(wholesale.reload.default_catalog).to be_closed_assortment
+    expect(Spree::CatalogAssignment.where(assignable: group)).to exist
+  end
+
+  it 'leaves a channel that already has a default catalog unchanged' do
+    existing = create(:catalog, store: store)
+    wholesale.update!(default_catalog: existing)
+
+    expect { subject.invoke }.to output(/already has a default catalog/).to_stdout
+
+    expect(wholesale.reload.default_catalog).to eq(existing)
+  end
+end

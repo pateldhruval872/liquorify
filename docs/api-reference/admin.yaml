@@ -37962,6 +37962,7 @@ paths:
                   name: Wholesale
                   description:
                   active: true
+                  closed_assortment: false
                   position: 1
                   metadata: {}
                   minimum_order_quantity:
@@ -38032,6 +38033,7 @@ paths:
                 name: VIP Assortment
                 description:
                 active: false
+                closed_assortment: false
                 position: 2
                 metadata: {}
                 minimum_order_quantity:
@@ -38117,6 +38119,7 @@ paths:
                 name: Wholesale Plus
                 description:
                 active: true
+                closed_assortment: false
                 position: 1
                 metadata: {}
                 minimum_order_quantity: 10
@@ -39000,6 +39003,7 @@ paths:
                 name: Wholesale
                 description:
                 active: true
+                closed_assortment: false
                 position: 1
                 metadata: {}
                 minimum_order_quantity:
@@ -39068,6 +39072,7 @@ paths:
                 name: Wholesale
                 description:
                 active: false
+                closed_assortment: false
                 position: 1
                 metadata: {}
                 minimum_order_quantity:
@@ -57870,6 +57875,8 @@ components:
           nullable: true
         active:
           type: boolean
+        closed_assortment:
+          type: boolean
         position:
           type: number
           nullable: true
@@ -57905,6 +57912,7 @@ components:
       - name
       - description
       - active
+      - closed_assortment
       - position
       - metadata
       - minimum_order_quantity
@@ -75685,6 +75693,13 @@ components:
         active:
           type: boolean
           example: true
+        closed_assortment:
+          type: boolean
+          description: When true the catalog shows exactly the products it lists,
+            and nothing when it lists none. When false (the default) a catalog with
+            no products is a pricing-only overlay that hides nothing. A closed, empty
+            default catalog makes a channel members-only.
+          example: false
         position:
           type: integer
         minimum_order_quantity:
@@ -75815,6 +75830,13 @@ components:
         active:
           type: boolean
           example: true
+        closed_assortment:
+          type: boolean
+          description: When true the catalog shows exactly the products it lists,
+            and nothing when it lists none. When false (the default) a catalog with
+            no products is a pricing-only overlay that hides nothing. A closed, empty
+            default catalog makes a channel members-only.
+          example: false
         position:
           type: integer
         minimum_order_quantity:

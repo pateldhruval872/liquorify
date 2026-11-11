@@ -9,6 +9,12 @@ export type CatalogUpdateParams = {
   /** Internal note on what the agreement is, never shown to shoppers. */
   description?: string | null
   active?: boolean
+  /**
+   * When true the catalog shows exactly the products it lists, and nothing when it lists none. When
+   * false (the default) a catalog with no products is a pricing-only overlay that hides nothing. A
+   * closed, empty default catalog makes a channel members-only.
+   */
+  closed_assortment?: boolean
   position?: number
   /**
    * The catalog-wide quantity terms, between a variant's own rule and a per-variant override. Null

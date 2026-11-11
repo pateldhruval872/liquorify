@@ -54,6 +54,55 @@ The single most useful thing to understand about catalogs is that an **empty ass
 
 That's worth pausing on, because it's the one behaviour that surprises people: adding a product to an empty catalog doesn't add one item to what a customer sees — it switches the catalog into restricting mode, and they now see *only* that item.
 
+### Closed catalogs
+
+A catalog marked **closed** (`closed_assortment: true`) shows exactly the products it lists — and nothing at all when it lists none. It never acts as a pricing overlay. Catalogs are open unless you close them, so everything above holds for every catalog you have not closed.
+
+The main use is a **members-only channel**: give the channel a closed, empty default catalog, and give its members a catalog of their own. A signed-in customer outside every audience falls through to the default catalog and sees no products, no prices and nothing they can add to a cart; members see whatever their own catalog allows.
+
+<CodeGroup>
+
+```typescript Admin SDK
+const members = await adminClient.catalogs.create({
+  name: 'Wholesale members',
+  assignments: [{ assignable_type: 'customer_group', assignable_id: 'cg_xxx' }],
+})
+await adminClient.catalogs.activate(members.id)
+
+const closed = await adminClient.catalogs.create({
+  name: 'Wholesale channel',
+  closed_assortment: true,
+})
+await adminClient.channels.update('ch_xxx', { default_catalog_id: closed.id })
+await adminClient.catalogs.activate(closed.id)
+```
+
+```bash cURL
+curl -X POST 'https://api.mystore.com/api/v3/admin/catalogs' \
+  -H 'X-Spree-API-Key: sk_xxx' \
+  -H 'Content-Type: application/json' \
+  -d '{ "name": "Wholesale channel", "closed_assortment": true }'
+```
+
+</CodeGroup>
+
+A new store's Wholesale channel is set up this way, with the Wholesale customer group as its members. For a store created earlier, set it up the same way through the Admin API, or run the task below. The task leaves alone a Wholesale channel that already has a default catalog.
+
+<Tabs>
+  <Tab title="Spree CLI">
+    ```bash
+    spree rake spree:channels:restrict_wholesale_to_members
+    ```
+  </Tab>
+  <Tab title="Without CLI">
+    ```bash
+    bin/rails spree:channels:restrict_wholesale_to_members
+    ```
+  </Tab>
+</Tabs>
+
+The storefront's sign-in requirement still only tells guests apart from signed-in customers. Deciding which signed-in customers see the range is the catalog's job.
+
 ## Creating one
 
 <CodeGroup>
@@ -175,8 +224,8 @@ The three ways of reaching a buyer are tried in turn, and the first one that fin
   <Step title="Combine the assortments">
     The shopper sees the union of what those catalogs contain — so a division's extra catalog adds to the group's range rather than replacing it.
   </Step>
-  <Step title="Any empty assortment lifts the restriction">
-    If one applicable catalog is a pricing overlay, the restriction is off and the shopper sees the full range. An overlay is explicitly "don't hide anything", and that has to win — otherwise adding negotiated pricing would accidentally narrow someone's catalog.
+  <Step title="Any empty open assortment lifts the restriction">
+    If one applicable catalog is a pricing overlay, the restriction is off and the shopper sees the full range. An overlay is explicitly "don't hide anything", and that has to win — otherwise adding negotiated pricing would accidentally narrow someone's catalog. A [closed catalog](#closed-catalogs) is never an overlay: an empty one adds nothing.
   </Step>
 </Steps>
 

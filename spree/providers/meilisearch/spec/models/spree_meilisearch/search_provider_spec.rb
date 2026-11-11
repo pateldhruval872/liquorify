@@ -331,6 +331,15 @@ RSpec.describe SpreeMeilisearch::SearchProvider do
       end
     end
 
+    it 'describes nothing to a buyer who may see no products' do
+      expect(mock_index).not_to receive(:search)
+
+      result = provider.filters(scope: store.products.none, query: 'shirt')
+
+      expect(result.total_count).to eq(0)
+      expect(result.filters).to be_empty
+    end
+
     it 'returns sort options as objects, including manual (sourced from Collection::SORT_ORDERS)' do
       result = provider.filters(scope: store.products, query: 'shirt')
       ids = result.sort_options.map { |o| o[:id] }

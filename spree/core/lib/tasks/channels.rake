@@ -1,5 +1,24 @@
 namespace :spree do
   namespace :channels do
+    desc 'Show the Wholesale channel to Wholesale group members only (docs/plans/6.0-closed-catalog-assortment.md). Leaves a channel that already has a default catalog unchanged.'
+    task restrict_wholesale_to_members: :environment do
+      Spree::Store.find_each do |store|
+        channel = store.channels.find_by(code: Spree::Seeds::Channels::WHOLESALE_CODE)
+        group = store.customer_groups.find_by(name: Spree::Seeds::CustomerGroups::WHOLESALE_NAME)
+        if channel.nil? || group.nil?
+          puts "  Skipped store '#{store.name}': no Wholesale channel or group."
+          next
+        end
+        if channel.default_catalog
+          puts "  Skipped store '#{store.name}': the Wholesale channel already has a default catalog."
+          next
+        end
+
+        Spree::Channels::RestrictToMembers.call(channel: channel, customer_group: group)
+        puts "  Store '#{store.name}': the Wholesale channel now shows its products to Wholesale members only."
+      end
+    end
+
     desc 'Create the default channel for every existing store (idempotent — calls Store#ensure_default_channel).'
     task create_defaults: :environment do
       created = 0
