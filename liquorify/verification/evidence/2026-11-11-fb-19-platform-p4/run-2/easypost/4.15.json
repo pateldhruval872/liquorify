@@ -1,0 +1,15 @@
+{
+  "revision": "917cdcc3",
+  "stamp": "mwbfsrcj",
+  "order": "R1003",
+  "refunds43": true,
+  "confirmation": "Are you sure?\n\nAsk the carrier to refund this label? Postage is credited back to your carrier account.\n\nCancel\nRefund label",
+  "sawRefunding": true,
+  "easyPostRefundStatus": "submitted",
+  "relayed": {
+    "event": "refund.successful",
+    "answered": 200
+  },
+  "labelAfterRelay": "refund_requested",
+  "refundedShown": false
+}

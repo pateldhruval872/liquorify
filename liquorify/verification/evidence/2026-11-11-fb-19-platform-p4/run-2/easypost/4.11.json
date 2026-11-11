@@ -1,0 +1,23 @@
+{
+  "revision": "917cdcc3",
+  "stamp": "mwbfsrcj",
+  "statusBefore": "E\nEasyPost\nNot connected\n\nLive multi-carrier delivery rates at checkout through your EasyPost account, including your own negotiated carrier contracts.\n\nSHIPPING\nSetup guide\nConnect",
+  "integration": {
+    "id": "int_UkLWZg9DAJ",
+    "name": "EasyPost",
+    "active": true,
+    "created_at": "2026-11-11T01:25:11.403Z",
+    "updated_at": "2026-11-11T01:25:11.403Z",
+    "type": "easy_post",
+    "group": "shipping",
+    "preferences": {
+      "api_key": "••••••••••••lder",
+      "webhook_secret": "•••••••srcj",
+      "customs_signer": "River Okafor",
+      "customs_contents_type": "merchandise",
+      "incoterm": "DAP"
+    }
+  },
+  "testAnswer": "Connection successful.",
+  "cardAfter": "E\nEasyPost\nActive\n\nLive multi-carrier delivery rates at checkout through your EasyPost account, including your own negotiated carrier contracts.\n\nSHIPPING\nSetup guide\nConfigure"
+}

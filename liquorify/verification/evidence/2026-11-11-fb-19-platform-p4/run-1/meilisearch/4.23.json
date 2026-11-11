@@ -1,0 +1,28 @@
+{
+  "revision": "917cdcc3",
+  "stamp": "mwbfhivq",
+  "meilisearchVersion": "1.56.2",
+  "misspelt": "Glenkinchymwbfhivq",
+  "storeApi": [
+    "Glenkinchiemwbfhivq Reserve Oak",
+    "Glenkinchiemwbfhivq Reserve Sherry"
+  ],
+  "fromMeilisearch": {
+    "shop_products": [
+      "Glenkinchiemwbfhivq Reserve Oak",
+      "Glenkinchiemwbfhivq Reserve Sherry"
+    ]
+  },
+  "storefront": {
+    "foundBoth": true,
+    "optionsBefore": [
+      "Oak\n(1)",
+      "Sherry\n(1)"
+    ],
+    "optionsAfter": [
+      "Oak\n(1)",
+      "Sherry\n(1)"
+    ],
+    "url": "/us/en/products?q=Glenkinchymwbfhivq&option=optval_UkLWZg9DAJ"
+  }
+}

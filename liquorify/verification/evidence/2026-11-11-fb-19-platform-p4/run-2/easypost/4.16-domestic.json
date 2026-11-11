@@ -1,0 +1,31 @@
+{
+  "revision": "917cdcc3",
+  "stamp": "mwbfu5rt",
+  "order": "R1005",
+  "return": "RET1001",
+  "confirmation": "Are you sure?\n\nBuy a prepaid return label? Your carrier account is charged as soon as the label is issued.\n\nCancel\nBuy return label",
+  "label": {
+    "status": "purchased",
+    "carrier": "usps",
+    "service": "GroundAdvantage",
+    "trackingNumber": "9434600208192110658825",
+    "forms": []
+  },
+  "invoiceShown": null,
+  "easyPost": {
+    "id": "shp_415c8236ab204326a4c55fbb9a112857",
+    "mode": "test",
+    "isReturn": true,
+    "refundStatus": null,
+    "trackingCode": "9434600208192110658825",
+    "rate": {
+      "carrier": "USPS",
+      "service": "GroundAdvantage",
+      "rate": "6.08"
+    },
+    "customsCertified": null,
+    "forms": [],
+    "from": "Portland, US",
+    "to": "San Francisco, US"
+  }
+}

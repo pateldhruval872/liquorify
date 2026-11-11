@@ -1,0 +1,37 @@
+{
+  "revision": "917cdcc3",
+  "stamp": "mwbfsrcj",
+  "order": "R1004",
+  "confirmation": "Are you sure?\n\nBuy a FedExDefault FEDEX_INTERNATIONAL_CONNECT_PLUS label for $21.86? Your carrier account is charged as soon as the label is issued.\n\nCancel\nBuy label",
+  "label": {
+    "status": "purchased",
+    "carrier": "fedex",
+    "service": "FEDEX_INTERNATIONAL_CONNECT_PLUS",
+    "trackingNumber": "794908061180",
+    "cost": "128.03",
+    "forms": [
+      "commercial_invoice"
+    ]
+  },
+  "documents": [
+    "commercial_invoice"
+  ],
+  "easyPost": {
+    "id": "shp_cd908de3aa394d9a8a1b6ac4105bc36a",
+    "mode": "test",
+    "isReturn": false,
+    "refundStatus": null,
+    "trackingCode": "794908061180",
+    "rate": {
+      "carrier": "FedExDefault",
+      "service": "FEDEX_INTERNATIONAL_CONNECT_PLUS",
+      "rate": "128.03"
+    },
+    "customsCertified": true,
+    "forms": [
+      "commercial_invoice"
+    ],
+    "from": "San Francisco, US",
+    "to": "Toronto, CA"
+  }
+}

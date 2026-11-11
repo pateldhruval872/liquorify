@@ -1,0 +1,22 @@
+{
+  "revision": "917cdcc3",
+  "stamp": "mwbfhivq",
+  "paymentMethod": "pm_p6klVeMgbn",
+  "payoutProvider": "stripe",
+  "onboarding": {
+    "status": 422,
+    "host": null,
+    "error": {
+      "code": "processing_error",
+      "message": "You tried to create an Accounts v1 connected account with your platform as the losses collector. Use Accounts v2 and set `losses_collector` to `stripe`, then retry your request. See https://docs.stripe.com/connect/risk-management/connected-accounts-with-managed-risk for a code sample."
+    }
+  },
+  "transfers": [
+    {
+      "kind": "earning",
+      "status": "pending",
+      "amount": "42.45",
+      "provider": "stripe"
+    }
+  ]
+}

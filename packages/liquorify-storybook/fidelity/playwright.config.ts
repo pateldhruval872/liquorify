@@ -80,6 +80,11 @@ import { defineConfig } from '@playwright/test'
  * `screens-batch-12.spec.ts` and `compare-batch-12.spec.ts`, seeding through
  * `companies.ts`; `wholesale-checks.spec.ts` checks its settings where they
  * take effect, through the Admin and Store APIs (see that file).
+ * Step P4 checks the real providers against their test modes: `p4-stripe.spec.ts`
+ * (Stripe on the backend and dashboard), `p4-easypost.spec.ts`,
+ * `p4-storefront-stripe.spec.ts`, `p4-payouts.spec.ts` and
+ * `p4-meilisearch.spec.ts`, sharing `p4.ts`, against a
+ * server started with `LIQUORIFY_PROVIDERS=1` (see each file and stack.spec.ts).
  * `FIDELITY_BASE_URL` points the scripts at a dashboard served on another
  * port, beside a server started with `E2E_RAILS_PORT`.
  */
@@ -169,6 +174,7 @@ export default defineConfig({
     'b11-permissions.spec.ts',
     'compare-batch-11-verification.spec.ts',
     'held-replacement.spec.ts',
+    'p4-*.spec.ts',
   ],
   outputDir: './results/test-output',
   workers: 1,
@@ -182,5 +188,9 @@ export default defineConfig({
     locale: 'en-US',
     timezoneId: 'UTC',
     reducedMotion: 'reduce',
+    // A browser already installed where Playwright's own build is not, as in a cloud session.
+    launchOptions: process.env.FIDELITY_CHROMIUM
+      ? { executablePath: process.env.FIDELITY_CHROMIUM }
+      : undefined,
   },
 })

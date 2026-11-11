@@ -1,0 +1,7 @@
+# The dashboard browser tests' own bundle (spree/api), plus the provider gems
+# from spree/providers/, for P4. Spree's own Gemfiles are unchanged.
+eval_gemfile File.expand_path('../../../../spree/api/Gemfile', __dir__)
+
+gem 'spree_stripe', path: File.expand_path('../../../../spree/providers/stripe', __dir__)
+gem 'spree_easypost', path: File.expand_path('../../../../spree/providers/easypost', __dir__)
+gem 'spree_meilisearch', path: File.expand_path('../../../../spree/providers/meilisearch', __dir__)

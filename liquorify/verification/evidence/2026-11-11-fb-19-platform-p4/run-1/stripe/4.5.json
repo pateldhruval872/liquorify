@@ -1,0 +1,31 @@
+{
+  "revision": "917cdcc3",
+  "stamp": "mwbfpnpj",
+  "tried": [
+    {
+      "card": "pm_card_cvcCheckFail",
+      "stripe": {
+        "status": 200,
+        "intent": "succeeded"
+      },
+      "placed": 200,
+      "consideredRisky": true,
+      "payments": [
+        {
+          "status": "completed",
+          "avs": null,
+          "cvv": "N"
+        }
+      ]
+    }
+  ],
+  "order": "R1019",
+  "before": {
+    "failedCardChecksBadge": true,
+    "approveOffered": true
+  },
+  "after": {
+    "approvedAt": true,
+    "approveOffered": false
+  }
+}

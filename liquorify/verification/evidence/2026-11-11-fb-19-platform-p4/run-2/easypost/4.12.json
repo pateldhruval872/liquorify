@@ -1,0 +1,89 @@
+{
+  "revision": "917cdcc3",
+  "stamp": "mwbfsrcj",
+  "method": {
+    "id": "dm_OIJLhNcSbf",
+    "name": "P4 Rates EasyPost mwbfsrcj",
+    "code": null,
+    "estimated_transit_business_days_min": null,
+    "estimated_transit_business_days_max": null,
+    "digital": false,
+    "pickup": false,
+    "pickup_point": false,
+    "admin_name": null,
+    "storefront_visible": true,
+    "tracking_url": null,
+    "available_to_sellers": false,
+    "created_at": "2026-11-11T01:25:16.874Z",
+    "updated_at": "2026-11-11T01:25:16.877Z",
+    "deleted_at": null,
+    "markup_flat": null,
+    "markup_percent": null,
+    "seller_id": null,
+    "seller_name": null,
+    "services": [],
+    "rules": [],
+    "tax_category_id": null,
+    "delivery_profile_id": "fp_uw2YK1rnl0",
+    "delivery_origin_group_id": "og_uw2YK1rnl0",
+    "delivery_zone_id": "dz_EfhxLZ9ck8",
+    "stock_location_ids": [],
+    "fulfillment_provider": "easy_post",
+    "pickup_point_provider": null,
+    "rate_provider": "easy_post",
+    "calculator": {
+      "type": "flat_rate",
+      "preferences": {
+        "amounts": {},
+        "amount": "0.00",
+        "currency": "USD"
+      }
+    }
+  },
+  "rates": [
+    {
+      "name": "USPS GroundAdvantage",
+      "cost": "6.08"
+    },
+    {
+      "name": "USPS Priority",
+      "cost": "9.56"
+    },
+    {
+      "name": "FedExDefault SMART_POST",
+      "cost": "10.77"
+    },
+    {
+      "name": "FedExDefault FEDEX_GROUND",
+      "cost": "13.74"
+    },
+    {
+      "name": "FedExDefault FEDEX_EXPRESS_SAVER",
+      "cost": "17.47"
+    },
+    {
+      "name": "FedExDefault FEDEX_2_DAY",
+      "cost": "20.31"
+    },
+    {
+      "name": "FedExDefault STANDARD_OVERNIGHT",
+      "cost": "38.93"
+    },
+    {
+      "name": "FedExDefault FEDEX_2_DAY_AM",
+      "cost": "42.09"
+    },
+    {
+      "name": "FedExDefault PRIORITY_OVERNIGHT",
+      "cost": "43.08"
+    },
+    {
+      "name": "USPS Express",
+      "cost": "45.31"
+    },
+    {
+      "name": "FedExDefault FIRST_OVERNIGHT",
+      "cost": "168.57"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "revision": "917cdcc3",
+  "stamp": "mwbfpnpj",
+  "seededStoreUrl": "localhost",
+  "storeUrlForControl": "https://p4-mwbfpnpj.example.com",
+  "webhookEndpoints": [
+    {
+      "url": "https://p4-mwbfpnpj.example.com/api/v3/webhooks/payments/pm_HOVtlDrOmL",
+      "status": "enabled"
+    },
+    {
+      "url": "https://p4-mwbfpnpj.example.com/api/v3/webhooks/payouts/pm_HOVtlDrOmL",
+      "status": "enabled"
+    }
+  ]
+}
