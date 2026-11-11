@@ -9,6 +9,7 @@ export const CatalogSchema = z.object({
   name: z.string(),
   description: z.string().nullable(),
   active: z.boolean(),
+  closed_assortment: z.boolean(),
   position: z.number().nullable(),
   metadata: z.record(z.string(), z.unknown()).nullable(),
   minimum_order_quantity: z.number().nullable(),

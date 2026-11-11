@@ -84,6 +84,37 @@ RSpec.describe Spree::Api::V3::Store::ProductsController, type: :controller do
       expect(ids).to include(product.prefixed_id, product2.prefixed_id)
     end
 
+    context 'on a members-only channel' do
+      let(:members) { create(:customer_group, store: store) }
+
+      before do
+        store.default_channel.update!(default_catalog: create(:catalog, store: store, closed_assortment: true))
+        create(:catalog_assignment, catalog: create(:catalog, store: store), assignable: members)
+        request.headers['Authorization'] = "Bearer #{Spree::Api::V3::TestingSupport.generate_jwt(user)}"
+      end
+
+      it 'lists nothing for a signed-in customer outside the members' do
+        get :index, as: :json
+
+        expect(json_response['data']).to be_empty
+        expect(json_response['meta']['count']).to eq(0)
+      end
+
+      it 'answers a product page as not found for a customer outside the members' do
+        get :show, params: { id: product2.slug }, as: :json
+
+        expect(response).to have_http_status(:not_found)
+      end
+
+      it 'lists the whole range for a member' do
+        members.customer_group_users.create!(customer: user)
+
+        get :index, as: :json
+
+        expect(json_response['data'].map { |row| row['id'] }).to include(product.prefixed_id, product2.prefixed_id)
+      end
+    end
+
     it 'hides a catalog-only 404 from show for buyers outside the assortment' do
       create(:company_membership, company: company, customer: user)
       request.headers['Authorization'] = "Bearer #{Spree::Api::V3::TestingSupport.generate_jwt(user)}"

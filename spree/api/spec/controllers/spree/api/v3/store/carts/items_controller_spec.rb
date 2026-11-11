@@ -181,6 +181,17 @@ RSpec.describe Spree::Api::V3::Store::Carts::ItemsController, type: :controller 
         expect(response).to have_http_status(:not_found)
       end
 
+      it 'refuses a customer outside the members of a members-only channel' do
+        store.default_channel.update!(default_catalog: create(:catalog, store: store, closed_assortment: true))
+
+        expect {
+          post :create, params: { cart_id: order.prefixed_id, variant_id: variant.prefixed_id }
+        }.not_to change(Spree::LineItem, :count)
+
+        expect(response).to have_http_status(:not_found)
+        expect(json_response['error']['message']).to be_present
+      end
+
       it "refuses a product not published on the cart's channel" do
         product.product_publications.destroy_all
 

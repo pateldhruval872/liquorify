@@ -97,5 +97,61 @@ describe Spree::Products::ForContext do
 
       expect(resolve).to contain_exactly(listed)
     end
+
+    it 'keeps an open, empty default catalog as a pricing-only overlay' do
+      channel.update!(default_catalog: create(:catalog, store: store))
+
+      expect(resolve(customer: customer)).to contain_exactly(listed, also_listed)
+    end
+  end
+
+  # A members-only channel: a closed, empty default catalog for everyone the
+  # channel's audiences do not reach, and a catalog for the members.
+  context 'with a closed catalog' do
+    let(:members) { create(:customer_group, store: store) }
+
+    before do
+      channel.update!(default_catalog: create(:catalog, store: store, closed_assortment: true))
+    end
+
+    it 'shows a signed-in customer outside every audience nothing' do
+      expect(resolve(customer: customer)).to be_empty
+    end
+
+    it 'narrows to the products a closed catalog lists' do
+      channel.default_catalog.add_products([listed.id])
+
+      expect(resolve(customer: customer)).to contain_exactly(listed)
+    end
+
+    it 'gives a member the whole range through an open, empty group catalog' do
+      members.customer_group_users.create!(customer: customer)
+      create(:catalog_assignment, catalog: create(:catalog, store: store), assignable: members)
+
+      expect(resolve(customer: customer)).to contain_exactly(listed, also_listed)
+    end
+
+    it 'lets an open, empty catalog beside a closed one lift the restriction' do
+      members.customer_group_users.create!(customer: customer)
+      create(:catalog_assignment, catalog: create(:catalog, store: store, closed_assortment: true), assignable: members)
+      create(:catalog_assignment, catalog: create(:catalog, store: store), assignable: members)
+
+      expect(resolve(customer: customer)).to contain_exactly(listed, also_listed)
+    end
+
+    # The audiences do not combine: a company's curated catalog answers on its
+    # own, so the group's open catalog cannot widen the member's assortment.
+    it "keeps a company member who is also in the group to the company's catalog" do
+      members.customer_group_users.create!(customer: customer)
+      create(:catalog_assignment, catalog: create(:catalog, store: store), assignable: members)
+
+      company = create(:company, store: store)
+      create(:company_membership, company: company, customer: customer)
+      company_catalog = create(:catalog, store: store)
+      create(:catalog_assignment, catalog: company_catalog, assignable: company)
+      company_catalog.add_products([listed.id])
+
+      expect(resolve(customer: customer)).to contain_exactly(listed)
+    end
   end
 end

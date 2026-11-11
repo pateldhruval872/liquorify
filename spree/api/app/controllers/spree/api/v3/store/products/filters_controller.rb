@@ -5,6 +5,7 @@ module Spree
         module Products
           class FiltersController < Store::BaseController
             include Spree::Api::V3::Store::SearchProviderSupport
+            include Spree::Api::V3::Store::StorefrontProducts
 
             def index
               json = Rails.cache.fetch(filters_cache_key, expires_in: 15.minutes) do
@@ -30,7 +31,7 @@ module Spree
 
             def filters_cache_key
               products_table = Spree::Product.table_name
-              stats = current_store.products.available(Time.current, current_currency, include_preorderable: true)
+              stats = storefront_products
                         .pick(Arel.sql("MAX(#{products_table}.updated_at)"), Arel.sql("COUNT(DISTINCT #{products_table}.id)"))
               max_updated = stats&.first&.to_i
               product_count = stats&.last || 0
@@ -38,6 +39,8 @@ module Spree
               parts = [
                 'spree/api/v3/store/filters',
                 current_store.id,
+                current_channel&.id,
+                buyer_catalogs_cache_key,
                 current_currency,
                 current_locale,
                 (hide_prices? ? 'prices_hidden' : nil),
@@ -56,11 +59,18 @@ module Spree
             def filters_scope
               # Mirror ProductsController#scope so facet counts describe the
               # same product set the listing returns (coming-soon pre-orders
-              # included).
-              scope = current_store.products.available(Time.current, current_currency, include_preorderable: true)
+              # included, narrowed to the buyer's catalogs).
+              scope = storefront_products
               scope = scope.in_category(category) if category.present?
               scope = scope.in_collection(collection) if collection.present?
               scope
+            end
+
+            # Facets describe what this buyer may see, so buyers resolving to
+            # different catalogs must never share a cached answer.
+            def buyer_catalogs_cache_key
+              catalogs = Spree::Catalog.for_buyer(store: current_store, customer: current_user, channel: current_channel)
+              catalogs.map(&:cache_key_with_version).sort.join(',').presence || 'no-catalogs'
             end
 
             def category
