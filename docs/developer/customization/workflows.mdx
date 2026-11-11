@@ -265,6 +265,8 @@ is reported through `Rails.error` so it's visible rather than mysterious.
 | `carts.recalculate_totals` | `set_tax_line_context` | context | Before tax is estimated |
 | `orders.cancel` | `before_cancel` | validate | Before the cancellation is recorded |
 | `orders.cancel` | `after_cancel` | lifecycle | With the cancellation, in transaction |
+| `orders.destroy` | `validate` | validate | Before a draft order is deleted — refuse a deletion your store shouldn't allow |
+| `orders.destroy` | `after_destroy` | lifecycle | After the draft is deleted and any gift card on it is released (in transaction) |
 | `fulfillments.create` | `validate` | validate | Before the order is locked |
 | `fulfillments.create` | `get_provider_data` | context | Before the fulfillment is built |
 | `fulfillments.create` | `after_create` | lifecycle | After the fulfillment is created and totals recalculated |
