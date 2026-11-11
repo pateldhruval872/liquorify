@@ -45,7 +45,6 @@ async function snap(page: Page, name: string) {
 
 const escaped = (text: string) => text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
 
-
 test.beforeAll(async ({ baseURL }) => {
   stripeApi = await stripe()
   const seededShop = await seeded(baseURL, async (seed) => {
