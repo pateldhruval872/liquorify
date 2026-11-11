@@ -604,27 +604,31 @@ test("approving and sending back a seller's product, and publishing them automat
   const shopperHeaders = { 'X-Spree-API-Key': shopperKey }
   await login(page)
 
+  // SD-61, fixed: approval puts the product on sale, as the confirmation
+  // says, so the shopper finds it afterwards and not before.
   const proposed = market.products.proposed
-  await answers.read(
+  const beforeApproval = await answers.read(
     'shopper before approval',
     'get',
     `store/products/${proposed}`,
     undefined,
     shopperHeaders,
   )
+  expect(beforeApproval.status, 'not on sale while awaiting review').toBe(404)
   await open(page, `/products/${proposed}`)
   await page.getByRole('button', { name: /^approve$/i }).click()
   await confirmIn(page, /^approve$/i)
   await expect(page.getByText('Product approved').first()).toBeVisible({ timeout: 20_000 })
   await shot(page, check, '1-approved')
   await answers.read('after approving', 'get', `admin/products/${proposed}`)
-  await answers.read(
+  const afterApproval = await answers.read(
     'shopper after approval',
     'get',
     `store/products/${proposed}`,
     undefined,
     shopperHeaders,
   )
+  expect(afterApproval.status, 'on sale once approved').toBe(200)
 
   const seller = (await sellerPeople(ines, harbour)) as Headers
   const created = await answers.read(
@@ -654,13 +658,14 @@ test("approving and sending back a seller's product, and publishing them automat
     undefined,
     seller,
   )
-  await answers.read(
+  const sentBackRead = await answers.read(
     'shopper reads it',
     'get',
     `store/products/${sentBack}`,
     undefined,
     shopperHeaders,
   )
+  expect(sentBackRead.status, 'a product sent back is not on sale').toBe(404)
   await open(page, `/products?q[seller_id_eq]=${harbour}`)
   await shot(page, check, '4-list-by-seller')
 
@@ -685,6 +690,16 @@ test("approving and sending back a seller's product, and publishing them automat
       'get',
       `admin/products/${made.body.id}`,
     )
+    const shopperRead = await answers.read(
+      `shopper reads it, automatic publishing ${on ? 'on' : 'off'}`,
+      'get',
+      `store/products/${made.body.id}`,
+      undefined,
+      shopperHeaders,
+    )
+    expect(shopperRead.status, `on sale only when published automatically (${on})`).toBe(
+      on ? 200 : 404,
+    )
   }
   await answers.read('settings put back', 'get', 'admin/store')
   answers.save()
@@ -695,13 +710,19 @@ test('an approved seller product once the operator adds it to a sales channel', 
   const answers = new Answers(check)
   const approved = market.products.proposed
   const shopperHeaders = { 'X-Spree-API-Key': shopperKey }
-  await answers.read(
+  const withChannels = await answers.read(
     'approved product with its channels',
     'get',
     `admin/products/${approved}?expand=channels`,
   )
   const channels = await answers.read('channels', 'get', 'admin/channels?limit=100')
   const online = (channels.body.data as Json[]).find((each) => each.default) as Json
+  // Since SD-61's fix, approval has already put it on the default channel;
+  // adding it again changes nothing and the shopper still finds it.
+  expect(
+    ((withChannels.body.channels ?? []) as Json[]).map((each) => each.id),
+    'approval put it on the default channel',
+  ).toContain(online.id)
   await answers.read(
     'operator adds it to the default channel',
     'post',
@@ -711,13 +732,14 @@ test('an approved seller product once the operator adds it to a sales channel', 
       channel_ids: [online.id],
     },
   )
-  await answers.read(
+  const read = await answers.read(
     'shopper reads it',
     'get',
     `store/products/${approved}`,
     undefined,
     shopperHeaders,
   )
+  expect(read.status).toBe(200)
   answers.save()
 })
 
