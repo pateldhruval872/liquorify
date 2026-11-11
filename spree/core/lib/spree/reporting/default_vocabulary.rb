@@ -131,19 +131,22 @@ module Spree
       # vanish. The `* 1.0` forces real division: SQLite divides two
       # integer-valued decimals as integers, which silently rounds every share
       # to zero.
-      LINE_ITEM_REFUNDS_SUBQUERY = <<~SQL.squish.freeze
-        SUM(
-          COALESCE((SELECT SUM(r.amount - r.tax_amount) FROM %{refunds} r WHERE r.order_id = %{orders}.id), 0)
-          * CASE
-              WHEN COALESCE((SELECT SUM(sibling.pre_tax_amount) FROM %{line_items} sibling
-                             WHERE sibling.order_id = %{orders}.id), 0) > 0
-              THEN (%{line_items}.pre_tax_amount * 1.0)
-                   / (SELECT SUM(sibling.pre_tax_amount) FROM %{line_items} sibling
-                      WHERE sibling.order_id = %{orders}.id)
-              ELSE 0
-            END
-        )
+      LINE_ITEM_SHARE_SQL = <<~SQL.squish.freeze
+        CASE
+          WHEN COALESCE((SELECT SUM(sibling.pre_tax_amount) FROM %{line_items} sibling
+                         WHERE sibling.order_id = %{orders}.id), 0) > 0
+          THEN (%{line_items}.pre_tax_amount * 1.0)
+               / (SELECT SUM(sibling.pre_tax_amount) FROM %{line_items} sibling
+                  WHERE sibling.order_id = %{orders}.id)
+          ELSE 0
+        END
       SQL
+
+      ORDER_REFUNDED_GOODS_SQL = <<~SQL.squish.freeze
+        COALESCE((SELECT SUM(r.amount - r.tax_amount) FROM %{refunds} r WHERE r.order_id = %{orders}.id), 0)
+      SQL
+
+      LINE_ITEM_REFUNDS_SUBQUERY = "SUM(#{ORDER_REFUNDED_GOODS_SQL} * #{LINE_ITEM_SHARE_SQL})".freeze
 
       # An order is the customer's first when no earlier completed order shares
       # its email in the same store.
@@ -163,9 +166,25 @@ module Spree
                       WHERE f.order_id = %{orders}.id AND f.kind = 'duty'), 0))
       SQL
 
-      SELLER_COMMISSION_SUBQUERY = <<~SQL.squish.freeze
-        SUM(COALESCE((SELECT SUM(c.total) FROM %{commission_lines} c
-                      WHERE c.line_item_id = %{line_items}.id), 0))
+      LINE_ITEM_COMMISSION_SQL = <<~SQL.squish.freeze
+        COALESCE((SELECT SUM(c.total) FROM %{commission_lines} c
+                  WHERE c.line_item_id = %{line_items}.id), 0)
+      SQL
+
+      SELLER_COMMISSION_SUBQUERY = "SUM(#{LINE_ITEM_COMMISSION_SQL})".freeze
+
+      # What a seller is owed for a line: the goods, less their share of what
+      # was refunded and the commission. The store's own lines pay no seller,
+      # so they add nothing, rather than reading as an unassigned seller's
+      # payout.
+      SELLER_PAYOUT_SQL = <<~SQL.squish.freeze
+        SUM(
+          CASE WHEN %{line_items}.seller_id IS NULL THEN 0 ELSE
+            %{line_items}.pre_tax_amount
+            - #{ORDER_REFUNDED_GOODS_SQL} * #{LINE_ITEM_SHARE_SQL}
+            - #{LINE_ITEM_COMMISSION_SQL}
+          END
+        )
       SQL
 
       # A payment's own refunds, so "what we gave back" is attributed to the
@@ -348,10 +367,9 @@ module Spree
           # with two sellers owes each of them their own share.
           metric :commission, sql: SELLER_COMMISSION_SUBQUERY, base: :line_items, format: :money,
                               subject: -> { Spree::CommissionLine }, key_scope: 'read_commissions'
-          # What the sellers are owed on these sales: the goods they sold, less
-          # the marketplace's cut and anything the buyer sent back.
+          # What the sellers are owed on these sales.
           metric :seller_payout,
-                 sql: "SUM(%{line_items}.pre_tax_amount) - #{LINE_ITEM_REFUNDS_SUBQUERY} - #{SELLER_COMMISSION_SUBQUERY}",
+                 sql: SELLER_PAYOUT_SQL,
                  base: :line_items, format: :money,
                  subject: -> { Spree::SellerTransfer }, key_scope: 'read_payouts'
 

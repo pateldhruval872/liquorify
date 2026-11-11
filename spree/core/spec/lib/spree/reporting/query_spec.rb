@@ -290,6 +290,21 @@ RSpec.describe Spree::Reporting::Query do
       expect(row[:metrics][:commission][:value]).to eq(2.0)
       expect(row[:metrics][:seller_payout][:value]).to eq(row[:metrics][:net_sales][:value] - 2)
     end
+
+    # The store's own sales pay no seller. Counting them read as a payout to
+    # an "Unassigned" seller, inside the report's total of seller payouts.
+    it 'pays no seller for the store’s own sales' do
+      own_order = create(:completed_order_with_totals, store: store, completed_at: 3.days.ago)
+
+      result = run(metrics: %w[net_sales seller_payout], dimensions: %w[seller])
+      unassigned = result.rows.find { |row| row[:dimensions][:seller].nil? }
+
+      expect(own_order.line_items.first.seller_id).to be_nil
+      expect(unassigned[:metrics][:net_sales][:value]).to be_positive
+      expect(unassigned[:metrics][:seller_payout][:value]).to eq(0)
+      expect(result.totals[:seller_payout][:value])
+        .to eq(result.rows.find { |row| row[:dimensions][:seller] == seller.id }[:metrics][:seller_payout][:value])
+    end
   end
 
   # Money in different currencies is never converted or added, so a money
