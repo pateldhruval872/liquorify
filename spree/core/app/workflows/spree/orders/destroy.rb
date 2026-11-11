@@ -43,8 +43,13 @@ module Spree
         order.reload
       end
 
+      # A deletion something rolled back without a word still owes the caller
+      # a reason.
       def destroy_order
-        failure(order) unless order.destroy
+        return if order.destroy
+
+        order.errors.add(:base, :order_cannot_be_deleted, message: I18n.t('spree.order_cannot_be_deleted')) if order.errors.empty?
+        failure(order)
       end
     end
   end
