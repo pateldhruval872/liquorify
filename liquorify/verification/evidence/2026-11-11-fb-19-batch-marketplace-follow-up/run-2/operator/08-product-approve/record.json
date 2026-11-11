@@ -1,0 +1,14 @@
+{
+  "revision": "72bd337c",
+  "run": "mwboy0vb",
+  "sabotage": false,
+  "check": "08-product-approve",
+  "entries": [
+    {
+      "step": "server product",
+      "body": {
+        "status": "active"
+      }
+    }
+  ]
+}

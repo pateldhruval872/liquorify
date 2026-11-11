@@ -114,6 +114,8 @@ export default defineConfig({
     'compare-batch-12.spec.ts',
     'wholesale-checks.spec.ts',
     'marketplace-checks.spec.ts',
+    'marketplace-operator.spec.ts',
+    'marketplace-seller.spec.ts',
     'fl-22.spec.ts',
     'fl-18.spec.ts',
     'sf-dev-emails.spec.ts',

@@ -1,0 +1,28 @@
+{
+  "revision": "72bd337c",
+  "run": "mwbovedn",
+  "sabotage": false,
+  "check": "07-cancel",
+  "entries": [
+    {
+      "step": "before",
+      "body": {
+        "transfers": []
+      }
+    },
+    {
+      "step": "server order",
+      "body": {
+        "status": "canceled",
+        "cancel_reason_name": "Customer changed their mind",
+        "cancel_note": "Customer asked to cancel mwbovedn"
+      }
+    },
+    {
+      "step": "after",
+      "body": {
+        "transfers": []
+      }
+    }
+  ]
+}

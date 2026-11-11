@@ -1,0 +1,14 @@
+{
+  "revision": "72bd337c",
+  "run": "mwboxbql",
+  "sabotage": false,
+  "check": "03-suspend",
+  "entries": [
+    {
+      "step": "server seller",
+      "body": {
+        "status": "suspended"
+      }
+    }
+  ]
+}
