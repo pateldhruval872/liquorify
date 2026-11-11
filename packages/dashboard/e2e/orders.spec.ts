@@ -190,6 +190,60 @@ test.describe('new order', () => {
     await expect(page.getByRole('link', { name: CTA })).toBeVisible({ timeout: 15_000 })
     await expect(page.getByText(`#${number}`)).toHaveCount(0)
   })
+
+  test("gives a gift card's balance back when the draft it was applied to is deleted", async ({
+    page,
+  }) => {
+    const creds = await login(page)
+    const code = `E2E-DRAFT-CARD-${Date.now()}`
+    await adminRequest(page, creds, 'post', '/gift_cards', {
+      code,
+      amount: '1.00',
+      currency: 'USD',
+    })
+
+    await page.goto(NEW_ORDER_PATH(creds.store_id))
+    await expect(page.getByRole('heading', { name: CTA })).toBeVisible({ timeout: 15_000 })
+    await fillNewOrderForm(page, `e2e-draft-card-${Date.now()}@example.com`)
+    await page.locator('button[type="submit"]').click()
+    await expect(page).toHaveURL(new RegExp(`/${creds.store_id}/orders/or_[^/]+$`), {
+      timeout: 15_000,
+    })
+
+    const discounts = page
+      .locator('[data-slot="card"]')
+      .filter({
+        has: page.locator('[data-slot="card-title"]', { hasText: /^discounts & credit$/i }),
+      })
+      .first()
+    await discounts
+      .getByRole('button', { name: /^apply$/i })
+      .last()
+      .click()
+    await page.getByRole('dialog').locator('#gift-card-code').fill(code)
+    await page.getByRole('dialog').getByRole('button', { name: /^add$/i }).click()
+    await expect(discounts.getByText(new RegExp(code, 'i'))).toBeVisible({ timeout: 15_000 })
+
+    await page.getByRole('button', { name: /more actions/i }).click()
+    await page.getByRole('menuitem', { name: /^delete$/i }).click()
+    await page
+      .getByRole('dialog')
+      .getByRole('button', { name: /^delete$/i })
+      .click()
+    await expect(page).toHaveURL(new RegExp(`/${creds.store_id}/orders/drafts`), {
+      timeout: 15_000,
+    })
+
+    // Columns read Amount, Used, Remaining: nothing used, the whole dollar left.
+    await page.goto(`/${creds.store_id}/loyalty/gift-cards`)
+    await page
+      .getByPlaceholder(/search/i)
+      .first()
+      .fill(code)
+    const row = page.getByRole('row').filter({ hasText: new RegExp(code, 'i') })
+    await expect(row).toBeVisible({ timeout: 15_000 })
+    await expect(row).toContainText(/\$1\.00.*\$0\.00.*\$1\.00/)
+  })
 })
 
 test.describe('order editing', () => {
