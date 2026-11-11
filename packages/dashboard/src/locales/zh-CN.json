@@ -3343,6 +3343,7 @@
               "resolve_refund": "以退款解决",
               "resolve_replacement": "以换货解决"
             },
+            "claimed_total": "索赔金额",
             "confirm": {
               "cancel_confirm": "取消索赔",
               "cancel_dismiss": "保留索赔",

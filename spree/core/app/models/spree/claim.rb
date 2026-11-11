@@ -76,6 +76,15 @@ module Spree
       end
     end
 
+    # What resolving the claim actually paid back, to the original payment and
+    # as store credit, which can differ from the {#refund_total} claimed:
+    # settled for less, or resolved by a replacement or a denial.
+    #
+    # @return [BigDecimal]
+    def refunded_total
+      refunds.sum(:amount) + store_credits.sum(:amount)
+    end
+
     def display_refund_total
       Spree::Money.new(refund_total, currency: currency)
     end

@@ -3353,6 +3353,7 @@
               "resolve_refund": "Résoudre par remboursement",
               "resolve_replacement": "Résoudre par remplacement"
             },
+            "claimed_total": "Montant réclamé",
             "confirm": {
               "cancel_confirm": "Annuler la réclamation",
               "cancel_dismiss": "Conserver la réclamation",

@@ -8,7 +8,11 @@ module Spree
           without_formatted_money
 
           # No guest price gating here, so the inherited money fields are always present.
-          typelize refund_total: [:string, nullable: false]
+          money_attributes :refunded_total,
+                           descriptions: { refunded_total: 'What resolving the claim paid back, to the original payment and as store credit.' }
+
+          typelize refund_total: [:string, nullable: false],
+                   refunded_total: [:string, nullable: false]
 
           typelize memo: [:string, nullable: true],
                    metadata: 'Record<string, unknown>',

@@ -997,6 +997,7 @@ function claim(
     order_id: shippedOrder.id,
     reason_id: arrivedDamaged.id,
     refund_total: '25.92',
+    refunded_total: '0.00',
     approved_at: null,
     resolved_at: null,
     denied_at: null,
@@ -1032,11 +1033,12 @@ export const replacementClaim = claim('claim_5Rp3Gy2w', 'CL100204', 'approved', 
   claim_line_items: [claimLine({ send_replacement: true })],
 })
 
-/** Settled for less than it asked: the card still shows what it asked. */
+/** Settled for less than it asked: the card shows what the refund paid. */
 export const resolvedRefundClaim = claim('claim_6Rf4Hz3x', 'CL100205', 'resolved', {
   approved_at: arrived,
   resolved_at: settled,
   resolution: 'refund',
+  refunded_total: '20.00',
 })
 
 export const resolvedReplacementClaim = claim('claim_7Rs5Ia4y', 'CL100206', 'resolved', {
