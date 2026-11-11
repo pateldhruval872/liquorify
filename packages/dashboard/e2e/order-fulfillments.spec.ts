@@ -1,5 +1,12 @@
 import { expect, type Page, test } from '@playwright/test'
-import { createPlacedOrder, FIXTURE_PROMO_PRODUCT, login } from './helpers'
+import {
+  adminRequest,
+  createPlacedOrder,
+  deleteSeededRecords,
+  FIXTURE_PROMO_PRODUCT,
+  login,
+  seedRecord,
+} from './helpers'
 
 const NEW_ORDER_PATH = (storeId: string) => `/${storeId}/orders/new`
 
@@ -36,6 +43,8 @@ function fulfillmentsCard(page: Page) {
 }
 
 test.describe('order fulfillments', () => {
+  test.afterEach(async ({ page }) => deleteSeededRecords(page))
+
   // A draft carries no fulfillments, so its line item has nobody to claim it
   // and lands in the unfulfilled group at the top of the card — which is what
   // tells the merchant the goods still need shipping.
@@ -85,6 +94,64 @@ test.describe('order fulfillments', () => {
     await expect(card.getByRole('button', { name: /add tracking/i })).toHaveCount(0)
     await expect(card.getByRole('button', { name: /buy label/i })).toHaveCount(0)
     await expect(card.getByRole('button', { name: /print label/i })).toHaveCount(0)
+  })
+
+  // The shopper paid for delivery once. Splitting the parcel must not charge
+  // the new one again and leave the paid order owing money.
+  test('splits a paid parcel without leaving anything to pay', async ({ page }) => {
+    const creds = await login(page)
+    // The fixtures ship for free, so price delivery to the United States for
+    // this order only; the seeded zone and rate are removed afterwards.
+    const profiles = await adminRequest<{
+      data: { default: boolean; origin_groups: { id: string }[]; id: string }[]
+    }>(page, creds, 'get', '/delivery_profiles')
+    const general = profiles.data.find((profile) => profile.default)
+    if (!general) throw new Error('no default delivery profile')
+    const inGroup = {
+      delivery_profile_id: general.id,
+      delivery_origin_group_id: general.origin_groups[0].id,
+    }
+    const zone = await seedRecord(page, creds, '/delivery_zones', {
+      name: `E2E split zone ${Date.now()}`,
+      ...inGroup,
+      members: [{ member_type: 'country', country_code: 'US' }],
+    })
+    await seedRecord(page, creds, '/delivery_methods', {
+      name: `E2E split ground ${Date.now()}`,
+      ...inGroup,
+      delivery_zone_id: zone.id,
+      storefront_visible: true,
+      calculator: { type: 'flat_rate', preferences: { amounts: { USD: '6.50' } } },
+    })
+    const order = await createPlacedOrder(page, creds.accessToken, { ship: false })
+    await page.goto(`/${creds.store_id}/orders/${order.id}`)
+
+    const summary = page.locator('[data-slot="card"]').filter({ hasText: /outstanding balance/i })
+    await expect(summary).toContainText(/outstanding balance\s*\$0\.00/i, { timeout: 15_000 })
+
+    const card = fulfillmentsCard(page)
+    await card
+      .getByRole('button', { name: /^actions$/i })
+      .first()
+      .click({ timeout: 15_000 })
+    await page.getByRole('menuitem', { name: /^split$/i }).click()
+    const dialog = page.getByRole('dialog')
+    await dialog.getByLabel(/quantity to move/i).fill('1')
+    await dialog
+      .first()
+      .getByRole('button', { name: /^split$/i })
+      .click()
+    // The split takes effect immediately, so it asks first.
+    await dialog
+      .last()
+      .getByRole('button', { name: /^split$/i })
+      .click()
+
+    await expect(card.getByRole('button', { name: /^actions$/i })).toHaveCount(2, {
+      timeout: 15_000,
+    })
+    await page.reload()
+    await expect(summary).toContainText(/outstanding balance\s*\$0\.00/i, { timeout: 15_000 })
   })
 
   // A label bought elsewhere goes to private storage, under the
