@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest'
 import {
   fractionToPercent,
   isPositiveMoney,
+  otherAdjustmentTotal,
   percentOf,
   percentToFraction,
   prorateMoney,
@@ -59,5 +60,28 @@ describe('prorateMoney', () => {
     expect(prorateMoney('10.00', 2, 3, 'USD')).toBe('6.67')
     expect(prorateMoney('10.00', 3, 3, 'USD')).toBe('10.00')
     expect(prorateMoney('1000', 1, 3, 'JPY')).toBe('333')
+  })
+})
+
+describe('otherAdjustmentTotal', () => {
+  const order = (adjustment: string, discount: string, addedTax: string) => ({
+    adjustment_total: adjustment,
+    discount_total: discount,
+    additional_tax_total: addedTax,
+    currency: 'USD',
+  })
+
+  it('leaves nothing when the adjustments are only added tax or only a promotion', () => {
+    expect(otherAdjustmentTotal(order('3.26', '0.00', '3.26'))).toBe('0.00')
+    expect(otherAdjustmentTotal(order('-5.00', '-5.00', '0.00'))).toBe('0.00')
+  })
+
+  it('keeps the fees and manual discounts beside a promotion and added tax', () => {
+    // -6.00 promotion, +4.50 fee, -1.00 manual discount, +3.00 added tax
+    expect(otherAdjustmentTotal(order('0.50', '-6.00', '3.00'))).toBe('3.50')
+  })
+
+  it('reads a missing adjustment total as zero', () => {
+    expect(otherAdjustmentTotal({ ...order('0', '0', '0'), adjustment_total: null })).toBe('0.00')
   })
 })

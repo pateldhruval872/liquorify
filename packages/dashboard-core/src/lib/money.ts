@@ -1,8 +1,32 @@
-import { compareMoney, decimalPlaces, isDecimalString, sumMoney } from '@spree/admin-sdk'
+import {
+  compareMoney,
+  decimalPlaces,
+  isDecimalString,
+  subtractMoney,
+  sumMoney,
+} from '@spree/admin-sdk'
 
 /** Whether an amount is a decimal string above zero. Blank or malformed is not. */
 export function isPositiveMoney(value: string | null | undefined): boolean {
   return isDecimalString(value) && compareMoney(value, '0') > 0
+}
+
+/**
+ * The part of an order's adjustment total that its summary has no other row
+ * for: its fees and manual discounts. The promotions and the added tax are
+ * inside the adjustment total too, and are each shown on a row of their own.
+ */
+export function otherAdjustmentTotal(order: {
+  adjustment_total: string | null
+  discount_total: string | null
+  additional_tax_total: string | null
+  currency: string
+}): string {
+  return subtractMoney(
+    order.adjustment_total ?? '0',
+    sumMoney([order.discount_total, order.additional_tax_total], order.currency),
+    order.currency,
+  )
 }
 
 /**

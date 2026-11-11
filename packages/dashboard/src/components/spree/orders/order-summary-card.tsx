@@ -1,6 +1,12 @@
 import type { Order } from '@spree/admin-sdk'
 import { isZeroMoney } from '@spree/admin-sdk'
-import { isPositiveMoney, LocaleLabel, Money, useStore } from '@spree/dashboard-core'
+import {
+  isPositiveMoney,
+  LocaleLabel,
+  Money,
+  otherAdjustmentTotal,
+  useStore,
+} from '@spree/dashboard-core'
 import { Card, CardHeader, CardTitle, cn, Separator } from '@spree/dashboard-ui'
 import { Link } from '@tanstack/react-router'
 import i18n from 'i18next'
@@ -57,6 +63,7 @@ export function OrderSummaryCard({ order }: { order: Order }) {
   // summary at zero would have the two panels disagree about the same order.
   // A first-party order has no seller and is never commissioned.
   const showCommission = !!order.completed_at && !!order.seller_id
+  const adjustments = otherAdjustmentTotal(order)
 
   return (
     <Card>
@@ -185,10 +192,10 @@ export function OrderSummaryCard({ order }: { order: Order }) {
           />
         )}
 
-        {!isZeroMoney(order.adjustment_total) && (
+        {!isZeroMoney(adjustments) && (
           <SummaryRow
             label={t('admin.orders.detail.summary.adjustments')}
-            value={<Money amount={order.adjustment_total} currency={order.currency} />}
+            value={<Money amount={adjustments} currency={order.currency} />}
           />
         )}
 
