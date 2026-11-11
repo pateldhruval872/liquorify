@@ -129,8 +129,10 @@ module Spree
       line_item.included_tax_total * percentage_of_line_item
     end
 
+    # What stock planning has to find for this unit. A replacement stands for
+    # only the units being replaced, not the whole line it hangs off.
     def required_quantity
-      @required_quantity ||= line_item.quantity
+      @required_quantity ||= replacement? ? quantity : line_item.quantity
     end
 
     def charged_amount
