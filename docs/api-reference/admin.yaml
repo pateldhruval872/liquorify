@@ -11150,8 +11150,8 @@ paths:
                   pickup_point_data:
                   selected_delivery_rate_id: dr_EfhxLZ9ck8
                   unpriced: false
-                  cost: '10.00'
-                  total: '10.00'
+                  cost: '100.00'
+                  total: '100.00'
                   discount_total: '0.00'
                   additional_tax_total: '0.00'
                   included_tax_total: '0.00'

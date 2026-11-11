@@ -378,6 +378,50 @@ describe Spree::FulfillmentChanger do
     it 'removes the current shipment' do
       expect { subject }.to change { Spree::Fulfillment.count }.by(-1)
     end
+
+    # The parcel the shopper paid delivery on is gone, so its charge travels
+    # with the goods rather than vanishing from the order.
+    it 'moves the delivery charge into the new parcel' do
+      current_shipment.update_column(:cost, 6.5)
+      order.recalculate_totals!
+
+      expect { subject }.not_to change { order.reload.total }
+      expect(desired_shipment.reload.cost).to eq(6.5)
+    end
+
+    context 'when the shopper was given free delivery' do
+      before do
+        order.promotions << create(:free_shipping_promotion)
+        order.update_column(:completed_at, nil)
+        order.recalculate_totals!
+        order.update_column(:completed_at, Time.current)
+      end
+
+      it 'keeps the free delivery on the new parcel' do
+        expect(order.reload.discount_total).to be_negative
+
+        expect { subject }.not_to change { order.reload.slice(:total, :discount_total, :payment_status) }
+        expect(desired_shipment.reload.discount_total).to eq(-current_shipment.cost)
+      end
+    end
+
+    context 'when the delivery is taxed' do
+      before do
+        category = create(:tax_category)
+        current_shipment.delivery_method.update!(tax_category: category)
+        create(:tax_rate, country_code: order.tax_address.country.iso, tax_category: category, amount: 0.1)
+        current_shipment.update_column(:cost, 10)
+        order.update_column(:completed_at, nil)
+        order.recalculate_totals!
+        order.update_column(:completed_at, Time.current)
+      end
+
+      it 'keeps the delivery tax on the new parcel' do
+        expect(order.reload.additional_tax_total).to be_positive
+
+        expect { subject }.not_to change { order.reload.slice(:total, :additional_tax_total, :payment_status) }
+      end
+    end
   end
 
   context 'when the desired shipment is not yet persisted' do
@@ -390,15 +434,35 @@ describe Spree::FulfillmentChanger do
       expect { subject }.to change { Spree::Fulfillment.count }.by(1)
     end
 
-    it 'updates desired shipment cost after selecting the shipping rate' do
+    # Splitting a placed order's parcel is the merchant's logistics, not a
+    # new delivery the shopper bought: pricing the new parcel afresh left a
+    # paid order owing more, and refused to ship the moved unit.
+    it 'selects a rate for the new parcel without adding a delivery charge to a placed order' do
       Spree::DeliveryMethod.delete_all
       calculator = Spree::Calculator::Shipping::FlatRate.create!(preferred_amount: 10)
       shipping_method_that_should_be_selected = create(:delivery_method, calculator: calculator)
+      current_shipment.update_column(:cost, 10)
+      order.recalculate_totals!
 
-      subject
+      expect { subject }.not_to change { order.reload.total }
 
       expect(desired_shipment.reload.delivery_method).to eq(shipping_method_that_should_be_selected)
-      expect(desired_shipment.reload.cost).to eq(10)
+      expect(desired_shipment.cost).to eq(0)
+      expect(current_shipment.reload.cost).to eq(10)
+    end
+
+    context 'when the order has not been placed' do
+      before { order.update_column(:completed_at, nil) }
+
+      it 'prices the new parcel at its selected rate' do
+        Spree::DeliveryMethod.delete_all
+        calculator = Spree::Calculator::Shipping::FlatRate.create!(preferred_amount: 10)
+        create(:delivery_method, calculator: calculator)
+
+        subject
+
+        expect(desired_shipment.reload.cost).to eq(10)
+      end
     end
 
     context 'if the desired shipment is invalid' do
