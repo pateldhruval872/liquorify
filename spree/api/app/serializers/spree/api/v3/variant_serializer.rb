@@ -158,11 +158,7 @@ module Spree
           @next_price_breaks ||= {}
           return @next_price_breaks[variant.id] if @next_price_breaks.key?(variant.id)
 
-          @next_price_breaks[variant.id] = unless params[:hide_prices]
-                                             variant.next_price_break(
-                                               Spree::Pricing::Context.new(variant: variant, currency: current_currency, store: current_store, user: current_user)
-                                             )
-                                           end
+          @next_price_breaks[variant.id] = (variant.next_price_break(pricing_context_for(variant)) unless params[:hide_prices])
         end
       end
     end

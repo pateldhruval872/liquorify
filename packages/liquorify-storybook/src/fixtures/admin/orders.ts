@@ -130,6 +130,8 @@ function lineItem(id: string, fields: Partial<LineItem>): LineItem {
     pre_tax_amount: '0.00',
     discounted_amount: '0.00',
     compare_at_amount: null,
+    next_price_break_quantity: null,
+    next_price_break_price: null,
     thumbnail_url: null,
     option_values: [],
     digital_links: [],

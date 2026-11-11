@@ -92,18 +92,11 @@ module Spree
 
         private
 
-        # A placed order's money is settled, so it has no break to offer.
         def next_price_break(line_item)
           @next_price_breaks ||= {}
           return @next_price_breaks[line_item.id] if @next_price_breaks.key?(line_item.id)
 
-          owner = line_item.owner
-          @next_price_breaks[line_item.id] =
-            if params[:hide_prices] || line_item.variant.nil? || owner.nil? || (owner.is_a?(Spree::Order) && owner.completed?)
-              nil
-            else
-              line_item.variant.next_price_break(Spree::Pricing::Context.from_order(line_item.variant, owner, quantity: line_item.quantity))
-            end
+          @next_price_breaks[line_item.id] = (line_item.next_price_break unless params[:hide_prices])
         end
       end
     end
