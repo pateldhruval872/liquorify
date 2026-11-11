@@ -41,6 +41,7 @@ import {
   FIXTURE_SELLER_USER_EMAIL,
   FIXTURE_SELLER_WRITER_EMAIL,
   FIXTURE_SUPPLIER,
+  FIXTURE_SUSPENDED_SELLER,
   FIXTURE_TRANSFER_DESTINATION,
   FIXTURE_TRANSFER_PRODUCT,
   FIXTURE_TRANSFER_SKU,
@@ -148,6 +149,9 @@ const BOOTSTRAP_RUBY = [
   `seller_user = Spree.admin_user_class.where(email: '${FIXTURE_SELLER_USER_EMAIL}').first_or_create! { |u| u.password = '${FIXTURE_SELLER_PASSWORD}'; u.password_confirmation = '${FIXTURE_SELLER_PASSWORD}'; u.first_name = 'Lee'; u.last_name = 'Ledger' }`,
   'ledger_seller.add_user(seller_user)',
   `panel_seller = s.sellers.where(name: '${FIXTURE_PANEL_SELLER}').first_or_create!`,
+  // Suspended with the starting checklist unfinished: reinstating it must not
+  // ask the operator to override requirements the server does not check.
+  `s.sellers.where(name: '${FIXTURE_SUSPENDED_SELLER}').first_or_create! { |v| v.status = 'suspended' }`,
   `seller_writer = Spree.admin_user_class.where(email: '${FIXTURE_SELLER_WRITER_EMAIL}').first_or_create! { |u| u.password = '${FIXTURE_SELLER_PASSWORD}'; u.password_confirmation = '${FIXTURE_SELLER_PASSWORD}'; u.first_name = 'Pat'; u.last_name = 'Panel' }`,
   'panel_seller.add_user(seller_writer)',
   // Inventory operations: a second warehouse to transfer into, a stocked

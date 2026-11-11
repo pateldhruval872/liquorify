@@ -330,11 +330,10 @@ test('approving, suspending and reinstating a seller, and sending one back', asy
 
   await sellerPage(page, juniper, 'Juniper Row Distillers')
   await page.getByRole('button', { name: /^reinstate$/i }).click()
-  if (await dialog(page).isVisible()) {
-    await shot(page, check, '5-reinstate-confirm')
-    await dialog(page).getByRole('button').last().click()
-  }
+  // SD-69, fixed: the server does not re-measure requirements when it lifts a
+  // suspension, so reinstating asks for no override.
   await statusBadge(page, /^approved$/i)
+  await expect(dialog(page), 'no override warning on reinstating').toHaveCount(0)
   await shot(page, check, '6-reinstated')
   await answers.read('after reinstating', 'get', `admin/sellers/${juniper}`)
   await asSeller(answers, 'seller after reinstatement', theo, juniper)
