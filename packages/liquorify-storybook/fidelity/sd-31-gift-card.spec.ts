@@ -1,22 +1,27 @@
 import { mkdirSync, writeFileSync } from 'node:fs'
 import { type APIRequestContext, expect, type Page, request, test } from '@playwright/test'
-import { login } from '../../dashboard/e2e/helpers'
-import { orderCustomerEmail } from './orders'
+import { FIXTURE_TRANSFER_SKU, login } from '../../dashboard/e2e/helpers'
+import { guestAddress } from './orders'
 import { admin } from './staff'
 
 /**
  * SD-31's check through the dashboard: a gift card applied to a draft order
  * stays spent after the draft is deleted from its page, so the next order
- * cannot use it. Start the screens as `compare.spec.ts` describes; the sample
- * customer `orders.ts` uses must exist.
+ * cannot use it. Start the screens as `compare.spec.ts` describes, on a freshly
+ * started browser-test server: the run brings its own customer and uses a
+ * product the server's fixtures always carry.
  *
- * A fresh 20.00 gift card and two drafts for the sample customer, each with
- * one 2-Slice Toaster, are added through the Admin API. Then, as the admin:
+ * A fresh 20.00 gift card, a customer named by the run, and two drafts for
+ * that customer are added through the Admin API. Each draft holds one unit of
+ * the fixture product priced 24.99, so the card pays part of it and leaves the
+ * rest to pay, as it did on the sample product. Then, as the admin:
  *   1. the gift card list shows the card unused;
  *   2. the card is applied to the first draft from its Discounts & Credit card;
  *   3. the first draft is deleted from its page's More actions menu;
  *   4. the gift card list shows the card again;
  *   5. the card is applied to the second draft.
+ * The check passes when the deletion gave the card back in full and the
+ * second draft could use it.
  * The second draft is deleted at the end. The card cannot be removed, so each
  * run leaves one behind, named by the time it ran.
  *
@@ -113,20 +118,18 @@ test('SD-31 a deleted draft keeps its gift card spent', async ({ page, baseURL }
     amount: '20.00',
     currency: 'USD',
   })
-  const customers = (
-    await call(
-      api,
-      headers,
-      'get',
-      `customers?q[email_eq]=${encodeURIComponent(orderCustomerEmail)}`,
-    )
-  ).data as Json[]
-  const variants = (await call(api, headers, 'get', 'variants?q[sku_eq]=2-SLICE-TOASTER-WHITE'))
+  const customer = await call(api, headers, 'post', 'customers', {
+    email: `fidelity-sd31-${Date.now()}@example.com`,
+    first_name: guestAddress.first_name,
+    last_name: guestAddress.last_name,
+  })
+  const variants = (await call(api, headers, 'get', `variants?q[sku_eq]=${FIXTURE_TRANSFER_SKU}`))
     .data as Json[]
   const draft = () =>
     call(api, headers, 'post', 'orders', {
-      customer_id: customers[0].id,
-      use_customer_default_address: true,
+      customer_id: customer.id,
+      shipping_address: guestAddress,
+      billing_address: guestAddress,
       items: [{ variant_id: variants[0].id, quantity: 1 }],
     })
   const first = await draft()
@@ -166,6 +169,12 @@ test('SD-31 a deleted draft keeps its gift card spent', async ({ page, baseURL }
     await page.waitForTimeout(500)
     await shot('5-applied-to-second-draft')
     answers.afterSecondApply = await readCard()
+
+    // The deleted draft gives the card back, so the second draft can use it.
+    const afterDelete = answers.afterDelete as ReturnType<typeof cardState>
+    expect(afterDelete.amount_used).toBe('0.00')
+    expect(afterDelete.amount_remaining).toBe('20.00')
+    expect((answers.secondApply as { status: number }).status).toBe(201)
   } finally {
     for (const id of created) await api.delete(`/api/v3/admin/orders/${id}`, { headers })
     writeFileSync(`${results}answers.json`, JSON.stringify(answers, null, 2))
