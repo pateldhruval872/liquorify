@@ -4,7 +4,7 @@ record: verification
 work_item: FB-19
 date: 2026-11-11
 verifier: Claude (automated session); not independent review
-result: PASS for the map, the 32 stories and their 64 reference images, the running-screen captures (86 states under four access settings, 172 images at 390 and 1280 pixels), FL-10's buyer steps run end to end with a wholesale order placed, the comparison with running screens (8 cases at both widths, every difference explained), and Spree's own specs for the batch, 604 examples with no failures. PASS for every row of §10.5, each checked where it takes effect. Four defects were fixed in this lane with regression tests that fail before and pass after (SD-86, SD-9, SD-104, SD-105) and G-128 closes on its evidence. Tenant isolation is NOT_RUN. Three defects found here go to R5 (SD-106, SD-107, SD-110), a fourth is proposed for numbering (§5), and four gaps are recorded (G-131 to G-134). Criterion 8 counts CI on the final commits, named in the merge record
+result: PASS for the map, the 32 stories and their 64 reference images, the running-screen captures (86 states under four access settings, 172 images at 390 and 1280 pixels), FL-10's buyer steps run end to end with a wholesale order placed, the comparison with running screens (8 cases at both widths, every difference explained), and Spree's own specs for the batch, 604 examples with no failures. PASS for every row of §10.5, each checked where it takes effect. Four defects were fixed in this lane with regression tests that fail before and pass after (SD-86, SD-9, SD-104, SD-105) and G-128 closes on its evidence. Tenant isolation is NOT_RUN. Four defects found here go to R5 (SD-106, SD-107, SD-110, SD-111), and four gaps are recorded (G-131 to G-134). Criterion 8 counts CI on the final commits, named in the merge record
 ---
 
 # FB-19 batch 12 part 2, the storefront's wholesale portal
@@ -182,7 +182,7 @@ Two cases were first set against the wrong story: the cart against "below the mi
 | SD-106 | The cart's minimum nudge and "Trade price applied" come from the storefront's fixed minimum (`WHOLESALE_MIN_QUANTITY`, 10), not from Spree's price list: with the minimum changed to 5 in the price list, Spree charged 5 blenders at the trade price while the cart read "Add 5 more to unlock trade pricing"; and the tower fan, which the price list does not price, read "Trade price applied" at 10 while still at its catalog price | Low | R5 |
 | SD-107 | An access control defect on the wholesale channel, held privately by the owner's instruction until it is fixed | High | R5, ahead of its queue |
 | SD-110 | Quick order's SKU suggestions at phone width take the SKU field's width, 154 pixels, and cut every name and SKU short, so the variants of one product cannot be told apart | Medium | R5, after SD-107 |
-| Proposed | The storefront's not-found pages answer with status 200: the wholesale pages with wholesale off, and a product outside a buyer's catalog, show "404 This page could not be found" while the response's status is 200 | For the audit thread to number | — |
+| SD-111 | The storefront's not-found pages answer with status 200: the wholesale pages with wholesale off, and a product outside a buyer's catalog, show "404 This page could not be found" while the response's status is 200 | Low | R5, after SD-110 |
 
 ## 6. Corrections
 
