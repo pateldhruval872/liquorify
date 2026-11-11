@@ -261,6 +261,7 @@ module Spree
         # what the merchant sold. Removals are exempt — a buyer must always be
         # able to empty a line, whatever the rules now say about holding it.
         check_quantity_rules(item) unless item.remove?
+        check_seller_selling(item) unless item.remove?
         run_hooks :validate
         true
       rescue Spree::Workflow::FailureSignal
@@ -289,6 +290,19 @@ module Spree
         # becomes carries `quantity_rule_violated` as its code — a client
         # switching on the code must not be handed the sentence.
         errors.add(:base, :quantity_rule_violated, message: message)
+        failure(cart, errors)
+      end
+
+      # Lowering a line the cart already holds stays allowed, so a shopper
+      # can always trim a basket; only buying more is refused.
+      def check_seller_selling(item)
+        return if item.variant.seller_selling?
+
+        held = Spree.line_item_by_variant_finder.new.execute(owner: cart, variant: item.variant)
+        return if held && item.quantity <= held.quantity
+
+        errors.add(:base, :seller_unavailable,
+                   message: I18n.t('spree.cart_line_item.seller_unavailable', li_name: item.variant.name))
         failure(cart, errors)
       end
 

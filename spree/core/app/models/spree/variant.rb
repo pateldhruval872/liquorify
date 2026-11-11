@@ -430,6 +430,17 @@ module Spree
       product&.seller_id || self[:seller_id]
     end
 
+    # Whether whoever sells this variant is selling today: true for the
+    # store's own catalog, false while its seller is suspended, still
+    # onboarding or away. A variant failing this cannot be bought, even
+    # though its product stays visible.
+    #
+    # @return [Boolean]
+    def seller_selling?
+      seller = resolved_seller
+      seller.nil? || seller.sellable?
+    end
+
     # Whether this variant sits on an owned product — the mode in which the
     # variant's own seller and delivery-profile columns carry no meaning.
     #
