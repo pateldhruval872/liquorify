@@ -9,7 +9,7 @@ module Spree
           # The workflows are the operator's, shared through the concern. What
           # is here is what makes it the seller's: the order comes from
           # `current_seller_orders`, and the replacement variant is resolved
-          # through `current_seller.variants` rather than the store's, because
+          # through `current_seller.sold_variants` rather than the store's, because
           # a seller exchanges into their own catalogue and reaching a rival's
           # variant here would put that seller's stock on this seller's order.
           class ExchangesController < BaseController
@@ -67,7 +67,7 @@ module Spree
             # variant is not theirs to send, nor a marketplace warehouse
             # theirs to restock.
             def replacement_variant_for(variant_id)
-              current_seller.variants.find_by_prefix_id!(variant_id)
+              current_seller.sold_variants.find_by_prefix_id!(variant_id)
             end
 
             def stock_location_for_create

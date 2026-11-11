@@ -417,6 +417,16 @@ module Spree
       location.address
     end
 
+    # The variants this seller sells in its store: those listed under the
+    # seller on a shared product, and every variant of a product the seller
+    # owns. The second kind leaves the variant's own seller column blank, so
+    # {#variants} alone misses the seller's own catalogue.
+    #
+    # @return [ActiveRecord::Relation<Spree::Variant>]
+    def sold_variants
+      Spree::Variant.for_seller(self).merge(Spree::Product.where(store_id: store_id))
+    end
+
     # @return [Integer] how many products this seller lists
     def products_count
       @products_count ||= products.count

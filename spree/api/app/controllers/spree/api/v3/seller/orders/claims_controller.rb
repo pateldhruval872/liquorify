@@ -70,7 +70,7 @@ module Spree
             def replacement_variant_for(variant_id)
               return nil if variant_id.blank?
 
-              current_seller.variants.find_by_prefix_id!(variant_id)
+              current_seller.sold_variants.find_by_prefix_id!(variant_id)
             end
           end
         end
