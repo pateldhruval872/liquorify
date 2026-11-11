@@ -88,6 +88,47 @@ RSpec.describe Spree::Api::V3::Admin::SellersController, 'onboarding', type: :co
       expect(row['status']).to eq('pending')
       expect(row['submission']['note']).to eq('ready')
     end
+
+    # Reading where a seller stands changes nothing, so a role that may only
+    # read sellers sees the checklist, and a role without it is refused.
+    context 'when the caller may only read sellers' do
+      let(:permissions) { %w[read_sellers] }
+      let(:admin_user) do
+        create(:admin_user, :without_admin_role).tap do |user|
+          create(:role_user, user: user,
+                             role: create(:role, name: 'Seller viewer', resource: store, permissions: permissions))
+        end
+      end
+
+      it 'shows the checklist' do
+        create(:accept_terms_requirement, store: store)
+
+        get :onboarding, params: { id: seller.prefixed_id }, as: :json
+
+        expect(response).to have_http_status(:ok)
+        expect(json_response['requirements'].map { |row| row['kind'] }).to eq(['accept_terms'])
+      end
+
+      it 'still may not send the seller back to onboarding' do
+        seller.update_columns(status: 'pending_approval')
+
+        patch :reopen_onboarding, params: { id: seller.prefixed_id, note: 'Redo it' }, as: :json
+
+        expect(response).to have_http_status(:not_found)
+        expect(seller.reload.status).to eq('pending_approval')
+      end
+
+      context 'without read_sellers' do
+        let(:permissions) { %w[read_orders] }
+
+        it 'refuses the read as it refuses reading the seller' do
+          get :onboarding, params: { id: seller.prefixed_id }, as: :json
+
+          expect(response).to have_http_status(:not_found)
+          expect(json_response).not_to have_key('requirements')
+        end
+      end
+    end
   end
 
   describe 'PATCH #approve' do

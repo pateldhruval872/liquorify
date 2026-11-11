@@ -1,5 +1,14 @@
 import { expect, type Page, test } from '@playwright/test'
-import { escapeRegex, gotoIndex, login, openRowMenu } from './helpers'
+import {
+  adminRequest,
+  deleteSeededRecords,
+  escapeRegex,
+  gotoIndex,
+  invitationAcceptancePath,
+  login,
+  openRowMenu,
+  seedRecord,
+} from './helpers'
 
 const SELLERS_PATH = (storeId: string) => `/${storeId}/sellers`
 const CTA = /add seller/i
@@ -29,6 +38,10 @@ async function createSeller(page: Page, name: string) {
 }
 
 test.describe('sellers', () => {
+  test.afterEach(async ({ page }) => {
+    await deleteSeededRecords(page)
+  })
+
   test('lists sellers', async ({ page }) => {
     const creds = await login(page)
     await gotoIndex(page, SELLERS_PATH(creds.store_id), CTA)
@@ -193,5 +206,62 @@ test.describe('sellers', () => {
       .click()
 
     await expect(rowLink(page, name)).toHaveCount(0, { timeout: 15_000 })
+  })
+
+  // Reading a seller's onboarding checklist changes nothing, so a teammate
+  // whose role may only read sellers sees it rather than "Loading…" for good.
+  test('shows the onboarding checklist to a teammate who may only read sellers', async ({
+    page,
+    browser,
+  }) => {
+    const session = await login(page)
+    const stamp = Date.now()
+    const requirementName = `E2E registration ${stamp}`
+    const sellerName = `E2E Onboarding Seller ${stamp}`
+    const viewerEmail = `e2e-seller-viewer-${stamp}@example.com`
+
+    await seedRecord(page, session, '/seller_requirements', {
+      type: 'document',
+      name: requirementName,
+      required: true,
+    })
+    const seller = await seedRecord(page, session, '/sellers', {
+      name: sellerName,
+      contact_email: `e2e-onboarding-seller-${stamp}@example.com`,
+    })
+    const role = await seedRecord(page, session, '/roles', {
+      name: `e2e_seller_viewer_${stamp}`,
+      permissions: ['read_sellers'],
+    })
+    const invitation = await adminRequest<{ id: string }>(page, session, 'post', '/invitations', {
+      email: viewerEmail,
+      role_id: role.id,
+    })
+    const acceptancePath = await invitationAcceptancePath(
+      page,
+      session,
+      `/api/v3/admin/invitations/${invitation.id}`,
+    )
+
+    const viewerContext = await browser.newContext()
+    const viewerPage = await viewerContext.newPage()
+    try {
+      await viewerPage.goto(acceptancePath)
+      await viewerPage.getByLabel(/first name/i).fill('Seb')
+      await viewerPage.getByLabel(/last name/i).fill('Viewer')
+      await viewerPage.getByLabel(/^password$/i).fill('e2e-password-123')
+      await viewerPage.getByLabel(/confirm password/i).fill('e2e-password-123')
+      await viewerPage.getByRole('button', { name: /create account & accept/i }).click()
+      await expect(viewerPage).not.toHaveURL(/\/accept-invitation/, { timeout: 15_000 })
+
+      await viewerPage.goto(`/${session.store_id}/sellers/${seller.id}`)
+      await expect(viewerPage.getByRole('heading', { name: sellerName })).toBeVisible({
+        timeout: 15_000,
+      })
+      await expect(viewerPage.getByText(requirementName)).toBeVisible({ timeout: 15_000 })
+      await expect(viewerPage.getByText(/^loading/i)).toBeHidden()
+    } finally {
+      await viewerContext.close()
+    }
   })
 })
