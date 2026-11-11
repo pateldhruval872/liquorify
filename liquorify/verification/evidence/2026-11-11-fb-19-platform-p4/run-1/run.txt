@@ -1,0 +1,218 @@
+
+Running 24 tests using 1 worker
+
+  ✓   1 fidelity/p4-easypost.spec.ts:370:1 › 4.11 connecting EasyPost on the integrations page (3.9s)
+  ✓   2 fidelity/p4-easypost.spec.ts:428:1 › 4.12 a delivery method on EasyPost's live rates quotes a domestic cart (9.7s)
+  ✓   3 fidelity/p4-easypost.spec.ts:526:1 › 4.13 buying a label for a domestic fulfilment (10.6s)
+  ✓   4 fidelity/p4-easypost.spec.ts:563:1 › 4.14 buying a label for an international fulfilment with a customs declaration (14.2s)
+  ✘   5 fidelity/p4-easypost.spec.ts:596:1 › 4.15 refunding 4.13's label (29.1s)
+  ✓   6 fidelity/p4-easypost.spec.ts:686:3 › 4.16 buying a return label for an accepted return, domestic (P11's 3.11) (12.2s)
+  ✓   7 fidelity/p4-easypost.spec.ts:686:3 › 4.16 buying a return label for an accepted return, international (P11's 3.11) (15.3s)
+  ✓   8 fidelity/p4-easypost.spec.ts:770:1 › 4.17 relaying EasyPost's test trackers to the fulfilments that carry them (2.1m)
+  ✓   9 fidelity/p4-meilisearch.spec.ts:94:1 › 4.23 searching and filtering on the storefront through Meilisearch (2.4s)
+  ✓  10 fidelity/p4-payouts.spec.ts:72:1 › 4.18 the payout providers, and the marketplace settings before Stripe is set up (1.7s)
+  ✘  11 fidelity/p4-payouts.spec.ts:133:1 › 4.19 a seller's Stripe Connect onboarding link, and an earning held until they are onboarded (1.3m)
+  ✘  12 fidelity/p4-payouts.spec.ts:251:1 › 4.20 the seller's hosted onboarding, then a payout that pays and one that fails (72ms)
+  -  13 fidelity/p4-payouts.spec.ts:273:1 › 4.21 an unresolved transfer
+  ✘  14 fidelity/p4-storefront-stripe.spec.ts:216:1 › 4.6 paying with 4242 places the order, paid by card (18.0s)
+  ✘  15 fidelity/p4-storefront-stripe.spec.ts:242:1 › 4.7 a declined card stays on the payment step (15.2s)
+  ✘  16 fidelity/p4-storefront-stripe.spec.ts:277:1 › 4.8 a 3-D Secure check, completed and then failed (15.6s)
+  ✓  17 fidelity/p4-storefront-stripe.spec.ts:330:1 › 4.9 the express checkout area (11.3s)
+  ✘  18 fidelity/p4-storefront-stripe.spec.ts:349:1 › 4.10 a signed-in shopper saves a card, sees it listed, then removes it (18.8s)
+  ✘  19 fidelity/p4-stripe.spec.ts:135:1 › 4.1 adding Stripe in test mode from the integrations page (48.6s)
+  ✓  20 fidelity/p4-stripe.spec.ts:202:1 › 4.1's control: the same registration for a store whose address has a scheme (SD-97) (18.2s)
+  ✓  21 fidelity/p4-stripe.spec.ts:233:1 › 4.2 a guest order paid with a Stripe test card (5.5s)
+  ✓  22 fidelity/p4-stripe.spec.ts:317:1 › 4.3 capturing, refunding part of and voiding Stripe payments on the order page (25.9s)
+  ✓  23 fidelity/p4-stripe.spec.ts:421:1 › 4.4 a declined Stripe test card places no order (4.1s)
+  ✓  24 fidelity/p4-stripe.spec.ts:447:1 › 4.5 approving an order whose Stripe card failed its checks (P11 action 2.3) (8.9s)
+
+
+  1) fidelity/p4-easypost.spec.ts:596:1 › 4.15 refunding 4.13's label ──────────────────────────────
+
+    Error: EasyPost's refund confirmation settles the label
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "refunded"
+    Received: undefined
+
+      667 |   expect(requested.refundStatus, "EasyPost's test answer").toBe('submitted')
+      668 |   expect(relayed).toBe(200)
+    > 669 |   expect(settled?.status, "EasyPost's refund confirmation settles the label").toBe('refunded')
+          |                                                                               ^
+      670 |   expect(refundedShown, 'the label row reads Refunded').toBe(true)
+      671 | })
+      672 |
+        at packages/liquorify-storybook/fidelity/p4-easypost.spec.ts:669:79
+
+    Error Context: fidelity/results/test-output/p4-easypost-4-15-refunding-4-13-s-label/error-context.md
+
+    Error Context: fidelity/results/test-output/p4-easypost-4-15-refunding-4-13-s-label/error-context.md
+
+  2) fidelity/p4-payouts.spec.ts:133:1 › 4.19 a seller's Stripe Connect onboarding link, and an earning held until they are onboarded 
+
+    Error: {"error":{"code":"processing_error","message":"You tried to create an Accounts v1 connected account with your platform as the losses collector. Use Accounts v2 and set `losses_collector` to `stripe`, then retry your request. See https://docs.stripe.com/connect/risk-management/connected-accounts-with-managed-risk for a code sample."}}
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 200
+    Received: 422
+
+      238 |   })
+      239 |   expect(store.payout_provider).toBe('stripe')
+    > 240 |   expect(linkAnswer.status(), JSON.stringify(linkBody)).toBe(200)
+          |                                                         ^
+      241 |   expect(onboardingLink, "a link to Stripe's hosted onboarding").toMatch(
+      242 |     /^https:\/\/connect\.stripe\.com\//,
+      243 |   )
+        at packages/liquorify-storybook/fidelity/p4-payouts.spec.ts:240:57
+
+    Error Context: fidelity/results/test-output/p4-payouts-4-19-a-seller-s-3a15f-ld-until-they-are-onboarded/error-context.md
+
+    Error Context: fidelity/results/test-output/p4-payouts-4-19-a-seller-s-3a15f-ld-until-they-are-onboarded/error-context.md
+
+  3) fidelity/p4-payouts.spec.ts:251:1 › 4.20 the seller's hosted onboarding, then a payout that pays and one that fails 
+
+    Error: connect.stripe.com is reachable for the hosted onboarding
+
+    expect(received).toBeLessThan(expected)
+
+    Expected: < 400
+    Received:   403
+
+      266 |   // The environment's proxy answers a refused host with 403 itself.
+      267 |   expect(answer.error, 'connect.stripe.com is reachable for the hosted onboarding').toBeNull()
+    > 268 |   expect(answer.status, 'connect.stripe.com is reachable for the hosted onboarding').toBeLessThan(
+          |                                                                                      ^
+      269 |     400,
+      270 |   )
+      271 | })
+        at packages/liquorify-storybook/fidelity/p4-payouts.spec.ts:268:86
+
+    Error Context: fidelity/results/test-output/p4-payouts-4-20-the-seller-bc2c0-hat-pays-and-one-that-fails/error-context.md
+
+    Error Context: fidelity/results/test-output/p4-payouts-4-20-the-seller-bc2c0-hat-pays-and-one-that-fails/error-context.md
+
+  4) fidelity/p4-storefront-stripe.spec.ts:216:1 › 4.6 paying with 4242 places the order, paid by card 
+
+    Error: Stripe accepts the browser's payment
+
+    expect(received).toBeNull()
+
+    Received: "Received unknown parameter: expected_payment_method_type"
+
+      235 |     })
+      236 |     expect(frameShown, "Stripe's payment form in its frame").toBe(true)
+    > 237 |     expect(refusal, "Stripe accepts the browser's payment").toBeNull()
+          |                                                             ^
+      238 |     expect(paidByCard, 'the order placed page shows the card it was paid by').toBe(true)
+      239 |   })
+      240 | })
+        at packages/liquorify-storybook/fidelity/p4-storefront-stripe.spec.ts:237:61
+        at failed (packages/liquorify-storybook/fidelity/p4-storefront-stripe.spec.ts:209:5)
+        at packages/liquorify-storybook/fidelity/p4-storefront-stripe.spec.ts:218:3
+
+    Error Context: fidelity/results/test-output/p4-storefront-stripe-4-6-p-1e8e0-aces-the-order-paid-by-card/error-context.md
+
+    Error Context: fidelity/results/test-output/p4-storefront-stripe-4-6-p-1e8e0-aces-the-order-paid-by-card/error-context.md
+
+  5) fidelity/p4-storefront-stripe.spec.ts:242:1 › 4.7 a declined card stays on the payment step ───
+
+    Error: Stripe's decline message
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+      269 |     const url = page.url().replace(storefront, '')
+      270 |     save('4.7', { refusedByStripe: await refused(page), declineShown: shown, message, url })
+    > 271 |     expect(shown, "Stripe's decline message").toBe(true)
+          |                                               ^
+      272 |     expect(url, 'still on checkout').toMatch(/\/checkout\//)
+      273 |     await expect(payNow(page)).toBeVisible()
+      274 |   })
+        at packages/liquorify-storybook/fidelity/p4-storefront-stripe.spec.ts:271:47
+        at failed (packages/liquorify-storybook/fidelity/p4-storefront-stripe.spec.ts:209:5)
+        at packages/liquorify-storybook/fidelity/p4-storefront-stripe.spec.ts:244:3
+
+    Error Context: fidelity/results/test-output/p4-storefront-stripe-4-7-a-316fc-d-stays-on-the-payment-step/error-context.md
+
+    Error Context: fidelity/results/test-output/p4-storefront-stripe-4-7-a-316fc-d-stays-on-the-payment-step/error-context.md
+
+  6) fidelity/p4-storefront-stripe.spec.ts:277:1 › 4.8 a 3-D Secure check, completed and then failed 
+
+    Error: Stripe accepts the browser's payment
+
+    expect(received).toBeNull()
+
+    Received: "Received unknown parameter: expected_payment_method_type"
+
+      292 |     const refusal = await refused(page)
+      293 |     if (refusal) save('4.8', { refusedByStripe: refusal })
+    > 294 |     expect(refusal, "Stripe accepts the browser's payment").toBeNull()
+          |                                                             ^
+      295 |     await (await challengeFrame(page))?.locator('#test-source-authorize-3ds').click()
+      296 |     const completedPlaced = await page
+      297 |       .waitForURL(/\/order-placed\//, { timeout: 90_000 })
+        at packages/liquorify-storybook/fidelity/p4-storefront-stripe.spec.ts:294:61
+        at failed (packages/liquorify-storybook/fidelity/p4-storefront-stripe.spec.ts:209:5)
+        at packages/liquorify-storybook/fidelity/p4-storefront-stripe.spec.ts:287:3
+
+    Error Context: fidelity/results/test-output/p4-storefront-stripe-4-8-a-12007-k-completed-and-then-failed/error-context.md
+
+    Error Context: fidelity/results/test-output/p4-storefront-stripe-4-8-a-12007-k-completed-and-then-failed/error-context.md
+
+  7) fidelity/p4-storefront-stripe.spec.ts:349:1 › 4.10 a signed-in shopper saves a card, sees it listed, then removes it 
+
+    Error: Stripe accepts the browser's payment
+
+    expect(received).toBeNull()
+
+    Received: "Received unknown parameter: expected_payment_method_type"
+
+      373 |     save('4.10', { refusedByStripe: refusal })
+      374 |   }
+    > 375 |   expect(refusal, "Stripe accepts the browser's payment").toBeNull()
+          |                                                           ^
+      376 |   await orderPlaced(page)
+      377 |
+      378 |   await page.goto(`${base}/account/credit-cards`)
+        at packages/liquorify-storybook/fidelity/p4-storefront-stripe.spec.ts:375:59
+
+    Error Context: fidelity/results/test-output/p4-storefront-stripe-4-10--b431f-s-it-listed-then-removes-it/error-context.md
+
+    Error Context: fidelity/results/test-output/p4-storefront-stripe-4-10--b431f-s-it-listed-then-removes-it/error-context.md
+
+  8) fidelity/p4-stripe.spec.ts:135:1 › 4.1 adding Stripe in test mode from the integrations page ──
+
+    Error: Spree registered Stripe's webhook endpoint for the method
+
+    expect(received).toBeTruthy()
+
+    Received: undefined
+
+      180 |   })
+      181 |   expect(on, 'Stripe is switched on on the integrations page').toBe(true)
+    > 182 |   expect(registered, "Spree registered Stripe's webhook endpoint for the method").toBeTruthy()
+          |                                                                                   ^
+      183 | })
+      184 |
+      185 | /**
+        at packages/liquorify-storybook/fidelity/p4-stripe.spec.ts:182:83
+
+    Error Context: fidelity/results/test-output/p4-stripe-4-1-adding-Strip-057d0--from-the-integrations-page/error-context.md
+
+    Error Context: fidelity/results/test-output/p4-stripe-4-1-adding-Strip-057d0--from-the-integrations-page/error-context.md
+
+  8 failed
+    fidelity/p4-easypost.spec.ts:596:1 › 4.15 refunding 4.13's label ───────────────────────────────
+    fidelity/p4-payouts.spec.ts:133:1 › 4.19 a seller's Stripe Connect onboarding link, and an earning held until they are onboarded 
+    fidelity/p4-payouts.spec.ts:251:1 › 4.20 the seller's hosted onboarding, then a payout that pays and one that fails 
+    fidelity/p4-storefront-stripe.spec.ts:216:1 › 4.6 paying with 4242 places the order, paid by card 
+    fidelity/p4-storefront-stripe.spec.ts:242:1 › 4.7 a declined card stays on the payment step ────
+    fidelity/p4-storefront-stripe.spec.ts:277:1 › 4.8 a 3-D Secure check, completed and then failed 
+    fidelity/p4-storefront-stripe.spec.ts:349:1 › 4.10 a signed-in shopper saves a card, sees it listed, then removes it 
+    fidelity/p4-stripe.spec.ts:135:1 › 4.1 adding Stripe in test mode from the integrations page ───
+  1 skipped
+  15 passed (8.5m)

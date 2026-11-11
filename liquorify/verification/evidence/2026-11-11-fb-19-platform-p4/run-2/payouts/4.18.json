@@ -1,0 +1,24 @@
+{
+  "revision": "917cdcc3",
+  "stamp": "mwbfu5rt",
+  "providers": [
+    {
+      "id": "system",
+      "name": "System",
+      "available": true,
+      "requires_payout_account": false,
+      "default": true
+    },
+    {
+      "id": "stripe",
+      "name": "Stripe Connect",
+      "available": false,
+      "requires_payout_account": true,
+      "default": false
+    }
+  ],
+  "stripeMethods": 0,
+  "hintShown": true,
+  "optionShown": true,
+  "optionDisabled": true
+}

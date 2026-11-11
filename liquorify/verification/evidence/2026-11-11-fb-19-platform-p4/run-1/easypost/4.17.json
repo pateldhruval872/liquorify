@@ -1,0 +1,96 @@
+{
+  "revision": "917cdcc3",
+  "stamp": "mwbfhivq",
+  "relayed": [
+    {
+      "code": "EZ1000000001",
+      "addressedTo": "EZ1000000001",
+      "easyPostStatus": "pre_transit",
+      "answered": 200
+    },
+    {
+      "code": "EZ2000000002",
+      "addressedTo": "EZ2000000002",
+      "easyPostStatus": "in_transit",
+      "answered": 200
+    },
+    {
+      "code": "EZ3000000003",
+      "addressedTo": "EZ3000000003",
+      "easyPostStatus": "out_for_delivery",
+      "answered": 200
+    },
+    {
+      "code": "EZ5000000005",
+      "addressedTo": "EZ5000000005",
+      "easyPostStatus": "return_to_sender",
+      "answered": 200
+    },
+    {
+      "code": "EZ6000000006",
+      "addressedTo": "EZ6000000006",
+      "easyPostStatus": "failure",
+      "answered": 200
+    },
+    {
+      "code": "EZ7000000007",
+      "addressedTo": "EZ7000000007",
+      "easyPostStatus": "unknown",
+      "answered": 200
+    },
+    {
+      "code": "EZ4000000004",
+      "addressedTo": "9434600208192110658740",
+      "easyPostStatus": "delivered",
+      "answered": 200
+    }
+  ],
+  "deliveries": [
+    {
+      "code": "9434600208192110658733",
+      "status": "pending"
+    },
+    {
+      "code": "EZ1000000001",
+      "status": "pre_transit"
+    },
+    {
+      "code": "EZ2000000002",
+      "status": "in_transit"
+    },
+    {
+      "code": "EZ3000000003",
+      "status": "out_for_delivery"
+    },
+    {
+      "code": "EZ5000000005",
+      "status": "return_to_sender"
+    },
+    {
+      "code": "EZ6000000006",
+      "status": "failure"
+    },
+    {
+      "code": "EZ7000000007",
+      "status": "unknown"
+    }
+  ],
+  "shownStatuses": {
+    "Label created": true,
+    "In transit": true,
+    "Out for delivery": true,
+    "Returning to sender": true,
+    "Delivery failed": true,
+    "Status unknown": true
+  },
+  "delivered": {
+    "fulfilment": "delivered",
+    "deliveries": [
+      {
+        "code": "9434600208192110658740",
+        "status": "delivered"
+      }
+    ],
+    "shown": true
+  }
+}

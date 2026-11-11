@@ -1,0 +1,70 @@
+[
+  {
+    "shipment": "shp_c661cfefd8a14390ada61b712be28c23",
+    "mode": "test",
+    "selected_rate": {
+      "id": "rate_7cfab1c396194e46bcaa1ccd5cbc48ff",
+      "carrier": "FedExDefault",
+      "service": "FEDEX_INTERNATIONAL_CONNECT_PLUS",
+      "rate": "128.03",
+      "list_rate": "167.37",
+      "currency": "USD"
+    },
+    "same_rate_in_rate_list": [
+      {
+        "id": "rate_7cfab1c396194e46bcaa1ccd5cbc48ff",
+        "rate": "21.86",
+        "list_rate": "167.37",
+        "currency": "USD"
+      }
+    ],
+    "fees": [
+      {
+        "type": "LabelFee",
+        "amount": "0.00000"
+      },
+      {
+        "type": "PostageFee",
+        "amount": "21.86000"
+      },
+      {
+        "type": "InsuranceFee",
+        "amount": "1.00000"
+      }
+    ]
+  },
+  {
+    "shipment": "shp_cd908de3aa394d9a8a1b6ac4105bc36a",
+    "mode": "test",
+    "selected_rate": {
+      "id": "rate_8877370987d24bdbb15c0e4cb2f5d1c5",
+      "carrier": "FedExDefault",
+      "service": "FEDEX_INTERNATIONAL_CONNECT_PLUS",
+      "rate": "128.03",
+      "list_rate": "167.37",
+      "currency": "USD"
+    },
+    "same_rate_in_rate_list": [
+      {
+        "id": "rate_8877370987d24bdbb15c0e4cb2f5d1c5",
+        "rate": "21.86",
+        "list_rate": "167.37",
+        "currency": "USD"
+      }
+    ],
+    "fees": [
+      {
+        "type": "LabelFee",
+        "amount": "0.00000"
+      },
+      {
+        "type": "PostageFee",
+        "amount": "21.86000"
+      },
+      {
+        "type": "InsuranceFee",
+        "amount": "1.00000"
+      }
+    ]
+  }
+]

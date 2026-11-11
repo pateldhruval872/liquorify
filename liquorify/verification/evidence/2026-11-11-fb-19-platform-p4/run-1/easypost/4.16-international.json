@@ -1,0 +1,35 @@
+{
+  "revision": "917cdcc3",
+  "stamp": "mwbfhivq",
+  "order": "R1006",
+  "return": "RET1002",
+  "confirmation": "Are you sure?\n\nBuy a prepaid return label? Your carrier account is charged as soon as the label is issued.\n\nCancel\nBuy return label",
+  "label": {
+    "status": "purchased",
+    "carrier": "usps",
+    "service": "FirstClassPackageInternationalService",
+    "trackingNumber": "LM000024758US",
+    "forms": [
+      "commercial_invoice"
+    ]
+  },
+  "invoiceShown": true,
+  "easyPost": {
+    "id": "shp_08a0bc874faa49a58dc38027904e7992",
+    "mode": "test",
+    "isReturn": true,
+    "refundStatus": null,
+    "trackingCode": "LM000024758US",
+    "rate": {
+      "carrier": "USPS",
+      "service": "FirstClassPackageInternationalService",
+      "rate": "27.65"
+    },
+    "customsCertified": true,
+    "forms": [
+      "commercial_invoice"
+    ],
+    "from": "Toronto, CA",
+    "to": "San Francisco, US"
+  }
+}

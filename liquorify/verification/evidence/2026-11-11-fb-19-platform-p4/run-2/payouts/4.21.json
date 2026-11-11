@@ -1,0 +1,6 @@
+{
+  "revision": "917cdcc3",
+  "stamp": "mwbfz5n5",
+  "status": "NOT_RUN",
+  "reason": "no sandbox call loses Stripe’s answer after the request is sent"
+}
