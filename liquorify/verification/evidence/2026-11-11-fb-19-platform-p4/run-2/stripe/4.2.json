@@ -1,0 +1,26 @@
+{
+  "revision": "917cdcc3",
+  "stamp": "mwbg2622",
+  "confirm": {
+    "status": 200,
+    "intentStatus": "succeeded"
+  },
+  "session": "completed",
+  "placed": {
+    "status": 200,
+    "number": "R1016",
+    "total": "25.00"
+  },
+  "stripe": {
+    "status": "succeeded",
+    "amount": 2500,
+    "currency": "usd",
+    "livemode": false
+  },
+  "spreePayments": [
+    {
+      "status": "completed",
+      "amount": "25.00"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "revision": "917cdcc3",
+  "stamp": "mwbg2622",
+  "authorizedAtStripe": "requires_capture",
+  "capture": {
+    "before": "R1017-P1 P4 Stripe mwbg2622 Pending $25.00 Actions",
+    "after": "R1017-P1 P4 Stripe mwbg2622 Completed $25.00 Actions",
+    "stripe": "succeeded",
+    "received": 2500
+  },
+  "refund": {
+    "claim": "CLM1001",
+    "stripe": [
+      {
+        "amount": 1000,
+        "status": "succeeded"
+      }
+    ]
+  },
+  "void": {
+    "after": "R1018-P1 P4 Stripe mwbg2622 Void $25.00 Actions",
+    "stripe": "canceled"
+  }
+}

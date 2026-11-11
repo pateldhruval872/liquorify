@@ -626,8 +626,9 @@ test("4.15 refunding 4.13's label", async ({ page, baseURL }) => {
   await snap(page, '4.15-refund-requested')
   const requested = await shipment(label.external_id)
 
-  // EasyPost confirms a refund later with a `refund.successful` event; the
-  // script relays the event EasyPost sends for this shipment.
+  // EasyPost confirms a refund later with a `refund.successful` event, which
+  // its test mode never sends. The script composes that event in EasyPost's
+  // published shape for this shipment and relays it; the record says so.
   const integrationId = await seeded(baseURL, integration)
   const relayed = await relayEasyPost(baseURL as string, integrationId, webhookSecret, {
     object: 'Event',

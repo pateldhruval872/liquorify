@@ -1,0 +1,12 @@
+{
+  "revision": "917cdcc3",
+  "stamp": "mwbg2622",
+  "seededStoreUrl": "localhost",
+  "storeUrlForControl": "https://p4-mwbg2622.example.com",
+  "webhookEndpoints": [
+    {
+      "url": "https://p4-mwbg2622.example.com/api/v3/webhooks/payouts/pm_HOVtlDrOmL",
+      "status": "enabled"
+    }
+  ]
+}

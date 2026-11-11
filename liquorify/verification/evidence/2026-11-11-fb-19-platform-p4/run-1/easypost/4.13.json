@@ -1,0 +1,33 @@
+{
+  "revision": "917cdcc3",
+  "stamp": "mwbfg22v",
+  "order": "R1003",
+  "confirmation": "Are you sure?\n\nBuy a USPS GroundAdvantage label for $6.08? Your carrier account is charged as soon as the label is issued.\n\nCancel\nBuy label",
+  "sawBuying": true,
+  "rowText": "Shipping label\nPostage: $6.08\nPrint label\nRefund label",
+  "label": {
+    "status": "purchased",
+    "carrier": "usps",
+    "service": "GroundAdvantage",
+    "trackingNumber": "9434600208192110658696",
+    "cost": "6.08",
+    "forms": []
+  },
+  "documents": [],
+  "easyPost": {
+    "id": "shp_1e3f75e005494c37aab42b76ab8d1ef3",
+    "mode": "test",
+    "isReturn": false,
+    "refundStatus": null,
+    "trackingCode": "9434600208192110658696",
+    "rate": {
+      "carrier": "USPS",
+      "service": "GroundAdvantage",
+      "rate": "6.08"
+    },
+    "customsCertified": null,
+    "forms": [],
+    "from": "San Francisco, US",
+    "to": "Portland, US"
+  }
+}

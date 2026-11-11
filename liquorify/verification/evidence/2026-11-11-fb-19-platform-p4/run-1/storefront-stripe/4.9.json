@@ -1,0 +1,8 @@
+{
+  "revision": "917cdcc3",
+  "stamp": "mwbfnvj3",
+  "availablePaymentMethods": [
+    "[ExpressCheckout] availablePaymentMethods: {amazonPay: false, applePay: false, googlePay: false, klarna: false, link: true}"
+  ],
+  "expressFrames": 1
+}
