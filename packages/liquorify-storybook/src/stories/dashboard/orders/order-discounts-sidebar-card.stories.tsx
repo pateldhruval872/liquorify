@@ -112,7 +112,7 @@ export const GiftCardDialog: Story = {
   },
 }
 
-// The server refuses an unknown code; the dialog stays open and says nothing.
+// The server refuses an unknown code; the dialog stays open and says why.
 export const GiftCardRefused: Story = {
   name: 'Gift card dialog, code refused',
   parameters: orderParameters({ column: 'sidebar', viewport: true, first: giftCardRefused }),
@@ -122,7 +122,7 @@ export const GiftCardRefused: Story = {
     const dialog = await screen.findByRole('dialog')
     await userEvent.type(within(dialog).getByLabelText('Code'), 'GIFT-0000-0000')
     await userEvent.click(within(dialog).getByRole('button', { name: 'Add' }))
-    await within(dialog).findByRole('button', { name: 'Add' })
+    await within(dialog).findByText('The Gift Card was not found.')
   },
 }
 
