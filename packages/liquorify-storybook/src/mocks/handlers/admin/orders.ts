@@ -34,18 +34,6 @@ export interface OrderLines {
   fees?: Fee[]
 }
 
-const refusal = (field: string, message: string) =>
-  HttpResponse.json(
-    {
-      error: {
-        code: 'validation_error',
-        message: `${field} ${message}`,
-        details: { [field]: [{ code: 'invalid', message, specific: false }] },
-      },
-    },
-    { status: 422 },
-  )
-
 /**
  * The store's orders as the order screens read them: the placed list and the
  * drafts, one order opened with its tax lines, discounts and fees, and every
@@ -161,7 +149,10 @@ export function orderWriteHeld(method: 'post' | 'patch' | 'delete', path: string
 /** A gift card code the server does not know. */
 export const giftCardRefused = [
   http.post(`${admin}/orders/:id/gift_cards`, () =>
-    refusal('code', 'is not a valid gift card code'),
+    HttpResponse.json(
+      { error: { code: 'processing_error', message: 'The Gift Card was not found.' } },
+      { status: 422 },
+    ),
   ),
 ]
 

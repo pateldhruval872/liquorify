@@ -84,10 +84,25 @@ RSpec.describe Spree::Api::V3::Admin::Orders::GiftCardsController, type: :contro
     context 'when gift card currency does not match order currency' do
       let!(:gift_card) { create(:gift_card, store: store, currency: 'EUR') }
 
-      it 'returns 422' do
+      it 'returns 422 saying why' do
         post :create, params: { order_id: order.prefixed_id, code: gift_card.code }, as: :json
 
         expect(response).to have_http_status(:unprocessable_content)
+        expect(json_response['error']['message']).to eq(I18n.t('spree.gift_card_mismatched_currency'))
+      end
+    end
+
+    context 'when gift card has no amount remaining' do
+      let!(:gift_card) { create(:gift_card, store: store, amount: 20) }
+
+      before { gift_card.update!(amount_used: 20) }
+
+      it 'returns 422 saying the card has nothing left' do
+        post :create, params: { order_id: order.prefixed_id, code: gift_card.code }, as: :json
+
+        expect(response).to have_http_status(:unprocessable_content)
+        expect(json_response['error']['message']).to eq('The Gift Card has no amount remaining.')
+        expect(order.reload.gift_card).to be_nil
       end
     end
 
