@@ -1,0 +1,36 @@
+{
+  "emails": [
+    {
+      "email": "EM-C-11",
+      "subject": "Shop invitation to join Larkspur Hospitality Group",
+      "parts": [
+        "text/plain; charset=UTF-8",
+        "text/html; charset=UTF-8"
+      ],
+      "links": [
+        "<site>",
+        "<site>/account/company-invitation?token=<token>",
+        "mailto:support@example.com"
+      ],
+      "site_is_storefront": true,
+      "token_hidden": true
+    }
+  ],
+  "sent": [
+    {
+      "step": "staff add an email with no account to the company",
+      "succeeded": true,
+      "made": "CompanyInvitation",
+      "delivered": [
+        {
+          "subject": "Shop invitation to join Larkspur Hospitality Group",
+          "recipients": 1,
+          "parts": [
+            "text/plain; charset=UTF-8",
+            "text/html; charset=UTF-8"
+          ]
+        }
+      ]
+    }
+  ]
+}

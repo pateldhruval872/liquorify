@@ -1,0 +1,19 @@
+{
+  "screen": "DA-PRD-13",
+  "state": "audience-company",
+  "variant": "admin",
+  "role": null,
+  "theme": "dark",
+  "revision": "a3a427fc",
+  "path": "/<store>/products/catalogs/cat_UkLWZg9DAJ",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "fullPage": false,
+  "capturedHeight": 960,
+  "intercepted": null,
+  "handOff": "Catalog part 2: a company as a catalog’s audience",
+  "settled": true,
+  "outside": []
+}

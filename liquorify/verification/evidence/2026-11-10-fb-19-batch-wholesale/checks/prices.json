@@ -1,0 +1,390 @@
+{
+  "catalog": "Larkspur trade assortment: FID-TRADE-SAMPLER's product, -20.0% for Larkspur Hospitality Group",
+  "price_list": "Wholesale trade prices: FID-TONIC-CASE at 7.50 for the Wholesale group, from 6 units",
+  "store_prices": {
+    "FID-TRADE-SAMPLER": {
+      "id": "price_C9SrJgpzQ4",
+      "currency": "USD",
+      "amount": "20.00",
+      "compare_at_amount": null,
+      "price_list_id": null,
+      "min_quantity": 1,
+      "variant_id": "variant_ROeNhrwyV9",
+      "created_at": "2026-11-10T16:58:05.347Z",
+      "updated_at": "2026-11-10T16:58:05.347Z"
+    },
+    "FID-TONIC-CASE": {
+      "id": "price_YHETxCGlb0",
+      "currency": "USD",
+      "amount": "10.00",
+      "compare_at_amount": null,
+      "price_list_id": null,
+      "min_quantity": 1,
+      "variant_id": "variant_L3pHOn63Vw",
+      "created_at": "2026-11-10T16:58:05.611Z",
+      "updated_at": "2026-11-10T16:58:05.611Z"
+    }
+  },
+  "rows": [
+    {
+      "who": "guest",
+      "company": null,
+      "sku": "FID-TRADE-SAMPLER",
+      "quantity": 1,
+      "status": 201,
+      "error": null,
+      "unit_price": "20.00",
+      "line_total": "20.00"
+    },
+    {
+      "who": "guest",
+      "company": null,
+      "sku": "FID-TRADE-SAMPLER",
+      "quantity": 5,
+      "status": 201,
+      "error": null,
+      "unit_price": "20.00",
+      "line_total": "100.00"
+    },
+    {
+      "who": "guest",
+      "company": null,
+      "sku": "FID-TRADE-SAMPLER",
+      "quantity": 6,
+      "status": 201,
+      "error": null,
+      "unit_price": "20.00",
+      "line_total": "120.00"
+    },
+    {
+      "who": "guest",
+      "company": null,
+      "sku": "FID-TONIC-CASE",
+      "quantity": 1,
+      "status": 201,
+      "error": null,
+      "unit_price": "10.00",
+      "line_total": "10.00"
+    },
+    {
+      "who": "guest",
+      "company": null,
+      "sku": "FID-TONIC-CASE",
+      "quantity": 5,
+      "status": 201,
+      "error": null,
+      "unit_price": "10.00",
+      "line_total": "50.00"
+    },
+    {
+      "who": "guest",
+      "company": null,
+      "sku": "FID-TONIC-CASE",
+      "quantity": 6,
+      "status": 201,
+      "error": null,
+      "unit_price": "10.00",
+      "line_total": "60.00"
+    },
+    {
+      "who": "a customer in no company and no group (Ines Duarte)",
+      "company": null,
+      "sku": "FID-TRADE-SAMPLER",
+      "quantity": 1,
+      "status": 201,
+      "error": null,
+      "unit_price": "20.00",
+      "line_total": "20.00"
+    },
+    {
+      "who": "a customer in no company and no group (Ines Duarte)",
+      "company": null,
+      "sku": "FID-TRADE-SAMPLER",
+      "quantity": 5,
+      "status": 201,
+      "error": null,
+      "unit_price": "20.00",
+      "line_total": "100.00"
+    },
+    {
+      "who": "a customer in no company and no group (Ines Duarte)",
+      "company": null,
+      "sku": "FID-TRADE-SAMPLER",
+      "quantity": 6,
+      "status": 201,
+      "error": null,
+      "unit_price": "20.00",
+      "line_total": "120.00"
+    },
+    {
+      "who": "a customer in no company and no group (Ines Duarte)",
+      "company": null,
+      "sku": "FID-TONIC-CASE",
+      "quantity": 1,
+      "status": 201,
+      "error": null,
+      "unit_price": "10.00",
+      "line_total": "10.00"
+    },
+    {
+      "who": "a customer in no company and no group (Ines Duarte)",
+      "company": null,
+      "sku": "FID-TONIC-CASE",
+      "quantity": 5,
+      "status": 201,
+      "error": null,
+      "unit_price": "10.00",
+      "line_total": "50.00"
+    },
+    {
+      "who": "a customer in no company and no group (Ines Duarte)",
+      "company": null,
+      "sku": "FID-TONIC-CASE",
+      "quantity": 6,
+      "status": 201,
+      "error": null,
+      "unit_price": "10.00",
+      "line_total": "60.00"
+    },
+    {
+      "who": "a member of the catalog’s company, not in the Wholesale group (Dev Kapoor)",
+      "company": "Larkspur Hospitality Group",
+      "sku": "FID-TRADE-SAMPLER",
+      "quantity": 1,
+      "status": 201,
+      "error": null,
+      "unit_price": "16.00",
+      "line_total": "16.00"
+    },
+    {
+      "who": "a member of the catalog’s company, not in the Wholesale group (Dev Kapoor)",
+      "company": "Larkspur Hospitality Group",
+      "sku": "FID-TRADE-SAMPLER",
+      "quantity": 5,
+      "status": 201,
+      "error": null,
+      "unit_price": "16.00",
+      "line_total": "80.00"
+    },
+    {
+      "who": "a member of the catalog’s company, not in the Wholesale group (Dev Kapoor)",
+      "company": "Larkspur Hospitality Group",
+      "sku": "FID-TRADE-SAMPLER",
+      "quantity": 6,
+      "status": 201,
+      "error": null,
+      "unit_price": "16.00",
+      "line_total": "96.00"
+    },
+    {
+      "who": "a member of the catalog’s company, not in the Wholesale group (Dev Kapoor)",
+      "company": "Larkspur Hospitality Group",
+      "sku": "FID-TONIC-CASE",
+      "quantity": 1,
+      "status": 404,
+      "error": "Variant not found",
+      "unit_price": null,
+      "line_total": null
+    },
+    {
+      "who": "a member of the catalog’s company, not in the Wholesale group (Dev Kapoor)",
+      "company": "Larkspur Hospitality Group",
+      "sku": "FID-TONIC-CASE",
+      "quantity": 5,
+      "status": 404,
+      "error": "Variant not found",
+      "unit_price": null,
+      "line_total": null
+    },
+    {
+      "who": "a member of the catalog’s company, not in the Wholesale group (Dev Kapoor)",
+      "company": "Larkspur Hospitality Group",
+      "sku": "FID-TONIC-CASE",
+      "quantity": 6,
+      "status": 404,
+      "error": "Variant not found",
+      "unit_price": null,
+      "line_total": null
+    },
+    {
+      "who": "a member of the company’s division, in the Wholesale group (Marisol Ortega), buying for the division",
+      "company": "Larkspur North",
+      "sku": "FID-TRADE-SAMPLER",
+      "quantity": 1,
+      "status": 201,
+      "error": null,
+      "unit_price": "16.00",
+      "line_total": "16.00"
+    },
+    {
+      "who": "a member of the company’s division, in the Wholesale group (Marisol Ortega), buying for the division",
+      "company": "Larkspur North",
+      "sku": "FID-TRADE-SAMPLER",
+      "quantity": 5,
+      "status": 201,
+      "error": null,
+      "unit_price": "16.00",
+      "line_total": "80.00"
+    },
+    {
+      "who": "a member of the company’s division, in the Wholesale group (Marisol Ortega), buying for the division",
+      "company": "Larkspur North",
+      "sku": "FID-TRADE-SAMPLER",
+      "quantity": 6,
+      "status": 201,
+      "error": null,
+      "unit_price": "16.00",
+      "line_total": "96.00"
+    },
+    {
+      "who": "a member of the company’s division, in the Wholesale group (Marisol Ortega), buying for the division",
+      "company": "Larkspur North",
+      "sku": "FID-TONIC-CASE",
+      "quantity": 1,
+      "status": 404,
+      "error": "Variant not found",
+      "unit_price": null,
+      "line_total": null
+    },
+    {
+      "who": "a member of the company’s division, in the Wholesale group (Marisol Ortega), buying for the division",
+      "company": "Larkspur North",
+      "sku": "FID-TONIC-CASE",
+      "quantity": 5,
+      "status": 404,
+      "error": "Variant not found",
+      "unit_price": null,
+      "line_total": null
+    },
+    {
+      "who": "a member of the company’s division, in the Wholesale group (Marisol Ortega), buying for the division",
+      "company": "Larkspur North",
+      "sku": "FID-TONIC-CASE",
+      "quantity": 6,
+      "status": 404,
+      "error": "Variant not found",
+      "unit_price": null,
+      "line_total": null
+    },
+    {
+      "who": "the same buyer, with no company named on the cart",
+      "company": null,
+      "sku": "FID-TRADE-SAMPLER",
+      "quantity": 1,
+      "status": 201,
+      "error": null,
+      "unit_price": "16.00",
+      "line_total": "16.00"
+    },
+    {
+      "who": "the same buyer, with no company named on the cart",
+      "company": null,
+      "sku": "FID-TRADE-SAMPLER",
+      "quantity": 5,
+      "status": 201,
+      "error": null,
+      "unit_price": "16.00",
+      "line_total": "80.00"
+    },
+    {
+      "who": "the same buyer, with no company named on the cart",
+      "company": null,
+      "sku": "FID-TRADE-SAMPLER",
+      "quantity": 6,
+      "status": 201,
+      "error": null,
+      "unit_price": "16.00",
+      "line_total": "96.00"
+    },
+    {
+      "who": "the same buyer, with no company named on the cart",
+      "company": null,
+      "sku": "FID-TONIC-CASE",
+      "quantity": 1,
+      "status": 404,
+      "error": "Variant not found",
+      "unit_price": null,
+      "line_total": null
+    },
+    {
+      "who": "the same buyer, with no company named on the cart",
+      "company": null,
+      "sku": "FID-TONIC-CASE",
+      "quantity": 5,
+      "status": 404,
+      "error": "Variant not found",
+      "unit_price": null,
+      "line_total": null
+    },
+    {
+      "who": "the same buyer, with no company named on the cart",
+      "company": null,
+      "sku": "FID-TONIC-CASE",
+      "quantity": 6,
+      "status": 404,
+      "error": "Variant not found",
+      "unit_price": null,
+      "line_total": null
+    },
+    {
+      "who": "a customer in the Wholesale group and in no company (Tomas Reyes)",
+      "company": null,
+      "sku": "FID-TRADE-SAMPLER",
+      "quantity": 1,
+      "status": 201,
+      "error": null,
+      "unit_price": "20.00",
+      "line_total": "20.00"
+    },
+    {
+      "who": "a customer in the Wholesale group and in no company (Tomas Reyes)",
+      "company": null,
+      "sku": "FID-TRADE-SAMPLER",
+      "quantity": 5,
+      "status": 201,
+      "error": null,
+      "unit_price": "20.00",
+      "line_total": "100.00"
+    },
+    {
+      "who": "a customer in the Wholesale group and in no company (Tomas Reyes)",
+      "company": null,
+      "sku": "FID-TRADE-SAMPLER",
+      "quantity": 6,
+      "status": 201,
+      "error": null,
+      "unit_price": "20.00",
+      "line_total": "120.00"
+    },
+    {
+      "who": "a customer in the Wholesale group and in no company (Tomas Reyes)",
+      "company": null,
+      "sku": "FID-TONIC-CASE",
+      "quantity": 1,
+      "status": 201,
+      "error": null,
+      "unit_price": "10.00",
+      "line_total": "10.00"
+    },
+    {
+      "who": "a customer in the Wholesale group and in no company (Tomas Reyes)",
+      "company": null,
+      "sku": "FID-TONIC-CASE",
+      "quantity": 5,
+      "status": 201,
+      "error": null,
+      "unit_price": "10.00",
+      "line_total": "50.00"
+    },
+    {
+      "who": "a customer in the Wholesale group and in no company (Tomas Reyes)",
+      "company": null,
+      "sku": "FID-TONIC-CASE",
+      "quantity": 6,
+      "status": 201,
+      "error": null,
+      "unit_price": "7.50",
+      "line_total": "45.00"
+    }
+  ]
+}

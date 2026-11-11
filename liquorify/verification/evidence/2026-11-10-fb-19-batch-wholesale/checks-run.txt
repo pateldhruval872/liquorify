@@ -1,0 +1,26 @@
+# Email captures, pinned image
+
+Running 2 tests using 1 worker
+
+  ✓  1 fidelity/order-emails.spec.ts:30:5 › EM-C-11 at 390 (636ms)
+  ✓  2 fidelity/order-emails.spec.ts:30:5 › EM-C-11 at 1280 (638ms)
+
+  2 passed (2.1s)
+
+# Checks, first full run, pinned image (the acceptance row recorded NOT_RUN: the server's database was not named)
+
+Running 6 tests using 1 worker
+
+  ✓  1 fidelity/wholesale-checks.spec.ts:100:1 › a company that requires a purchase order number (1.0s)
+  ✓  2 fidelity/wholesale-checks.spec.ts:143:1 › a member added and removed, and invitations accepted and revoked (196ms)
+  ✓  3 fidelity/wholesale-checks.spec.ts:273:1 › certificates and the tax on a company’s order (2.4s)
+  ✓  4 fidelity/wholesale-checks.spec.ts:380:1 › a company’s address book as a member reads it (76ms)
+  ✓  5 fidelity/wholesale-checks.spec.ts:399:1 › the catalog and the Wholesale price list, as each buyer is priced (9.5s)
+  ✓  6 fidelity/wholesale-checks.spec.ts:468:1 › the invitation email’s link on the storefront (2.2s)
+
+  6 passed (17.4s)
+
+# Run again with the server's database named, pinned image
+Running 1 test using 1 worker
+  ✓  1 fidelity/wholesale-checks.spec.ts:143:1 › a member added and removed, and invitations accepted and revoked (336ms)
+  1 passed (2.0s)

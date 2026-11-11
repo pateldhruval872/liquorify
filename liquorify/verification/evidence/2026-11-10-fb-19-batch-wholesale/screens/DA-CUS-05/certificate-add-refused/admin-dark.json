@@ -1,0 +1,19 @@
+{
+  "screen": "DA-CUS-05",
+  "state": "certificate-add-refused",
+  "variant": "admin",
+  "role": null,
+  "theme": "dark",
+  "revision": "a3a427fc",
+  "path": "/<store>/companies/comp_UkLWZg9DAJ",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "fullPage": false,
+  "capturedHeight": 960,
+  "intercepted": null,
+  "handOff": null,
+  "settled": true,
+  "outside": []
+}

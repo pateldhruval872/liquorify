@@ -76,6 +76,10 @@ import { defineConfig } from '@playwright/test'
  * edits, publishes and reverts an email template and its settings on the
  * emails app, and `sf-dev-emails.spec.ts` captures the storefront's development
  * email previews (see each file).
+ * Batch 12 (wholesale) keeps its captures and comparison in
+ * `screens-batch-12.spec.ts` and `compare-batch-12.spec.ts`, seeding through
+ * `companies.ts`; `wholesale-checks.spec.ts` checks its settings where they
+ * take effect, through the Admin and Store APIs (see that file).
  * `FIDELITY_BASE_URL` points the scripts at a dashboard served on another
  * port, beside a server started with `E2E_RAILS_PORT`.
  */
@@ -101,6 +105,9 @@ export default defineConfig({
     'screens-batch-13-part-2-storefront.spec.ts',
     'seller-panel-checks.spec.ts',
     'seller-panel-mail.spec.ts',
+    'screens-batch-12.spec.ts',
+    'compare-batch-12.spec.ts',
+    'wholesale-checks.spec.ts',
     'marketplace-checks.spec.ts',
     'fl-22.spec.ts',
     'fl-18.spec.ts',
