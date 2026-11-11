@@ -92,7 +92,10 @@ test('4.18 the payout providers, and the marketplace settings before Stripe is s
     .catch(() => false)
   await page.locator('#payout-provider').click()
   const option = page.getByRole('option', { name: 'Connect Stripe Connect to use it' })
-  const optionShown = await option.isVisible()
+  const optionShown = await option
+    .waitFor({ state: 'visible', timeout: 10_000 })
+    .then(() => true)
+    .catch(() => false)
   const optionDisabled = optionShown
     ? (await option.getAttribute('aria-disabled')) === 'true' ||
       (await option.getAttribute('data-disabled')) !== null
