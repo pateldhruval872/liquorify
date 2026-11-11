@@ -1,0 +1,163 @@
+# First full run, pinned image
+
+Running 120 tests using 1 worker
+
+  ✓    1 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-04 listed admin light (3.4s)
+  ✓    2 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-04 listed orderManager light (3.3s)
+  ✓    3 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-04 listed support light (3.2s)
+  ✓    4 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-04 listed customerManager light (2.9s)
+  ✓    5 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-04 loading admin light (3.8s)
+  ✓    6 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-04 none admin light (2.9s)
+  ✓    7 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-04 searched admin light (2.9s)
+  ✓    8 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-04 filtered-kind admin light (3.0s)
+  ✓    9 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-04 sorted admin light (3.1s)
+  ✓   10 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-04 new-sheet admin light (2.8s)
+  ✓   11 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-04 new-sheet-filled admin light (2.8s)
+  ✓   12 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-04 new-sheet-refused admin light (2.7s)
+  ✓   13 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-04 delete-confirm admin light (2.8s)
+  ✓   14 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-04 direct-visit merchandiser light (3.5s)
+  ✓   15 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-05 company admin light (3.1s)
+  ✓   16 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-05 company orderManager light (2.9s)
+  ✓   17 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-05 company support light (2.9s)
+  ✓   18 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-05 company customerManager light (3.1s)
+  ✓   19 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-05 company admin phone light (2.7s)
+  ✓   20 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-05 division admin light (2.9s)
+  ✓   21 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-05 empty-company admin light (3.1s)
+  ✓   22 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-05 purchase-order-required admin light (2.9s)
+  ✓   23 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-05 loading admin light (3.5s)
+  ✓   24 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-05 not-found admin light (4.3s)
+  ✓   25 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-05 load-failed admin light (5.5s)
+  ✓   26 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-05 json-drawer admin light (3.3s)
+  ✓   27 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-05 delete-confirm admin light (2.8s)
+  ✓   28 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-05 profile-saved admin light (2.8s)
+  ✓   29 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-05 profile-refused admin light (2.9s)
+  ✓   30 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-05 sub-unit-add-company admin light (2.9s)
+  ✓   31 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-05 sub-unit-add-division admin light (2.8s)
+  ✓   32 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-05 member-add admin light (2.8s)
+  ✓   33 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-05 member-added admin light (3.2s)
+  ✓   34 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-05 invitation-made admin light (3.1s)
+  ✓   35 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-05 member-remove-confirm admin light (3.1s)
+  ✓   36 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-05 invitation-revoke-confirm admin light (3.1s)
+  ✓   37 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-05 address-menu admin light (3.2s)
+  ✓   38 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-05 address-add admin light (3.1s)
+  ✓   39 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-05 address-edit admin light (3.2s)
+  ✓   40 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-05 address-refused admin light (3.4s)
+  ✓   41 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-05 address-delete-confirm admin light (3.2s)
+  ✓   42 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-05 tax-menu admin light (3.1s)
+  ✓   43 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-05 tax-add admin light (2.9s)
+  ✓   44 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-05 tax-edit admin light (3.0s)
+  ✓   45 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-05 tax-delete-confirm admin light (2.9s)
+  ✓   46 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-05 certificates admin light (2.9s)
+  ✓   47 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-05 certificate-menu-pending admin light (3.0s)
+  ✓   48 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-05 certificate-menu-accepted admin light (3.0s)
+  ✓   49 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-05 certificate-add admin light (3.2s)
+  ✓   50 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-05 certificate-add-refused admin light (3.1s)
+  ✓   51 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-05 certificate-accepted admin light (3.4s)
+  ✓   52 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-05 certificate-revoke-confirm admin light (3.2s)
+  ✓   53 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-05 certificate-revoked admin light (3.4s)
+  ✓   54 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-05 certificate-delete-confirm admin light (3.1s)
+  ✓   55 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-05 direct-visit merchandiser light (3.5s)
+  ✓   56 fidelity/screens-batch-12.spec.ts:988:5 › DA-ORD-03 company-chosen admin light (3.3s)
+  ✓   57 fidelity/screens-batch-12.spec.ts:988:5 › DA-ORD-03 company-chosen orderManager light (3.1s)
+  ✓   58 fidelity/screens-batch-12.spec.ts:988:5 › DA-ORD-03 purchase-order-company admin light (4.2s)
+  ✓   59 fidelity/screens-batch-12.spec.ts:988:5 › DA-PRD-13 audience-company admin light (2.9s)
+  ✓   60 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-02 wholesale-buyer admin light (3.4s)
+  ✓   61 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-04 listed admin dark (2.7s)
+  ✓   62 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-04 listed orderManager dark (2.6s)
+  ✓   63 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-04 listed support dark (2.6s)
+  ✓   64 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-04 listed customerManager dark (2.8s)
+  ✓   65 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-04 loading admin dark (3.4s)
+  ✓   66 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-04 none admin dark (2.6s)
+  ✓   67 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-04 searched admin dark (2.8s)
+  ✓   68 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-04 filtered-kind admin dark (2.9s)
+  ✓   69 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-04 sorted admin dark (3.1s)
+  ✓   70 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-04 new-sheet admin dark (2.7s)
+  ✓   71 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-04 new-sheet-filled admin dark (2.8s)
+  ✓   72 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-04 new-sheet-refused admin dark (2.8s)
+  ✓   73 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-04 delete-confirm admin dark (3.1s)
+  ✓   74 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-04 direct-visit merchandiser dark (3.2s)
+  ✓   75 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-05 company admin dark (2.9s)
+  ✓   76 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-05 company orderManager dark (2.9s)
+  ✓   77 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-05 company support dark (3.0s)
+  ✓   78 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-05 company customerManager dark (3.1s)
+  ✓   79 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-05 company admin phone dark (2.8s)
+  ✓   80 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-05 division admin dark (3.4s)
+  ✓   81 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-05 empty-company admin dark (3.1s)
+  ✓   82 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-05 purchase-order-required admin dark (3.2s)
+  ✓   83 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-05 loading admin dark (3.5s)
+  ✓   84 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-05 not-found admin dark (4.2s)
+  ✓   85 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-05 load-failed admin dark (5.9s)
+  ✓   86 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-05 json-drawer admin dark (3.4s)
+  ✓   87 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-05 delete-confirm admin dark (3.1s)
+  ✓   88 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-05 profile-saved admin dark (2.9s)
+  ✓   89 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-05 profile-refused admin dark (2.9s)
+  ✓   90 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-05 sub-unit-add-company admin dark (3.1s)
+  ✓   91 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-05 sub-unit-add-division admin dark (3.1s)
+  ✓   92 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-05 member-add admin dark (3.2s)
+  ✓   93 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-05 member-added admin dark (3.2s)
+  ✓   94 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-05 invitation-made admin dark (3.2s)
+  ✓   95 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-05 member-remove-confirm admin dark (3.1s)
+  ✓   96 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-05 invitation-revoke-confirm admin dark (3.0s)
+  ✓   97 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-05 address-menu admin dark (3.0s)
+  ✓   98 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-05 address-add admin dark (3.2s)
+  ✓   99 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-05 address-edit admin dark (3.2s)
+  ✓  100 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-05 address-refused admin dark (3.2s)
+  ✓  101 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-05 address-delete-confirm admin dark (3.4s)
+  ✓  102 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-05 tax-menu admin dark (3.6s)
+  ✓  103 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-05 tax-add admin dark (3.4s)
+  ✓  104 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-05 tax-edit admin dark (3.7s)
+  ✓  105 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-05 tax-delete-confirm admin dark (3.2s)
+  ✓  106 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-05 certificates admin dark (2.8s)
+  ✓  107 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-05 certificate-menu-pending admin dark (3.0s)
+  ✓  108 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-05 certificate-menu-accepted admin dark (3.0s)
+  ✓  109 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-05 certificate-add admin dark (3.2s)
+  ✓  110 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-05 certificate-add-refused admin dark (3.2s)
+  ✘  111 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-05 certificate-accepted admin dark (1.3s)
+  ✓  112 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-05 certificate-revoke-confirm admin dark (3.2s)
+  ✓  113 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-05 certificate-revoked admin dark (3.6s)
+  ✓  114 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-05 certificate-delete-confirm admin dark (3.2s)
+  ✓  115 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-05 direct-visit merchandiser dark (3.5s)
+  ✓  116 fidelity/screens-batch-12.spec.ts:988:5 › DA-ORD-03 company-chosen admin dark (3.2s)
+  ✓  117 fidelity/screens-batch-12.spec.ts:988:5 › DA-ORD-03 company-chosen orderManager dark (2.9s)
+  ✓  118 fidelity/screens-batch-12.spec.ts:988:5 › DA-ORD-03 purchase-order-company admin dark (4.1s)
+  ✓  119 fidelity/screens-batch-12.spec.ts:988:5 › DA-PRD-13 audience-company admin dark (2.9s)
+  ✓  120 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-02 wholesale-buyer admin dark (3.3s)
+
+
+  1) fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-05 certificate-accepted admin dark ───────────
+
+    Error: GET companies/comp_VqXmZF31wY/tax_exemption_certificates?limit=100: 401 {"error":{"code":"authentication_required","message":"Authentication required"}}
+
+    expect(received).toBeTruthy()
+
+    Received: false
+
+       at orders.ts:100
+
+       98 |   const res = await api[method](`/api/v3/admin/${path}`, { headers, data })
+       99 |   const text = await res.text()
+    > 100 |   expect(res.ok(), `${method.toUpperCase()} ${path}: ${res.status()} ${text}`).toBeTruthy()
+          |                                                                                ^
+      101 |   return (text ? JSON.parse(text) : {}) as Json
+      102 | }
+      103 |
+        at call (/work/packages/liquorify-storybook/fidelity/orders.ts:100:80)
+        at list (/work/packages/liquorify-storybook/fidelity/orders.ts:105:4)
+        at Object.after (/work/packages/liquorify-storybook/fidelity/screens-batch-12.spec.ts:751:21)
+        at /work/packages/liquorify-storybook/fidelity/screens-batch-12.spec.ts:999:9
+
+    Error Context: fidelity/results/test-output/screens-batch-12-DA-CUS-05-certificate-accepted-admin-dark/error-context.md
+
+    Error Context: fidelity/results/test-output/screens-batch-12-DA-CUS-05-certificate-accepted-admin-dark/error-context.md
+
+  1 failed
+    fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-05 certificate-accepted admin dark ────────────
+  119 passed (6.5m)
+
+# Run again: the one capture whose admin sign-in had expired, after the script signed in afresh for each capture
+
+Running 1 test using 1 worker
+
+  ✓  1 fidelity/screens-batch-12.spec.ts:988:5 › DA-CUS-05 certificate-accepted admin dark (3.1s)
+
+  1 passed (6.5s)

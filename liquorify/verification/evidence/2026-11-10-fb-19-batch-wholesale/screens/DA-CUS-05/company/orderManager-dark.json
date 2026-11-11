@@ -1,0 +1,30 @@
+{
+  "screen": "DA-CUS-05",
+  "state": "company",
+  "variant": "orderManager",
+  "role": {
+    "name": "Order manager",
+    "permissions": [
+      "write_orders",
+      "write_payments",
+      "write_fulfillments",
+      "write_refunds",
+      "write_gift_cards",
+      "write_store_credits",
+      "read_customers"
+    ]
+  },
+  "theme": "dark",
+  "revision": "a3a427fc",
+  "path": "/<store>/companies/comp_UkLWZg9DAJ",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "fullPage": true,
+  "capturedHeight": 1131,
+  "intercepted": null,
+  "handOff": null,
+  "settled": true,
+  "outside": []
+}

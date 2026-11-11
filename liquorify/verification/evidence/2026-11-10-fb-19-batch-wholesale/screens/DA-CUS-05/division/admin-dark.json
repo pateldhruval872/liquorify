@@ -1,0 +1,19 @@
+{
+  "screen": "DA-CUS-05",
+  "state": "division",
+  "variant": "admin",
+  "role": null,
+  "theme": "dark",
+  "revision": "a3a427fc",
+  "path": "/<store>/companies/comp_gbHJdmfrXB",
+  "viewport": {
+    "width": 1280,
+    "height": 960
+  },
+  "fullPage": true,
+  "capturedHeight": 1200,
+  "intercepted": null,
+  "handOff": null,
+  "settled": true,
+  "outside": []
+}

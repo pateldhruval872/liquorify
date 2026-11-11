@@ -1,0 +1,69 @@
+{
+  "rate": "Fidelity Oregon check tax, 10%, Oregon only",
+  "rows": [
+    {
+      "certificate": "none",
+      "company": "Quillon Provisions",
+      "item_total": "20.00",
+      "tax_total": "2.00",
+      "additional_tax_total": "2.00",
+      "total": "22.00"
+    },
+    {
+      "certificate": "accepted, current, for Oregon (FID-RES-1002), with pending, revoked and lapsed ones beside it",
+      "company": "Larkspur Hospitality Group",
+      "item_total": "16.00",
+      "tax_total": "0.00",
+      "additional_tax_total": "0.00",
+      "total": "16.00"
+    },
+    {
+      "certificate": "the division’s legal entity’s, read for a division’s order",
+      "company": "Larkspur North",
+      "item_total": "16.00",
+      "tax_total": "0.00",
+      "additional_tax_total": "0.00",
+      "total": "16.00"
+    },
+    {
+      "certificate": "pending",
+      "company": "Cedar & Vine Bistro",
+      "item_total": "20.00",
+      "tax_total": "2.00",
+      "additional_tax_total": "2.00",
+      "total": "22.00"
+    },
+    {
+      "certificate": "accepted",
+      "company": "Cedar & Vine Bistro",
+      "item_total": "20.00",
+      "tax_total": "0.00",
+      "additional_tax_total": "0.00",
+      "total": "20.00"
+    },
+    {
+      "certificate": "revoked",
+      "company": "Cedar & Vine Bistro",
+      "item_total": "20.00",
+      "tax_total": "2.00",
+      "additional_tax_total": "2.00",
+      "total": "22.00"
+    },
+    {
+      "certificate": "accepted but past its date (lapsed)",
+      "company": "Cedar & Vine Bistro",
+      "item_total": "20.00",
+      "tax_total": "2.00",
+      "additional_tax_total": "2.00",
+      "total": "22.00"
+    },
+    {
+      "certificate": "accepted, current, for Washington only",
+      "company": "Cedar & Vine Bistro",
+      "item_total": "20.00",
+      "tax_total": "2.00",
+      "additional_tax_total": "2.00",
+      "total": "22.00"
+    }
+  ]
+}

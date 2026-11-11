@@ -1,0 +1,23 @@
+{
+  "member": {
+    "status": 200,
+    "addresses": [
+      {
+        "label": "Head office",
+        "address1": "400 Larkspur Avenue",
+        "is_default_billing": true,
+        "is_default_shipping": true
+      },
+      {
+        "label": "Receiving dock",
+        "address1": "18 Freight Row",
+        "is_default_billing": false,
+        "is_default_shipping": false
+      }
+    ]
+  },
+  "not_a_member": {
+    "status": 404,
+    "error": "record_not_found"
+  }
+}
