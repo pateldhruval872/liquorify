@@ -12,8 +12,8 @@ module Spree
       extend ActiveSupport::Concern
 
       included do
-        belongs_to :bill_address, class_name: 'Spree::Address', optional: true, dependent: :destroy
-        belongs_to :ship_address, class_name: 'Spree::Address', optional: true, dependent: :destroy
+        belongs_to :bill_address, class_name: 'Spree::Address', optional: true
+        belongs_to :ship_address, class_name: 'Spree::Address', optional: true
 
         # The writers these generate are shadowed by the hand-written ones
         # below, which deduplicate address rows. The declarations still earn
@@ -38,6 +38,8 @@ module Spree
 
         before_validation :clone_billing_address, if: :use_billing?
         before_validation :clone_shipping_address, if: :use_shipping?
+
+        after_destroy :destroy_unshared_addresses
       end
 
       # @return [Boolean]
@@ -265,6 +267,17 @@ module Spree
 
       def should_assign_user_default_address?(address)
         customer.present? && address.present? && address.valid? && address.customer_owner == customer && !address.quick_checkout?
+      end
+
+      # An address kept only for this record goes with it. One in an address
+      # book, or one another order, cart or parcel still uses, is not this
+      # record's to remove: destroying it took the customer's saved address
+      # away, or rolled the whole deletion back.
+      def destroy_unshared_addresses
+        address_ids = [bill_address_id, ship_address_id].compact.uniq
+        Spree::Address.where(id: address_ids, owner_id: nil).find_each do |address|
+          address.destroy! unless address.in_use?
+        end
       end
     end
   end

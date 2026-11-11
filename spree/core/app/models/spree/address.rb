@@ -463,6 +463,18 @@ module Spree
       new_record? || Order.complete.where('bill_address_id = ? OR ship_address_id = ?', id, id).none?
     end
 
+    # Whether any order, cart, order group, parcel or saved card still points
+    # at this address, so removing it would take it from under them.
+    #
+    # @return [Boolean]
+    def in_use?
+      [Spree::Order, Spree::Cart, Spree::OrderGroup].any? do |model|
+        model.where(bill_address_id: id).or(model.where(ship_address_id: id)).exists?
+      end ||
+        Spree::Fulfillment.where(address_id: id).exists? ||
+        Spree::CreditCard.where(address_id: id).exists?
+    end
+
     def can_be_deleted?
       shipments.empty? && Order.complete.where('bill_address_id = ? OR ship_address_id = ?', id, id).none?
     end
