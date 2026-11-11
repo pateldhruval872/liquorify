@@ -27,6 +27,9 @@ module Spree
               nullable: true,
               description: 'Internal note on what the agreement is, never shown to shoppers.'
             body.attribute :active, :boolean, example: true
+            body.attribute :closed_assortment, :boolean,
+              example: false,
+              description: 'When true the catalog shows exactly the products it lists, and nothing when it lists none. When false (the default) a catalog with no products is a pricing-only overlay that hides nothing. A closed, empty default catalog makes a channel members-only.'
             body.attribute :position, :integer
             body.attribute :minimum_order_quantity, :integer,
               nullable: true,

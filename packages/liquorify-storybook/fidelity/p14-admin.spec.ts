@@ -28,6 +28,9 @@ import { PASSWORD, seed, teammates } from './staff'
  * allow it, and as one who may, and is judged by P7's `one-store.ts`.
  *
  * Start Spree's browser-test server first, freshly, as `stack.spec.ts` says.
+ * The script sends to port 3010 unless `P14_API_URL` names another, so when
+ * the stack runs on its own port (`E2E_RAILS_PORT`), pass that port here too,
+ * or the run reaches no server. `FIDELITY_REVISION` stamps the commit tested.
  * The script adds `staff.ts`'s teammates, then the records this run aims at,
  * marked with the run's stamp. The admin makes them through the Admin API;
  * the steps only a seller can take (accepting an invitation, submitting a
