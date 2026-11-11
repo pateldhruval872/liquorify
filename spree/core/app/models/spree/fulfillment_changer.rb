@@ -116,17 +116,33 @@ module Spree
     end
 
     def after_process_shipments
-      if current_shipment.fulfillment_items.sum(:quantity).zero?
+      emptied = current_shipment.fulfillment_items.sum(:quantity).zero?
+      carried_cost = emptied ? current_shipment.cost : 0
+
+      if emptied
         current_shipment.destroy!
       else
         current_shipment.refresh_rates
       end
 
       desired_shipment.refresh_rates
-      desired_shipment.update_amounts
+      keep_delivery_charge(carried_cost)
 
       desired_shipment.order.reload
       desired_shipment.order.recalculate_totals!
+    end
+
+    # A placed order's delivery charge is what the shopper agreed to at
+    # checkout, so splitting a parcel only moves it: the new parcel takes the
+    # charge of a parcel it empties and otherwise adds nothing. Pricing it
+    # afresh would leave a paid order owing more and refuse to ship it.
+    def keep_delivery_charge(carried_cost)
+      unless desired_shipment.order.completed?
+        desired_shipment.update_amounts
+        return
+      end
+
+      desired_shipment.update_columns(cost: desired_shipment.cost + carried_cost, updated_at: Time.current)
     end
 
     def new_on_hand_quantity

@@ -223,6 +223,36 @@ RSpec.describe Spree::Api::V3::Seller::Orders::FulfillmentsController, type: :co
       expect(response).to have_http_status(:ok)
     end
 
+    # The shopper paid for delivery once. Charging the new parcel again left
+    # the order owing money, and the seller could not ship what they split.
+    it 'leaves a paid order paid in full' do
+      variant = fulfillment.fulfillment_items.first.variant
+
+      expect {
+        patch :split, params: {
+          order_id: order.prefixed_id, id: fulfillment.prefixed_id,
+          variant_id: variant.prefixed_id, quantity: 1
+        }, as: :json
+      }.not_to change { order.reload.total }
+
+      expect(order.outstanding_balance).to be_zero
+    end
+
+    it "404s on another seller's parcel" do
+      other = create(:order_ready_to_ship, store: store, seller: create(:seller, :approved, store: store),
+                                           line_items_count: 2)
+      theirs = other.fulfillments.first
+
+      expect {
+        patch :split, params: {
+          order_id: other.prefixed_id, id: theirs.prefixed_id,
+          variant_id: theirs.fulfillment_items.first.variant.prefixed_id, quantity: 1
+        }, as: :json
+      }.not_to change { other.fulfillments.count }
+
+      expect(response).to have_http_status(:not_found)
+    end
+
     # What may be split is what this parcel is carrying, so a variant from
     # elsewhere in the catalogue is not addressable here.
     it '404s on a variant the order does not carry' do
