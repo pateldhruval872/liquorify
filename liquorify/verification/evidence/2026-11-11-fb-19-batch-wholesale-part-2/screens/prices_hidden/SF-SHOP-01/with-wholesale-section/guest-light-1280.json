@@ -1,0 +1,11 @@
+{
+  "screen": "SF-SHOP-01",
+  "state": "with-wholesale-section",
+  "variant": "guest",
+  "theme": "light",
+  "width": 1280,
+  "revision": "e9d80d5",
+  "path": "/us/en",
+  "observed": "The section's links: /us/en/wholesale, /us/en/wholesale/apply.",
+  "note": null
+}

@@ -1,0 +1,373 @@
+[WebServer] 
+[WebServer] > nextjs-starter-spree@0.1.0 dev <storefront>
+[WebServer] > next dev -p 3001 --turbopack
+[WebServer] 
+[WebServer] ▲ Next.js 16.3.8 (Turbopack)
+[WebServer] - Local:         http://localhost:3001
+[WebServer] - Network:       http://<host>:3001
+[WebServer] ✓ Ready in 509ms
+[WebServer] ✓ Running next.config.ts took 464ms
+[WebServer] - Cache Components enabled
+[WebServer] - Experiments (use with caution):
+[WebServer]   · optimizePackageImports
+[WebServer] 
+[WebServer] ✓ Generated CLAUDE.md for AI agents. Set `agentRules: false` in next.config to disable.
+[WebServer] ○ Compiling /[country]/[locale] ...
+
+Running 3 tests using 2 workers
+
+[WebServer]  GET /us/en 200 in 10.1s (next.js: 7.8s, proxy.ts: 193ms, generate-params: 762ms, application-code: 1334ms)
+[WebServer] Error: Route "/[country]/[locale]": Next.js encountered runtime data during prerendering or a navigation.
+[WebServer] 
+[WebServer] `cookies()`, `headers()`, `params`, or `searchParams` accessed outside of `<Suspense>` prevents the route from being prerendered or the navigation from being instant, leading to a slower user experience.
+[WebServer] 
+[WebServer] Ways to fix this:
+[WebServer]   - [stream] Provide a placeholder with `<Suspense fallback={...}>` around the data access
+[WebServer]   - [block] Set `export const instant = false` to allow a blocking route
+[WebServer] 
+[WebServer] Learn more: https://nextjs.org/docs/messages/blocking-prerender-runtime
+[WebServer]     at getLocaleOptions (src/lib/spree/locale.ts:18:38)
+[WebServer]     at getMarkets (src/lib/data/markets.ts:41:61)
+[WebServer]     at resolveCurrency (src/lib/data/markets.ts:63:35)
+[WebServer]     at HomePage (src/app/[country]/[locale]/(storefront)/page.tsx:25:41)
+[WebServer]   16 |
+[WebServer]   17 |   try {
+[WebServer] > 18 |     const cookieStore = await cookies();
+[WebServer]      |                                      ^
+[WebServer]   19 |
+[WebServer]   20 |     const country = cookieStore.get(
+[WebServer]   21 |       config.countryCookieName ?? DEFAULT_COUNTRY_COOKIE,
+[WebServer]  GET /us/en/account 200 in 2.7s (next.js: 1514ms, proxy.ts: 17ms, generate-params: 720ms, application-code: 424ms)
+[WebServer]  GET /us/en/account 200 in 2.7s (next.js: 1505ms, proxy.ts: 9ms, generate-params: 761ms, application-code: 431ms)
+[WebServer]  POST /us/en/account 200 in 450ms (next.js: 17ms, proxy.ts: 40ms, generate-params: 58ms, application-code: 336ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 17ms src/lib/data/cart.ts
+[WebServer]  POST /us/en/account 200 in 199ms (next.js: 11ms, proxy.ts: 52ms, generate-params: 0.0ms, application-code: 135ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 16ms src/lib/data/cart.ts
+[WebServer]  POST /us/en/account 200 in 715ms (next.js: 56ms, proxy.ts: 26ms, generate-params: 0.0ms, application-code: 633ms)
+[WebServer]   └─ ƒ syncSession() in 2ms src/lib/data/customer.ts
+[WebServer]  POST /us/en/account 200 in 672ms (next.js: 102ms, proxy.ts: 5ms, generate-params: 0.0ms, application-code: 565ms)
+[WebServer]   └─ ƒ syncSession() in 16ms src/lib/data/customer.ts
+[WebServer]  POST /us/en/account 200 in 590ms (next.js: 31ms, proxy.ts: 29ms, generate-params: 0.0ms, application-code: 531ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 1ms src/lib/data/cart.ts
+[WebServer]  POST /us/en/account 200 in 576ms (next.js: 90ms, proxy.ts: 7ms, generate-params: 0.0ms, application-code: 479ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 19ms src/lib/data/cart.ts
+[WebServer]  POST /us/en/account 200 in 389ms (next.js: 56ms, proxy.ts: 18ms, generate-params: 51ms, application-code: 265ms)
+[WebServer]   └─ ƒ syncSession() in 1ms src/lib/data/customer.ts
+[WebServer]  POST /us/en/account 200 in 361ms (next.js: 158ms, proxy.ts: 12ms, generate-params: 0.0ms, application-code: 190ms)
+[WebServer]   └─ ƒ syncSession() in 7ms src/lib/data/customer.ts
+[WebServer]  POST /us/en/account 200 in 887ms (next.js: 23ms, proxy.ts: 15ms, generate-params: 0.0ms, application-code: 848ms)
+[WebServer]   └─ ƒ login("e2e-po-buyer@example.com", "spree123!") in 371ms src/lib/data/customer.ts
+[WebServer]  POST /us/en/account 200 in 873ms (next.js: 39ms, proxy.ts: 8ms, generate-params: 0.0ms, application-code: 826ms)
+[WebServer]   └─ ƒ login("e2e-po-buyer@example.com", "spree123!") in 385ms src/lib/data/customer.ts
+[WebServer]  GET /us/en/account 200 in 327ms (next.js: 196ms, proxy.ts: 15ms, generate-params: 0.1ms, application-code: 116ms)
+[WebServer]  GET /us/en/account 200 in 332ms (next.js: 39ms, proxy.ts: 14ms, generate-params: 40ms, application-code: 239ms)
+[WebServer]  GET /us/en/products 200 in 4.0s (next.js: 2.2s, proxy.ts: 9ms, generate-params: 727ms, application-code: 1101ms)
+[WebServer]  GET /us/en/products 200 in 4.4s (next.js: 2.2s, proxy.ts: 15ms, generate-params: 679ms, application-code: 1446ms)
+[WebServer]  POST /us/en/products 200 in 1379ms (next.js: 77ms, proxy.ts: 75ms, generate-params: 44ms, application-code: 1182ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 729ms src/lib/data/cart.ts
+[WebServer]  POST /us/en/products 200 in 1375ms (next.js: 72ms, proxy.ts: 135ms, generate-params: 0.0ms, application-code: 1169ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 899ms src/lib/data/cart.ts
+[WebServer] Error: Route "/[country]/[locale]/products": Next.js encountered runtime data during prerendering or a navigation.
+[WebServer] 
+[WebServer] `cookies()`, `headers()`, `params`, or `searchParams` accessed outside of `<Suspense>` prevents the route from being prerendered or the navigation from being instant, leading to a slower user experience.
+[WebServer] 
+[WebServer] Ways to fix this:
+[WebServer]   - [stream] Provide a placeholder with `<Suspense fallback={...}>` around the data access
+[WebServer]   - [block] Set `export const instant = false` to allow a blocking route
+[WebServer] 
+[WebServer] Learn more: https://nextjs.org/docs/messages/blocking-prerender-runtime
+[WebServer]     at ProductsPage (src/app/[country]/[locale]/(storefront)/products/page.tsx:31:27)
+[WebServer]   29 | }: ProductsPageProps) {
+[WebServer]   30 |   const { country, locale } = await params;
+[WebServer] > 31 |   const rawSearchParams = await searchParams;
+[WebServer]      |                           ^
+[WebServer]   32 |   const basePath = `/${country}/${locale}`;
+[WebServer]   33 |   const [currency, pricesHidden] = await Promise.all([
+[WebServer]   34 |     resolveCurrency(country),
+[WebServer] Error: Route "/[country]/[locale]/products": Next.js encountered runtime data during prerendering or a navigation.
+[WebServer] 
+[WebServer] `cookies()`, `headers()`, `params`, or `searchParams` accessed outside of `<Suspense>` prevents the route from being prerendered or the navigation from being instant, leading to a slower user experience.
+[WebServer] 
+[WebServer] Ways to fix this:
+[WebServer]   - [stream] Provide a placeholder with `<Suspense fallback={...}>` around the data access
+[WebServer]   - [block] Set `export const instant = false` to allow a blocking route
+[WebServer] 
+[WebServer] Learn more: https://nextjs.org/docs/messages/blocking-prerender-runtime
+[WebServer]     at ProductsPage (src/app/[country]/[locale]/(storefront)/products/page.tsx:31:27)
+[WebServer]   29 | }: ProductsPageProps) {
+[WebServer]   30 |   const { country, locale } = await params;
+[WebServer] > 31 |   const rawSearchParams = await searchParams;
+[WebServer]      |                           ^
+[WebServer]   32 |   const basePath = `/${country}/${locale}`;
+[WebServer]   33 |   const [currency, pricesHidden] = await Promise.all([
+[WebServer]   34 |     resolveCurrency(country),
+[WebServer]  GET /us/en/products/automatic-espresso-machine 200 in 4.0s (next.js: 2.0s, proxy.ts: 7ms, generate-params: 716ms, application-code: 1265ms)
+[WebServer]  GET /us/en/products/automatic-espresso-machine 200 in 4.5s (next.js: 2.4s, proxy.ts: 22ms, generate-params: 670ms, application-code: 1383ms)
+[WebServer]  POST /us/en/products/automatic-espresso-machine 200 in 1360ms (next.js: 13ms, proxy.ts: 8ms, generate-params: 38ms, application-code: 1301ms)
+[WebServer]   └─ ƒ syncSession() in 266ms src/lib/data/customer.ts
+[WebServer]  POST /us/en/products/automatic-espresso-machine 200 in 1364ms (next.js: 80ms, proxy.ts: 7ms, generate-params: 0.0ms, application-code: 1277ms)
+[WebServer]   └─ ƒ syncSession() in 406ms src/lib/data/customer.ts
+[WebServer] Error: Route "/[country]/[locale]/products/[slug]": Next.js encountered runtime data during prerendering or a navigation.
+[WebServer] 
+[WebServer] `cookies()`, `headers()`, `params`, or `searchParams` accessed outside of `<Suspense>` prevents the route from being prerendered or the navigation from being instant, leading to a slower user experience.
+[WebServer] 
+[WebServer] Ways to fix this:
+[WebServer]   - [stream] Provide a placeholder with `<Suspense fallback={...}>` around the data access
+[WebServer]   - [block] Set `export const instant = false` to allow a blocking route
+[WebServer] 
+[WebServer] Learn more: https://nextjs.org/docs/messages/blocking-prerender-runtime
+[WebServer]     at ProductPage (src/app/[country]/[locale]/(storefront)/products/[slug]/page.tsx:52:37)
+[WebServer]   50 |   searchParams,
+[WebServer]   51 | }: ProductPageProps) {
+[WebServer] > 52 |   const { country, locale, slug } = await params;
+[WebServer]      |                                     ^
+[WebServer]   53 |   const { category_id } = await searchParams;
+[WebServer]   54 |   const basePath = `/${country}/${locale}`;
+[WebServer]   55 |
+[WebServer]  POST /us/en/products/automatic-espresso-machine 200 in 1160ms (next.js: 329ms, proxy.ts: 31ms, generate-params: 0.0ms, application-code: 799ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 396ms src/lib/data/cart.ts
+[WebServer]  POST /us/en/products/automatic-espresso-machine 200 in 1181ms (next.js: 272ms, proxy.ts: 43ms, generate-params: 42ms, application-code: 824ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 340ms src/lib/data/cart.ts
+[WebServer] Error: Route "/[country]/[locale]/products/[slug]": Next.js encountered runtime data during prerendering or a navigation.
+[WebServer] 
+[WebServer] `cookies()`, `headers()`, `params`, or `searchParams` accessed outside of `<Suspense>` prevents the route from being prerendered or the navigation from being instant, leading to a slower user experience.
+[WebServer] 
+[WebServer] Ways to fix this:
+[WebServer]   - [stream] Provide a placeholder with `<Suspense fallback={...}>` around the data access
+[WebServer]   - [block] Set `export const instant = false` to allow a blocking route
+[WebServer] 
+[WebServer] Learn more: https://nextjs.org/docs/messages/blocking-prerender-runtime
+[WebServer]     at ProductPage (src/app/[country]/[locale]/(storefront)/products/[slug]/page.tsx:52:37)
+[WebServer]   50 |   searchParams,
+[WebServer]   51 | }: ProductPageProps) {
+[WebServer] > 52 |   const { country, locale, slug } = await params;
+[WebServer]      |                                     ^
+[WebServer]   53 |   const { category_id } = await searchParams;
+[WebServer]   54 |   const basePath = `/${country}/${locale}`;
+[WebServer]   55 |
+[WebServer]  POST /us/en/products/automatic-espresso-machine 200 in 401ms (next.js: 46ms, proxy.ts: 35ms, generate-params: 0.0ms, application-code: 320ms)
+[WebServer]   └─ ƒ syncSession() in 119ms src/lib/data/customer.ts
+[WebServer]  POST /us/en/products/automatic-espresso-machine 200 in 406ms (next.js: 37ms, proxy.ts: 33ms, generate-params: 0.0ms, application-code: 335ms)
+[WebServer]   └─ ƒ syncSession() in 69ms src/lib/data/customer.ts
+[WebServer]  POST /us/en/products/automatic-espresso-machine 200 in 702ms (next.js: 72ms, proxy.ts: 15ms, generate-params: 0.0ms, application-code: 615ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 301ms src/lib/data/cart.ts
+[WebServer]  POST /us/en/products/automatic-espresso-machine 200 in 712ms (next.js: 20ms, proxy.ts: 13ms, generate-params: 48ms, application-code: 631ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 371ms src/lib/data/cart.ts
+[WebServer]  POST /us/en/products/automatic-espresso-machine 200 in 647ms (next.js: 19ms, proxy.ts: 11ms, generate-params: 0.0ms, application-code: 617ms)
+[WebServer]   └─ ƒ addToCart("variant_gbHJdmfrXB", 1, "dtc") in 514ms src/lib/data/cart.ts
+[WebServer] [browser] You may test your Stripe.js integration over HTTP. However, live Stripe.js integrations must use HTTPS. (https://js.stripe.com/clover/stripe.js:1:967742)
+[WebServer]  GET /us/en/products/automatic-espresso-machine 200 in 1164ms (next.js: 6ms, proxy.ts: 4ms, generate-params: 43ms, application-code: 1112ms)
+[WebServer]  POST /us/en/products/automatic-espresso-machine 200 in 1808ms (next.js: 30ms, proxy.ts: 10ms, generate-params: 0.0ms, application-code: 1768ms)
+[WebServer]   └─ ƒ addToCart("variant_gbHJdmfrXB", 1, "dtc") in 875ms src/lib/data/cart.ts
+[WebServer]  GET /us/en/products/automatic-espresso-machine 200 in 935ms (next.js: 17ms, proxy.ts: 10ms, generate-params: 0.0ms, application-code: 908ms)
+[WebServer]  GET /us/en/products/automatic-espresso-machine 200 in 1020ms (next.js: 50ms, proxy.ts: 70ms, generate-params: 0.0ms, application-code: 900ms)
+[WebServer]  GET /us/en/products/automatic-espresso-machine 200 in 500ms (next.js: 58ms, proxy.ts: 42ms, generate-params: 0.0ms, application-code: 400ms)
+[WebServer] [browser] You may test your Stripe.js integration over HTTP. However, live Stripe.js integrations must use HTTPS. (https://js.stripe.com/clover/stripe.js:1:967742)
+[WebServer] Error: Route "/[country]/[locale]/products/[slug]": Next.js encountered runtime data during prerendering or a navigation.
+[WebServer] 
+[WebServer] `cookies()`, `headers()`, `params`, or `searchParams` accessed outside of `<Suspense>` prevents the route from being prerendered or the navigation from being instant, leading to a slower user experience.
+[WebServer] 
+[WebServer] Ways to fix this:
+[WebServer]   - [stream] Provide a placeholder with `<Suspense fallback={...}>` around the data access
+[WebServer]   - [block] Set `export const instant = false` to allow a blocking route
+[WebServer] 
+[WebServer] Learn more: https://nextjs.org/docs/messages/blocking-prerender-runtime
+[WebServer]     at ProductPage (src/app/[country]/[locale]/(storefront)/products/[slug]/page.tsx:52:37)
+[WebServer]   50 |   searchParams,
+[WebServer]   51 | }: ProductPageProps) {
+[WebServer] > 52 |   const { country, locale, slug } = await params;
+[WebServer]      |                                     ^
+[WebServer]   53 |   const { category_id } = await searchParams;
+[WebServer]   54 |   const basePath = `/${country}/${locale}`;
+[WebServer]   55 |
+[WebServer] ○ Compiling /[country]/[locale]/checkout/[id] ...
+[WebServer] [browser] Unhandled expressCheckout Element loaderror {
+[WebServer]   error: {
+[WebServer]     message: 'Invalid API Key provided: pk_test_*******lder',
+[WebServer]     status: 401,
+[WebServer]     type: 'invalid_request_error'
+[WebServer]   }
+[WebServer] } 
+[WebServer]     at i._emitEvent (https://js.stripe.com/clover/stripe.js:1:622217)
+[WebServer]     at <unknown> (https://js.stripe.com/clover/stripe.js:1:366249)
+[WebServer]     at <unknown> (https://js.stripe.com/clover/stripe.js:1:169001)
+[WebServer]     at Array.forEach (<anonymous>)
+[WebServer]     at c._emit (https://js.stripe.com/clover/stripe.js:1:168884)
+[WebServer]     at e._handleMessage (https://js.stripe.com/clover/stripe.js:1:853886)
+[WebServer]     at e._handleMessage (https://js.stripe.com/clover/stripe.js:1:171876)
+[WebServer]     at <unknown> (https://js.stripe.com/clover/stripe.js:1:851761) (https://js.stripe.com/clover/stripe.js:1:622217)
+[WebServer] [browser] Unhandled expressCheckout Element loaderror {
+[WebServer]   error: {
+[WebServer]     message: 'Invalid API Key provided: pk_test_*******lder',
+[WebServer]     status: 401,
+[WebServer]     type: 'invalid_request_error'
+[WebServer]   }
+[WebServer] } 
+[WebServer]     at i._emitEvent (https://js.stripe.com/clover/stripe.js:1:622217)
+[WebServer]     at <unknown> (https://js.stripe.com/clover/stripe.js:1:366249)
+[WebServer]     at <unknown> (https://js.stripe.com/clover/stripe.js:1:169001)
+[WebServer]     at Array.forEach (<anonymous>)
+[WebServer]     at c._emit (https://js.stripe.com/clover/stripe.js:1:168884)
+[WebServer]     at e._handleMessage (https://js.stripe.com/clover/stripe.js:1:853886)
+[WebServer]     at e._handleMessage (https://js.stripe.com/clover/stripe.js:1:171876)
+[WebServer]     at <unknown> (https://js.stripe.com/clover/stripe.js:1:851761) (https://js.stripe.com/clover/stripe.js:1:622217)
+[WebServer] Error: Route "/[country]/[locale]/products/[slug]": Next.js encountered runtime data during prerendering or a navigation.
+[WebServer] 
+[WebServer] `cookies()`, `headers()`, `params`, or `searchParams` accessed outside of `<Suspense>` prevents the route from being prerendered or the navigation from being instant, leading to a slower user experience.
+[WebServer] 
+[WebServer] Ways to fix this:
+[WebServer]   - [stream] Provide a placeholder with `<Suspense fallback={...}>` around the data access
+[WebServer]   - [block] Set `export const instant = false` to allow a blocking route
+[WebServer] 
+[WebServer] Learn more: https://nextjs.org/docs/messages/blocking-prerender-runtime
+[WebServer]     at ProductPage (src/app/[country]/[locale]/(storefront)/products/[slug]/page.tsx:52:37)
+[WebServer]   50 |   searchParams,
+[WebServer]   51 | }: ProductPageProps) {
+[WebServer] > 52 |   const { country, locale, slug } = await params;
+[WebServer]      |                                     ^
+[WebServer]   53 |   const { category_id } = await searchParams;
+[WebServer]   54 |   const basePath = `/${country}/${locale}`;
+[WebServer]   55 |
+[WebServer] [browser] Image with src "/spree.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[WebServer]  GET /us/en/checkout/cart_STIszOMIvc 200 in 8.8s (next.js: 7.0s, proxy.ts: 33ms, generate-params: 667ms, application-code: 1066ms)
+[WebServer]  GET /us/en/checkout/cart_STIszOMIvc 200 in 9.4s (next.js: 7.6s, proxy.ts: 75ms, generate-params: 612ms, application-code: 1066ms)
+[WebServer] [browser] You may test your Stripe.js integration over HTTP. However, live Stripe.js integrations must use HTTPS. (https://js.stripe.com/clover/stripe.js:1:967742)
+[WebServer] [browser] You may test your Stripe.js integration over HTTP. However, live Stripe.js integrations must use HTTPS. (https://js.stripe.com/clover/stripe.js:1:967742)
+[WebServer] [browser] Image with src "/spree.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[WebServer]  POST /us/en/checkout/cart_STIszOMIvc 200 in 1436ms (next.js: 16ms, proxy.ts: 5ms, generate-params: 79ms, application-code: 1336ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 427ms src/lib/data/cart.ts
+[WebServer]  POST /us/en/checkout/cart_STIszOMIvc 200 in 1323ms (next.js: 12ms, proxy.ts: 61ms, generate-params: 0.0ms, application-code: 1250ms)
+[WebServer]   └─ ƒ syncSession() in 395ms src/lib/data/customer.ts
+[WebServer]  POST /us/en/checkout/cart_STIszOMIvc 200 in 1829ms (next.js: 35ms, proxy.ts: 212ms, generate-params: 0.1ms, application-code: 1582ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 574ms src/lib/data/cart.ts
+[WebServer]  POST /us/en/checkout/cart_STIszOMIvc 200 in 898ms (next.js: 77ms, proxy.ts: 34ms, generate-params: 126ms, application-code: 661ms)
+[WebServer]   └─ ƒ syncSession() in 155ms src/lib/data/customer.ts
+[WebServer]  POST /us/en/checkout/cart_STIszOMIvc 200 in 1156ms (next.js: 241ms, proxy.ts: 23ms, generate-params: 0.0ms, application-code: 892ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 367ms src/lib/data/cart.ts
+[WebServer]  POST /us/en/checkout/cart_STIszOMIvc 200 in 1076ms (next.js: 11ms, proxy.ts: 43ms, generate-params: 0.0ms, application-code: 1022ms)
+[WebServer]   └─ ƒ syncSession() in 241ms src/lib/data/customer.ts
+[WebServer]  POST /us/en/checkout/cart_STIszOMIvc 200 in 1285ms (next.js: 129ms, proxy.ts: 52ms, generate-params: 0.0ms, application-code: 1104ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 348ms src/lib/data/cart.ts
+[WebServer]  POST /us/en/checkout/cart_STIszOMIvc 200 in 835ms (next.js: 9ms, proxy.ts: 8ms, generate-params: 65ms, application-code: 753ms)
+[WebServer]   └─ ƒ getCountry("US") in 22ms src/lib/data/countries.ts
+[WebServer]  POST /us/en/checkout/cart_STIszOMIvc 200 in 1190ms (next.js: 103ms, proxy.ts: 7ms, generate-params: 0.0ms, application-code: 1080ms)
+[WebServer]   └─ ƒ syncSession() in 253ms src/lib/data/customer.ts
+[WebServer]  POST /us/en/checkout/cart_STIszOMIvc 200 in 1066ms (next.js: 7ms, proxy.ts: 6ms, generate-params: 0.0ms, application-code: 1053ms)
+[WebServer]   └─ ƒ getCreditCards() in 232ms src/lib/data/credit-cards.ts
+[WebServer]  POST /us/en/checkout/cart_STIszOMIvc 200 in 839ms (next.js: 9ms, proxy.ts: 6ms, generate-params: 0.1ms, application-code: 824ms)
+[WebServer]   └─ ƒ getCountry("US") in 43ms src/lib/data/countries.ts
+[WebServer]  POST /us/en/checkout/cart_STIszOMIvc 200 in 901ms (next.js: 43ms, proxy.ts: 9ms, generate-params: 0.0ms, application-code: 849ms)
+[WebServer]   └─ ƒ getCreditCards() in 354ms src/lib/data/credit-cards.ts
+[WebServer]  POST /us/en/checkout/cart_STIszOMIvc 200 in 7.0s (next.js: 16ms, proxy.ts: 10ms, generate-params: 0.0ms, application-code: 7.0s)
+[WebServer]   └─ ƒ createCheckoutPaymentSession("cart_STIszOMIvc", "pm_VqXmZF31wY", {"return_url":"http://localhost:3001/us/en/confirm-payment/cart_STIszOMIvc"}) in 6691ms src/lib/data/payment.ts
+[WebServer]  POST /us/en/checkout/cart_STIszOMIvc 200 in 408ms (next.js: 23ms, proxy.ts: 6ms, generate-params: 29ms, application-code: 350ms)
+[WebServer]   └─ ƒ getCountry("US") in 11ms src/lib/data/countries.ts
+[WebServer]  POST /us/en/checkout/cart_STIszOMIvc 200 in 7.7s (next.js: 9ms, proxy.ts: 4ms, generate-params: 41ms, application-code: 7.6s)
+[WebServer]   └─ ƒ createCheckoutPaymentSession("cart_STIszOMIvc", "pm_VqXmZF31wY", {"return_url":"http://localhost:3001/us/en/confirm-payment/cart_STIszOMIvc"}) in 7250ms src/lib/data/payment.ts
+[WebServer]  POST /us/en/checkout/cart_STIszOMIvc 200 in 443ms (next.js: 9ms, proxy.ts: 5ms, generate-params: 40ms, application-code: 388ms)
+[WebServer]   └─ ƒ getCountry("US") in 13ms src/lib/data/countries.ts
+[WebServer]  POST /us/en/checkout/cart_STIszOMIvc 200 in 7.2s (next.js: 13ms, proxy.ts: 8ms, generate-params: 0.0ms, application-code: 7.2s)
+[WebServer]   └─ ƒ createCheckoutPaymentSession("cart_STIszOMIvc", "pm_VqXmZF31wY", {"return_url":"http://localhost:3001/us/en/confirm-payment/cart_STIszOMIvc"}) in 6891ms src/lib/data/payment.ts
+[WebServer]  POST /us/en/checkout/cart_STIszOMIvc 200 in 7.5s (next.js: 5ms, proxy.ts: 12ms, generate-params: 0.0ms, application-code: 7.4s)
+[WebServer]   └─ ƒ createCheckoutPaymentSession("cart_STIszOMIvc", "pm_VqXmZF31wY", {"return_url":"http://localhost:3001/us/en/confirm-payment/cart_STIszOMIvc"}) in 7000ms src/lib/data/payment.ts
+[WebServer]  POST /us/en/checkout/cart_STIszOMIvc 200 in 1882ms (next.js: 9ms, proxy.ts: 4ms, generate-params: 32ms, application-code: 1837ms)
+[WebServer]   └─ ƒ updateOrderAddresses("cart_STIszOMIvc", {"email":"e2e-po-buyer@example.com","shipping_address":{"address1":"123 Test St","city":"New York","country_code":"US","...":"5 items not stringified"}}) in 1445ms src/lib/data/checkout.ts
+  ✓  1 [chromium] › e2e/purchase-order-number.spec.ts:70:7 › purchase order number › a buyer whose company requires one is refused without it (46.6s)
+[WebServer]  POST /us/en/checkout/cart_STIszOMIvc 200 in 702ms (next.js: 7ms, proxy.ts: 3ms, generate-params: 24ms, application-code: 667ms)
+[WebServer]   └─ ƒ getCheckoutOrder("cart_STIszOMIvc") in 334ms src/lib/data/checkout.ts
+[WebServer] ⨯ Error: The destination stream closed early.
+[WebServer]     at ignore-listed frames {
+[WebServer]   digest: '3272490424'
+[WebServer] }
+[WebServer]  POST /us/en/checkout/cart_STIszOMIvc 200 in 1648ms (next.js: 12ms, proxy.ts: 23ms, generate-params: 0.0ms, application-code: 1613ms)
+[WebServer]   └─ ƒ updateOrderAddresses("cart_STIszOMIvc", {"email":"e2e-po-buyer@example.com","shipping_address":{"address1":"123 Test St","city":"New York","country_code":"US","...":"5 items not stringified"}}) in 1162ms src/lib/data/checkout.ts
+[WebServer]  POST /us/en/checkout/cart_STIszOMIvc 200 in 942ms (next.js: 9ms, proxy.ts: 4ms, generate-params: 38ms, application-code: 891ms)
+[WebServer]   └─ ƒ updatePurchaseOrderNumber("cart_STIszOMIvc", "PO-1794383828163") in 478ms src/lib/data/checkout.ts
+[WebServer]  GET /us/en/account/register 200 in 2.6s (next.js: 1802ms, proxy.ts: 5ms, generate-params: 641ms, application-code: 172ms)
+[WebServer]  POST /us/en/account/register 200 in 141ms (next.js: 7ms, proxy.ts: 5ms, generate-params: 40ms, application-code: 90ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 3ms src/lib/data/cart.ts
+[WebServer]  POST /us/en/account/register 200 in 212ms (next.js: 7ms, proxy.ts: 5ms, generate-params: 0.0ms, application-code: 200ms)
+[WebServer]   └─ ƒ syncSession() in 2ms src/lib/data/customer.ts
+[WebServer]  POST /us/en/account/register 200 in 119ms (next.js: 14ms, proxy.ts: 6ms, generate-params: 0.0ms, application-code: 99ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 1ms src/lib/data/cart.ts
+[WebServer]  POST /us/en/account/register 200 in 82ms (next.js: 6ms, proxy.ts: 5ms, generate-params: 0.0ms, application-code: 72ms)
+[WebServer]   └─ ƒ syncSession() in 2ms src/lib/data/customer.ts
+[WebServer]  POST /us/en/account/register 200 in 832ms (next.js: 12ms, proxy.ts: 8ms, generate-params: 41ms, application-code: 771ms)
+[WebServer]   └─ ƒ register({"email":"e2e-1794383828971-60117@example.com","first_name":"Grace","last_name":"Hopper","...":"2 items not stringified"}) in 370ms src/lib/data/customer.ts
+[WebServer]  GET /us/en/account/register 200 in 424ms (next.js: 9ms, proxy.ts: 11ms, generate-params: 0.0ms, application-code: 403ms)
+[WebServer]  GET /us/en/account 200 in 425ms (next.js: 72ms, proxy.ts: 11ms, generate-params: 40ms, application-code: 303ms)
+[WebServer]  GET /us/en/account 200 in 149ms (next.js: 37ms, proxy.ts: 12ms, generate-params: 0.0ms, application-code: 100ms)
+[WebServer]  POST /us/en/account 200 in 199ms (next.js: 23ms, proxy.ts: 14ms, generate-params: 0.0ms, application-code: 162ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 39ms src/lib/data/cart.ts
+[WebServer]  GET /us/en/products 200 in 825ms (next.js: 10ms, proxy.ts: 12ms, generate-params: 45ms, application-code: 759ms)
+[WebServer]  POST /us/en/checkout/cart_STIszOMIvc 200 in 6.4s (next.js: 18ms, proxy.ts: 58ms, generate-params: 0.0ms, application-code: 6.3s)
+[WebServer]   └─ ƒ createCheckoutPaymentSession("cart_STIszOMIvc", "pm_VqXmZF31wY", {"return_url":"http://localhost:3001/us/en/confirm-payment/cart_STIszOMIvc"}) in 5215ms src/lib/data/payment.ts
+[WebServer]  POST /us/en/checkout/cart_STIszOMIvc 200 in 1485ms (next.js: 15ms, proxy.ts: 7ms, generate-params: 49ms, application-code: 1414ms)
+[WebServer]   └─ ƒ updatePurchaseOrderNumber("cart_STIszOMIvc", "PO-1794383828163") in 878ms src/lib/data/checkout.ts
+[WebServer]  POST /us/en/products 200 in 1085ms (next.js: 123ms, proxy.ts: 8ms, generate-params: 0.1ms, application-code: 954ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 232ms src/lib/data/cart.ts
+[WebServer]  GET /us/en/products/automatic-espresso-machine 200 in 724ms (next.js: 27ms, proxy.ts: 47ms, generate-params: 61ms, application-code: 589ms)
+[WebServer]  POST /us/en/products/automatic-espresso-machine 200 in 565ms (next.js: 188ms, proxy.ts: 7ms, generate-params: 0.1ms, application-code: 371ms)
+[WebServer]   └─ ƒ syncSession() in 194ms src/lib/data/customer.ts
+[WebServer] Error: Route "/[country]/[locale]/products/[slug]": Next.js encountered runtime data during prerendering or a navigation.
+[WebServer] 
+[WebServer] `cookies()`, `headers()`, `params`, or `searchParams` accessed outside of `<Suspense>` prevents the route from being prerendered or the navigation from being instant, leading to a slower user experience.
+[WebServer] 
+[WebServer] Ways to fix this:
+[WebServer]   - [stream] Provide a placeholder with `<Suspense fallback={...}>` around the data access
+[WebServer]   - [block] Set `export const instant = false` to allow a blocking route
+[WebServer] 
+[WebServer] Learn more: https://nextjs.org/docs/messages/blocking-prerender-runtime
+[WebServer]     at ProductPage (src/app/[country]/[locale]/(storefront)/products/[slug]/page.tsx:52:37)
+[WebServer]   50 |   searchParams,
+[WebServer]   51 | }: ProductPageProps) {
+[WebServer] > 52 |   const { country, locale, slug } = await params;
+[WebServer]      |                                     ^
+[WebServer]   53 |   const { category_id } = await searchParams;
+[WebServer]   54 |   const basePath = `/${country}/${locale}`;
+[WebServer]   55 |
+[WebServer]  POST /us/en/products/automatic-espresso-machine 200 in 373ms (next.js: 85ms, proxy.ts: 8ms, generate-params: 0.0ms, application-code: 280ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 121ms src/lib/data/cart.ts
+[WebServer]  POST /us/en/checkout/cart_STIszOMIvc 200 in 1103ms (next.js: 29ms, proxy.ts: 7ms, generate-params: 44ms, application-code: 1023ms)
+[WebServer]   └─ ƒ getCheckoutOrder("cart_STIszOMIvc") in 413ms src/lib/data/checkout.ts
+[WebServer]  POST /us/en/checkout/cart_STIszOMIvc 200 in 905ms (next.js: 12ms, proxy.ts: 26ms, generate-params: 0.0ms, application-code: 868ms)
+[WebServer]   └─ ƒ updateOrderAddresses("cart_STIszOMIvc", {"use_shipping":true}) in 406ms src/lib/data/checkout.ts
+[WebServer]  POST /us/en/products/automatic-espresso-machine 200 in 647ms (next.js: 34ms, proxy.ts: 5ms, generate-params: 48ms, application-code: 559ms)
+[WebServer]   └─ ƒ syncSession() in 138ms src/lib/data/customer.ts
+[WebServer]  POST /us/en/products/automatic-espresso-machine 200 in 254ms (next.js: 26ms, proxy.ts: 14ms, generate-params: 0.1ms, application-code: 214ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 73ms src/lib/data/cart.ts
+[WebServer]  POST /us/en/checkout/cart_STIszOMIvc 200 in 794ms (next.js: 27ms, proxy.ts: 12ms, generate-params: 46ms, application-code: 710ms)
+[WebServer]   └─ ƒ createDirectPayment("cart_STIszOMIvc", "pm_EfhxLZ9ck8") in 150ms src/lib/data/payment.ts
+[WebServer]  POST /us/en/products/automatic-espresso-machine 200 in 965ms (next.js: 16ms, proxy.ts: 7ms, generate-params: 0.0ms, application-code: 941ms)
+[WebServer]   └─ ƒ addToCart("variant_gbHJdmfrXB", 1, "dtc") in 847ms src/lib/data/cart.ts
+[WebServer] [browser] You may test your Stripe.js integration over HTTP. However, live Stripe.js integrations must use HTTPS. (https://js.stripe.com/clover/stripe.js:1:967742)
+[WebServer]  GET /us/en/products/automatic-espresso-machine 200 in 493ms (next.js: 27ms, proxy.ts: 15ms, generate-params: 0.0ms, application-code: 450ms)
+[WebServer]  GET /us/en/products/automatic-espresso-machine 200 in 743ms (next.js: 9ms, proxy.ts: 4ms, generate-params: 33ms, application-code: 696ms)
+[WebServer]  GET /us/en/checkout/cart_Kj5Q8YFGzd 200 in 838ms (next.js: 30ms, proxy.ts: 19ms, generate-params: 41ms, application-code: 747ms)
+[WebServer] [browser] Image with src "/spree.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[WebServer]  POST /us/en/checkout/cart_STIszOMIvc 200 in 2.3s (next.js: 7ms, proxy.ts: 16ms, generate-params: 0.0ms, application-code: 2.3s)
+[WebServer]   └─ ƒ completeCheckoutOrder("cart_STIszOMIvc") in 1501ms src/lib/data/payment.ts
+[WebServer] [browser] You may test your Stripe.js integration over HTTP. However, live Stripe.js integrations must use HTTPS. (https://js.stripe.com/clover/stripe.js:1:967742)
+[WebServer]  POST /us/en/checkout/cart_Kj5Q8YFGzd 200 in 953ms (next.js: 66ms, proxy.ts: 5ms, generate-params: 46ms, application-code: 835ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 245ms src/lib/data/cart.ts
+[WebServer]  POST /us/en/checkout/cart_Kj5Q8YFGzd 200 in 715ms (next.js: 15ms, proxy.ts: 12ms, generate-params: 0.0ms, application-code: 688ms)
+[WebServer]   └─ ƒ syncSession() in 98ms src/lib/data/customer.ts
+[WebServer]  POST /us/en/checkout/cart_Kj5Q8YFGzd 200 in 770ms (next.js: 28ms, proxy.ts: 7ms, generate-params: 0.0ms, application-code: 735ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 298ms src/lib/data/cart.ts
+[WebServer]  POST /us/en/checkout/cart_Kj5Q8YFGzd 200 in 713ms (next.js: 18ms, proxy.ts: 7ms, generate-params: 83ms, application-code: 606ms)
+[WebServer]   └─ ƒ syncSession() in 104ms src/lib/data/customer.ts
+[WebServer]  POST /us/en/checkout/cart_Kj5Q8YFGzd 200 in 465ms (next.js: 26ms, proxy.ts: 10ms, generate-params: 0.0ms, application-code: 428ms)
+[WebServer]   └─ ƒ getCountry("US") in 4ms src/lib/data/countries.ts
+[WebServer]  POST /us/en/checkout/cart_Kj5Q8YFGzd 200 in 593ms (next.js: 25ms, proxy.ts: 9ms, generate-params: 0.0ms, application-code: 559ms)
+[WebServer]   └─ ƒ getCreditCards() in 95ms src/lib/data/credit-cards.ts
+[WebServer]  GET /us/en/order-placed/cart_STIszOMIvc 200 in 3.3s (next.js: 2.6s, proxy.ts: 34ms, generate-params: 588ms, application-code: 52ms)
+  ✓  2 [chromium] › e2e/purchase-order-number.spec.ts:93:7 › purchase order number › a buyer whose company requires one gives it and places the order (1.0m)
+[WebServer]  POST /us/en/checkout/cart_Kj5Q8YFGzd 200 in 5.5s (next.js: 10ms, proxy.ts: 7ms, generate-params: 0.0ms, application-code: 5.5s)
+[WebServer]   └─ ƒ createCheckoutPaymentSession("cart_Kj5Q8YFGzd", "pm_VqXmZF31wY", {"return_url":"http://localhost:3001/us/en/confirm-payment/cart_Kj5Q8YFGzd"}) in 5245ms src/lib/data/payment.ts
+[WebServer]  POST /us/en/checkout/cart_Kj5Q8YFGzd 200 in 381ms (next.js: 17ms, proxy.ts: 4ms, generate-params: 30ms, application-code: 330ms)
+[WebServer]   └─ ƒ getCountry("US") in 4ms src/lib/data/countries.ts
+[WebServer]  POST /us/en/checkout/cart_Kj5Q8YFGzd 200 in 5.7s (next.js: 8ms, proxy.ts: 6ms, generate-params: 0.0ms, application-code: 5.7s)
+[WebServer]   └─ ƒ createCheckoutPaymentSession("cart_Kj5Q8YFGzd", "pm_VqXmZF31wY", {"return_url":"http://localhost:3001/us/en/confirm-payment/cart_Kj5Q8YFGzd"}) in 5425ms src/lib/data/payment.ts
+  ✓  3 [chromium] › e2e/purchase-order-number.spec.ts:109:7 › purchase order number › a customer of no such company is not asked for one (26.0s)
+
+  3 passed (1.5m)

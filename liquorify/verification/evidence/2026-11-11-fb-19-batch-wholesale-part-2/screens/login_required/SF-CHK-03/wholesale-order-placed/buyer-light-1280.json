@@ -1,0 +1,11 @@
+{
+  "screen": "SF-CHK-03",
+  "state": "wholesale-order-placed",
+  "variant": "buyer",
+  "theme": "light",
+  "width": 1280,
+  "revision": "e9d80d5",
+  "path": "/us/en/order-placed/cart_RgJeNhrwyV",
+  "observed": "Placed order cart_RgJeNhrwyV. The page read: \"Back to store Thanks for your order, Jordan! Order #R1042 You will receive an email confirmation shortly. Order Items Pedestal Fan 40cm Color: White Qty: 11 $395.89 Subtotal $395.89 Shipping $5.00 Total $400.89 Shipping Method Standard $5.00 Payment Check $400.89 Shipping Address Jordan Ellis 55 Water Street Brooklyn, NY 11201 United States 718-555-0155 Billing Address Jordan Ellis 55 Water Street Brooklyn, NY 11201 United States 718-555-0155 Confirmation sent to e2e-1794390822209-999558@example.com Continue Shopping © 2026 Spree Store. All rights reserved. Shipping Policy Privacy Policy Retur\".",
+  "note": "Paid by Check."
+}

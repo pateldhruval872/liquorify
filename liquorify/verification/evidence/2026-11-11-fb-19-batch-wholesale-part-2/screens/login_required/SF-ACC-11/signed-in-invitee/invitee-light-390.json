@@ -1,0 +1,11 @@
+{
+  "screen": "SF-ACC-11",
+  "state": "signed-in-invitee",
+  "variant": "invitee",
+  "theme": "light",
+  "width": 390,
+  "revision": "e9d80d5",
+  "path": "/us/en/account/company-invitation",
+  "observed": "The page read: \"Join E2E Trading Company You've been invited to buy for E2E Trading Company at Shop. The invitation is for e2e-invitee-existing@example.com. Accept invitation\".",
+  "note": null
+}

@@ -1,0 +1,818 @@
+[1A[2K[WebServer] 
+[WebServer] > nextjs-starter-spree@0.1.0 dev <local>
+[WebServer] > next dev -p 3001 --turbopack
+[WebServer] 
+
+[1A[2K[WebServer] ▲ Next.js 16.3.8 (Turbopack)
+
+[1A[2K[WebServer] - Local:         http://localhost:3001
+
+[1A[2K[WebServer] - Network:       http://<host>:3001
+[WebServer] ✓ Ready in 534ms
+
+[1A[2K[WebServer] ✓ Running next.config.ts took 475ms
+
+[1A[2K[WebServer] - Cache Components enabled
+
+[1A[2K[WebServer] - Experiments (use with caution):
+
+[1A[2K[WebServer]   · optimizePackageImports
+
+[1A[2K[WebServer] 
+
+[1A[2K[WebServer] ✓ Generated CLAUDE.md for AI agents. Set `agentRules: false` in next.config to disable.
+
+
+Running 15 tests using 2 workers
+
+[1A[2K[WebServer]  GET /us/en 200 in 3.1s (next.js: 677ms, proxy.ts: 263ms, generate-params: 628ms, application-code: 1515ms)
+
+[1A[2K[1/15] [chromium] › e2e/account.spec.ts:9:7 › customer account › the account navigation reaches every section
+[1A[2K[2/15] [chromium] › e2e/account.spec.ts:35:7 › customer account › a customer adds and deletes an address
+[1A[2K[WebServer] Error: Route "/[country]/[locale]": Next.js encountered runtime data during prerendering or a navigation.
+[WebServer] 
+[WebServer] `cookies()`, `headers()`, `params`, or `searchParams` accessed outside of `<Suspense>` prevents the route from being prerendered or the navigation from being instant, leading to a slower user experience.
+[WebServer] 
+[WebServer] Ways to fix this:
+[WebServer]   - [stream] Provide a placeholder with `<Suspense fallback={...}>` around the data access
+[WebServer]   - [block] Set `export const instant = false` to allow a blocking route
+[WebServer] 
+[WebServer] Learn more: https://nextjs.org/docs/messages/blocking-prerender-runtime
+[WebServer]     at getLocaleOptions (src/lib/spree/locale.ts:18:38)
+[WebServer]     at getMarkets (src/lib/data/markets.ts:41:61)
+[WebServer]     at resolveCurrency (src/lib/data/markets.ts:63:35)
+[WebServer]     at HomePage (src/app/[country]/[locale]/(storefront)/page.tsx:25:41)
+[WebServer]   16 |
+[WebServer]   17 |   try {
+[WebServer] > 18 |     const cookieStore = await cookies();
+[WebServer]      |                                      ^
+[WebServer]   19 |
+[WebServer]   20 |     const country = cookieStore.get(
+[WebServer]   21 |       config.countryCookieName ?? DEFAULT_COUNTRY_COOKIE,
+
+[1A[2K[WebServer]  GET /us/en/account/register 200 in 3.4s (next.js: 2.2s, proxy.ts: 9ms, generate-params: 739ms, application-code: 388ms)
+
+[1A[2K[WebServer]  GET /us/en/account/register 200 in 3.3s (next.js: 2.2s, proxy.ts: 6ms, generate-params: 781ms, application-code: 382ms)
+
+[1A[2K[WebServer]  POST /us/en/account/register 200 in 546ms (next.js: 18ms, proxy.ts: 27ms, generate-params: 31ms, application-code: 471ms)
+
+[1A[2K[WebServer]   └─ ƒ getCart(undefined, "dtc") in 5ms src/lib/data/cart.ts
+
+[1A[2K[WebServer]  POST /us/en/account/register 200 in 709ms (next.js: 59ms, proxy.ts: 46ms, generate-params: 0.1ms, application-code: 605ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 74ms src/lib/data/cart.ts
+
+[1A[2K[WebServer]  POST /us/en/account/register 200 in 647ms (next.js: 18ms, proxy.ts: 9ms, generate-params: 0.1ms, application-code: 619ms)
+[WebServer]   └─ ƒ syncSession() in 11ms src/lib/data/customer.ts
+
+[1A[2K[WebServer]  POST /us/en/account/register 200 in 897ms (next.js: 60ms, proxy.ts: 5ms, generate-params: 0.0ms, application-code: 832ms)
+[WebServer]   └─ ƒ syncSession() in 2ms src/lib/data/customer.ts
+
+[1A[2K[WebServer]  POST /us/en/account/register 200 in 965ms (next.js: 168ms, proxy.ts: 46ms, generate-params: 3ms, application-code: 749ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 4ms src/lib/data/cart.ts
+
+[1A[2K[WebServer]  POST /us/en/account/register 200 in 697ms (next.js: 51ms, proxy.ts: 64ms, generate-params: 31ms, application-code: 551ms)
+
+[1A[2K[WebServer]   └─ ƒ getCart(undefined, "dtc") in 7ms src/lib/data/cart.ts
+
+[1A[2K[WebServer]  POST /us/en/account/register 200 in 382ms (next.js: 50ms, proxy.ts: 212ms, generate-params: 0.0ms, application-code: 120ms)
+[WebServer]   └─ ƒ syncSession() in 3ms src/lib/data/customer.ts
+
+[1A[2K[WebServer]  POST /us/en/account/register 200 in 618ms (next.js: 53ms, proxy.ts: 194ms, generate-params: 0.1ms, application-code: 370ms)
+[WebServer]   └─ ƒ syncSession() in 13ms src/lib/data/customer.ts
+
+[1A[2K[WebServer]  POST /us/en/account/register 200 in 593ms (next.js: 29ms, proxy.ts: 56ms, generate-params: 0.0ms, application-code: 507ms)
+[WebServer]   └─ ƒ register({"email":"e2e-1794372429877-819805@example.com","first_name":"Grace","last_name":"Hopper","...":"2 items not stringified"}) in 366ms src/lib/data/customer.ts
+[WebServer]  POST /us/en/account/register 200 in 500ms (next.js: 8ms, proxy.ts: 10ms, generate-params: 0.0ms, application-code: 481ms)
+[WebServer]   └─ ƒ register({"email":"e2e-1794372429773-107487@example.com","first_name":"Grace","last_name":"Hopper","...":"2 items not stringified"}) in 404ms src/lib/data/customer.ts
+
+[1A[2K[WebServer]  GET /us/en/account/register 200 in 333ms (next.js: 40ms, proxy.ts: 12ms, generate-params: 27ms, application-code: 254ms)
+
+[1A[2K[WebServer]  GET /us/en/account/register 200 in 324ms (next.js: 167ms, proxy.ts: 10ms, generate-params: 0.0ms, application-code: 146ms)
+
+[1A[2K[WebServer]  GET /us/en/account 200 in 1276ms (next.js: 77ms, proxy.ts: 7ms, generate-params: 805ms, application-code: 387ms)
+[WebServer]  GET /us/en/account 200 in 266ms (next.js: 74ms, proxy.ts: 10ms, generate-params: 0.0ms, application-code: 182ms)
+[WebServer]  GET /us/en/account 200 in 267ms (next.js: 22ms, proxy.ts: 11ms, generate-params: 32ms, application-code: 202ms)
+[WebServer]  GET /us/en/account 200 in 1274ms (next.js: 154ms, proxy.ts: 31ms, generate-params: 680ms, application-code: 408ms)
+
+[1A[2K[WebServer]  POST /us/en/account 200 in 473ms (next.js: 22ms, proxy.ts: 6ms, generate-params: 0.1ms, application-code: 445ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 77ms src/lib/data/cart.ts
+
+[1A[2K[WebServer]  POST /us/en/account 200 in 465ms (next.js: 38ms, proxy.ts: 7ms, generate-params: 0.0ms, application-code: 420ms)
+
+[1A[2K[WebServer]   └─ ƒ getCart(undefined, "dtc") in 134ms src/lib/data/cart.ts
+
+[1A[2K[WebServer]  GET /us/en/account/orders 200 in 2.1s (next.js: 1137ms, proxy.ts: 10ms, generate-params: 814ms, application-code: 145ms)
+
+[1A[2K[WebServer]  POST /us/en/account/orders 200 in 251ms (next.js: 12ms, proxy.ts: 15ms, generate-params: 30ms, application-code: 194ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 39ms src/lib/data/cart.ts
+
+[1A[2K[WebServer] ○ Compiling /[country]/[locale]/account/addresses ...
+
+[1A[2K[WebServer]  GET /us/en/account/addresses 200 in 4.0s (next.js: 2.6s, proxy.ts: 44ms, generate-params: 796ms, application-code: 507ms)
+
+[1A[2K[WebServer]  GET /us/en/account/addresses 200 in 413ms (next.js: 32ms, proxy.ts: 29ms, generate-params: 34ms, application-code: 318ms)
+
+[1A[2K[WebServer] Error: Route "/[country]/[locale]/account/orders": Could not validate `instant` because the target segment was prevented from rendering, likely due to one of the following errors.
+[WebServer]     at ignore-listed frames
+
+[1A[2K[WebServer] Error: An error occurred while attempting to validate instant UI. This error may be preventing the validation from completing.
+[WebServer]     at Header (src/components/layout/Header.tsx:100:11)
+[WebServer]     at StorefrontLayout (src/app/[country]/[locale]/(storefront)/layout.tsx:135:7)
+[WebServer]    98 |             </Link>
+[WebServer]    99 |           )}
+[WebServer] > 100 |           <LazyRegionPreferences variant="header" />
+[WebServer]       |           ^
+[WebServer]   101 |         </div>
+[WebServer]   102 |       }
+[WebServer]   103 |       rightEnd={ {
+[WebServer]   [cause]: Error: Module [project]/src/components/layout/RegionPreferences.tsx [app-rsc] (client reference proxy) was instantiated because it was required from module [project]/node_modules/.pnpm/next@16.3.8_@babel+core@7.29.7_@opentelemetry+api@1.9.1_@playwright+test@1.60.0_@types+_f071ee04df91e2bee9ff49abcd35b062/node_modules/next/dist/esm/build/templates/app-page.js?page=/[country]/[locale]/(storefront)/account/(authenticated)/orders/page { METADATA_0 => "[project]/src/app/favicon.ico.mjs { IMAGE => \"[project]/src/app/favicon.ico (static in ecmascript, tag client)\" } [app-rsc] (structured image object, ecmascript)", MODULE_1 => "[project]/node_modules/.pnpm/next@16.3.8_@babel+core@7.29.7_@opentelemetry+api@1.9.1_@playwright+test@1.60.0_@types+_f071ee04df91e2bee9ff49abcd35b062/node_modules/next/dist/client/components/builtin/not-found.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_2 => "[project]/node_modules/.pnpm/next@16.3.8_@babel+core@7.29.7_@opentelemetry+api@1.9.1_@playwright+test@1.60.0_@types+_f071ee04df91e2bee9ff49abcd35b062/node_modules/next/dist/client/components/builtin/forbidden.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_3 => "[project]/node_modules/.pnpm/next@16.3.8_@babel+core@7.29.7_@opentelemetry+api@1.9.1_@playwright+test@1.60.0_@types+_f071ee04df91e2bee9ff49abcd35b062/node_modules/next/dist/client/components/builtin/unauthorized.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_4 => "[project]/src/app/global-error.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_5 => "[project]/src/app/[country]/[locale]/layout.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_6 => "[project]/src/app/[country]/[locale]/(storefront)/layout.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_7 => "[project]/src/app/[country]/[locale]/(storefront)/account/(authenticated)/layout.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_8 => "[project]/src/app/[country]/[locale]/(storefront)/account/(authenticated)/orders/page.tsx [app-rsc] (ecmascript, Next.js Server Component)" } [app-rsc] (ecmascript) <locals>, but the module factory is not available.
+[WebServer]   This is often caused by a stale browser cache, misconfigured Cache-Control headers, or a service worker serving outdated responses.
+[WebServer]   To fix this, make sure your Cache-Control headers allow revalidation of chunks and review your service worker configuration. As an immediate workaround, try hard-reloading the page, clearing the browser cache, or unregistering any service workers.
+[WebServer]       at ignore-listed frames {
+[WebServer]     environmentName: 'Prerender',
+[WebServer]     digest: ''
+[WebServer]   }
+[WebServer] }
+
+[1A[2K[WebServer] Error: An error occurred while attempting to validate instant UI. This error may be preventing the validation from completing.
+[WebServer]     at HeaderMobileMenu (src/components/layout/Header.tsx:54:5)
+[WebServer]     at StorefrontMobileNavigation (src/app/[country]/[locale]/(storefront)/layout.tsx:94:5)
+[WebServer]     at StorefrontLayout (src/app/[country]/[locale]/(storefront)/layout.tsx:140:13)
+[WebServer]   52 | }: HeaderMobileMenuProps) {
+[WebServer]   53 |   return (
+[WebServer] > 54 |     <LazyMobileMenu
+[WebServer]      |     ^
+[WebServer]   55 |       rootCategories={rootCategories}
+[WebServer]   56 |       basePath={basePath}
+[WebServer]   57 |       wholesaleEnabled={isWholesaleEnabled()} {
+[WebServer]   [cause]: Error: Module [project]/src/components/layout/MobileMenu.tsx [app-rsc] (client reference proxy) was instantiated because it was required from module [project]/node_modules/.pnpm/next@16.3.8_@babel+core@7.29.7_@opentelemetry+api@1.9.1_@playwright+test@1.60.0_@types+_f071ee04df91e2bee9ff49abcd35b062/node_modules/next/dist/esm/build/templates/app-page.js?page=/[country]/[locale]/(storefront)/account/(authenticated)/orders/page { METADATA_0 => "[project]/src/app/favicon.ico.mjs { IMAGE => \"[project]/src/app/favicon.ico (static in ecmascript, tag client)\" } [app-rsc] (structured image object, ecmascript)", MODULE_1 => "[project]/node_modules/.pnpm/next@16.3.8_@babel+core@7.29.7_@opentelemetry+api@1.9.1_@playwright+test@1.60.0_@types+_f071ee04df91e2bee9ff49abcd35b062/node_modules/next/dist/client/components/builtin/not-found.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_2 => "[project]/node_modules/.pnpm/next@16.3.8_@babel+core@7.29.7_@opentelemetry+api@1.9.1_@playwright+test@1.60.0_@types+_f071ee04df91e2bee9ff49abcd35b062/node_modules/next/dist/client/components/builtin/forbidden.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_3 => "[project]/node_modules/.pnpm/next@16.3.8_@babel+core@7.29.7_@opentelemetry+api@1.9.1_@playwright+test@1.60.0_@types+_f071ee04df91e2bee9ff49abcd35b062/node_modules/next/dist/client/components/builtin/unauthorized.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_4 => "[project]/src/app/global-error.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_5 => "[project]/src/app/[country]/[locale]/layout.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_6 => "[project]/src/app/[country]/[locale]/(storefront)/layout.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_7 => "[project]/src/app/[country]/[locale]/(storefront)/account/(authenticated)/layout.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_8 => "[project]/src/app/[country]/[locale]/(storefront)/account/(authenticated)/orders/page.tsx [app-rsc] (ecmascript, Next.js Server Component)" } [app-rsc] (ecmascript) <locals>, but the module factory is not available.
+[WebServer]   This is often caused by a stale browser cache, misconfigured Cache-Control headers, or a service worker serving outdated responses.
+[WebServer]   To fix this, make sure your Cache-Control headers allow revalidation of chunks and review your service worker configuration. As an immediate workaround, try hard-reloading the page, clearing the browser cache, or unregistering any service workers.
+[WebServer]       at ignore-listed frames {
+[WebServer]     environmentName: 'Server',
+[WebServer]     digest: ''
+[WebServer]   }
+[WebServer] }
+
+[1A[2K[WebServer]  POST /us/en/account/addresses 200 in 343ms (next.js: 12ms, proxy.ts: 13ms, generate-params: 0.0ms, application-code: 317ms)
+
+[1A[2K[WebServer]   └─ ƒ getCart(undefined, "dtc") in 42ms src/lib/data/cart.ts
+
+[1A[2K[WebServer] [browser] Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+
+[1A[2K[WebServer] [browser] Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+
+[1A[2K[WebServer]  POST /us/en/account/addresses 200 in 685ms (next.js: 115ms, proxy.ts: 31ms, generate-params: 0.0ms, application-code: 540ms)
+[WebServer]   └─ ƒ getCountry("US") in 98ms src/lib/data/countries.ts
+
+[1A[2K[WebServer] Error: Route "/[country]/[locale]/account/addresses": Could not validate `instant` because the target segment was prevented from rendering, likely due to one of the following errors.
+[WebServer]     at ignore-listed frames
+
+[1A[2K[WebServer] Error: An error occurred while attempting to validate instant UI. This error may be preventing the validation from completing.
+[WebServer]     at Header (src/components/layout/Header.tsx:100:11)
+[WebServer]     at StorefrontLayout (src/app/[country]/[locale]/(storefront)/layout.tsx:135:7)
+[WebServer]    98 |             </Link>
+[WebServer]    99 |           )}
+[WebServer] > 100 |           <LazyRegionPreferences variant="header" />
+[WebServer]       |           ^
+[WebServer]   101 |         </div>
+[WebServer]   102 |       }
+[WebServer]   103 |       rightEnd={ {
+[WebServer]   [cause]: Error: Module [project]/src/components/layout/RegionPreferences.tsx [app-rsc] (client reference proxy) was instantiated because it was required from module [project]/node_modules/.pnpm/next@16.3.8_@babel+core@7.29.7_@opentelemetry+api@1.9.1_@playwright+test@1.60.0_@types+_f071ee04df91e2bee9ff49abcd35b062/node_modules/next/dist/esm/build/templates/app-page.js?page=/[country]/[locale]/(storefront)/account/(authenticated)/addresses/page { METADATA_0 => "[project]/src/app/favicon.ico.mjs { IMAGE => \"[project]/src/app/favicon.ico (static in ecmascript, tag client)\" } [app-rsc] (structured image object, ecmascript)", MODULE_1 => "[project]/node_modules/.pnpm/next@16.3.8_@babel+core@7.29.7_@opentelemetry+api@1.9.1_@playwright+test@1.60.0_@types+_f071ee04df91e2bee9ff49abcd35b062/node_modules/next/dist/client/components/builtin/not-found.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_2 => "[project]/node_modules/.pnpm/next@16.3.8_@babel+core@7.29.7_@opentelemetry+api@1.9.1_@playwright+test@1.60.0_@types+_f071ee04df91e2bee9ff49abcd35b062/node_modules/next/dist/client/components/builtin/forbidden.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_3 => "[project]/node_modules/.pnpm/next@16.3.8_@babel+core@7.29.7_@opentelemetry+api@1.9.1_@playwright+test@1.60.0_@types+_f071ee04df91e2bee9ff49abcd35b062/node_modules/next/dist/client/components/builtin/unauthorized.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_4 => "[project]/src/app/global-error.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_5 => "[project]/src/app/[country]/[locale]/layout.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_6 => "[project]/src/app/[country]/[locale]/(storefront)/layout.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_7 => "[project]/src/app/[country]/[locale]/(storefront)/account/(authenticated)/layout.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_8 => "[project]/src/app/[country]/[locale]/(storefront)/account/(authenticated)/addresses/page.tsx [app-rsc] (ecmascript, Next.js Server Component)" } [app-rsc] (ecmascript) <locals>, but the module factory is not available.
+[WebServer]   This is often caused by a stale browser cache, misconfigured Cache-Control headers, or a service worker serving outdated responses.
+[WebServer]   To fix this, make sure your Cache-Control headers allow revalidation of chunks and review your service worker configuration. As an immediate workaround, try hard-reloading the page, clearing the browser cache, or unregistering any service workers.
+[WebServer]       at ignore-listed frames {
+[WebServer]     environmentName: 'Prerender',
+[WebServer]     digest: ''
+[WebServer]   }
+[WebServer] }
+
+[1A[2K[WebServer] Error: An error occurred while attempting to validate instant UI. This error may be preventing the validation from completing.
+[WebServer]     at HeaderMobileMenu (src/components/layout/Header.tsx:54:5)
+[WebServer]     at StorefrontMobileNavigation (src/app/[country]/[locale]/(storefront)/layout.tsx:94:5)
+[WebServer]     at StorefrontLayout (src/app/[country]/[locale]/(storefront)/layout.tsx:140:13)
+[WebServer]   52 | }: HeaderMobileMenuProps) {
+[WebServer]   53 |   return (
+[WebServer] > 54 |     <LazyMobileMenu
+[WebServer]      |     ^
+[WebServer]   55 |       rootCategories={rootCategories}
+[WebServer]   56 |       basePath={basePath}
+[WebServer]   57 |       wholesaleEnabled={isWholesaleEnabled()} {
+[WebServer]   [cause]: Error: Module [project]/src/components/layout/MobileMenu.tsx [app-rsc] (client reference proxy) was instantiated because it was required from module [project]/node_modules/.pnpm/next@16.3.8_@babel+core@7.29.7_@opentelemetry+api@1.9.1_@playwright+test@1.60.0_@types+_f071ee04df91e2bee9ff49abcd35b062/node_modules/next/dist/esm/build/templates/app-page.js?page=/[country]/[locale]/(storefront)/account/(authenticated)/addresses/page { METADATA_0 => "[project]/src/app/favicon.ico.mjs { IMAGE => \"[project]/src/app/favicon.ico (static in ecmascript, tag client)\" } [app-rsc] (structured image object, ecmascript)", MODULE_1 => "[project]/node_modules/.pnpm/next@16.3.8_@babel+core@7.29.7_@opentelemetry+api@1.9.1_@playwright+test@1.60.0_@types+_f071ee04df91e2bee9ff49abcd35b062/node_modules/next/dist/client/components/builtin/not-found.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_2 => "[project]/node_modules/.pnpm/next@16.3.8_@babel+core@7.29.7_@opentelemetry+api@1.9.1_@playwright+test@1.60.0_@types+_f071ee04df91e2bee9ff49abcd35b062/node_modules/next/dist/client/components/builtin/forbidden.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_3 => "[project]/node_modules/.pnpm/next@16.3.8_@babel+core@7.29.7_@opentelemetry+api@1.9.1_@playwright+test@1.60.0_@types+_f071ee04df91e2bee9ff49abcd35b062/node_modules/next/dist/client/components/builtin/unauthorized.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_4 => "[project]/src/app/global-error.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_5 => "[project]/src/app/[country]/[locale]/layout.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_6 => "[project]/src/app/[country]/[locale]/(storefront)/layout.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_7 => "[project]/src/app/[country]/[locale]/(storefront)/account/(authenticated)/layout.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_8 => "[project]/src/app/[country]/[locale]/(storefront)/account/(authenticated)/addresses/page.tsx [app-rsc] (ecmascript, Next.js Server Component)" } [app-rsc] (ecmascript) <locals>, but the module factory is not available.
+[WebServer]   This is often caused by a stale browser cache, misconfigured Cache-Control headers, or a service worker serving outdated responses.
+[WebServer]   To fix this, make sure your Cache-Control headers allow revalidation of chunks and review your service worker configuration. As an immediate workaround, try hard-reloading the page, clearing the browser cache, or unregistering any service workers.
+[WebServer]       at ignore-listed frames {
+[WebServer]     environmentName: 'Server',
+[WebServer]     digest: ''
+[WebServer]   }
+[WebServer] }
+
+[1A[2K[WebServer]  POST /us/en/account/addresses 200 in 396ms (next.js: 23ms, proxy.ts: 15ms, generate-params: 50ms, application-code: 308ms)
+
+[1A[2K[WebServer]   └─ ƒ createAddress({"address1":"42 Analytical Engine Way","city":"New York","country_code":"US","...":"4 items not stringified"}) in 104ms src/lib/data/addresses.ts
+
+[1A[2K[WebServer]  GET /us/en/account/credit-cards 200 in 3.6s (next.js: 2.5s, proxy.ts: 8ms, generate-params: 950ms, application-code: 157ms)
+
+[1A[2K[WebServer]  POST /us/en/account/credit-cards 200 in 584ms (next.js: 13ms, proxy.ts: 9ms, generate-params: 71ms, application-code: 492ms)
+
+[1A[2K[WebServer]   └─ ƒ getCart(undefined, "dtc") in 97ms src/lib/data/cart.ts
+
+[1A[2K[WebServer]  POST /us/en/account/addresses 200 in 690ms (next.js: 53ms, proxy.ts: 191ms, generate-params: 0.2ms, application-code: 446ms)
+[WebServer]   └─ ƒ deleteAddress("addr_5OQZnCRf8J") in 106ms src/lib/data/addresses.ts
+
+[1A[2K[3/15] [chromium] › e2e/account.spec.ts:57:7 › customer account › a customer updates their name
+[1A[2K[WebServer] Error: Route "/[country]/[locale]/account/credit-cards": Could not validate `instant` because the target segment was prevented from rendering, likely due to one of the following errors.
+[WebServer]     at ignore-listed frames
+
+[1A[2K[WebServer] Error: An error occurred while attempting to validate instant UI. This error may be preventing the validation from completing.
+[WebServer]     at Header (src/components/layout/Header.tsx:100:11)
+[WebServer]     at StorefrontLayout (src/app/[country]/[locale]/(storefront)/layout.tsx:135:7)
+[WebServer]    98 |             </Link>
+[WebServer]    99 |           )}
+[WebServer] > 100 |           <LazyRegionPreferences variant="header" />
+[WebServer]       |           ^
+[WebServer]   101 |         </div>
+[WebServer]   102 |       }
+[WebServer]   103 |       rightEnd={ {
+[WebServer]   [cause]: Error: Module [project]/src/components/layout/RegionPreferences.tsx [app-rsc] (client reference proxy) was instantiated because it was required from module [project]/node_modules/.pnpm/next@16.3.8_@babel+core@7.29.7_@opentelemetry+api@1.9.1_@playwright+test@1.60.0_@types+_f071ee04df91e2bee9ff49abcd35b062/node_modules/next/dist/esm/build/templates/app-page.js?page=/[country]/[locale]/(storefront)/account/(authenticated)/credit-cards/page { METADATA_0 => "[project]/src/app/favicon.ico.mjs { IMAGE => \"[project]/src/app/favicon.ico (static in ecmascript, tag client)\" } [app-rsc] (structured image object, ecmascript)", MODULE_1 => "[project]/node_modules/.pnpm/next@16.3.8_@babel+core@7.29.7_@opentelemetry+api@1.9.1_@playwright+test@1.60.0_@types+_f071ee04df91e2bee9ff49abcd35b062/node_modules/next/dist/client/components/builtin/not-found.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_2 => "[project]/node_modules/.pnpm/next@16.3.8_@babel+core@7.29.7_@opentelemetry+api@1.9.1_@playwright+test@1.60.0_@types+_f071ee04df91e2bee9ff49abcd35b062/node_modules/next/dist/client/components/builtin/forbidden.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_3 => "[project]/node_modules/.pnpm/next@16.3.8_@babel+core@7.29.7_@opentelemetry+api@1.9.1_@playwright+test@1.60.0_@types+_f071ee04df91e2bee9ff49abcd35b062/node_modules/next/dist/client/components/builtin/unauthorized.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_4 => "[project]/src/app/global-error.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_5 => "[project]/src/app/[country]/[locale]/layout.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_6 => "[project]/src/app/[country]/[locale]/(storefront)/layout.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_7 => "[project]/src/app/[country]/[locale]/(storefront)/account/(authenticated)/layout.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_8 => "[project]/src/app/[country]/[locale]/(storefront)/account/(authenticated)/credit-cards/page.tsx [app-rsc] (ecmascript, Next.js Server Component)" } [app-rsc] (ecmascript) <locals>, but the module factory is not available.
+[WebServer]   This is often caused by a stale browser cache, misconfigured Cache-Control headers, or a service worker serving outdated responses.
+[WebServer]   To fix this, make sure your Cache-Control headers allow revalidation of chunks and review your service worker configuration. As an immediate workaround, try hard-reloading the page, clearing the browser cache, or unregistering any service workers.
+[WebServer]       at ignore-listed frames {
+[WebServer]     environmentName: 'Prerender',
+[WebServer]     digest: ''
+[WebServer]   }
+[WebServer] }
+
+[1A[2K[WebServer] Error: An error occurred while attempting to validate instant UI. This error may be preventing the validation from completing.
+[WebServer]     at HeaderMobileMenu (src/components/layout/Header.tsx:54:5)
+[WebServer]     at StorefrontMobileNavigation (src/app/[country]/[locale]/(storefront)/layout.tsx:94:5)
+[WebServer]     at StorefrontLayout (src/app/[country]/[locale]/(storefront)/layout.tsx:140:13)
+[WebServer]   52 | }: HeaderMobileMenuProps) {
+[WebServer]   53 |   return (
+[WebServer] > 54 |     <LazyMobileMenu
+[WebServer]      |     ^
+[WebServer]   55 |       rootCategories={rootCategories}
+[WebServer]   56 |       basePath={basePath}
+[WebServer]   57 |       wholesaleEnabled={isWholesaleEnabled()} {
+[WebServer]   [cause]: Error: Module [project]/src/components/layout/MobileMenu.tsx [app-rsc] (client reference proxy) was instantiated because it was required from module [project]/node_modules/.pnpm/next@16.3.8_@babel+core@7.29.7_@opentelemetry+api@1.9.1_@playwright+test@1.60.0_@types+_f071ee04df91e2bee9ff49abcd35b062/node_modules/next/dist/esm/build/templates/app-page.js?page=/[country]/[locale]/(storefront)/account/(authenticated)/credit-cards/page { METADATA_0 => "[project]/src/app/favicon.ico.mjs { IMAGE => \"[project]/src/app/favicon.ico (static in ecmascript, tag client)\" } [app-rsc] (structured image object, ecmascript)", MODULE_1 => "[project]/node_modules/.pnpm/next@16.3.8_@babel+core@7.29.7_@opentelemetry+api@1.9.1_@playwright+test@1.60.0_@types+_f071ee04df91e2bee9ff49abcd35b062/node_modules/next/dist/client/components/builtin/not-found.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_2 => "[project]/node_modules/.pnpm/next@16.3.8_@babel+core@7.29.7_@opentelemetry+api@1.9.1_@playwright+test@1.60.0_@types+_f071ee04df91e2bee9ff49abcd35b062/node_modules/next/dist/client/components/builtin/forbidden.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_3 => "[project]/node_modules/.pnpm/next@16.3.8_@babel+core@7.29.7_@opentelemetry+api@1.9.1_@playwright+test@1.60.0_@types+_f071ee04df91e2bee9ff49abcd35b062/node_modules/next/dist/client/components/builtin/unauthorized.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_4 => "[project]/src/app/global-error.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_5 => "[project]/src/app/[country]/[locale]/layout.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_6 => "[project]/src/app/[country]/[locale]/(storefront)/layout.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_7 => "[project]/src/app/[country]/[locale]/(storefront)/account/(authenticated)/layout.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_8 => "[project]/src/app/[country]/[locale]/(storefront)/account/(authenticated)/credit-cards/page.tsx [app-rsc] (ecmascript, Next.js Server Component)" } [app-rsc] (ecmascript) <locals>, but the module factory is not available.
+[WebServer]   This is often caused by a stale browser cache, misconfigured Cache-Control headers, or a service worker serving outdated responses.
+[WebServer]   To fix this, make sure your Cache-Control headers allow revalidation of chunks and review your service worker configuration. As an immediate workaround, try hard-reloading the page, clearing the browser cache, or unregistering any service workers.
+[WebServer]       at ignore-listed frames {
+[WebServer]     environmentName: 'Server',
+[WebServer]     digest: ''
+[WebServer]   }
+[WebServer] }
+
+[1A[2K[WebServer]  GET /us/en/account/register 200 in 306ms (next.js: 10ms, proxy.ts: 6ms, generate-params: 47ms, application-code: 244ms)
+
+[1A[2K[WebServer]  POST /us/en/account/register 200 in 305ms (next.js: 8ms, proxy.ts: 7ms, generate-params: 47ms, application-code: 244ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 6ms src/lib/data/cart.ts
+
+[1A[2K[WebServer]  POST /us/en/account/register 200 in 290ms (next.js: 116ms, proxy.ts: 5ms, generate-params: 0.0ms, application-code: 168ms)
+[WebServer]   └─ ƒ syncSession() in 7ms src/lib/data/customer.ts
+
+[1A[2K[WebServer]  POST /us/en/account/register 200 in 147ms (next.js: 30ms, proxy.ts: 13ms, generate-params: 0.0ms, application-code: 104ms)
+
+[1A[2K[WebServer]   └─ ƒ getCart(undefined, "dtc") in 2ms src/lib/data/cart.ts
+
+[1A[2K[WebServer]  POST /us/en/account/register 200 in 210ms (next.js: 15ms, proxy.ts: 6ms, generate-params: 0.0ms, application-code: 189ms)
+[WebServer]   └─ ƒ syncSession() in 2ms src/lib/data/customer.ts
+
+[1A[2K[WebServer]  GET /us/en/account/gift-cards 200 in 3.4s (next.js: 2.2s, proxy.ts: 12ms, generate-params: 972ms, application-code: 187ms)
+
+[1A[2K[WebServer]  GET /us/en/account/gift-cards 200 in 289ms (next.js: 14ms, proxy.ts: 16ms, generate-params: 39ms, application-code: 220ms)
+
+[1A[2K[WebServer]  POST /us/en/account/register 200 in 766ms (next.js: 8ms, proxy.ts: 5ms, generate-params: 41ms, application-code: 712ms)
+
+[1A[2K[WebServer]   └─ ƒ register({"email":"e2e-1794372445444-497854@example.com","first_name":"Grace","last_name":"Hopper","...":"2 items not stringified"}) in 422ms src/lib/data/customer.ts
+
+[1A[2K[WebServer]  POST /us/en/account/gift-cards 200 in 1120ms (next.js: 5ms, proxy.ts: 32ms, generate-params: 0.0ms, application-code: 1083ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 62ms src/lib/data/cart.ts
+
+[1A[2K[WebServer]  GET /us/en/account/register 200 in 1040ms (next.js: 50ms, proxy.ts: 154ms, generate-params: 0.0ms, application-code: 836ms)
+
+[1A[2K[WebServer]  GET /us/en/account 200 in 1037ms (next.js: 55ms, proxy.ts: 154ms, generate-params: 57ms, application-code: 772ms)
+
+[1A[2K[WebServer]  GET /us/en/account/addresses 200 in 888ms (next.js: 304ms, proxy.ts: 32ms, generate-params: 34ms, application-code: 518ms)
+
+[1A[2K[WebServer]  GET /us/en/account 200 in 590ms (next.js: 50ms, proxy.ts: 206ms, generate-params: 0.0ms, application-code: 334ms)
+
+[1A[2K[WebServer]  GET /us/en/account/addresses 200 in 322ms (next.js: 26ms, proxy.ts: 14ms, generate-params: 0.0ms, application-code: 282ms)
+
+[1A[2K[WebServer]  POST /us/en/account 200 in 351ms (next.js: 36ms, proxy.ts: 53ms, generate-params: 39ms, application-code: 223ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 99ms src/lib/data/cart.ts
+
+[1A[2K[WebServer]  POST /us/en/account/addresses 200 in 365ms (next.js: 20ms, proxy.ts: 24ms, generate-params: 0.0ms, application-code: 322ms)
+
+[1A[2K[WebServer]   └─ ƒ getCart(undefined, "dtc") in 42ms src/lib/data/cart.ts
+
+[1A[2K[4/15] [chromium] › e2e/auth.spec.ts:11:7 › sign up and sign in › a new customer signs up, signs out and signs back in
+[1A[2K[WebServer]  GET /us/en/account/register 200 in 409ms (next.js: 12ms, proxy.ts: 7ms, generate-params: 54ms, application-code: 336ms)
+
+[1A[2K[WebServer] Error: Route "/[country]/[locale]/account/addresses": Could not validate `instant` because the target segment was prevented from rendering, likely due to one of the following errors.
+[WebServer]     at ignore-listed frames
+
+[1A[2K[WebServer] Error: An error occurred while attempting to validate instant UI. This error may be preventing the validation from completing.
+[WebServer]     at Header (src/components/layout/Header.tsx:100:11)
+[WebServer]     at StorefrontLayout (src/app/[country]/[locale]/(storefront)/layout.tsx:135:7)
+[WebServer]    98 |             </Link>
+[WebServer]    99 |           )}
+[WebServer] > 100 |           <LazyRegionPreferences variant="header" />
+[WebServer]       |           ^
+[WebServer]   101 |         </div>
+[WebServer]   102 |       }
+[WebServer]   103 |       rightEnd={ {
+[WebServer]   [cause]: Error: Module [project]/src/components/layout/RegionPreferences.tsx [app-rsc] (client reference proxy) was instantiated because it was required from module [project]/node_modules/.pnpm/next@16.3.8_@babel+core@7.29.7_@opentelemetry+api@1.9.1_@playwright+test@1.60.0_@types+_f071ee04df91e2bee9ff49abcd35b062/node_modules/next/dist/esm/build/templates/app-page.js?page=/[country]/[locale]/(storefront)/account/(authenticated)/addresses/page { METADATA_0 => "[project]/src/app/favicon.ico.mjs { IMAGE => \"[project]/src/app/favicon.ico (static in ecmascript, tag client)\" } [app-rsc] (structured image object, ecmascript)", MODULE_1 => "[project]/node_modules/.pnpm/next@16.3.8_@babel+core@7.29.7_@opentelemetry+api@1.9.1_@playwright+test@1.60.0_@types+_f071ee04df91e2bee9ff49abcd35b062/node_modules/next/dist/client/components/builtin/not-found.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_2 => "[project]/node_modules/.pnpm/next@16.3.8_@babel+core@7.29.7_@opentelemetry+api@1.9.1_@playwright+test@1.60.0_@types+_f071ee04df91e2bee9ff49abcd35b062/node_modules/next/dist/client/components/builtin/forbidden.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_3 => "[project]/node_modules/.pnpm/next@16.3.8_@babel+core@7.29.7_@opentelemetry+api@1.9.1_@playwright+test@1.60.0_@types+_f071ee04df91e2bee9ff49abcd35b062/node_modules/next/dist/client/components/builtin/unauthorized.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_4 => "[project]/src/app/global-error.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_5 => "[project]/src/app/[country]/[locale]/layout.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_6 => "[project]/src/app/[country]/[locale]/(storefront)/layout.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_7 => "[project]/src/app/[country]/[locale]/(storefront)/account/(authenticated)/layout.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_8 => "[project]/src/app/[country]/[locale]/(storefront)/account/(authenticated)/addresses/page.tsx [app-rsc] (ecmascript, Next.js Server Component)" } [app-rsc] (ecmascript) <locals>, but the module factory is not available.
+[WebServer]   This is often caused by a stale browser cache, misconfigured Cache-Control headers, or a service worker serving outdated responses.
+[WebServer]   To fix this, make sure your Cache-Control headers allow revalidation of chunks and review your service worker configuration. As an immediate workaround, try hard-reloading the page, clearing the browser cache, or unregistering any service workers.
+[WebServer]       at ignore-listed frames {
+[WebServer]     environmentName: 'Prerender',
+[WebServer]     digest: ''
+[WebServer]   }
+[WebServer] }
+[WebServer] Error: An error occurred while attempting to validate instant UI. This error may be preventing the validation from completing.
+[WebServer]     at HeaderMobileMenu (src/components/layout/Header.tsx:54:5)
+[WebServer]     at StorefrontMobileNavigation (src/app/[country]/[locale]/(storefront)/layout.tsx:94:5)
+[WebServer]     at StorefrontLayout (src/app/[country]/[locale]/(storefront)/layout.tsx:140:13)
+[WebServer]   52 | }: HeaderMobileMenuProps) {
+[WebServer]   53 |   return (
+[WebServer] > 54 |     <LazyMobileMenu
+[WebServer]      |     ^
+[WebServer]   55 |       rootCategories={rootCategories}
+[WebServer]   56 |       basePath={basePath}
+[WebServer]   57 |       wholesaleEnabled={isWholesaleEnabled()} {
+[WebServer]   [cause]: Error: Module [project]/src/components/layout/MobileMenu.tsx [app-rsc] (client reference proxy) was instantiated because it was required from module [project]/node_modules/.pnpm/next@16.3.8_@babel+core@7.29.7_@opentelemetry+api@1.9.1_@playwright+test@1.60.0_@types+_f071ee04df91e2bee9ff49abcd35b062/node_modules/next/dist/esm/build/templates/app-page.js?page=/[country]/[locale]/(storefront)/account/(authenticated)/addresses/page { METADATA_0 => "[project]/src/app/favicon.ico.mjs { IMAGE => \"[project]/src/app/favicon.ico (static in ecmascript, tag client)\" } [app-rsc] (structured image object, ecmascript)", MODULE_1 => "[project]/node_modules/.pnpm/next@16.3.8_@babel+core@7.29.7_@opentelemetry+api@1.9.1_@playwright+test@1.60.0_@types+_f071ee04df91e2bee9ff49abcd35b062/node_modules/next/dist/client/components/builtin/not-found.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_2 => "[project]/node_modules/.pnpm/next@16.3.8_@babel+core@7.29.7_@opentelemetry+api@1.9.1_@playwright+test@1.60.0_@types+_f071ee04df91e2bee9ff49abcd35b062/node_modules/next/dist/client/components/builtin/forbidden.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_3 => "[project]/node_modules/.pnpm/next@16.3.8_@babel+core@7.29.7_@opentelemetry+api@1.9.1_@playwright+test@1.60.0_@types+_f071ee04df91e2bee9ff49abcd35b062/node_modules/next/dist/client/components/builtin/unauthorized.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_4 => "[project]/src/app/global-error.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_5 => "[project]/src/app/[country]/[locale]/layout.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_6 => "[project]/src/app/[country]/[locale]/(storefront)/layout.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_7 => "[project]/src/app/[country]/[locale]/(storefront)/account/(authenticated)/layout.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_8 => "[project]/src/app/[country]/[locale]/(storefront)/account/(authenticated)/addresses/page.tsx [app-rsc] (ecmascript, Next.js Server Component)" } [app-rsc] (ecmascript) <locals>, but the module factory is not available.
+[WebServer]   This is often caused by a stale browser cache, misconfigured Cache-Control headers, or a service worker serving outdated responses.
+[WebServer]   To fix this, make sure your Cache-Control headers allow revalidation of chunks and review your service worker configuration. As an immediate workaround, try hard-reloading the page, clearing the browser cache, or unregistering any service workers.
+[WebServer]       at ignore-listed frames {
+[WebServer]     environmentName: 'Server',
+[WebServer]     digest: ''
+[WebServer]   }
+[WebServer] }
+
+[1A[2K[WebServer]  POST /us/en/account/register 200 in 387ms (next.js: 9ms, proxy.ts: 9ms, generate-params: 50ms, application-code: 319ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 2ms src/lib/data/cart.ts
+
+[1A[2K[WebServer]  POST /us/en/account/register 200 in 281ms (next.js: 17ms, proxy.ts: 6ms, generate-params: 0.0ms, application-code: 258ms)
+[WebServer]   └─ ƒ syncSession() in 5ms src/lib/data/customer.ts
+
+[1A[2K[WebServer]  POST /us/en/account/register 200 in 263ms (next.js: 24ms, proxy.ts: 14ms, generate-params: 0.0ms, application-code: 226ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 8ms src/lib/data/cart.ts
+
+[1A[2K[WebServer]  POST /us/en/account/register 200 in 132ms (next.js: 14ms, proxy.ts: 9ms, generate-params: 0.0ms, application-code: 109ms)
+[WebServer]   └─ ƒ syncSession() in 8ms src/lib/data/customer.ts
+
+[1A[2K[WebServer]  GET /us/en/account/profile 200 in 2.9s (next.js: 1791ms, proxy.ts: 24ms, generate-params: 967ms, application-code: 111ms)
+
+[1A[2K[WebServer]  POST /us/en/account/register 200 in 605ms (next.js: 8ms, proxy.ts: 7ms, generate-params: 42ms, application-code: 547ms)
+[WebServer]   └─ ƒ register({"email":"e2e-1794372450800-118950@example.com","first_name":"Ada","last_name":"Lovelace","...":"2 items not stringified"}) in 458ms src/lib/data/customer.ts
+
+[1A[2K[WebServer]  POST /us/en/account/profile 200 in 312ms (next.js: 9ms, proxy.ts: 20ms, generate-params: 48ms, application-code: 235ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 90ms src/lib/data/cart.ts
+
+[1A[2K[WebServer] Error: Route "/[country]/[locale]/account/profile": Could not validate `instant` because the target segment was prevented from rendering, likely due to one of the following errors.
+[WebServer]     at ignore-listed frames
+
+[1A[2K[WebServer] Error: An error occurred while attempting to validate instant UI. This error may be preventing the validation from completing.
+[WebServer]     at Header (src/components/layout/Header.tsx:100:11)
+[WebServer]     at StorefrontLayout (src/app/[country]/[locale]/(storefront)/layout.tsx:135:7)
+[WebServer]    98 |             </Link>
+[WebServer]    99 |           )}
+[WebServer] > 100 |           <LazyRegionPreferences variant="header" />
+[WebServer]       |           ^
+[WebServer]   101 |         </div>
+[WebServer]   102 |       }
+[WebServer]   103 |       rightEnd={ {
+[WebServer]   [cause]: Error: Module [project]/src/components/layout/RegionPreferences.tsx [app-rsc] (client reference proxy) was instantiated because it was required from module [project]/node_modules/.pnpm/next@16.3.8_@babel+core@7.29.7_@opentelemetry+api@1.9.1_@playwright+test@1.60.0_@types+_f071ee04df91e2bee9ff49abcd35b062/node_modules/next/dist/esm/build/templates/app-page.js?page=/[country]/[locale]/(storefront)/account/(authenticated)/profile/page { METADATA_0 => "[project]/src/app/favicon.ico.mjs { IMAGE => \"[project]/src/app/favicon.ico (static in ecmascript, tag client)\" } [app-rsc] (structured image object, ecmascript)", MODULE_1 => "[project]/node_modules/.pnpm/next@16.3.8_@babel+core@7.29.7_@opentelemetry+api@1.9.1_@playwright+test@1.60.0_@types+_f071ee04df91e2bee9ff49abcd35b062/node_modules/next/dist/client/components/builtin/not-found.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_2 => "[project]/node_modules/.pnpm/next@16.3.8_@babel+core@7.29.7_@opentelemetry+api@1.9.1_@playwright+test@1.60.0_@types+_f071ee04df91e2bee9ff49abcd35b062/node_modules/next/dist/client/components/builtin/forbidden.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_3 => "[project]/node_modules/.pnpm/next@16.3.8_@babel+core@7.29.7_@opentelemetry+api@1.9.1_@playwright+test@1.60.0_@types+_f071ee04df91e2bee9ff49abcd35b062/node_modules/next/dist/client/components/builtin/unauthorized.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_4 => "[project]/src/app/global-error.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_5 => "[project]/src/app/[country]/[locale]/layout.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_6 => "[project]/src/app/[country]/[locale]/(storefront)/layout.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_7 => "[project]/src/app/[country]/[locale]/(storefront)/account/(authenticated)/layout.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_8 => "[project]/src/app/[country]/[locale]/(storefront)/account/(authenticated)/profile/page.tsx [app-rsc] (ecmascript, Next.js Server Component)" } [app-rsc] (ecmascript) <locals>, but the module factory is not available.
+[WebServer]   This is often caused by a stale browser cache, misconfigured Cache-Control headers, or a service worker serving outdated responses.
+[WebServer]   To fix this, make sure your Cache-Control headers allow revalidation of chunks and review your service worker configuration. As an immediate workaround, try hard-reloading the page, clearing the browser cache, or unregistering any service workers.
+[WebServer]       at ignore-listed frames {
+[WebServer]     environmentName: 'Prerender',
+[WebServer]     digest: ''
+[WebServer]   }
+[WebServer] }
+
+[1A[2K[WebServer] Error: An error occurred while attempting to validate instant UI. This error may be preventing the validation from completing.
+[WebServer]     at HeaderMobileMenu (src/components/layout/Header.tsx:54:5)
+[WebServer]     at StorefrontMobileNavigation (src/app/[country]/[locale]/(storefront)/layout.tsx:94:5)
+[WebServer]     at StorefrontLayout (src/app/[country]/[locale]/(storefront)/layout.tsx:140:13)
+[WebServer]   52 | }: HeaderMobileMenuProps) {
+[WebServer]   53 |   return (
+[WebServer] > 54 |     <LazyMobileMenu
+[WebServer]      |     ^
+[WebServer]   55 |       rootCategories={rootCategories}
+[WebServer]   56 |       basePath={basePath}
+[WebServer]   57 |       wholesaleEnabled={isWholesaleEnabled()} {
+[WebServer]   [cause]: Error: Module [project]/src/components/layout/MobileMenu.tsx [app-rsc] (client reference proxy) was instantiated because it was required from module [project]/node_modules/.pnpm/next@16.3.8_@babel+core@7.29.7_@opentelemetry+api@1.9.1_@playwright+test@1.60.0_@types+_f071ee04df91e2bee9ff49abcd35b062/node_modules/next/dist/esm/build/templates/app-page.js?page=/[country]/[locale]/(storefront)/account/(authenticated)/profile/page { METADATA_0 => "[project]/src/app/favicon.ico.mjs { IMAGE => \"[project]/src/app/favicon.ico (static in ecmascript, tag client)\" } [app-rsc] (structured image object, ecmascript)", MODULE_1 => "[project]/node_modules/.pnpm/next@16.3.8_@babel+core@7.29.7_@opentelemetry+api@1.9.1_@playwright+test@1.60.0_@types+_f071ee04df91e2bee9ff49abcd35b062/node_modules/next/dist/client/components/builtin/not-found.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_2 => "[project]/node_modules/.pnpm/next@16.3.8_@babel+core@7.29.7_@opentelemetry+api@1.9.1_@playwright+test@1.60.0_@types+_f071ee04df91e2bee9ff49abcd35b062/node_modules/next/dist/client/components/builtin/forbidden.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_3 => "[project]/node_modules/.pnpm/next@16.3.8_@babel+core@7.29.7_@opentelemetry+api@1.9.1_@playwright+test@1.60.0_@types+_f071ee04df91e2bee9ff49abcd35b062/node_modules/next/dist/client/components/builtin/unauthorized.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_4 => "[project]/src/app/global-error.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_5 => "[project]/src/app/[country]/[locale]/layout.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_6 => "[project]/src/app/[country]/[locale]/(storefront)/layout.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_7 => "[project]/src/app/[country]/[locale]/(storefront)/account/(authenticated)/layout.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_8 => "[project]/src/app/[country]/[locale]/(storefront)/account/(authenticated)/profile/page.tsx [app-rsc] (ecmascript, Next.js Server Component)" } [app-rsc] (ecmascript) <locals>, but the module factory is not available.
+[WebServer]   This is often caused by a stale browser cache, misconfigured Cache-Control headers, or a service worker serving outdated responses.
+[WebServer]   To fix this, make sure your Cache-Control headers allow revalidation of chunks and review your service worker configuration. As an immediate workaround, try hard-reloading the page, clearing the browser cache, or unregistering any service workers.
+[WebServer]       at ignore-listed frames {
+[WebServer]     environmentName: 'Server',
+[WebServer]     digest: ''
+[WebServer]   }
+[WebServer] }
+
+[1A[2K[WebServer]  GET /us/en/account 200 in 756ms (next.js: 107ms, proxy.ts: 12ms, generate-params: 60ms, application-code: 577ms)
+
+[1A[2K[WebServer]  GET /us/en/account/register 200 in 760ms (next.js: 10ms, proxy.ts: 13ms, generate-params: 0.0ms, application-code: 737ms)
+
+[1A[2K[WebServer]  GET /us/en/account 200 in 404ms (next.js: 57ms, proxy.ts: 36ms, generate-params: 0.0ms, application-code: 311ms)
+
+[1A[2K[WebServer]  POST /us/en/account/profile 200 in 594ms (next.js: 46ms, proxy.ts: 40ms, generate-params: 0.0ms, application-code: 509ms)
+[WebServer]   └─ ƒ updateCustomer({"email":"e2e-1794372445444-497854@example.com","first_name":"Amazing Grace","last_name":"Hopper"}) in 197ms src/lib/data/customer.ts
+
+[1A[2K[WebServer]  POST /us/en/account/profile 200 in 749ms (next.js: 110ms, proxy.ts: 7ms, generate-params: 0.0ms, application-code: 632ms)
+[WebServer]   └─ ƒ syncSession() in 99ms src/lib/data/customer.ts
+
+[1A[2K[WebServer]  GET /us/en/account/profile 200 in 378ms (next.js: 9ms, proxy.ts: 16ms, generate-params: 44ms, application-code: 309ms)
+
+[1A[2K[WebServer]  POST /us/en/account 200 in 611ms (next.js: 12ms, proxy.ts: 13ms, generate-params: 0.0ms, application-code: 587ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 113ms src/lib/data/cart.ts
+
+[1A[2K[WebServer]  POST /us/en/account 200 in 744ms (next.js: 39ms, proxy.ts: 15ms, generate-params: 56ms, application-code: 635ms)
+[WebServer]   └─ ƒ logout() in 82ms src/lib/data/customer.ts
+
+[1A[2K[WebServer]  GET /us/en/account 200 in 608ms (next.js: 18ms, proxy.ts: 17ms, generate-params: 0.0ms, application-code: 573ms)
+
+[1A[2K[WebServer]  GET /us/en/account 200 in 610ms (next.js: 12ms, proxy.ts: 17ms, generate-params: 0.0ms, application-code: 581ms)
+
+[1A[2K[WebServer] Error: Route "/[country]/[locale]/account/profile": Could not validate `instant` because the target segment was prevented from rendering, likely due to one of the following errors.
+[WebServer]     at ignore-listed frames
+
+[1A[2K[WebServer]  GET /us/en/account 200 in 488ms (next.js: 25ms, proxy.ts: 9ms, generate-params: 0.0ms, application-code: 454ms)
+
+[1A[2K[WebServer] Error: An error occurred while attempting to validate instant UI. This error may be preventing the validation from completing.
+[WebServer]     at Header (src/components/layout/Header.tsx:100:11)
+[WebServer]     at StorefrontLayout (src/app/[country]/[locale]/(storefront)/layout.tsx:135:7)
+[WebServer]    98 |             </Link>
+[WebServer]    99 |           )}
+[WebServer] > 100 |           <LazyRegionPreferences variant="header" />
+[WebServer]       |           ^
+[WebServer]   101 |         </div>
+[WebServer]   102 |       }
+[WebServer]   103 |       rightEnd={ {
+[WebServer]   [cause]: Error: Module [project]/src/components/layout/RegionPreferences.tsx [app-rsc] (client reference proxy) was instantiated because it was required from module [project]/node_modules/.pnpm/next@16.3.8_@babel+core@7.29.7_@opentelemetry+api@1.9.1_@playwright+test@1.60.0_@types+_f071ee04df91e2bee9ff49abcd35b062/node_modules/next/dist/esm/build/templates/app-page.js?page=/[country]/[locale]/(storefront)/account/(authenticated)/profile/page { METADATA_0 => "[project]/src/app/favicon.ico.mjs { IMAGE => \"[project]/src/app/favicon.ico (static in ecmascript, tag client)\" } [app-rsc] (structured image object, ecmascript)", MODULE_1 => "[project]/node_modules/.pnpm/next@16.3.8_@babel+core@7.29.7_@opentelemetry+api@1.9.1_@playwright+test@1.60.0_@types+_f071ee04df91e2bee9ff49abcd35b062/node_modules/next/dist/client/components/builtin/not-found.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_2 => "[project]/node_modules/.pnpm/next@16.3.8_@babel+core@7.29.7_@opentelemetry+api@1.9.1_@playwright+test@1.60.0_@types+_f071ee04df91e2bee9ff49abcd35b062/node_modules/next/dist/client/components/builtin/forbidden.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_3 => "[project]/node_modules/.pnpm/next@16.3.8_@babel+core@7.29.7_@opentelemetry+api@1.9.1_@playwright+test@1.60.0_@types+_f071ee04df91e2bee9ff49abcd35b062/node_modules/next/dist/client/components/builtin/unauthorized.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_4 => "[project]/src/app/global-error.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_5 => "[project]/src/app/[country]/[locale]/layout.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_6 => "[project]/src/app/[country]/[locale]/(storefront)/layout.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_7 => "[project]/src/app/[country]/[locale]/(storefront)/account/(authenticated)/layout.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_8 => "[project]/src/app/[country]/[locale]/(storefront)/account/(authenticated)/profile/page.tsx [app-rsc] (ecmascript, Next.js Server Component)" } [app-rsc] (ecmascript) <locals>, but the module factory is not available.
+[WebServer]   This is often caused by a stale browser cache, misconfigured Cache-Control headers, or a service worker serving outdated responses.
+[WebServer]   To fix this, make sure your Cache-Control headers allow revalidation of chunks and review your service worker configuration. As an immediate workaround, try hard-reloading the page, clearing the browser cache, or unregistering any service workers.
+[WebServer]       at ignore-listed frames {
+[WebServer]     environmentName: 'Prerender',
+[WebServer]     digest: ''
+[WebServer]   }
+[WebServer] }
+
+[1A[2K[WebServer] Error: An error occurred while attempting to validate instant UI. This error may be preventing the validation from completing.
+[WebServer]     at HeaderMobileMenu (src/components/layout/Header.tsx:54:5)
+[WebServer]     at StorefrontMobileNavigation (src/app/[country]/[locale]/(storefront)/layout.tsx:94:5)
+[WebServer]     at StorefrontLayout (src/app/[country]/[locale]/(storefront)/layout.tsx:140:13)
+[WebServer]   52 | }: HeaderMobileMenuProps) {
+[WebServer]   53 |   return (
+[WebServer] > 54 |     <LazyMobileMenu
+[WebServer]      |     ^
+[WebServer]   55 |       rootCategories={rootCategories}
+[WebServer]   56 |       basePath={basePath}
+[WebServer]   57 |       wholesaleEnabled={isWholesaleEnabled()} {
+[WebServer]   [cause]: Error: Module [project]/src/components/layout/MobileMenu.tsx [app-rsc] (client reference proxy) was instantiated because it was required from module [project]/node_modules/.pnpm/next@16.3.8_@babel+core@7.29.7_@opentelemetry+api@1.9.1_@playwright+test@1.60.0_@types+_f071ee04df91e2bee9ff49abcd35b062/node_modules/next/dist/esm/build/templates/app-page.js?page=/[country]/[locale]/(storefront)/account/(authenticated)/profile/page { METADATA_0 => "[project]/src/app/favicon.ico.mjs { IMAGE => \"[project]/src/app/favicon.ico (static in ecmascript, tag client)\" } [app-rsc] (structured image object, ecmascript)", MODULE_1 => "[project]/node_modules/.pnpm/next@16.3.8_@babel+core@7.29.7_@opentelemetry+api@1.9.1_@playwright+test@1.60.0_@types+_f071ee04df91e2bee9ff49abcd35b062/node_modules/next/dist/client/components/builtin/not-found.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_2 => "[project]/node_modules/.pnpm/next@16.3.8_@babel+core@7.29.7_@opentelemetry+api@1.9.1_@playwright+test@1.60.0_@types+_f071ee04df91e2bee9ff49abcd35b062/node_modules/next/dist/client/components/builtin/forbidden.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_3 => "[project]/node_modules/.pnpm/next@16.3.8_@babel+core@7.29.7_@opentelemetry+api@1.9.1_@playwright+test@1.60.0_@types+_f071ee04df91e2bee9ff49abcd35b062/node_modules/next/dist/client/components/builtin/unauthorized.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_4 => "[project]/src/app/global-error.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_5 => "[project]/src/app/[country]/[locale]/layout.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_6 => "[project]/src/app/[country]/[locale]/(storefront)/layout.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_7 => "[project]/src/app/[country]/[locale]/(storefront)/account/(authenticated)/layout.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_8 => "[project]/src/app/[country]/[locale]/(storefront)/account/(authenticated)/profile/page.tsx [app-rsc] (ecmascript, Next.js Server Component)" } [app-rsc] (ecmascript) <locals>, but the module factory is not available.
+[WebServer]   This is often caused by a stale browser cache, misconfigured Cache-Control headers, or a service worker serving outdated responses.
+[WebServer]   To fix this, make sure your Cache-Control headers allow revalidation of chunks and review your service worker configuration. As an immediate workaround, try hard-reloading the page, clearing the browser cache, or unregistering any service workers.
+[WebServer]       at ignore-listed frames {
+[WebServer]     environmentName: 'Server',
+[WebServer]     digest: ''
+[WebServer]   }
+[WebServer] }
+
+[1A[2K[WebServer]  POST /us/en/account/profile 200 in 991ms (next.js: 5ms, proxy.ts: 13ms, generate-params: 0.0ms, application-code: 973ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 152ms src/lib/data/cart.ts
+
+[1A[2K[WebServer]  POST /us/en/account/profile 200 in 640ms (next.js: 235ms, proxy.ts: 13ms, generate-params: 47ms, application-code: 346ms)
+[WebServer]   └─ ƒ syncSession() in 97ms src/lib/data/customer.ts
+
+[1A[2K[5/15] [chromium] › e2e/auth.spec.ts:36:7 › sign up and sign in › a wrong password is refused
+[1A[2K[WebServer]  POST /us/en/account/profile 200 in 328ms (next.js: 281ms, proxy.ts: 13ms, generate-params: 0.0ms, application-code: 33ms)
+
+[1A[2K[WebServer]  POST /us/en/account/profile 200 in 595ms (next.js: 16ms, proxy.ts: 13ms, generate-params: 0.0ms, application-code: 565ms)
+
+[1A[2K[WebServer]   └─ ƒ getCart(undefined, "dtc") in 66ms src/lib/data/cart.ts
+
+[1A[2K[WebServer]  POST /us/en/account 200 in 1078ms (next.js: 22ms, proxy.ts: 14ms, generate-params: 57ms, application-code: 985ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 2ms src/lib/data/cart.ts
+
+[1A[2K[WebServer]  GET /us/en/account/register 200 in 485ms (next.js: 70ms, proxy.ts: 14ms, generate-params: 43ms, application-code: 358ms)
+
+[1A[2K[WebServer]  POST /us/en/account 200 in 937ms (next.js: 37ms, proxy.ts: 223ms, generate-params: 0.0ms, application-code: 677ms)
+
+[1A[2K[WebServer]   └─ ƒ syncSession() in 1ms src/lib/data/customer.ts
+
+[1A[2K[WebServer]  POST /us/en/account 200 in 611ms (next.js: 31ms, proxy.ts: 11ms, generate-params: 0.0ms, application-code: 570ms)
+
+[1A[2K[WebServer]   └─ ƒ getCart(undefined, "dtc") in 15ms src/lib/data/cart.ts
+
+[1A[2K[WebServer]  POST /us/en/account 200 in 528ms (next.js: 54ms, proxy.ts: 48ms, generate-params: 45ms, application-code: 381ms)
+[WebServer]   └─ ƒ syncSession() in 17ms src/lib/data/customer.ts
+
+[1A[2K[WebServer]  POST /us/en/account 200 in 538ms (next.js: 42ms, proxy.ts: 38ms, generate-params: 0.0ms, application-code: 458ms)
+[WebServer]   └─ ƒ login("e2e-1794372450800-118950@example.com", "spree123!") in 384ms src/lib/data/customer.ts
+
+[1A[2K[6/15] [chromium] › e2e/auth.spec.ts:47:7 › sign up and sign in › an account page sends a guest to sign in and back
+[1A[2K[WebServer]  GET /us/en/account 200 in 244ms (next.js: 9ms, proxy.ts: 18ms, generate-params: 0.0ms, application-code: 217ms)
+
+[1A[2K[WebServer]  POST /us/en/account/register 200 in 278ms (next.js: 97ms, proxy.ts: 9ms, generate-params: 53ms, application-code: 119ms)
+
+[1A[2K[WebServer]   └─ ƒ getCart(undefined, "dtc") in 2ms src/lib/data/cart.ts
+
+[1A[2K[WebServer]  GET /us/en/account/register 200 in 286ms (next.js: 9ms, proxy.ts: 18ms, generate-params: 0.0ms, application-code: 260ms)
+
+[1A[2K[WebServer]  POST /us/en/account/register 200 in 444ms (next.js: 8ms, proxy.ts: 4ms, generate-params: 0.0ms, application-code: 432ms)
+[WebServer]   └─ ƒ syncSession() in 13ms src/lib/data/customer.ts
+
+[1A[2K[WebServer]  POST /us/en/account/register 200 in 454ms (next.js: 43ms, proxy.ts: 13ms, generate-params: 0.0ms, application-code: 398ms)
+
+[1A[2K[WebServer]   └─ ƒ getCart(undefined, "dtc") in 5ms src/lib/data/cart.ts
+
+[1A[2K[WebServer]  POST /us/en/account/register 200 in 352ms (next.js: 34ms, proxy.ts: 38ms, generate-params: 0.0ms, application-code: 280ms)
+[WebServer]   └─ ƒ syncSession() in 2ms src/lib/data/customer.ts
+
+[1A[2K[WebServer]  POST /us/en/account/register 200 in 107ms (next.js: 10ms, proxy.ts: 6ms, generate-params: 0.0ms, application-code: 91ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 2ms src/lib/data/cart.ts
+
+[1A[2K[WebServer]  POST /us/en/account/register 200 in 596ms (next.js: 6ms, proxy.ts: 8ms, generate-params: 40ms, application-code: 542ms)
+[WebServer]   └─ ƒ register({"email":"e2e-1794372457108-521801@example.com","first_name":"E2E","last_name":"Customer","...":"2 items not stringified"}) in 413ms src/lib/data/customer.ts
+[WebServer]  POST /us/en/account/register 200 in 212ms (next.js: 10ms, proxy.ts: 6ms, generate-params: 0.1ms, application-code: 196ms)
+[WebServer]   └─ ƒ syncSession() in 3ms src/lib/data/customer.ts
+
+[1A[2K[WebServer]  POST /us/en/account/register 200 in 704ms (next.js: 10ms, proxy.ts: 5ms, generate-params: 0.0ms, application-code: 689ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 4ms src/lib/data/cart.ts
+
+[1A[2K[WebServer]  GET /us/en/account/register 200 in 772ms (next.js: 21ms, proxy.ts: 38ms, generate-params: 48ms, application-code: 665ms)
+
+[1A[2K[WebServer]  GET /us/en/account 200 in 772ms (next.js: 76ms, proxy.ts: 39ms, generate-params: 34ms, application-code: 622ms)
+
+[1A[2K[WebServer]  POST /us/en/account/register 200 in 749ms (next.js: 241ms, proxy.ts: 66ms, generate-params: 0.0ms, application-code: 441ms)
+[WebServer]   └─ ƒ syncSession() in 5ms src/lib/data/customer.ts
+
+[1A[2K[WebServer]  GET /us/en/account 200 in 476ms (next.js: 117ms, proxy.ts: 23ms, generate-params: 0.0ms, application-code: 335ms)
+
+[1A[2K[WebServer]  POST /us/en/account 200 in 259ms (next.js: 8ms, proxy.ts: 5ms, generate-params: 0.0ms, application-code: 246ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 68ms src/lib/data/cart.ts
+
+[1A[2K[WebServer]  GET /us/en/account 200 in 404ms (next.js: 5ms, proxy.ts: 5ms, generate-params: 42ms, application-code: 352ms)
+
+[1A[2K[WebServer]  POST /us/en/account/register 200 in 1201ms (next.js: 7ms, proxy.ts: 5ms, generate-params: 49ms, application-code: 1140ms)
+
+[1A[2K[WebServer]   └─ ƒ register({"email":"e2e-1794372459166-955044@example.com","first_name":"E2E","last_name":"Customer","...":"2 items not stringified"}) in 452ms src/lib/data/customer.ts
+
+[1A[2K[WebServer]  GET /us/en/account 200 in 842ms (next.js: 157ms, proxy.ts: 38ms, generate-params: 0.1ms, application-code: 648ms)
+
+[1A[2K[WebServer]  GET /us/en/account/register 200 in 845ms (next.js: 147ms, proxy.ts: 38ms, generate-params: 0.0ms, application-code: 661ms)
+
+[1A[2K[WebServer]  GET /us/en/account 200 in 414ms (next.js: 34ms, proxy.ts: 33ms, generate-params: 65ms, application-code: 282ms)
+
+[1A[2K[WebServer]  POST /us/en/account 200 in 575ms (next.js: 112ms, proxy.ts: 33ms, generate-params: 0.0ms, application-code: 429ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 101ms src/lib/data/cart.ts
+
+[1A[2K[WebServer]  POST /us/en/account 200 in 376ms (next.js: 16ms, proxy.ts: 15ms, generate-params: 0.0ms, application-code: 345ms)
+[WebServer]   └─ ƒ syncSession() in 4ms src/lib/data/customer.ts
+
+[1A[2K[WebServer]  POST /us/en/account 200 in 500ms (next.js: 71ms, proxy.ts: 31ms, generate-params: 0.0ms, application-code: 398ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 99ms src/lib/data/cart.ts
+
+[1A[2K[WebServer]  GET /us/en/account?redirect=%2Fus%2Fen%2Faccount%2Forders 200 in 535ms (next.js: 50ms, proxy.ts: 83ms, generate-params: 0.0ms, application-code: 402ms)
+
+[1A[2K[WebServer]  POST /us/en/account 200 in 700ms (next.js: 17ms, proxy.ts: 29ms, generate-params: 0.1ms, application-code: 655ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 14ms src/lib/data/cart.ts
+
+[1A[2K[WebServer]  POST /us/en/account 200 in 511ms (next.js: 190ms, proxy.ts: 22ms, generate-params: 66ms, application-code: 233ms)
+[WebServer]   └─ ƒ syncSession() in 2ms src/lib/data/customer.ts
+
+[1A[2K[WebServer]  POST /us/en/account 200 in 403ms (next.js: 30ms, proxy.ts: 15ms, generate-params: 0.0ms, application-code: 358ms)
+
+[1A[2K[WebServer]   └─ ƒ login("e2e-1794372457108-521801@example.com", "not-the-password") in 336ms src/lib/data/customer.ts
+
+[1A[2K[WebServer]  POST /us/en/account?redirect=%2Fus%2Fen%2Faccount%2Forders 200 in 401ms (next.js: 25ms, proxy.ts: 7ms, generate-params: 0.1ms, application-code: 369ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 2ms src/lib/data/cart.ts
+
+[1A[2K[WebServer]  GET /us/en/account 200 in 379ms (next.js: 32ms, proxy.ts: 113ms, generate-params: 0.0ms, application-code: 234ms)
+
+[1A[2K[WebServer]  POST /us/en/account?redirect=%2Fus%2Fen%2Faccount%2Forders 200 in 110ms (next.js: 11ms, proxy.ts: 6ms, generate-params: 0.0ms, application-code: 92ms)
+[WebServer]   └─ ƒ syncSession() in 1ms src/lib/data/customer.ts
+
+[1A[2K[7/15] [chromium] › e2e/auth.spec.ts:61:7 › sign up and sign in › sign up refuses passwords that do not match
+[1A[2K[WebServer]  POST /us/en/account?redirect=%2Fus%2Fen%2Faccount%2Forders 200 in 733ms (next.js: 13ms, proxy.ts: 7ms, generate-params: 51ms, application-code: 662ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 21ms src/lib/data/cart.ts
+
+[1A[2K[WebServer]  GET /us/en/account/register 200 in 528ms (next.js: 29ms, proxy.ts: 10ms, generate-params: 40ms, application-code: 448ms)
+
+[1A[2K[WebServer]  POST /us/en/account?redirect=%2Fus%2Fen%2Faccount%2Forders 200 in 638ms (next.js: 25ms, proxy.ts: 9ms, generate-params: 0.0ms, application-code: 604ms)
+[WebServer]   └─ ƒ syncSession() in 69ms src/lib/data/customer.ts
+
+[1A[2K[WebServer]  POST /us/en/account?redirect=%2Fus%2Fen%2Faccount%2Forders 200 in 659ms (next.js: 43ms, proxy.ts: 32ms, generate-params: 0.0ms, application-code: 584ms)
+[WebServer]   └─ ƒ login("e2e-1794372459166-955044@example.com", "spree123!") in 500ms src/lib/data/customer.ts
+
+[1A[2K[WebServer]  GET /us/en/account?redirect=%2Fus%2Fen%2Faccount%2Forders 200 in 611ms (next.js: 14ms, proxy.ts: 8ms, generate-params: 43ms, application-code: 545ms)
+
+[1A[2K[WebServer]  GET /us/en/account/orders 200 in 613ms (next.js: 73ms, proxy.ts: 8ms, generate-params: 43ms, application-code: 489ms)
+
+[1A[2K[8/15] [chromium] › e2e/company-invitation.spec.ts:58:7 › Company invitation › a guest creates the invited account and joins the company from the email's link
+[1A[2K[WebServer]  POST /us/en/account/orders 200 in 455ms (next.js: 45ms, proxy.ts: 86ms, generate-params: 0.0ms, application-code: 324ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 118ms src/lib/data/cart.ts
+
+[1A[2K[WebServer] ⨯ Error: The destination stream closed early.
+[WebServer]     at ignore-listed frames {
+[WebServer]   digest: '230418023'
+[WebServer] }
+
+[1A[2K[WebServer]  POST /us/en/account/register 200 in 1288ms (next.js: 27ms, proxy.ts: 24ms, generate-params: 52ms, application-code: 1185ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 1ms src/lib/data/cart.ts
+
+[1A[2K[WebServer] Error: Route "/[country]/[locale]/account/orders": Could not validate `instant` because the target segment was prevented from rendering, likely due to one of the following errors.
+[WebServer]     at ignore-listed frames
+
+[1A[2K[WebServer] Error: An error occurred while attempting to validate instant UI. This error may be preventing the validation from completing.
+[WebServer]     at Header (src/components/layout/Header.tsx:100:11)
+[WebServer]     at StorefrontLayout (src/app/[country]/[locale]/(storefront)/layout.tsx:135:7)
+[WebServer]    98 |             </Link>
+[WebServer]    99 |           )}
+[WebServer] > 100 |           <LazyRegionPreferences variant="header" />
+[WebServer]       |           ^
+[WebServer]   101 |         </div>
+[WebServer]   102 |       }
+[WebServer]   103 |       rightEnd={ {
+[WebServer]   [cause]: Error: Module [project]/src/components/layout/RegionPreferences.tsx [app-rsc] (client reference proxy) was instantiated because it was required from module [project]/node_modules/.pnpm/next@16.3.8_@babel+core@7.29.7_@opentelemetry+api@1.9.1_@playwright+test@1.60.0_@types+_f071ee04df91e2bee9ff49abcd35b062/node_modules/next/dist/esm/build/templates/app-page.js?page=/[country]/[locale]/(storefront)/account/(authenticated)/orders/page { METADATA_0 => "[project]/src/app/favicon.ico.mjs { IMAGE => \"[project]/src/app/favicon.ico (static in ecmascript, tag client)\" } [app-rsc] (structured image object, ecmascript)", MODULE_1 => "[project]/node_modules/.pnpm/next@16.3.8_@babel+core@7.29.7_@opentelemetry+api@1.9.1_@playwright+test@1.60.0_@types+_f071ee04df91e2bee9ff49abcd35b062/node_modules/next/dist/client/components/builtin/not-found.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_2 => "[project]/node_modules/.pnpm/next@16.3.8_@babel+core@7.29.7_@opentelemetry+api@1.9.1_@playwright+test@1.60.0_@types+_f071ee04df91e2bee9ff49abcd35b062/node_modules/next/dist/client/components/builtin/forbidden.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_3 => "[project]/node_modules/.pnpm/next@16.3.8_@babel+core@7.29.7_@opentelemetry+api@1.9.1_@playwright+test@1.60.0_@types+_f071ee04df91e2bee9ff49abcd35b062/node_modules/next/dist/client/components/builtin/unauthorized.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_4 => "[project]/src/app/global-error.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_5 => "[project]/src/app/[country]/[locale]/layout.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_6 => "[project]/src/app/[country]/[locale]/(storefront)/layout.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_7 => "[project]/src/app/[country]/[locale]/(storefront)/account/(authenticated)/layout.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_8 => "[project]/src/app/[country]/[locale]/(storefront)/account/(authenticated)/orders/page.tsx [app-rsc] (ecmascript, Next.js Server Component)" } [app-rsc] (ecmascript) <locals>, but the module factory is not available.
+[WebServer]   This is often caused by a stale browser cache, misconfigured Cache-Control headers, or a service worker serving outdated responses.
+[WebServer]   To fix this, make sure your Cache-Control headers allow revalidation of chunks and review your service worker configuration. As an immediate workaround, try hard-reloading the page, clearing the browser cache, or unregistering any service workers.
+[WebServer]       at ignore-listed frames {
+[WebServer]     environmentName: 'Prerender',
+[WebServer]     digest: ''
+[WebServer]   }
+[WebServer] }
+
+[1A[2K[WebServer] Error: An error occurred while attempting to validate instant UI. This error may be preventing the validation from completing.
+[WebServer]     at HeaderMobileMenu (src/components/layout/Header.tsx:54:5)
+[WebServer]     at StorefrontMobileNavigation (src/app/[country]/[locale]/(storefront)/layout.tsx:94:5)
+[WebServer]     at StorefrontLayout (src/app/[country]/[locale]/(storefront)/layout.tsx:140:13)
+[WebServer]   52 | }: HeaderMobileMenuProps) {
+[WebServer]   53 |   return (
+[WebServer] > 54 |     <LazyMobileMenu
+[WebServer]      |     ^
+[WebServer]   55 |       rootCategories={rootCategories}
+[WebServer]   56 |       basePath={basePath}
+[WebServer]   57 |       wholesaleEnabled={isWholesaleEnabled()} {
+[WebServer]   [cause]: Error: Module [project]/src/components/layout/MobileMenu.tsx [app-rsc] (client reference proxy) was instantiated because it was required from module [project]/node_modules/.pnpm/next@16.3.8_@babel+core@7.29.7_@opentelemetry+api@1.9.1_@playwright+test@1.60.0_@types+_f071ee04df91e2bee9ff49abcd35b062/node_modules/next/dist/esm/build/templates/app-page.js?page=/[country]/[locale]/(storefront)/account/(authenticated)/orders/page { METADATA_0 => "[project]/src/app/favicon.ico.mjs { IMAGE => \"[project]/src/app/favicon.ico (static in ecmascript, tag client)\" } [app-rsc] (structured image object, ecmascript)", MODULE_1 => "[project]/node_modules/.pnpm/next@16.3.8_@babel+core@7.29.7_@opentelemetry+api@1.9.1_@playwright+test@1.60.0_@types+_f071ee04df91e2bee9ff49abcd35b062/node_modules/next/dist/client/components/builtin/not-found.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_2 => "[project]/node_modules/.pnpm/next@16.3.8_@babel+core@7.29.7_@opentelemetry+api@1.9.1_@playwright+test@1.60.0_@types+_f071ee04df91e2bee9ff49abcd35b062/node_modules/next/dist/client/components/builtin/forbidden.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_3 => "[project]/node_modules/.pnpm/next@16.3.8_@babel+core@7.29.7_@opentelemetry+api@1.9.1_@playwright+test@1.60.0_@types+_f071ee04df91e2bee9ff49abcd35b062/node_modules/next/dist/client/components/builtin/unauthorized.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_4 => "[project]/src/app/global-error.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_5 => "[project]/src/app/[country]/[locale]/layout.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_6 => "[project]/src/app/[country]/[locale]/(storefront)/layout.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_7 => "[project]/src/app/[country]/[locale]/(storefront)/account/(authenticated)/layout.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_8 => "[project]/src/app/[country]/[locale]/(storefront)/account/(authenticated)/orders/page.tsx [app-rsc] (ecmascript, Next.js Server Component)" } [app-rsc] (ecmascript) <locals>, but the module factory is not available.
+[WebServer]   This is often caused by a stale browser cache, misconfigured Cache-Control headers, or a service worker serving outdated responses.
+[WebServer]   To fix this, make sure your Cache-Control headers allow revalidation of chunks and review your service worker configuration. As an immediate workaround, try hard-reloading the page, clearing the browser cache, or unregistering any service workers.
+[WebServer]       at ignore-listed frames {
+[WebServer]     environmentName: 'Server',
+[WebServer]     digest: ''
+[WebServer]   }
+[WebServer] }
+
+[1A[2K[WebServer]  POST /us/en/account/register 200 in 1262ms (next.js: 47ms, proxy.ts: 96ms, generate-params: 0.0ms, application-code: 1119ms)
+
+[1A[2K[WebServer]   └─ ƒ syncSession() in 10ms src/lib/data/customer.ts
+
+[1A[2K[WebServer]  POST /us/en/account/register 200 in 268ms (next.js: 24ms, proxy.ts: 14ms, generate-params: 44ms, application-code: 185ms)
+
+[1A[2K[WebServer]   └─ ƒ getCart(undefined, "dtc") in 1ms src/lib/data/cart.ts
+
+[1A[2K[WebServer]  POST /us/en/account/register 200 in 124ms (next.js: 15ms, proxy.ts: 5ms, generate-params: 0.0ms, application-code: 103ms)
+[WebServer]   └─ ƒ syncSession() in 2ms src/lib/data/customer.ts
+
+[1A[2K[9/15] [chromium] › e2e/company-invitation.spec.ts:99:7 › Company invitation › a signed-in invitee accepts
+[1A[2K[WebServer]  GET /us/en/account 200 in 295ms (next.js: 7ms, proxy.ts: 4ms, generate-params: 39ms, application-code: 244ms)
+
+[1A[2K[WebServer]  GET /us/en/account/company-invitation?token=e2e-invitation-new 200 in 1678ms (next.js: 464ms, proxy.ts: 6ms, generate-params: 835ms, application-code: 373ms)
+
+[1A[2K[WebServer]  POST /us/en/account 200 in 361ms (next.js: 8ms, proxy.ts: 9ms, generate-params: 44ms, application-code: 299ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 3ms src/lib/data/cart.ts
+
+[1A[2K[WebServer]  POST /us/en/account 200 in 419ms (next.js: 63ms, proxy.ts: 14ms, generate-params: 0.0ms, application-code: 342ms)
+[WebServer]   └─ ƒ syncSession() in 6ms src/lib/data/customer.ts
+
+[1A[2K[WebServer]  POST /us/en/account/company-invitation?token=e2e-invitation-new 200 in 468ms (next.js: 33ms, proxy.ts: 23ms, generate-params: 55ms, application-code: 357ms)
+
+[1A[2K[WebServer]   └─ ƒ getCart(undefined, "dtc") in 18ms src/lib/data/cart.ts
+
+[1A[2K[WebServer]  POST /us/en/account/company-invitation?token=e2e-invitation-new 200 in 288ms (next.js: 36ms, proxy.ts: 3ms, generate-params: 0.0ms, application-code: 249ms)
+
+[1A[2K[WebServer]   └─ ƒ syncSession() in 26ms src/lib/data/customer.ts
+
+[1A[2K[WebServer]  POST /us/en/account 200 in 666ms (next.js: 208ms, proxy.ts: 9ms, generate-params: 0.0ms, application-code: 449ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 61ms src/lib/data/cart.ts
+
+[1A[2K[WebServer]  POST /us/en/account/company-invitation?token=e2e-invitation-new 200 in 636ms (next.js: 84ms, proxy.ts: 5ms, generate-params: 0.0ms, application-code: 548ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 63ms src/lib/data/cart.ts
+[WebServer]  POST /us/en/account 200 in 627ms (next.js: 13ms, proxy.ts: 4ms, generate-params: 51ms, application-code: 558ms)
+[WebServer]   └─ ƒ syncSession() in 9ms src/lib/data/customer.ts
+
+[1A[2K[WebServer]  POST /us/en/account/company-invitation?token=e2e-invitation-new 200 in 322ms (next.js: 22ms, proxy.ts: 43ms, generate-params: 0.0ms, application-code: 256ms)
+[WebServer]   └─ ƒ syncSession() in 1ms src/lib/data/customer.ts
+
+[1A[2K[WebServer]  POST /us/en/account 200 in 593ms (next.js: 97ms, proxy.ts: 11ms, generate-params: 0.0ms, application-code: 485ms)
+[WebServer]   └─ ƒ login("e2e-invitee-existing@example.com", "spree123!") in 371ms src/lib/data/customer.ts
+
+[1A[2K[WebServer]  GET /us/en/account 200 in 165ms (next.js: 12ms, proxy.ts: 6ms, generate-params: 38ms, application-code: 109ms)
+
+[1A[2K[WebServer]  GET /us/en/account/company-invitation?token=e2e-invitation-existing 200 in 711ms (next.js: 18ms, proxy.ts: 5ms, generate-params: 0.0ms, application-code: 688ms)
+
+[1A[2K[WebServer]  POST /us/en/account/company-invitation?token=e2e-invitation-new 200 in 1395ms (next.js: 26ms, proxy.ts: 15ms, generate-params: 42ms, application-code: 1312ms)
+
+[1A[2K[WebServer]   └─ ƒ acceptCompanyInvitation("e2e-invitation-new", {"email":"e2e-invitee-new@example.com","first_name":"Invited","last_name":"Buyer","...":"2 items not stringified"}) in 830ms src/lib/data/company-invitations.ts
+
+[1A[2K[WebServer]  POST /us/en/account/company-invitation?token=e2e-invitation-new 200 in 954ms (next.js: 55ms, proxy.ts: 29ms, generate-params: 48ms, application-code: 822ms)
+
+[1A[2K[WebServer]   └─ ƒ syncSession() in 225ms src/lib/data/customer.ts
+
+[1A[2K[WebServer]  POST /us/en/account/company-invitation?token=e2e-invitation-existing 200 in 621ms (next.js: 10ms, proxy.ts: 45ms, generate-params: 0.0ms, application-code: 566ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 199ms src/lib/data/cart.ts
+
+[1A[2K[WebServer]  GET /us/en/account 200 in 587ms (next.js: 35ms, proxy.ts: 12ms, generate-params: 50ms, application-code: 490ms)
+
+[1A[2K[WebServer]  POST /us/en/account/company-invitation?token=e2e-invitation-existing 200 in 373ms (next.js: 26ms, proxy.ts: 39ms, generate-params: 0.0ms, application-code: 309ms)
+[WebServer]   └─ ƒ syncSession() in 47ms src/lib/data/customer.ts
+[WebServer]  GET /us/en/account 200 in 297ms (next.js: 108ms, proxy.ts: 23ms, generate-params: 0.1ms, application-code: 166ms)
+
+[1A[2K[WebServer]  POST /us/en/account/company-invitation?token=e2e-invitation-existing 200 in 467ms (next.js: 22ms, proxy.ts: 7ms, generate-params: 45ms, application-code: 392ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 115ms src/lib/data/cart.ts
+
+[1A[2K[10/15] [chromium] › e2e/company-invitation.spec.ts:113:7 › Company invitation › a customer signed in with another email is not offered the invitation, and Spree refuses it
+[1A[2K[WebServer]  POST /us/en/account/company-invitation?token=e2e-invitation-existing 200 in 510ms (next.js: 86ms, proxy.ts: 8ms, generate-params: 0.0ms, application-code: 416ms)
+[WebServer]   └─ ƒ syncSession() in 85ms src/lib/data/customer.ts
+[WebServer]  POST /us/en/account 200 in 537ms (next.js: 36ms, proxy.ts: 26ms, generate-params: 38ms, application-code: 437ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 52ms src/lib/data/cart.ts
+
+[1A[2K[WebServer]  POST /us/en/account/company-invitation?token=e2e-invitation-existing 200 in 173ms (next.js: 62ms, proxy.ts: 39ms, generate-params: 52ms, application-code: 20ms)
+[WebServer]  POST /us/en/account/company-invitation?token=e2e-invitation-existing 200 in 760ms (next.js: 27ms, proxy.ts: 35ms, generate-params: 0.0ms, application-code: 698ms)
+[WebServer]   └─ ƒ acceptCompanyInvitation("e2e-invitation-existing", undefined) in 96ms src/lib/data/company-invitations.ts
+
+[1A[2K[11/15] [chromium] › e2e/company-invitation.spec.ts:157:9 › Company invitation › an expired invitation is refused
+[1A[2K[WebServer]  GET /us/en/account 200 in 555ms (next.js: 8ms, proxy.ts: 10ms, generate-params: 0.1ms, application-code: 536ms)
+
+[1A[2K[WebServer]  GET /us/en/account/company-invitation?token=e2e-invitation-expired 200 in 503ms (next.js: 61ms, proxy.ts: 27ms, generate-params: 0.0ms, application-code: 416ms)
+
+[1A[2K[WebServer]  POST /us/en/account 200 in 204ms (next.js: 11ms, proxy.ts: 18ms, generate-params: 50ms, application-code: 123ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 4ms src/lib/data/cart.ts
+
+[1A[2K[12/15] [chromium] › e2e/company-invitation.spec.ts:157:9 › Company invitation › an already accepted invitation is refused
+[1A[2K[WebServer] ⨯ Error: aborted
+[WebServer]     at ignore-listed frames {
+[WebServer]   code: 'ECONNRESET'
+[WebServer] }
+
+[1A[2K[WebServer]  POST /us/en/account 200 in 669ms (next.js: 33ms, proxy.ts: 4ms, generate-params: 0.0ms, application-code: 633ms)
+[WebServer]   └─ ƒ syncSession() in 4ms src/lib/data/customer.ts
+
+[1A[2K[WebServer]  POST /us/en/account 200 in 1225ms (next.js: 71ms, proxy.ts: 18ms, generate-params: 0.1ms, application-code: 1135ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 3ms src/lib/data/cart.ts
+
+[1A[2K[WebServer]  GET /us/en/account/company-invitation?token=e2e-invitation-accepted 200 in 860ms (next.js: 31ms, proxy.ts: 7ms, generate-params: 133ms, application-code: 689ms)
+
+[1A[2K[WebServer]  POST /us/en/account 200 in 984ms (next.js: 485ms, proxy.ts: 14ms, generate-params: 78ms, application-code: 407ms)
+[WebServer]   └─ ƒ syncSession() in 6ms src/lib/data/customer.ts
+
+[1A[2K[13/15] [chromium] › e2e/company-invitation.spec.ts:157:9 › Company invitation › a revoked invitation is refused
+[1A[2K[WebServer]  POST /us/en/account/company-invitation?token=e2e-invitation-accepted 200 in 266ms (next.js: 25ms, proxy.ts: 5ms, generate-params: 82ms, application-code: 154ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 9ms src/lib/data/cart.ts
+
+[1A[2K[WebServer] ⨯ Error: The destination stream closed early.
+[WebServer]     at ignore-listed frames {
+[WebServer]   digest: '230418023'
+[WebServer] }
+
+[1A[2K[WebServer]  POST /us/en/account 200 in 1348ms (next.js: 83ms, proxy.ts: 15ms, generate-params: 0.0ms, application-code: 1250ms)
+
+[1A[2K[WebServer]   └─ ƒ login("e2e-invitee-other@example.com", "spree123!") in 449ms src/lib/data/customer.ts
+
+[1A[2K[WebServer]  GET /us/en/account 200 in 567ms (next.js: 69ms, proxy.ts: 115ms, generate-params: 0.0ms, application-code: 383ms)
+
+[1A[2K[WebServer]  GET /us/en/account/company-invitation?token=e2e-invitation-revoked 200 in 770ms (next.js: 114ms, proxy.ts: 14ms, generate-params: 0.0ms, application-code: 643ms)
+
+[1A[2K[WebServer]  GET /us/en/account/company-invitation?token=e2e-invitation-mismatch 200 in 773ms (next.js: 112ms, proxy.ts: 12ms, generate-params: 0.0ms, application-code: 650ms)
+
+[1A[2K[WebServer]  POST /us/en/account/company-invitation?token=e2e-invitation-mismatch 200 in 700ms (next.js: 18ms, proxy.ts: 18ms, generate-params: 86ms, application-code: 579ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 62ms src/lib/data/cart.ts
+
+[1A[2K[14/15] [chromium] › e2e/company-invitation.spec.ts:157:9 › Company invitation › an unknown invitation is refused
+[1A[2K[WebServer]  POST /us/en/account/company-invitation?token=e2e-invitation-mismatch 200 in 419ms (next.js: 19ms, proxy.ts: 36ms, generate-params: 0.0ms, application-code: 364ms)
+
+[1A[2K[WebServer]   └─ ƒ syncSession() in 244ms src/lib/data/customer.ts
+
+[1A[2K[WebServer] ⨯ Error: The destination stream closed early.
+[WebServer]     at ignore-listed frames {
+[WebServer]   digest: '230418023'
+[WebServer] }
+
+[1A[2K[WebServer]  POST /us/en/account/company-invitation?token=e2e-invitation-revoked 200 in 523ms (next.js: 23ms, proxy.ts: 42ms, generate-params: 0.0ms, application-code: 458ms)
+
+[1A[2K[WebServer]   └─ ƒ getCart(undefined, "dtc") in 7ms src/lib/data/cart.ts
+
+[1A[2K[15/15] [chromium] › e2e/company-invitation.spec.ts:168:7 › Company invitation › a link without a token is refused
+[1A[2K[WebServer]  POST /us/en/account/company-invitation?token=e2e-invitation-revoked 200 in 159ms (next.js: 110ms, proxy.ts: 15ms, generate-params: 0.1ms, application-code: 34ms)
+
+[1A[2K[WebServer]  POST /us/en/account/company-invitation?token=e2e-invitation-revoked 200 in 515ms (next.js: 20ms, proxy.ts: 8ms, generate-params: 0.1ms, application-code: 487ms)
+
+[1A[2K[WebServer]   └─ ƒ syncSession() in 4ms src/lib/data/customer.ts
+
+[1A[2K[WebServer]  GET /us/en/account/company-invitation?token=e2e-invitation-unknown 200 in 626ms (next.js: 37ms, proxy.ts: 13ms, generate-params: 46ms, application-code: 530ms)
+
+[1A[2K[WebServer]  GET /us/en/account/company-invitation 200 in 347ms (next.js: 37ms, proxy.ts: 20ms, generate-params: 0.0ms, application-code: 291ms)
+
+[1A[2K  15 passed (1.0m)

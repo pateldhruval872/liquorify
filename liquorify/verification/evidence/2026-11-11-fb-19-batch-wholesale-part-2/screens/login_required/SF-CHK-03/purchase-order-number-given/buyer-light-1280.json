@@ -1,0 +1,11 @@
+{
+  "screen": "SF-CHK-03",
+  "state": "purchase-order-number-given",
+  "variant": "buyer",
+  "theme": "light",
+  "width": 1280,
+  "revision": "e9d80d5",
+  "path": "/us/en/order-placed/cart_GpMUcnUYI5",
+  "observed": "Placed order R1041 with purchase order number PO-FERN-mwbxyng5; Spree recorded \"PO-FERN-mwbxyng5\".",
+  "note": "The same checkout, with a purchase order number given; Spree's record of the order is read back through the Admin API."
+}

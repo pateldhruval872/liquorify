@@ -1,0 +1,11 @@
+{
+  "screen": "SF-WHL-04",
+  "state": "outside-the-company-catalog",
+  "variant": "buyer",
+  "theme": "light",
+  "width": 1280,
+  "revision": "e9d80d5",
+  "path": "/us/en/wholesale/products/pedestal-fan",
+  "observed": "Opened /us/en/wholesale/products/pedestal-fan; arrived at /us/en/wholesale/products/pedestal-fan, answered with status 200. The page read: \"(no main landmark) 404 This page could not be found.\".",
+  "note": null
+}

@@ -1,0 +1,11 @@
+{
+  "screen": "SF-WHL-05",
+  "state": "cart-drawer",
+  "variant": "buyer",
+  "theme": "light",
+  "width": 390,
+  "revision": "e9d80d5",
+  "path": "/us/en/wholesale/products/pedestal-fan",
+  "observed": "The drawer read: \"Cart (6 items) Pedestal Fan 40cm Color: White $59.99 Subtotal $359.94 Shipping Calculated at checkout Finalizing your payment... CheckoutView Cart\".",
+  "note": "Six of the fan added from its product page, which opens the portal's own cart drawer."
+}

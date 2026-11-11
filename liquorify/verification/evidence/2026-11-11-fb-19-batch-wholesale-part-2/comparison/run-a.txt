@@ -1,0 +1,11 @@
+
+Running 6 tests using 1 worker
+
+  ✓  1 visual/fidelity/compare.spec.ts:2224:9 › CMP-SF-PG-09 wholesale-sign-in-wall desktop (4.3s)
+  ✓  2 visual/fidelity/compare.spec.ts:2224:9 › CMP-SF-PG-09 wholesale-sign-in-wall mobile (3.3s)
+  ✓  3 visual/fidelity/compare.spec.ts:2224:9 › CMP-SF-PG-08 wholesale-header desktop (32.6s)
+  ✓  4 visual/fidelity/compare.spec.ts:2224:9 › CMP-SF-PG-08 wholesale-header mobile (32.5s)
+  ✓  5 visual/fidelity/compare.spec.ts:2224:9 › CMP-SF-PG-11 wholesale-quick-order desktop (32.7s)
+  ✓  6 visual/fidelity/compare.spec.ts:2224:9 › CMP-SF-PG-11 wholesale-quick-order mobile (32.5s)
+
+  6 passed (2.4m)
