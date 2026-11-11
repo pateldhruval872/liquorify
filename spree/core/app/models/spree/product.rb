@@ -513,10 +513,7 @@ module Spree
     #
     # @return [Array<Spree::Variant>]
     def sellable_variants
-      variants.select do |variant|
-        seller = variant.resolved_seller
-        seller.nil? || seller.sellable?
-      end
+      variants.select(&:seller_selling?)
     end
 
     def on_sale?(currency)

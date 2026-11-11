@@ -21,6 +21,37 @@ module Spree
       cart.reload
     end
 
+    # SD-60: a shopper who added a seller's item before the seller was
+    # suspended cannot complete the purchase. Placing it would leave a paid
+    # order, with commission charged, waiting on a seller who has stopped.
+    describe 'a seller who stopped selling after the add' do
+      it 'refuses to place the order while the seller is suspended' do
+        cart = cart_for(seller, other_seller)
+        seller.update!(status: 'suspended')
+
+        result = described_class.call(cart: cart)
+
+        expect(result).to be_failure
+        expect(result.error.value[:code]).to eq('validation_failed')
+        expect(result.error.value[:errors]).to include(a_hash_including(code: 'seller_unavailable'))
+        expect(Spree::Order.count).to eq(0)
+        expect(cart.reload.completed_at).to be_nil
+      end
+
+      it 'places the order once the line is removed' do
+        cart = cart_for(seller, other_seller)
+        seller.update!(status: 'suspended')
+        cart.line_items.detect { |line_item| line_item.seller_id == seller.id }.destroy!
+        cart.reload.recalculate_totals!
+        cart.payments.first.update!(amount: cart.reload.total)
+
+        result = described_class.call(cart: cart.reload)
+
+        expect(result).to be_success
+        expect(result.value.seller).to eq(other_seller)
+      end
+    end
+
     describe 'the gate' do
       it 'leaves an all-first-party cart as a bare order' do
         result = described_class.call(cart: cart_for(nil, nil))

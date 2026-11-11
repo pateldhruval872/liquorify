@@ -360,6 +360,55 @@ module Spree
       end
     end
 
+    # SD-60: nothing of a seller who is not selling can be bought, but a
+    # shopper can still trim or empty a line added before the suspension.
+    describe "a suspended seller's item" do
+      let(:seller) { create(:seller, :approved, store: store) }
+
+      before { variant.product.update!(seller: seller) }
+
+      def upsert(quantity)
+        described_class.call(cart: cart, items: [{ variant_id: variant.prefixed_id, quantity: quantity }])
+      end
+
+      it 'adds it while the seller is approved' do
+        expect(upsert(2)).to be_success
+        expect(cart.reload.items.sole.quantity).to eq(2)
+      end
+
+      context 'once the seller is suspended' do
+        let!(:line_item) { create(:line_item, cart: cart, order: nil, variant: variant, quantity: 2) }
+
+        before { seller.update!(status: 'suspended') }
+
+        it 'refuses raising the quantity and says why' do
+          result = upsert(3)
+
+          expect(result).to be_success
+          expect(result.value.warnings).to include(a_hash_including(code: 'seller_unavailable'))
+          expect(line_item.reload.quantity).to eq(2)
+        end
+
+        it 'refuses adding it to a cart that does not hold it' do
+          line_item.destroy!
+
+          upsert(1)
+
+          expect(cart.reload.items).to be_empty
+        end
+
+        it 'lowers the quantity' do
+          expect(upsert(1)).to be_success
+          expect(line_item.reload.quantity).to eq(1)
+        end
+
+        it 'removes it' do
+          expect(upsert(0)).to be_success
+          expect(cart.reload.items).to be_empty
+        end
+      end
+    end
+
     # The reason this is a batch workflow rather than a loop over AddItem:
     # the money math runs once no matter how many items arrive.
     it 'recalculates the cart once for the whole batch' do

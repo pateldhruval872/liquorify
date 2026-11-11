@@ -199,6 +199,42 @@ module Spree
       end
     end
 
+    # SD-60: the product page already answers `purchasable: false` for a
+    # seller who is not selling; the cart has to agree.
+    context "a marketplace seller's product" do
+      let(:seller) { create(:seller, :approved, store: cart.store) }
+
+      before { variant.product.update!(seller: seller) }
+
+      it 'adds it while the seller is approved' do
+        expect(execute).to be_success
+        expect(cart.reload.line_items.map(&:seller_id)).to eq([seller.id])
+      end
+
+      it 'refuses it while the seller is suspended' do
+        seller.update!(status: 'suspended')
+
+        expect(execute).to be_failure
+        expect(execute.error.value.details[:base]).to include(a_hash_including(error: :seller_unavailable))
+        expect(cart.reload.line_items).to be_empty
+      end
+
+      it 'refuses it while the seller is on holiday' do
+        seller.update!(holiday_mode_until: 1.week.from_now)
+
+        expect(execute).to be_failure
+        expect(cart.reload.line_items).to be_empty
+      end
+
+      it "refuses more of an item the cart already holds" do
+        create(:line_item, cart: cart, order: nil, variant: variant)
+        seller.update!(status: 'suspended')
+
+        expect(execute).to be_failure
+        expect(cart.reload.line_items.sole.quantity).to eq(1)
+      end
+    end
+
     context 'pre-order before the scheduled publish date' do
       let(:store) { @default_store }
       let(:channel) { store.default_channel }

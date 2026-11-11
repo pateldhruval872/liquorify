@@ -40,7 +40,7 @@ module Spree
       end
 
       def completion_requirements
-        errors = stock_errors + quantity_rule_errors + assortment_errors
+        errors = stock_errors + quantity_rule_errors + assortment_errors + seller_errors
         errors << req('address', 'email', I18n.t('spree.guest_checkout_not_allowed'), code: 'guest_checkout_not_allowed') if @cart.guest_checkout_disallowed?
         errors
       end
@@ -52,6 +52,14 @@ module Spree
       def quantity_rule_errors
         @cart.quantity_rule_violations.map do |_line_item, message|
           req('cart', 'line_items', message, code: 'quantity_rule_violated')
+        end
+      end
+
+      # A line can outlive its seller's standing: a seller suspended or gone
+      # away after the shopper added the item is no longer selling it.
+      def seller_errors
+        completion_line_items.reject { |line_item| line_item.variant.nil? || line_item.variant.seller_selling? }.map do |line_item|
+          req('cart', 'line_items', I18n.t('spree.cart_line_item.seller_unavailable', li_name: line_item.name), code: 'seller_unavailable')
         end
       end
 
@@ -107,7 +115,7 @@ module Spree
       end
 
       def completion_line_items
-        @completion_line_items ||= @cart.line_items.includes(variant: :product).to_a
+        @completion_line_items ||= @cart.line_items.includes(variant: [:seller, { product: :seller }]).to_a
       end
 
       def delivery_step_required?

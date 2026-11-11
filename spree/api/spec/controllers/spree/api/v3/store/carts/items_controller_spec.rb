@@ -197,6 +197,33 @@ RSpec.describe Spree::Api::V3::Store::Carts::ItemsController, type: :controller 
         expect(response).to have_http_status(:not_found)
       end
     end
+
+    # SD-60: the product read answers `purchasable: false` while its seller is
+    # suspended, and the cart now refuses it with a reason the storefront can
+    # show.
+    context "with a marketplace seller's product" do
+      let(:seller) { create(:seller, :approved, store: store) }
+
+      before { product.update!(seller: seller) }
+
+      it 'adds it while the seller is approved' do
+        post :create, params: { cart_id: order.prefixed_id, variant_id: variant.prefixed_id }
+
+        expect(response).to have_http_status(:created)
+        expect(order.reload.line_items.map(&:seller_id)).to eq([seller.id])
+      end
+
+      it 'refuses it while the seller is suspended' do
+        seller.update!(status: 'suspended')
+
+        expect {
+          post :create, params: { cart_id: order.prefixed_id, variant_id: variant.prefixed_id }
+        }.not_to change(Spree::LineItem, :count)
+
+        expect(response).to have_http_status(:unprocessable_content)
+        expect(json_response['error']['message']).to include('is not available from its seller right now')
+      end
+    end
   end
 
   describe 'PATCH #update' do
