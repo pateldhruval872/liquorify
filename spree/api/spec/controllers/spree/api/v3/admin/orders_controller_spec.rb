@@ -898,6 +898,60 @@ RSpec.describe Spree::Api::V3::Admin::OrdersController, type: :controller do
       expect(response).to have_http_status(:no_content)
     end
 
+    # A draft made for a customer reuses their saved address, so it is not the
+    # draft's alone: deleting the draft must neither take the address from
+    # the customer's address book nor from another order still using it.
+    context "with the customer's saved address" do
+      let(:customer) { create(:user) }
+      let(:variant) { create(:variant) }
+      let(:address) do
+        { first_name: 'River', last_name: 'Okafor', address1: '214 Larkspur Lane', city: 'Portland',
+          country_code: 'US', state_code: 'OR', postal_code: '97205', phone: '5035550142' }
+      end
+      let(:drafts) do
+        request.headers.merge!(headers)
+        variant.stock_levels.each { |level| level.update!(count_on_hand: 10) }
+        Array.new(2) do
+          post :create, params: { customer_id: customer.prefixed_id, shipping_address: address, billing_address: address,
+                                  items: [{ variant_id: variant.prefixed_id, quantity: 1 }] }, as: :json
+          expect(response).to have_http_status(:created), response.body
+          Spree::Order.find_by_prefix_id(json_response['id'])
+        end
+      end
+      let(:order) { drafts.first }
+
+      it 'deletes a draft whose address another draft shares' do
+        expect(drafts.map(&:ship_address_id).uniq.size).to eq(1)
+
+        subject
+
+        expect(response).to have_http_status(:no_content)
+        expect(Spree::Order.find_by(id: order.id)).to be_nil
+        expect(drafts.second.reload.ship_address).to be_present
+      end
+
+      it "leaves the address in the customer's address book" do
+        saved_address_id = drafts.second.ship_address_id
+        drafts.second.destroy!
+
+        subject
+
+        expect(response).to have_http_status(:no_content)
+        expect(Spree::Address.find_by(id: saved_address_id)).to be_present
+        expect(customer.reload.ship_address_id).to eq(saved_address_id)
+      end
+    end
+
+    it 'removes an address the draft held for itself' do
+      one_off = create(:address, owner: nil)
+      order.update_columns(bill_address_id: one_off.id, ship_address_id: one_off.id)
+
+      subject
+
+      expect(response).to have_http_status(:no_content)
+      expect(Spree::Address.find_by(id: one_off.id)).to be_nil
+    end
+
     context 'with a gift card applied to the draft' do
       let!(:order) { create(:order_with_totals, store: store, line_items_price: 30) }
       let(:gift_card) { create(:gift_card, amount: 50, store: store) }
