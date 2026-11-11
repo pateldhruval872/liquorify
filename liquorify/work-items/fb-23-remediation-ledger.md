@@ -77,7 +77,7 @@ Each package is one lane at a time, and each defect is its own reviewable commit
 | # | Package | Tier | Items | Owner | Implementation | Closure |
 |---|---|---|---|---|---|---|
 | 0 | Tenant isolation | Isolation | FB-03, ISO-1 to ISO-7 | FB-03 thread, paused by the platform block | §3 | §3 |
-| V1 | Running verification | Several | G-105, G-114 (marketplace browser checks); G-106 (P14); batch 12 part 2 with SD-86 and SD-9 (below) and G-128 | Three running lanes, started 2026-11-11 | Their recorded scopes | Their recorded closure criteria and §2 |
+| V1 | Running verification | Several | G-105, G-114 (marketplace browser checks); batch 12 part 2 with SD-86 and SD-9 (below) and G-128. P14 (G-106) has run: see the note below this table | Two running lanes; the third freed for R1 | Their recorded scopes | Their recorded closure criteria and §2 |
 | R1 | Gift card and order money | Data, payment accounting | SD-31, SD-22, SD-82, SD-34, SD-35 | Queued 1st | Release a gift card's spent amount when a draft that holds it is deleted, inside the same workflow, with the card's balance and its ledger kept consistent; show the remaining balance from the card, not the payment; show refused gift card codes with their reason; count discounts and added tax once in the Summary card; show what a claim's resolution paid | §2; a test per defect in Spree's core and API specs and the dashboard's browser tests |
 | R2 | Marketplace sales rules | Data, checkout | SD-60, SD-61, SD-69, G-107 | Queued 2nd | Refuse a suspended seller's product at cart and checkout, where Spree already marks it not purchasable; put an approved seller product on the store's sales channel as the approval says; drop the requirements override from reinstating; G-107's policy (§6) enforced and tested action by action | §2, with a refusal at add-to-cart and at checkout and a control for an active seller |
 | R3 | Seller money and after-sale | Payment, fulfilment | SD-72, SD-73, SD-71, SD-68, then G-112 | Queued 3rd | Splitting a paid parcel moves its delivery charge instead of adding one; the Seller API finds a replacement variant by the seller's product, not a seller column the variant lacks; a partial replacement asks stock planning for the replacement's quantity, not the whole line's; the payouts report leaves the store's own sales out of seller payouts | §2; then G-112's exchange comparisons run on the running seller panel |
@@ -92,6 +92,8 @@ Each package is one lane at a time, and each defect is its own reviewable commit
 | V5 | Reproducible setup | Verification | P5 (a project made with Spree's command line tool), FB-04's last step, FB-09's update check with G-20 | Queued | Run P5 where Docker runs in the cloud environment, if it does; otherwise §7 | A fresh project and both repositories set up from their documented steps, twice, with the final integrated checks passing |
 | R9 | Dashboard presentation and accessibility | Presentation | SD-5, SD-6, SD-7, SD-19, SD-20, SD-26, SD-27, SD-54, SD-57, SD-64, SD-65, SD-66, SD-74, SD-75, SD-76, SD-77, SD-79, SD-85, SD-87, SD-88, SD-89 | Queued last among fixes | Error messages drawn above their sheets; failed requests shown with a way back; keyboard reordering by more than one place; raw keys and form-library messages replaced by translated, specific text; accessible names | §2 |
 | R10 | Kits and published references | Presentation | SD-3, SD-4, SD-12, SD-67 | Queued with R9 | Kit types that match what the APIs send; the Admin API reference regenerated from the integration specs; `Vary` appended to, not replaced | §2 |
+
+**P14 (G-106), 2026-11-11.** Ran at `5dcbf7ec`, twice on freshly started servers with identical results ([record](../verification/2026-11-11-fb-19-platform-p14.md)). 25 of its 26 rows pass. Row 14.8 fails on its second control, which is SD-70. G-106 and G-11 stay open; G-106 closes when SD-70 is fixed in R6 (or earlier as a small fix) and P14 passes twice again.
 
 ## 6. Gap decisions under the delegation
 
@@ -132,4 +134,4 @@ None of these blocks the packages above; each blocks only what is named.
 
 ## 8. Order of lanes
 
-Running on 2026-11-11: the marketplace browser checks, P14, and batch 12 part 2 (with SD-86 and SD-9). As each frees, the next starts in this order: R1, R2, R3, R4, R5's rest, R6, R7, R8, then V2, V3, V4 and V5 alongside R9 and R10. Package 0 resumes whenever its block is resolved, ahead of everything else.
+Running on 2026-11-11: the marketplace browser checks, batch 12 part 2 (with SD-86 and SD-9), and R1, which took the lane P14 freed. As each frees, the next starts in this order: R2, R3, R4, R5's rest, R6, R7, R8, then V2, V3, V4 and V5 alongside R9 and R10. Package 0 resumes whenever its block is resolved, ahead of everything else.
