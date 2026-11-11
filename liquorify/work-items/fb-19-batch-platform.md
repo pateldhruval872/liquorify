@@ -764,6 +764,8 @@ P14 is complete when P7's criteria 2 to 10 hold for these requests, as P10 sets 
 - A control that fails keeps its row failing and is recorded as a defect, or is linked to the defect that is already open. Row 14.8's control is expected to fail on SD-70. On 2026-11-10 the owner confirmed that G-114's exceptions do not extend to this control: these closure criteria apply as written, and G-106 stays open while it fails ([part 2's record §15](../verification/2026-11-10-fb-19-batch-marketplace-part-2.md#15-the-owners-answers-later-on-2026-11-10)).
 - G-11 closes only when G-106 has closed and everything else it holds has closed too.
 
+**Result, 2026-11-11.** P14 ran twice in a row on freshly started servers at `5dcbf7ec` ([record](../verification/2026-11-11-fb-19-platform-p14.md)). All 73 refused answers were as written, after one correction made before the first recorded run from Spree's code (row 14.16, to 404 under A2). Nothing was exposed and no refused write changed anything. 25 of 26 rows pass. Row 14.8 fails on its second control (SD-70), so G-106 stays open, and G-11 stays open with it.
+
 #### P14's checks, recorded before implementation
 
 Recorded on 2026-11-10, before any of P14's scripts was written: the requests, who sends them, the answer each must get, the control beside it, and how the gap closes. The expected answers are written from Spree's code as on `main` at `e1092bc7`, and from part 1's §3.1 and §3.2. Nothing here has been sent yet.
