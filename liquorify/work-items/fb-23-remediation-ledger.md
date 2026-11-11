@@ -56,6 +56,8 @@ The total reported on 2026-11-11, "92 open, 14 High, 36 Medium and 41 Low", was 
 | Observation for product review (SD-78) | | | | 1 | 1 |
 | **All rows** | 15 | 37 | 41 | 1 | **94** |
 
+**Later on 2026-11-11.** The marketplace browser checks added SD-101 (Low), SD-102 (Medium) and SD-103 (Medium), and batch 12 part 2 added SD-104 (Medium). With them there are 98 rows, and 95 open defects before any closure: 14 High, 39 Medium and 42 Low. A fix that has merged is not counted as closed until its closure condition in §2 is met; the fix log (§9) shows where each one stands.
+
 The 92 came from counting SD-78, an observation, as an open defect.
 
 ### 4.1 Severity decisions under the delegation
@@ -135,3 +137,16 @@ None of these blocks the packages above; each blocks only what is named.
 ## 8. Order of lanes
 
 Running on 2026-11-11: the marketplace browser checks, batch 12 part 2 (with SD-86 and SD-9), and R1, which took the lane P14 freed. As each frees, the next starts in this order: R2, R3, R4, R5's rest, R6, R7, R8, then V2, V3, V4 and V5 alongside R9 and R10. Package 0 resumes whenever its block is resolved, ahead of everything else.
+
+## 9. Fix log
+
+A fix moves to closed only when §2's four conditions are met. Until then it is listed here as merged, with what is still needed.
+
+| Defect | Severity | Fix | Evidence so far | Still needed to close |
+|---|---|---|---|---|
+| SD-31 | High | #119, merged 2026-11-11 | The Admin API spec and the dashboard browser test fail before the fix and pass after it, with the assertions unchanged; a control (a draft without a card, and the card paying for another draft); refusals (403 for a read-only key, 404 for another store's draft, 422 for a placed order); the refused-deletion case keeps the card drawn down; `orders.spec.ts` 15 of 15 twice on fresh servers; CI green on the final commit | The check that recorded it rerun twice at the merged revision |
+| SD-22 | Medium | storefront #31, merged 2026-11-11 | The payment line's unit test fails before the fix and passes after it, unchanged; a control (a plain store credit's own balance) and a refusal (a store credit of another amount does not take the card's balance); the checkout browser test checks the card's balance; CI green on the final commit | Row 36's check rerun twice at the merged revision; CAP-05-13 re-rated |
+| SD-86 | High | storefront #30, merged 2026-11-11 | 8 browser tests fail before the fix and pass after it; two successful controls; the other-email case refused by the Store API with the invitation left pending; four refused invitation states and a missing token; CI green on the final commit | Batch 12 part 2's records (§10.12 of its work item) |
+| SD-9 | High | storefront #32, merged 2026-11-11 | 5 browser regression tests fail before the fix and pass after it; 2 guest controls; 2 unit tests fail before and pass after; CI green on the final commit | P10's rows 1.4 and 1.5 rerun twice; G-50 rechecked; batch 12 part 2's records |
+| SD-104 | Medium | storefront #33, merged 2026-11-11 | Quick order's tests: 2 of 3 fail before the fix, 3 of 3 pass after it, with a successful add as the control and the refused and failed adds; CI green on the final commit | Batch 12 part 2's records |
+
