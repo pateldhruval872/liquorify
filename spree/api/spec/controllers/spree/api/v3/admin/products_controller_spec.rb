@@ -1513,6 +1513,17 @@ RSpec.describe Spree::Api::V3::Admin::ProductsController, type: :controller do
       expect(submitted.reload).to be_active
     end
 
+    # SD-61: a seller's submission is on no channel, and approving it has to
+    # leave it where the storefront looks.
+    it "puts a submission on no channel on the store's default channel" do
+      submitted.product_publications.destroy_all
+
+      patch :approve, params: { id: submitted.prefixed_id }, as: :json
+
+      expect(response).to have_http_status(:ok)
+      expect(submitted.reload.channels).to eq([store.default_channel])
+    end
+
     it 'rejects it with a reason the seller can read' do
       patch :reject, params: { id: submitted.prefixed_id, reason: 'Photos are too dark' }, as: :json
 
