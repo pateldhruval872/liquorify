@@ -28,6 +28,7 @@ module Spree
         # the hook so a host app's own rules see a quantity that already
         # passed the commercial ones.
         step :validate_quantity_rules
+        step :ensure_seller_selling
 
         # Veto point — purchase limits, B2B eligibility, per-group rules.
         # Outside the transaction: nothing has been written yet, so a
@@ -85,6 +86,16 @@ module Spree
         # A symbolic type rather than a bare string, so callers reading
         # `details` get `quantity_rule_violated` rather than the sentence.
         errors.add(:base, :quantity_rule_violated, message: message)
+        failure(cart, errors)
+      end
+
+      # Core behaviour rather than a hook: a suspended or away seller is not
+      # selling, and the product page already says so.
+      def ensure_seller_selling
+        return if variant.seller_selling?
+
+        errors.add(:base, :seller_unavailable,
+                   message: I18n.t('spree.cart_line_item.seller_unavailable', li_name: variant.name))
         failure(cart, errors)
       end
 

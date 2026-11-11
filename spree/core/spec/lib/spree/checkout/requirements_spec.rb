@@ -238,6 +238,49 @@ RSpec.describe Spree::Checkout::Requirements do
     end
   end
 
+  # SD-60: a line can outlive its seller's standing.
+  describe 'seller requirement' do
+    let(:seller) { create(:seller, :approved, store: store) }
+    let(:product) { create(:product, store: store, name: 'Harbour Stout', seller: seller) }
+    let(:cart) { create(:cart, store: store) }
+
+    before { create(:line_item, cart: cart, order: nil, variant: product.default_variant) }
+
+    def completion_codes
+      described_class.new(cart.reload).call(completion: true).map { |requirement| requirement[:code] }
+    end
+
+    it 'accepts a line while its seller is approved' do
+      expect(completion_codes).not_to include('seller_unavailable')
+    end
+
+    it 'refuses a line whose seller was suspended after the add' do
+      seller.update!(status: 'suspended')
+
+      expect(described_class.new(cart.reload).call(completion: true)).to include(
+        a_hash_including(step: 'cart', field: 'line_items', code: 'seller_unavailable', message: include('Harbour Stout'))
+      )
+    end
+
+    it 'refuses a line whose seller went on holiday after the add' do
+      seller.update!(holiday_mode_until: 1.week.from_now)
+
+      expect(completion_codes).to include('seller_unavailable')
+    end
+
+    it 'reports it on the advisory feed, before the shopper pays' do
+      seller.update!(status: 'suspended')
+
+      expect(described_class.new(cart.reload).call.map { |requirement| requirement[:code] }).to include('seller_unavailable')
+    end
+
+    it 'reports it once at completion' do
+      seller.update!(status: 'suspended')
+
+      expect(completion_codes.count('seller_unavailable')).to eq(1)
+    end
+  end
+
   describe 'fully ready order' do
     let(:order) { create(:order_with_line_items, store: store, state: 'payment') }
 

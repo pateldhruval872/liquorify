@@ -11,7 +11,7 @@ module Spree
     # cart line to order line — and be right at the moment of placement, since
     # the catalog can change hands while an item sits in a cart.
     describe 'the seller snapshot' do
-      let(:seller) { create(:seller, store: store, name: 'Sparks Audio') }
+      let(:seller) { create(:seller, :approved, store: store, name: 'Sparks Audio') }
 
       it 'carries onto the order lines' do
         ready_cart.line_items.each do |line_item|

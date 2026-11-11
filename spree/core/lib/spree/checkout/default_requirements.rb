@@ -36,6 +36,7 @@ module Spree
           r << req('payment', 'payment', I18n.t('spree.checkout_requirements.payment_required')) if payment_required? && !payment_satisfied?
           r << req('address', 'po_number', I18n.t('spree.checkout_requirements.po_number_required')) if po_number_missing?
           r << order_minimum_requirement if below_order_minimum?
+          r.concat(seller_errors)
         end
       end
 
@@ -52,6 +53,16 @@ module Spree
       def quantity_rule_errors
         @cart.quantity_rule_violations.map do |_line_item, message|
           req('cart', 'line_items', message, code: 'quantity_rule_violated')
+        end
+      end
+
+      # A line can outlive its seller's standing: a seller suspended or gone
+      # away after the shopper added the item is no longer selling it.
+      # Advisory rather than completion-only, so the shopper hears it while
+      # reading the cart instead of when paying.
+      def seller_errors
+        completion_line_items.reject { |line_item| line_item.variant.nil? || line_item.variant.seller_selling? }.map do |line_item|
+          req('cart', 'line_items', I18n.t('spree.cart_line_item.seller_unavailable', li_name: line_item.name), code: 'seller_unavailable')
         end
       end
 
@@ -107,7 +118,7 @@ module Spree
       end
 
       def completion_line_items
-        @completion_line_items ||= @cart.line_items.includes(variant: :product).to_a
+        @completion_line_items ||= @cart.line_items.includes(variant: [:seller, { product: :seller }]).to_a
       end
 
       def delivery_step_required?

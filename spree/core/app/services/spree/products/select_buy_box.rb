@@ -38,7 +38,7 @@ module Spree
         prices = candidates.to_h { |variant| [variant.id, variant.price_in(currency)&.amount] }
         # Anyone selling today, buyable or not — a seller who is suspended,
         # onboarding or away drops out before stock or price is considered.
-        from_active_sellers = candidates.select { |variant| seller_active?(variant) }
+        from_active_sellers = candidates.select(&:seller_selling?)
         buyable = from_active_sellers.select { |variant| buyable?(variant, prices) }
 
         # Nothing is buyable: still name a variant, so the page has a price to
@@ -62,12 +62,6 @@ module Spree
         # sent straight from a request decodes to the record's real key.
         wanted = option_value_ids.map { |id| resolve_option_value_id(id) }.to_set
         variants.select { |variant| wanted.subset?(variant.option_values.map { |value| value.id.to_s }.to_set) }
-      end
-
-      # Whether the variant's seller is selling today. First-party always is.
-      def seller_active?(variant)
-        seller = variant.resolved_seller
-        seller.nil? || seller.sellable?
       end
 
       # Whether a shopper could put this in a cart right now, in this currency.
