@@ -304,6 +304,7 @@ Layouts without a screen ID: SR/`__root.tsx`, SR/`_authenticated.tsx`, SR/`_auth
 | SF-ACC-08 | Payment methods, `/account/credit-cards` | Customer | Remove a saved card | No cards | F/`…/(authenticated)/credit-cards/page.tsx` |
 | SF-ACC-09 | Gift cards, `/account/gift-cards` | Customer | See balances, copy a code | Active, partially used, fully redeemed, canceled, expired; none | F/`…/(authenticated)/gift-cards/page.tsx` |
 | SF-ACC-10 | Profile, `/account/profile` | Customer | Update name and email (`account.spec.ts`) | Current password needed for some changes; updated | F/`…/(authenticated)/profile/page.tsx` |
+| SF-ACC-11 | Company invitation, `/account/company-invitation` | Guest or customer, with the invitation's link | Accept a company invitation: a guest creates the account with the invited email, a signed-in invitee accepts directly (`company-invitation.spec.ts`) | Accepted; signed in with another email; expired, already accepted, revoked or unknown; no token | F/`(storefront)/account/company-invitation/page.tsx`. Added by storefront #30 (SD-86's fix) on 2026-11-11, after the pinned revision, so it is not in the counts above ([FB-19 batch 12 part 2](verification/2026-11-11-fb-19-batch-wholesale-part-2.md)) |
 
 Layout without a screen ID: F/`(storefront)/account/(authenticated)/layout.tsx` (the account navigation, which sends a guest to sign in).
 

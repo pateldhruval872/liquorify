@@ -1,0 +1,11 @@
+{
+  "screen": "SF-WHL-02",
+  "state": "wholesale-off",
+  "variant": "guest",
+  "theme": "light",
+  "width": 390,
+  "revision": "e9d80d5",
+  "path": "/us/en/wholesale/apply",
+  "observed": "Opened /us/en/wholesale/apply; arrived at /us/en/wholesale/apply, answered with status 200.",
+  "note": null
+}

@@ -1,0 +1,437 @@
+[1A[2K[WebServer] 
+[WebServer] > nextjs-starter-spree@0.1.0 dev <local>
+[WebServer] > next dev -p 3001 --turbopack
+[WebServer] 
+
+[1A[2K[WebServer] ▲ Next.js 16.3.8 (Turbopack)
+
+[1A[2K[WebServer] - Local:         http://localhost:3001
+[WebServer] - Network:       http://<host>:3001
+
+[1A[2K[WebServer] ✓ Ready in 398ms
+
+[1A[2K[WebServer] ✓ Running next.config.ts took 346ms
+
+[1A[2K[WebServer] - Cache Components enabled
+
+[1A[2K[WebServer] - Experiments (use with caution):
+
+[1A[2K[WebServer]   · optimizePackageImports
+
+[1A[2K[WebServer] 
+
+
+Running 8 tests using 2 workers
+
+[1A[2K[WebServer]  GET /us/en 200 in 2.9s (next.js: 754ms, proxy.ts: 230ms, generate-params: 664ms, application-code: 1275ms)
+
+[1A[2K[1/8] [chromium] › e2e/company-invitation.spec.ts:91:7 › Company invitation › a signed-in invitee accepts
+[1A[2K[2/8] [chromium] › e2e/company-invitation.spec.ts:54:7 › Company invitation › a guest creates the invited account and joins the company from the email's link
+[1A[2K[WebServer]  GET /us/en/account?redirect=%2Fus%2Fen%2Faccount%2Fcompany-invitation%3Ftoken%3De2e-invitation-new 200 in 1109ms (next.js: 43ms, proxy.ts: 17ms, generate-params: 597ms, application-code: 452ms)
+
+[1A[2K[WebServer]  GET /us/en/account 200 in 1299ms (next.js: 82ms, proxy.ts: 14ms, generate-params: 928ms, application-code: 275ms)
+
+[1A[2K[WebServer] Error: Route "/[country]/[locale]": Next.js encountered runtime data during prerendering or a navigation.
+[WebServer] 
+[WebServer] `cookies()`, `headers()`, `params`, or `searchParams` accessed outside of `<Suspense>` prevents the route from being prerendered or the navigation from being instant, leading to a slower user experience.
+[WebServer] 
+[WebServer] Ways to fix this:
+[WebServer]   - [stream] Provide a placeholder with `<Suspense fallback={...}>` around the data access
+[WebServer]   - [block] Set `export const instant = false` to allow a blocking route
+[WebServer] 
+[WebServer] Learn more: https://nextjs.org/docs/messages/blocking-prerender-runtime
+[WebServer]     at getLocaleOptions (src/lib/spree/locale.ts:18:38)
+[WebServer]     at getMarkets (src/lib/data/markets.ts:41:61)
+[WebServer]     at resolveCurrency (src/lib/data/markets.ts:63:35)
+[WebServer]     at HomePage (src/app/[country]/[locale]/(storefront)/page.tsx:25:41)
+[WebServer]   16 |
+[WebServer]   17 |   try {
+[WebServer] > 18 |     const cookieStore = await cookies();
+[WebServer]      |                                      ^
+[WebServer]   19 |
+[WebServer]   20 |     const country = cookieStore.get(
+[WebServer]   21 |       config.countryCookieName ?? DEFAULT_COUNTRY_COOKIE,
+
+[1A[2K[WebServer]  POST /us/en/account 200 in 210ms (next.js: 24ms, proxy.ts: 27ms, generate-params: 24ms, application-code: 135ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 7ms src/lib/data/cart.ts
+
+[1A[2K[WebServer]  POST /us/en/account?redirect=%2Fus%2Fen%2Faccount%2Fcompany-invitation%3Ftoken%3De2e-invitation-new 200 in 629ms (next.js: 168ms, proxy.ts: 14ms, generate-params: 0.0ms, application-code: 447ms)
+
+[1A[2K[WebServer]   └─ ƒ getCart(undefined, "dtc") in 3ms src/lib/data/cart.ts
+
+[1A[2K[WebServer]  POST /us/en/account 200 in 631ms (next.js: 16ms, proxy.ts: 83ms, generate-params: 0.0ms, application-code: 532ms)
+[WebServer]   └─ ƒ syncSession() in 2ms src/lib/data/customer.ts
+
+[1A[2K[WebServer]  POST /us/en/account?redirect=%2Fus%2Fen%2Faccount%2Fcompany-invitation%3Ftoken%3De2e-invitation-new 200 in 711ms (next.js: 54ms, proxy.ts: 68ms, generate-params: 0.0ms, application-code: 589ms)
+[WebServer]   └─ ƒ syncSession() in 2ms src/lib/data/customer.ts
+
+[1A[2K[WebServer]  POST /us/en/account 200 in 649ms (next.js: 19ms, proxy.ts: 43ms, generate-params: 0.0ms, application-code: 587ms)
+
+[1A[2K[WebServer]   └─ ƒ getCart(undefined, "dtc") in 5ms src/lib/data/cart.ts
+
+[1A[2K[WebServer]  POST /us/en/account?redirect=%2Fus%2Fen%2Faccount%2Fcompany-invitation%3Ftoken%3De2e-invitation-new 200 in 609ms (next.js: 29ms, proxy.ts: 93ms, generate-params: 0.0ms, application-code: 487ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 2ms src/lib/data/cart.ts
+
+[1A[2K[WebServer]  POST /us/en/account 200 in 501ms (next.js: 100ms, proxy.ts: 77ms, generate-params: 32ms, application-code: 292ms)
+[WebServer]   └─ ƒ syncSession() in 4ms src/lib/data/customer.ts
+[WebServer]  POST /us/en/account?redirect=%2Fus%2Fen%2Faccount%2Fcompany-invitation%3Ftoken%3De2e-invitation-new 200 in 328ms (next.js: 27ms, proxy.ts: 153ms, generate-params: 0.1ms, application-code: 148ms)
+[WebServer]   └─ ƒ syncSession() in 5ms src/lib/data/customer.ts
+
+[1A[2K[WebServer]  POST /us/en/account 200 in 505ms (next.js: 18ms, proxy.ts: 46ms, generate-params: 0.0ms, application-code: 442ms)
+
+[1A[2K[WebServer]   └─ ƒ login("e2e-invitee-existing@example.com", "spree123!") in 359ms src/lib/data/customer.ts
+
+[1A[2K[WebServer]  GET /us/en/account 200 in 104ms (next.js: 11ms, proxy.ts: 6ms, generate-params: 0.0ms, application-code: 88ms)
+
+[1A[2K[WebServer]  GET /us/en/account/company-invitation?token=e2e-invitation-existing 404 in 803ms (next.js: 751ms, proxy.ts: 8ms, application-code: 44ms)
+
+[1A[2K  1) [chromium] › e2e/company-invitation.spec.ts:54:7 › Company invitation › a guest creates the invited account and joins the company from the email's link 
+
+    Error: expect(page).toHaveURL(expected) failed
+
+    Expected: "http://localhost:3001/us/en/account/company-invitation?token=e2e-invitation-new"
+    Received: "http://localhost:3001/us/en/account?redirect=%2Fus%2Fen%2Faccount%2Fcompany-invitation%3Ftoken%3De2e-invitation-new"
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveURL" with timeout 5000ms
+        13 × unexpected value "http://localhost:3001/us/en/account?redirect=%2Fus%2Fen%2Faccount%2Fcompany-invitation%3Ftoken%3De2e-invitation-new"
+
+
+      56 |   }) => {
+      57 |     await page.goto(emailLink("e2e-invitation-new"));
+    > 58 |     await expect(page).toHaveURL(
+         |                        ^
+      59 |       `${BASE_PATH}/account/company-invitation?token=e2e-invitation-new`,
+      60 |     );
+      61 |     await expect(
+        at <local>
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/company-invitation-Company-ee129-mpany-from-the-email-s-link-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/company-invitation-Company-ee129-mpany-from-the-email-s-link-chromium/error-context.md
+
+
+[1A[2K[3/8] [chromium] › e2e/company-invitation.spec.ts:105:7 › Company invitation › a customer signed in with another email is not offered the invitation, and Spree refuses it
+[1A[2K[WebServer]  GET /us/en/account 200 in 211ms (next.js: 20ms, proxy.ts: 5ms, generate-params: 16ms, application-code: 170ms)
+
+[1A[2K[WebServer]  POST /us/en/account 200 in 112ms (next.js: 8ms, proxy.ts: 7ms, generate-params: 17ms, application-code: 82ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 2ms src/lib/data/cart.ts
+
+[1A[2K[WebServer]  POST /us/en/account 200 in 90ms (next.js: 7ms, proxy.ts: 6ms, generate-params: 0.0ms, application-code: 77ms)
+[WebServer]   └─ ƒ syncSession() in 2ms src/lib/data/customer.ts
+
+[1A[2K[WebServer]  POST /us/en/account 200 in 95ms (next.js: 6ms, proxy.ts: 8ms, generate-params: 0.0ms, application-code: 81ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 1ms src/lib/data/cart.ts
+
+[1A[2K[WebServer]  POST /us/en/account 200 in 75ms (next.js: 9ms, proxy.ts: 8ms, generate-params: 0.0ms, application-code: 58ms)
+
+[1A[2K[WebServer]   └─ ƒ syncSession() in 5ms src/lib/data/customer.ts
+
+[1A[2K[WebServer]  POST /us/en/account 200 in 454ms (next.js: 8ms, proxy.ts: 4ms, generate-params: 18ms, application-code: 424ms)
+[WebServer]   └─ ƒ login("e2e-invitee-other@example.com", "spree123!") in 352ms src/lib/data/customer.ts
+
+[1A[2K[WebServer]  GET /us/en/account 200 in 96ms (next.js: 5ms, proxy.ts: 4ms, generate-params: 0.0ms, application-code: 87ms)
+
+[1A[2K[WebServer]  GET /us/en/account/company-invitation?token=e2e-invitation-mismatch 404 in 45ms (next.js: 11ms, proxy.ts: 4ms, application-code: 29ms)
+
+[1A[2K  2) [chromium] › e2e/company-invitation.spec.ts:91:7 › Company invitation › a signed-in invitee accepts 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('button', { name: 'Accept invitation' })
+    Expected: visible
+    Timeout: 30000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 30000ms
+      - waiting for getByRole('button', { name: 'Accept invitation' })
+
+
+       at support.ts:13
+
+      11 |  */
+      12 | export async function waitForHydration(locator: Locator): Promise<void> {
+    > 13 |   await expect(locator).toBeVisible({ timeout: 30_000 });
+         |                         ^
+      14 |   await expect
+      15 |     .poll(
+      16 |       () =>
+        at waitForHydration (<local>
+        at <local>
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/company-invitation-Company-d124d-a-signed-in-invitee-accepts-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/company-invitation-Company-d124d-a-signed-in-invitee-accepts-chromium/error-context.md
+
+
+[1A[2K[4/8] [chromium] › e2e/company-invitation.spec.ts:149:9 › Company invitation › an expired invitation is refused
+[1A[2K[WebServer]  GET /us/en/account?redirect=%2Fus%2Fen%2Faccount%2Fcompany-invitation%3Ftoken%3De2e-invitation-expired 200 in 208ms (next.js: 9ms, proxy.ts: 5ms, generate-params: 18ms, application-code: 176ms)
+
+[1A[2K[WebServer]  POST /us/en/account?redirect=%2Fus%2Fen%2Faccount%2Fcompany-invitation%3Ftoken%3De2e-invitation-expired 200 in 134ms (next.js: 8ms, proxy.ts: 4ms, generate-params: 25ms, application-code: 97ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 2ms src/lib/data/cart.ts
+
+[1A[2K[WebServer]  POST /us/en/account?redirect=%2Fus%2Fen%2Faccount%2Fcompany-invitation%3Ftoken%3De2e-invitation-expired 200 in 344ms (next.js: 15ms, proxy.ts: 21ms, generate-params: 0.0ms, application-code: 308ms)
+[WebServer]   └─ ƒ syncSession() in 1ms src/lib/data/customer.ts
+
+[1A[2K[WebServer]  POST /us/en/account?redirect=%2Fus%2Fen%2Faccount%2Fcompany-invitation%3Ftoken%3De2e-invitation-expired 200 in 153ms (next.js: 11ms, proxy.ts: 33ms, generate-params: 0.0ms, application-code: 109ms)
+
+[1A[2K[WebServer]   └─ ƒ getCart(undefined, "dtc") in 1ms src/lib/data/cart.ts
+
+[1A[2K[WebServer]  POST /us/en/account?redirect=%2Fus%2Fen%2Faccount%2Fcompany-invitation%3Ftoken%3De2e-invitation-expired 200 in 77ms (next.js: 6ms, proxy.ts: 4ms, generate-params: 0.0ms, application-code: 67ms)
+[WebServer]   └─ ƒ syncSession() in 1ms src/lib/data/customer.ts
+
+[1A[2K  3) [chromium] › e2e/company-invitation.spec.ts:105:7 › Company invitation › a customer signed in with another email is not offered the invitation, and Spree refuses it 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByText('You\'re signed in as e2e-invitee-other@example.com, but this invitation is for e2e-invitee-mismatch@example.com.')
+    Expected: visible
+    Timeout: 30000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 30000ms
+      - waiting for getByText('You\'re signed in as e2e-invitee-other@example.com, but this invitation is for e2e-invitee-mismatch@example.com.')
+
+
+      114 |         { exact: false },
+      115 |       ),
+    > 116 |     ).toBeVisible({ timeout: 30_000 });
+          |       ^
+      117 |     await expect(
+      118 |       page.getByRole("button", { name: "Accept invitation" }),
+      119 |     ).toHaveCount(0);
+        at <local>
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/company-invitation-Company-122a4-tation-and-Spree-refuses-it-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/company-invitation-Company-122a4-tation-and-Spree-refuses-it-chromium/error-context.md
+
+
+[1A[2K[5/8] [chromium] › e2e/company-invitation.spec.ts:149:9 › Company invitation › an already accepted invitation is refused
+[1A[2K[WebServer]  GET /us/en/account?redirect=%2Fus%2Fen%2Faccount%2Fcompany-invitation%3Ftoken%3De2e-invitation-accepted 200 in 205ms (next.js: 4ms, proxy.ts: 9ms, generate-params: 14ms, application-code: 178ms)
+
+[1A[2K[WebServer]  POST /us/en/account?redirect=%2Fus%2Fen%2Faccount%2Fcompany-invitation%3Ftoken%3De2e-invitation-accepted 200 in 103ms (next.js: 7ms, proxy.ts: 8ms, generate-params: 16ms, application-code: 72ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 2ms src/lib/data/cart.ts
+
+[1A[2K[WebServer]  POST /us/en/account?redirect=%2Fus%2Fen%2Faccount%2Fcompany-invitation%3Ftoken%3De2e-invitation-accepted 200 in 69ms (next.js: 5ms, proxy.ts: 4ms, generate-params: 0.0ms, application-code: 60ms)
+[WebServer]   └─ ƒ syncSession() in 1ms src/lib/data/customer.ts
+
+[1A[2K[WebServer]  POST /us/en/account?redirect=%2Fus%2Fen%2Faccount%2Fcompany-invitation%3Ftoken%3De2e-invitation-accepted 200 in 82ms (next.js: 7ms, proxy.ts: 4ms, generate-params: 0.0ms, application-code: 71ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 7ms src/lib/data/cart.ts
+
+[1A[2K[WebServer]  POST /us/en/account?redirect=%2Fus%2Fen%2Faccount%2Fcompany-invitation%3Ftoken%3De2e-invitation-accepted 200 in 93ms (next.js: 6ms, proxy.ts: 6ms, generate-params: 0.0ms, application-code: 81ms)
+[WebServer]   └─ ƒ syncSession() in 2ms src/lib/data/customer.ts
+
+[1A[2K  4) [chromium] › e2e/company-invitation.spec.ts:149:9 › Company invitation › an expired invitation is refused 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('heading', { name: 'Invitation not found' })
+    Expected: visible
+    Timeout: 30000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 30000ms
+      - waiting for getByRole('heading', { name: 'Invitation not found' })
+
+
+      151 |       await expect(
+      152 |         page.getByRole("heading", { name: "Invitation not found" }),
+    > 153 |       ).toBeVisible({ timeout: 30_000 });
+          |         ^
+      154 |       await expect(page.getByRole("button", { name: /accept/i })).toHaveCount(0);
+      155 |     });
+      156 |   }
+        at <local>
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/company-invitation-Company-9efe8-pired-invitation-is-refused-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/company-invitation-Company-9efe8-pired-invitation-is-refused-chromium/error-context.md
+
+
+[1A[2K[6/8] [chromium] › e2e/company-invitation.spec.ts:149:9 › Company invitation › an revoked invitation is refused
+[1A[2K[WebServer]  GET /us/en/account?redirect=%2Fus%2Fen%2Faccount%2Fcompany-invitation%3Ftoken%3De2e-invitation-revoked 200 in 183ms (next.js: 5ms, proxy.ts: 4ms, generate-params: 18ms, application-code: 156ms)
+
+[1A[2K[WebServer]  POST /us/en/account?redirect=%2Fus%2Fen%2Faccount%2Fcompany-invitation%3Ftoken%3De2e-invitation-revoked 200 in 96ms (next.js: 5ms, proxy.ts: 4ms, generate-params: 15ms, application-code: 73ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 2ms src/lib/data/cart.ts
+
+[1A[2K[WebServer]  POST /us/en/account?redirect=%2Fus%2Fen%2Faccount%2Fcompany-invitation%3Ftoken%3De2e-invitation-revoked 200 in 117ms (next.js: 7ms, proxy.ts: 20ms, generate-params: 0.1ms, application-code: 91ms)
+[WebServer]   └─ ƒ syncSession() in 2ms src/lib/data/customer.ts
+
+[1A[2K[WebServer]  POST /us/en/account?redirect=%2Fus%2Fen%2Faccount%2Fcompany-invitation%3Ftoken%3De2e-invitation-revoked 200 in 96ms (next.js: 10ms, proxy.ts: 5ms, generate-params: 0.0ms, application-code: 81ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 2ms src/lib/data/cart.ts
+
+[1A[2K[WebServer]  POST /us/en/account?redirect=%2Fus%2Fen%2Faccount%2Fcompany-invitation%3Ftoken%3De2e-invitation-revoked 200 in 88ms (next.js: 5ms, proxy.ts: 7ms, generate-params: 0.0ms, application-code: 77ms)
+[WebServer]   └─ ƒ syncSession() in 2ms src/lib/data/customer.ts
+
+[1A[2K  5) [chromium] › e2e/company-invitation.spec.ts:149:9 › Company invitation › an already accepted invitation is refused 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('heading', { name: 'Invitation not found' })
+    Expected: visible
+    Timeout: 30000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 30000ms
+      - waiting for getByRole('heading', { name: 'Invitation not found' })
+
+
+      151 |       await expect(
+      152 |         page.getByRole("heading", { name: "Invitation not found" }),
+    > 153 |       ).toBeVisible({ timeout: 30_000 });
+          |         ^
+      154 |       await expect(page.getByRole("button", { name: /accept/i })).toHaveCount(0);
+      155 |     });
+      156 |   }
+        at <local>
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/company-invitation-Company-c7256-epted-invitation-is-refused-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/company-invitation-Company-c7256-epted-invitation-is-refused-chromium/error-context.md
+
+
+[1A[2K[7/8] [chromium] › e2e/company-invitation.spec.ts:149:9 › Company invitation › an unknown invitation is refused
+[1A[2K[WebServer]  GET /us/en/account?redirect=%2Fus%2Fen%2Faccount%2Fcompany-invitation%3Ftoken%3De2e-invitation-unknown 200 in 219ms (next.js: 6ms, proxy.ts: 3ms, generate-params: 17ms, application-code: 193ms)
+
+[1A[2K[WebServer]  POST /us/en/account?redirect=%2Fus%2Fen%2Faccount%2Fcompany-invitation%3Ftoken%3De2e-invitation-unknown 200 in 121ms (next.js: 5ms, proxy.ts: 15ms, generate-params: 14ms, application-code: 87ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 2ms src/lib/data/cart.ts
+
+[1A[2K[WebServer]  POST /us/en/account?redirect=%2Fus%2Fen%2Faccount%2Fcompany-invitation%3Ftoken%3De2e-invitation-unknown 200 in 65ms (next.js: 4ms, proxy.ts: 3ms, generate-params: 0.0ms, application-code: 57ms)
+[WebServer]   └─ ƒ syncSession() in 5ms src/lib/data/customer.ts
+
+[1A[2K[WebServer]  POST /us/en/account?redirect=%2Fus%2Fen%2Faccount%2Fcompany-invitation%3Ftoken%3De2e-invitation-unknown 200 in 128ms (next.js: 9ms, proxy.ts: 5ms, generate-params: 0.0ms, application-code: 113ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 2ms src/lib/data/cart.ts
+
+[1A[2K[WebServer]  POST /us/en/account?redirect=%2Fus%2Fen%2Faccount%2Fcompany-invitation%3Ftoken%3De2e-invitation-unknown 200 in 135ms (next.js: 8ms, proxy.ts: 7ms, generate-params: 0.0ms, application-code: 120ms)
+[WebServer]   └─ ƒ syncSession() in 2ms src/lib/data/customer.ts
+
+[1A[2K  6) [chromium] › e2e/company-invitation.spec.ts:149:9 › Company invitation › an revoked invitation is refused 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('heading', { name: 'Invitation not found' })
+    Expected: visible
+    Timeout: 30000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 30000ms
+      - waiting for getByRole('heading', { name: 'Invitation not found' })
+
+
+      151 |       await expect(
+      152 |         page.getByRole("heading", { name: "Invitation not found" }),
+    > 153 |       ).toBeVisible({ timeout: 30_000 });
+          |         ^
+      154 |       await expect(page.getByRole("button", { name: /accept/i })).toHaveCount(0);
+      155 |     });
+      156 |   }
+        at <local>
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/company-invitation-Company-fcd07-voked-invitation-is-refused-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/company-invitation-Company-fcd07-voked-invitation-is-refused-chromium/error-context.md
+
+
+[1A[2K[8/8] [chromium] › e2e/company-invitation.spec.ts:158:7 › Company invitation › a link without a token is refused
+[1A[2K[WebServer]  GET /us/en/account?redirect=%2Fus%2Fen%2Faccount%2Fcompany-invitation 200 in 168ms (next.js: 6ms, proxy.ts: 4ms, generate-params: 13ms, application-code: 145ms)
+
+[1A[2K[WebServer]  POST /us/en/account?redirect=%2Fus%2Fen%2Faccount%2Fcompany-invitation 200 in 110ms (next.js: 5ms, proxy.ts: 4ms, generate-params: 17ms, application-code: 84ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 6ms src/lib/data/cart.ts
+
+[1A[2K[WebServer]  POST /us/en/account?redirect=%2Fus%2Fen%2Faccount%2Fcompany-invitation 200 in 92ms (next.js: 7ms, proxy.ts: 4ms, generate-params: 0.0ms, application-code: 81ms)
+[WebServer]   └─ ƒ syncSession() in 2ms src/lib/data/customer.ts
+
+[1A[2K[WebServer]  POST /us/en/account?redirect=%2Fus%2Fen%2Faccount%2Fcompany-invitation 200 in 98ms (next.js: 9ms, proxy.ts: 6ms, generate-params: 0.0ms, application-code: 83ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 2ms src/lib/data/cart.ts
+
+[1A[2K[WebServer]  POST /us/en/account?redirect=%2Fus%2Fen%2Faccount%2Fcompany-invitation 200 in 96ms (next.js: 6ms, proxy.ts: 6ms, generate-params: 0.0ms, application-code: 85ms)
+[WebServer]   └─ ƒ syncSession() in 1ms src/lib/data/customer.ts
+
+[1A[2K  7) [chromium] › e2e/company-invitation.spec.ts:149:9 › Company invitation › an unknown invitation is refused 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('heading', { name: 'Invitation not found' })
+    Expected: visible
+    Timeout: 30000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 30000ms
+      - waiting for getByRole('heading', { name: 'Invitation not found' })
+
+
+      151 |       await expect(
+      152 |         page.getByRole("heading", { name: "Invitation not found" }),
+    > 153 |       ).toBeVisible({ timeout: 30_000 });
+          |         ^
+      154 |       await expect(page.getByRole("button", { name: /accept/i })).toHaveCount(0);
+      155 |     });
+      156 |   }
+        at <local>
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/company-invitation-Company-d2fa7-known-invitation-is-refused-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/company-invitation-Company-d2fa7-known-invitation-is-refused-chromium/error-context.md
+
+
+[1A[2K  8) [chromium] › e2e/company-invitation.spec.ts:158:7 › Company invitation › a link without a token is refused 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('heading', { name: 'Invitation not found' })
+    Expected: visible
+    Timeout: 30000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 30000ms
+      - waiting for getByRole('heading', { name: 'Invitation not found' })
+
+
+      160 |     await expect(
+      161 |       page.getByRole("heading", { name: "Invitation not found" }),
+    > 162 |     ).toBeVisible({ timeout: 30_000 });
+          |       ^
+      163 |   });
+      164 | });
+      165 |
+        at <local>
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/company-invitation-Company-49084--without-a-token-is-refused-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/company-invitation-Company-49084--without-a-token-is-refused-chromium/error-context.md
+
+
+[1A[2K  8 failed
+    [chromium] › e2e/company-invitation.spec.ts:54:7 › Company invitation › a guest creates the invited account and joins the company from the email's link 
+    [chromium] › e2e/company-invitation.spec.ts:91:7 › Company invitation › a signed-in invitee accepts 
+    [chromium] › e2e/company-invitation.spec.ts:105:7 › Company invitation › a customer signed in with another email is not offered the invitation, and Spree refuses it 
+    [chromium] › e2e/company-invitation.spec.ts:149:9 › Company invitation › an expired invitation is refused 
+    [chromium] › e2e/company-invitation.spec.ts:149:9 › Company invitation › an already accepted invitation is refused 
+    [chromium] › e2e/company-invitation.spec.ts:149:9 › Company invitation › an revoked invitation is refused 
+    [chromium] › e2e/company-invitation.spec.ts:149:9 › Company invitation › an unknown invitation is refused 
+    [chromium] › e2e/company-invitation.spec.ts:158:7 › Company invitation › a link without a token is refused 

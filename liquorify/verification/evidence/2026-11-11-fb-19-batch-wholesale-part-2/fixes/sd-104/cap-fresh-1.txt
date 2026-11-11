@@ -1,0 +1,9 @@
+
+Running 2 tests using 1 worker
+
+  ✓  1 visual/fidelity/wholesale-screens.spec.ts:1204:9 › buyer 390 (11.2m)
+  ✓  2 visual/fidelity/wholesale-screens.spec.ts:1204:9 › buyer 1280 (10.8m)
+
+  Slow test file: visual/fidelity/wholesale-screens.spec.ts (22.1m)
+  Consider running tests from slow files in parallel. See: https://playwright.dev/docs/test-parallel
+  2 passed (22.1m)

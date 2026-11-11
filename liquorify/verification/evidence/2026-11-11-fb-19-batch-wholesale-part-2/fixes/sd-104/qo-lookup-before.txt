@@ -1,0 +1,303 @@
+
+ RUN  v4.1.11 <storefront>
+
+ ❯ src/app/[country]/[locale]/(wholesale)/wholesale/quick-order/__tests__/QuickOrderView.test.tsx (4 tests | 1 failed) 2659ms
+     × says the row could not be added when looking up its SKU fails 1340ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/app/[country]/[locale]/(wholesale)/wholesale/quick-order/__tests__/QuickOrderView.test.tsx > QuickOrderView > says the row could not be added when looking up its SKU fails
+TestingLibraryElementError: Unable to find an element with the text: Couldn't add this item. Please try again.. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+
+Ignored nodes: comments, script, style
+<body>
+  <div>
+    <div
+      class="container mx-auto max-w-3xl px-4 py-8 sm:px-6 lg:px-8"
+    >
+      <div
+        class="mb-8"
+      >
+        <h1
+          class="text-3xl font-bold text-slate-900"
+        >
+          Quick Order
+        </h1>
+        <p
+          class="mt-2 text-slate-500"
+        >
+          Enter SKUs and quantities to add multiple products to your cart at once.
+        </p>
+      </div>
+      <div
+        class="rounded-xl border border-slate-200 bg-white"
+      >
+        <div
+          class="grid grid-cols-[1fr_7rem_auto] gap-3 border-b border-slate-200 px-4 py-3 text-xs font-medium uppercase tracking-wide text-slate-500"
+        >
+          <span>
+            SKU
+          </span>
+          <span>
+            Qty
+          </span>
+          <span
+            class="sr-only"
+          >
+            Actions
+          </span>
+        </div>
+        <div
+          class="divide-y divide-slate-100"
+        >
+          <div
+            class="px-4 py-3"
+          >
+            <div
+              class="grid grid-cols-[1fr_7rem_auto] items-start gap-3"
+            >
+              <div
+                class="relative"
+              >
+                <input
+                  aria-autocomplete="list"
+                  aria-controls="_r_d_"
+                  aria-expanded="false"
+                  aria-label="SKU"
+                  class="h-11 w-full min-w-0 rounded-sm border border-input bg-transparent px-2.5 py-1 text-base transition-colors outline-none file:inline-flex file:h-6 file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus:border-black focus:[outline:1px_solid_black] disabled:pointer-events-none disabled:cursor-not-allowed disabled:bg-input/50 disabled:opacity-50 aria-invalid:border-destructive md:text-sm dark:bg-input/30 dark:focus:border-white dark:focus:[outline:1px_solid_white] dark:disabled:bg-input/80"
+                  data-slot="input"
+                  placeholder="Enter a SKU"
+                  role="combobox"
+                  value="PEDESTAL-FAN-WHITE"
+                />
+              </div>
+              <input
+                aria-label="Qty"
+                class="h-11 w-full min-w-0 rounded-sm border border-input bg-transparent px-2.5 py-1 text-base transition-colors outline-none file:inline-flex file:h-6 file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus:border-black focus:[outline:1px_solid_black] disabled:pointer-events-none disabled:cursor-not-allowed disabled:bg-input/50 disabled:opacity-50 aria-invalid:border-destructive md:text-sm dark:bg-input/30 dark:focus:border-white dark:focus:[outline:1px_solid_white] dark:disabled:bg-input/80"
+                data-qty-for="_r_c_-0"
+                data-slot="input"
+                min="1"
+                type="number"
+                value="12"
+              />
+              <button
+                aria-label="Remove row"
+                class="group/button inline-flex shrink-0 items-center justify-center rounded-md border border-transparent bg-clip-padding text-sm font-medium whitespace-nowrap cursor-pointer transition-all outline-none select-none focus-visible:border-black focus-visible:[outline:1px_solid_black] disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive dark:focus-visible:border-white dark:focus-visible:[outline:1px_solid_white] [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 hover:bg-muted hover:text-foreground aria-expanded:bg-muted aria-expanded:text-foreground dark:hover:bg-muted/50 size-8"
+                data-size="icon"
+                data-slot="button"
+                data-variant="ghost"
+                type="button"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="lucide lucide-trash2 lucide-trash-2 h-4 w-4"
+                  fill="none"
+                  height="24"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M10 11v6"
+                  />
+                  <path
+                    d="M14 11v6"
+                  />
+                  <path
+                    d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"
+                  />
+                  <path
+                    d="M3 6h18"
+                  />
+                  <path
+                    d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+                  />
+                </svg>
+              </button>
+            </div>
+            <p
+              class="mt-1 flex items-center gap-1.5 text-sm text-slate-500"
+            >
+              <svg
+                aria-hidden="true"
+                class="lucide lucide-loader-circle h-3.5 w-3.5 animate-spin"
+                fill="none"
+                height="24"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+          ...
+
+Ignored nodes: comments, script, style
+<body>
+  <div>
+    <div
+      class="container mx-auto max-w-3xl px-4 py-8 sm:px-6 lg:px-8"
+    >
+      <div
+        class="mb-8"
+      >
+        <h1
+          class="text-3xl font-bold text-slate-900"
+        >
+          Quick Order
+        </h1>
+        <p
+          class="mt-2 text-slate-500"
+        >
+          Enter SKUs and quantities to add multiple products to your cart at once.
+        </p>
+      </div>
+      <div
+        class="rounded-xl border border-slate-200 bg-white"
+      >
+        <div
+          class="grid grid-cols-[1fr_7rem_auto] gap-3 border-b border-slate-200 px-4 py-3 text-xs font-medium uppercase tracking-wide text-slate-500"
+        >
+          <span>
+            SKU
+          </span>
+          <span>
+            Qty
+          </span>
+          <span
+            class="sr-only"
+          >
+            Actions
+          </span>
+        </div>
+        <div
+          class="divide-y divide-slate-100"
+        >
+          <div
+            class="px-4 py-3"
+          >
+            <div
+              class="grid grid-cols-[1fr_7rem_auto] items-start gap-3"
+            >
+              <div
+                class="relative"
+              >
+                <input
+                  aria-autocomplete="list"
+                  aria-controls="_r_d_"
+                  aria-expanded="false"
+                  aria-label="SKU"
+                  class="h-11 w-full min-w-0 rounded-sm border border-input bg-transparent px-2.5 py-1 text-base transition-colors outline-none file:inline-flex file:h-6 file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus:border-black focus:[outline:1px_solid_black] disabled:pointer-events-none disabled:cursor-not-allowed disabled:bg-input/50 disabled:opacity-50 aria-invalid:border-destructive md:text-sm dark:bg-input/30 dark:focus:border-white dark:focus:[outline:1px_solid_white] dark:disabled:bg-input/80"
+                  data-slot="input"
+                  placeholder="Enter a SKU"
+                  role="combobox"
+                  value="PEDESTAL-FAN-WHITE"
+                />
+              </div>
+              <input
+                aria-label="Qty"
+                class="h-11 w-full min-w-0 rounded-sm border border-input bg-transparent px-2.5 py-1 text-base transition-colors outline-none file:inline-flex file:h-6 file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus:border-black focus:[outline:1px_solid_black] disabled:pointer-events-none disabled:cursor-not-allowed disabled:bg-input/50 disabled:opacity-50 aria-invalid:border-destructive md:text-sm dark:bg-input/30 dark:focus:border-white dark:focus:[outline:1px_solid_white] dark:disabled:bg-input/80"
+                data-qty-for="_r_c_-0"
+                data-slot="input"
+                min="1"
+                type="number"
+                value="12"
+              />
+              <button
+                aria-label="Remove row"
+                class="group/button inline-flex shrink-0 items-center justify-center rounded-md border border-transparent bg-clip-padding text-sm font-medium whitespace-nowrap cursor-pointer transition-all outline-none select-none focus-visible:border-black focus-visible:[outline:1px_solid_black] disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive dark:focus-visible:border-white dark:focus-visible:[outline:1px_solid_white] [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 hover:bg-muted hover:text-foreground aria-expanded:bg-muted aria-expanded:text-foreground dark:hover:bg-muted/50 size-8"
+                data-size="icon"
+                data-slot="button"
+                data-variant="ghost"
+                type="button"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="lucide lucide-trash2 lucide-trash-2 h-4 w-4"
+                  fill="none"
+                  height="24"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M10 11v6"
+                  />
+                  <path
+                    d="M14 11v6"
+                  />
+                  <path
+                    d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"
+                  />
+                  <path
+                    d="M3 6h18"
+                  />
+                  <path
+                    d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+                  />
+                </svg>
+              </button>
+            </div>
+            <p
+              class="mt-1 flex items-center gap-1.5 text-sm text-slate-500"
+            >
+              <svg
+                aria-hidden="true"
+                class="lucide lucide-loader-circle h-3.5 w-3.5 animate-spin"
+                fill="none"
+                height="24"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+          ...
+ ❯ waitForWrapper node_modules/.pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/dist/wait-for.js:163:27
+ ❯ node_modules/.pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/dist/query-helpers.js:86:33
+ ❯ src/app/[country]/[locale]/(wholesale)/wholesale/quick-order/__tests__/QuickOrderView.test.tsx:111:20
+    109|
+    110|     expect(
+    111|       await screen.findByText("Couldn't add this item. Please try agai…
+       |                    ^
+    112|     ).toBeInTheDocument();
+    113|     expect(screen.queryByText("Adding…")).toBeNull();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+⎯⎯⎯⎯⎯⎯ Unhandled Errors ⎯⎯⎯⎯⎯⎯
+
+Vitest caught 1 unhandled error during the test run.
+This might cause false positive tests. Resolve unhandled errors to make sure your tests are not affected.
+
+⎯⎯⎯⎯ Unhandled Rejection ⎯⎯⎯⎯⎯
+Error: Failed to fetch
+ ❯ src/app/[country]/[locale]/(wholesale)/wholesale/quick-order/__tests__/QuickOrderView.test.tsx:105:7
+    103|   it("says the row could not be added when looking up its SKU fails", …
+    104|     vi.mocked(findWholesaleVariantBySku).mockRejectedValue(
+    105|       new Error("Failed to fetch"),
+       |       ^
+    106|     );
+    107|
+ ❯ node_modules/.pnpm/@vitest+runner@4.1.11/node_modules/@vitest/runner/dist/chunk-artifact.js:302:11
+ ❯ node_modules/.pnpm/@vitest+runner@4.1.11/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:26
+ ❯ node_modules/.pnpm/@vitest+runner@4.1.11/node_modules/@vitest/runner/dist/chunk-artifact.js:2326:20
+ ❯ runWithCancel node_modules/.pnpm/@vitest+runner@4.1.11/node_modules/@vitest/runner/dist/chunk-artifact.js:2323:10
+ ❯ node_modules/.pnpm/@vitest+runner@4.1.11/node_modules/@vitest/runner/dist/chunk-artifact.js:2305:20
+ ❯ runWithTimeout node_modules/.pnpm/@vitest+runner@4.1.11/node_modules/@vitest/runner/dist/chunk-artifact.js:2272:10
+ ❯ node_modules/.pnpm/@vitest+runner@4.1.11/node_modules/@vitest/runner/dist/chunk-artifact.js:2956:64
+
+This error originated in "src/app/[country]/[locale]/(wholesale)/wholesale/quick-order/__tests__/QuickOrderView.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "says the row could not be added when looking up its SKU fails". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 3 passed (4)
+     Errors  1 error
+   Start at  07:51:43
+   Duration  4.99s (transform 227ms, setup 204ms, import 694ms, tests 2.66s, environment 1.08s)
+

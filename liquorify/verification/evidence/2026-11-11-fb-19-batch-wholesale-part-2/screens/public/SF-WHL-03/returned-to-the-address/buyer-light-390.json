@@ -1,0 +1,11 @@
+{
+  "screen": "SF-WHL-03",
+  "state": "returned-to-the-address",
+  "variant": "buyer",
+  "theme": "light",
+  "width": 390,
+  "revision": "e9d80d5",
+  "path": "/us/en/wholesale/quick-order",
+  "observed": "Arrived at /us/en/wholesale/quick-order.",
+  "note": "Signed in on the sign-in page reached with a return address to quick order."
+}

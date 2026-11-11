@@ -1,0 +1,7 @@
+
+Running 2 tests using 1 worker
+
+  ✓  1 visual/fidelity/compare.spec.ts:2226:9 › CMP-SF-PG-08 wholesale-header desktop (32.7s)
+  ✓  2 visual/fidelity/compare.spec.ts:2226:9 › CMP-SF-PG-08 wholesale-header mobile (32.5s)
+
+  2 passed (1.1m)

@@ -1,0 +1,11 @@
+{
+  "screen": "SF-ACC-11",
+  "state": "accepted",
+  "variant": "invitee",
+  "theme": "light",
+  "width": 1280,
+  "revision": "e9d80d5",
+  "path": "/us/en/account/company-invitation",
+  "observed": "The page read: \"Invitation accepted You're now a member of E2E Trading Company. Go to my account\".",
+  "note": null
+}

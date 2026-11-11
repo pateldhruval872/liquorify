@@ -1,0 +1,7 @@
+{
+  "screen": "SF-WHL-01",
+  "state": "empty",
+  "variant": "buyer",
+  "revision": "e9d80d5",
+  "unavailable": "Every product of the sample catalog is published on the wholesale channel, and unpublishing them would change the shared test data the other states use. The empty state is shown by its story."
+}

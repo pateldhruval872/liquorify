@@ -1,0 +1,11 @@
+{
+  "screen": "SF-WHL-06",
+  "state": "adding-answered-with-a-server-error",
+  "variant": "buyer",
+  "theme": "light",
+  "width": 1280,
+  "revision": "e9d80d5",
+  "path": "/us/en/wholesale/quick-order",
+  "observed": "The rows read: \"Couldn't add this item. Please try again.\"; \"\"; \"\". Toasts: none.",
+  "note": "The request that adds to the cart is answered in the browser with a plain 500 page, not a server action's answer, as a proxy in front of the storefront might give. Recorded as the page shows it after 30 seconds."
+}

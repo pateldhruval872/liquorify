@@ -1,0 +1,11 @@
+{
+  "screen": "SF-WHL-03",
+  "state": "wrong-password",
+  "variant": "guest",
+  "theme": "light",
+  "width": 1280,
+  "revision": "e9d80d5",
+  "path": "/us/en/wholesale/sign-in",
+  "observed": "The form said: \"\".",
+  "note": null
+}

@@ -1,0 +1,192 @@
+[1A[2K[WebServer] 
+[WebServer] > nextjs-starter-spree@0.1.0 dev <local>
+[WebServer] > next dev -p 3001 --turbopack
+[WebServer] 
+
+[1A[2K[WebServer] ▲ Next.js 16.3.8 (Turbopack)
+
+[1A[2K[WebServer] - Local:         http://localhost:3001
+
+[1A[2K[WebServer] - Network:       http://<host>:3001
+[WebServer] ✓ Ready in 388ms
+
+[1A[2K[WebServer] ✓ Running next.config.ts took 459ms
+
+[1A[2K[WebServer] - Cache Components enabled
+[WebServer] - Experiments (use with caution):
+[WebServer]   · optimizePackageImports
+[WebServer] 
+
+
+Running 8 tests using 2 workers
+
+[1A[2K[WebServer]  GET /us/en 200 in 2.9s (next.js: 763ms, proxy.ts: 197ms, generate-params: 559ms, application-code: 1357ms)
+
+[1A[2K[1/8] [chromium] › e2e/company-invitation.spec.ts:54:7 › Company invitation › a guest creates the invited account and joins the company from the email's link
+[1A[2K[2/8] [chromium] › e2e/company-invitation.spec.ts:91:7 › Company invitation › a signed-in invitee accepts
+[1A[2K[WebServer]  GET /us/en/account 200 in 1197ms (next.js: 50ms, proxy.ts: 26ms, generate-params: 665ms, application-code: 456ms)
+
+[1A[2K[WebServer]  GET /us/en/account/company-invitation?token=e2e-invitation-new 200 in 1240ms (next.js: 40ms, proxy.ts: 49ms, generate-params: 743ms, application-code: 408ms)
+
+[1A[2K[WebServer] Error: Route "/[country]/[locale]": Next.js encountered runtime data during prerendering or a navigation.
+[WebServer] 
+[WebServer] `cookies()`, `headers()`, `params`, or `searchParams` accessed outside of `<Suspense>` prevents the route from being prerendered or the navigation from being instant, leading to a slower user experience.
+[WebServer] 
+[WebServer] Ways to fix this:
+[WebServer]   - [stream] Provide a placeholder with `<Suspense fallback={...}>` around the data access
+[WebServer]   - [block] Set `export const instant = false` to allow a blocking route
+[WebServer] 
+[WebServer] Learn more: https://nextjs.org/docs/messages/blocking-prerender-runtime
+[WebServer]     at getLocaleOptions (src/lib/spree/locale.ts:18:38)
+[WebServer]     at getMarkets (src/lib/data/markets.ts:41:61)
+[WebServer]     at resolveCurrency (src/lib/data/markets.ts:63:35)
+[WebServer]     at HomePage (src/app/[country]/[locale]/(storefront)/page.tsx:25:41)
+[WebServer]   16 |
+[WebServer]   17 |   try {
+[WebServer] > 18 |     const cookieStore = await cookies();
+[WebServer]      |                                      ^
+[WebServer]   19 |
+[WebServer]   20 |     const country = cookieStore.get(
+[WebServer]   21 |       config.countryCookieName ?? DEFAULT_COUNTRY_COOKIE,
+
+[1A[2K[WebServer]  POST /us/en/account 200 in 931ms (next.js: 43ms, proxy.ts: 14ms, generate-params: 23ms, application-code: 851ms)
+
+[1A[2K[WebServer]   └─ ƒ getCart(undefined, "dtc") in 4ms src/lib/data/cart.ts
+
+[1A[2K[WebServer]  POST /us/en/account/company-invitation?token=e2e-invitation-new 200 in 908ms (next.js: 84ms, proxy.ts: 54ms, generate-params: 48ms, application-code: 723ms)
+
+[1A[2K[WebServer]   └─ ƒ getCart(undefined, "dtc") in 72ms src/lib/data/cart.ts
+
+[1A[2K[WebServer]  POST /us/en/account 200 in 862ms (next.js: 20ms, proxy.ts: 10ms, generate-params: 0.0ms, application-code: 832ms)
+[WebServer]   └─ ƒ syncSession() in 68ms src/lib/data/customer.ts
+
+[1A[2K[WebServer]  POST /us/en/account 200 in 609ms (next.js: 81ms, proxy.ts: 21ms, generate-params: 0.0ms, application-code: 507ms)
+
+[1A[2K[WebServer]   └─ ƒ getCart(undefined, "dtc") in 9ms src/lib/data/cart.ts
+
+[1A[2K[WebServer]  POST /us/en/account/company-invitation?token=e2e-invitation-new 200 in 815ms (next.js: 21ms, proxy.ts: 143ms, generate-params: 0.0ms, application-code: 651ms)
+[WebServer]   └─ ƒ syncSession() in 6ms src/lib/data/customer.ts
+
+[1A[2K[WebServer]  POST /us/en/account/company-invitation?token=e2e-invitation-new 200 in 525ms (next.js: 196ms, proxy.ts: 20ms, generate-params: 0.0ms, application-code: 309ms)
+
+[1A[2K[WebServer]   └─ ƒ getCart(undefined, "dtc") in 10ms src/lib/data/cart.ts
+
+[1A[2K[WebServer]  POST /us/en/account 200 in 528ms (next.js: 39ms, proxy.ts: 19ms, generate-params: 26ms, application-code: 445ms)
+[WebServer]   └─ ƒ syncSession() in 3ms src/lib/data/customer.ts
+
+[1A[2K[WebServer]  POST /us/en/account/company-invitation?token=e2e-invitation-new 200 in 288ms (next.js: 31ms, proxy.ts: 12ms, generate-params: 21ms, application-code: 223ms)
+[WebServer]   └─ ƒ syncSession() in 1ms src/lib/data/customer.ts
+
+[1A[2K[WebServer]  POST /us/en/account 200 in 649ms (next.js: 20ms, proxy.ts: 25ms, generate-params: 0.0ms, application-code: 604ms)
+[WebServer]   └─ ƒ login("e2e-invitee-existing@example.com", "spree123!") in 371ms src/lib/data/customer.ts
+
+[1A[2K[WebServer]  GET /us/en/account 200 in 199ms (next.js: 21ms, proxy.ts: 39ms, generate-params: 0.1ms, application-code: 140ms)
+
+[1A[2K[WebServer]  GET /us/en/account/company-invitation?token=e2e-invitation-existing 200 in 489ms (next.js: 5ms, proxy.ts: 9ms, generate-params: 17ms, application-code: 458ms)
+
+[1A[2K[WebServer]  POST /us/en/account/company-invitation?token=e2e-invitation-new 200 in 1369ms (next.js: 17ms, proxy.ts: 15ms, generate-params: 0.0ms, application-code: 1338ms)
+
+[1A[2K[WebServer]   └─ ƒ acceptCompanyInvitation("e2e-invitation-new", {"email":"e2e-invitee-new@example.com","first_name":"Invited","last_name":"Buyer","...":"2 items not stringified"}) in 1011ms src/lib/data/company-invitations.ts
+
+[1A[2K[WebServer]  POST /us/en/account/company-invitation?token=e2e-invitation-new 200 in 378ms (next.js: 36ms, proxy.ts: 14ms, generate-params: 0.0ms, application-code: 328ms)
+[WebServer]   └─ ƒ syncSession() in 53ms src/lib/data/customer.ts
+
+[1A[2K[WebServer]  POST /us/en/account/company-invitation?token=e2e-invitation-existing 200 in 785ms (next.js: 23ms, proxy.ts: 39ms, generate-params: 0.0ms, application-code: 723ms)
+
+[1A[2K[WebServer]   └─ ƒ getCart(undefined, "dtc") in 70ms src/lib/data/cart.ts
+
+[1A[2K[WebServer]  GET /us/en/account 200 in 696ms (next.js: 101ms, proxy.ts: 28ms, generate-params: 25ms, application-code: 543ms)
+
+[1A[2K[WebServer]  POST /us/en/account/company-invitation?token=e2e-invitation-existing 200 in 539ms (next.js: 61ms, proxy.ts: 19ms, generate-params: 20ms, application-code: 439ms)
+
+[1A[2K[WebServer]   └─ ƒ syncSession() in 142ms src/lib/data/customer.ts
+
+[1A[2K[WebServer]  POST /us/en/account 200 in 369ms (next.js: 161ms, proxy.ts: 12ms, generate-params: 0.0ms, application-code: 196ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 80ms src/lib/data/cart.ts
+
+[1A[2K[3/8] [chromium] › e2e/company-invitation.spec.ts:105:7 › Company invitation › a customer signed in with another email is not offered the invitation, and Spree refuses it
+[1A[2K[WebServer]  POST /us/en/account/company-invitation?token=e2e-invitation-existing 200 in 394ms (next.js: 28ms, proxy.ts: 6ms, generate-params: 0.0ms, application-code: 360ms)
+
+[1A[2K[WebServer]   └─ ƒ getCart(undefined, "dtc") in 127ms src/lib/data/cart.ts
+
+[1A[2K[WebServer]  GET /us/en/account 200 in 380ms (next.js: 11ms, proxy.ts: 6ms, generate-params: 22ms, application-code: 341ms)
+
+[1A[2K[WebServer]  POST /us/en/account/company-invitation?token=e2e-invitation-existing 200 in 755ms (next.js: 35ms, proxy.ts: 43ms, generate-params: 0.0ms, application-code: 677ms)
+[WebServer]   └─ ƒ syncSession() in 109ms src/lib/data/customer.ts
+
+[1A[2K[WebServer]  POST /us/en/account/company-invitation?token=e2e-invitation-existing 200 in 425ms (next.js: 41ms, proxy.ts: 13ms, generate-params: 22ms, application-code: 349ms)
+
+[1A[2K[WebServer]   └─ ƒ acceptCompanyInvitation("e2e-invitation-existing", undefined) in 69ms src/lib/data/company-invitations.ts
+
+[1A[2K[4/8] [chromium] › e2e/company-invitation.spec.ts:149:9 › Company invitation › an expired invitation is refused
+[1A[2K[WebServer]  POST /us/en/account/company-invitation?token=e2e-invitation-existing 200 in 473ms (next.js: 23ms, proxy.ts: 10ms, generate-params: 0.0ms, application-code: 440ms)
+[WebServer]   └─ ƒ syncSession() in 142ms src/lib/data/customer.ts
+
+[1A[2K[WebServer] ⨯ Error: The destination stream closed early.
+[WebServer]     at ignore-listed frames {
+[WebServer]   digest: '230418023'
+[WebServer] }
+
+[1A[2K[WebServer]  GET /us/en/account/company-invitation?token=e2e-invitation-expired 200 in 612ms (next.js: 63ms, proxy.ts: 72ms, generate-params: 24ms, application-code: 453ms)
+
+[1A[2K[WebServer]  POST /us/en/account 200 in 717ms (next.js: 11ms, proxy.ts: 7ms, generate-params: 16ms, application-code: 682ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 2ms src/lib/data/cart.ts
+
+[1A[2K[WebServer]  POST /us/en/account 200 in 639ms (next.js: 33ms, proxy.ts: 269ms, generate-params: 0.0ms, application-code: 337ms)
+[WebServer]   └─ ƒ syncSession() in 3ms src/lib/data/customer.ts
+
+[1A[2K[WebServer]  POST /us/en/account 200 in 516ms (next.js: 52ms, proxy.ts: 28ms, generate-params: 0.0ms, application-code: 436ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 7ms src/lib/data/cart.ts
+
+[1A[2K[WebServer]  POST /us/en/account 200 in 400ms (next.js: 21ms, proxy.ts: 24ms, generate-params: 25ms, application-code: 330ms)
+[WebServer]   └─ ƒ syncSession() in 7ms src/lib/data/customer.ts
+
+[1A[2K[5/8] [chromium] › e2e/company-invitation.spec.ts:149:9 › Company invitation › an already accepted invitation is refused
+[1A[2K[WebServer]  POST /us/en/account 200 in 711ms (next.js: 76ms, proxy.ts: 38ms, generate-params: 0.0ms, application-code: 597ms)
+[WebServer]   └─ ƒ login("e2e-invitee-other@example.com", "spree123!") in 431ms src/lib/data/customer.ts
+
+[1A[2K[WebServer]  GET /us/en/account/company-invitation?token=e2e-invitation-accepted 200 in 428ms (next.js: 7ms, proxy.ts: 3ms, generate-params: 21ms, application-code: 397ms)
+
+[1A[2K[WebServer]  GET /us/en/account 200 in 461ms (next.js: 20ms, proxy.ts: 21ms, generate-params: 18ms, application-code: 403ms)
+
+[1A[2K[WebServer]  GET /us/en/account/company-invitation?token=e2e-invitation-mismatch 200 in 565ms (next.js: 45ms, proxy.ts: 14ms, generate-params: 0.0ms, application-code: 505ms)
+
+[1A[2K[6/8] [chromium] › e2e/company-invitation.spec.ts:149:9 › Company invitation › an revoked invitation is refused
+[1A[2K[WebServer]  POST /us/en/account/company-invitation?token=e2e-invitation-mismatch 200 in 670ms (next.js: 9ms, proxy.ts: 6ms, generate-params: 26ms, application-code: 630ms)
+
+[1A[2K[WebServer]   └─ ƒ getCart(undefined, "dtc") in 41ms src/lib/data/cart.ts
+
+[1A[2K[WebServer] ⨯ Error: aborted
+[WebServer]     at ignore-listed frames {
+[WebServer]   code: 'ECONNRESET'
+[WebServer] }
+
+[1A[2K[WebServer]  POST /us/en/account/company-invitation?token=e2e-invitation-mismatch 200 in 496ms (next.js: 10ms, proxy.ts: 4ms, generate-params: 0.0ms, application-code: 482ms)
+[WebServer]   └─ ƒ syncSession() in 171ms src/lib/data/customer.ts
+
+[1A[2K[7/8] [chromium] › e2e/company-invitation.spec.ts:149:9 › Company invitation › an unknown invitation is refused
+[1A[2K[WebServer]  POST /us/en/account/company-invitation?token=e2e-invitation-mismatch 200 in 397ms (next.js: 36ms, proxy.ts: 49ms, generate-params: 0.0ms, application-code: 312ms)
+[WebServer]   └─ ƒ getCart(undefined, "dtc") in 65ms src/lib/data/cart.ts
+
+[1A[2K[WebServer] ⨯ Error: The destination stream closed early.
+[WebServer]     at ignore-listed frames {
+[WebServer]   digest: '230418023'
+[WebServer] }
+
+[1A[2K[WebServer]  GET /us/en/account/company-invitation?token=e2e-invitation-revoked 200 in 644ms (next.js: 11ms, proxy.ts: 10ms, generate-params: 31ms, application-code: 592ms)
+
+[1A[2K[WebServer]  GET /us/en/account/company-invitation?token=e2e-invitation-unknown 200 in 659ms (next.js: 61ms, proxy.ts: 7ms, generate-params: 0.1ms, application-code: 591ms)
+
+[1A[2K[8/8] [chromium] › e2e/company-invitation.spec.ts:158:7 › Company invitation › a link without a token is refused
+[1A[2K[WebServer] ⨯ Error: aborted
+[WebServer]     at ignore-listed frames {
+[WebServer]   code: 'ECONNRESET'
+[WebServer] }
+[WebServer] ⨯ Error: aborted
+[WebServer]     at ignore-listed frames {
+[WebServer]   code: 'ECONNRESET'
+[WebServer] }
+
+[1A[2K[WebServer]  GET /us/en/account/company-invitation 200 in 412ms (next.js: 5ms, proxy.ts: 232ms, generate-params: 25ms, application-code: 150ms)
+
+[1A[2K  8 passed (21.3s)

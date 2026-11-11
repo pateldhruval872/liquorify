@@ -1,0 +1,11 @@
+{
+  "screen": "SF-WHL-05",
+  "state": "at-the-minimum",
+  "variant": "buyer",
+  "theme": "light",
+  "width": 390,
+  "revision": "e9d80d5",
+  "path": "/us/en/wholesale/cart",
+  "observed": "The cart read: \"Wholesale Cart Pedestal Fan 40cm Color: White $35.99 Trade price applied Remove Order Summary Subtotal $359.90 Total $359.90 Proceed to CheckoutBrowse catalog\".",
+  "note": "The fan's quantity raised from 6 to 10 in the cart."
+}

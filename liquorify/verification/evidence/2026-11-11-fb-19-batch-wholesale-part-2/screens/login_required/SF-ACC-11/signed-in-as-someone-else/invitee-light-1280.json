@@ -1,0 +1,11 @@
+{
+  "screen": "SF-ACC-11",
+  "state": "signed-in-as-someone-else",
+  "variant": "invitee",
+  "theme": "light",
+  "width": 1280,
+  "revision": "e9d80d5",
+  "path": "/us/en/account/company-invitation",
+  "observed": "The page read: \"Join E2E Trading Company You've been invited to buy for E2E Trading Company at Shop. The invitation is for e2e-invitee-mismatch@example.com. You're signed in as e2e-invitee-existing-wide@example.com, but this invitation is for e2e-invitee-mismatch@example.com. Sign out, then open the link from the email again. Sign Out\".",
+  "note": null
+}

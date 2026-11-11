@@ -1,0 +1,9 @@
+
+ RUN  v4.1.11 <storefront>
+
+
+ Test Files  1 passed (1)
+      Tests  4 passed (4)
+   Start at  07:51:58
+   Duration  3.10s (transform 196ms, setup 120ms, import 527ms, tests 1.70s, environment 572ms)
+

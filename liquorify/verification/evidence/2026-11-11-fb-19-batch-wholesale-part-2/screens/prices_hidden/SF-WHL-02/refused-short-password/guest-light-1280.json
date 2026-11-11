@@ -1,0 +1,11 @@
+{
+  "screen": "SF-WHL-02",
+  "state": "refused-short-password",
+  "variant": "guest",
+  "theme": "light",
+  "width": 1280,
+  "revision": "e9d80d5",
+  "path": "/us/en/wholesale/apply",
+  "observed": "The form said: \"\".",
+  "note": null
+}
