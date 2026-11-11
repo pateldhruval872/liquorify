@@ -56,6 +56,29 @@ RSpec.describe Spree::Api::V3::Seller::Orders::ExchangesController, type: :contr
       expect(order.exchanges).to be_empty
     end
 
+    # A product the seller owns leaves its variants' own seller column blank,
+    # so looking the replacement up by that column refused every exchange on
+    # the seller's own catalogue.
+    it 'exchanges into a variant of a product the seller owns' do
+      own = create(:variant, product: create(:product, store: store, seller: seller))
+
+      post :create, params: create_params(variant: own), as: :json
+
+      expect(response).to have_http_status(:created)
+      expect(order.exchanges.count).to eq(1)
+    end
+
+    it 'refuses a variant of a product another seller owns, or the store’s own' do
+      [other_seller, nil].each do |owner|
+        variant = create(:variant, product: create(:product, store: store, seller: owner))
+
+        post :create, params: create_params(variant: variant), as: :json
+
+        expect(response).to have_http_status(:not_found)
+      end
+      expect(order.exchanges).to be_empty
+    end
+
     it 'cannot open an exchange on another seller’s order' do
       their_order = create(:shipped_order, store: store, seller: other_seller, line_items_count: 1)
 

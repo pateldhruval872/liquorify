@@ -55,6 +55,36 @@ RSpec.describe Spree::Api::V3::Seller::Orders::ClaimsController, type: :controll
       expect(order.claims).to be_empty
     end
 
+    it 'promises a replacement from a product the seller owns' do
+      own = create(:variant, product: create(:product, store: store, seller: seller))
+
+      post :create, params: {
+        order_id: order.prefixed_id,
+        items: [{
+          line_item_id: line_item.prefixed_id, quantity: 1,
+          send_replacement: true, replacement_variant_id: own.prefixed_id
+        }]
+      }, as: :json
+
+      expect(response).to have_http_status(:created)
+      expect(order.claims.last.claim_line_items.first.replacement_variant).to eq(own)
+    end
+
+    it 'refuses a replacement from a product another seller owns' do
+      theirs = create(:variant, product: create(:product, store: store, seller: other_seller))
+
+      post :create, params: {
+        order_id: order.prefixed_id,
+        items: [{
+          line_item_id: line_item.prefixed_id, quantity: 1,
+          send_replacement: true, replacement_variant_id: theirs.prefixed_id
+        }]
+      }, as: :json
+
+      expect(response).to have_http_status(:not_found)
+      expect(order.claims).to be_empty
+    end
+
     it 'cannot open a claim on another seller’s order' do
       their_order = create(:shipped_order, store: store, seller: other_seller, line_items_count: 1)
 
