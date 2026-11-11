@@ -48,7 +48,7 @@ module Spree
       def destroy_order
         return if order.destroy
 
-        order.errors.add(:base, :order_cannot_be_deleted, message: I18n.t('spree.order_cannot_be_deleted')) if order.errors.empty?
+        order.errors.add(:base, :order_could_not_be_deleted, message: I18n.t('spree.order_could_not_be_deleted')) if order.errors.empty?
         failure(order)
       end
     end

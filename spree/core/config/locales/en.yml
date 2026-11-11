@@ -1049,6 +1049,7 @@ en:
     order: Order
     order_canceled: Order canceled
     order_cannot_be_deleted: Completed orders and orders with settled payments cannot be deleted
+    order_could_not_be_deleted: This order could not be deleted. Nothing was changed.
     order_routing:
       strategies:
         legacy: Legacy

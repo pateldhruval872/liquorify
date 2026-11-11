@@ -21,7 +21,7 @@ RSpec.describe Spree::Orders::Destroy do
 
     it 'refuses with a reason the caller can show' do
       expect(result).to be_failure
-      expect(order.errors.full_messages).to include(I18n.t('spree.order_cannot_be_deleted'))
+      expect(order.errors.full_messages).to include(I18n.t('spree.order_could_not_be_deleted'))
     end
   end
 
