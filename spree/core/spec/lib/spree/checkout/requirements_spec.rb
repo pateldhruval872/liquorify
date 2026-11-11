@@ -268,10 +268,16 @@ RSpec.describe Spree::Checkout::Requirements do
       expect(completion_codes).to include('seller_unavailable')
     end
 
-    it 'leaves the advisory feed alone' do
+    it 'reports it on the advisory feed, before the shopper pays' do
       seller.update!(status: 'suspended')
 
-      expect(described_class.new(cart.reload).call.map { |requirement| requirement[:code] }).not_to include('seller_unavailable')
+      expect(described_class.new(cart.reload).call.map { |requirement| requirement[:code] }).to include('seller_unavailable')
+    end
+
+    it 'reports it once at completion' do
+      seller.update!(status: 'suspended')
+
+      expect(completion_codes.count('seller_unavailable')).to eq(1)
     end
   end
 

@@ -8,6 +8,8 @@ import {
   seedMarketplace,
   sellerHeaders,
   shopper,
+  shopperAddress,
+  shopperEmail,
 } from './marketplace'
 import type { Headers, Json } from './orders'
 import { admin, seed } from './staff'
@@ -432,24 +434,119 @@ test("a suspended seller's product at checkout", async ({ page }) => {
       sellerHeaders_ ?? {},
     )
   }
-  const checkout = await shopper(api, headers)
-  const placed = await checkout([product])
-  answers.note('shopper completes the checkout', {
-    number: placed.number,
-    status: placed.status,
-    orders: placed.orders ?? null,
-  })
-  const orders = await answers.read(
-    'orders of the suspended seller',
+  // SD-60, fixed: the product read says it cannot be bought, and the cart
+  // and checkout now agree. Each step is asserted as well as recorded.
+  const publishable = await publishableKey(api, headers)
+  const asShopper = { 'X-Spree-API-Key': publishable }
+  const variant = (await answers.read('the product', 'get', `admin/products/${product}`)).body
+    .default_variant_id as string
+  const ordersBefore = await answers.read(
+    'orders of the suspended seller before',
     'get',
     `admin/orders?q[seller_id_eq]=${copperline}&limit=100`,
   )
-  const order = (orders.body.data as Json[]).find((each) => each.number === placed.number)
-  if (order) {
-    await open(page, `/orders/${order.id}`)
-    await expect(page.getByText(placed.number as string).first()).toBeVisible({ timeout: 20_000 })
-    await shot(page, check, '1-order')
+  const chequeId = async () => {
+    const methods = (
+      await answers.read('payment methods', 'get', 'admin/payment_methods?limit=100')
+    ).body.data as Json[]
+    const cheque = methods.find((each) => each.type === 'check' && each.active)
+    expect(cheque, 'an active cheque payment method').toBeTruthy()
+    return (cheque as Json).id as string
   }
+  const newCart = async (step: string) => {
+    const cart = (await answers.read(step, 'post', 'store/carts', {}, asShopper)).body
+    return {
+      id: cart.id as string,
+      as: { ...asShopper, 'X-Spree-Token': cart.token as string },
+    }
+  }
+  const fillIn = async (cart: { id: string; as: Headers }) => {
+    await answers.read(
+      'shopper gives an address',
+      'patch',
+      `store/carts/${cart.id}`,
+      { email: shopperEmail, shipping_address: shopperAddress, billing_address: shopperAddress },
+      cart.as,
+    )
+    await answers.read(
+      'shopper pays by cheque',
+      'post',
+      `store/carts/${cart.id}/payments`,
+      { payment_method_id: await chequeId() },
+      cart.as,
+    )
+  }
+
+  // Refused at add-to-cart while the seller is suspended.
+  const first = await newCart('shopper opens a cart')
+  const refusedAdd = await answers.read(
+    'shopper adds the suspended seller product',
+    'post',
+    `store/carts/${first.id}/items`,
+    { variant_id: variant, quantity: 1 },
+    first.as,
+  )
+  expect(refusedAdd.status, 'the add is refused').toBe(422)
+  expect(JSON.stringify(refusedAdd.body)).toContain('is not available from its seller right now')
+  const firstCart = await answers.read(
+    'the cart after',
+    'get',
+    `store/carts/${first.id}`,
+    undefined,
+    first.as,
+  )
+  expect(firstCart.body.item_count ?? 0, 'nothing went in the cart').toBe(0)
+
+  // The control: reinstated, the same product goes in the cart. Suspended
+  // again before the shopper pays, checkout is refused.
+  const reinstated = await answers.read(
+    'operator reinstates',
+    'patch',
+    `admin/sellers/${copperline}/approve`,
+    {},
+  )
+  expect(reinstated.status).toBe(200)
+  const second = await newCart('shopper opens a second cart')
+  const added = await answers.read(
+    'shopper adds the product while the seller is approved',
+    'post',
+    `store/carts/${second.id}/items`,
+    { variant_id: variant, quantity: 1 },
+    second.as,
+  )
+  expect(added.status, 'the add succeeds for an approved seller').toBe(201)
+  await fillIn(second)
+  const suspended = await answers.read(
+    'operator suspends again',
+    'patch',
+    `admin/sellers/${copperline}/suspend`,
+    {
+      reason: 'Licence under review',
+    },
+  )
+  expect(suspended.status).toBe(200)
+  const refusedCheckout = await answers.read(
+    'shopper completes the checkout',
+    'post',
+    `store/carts/${second.id}/complete`,
+    {},
+    second.as,
+  )
+  expect(refusedCheckout.status, 'checkout is refused').toBe(422)
+  expect(JSON.stringify(refusedCheckout.body)).toContain('seller_unavailable')
+  const ordersAfter = await answers.read(
+    'orders of the suspended seller after',
+    'get',
+    `admin/orders?q[seller_id_eq]=${copperline}&limit=100`,
+  )
+  expect(
+    (ordersAfter.body.data as Json[]).length,
+    'no order was placed for the suspended seller',
+  ).toBe((ordersBefore.body.data as Json[]).length)
+
+  await open(page, `/sellers/${copperline}`)
+  await expect(page.getByText(/suspended/i).first()).toBeVisible({ timeout: 20_000 })
+  await shot(page, check, '1-seller')
   answers.save()
 })
 
