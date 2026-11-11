@@ -118,6 +118,7 @@ module Spree
     def after_process_shipments
       emptied = current_shipment.fulfillment_items.sum(:quantity).zero?
       carried_cost = emptied ? current_shipment.cost : 0
+      carry_delivery_discounts_and_tax if emptied && desired_shipment.order.completed?
 
       if emptied
         current_shipment.destroy!
@@ -143,6 +144,16 @@ module Spree
       end
 
       desired_shipment.update_columns(cost: desired_shipment.cost + carried_cost, updated_at: Time.current)
+    end
+
+    # The discount and tax a placed order's emptied parcel carried go with its
+    # charge: a placed order is not repriced, so leaving them behind would
+    # bill a free delivery the shopper was given, or drop the tax they paid.
+    def carry_delivery_discounts_and_tax
+      [current_shipment.discounts, current_shipment.tax_lines].each do |association|
+        association.update_all(fulfillment_id: desired_shipment.id, updated_at: Time.current)
+        association.reset
+      end
     end
 
     def new_on_hand_quantity
