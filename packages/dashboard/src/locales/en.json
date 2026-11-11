@@ -3353,6 +3353,7 @@
               "resolve_refund": "Resolve with refund",
               "resolve_replacement": "Resolve with replacement"
             },
+            "claimed_total": "Amount claimed",
             "confirm": {
               "cancel_confirm": "Cancel claim",
               "cancel_dismiss": "Keep claim",

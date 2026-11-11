@@ -240,6 +240,7 @@
               "resolve_refund": "Resolver con reembolso",
               "resolve_replacement": "Resolver con reemplazo"
             },
+            "claimed_total": "Importe reclamado",
             "confirm": {
               "cancel_confirm": "Cancelar reclamo",
               "cancel_dismiss": "Mantener reclamo",

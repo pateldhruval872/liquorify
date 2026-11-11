@@ -357,12 +357,24 @@ export function OrderClaimsCard({ order }: { order: Order }) {
                 ))}
               </CardContent>
 
+              {/* While a claim is undecided the footer names what was asked
+                  for; once settled, what was actually paid back — a claim can
+                  settle for less, by a replacement, or not at all. */}
               <CardFooter className="justify-between text-sm">
                 <span className="text-muted-foreground">
-                  {t('admin.pages.orders.detail.returns.refund_total')}
+                  {CLAIM_ACTIONABLE.includes(claim.status)
+                    ? t('admin.pages.orders.detail.claims.claimed_total')
+                    : t('admin.pages.orders.detail.returns.refunded')}
                 </span>
                 <span className="font-medium">
-                  <Money amount={claim.refund_total} currency={order.currency} />
+                  <Money
+                    amount={
+                      CLAIM_ACTIONABLE.includes(claim.status)
+                        ? claim.refund_total
+                        : claim.refunded_total
+                    }
+                    currency={order.currency}
+                  />
                 </span>
               </CardFooter>
             </Card>

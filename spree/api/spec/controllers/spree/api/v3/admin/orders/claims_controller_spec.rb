@@ -88,6 +88,22 @@ RSpec.describe Spree::Api::V3::Admin::Orders::ClaimsController, type: :controlle
       expect(Spree::StoreCredit.find_by(originator: claim)).to be_present
     end
 
+    it 'reports what the resolution paid beside the amount claimed' do
+      claimed = claim.refund_total
+
+      patch :resolve, params: {
+        order_id: order.prefixed_id,
+        id: claim.prefixed_id,
+        resolution: 'refund',
+        refund_method: 'store_credit',
+        amount: (claimed - 1).to_s
+      }, as: :json
+
+      expect(response).to have_http_status(:ok)
+      expect(json_response['refund_total']).to eq(Spree::Money::Rounding.format(claimed, order.currency))
+      expect(json_response['refunded_total']).to eq(Spree::Money::Rounding.format(claimed - 1, order.currency))
+    end
+
     # A claim opened without per-item amounts has nothing to refund; the
     # dashboard collects them at creation, and the API says so plainly.
     it 'refuses a refund when no amount was recorded on the claim' do
@@ -121,6 +137,7 @@ RSpec.describe Spree::Api::V3::Admin::Orders::ClaimsController, type: :controlle
       expect(response).to have_http_status(:ok)
       expect(json_response['status']).to eq('resolved')
       expect(line.reload.send_replacement).to be(true)
+      expect(json_response['refunded_total']).to eq(Spree::Money::Rounding.format(0, order.currency))
     end
 
     it 'rejects an unknown resolution' do
