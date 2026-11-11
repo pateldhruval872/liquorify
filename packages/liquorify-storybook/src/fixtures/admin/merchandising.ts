@@ -983,6 +983,7 @@ function catalog(id: string, name: string, fields: Partial<Catalog> = {}): Catal
     updated_at: updated,
     products_count: 0,
     pricing_strategy: 'base',
+    closed_assortment: false,
     order_minimums: [],
     assignments: [],
     ...fields,

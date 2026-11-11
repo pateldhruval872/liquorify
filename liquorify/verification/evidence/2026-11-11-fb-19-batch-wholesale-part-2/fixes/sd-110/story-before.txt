@@ -1,0 +1,48 @@
+
+Running 2 tests using 2 workers
+
+  ✘  2 visual/stories.spec.ts:73:9 › Storefront/Wholesale/Quick order view / Suggestions / mobile (1.4s)
+  ✘  1 visual/stories.spec.ts:73:9 › Storefront/Wholesale/Quick order view / Suggestions / desktop (1.8s)
+
+
+  1) visual/stories.spec.ts:73:9 › Storefront/Wholesale/Quick order view / Suggestions / mobile ────
+
+    Error: the story's play function passed
+
+    expect(received).toBeUndefined()
+
+    Received: "expected [ 'Stoneware Mug — Color: Clay', …(4) ] to deeply equal []"
+
+      123 |           )?.[0]?.message,
+      124 |       );
+    > 125 |       expect(playError, "the story's play function passed").toBeUndefined();
+          |                                                             ^
+      126 |       await page.evaluate(() => document.fonts.ready);
+      127 |       await page.waitForLoadState("networkidle");
+      128 |
+        at /work/visual/stories.spec.ts:125:61
+
+    Error Context: visual/results/stories-Storefront-Wholesa-f77c3-der-view-Suggestions-mobile/error-context.md
+
+  2) visual/stories.spec.ts:73:9 › Storefront/Wholesale/Quick order view / Suggestions / desktop ───
+
+    Error: No reference image yet for storefront-wholesale-quick-order-view--suggestions/desktop.png; a proposed one is attached
+
+      164 |           contentType: "image/png",
+      165 |         });
+    > 166 |         throw new Error(
+          |               ^
+      167 |           `No reference image yet for ${name.join("/")}; a proposed one is attached`,
+      168 |         );
+      169 |       }
+        at /work/visual/stories.spec.ts:166:15
+
+    attachment #1: proposed reference (image/png) ──────────────────────────────────────────────────
+    visual/results/stories-Storefront-Wholesa-1e3f0-er-view-Suggestions-desktop/attachments/proposed-reference-e3a2feca3b7051977ff3843ae2de649b6054ec59.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: visual/results/stories-Storefront-Wholesa-1e3f0-er-view-Suggestions-desktop/error-context.md
+
+  2 failed
+    visual/stories.spec.ts:73:9 › Storefront/Wholesale/Quick order view / Suggestions / mobile ─────
+    visual/stories.spec.ts:73:9 › Storefront/Wholesale/Quick order view / Suggestions / desktop ────

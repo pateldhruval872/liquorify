@@ -6,12 +6,12 @@ module Spree
         # storefront surface — buyers see their effects, never the record.
         class CatalogSerializer < V3::BaseSerializer
           typelize name: :string, description: 'string | null',
-                   active: :boolean, position: [:number, nullable: true],
+                   active: :boolean, closed_assortment: :boolean, position: [:number, nullable: true],
                    products_count: :number, pricing_strategy: :string,
                    minimum_order_quantity: ['number | null'], order_multiple: ['number | null'],
                    metadata: 'Record<string, unknown> | null'
 
-          attributes :name, :description, :active, :position, :metadata,
+          attributes :name, :description, :active, :closed_assortment, :position, :metadata,
                      :minimum_order_quantity, :order_multiple,
                      created_at: :iso8601, updated_at: :iso8601
 

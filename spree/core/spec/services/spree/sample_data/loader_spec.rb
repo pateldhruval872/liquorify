@@ -86,7 +86,9 @@ RSpec.describe Spree::SampleData::Loader, type: :service, without_global_store: 
       expect(default_store.collections).to be_empty
       expect(default_store.price_lists).to be_empty
       expect(default_store.companies).to be_empty
-      expect(default_store.catalogs).to be_empty
+      # Seeds give every store its Wholesale channel catalogs; the sample
+      # assortment must still land only in the given store.
+      expect(default_store.catalogs.where(name: 'Wholesale Assortment')).to be_empty
       expect(default_store.payment_methods.where(name: 'Credit Card')).to be_empty
       expect(default_store.channels.where(code: 'pos')).to be_empty
 

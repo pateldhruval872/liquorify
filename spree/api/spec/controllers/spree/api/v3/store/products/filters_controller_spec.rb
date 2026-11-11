@@ -86,6 +86,34 @@ RSpec.describe Spree::Api::V3::Store::Products::FiltersController, type: :contro
       end
     end
 
+    context 'on a members-only channel' do
+      before do
+        store.default_channel.update!(default_catalog: create(:catalog, store: store, closed_assortment: true))
+        request.headers['Authorization'] = "Bearer #{jwt_token}"
+      end
+
+      it 'counts nothing and gives no price range to a customer outside the members' do
+        get :index
+
+        expect(json_response['total_count']).to eq(0)
+        expect(json_response['filters'].pluck('type')).not_to include('price_range')
+        option_counts = json_response['filters'].select { |filter| filter['type'] == 'option' }.flat_map { |filter| filter['options'].pluck('count') }
+        expect(option_counts.sum).to eq(0)
+      end
+
+      it "does not serve one buyer's cached filters to another" do
+        get :index
+        expect(json_response['total_count']).to eq(0)
+
+        members = create(:customer_group, store: store)
+        members.customer_group_users.create!(customer: user)
+        create(:catalog_assignment, catalog: create(:catalog, store: store), assignable: members)
+
+        get :index
+        expect(json_response['total_count']).to eq(3)
+      end
+    end
+
     it 'returns availability filter' do
       get :index
 

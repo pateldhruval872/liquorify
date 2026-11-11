@@ -19,6 +19,17 @@ RSpec.describe Spree::Api::V3::Admin::CatalogsController, type: :controller do
     expect(catalog.reload.description).to eq('Negotiated 2026 terms')
   end
 
+  it 'closes and reopens the assortment' do
+    patch :update, params: { id: catalog.prefixed_id, closed_assortment: true }, as: :json
+
+    expect(json_response['closed_assortment']).to be true
+    expect(catalog.reload).to be_closed_assortment
+
+    patch :update, params: { id: catalog.prefixed_id, closed_assortment: false }, as: :json
+
+    expect(catalog.reload).not_to be_closed_assortment
+  end
+
   describe 'the inline price_list payload' do
     it 'creates the catalog and its owned list together' do
       post :create,

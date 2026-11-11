@@ -52,16 +52,19 @@ module SpreeMeilisearch
       collection = filters.is_a?(Hash) ? (filters['_collection'] || filters[:_collection]) : nil
       default_sort = collection ? to_api_sort(collection.sort_order) : 'manual'
 
-      ms_result, facet_distribution = execute_search(query: query, filters: filters, sort: nil, page: 1, limit: 0, return_facets: true)
+      empty_filters = Spree::SearchProvider::FiltersResult.new(
+        filters: [],
+        sort_options: built_in_and_custom_field_sort_options,
+        default_sort: default_sort,
+        total_count: 0
+      )
+      # The index's facets are not narrowed by the caller's scope, so a buyer
+      # who may see no products at all must not be shown the index's counts
+      # and price range.
+      return empty_filters unless scope.exists?
 
-      unless ms_result
-        return Spree::SearchProvider::FiltersResult.new(
-          filters: [],
-          sort_options: built_in_and_custom_field_sort_options,
-          default_sort: default_sort,
-          total_count: 0
-        )
-      end
+      ms_result, facet_distribution = execute_search(query: query, filters: filters, sort: nil, page: 1, limit: 0, return_facets: true)
+      return empty_filters unless ms_result
 
       Spree::SearchProvider::FiltersResult.new(
         filters: build_facet_response(facet_distribution, ms_result['facetStats'] || {}),
