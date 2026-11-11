@@ -1,0 +1,30 @@
+marketplace-operator.spec.ts | 1. Approving a seller with nothing outstanding | PASS | 
+marketplace-operator.spec.ts | 2. Approving with requirements outstanding | PASS | 
+marketplace-operator.spec.ts | 3. Suspending a seller | PASS | 
+marketplace-operator.spec.ts | 4. Reinstating a suspended seller | PASS | 
+marketplace-operator.spec.ts | 5. Rejecting a seller | PASS | 
+marketplace-operator.spec.ts | 6. Sending a seller back to onboarding (SD-101) | FAIL | Error: expect(received).toBe(expected) // Object.is equality / Expected: "Upload the premises licence again, it is cut off." / Received: undefined
+marketplace-operator.spec.ts | 7. Deciding an onboarding requirement | PASS | 
+marketplace-operator.spec.ts | 8. Approving a seller's product | PASS | 
+marketplace-operator.spec.ts | 9. Sending a seller's product back | PASS | 
+marketplace-operator.spec.ts | 10. Filtering products and orders by seller | PASS | 
+marketplace-operator.spec.ts | 11. A marketplace order's cards | PASS | 
+marketplace-operator.spec.ts | 12. Settling a seller by hand | PASS | 
+marketplace-operator.spec.ts | 13. Automatic approval of sellers and products | PASS | 
+marketplace-operator.spec.ts | 14. The sellers ranking and the payouts report (SD-102) | FAIL | Error: expect(locator).toContainText(expected) failed / Locator: locator('main').getByRole('row').filter({ hasText: 'Ranked mwboy0vb-27' }) / Expected substring: "$501.50" / Received string:    "1.Ranked mwboy0vb-27x$495.00$0.00$495.001" / Timeout: 5000ms / Call log:
+marketplace-seller.spec.ts | 1. Fulfilling an order | PASS | 
+marketplace-seller.spec.ts | 2. Splitting a parcel (SD-72) | FAIL | Error: expect(locator).toContainText(expected) failed / Locator: locator('[data-slot="card"]').filter({ has: locator('[data-slot="card-title"]').filter({ hasText: /^summary$/i }) }).first() / Expected pattern: /Total\s*\$70.50/ / Received string:  "SummaryCreated atNovember 11th, 2026 5:42 AMCompleted atNovember 11th, 2026 5:42 AMCurrencyUSDSubtotal$64.00Shipping$13.00Tax (additional)$0.00Total$77.00Marketplace fee$0.00Total marketplace fee$0.00Payment total$70.50Outstanding balance$6.50" / Time
+marketplace-seller.spec.ts | 3. Recording a delivery and uploading a label | PASS | 
+marketplace-seller.spec.ts | 4. Creating, receiving and refunding a return | PASS | 
+marketplace-seller.spec.ts | 5. A claim | PASS | 
+marketplace-seller.spec.ts | 6. Exchanges (SD-73) | FAIL | Error: the order page offers to start an exchange / expect(locator).toBeVisible() failed / Locator: getByRole('button', { name: /exchange/i }).or(getByRole('menuitem', { name: /exchange/i })).first() / Expected: visible / Timeout: 10000ms / Error: element(s) not found
+marketplace-seller.spec.ts | 7. Cancelling an order | PASS | 
+marketplace-seller.spec.ts | 8. An order's instructions, note and address | PASS | 
+marketplace-seller.spec.ts | 9. Taking a product down and archiving it | PASS | 
+marketplace-seller.spec.ts | 10. Importing and exporting products | PASS | 
+marketplace-seller.spec.ts | 11. The profile's addresses and tax registration (SD-103) | FAIL | Error: expect(received).toBe(expected) // Object.is equality / Expected: "28 Dock Road" / Received: "2 Wharf Road"
+marketplace-seller.spec.ts | 12. The account dialog | PASS | 
+marketplace-seller.spec.ts | 13. Switching between two sellers | PASS | 
+marketplace-seller.spec.ts | 14. Submitting for review | PASS | 
+marketplace-seller.spec.ts | 15. Choosing a new password | PASS | 
+marketplace-seller.spec.ts | 16. A store staff member at sign-in | PASS | 

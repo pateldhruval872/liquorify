@@ -1,0 +1,62 @@
+{
+  "revision": "72bd337c",
+  "run": "mwbos6sq",
+  "sabotage": false,
+  "check": "09-product-send-back",
+  "entries": [
+    {
+      "step": "server product",
+      "body": {
+        "status": "rejected"
+      }
+    },
+    {
+      "step": "the seller reads",
+      "body": {
+        "id": "prod_msx3nOJap6",
+        "name": "Tidewater mwbos6sq-7 Smoked Porter",
+        "slug": "tidewater-mwbos6sq-7-smoked-porter",
+        "meta_title": null,
+        "meta_description": null,
+        "meta_keywords": null,
+        "variant_count": 1,
+        "available_on": null,
+        "preorder_ships_at": null,
+        "purchasable": true,
+        "preorder": false,
+        "in_stock": true,
+        "backorderable": false,
+        "available": false,
+        "description": null,
+        "description_html": null,
+        "default_variant_id": "variant_msx3nOJap6",
+        "buy_box_variant_id": "variant_msx3nOJap6",
+        "thumbnail_url": null,
+        "tags": [],
+        "price": {
+          "id": "price_msx3nOJap6",
+          "currency": "USD",
+          "amount": "32.00",
+          "compare_at_amount": null,
+          "price_list_id": null
+        },
+        "original_price": null,
+        "seller_id": "sel_vEmzDoNU0H",
+        "status": "rejected",
+        "metadata": {},
+        "created_at": "2026-11-11T05:36:54.291Z",
+        "updated_at": "2026-11-11T05:36:56.652Z",
+        "product_type_id": null,
+        "delivery_profile_id": "fp_UkLWZg9DAJ",
+        "submission": {
+          "id": "prodsub_gbHJdmfrXB",
+          "status": "rejected",
+          "review_note": "Add the bottle size and strength (mwbos6sq).",
+          "reviewed_at": "2026-11-11T05:36:56.658Z",
+          "created_at": "2026-11-11T05:36:54.533Z",
+          "product_id": "prod_msx3nOJap6"
+        }
+      }
+    }
+  ]
+}

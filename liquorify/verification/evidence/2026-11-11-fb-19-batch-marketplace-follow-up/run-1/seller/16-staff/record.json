@@ -1,0 +1,18 @@
+{
+  "revision": "72bd337c",
+  "run": "mwbow9d0",
+  "sabotage": false,
+  "check": "16-staff",
+  "entries": [
+    {
+      "step": "server sign-in",
+      "status": 401,
+      "body": {
+        "error": {
+          "code": "authentication_failed",
+          "message": "This account does not belong to any seller."
+        }
+      }
+    }
+  ]
+}

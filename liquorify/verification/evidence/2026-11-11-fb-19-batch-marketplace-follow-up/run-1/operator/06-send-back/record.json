@@ -1,0 +1,22 @@
+{
+  "revision": "72bd337c",
+  "run": "mwborhwu",
+  "sabotage": false,
+  "check": "06-send-back",
+  "entries": [
+    {
+      "step": "a field for the note in the confirmation",
+      "body": false
+    },
+    {
+      "step": "server seller",
+      "body": {
+        "status": "onboarding"
+      }
+    },
+    {
+      "step": "server seller metadata",
+      "body": {}
+    }
+  ]
+}

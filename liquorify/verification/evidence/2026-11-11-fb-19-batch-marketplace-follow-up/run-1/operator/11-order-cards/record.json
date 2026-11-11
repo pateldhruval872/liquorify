@@ -1,0 +1,61 @@
+{
+  "revision": "72bd337c",
+  "run": "mwbos6sq",
+  "sabotage": false,
+  "check": "11-order-cards",
+  "entries": [
+    {
+      "step": "server commission lines",
+      "body": [
+        {
+          "id": "cline_UkLWZg9DAJ",
+          "kind": "percentage",
+          "currency": "USD",
+          "taxability_reason": null,
+          "country_code": null,
+          "state_code": null,
+          "created_at": "2026-11-11T05:37:19.277Z",
+          "updated_at": "2026-11-11T05:37:19.277Z",
+          "rate": "12",
+          "tax_rate": "0",
+          "amount": "3.84",
+          "tax_amount": "0.00",
+          "total": "3.84",
+          "order_id": "or_uw2YK1rnl0",
+          "seller_id": "sel_ed6l8wVqSM",
+          "line_item_id": "li_p6klVeMgbn",
+          "fulfillment_id": null,
+          "commission_rate_id": "crate_EfhxLZ9ck8",
+          "seller_name": "Cards North mwbos6sq-15"
+        }
+      ]
+    },
+    {
+      "step": "server seller transfers",
+      "body": [
+        {
+          "id": "vtr_gbHJdmfrXB",
+          "kind": "earning",
+          "status": "completed",
+          "currency": "USD",
+          "reference": null,
+          "metadata": {},
+          "created_at": "2026-11-11T05:37:20.303Z",
+          "updated_at": "2026-11-11T05:37:20.320Z",
+          "amount": "34.66",
+          "settled_amount": "34.66",
+          "settled_currency": "USD",
+          "converted": false,
+          "seller_id": "sel_ed6l8wVqSM",
+          "order_id": "or_uw2YK1rnl0",
+          "payout_id": null,
+          "reversed_from_id": null,
+          "refund_id": null,
+          "seller_name": "Cards North mwbos6sq-15",
+          "order_number": "R1004-1",
+          "provider": "system"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "revision": "72bd337c",
+  "run": "mwbp2cv7",
+  "sabotage": false,
+  "check": "12-account",
+  "entries": [
+    {
+      "step": "server member",
+      "body": {
+        "first_name": "Ilsemwbp2cv7",
+        "locale": "de",
+        "avatar_url": "<site>/rails/active_storage/blobs/proxy/[masked]/marketplace-logo.png"
+      }
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "revision": "72bd337c",
+  "run": "mwborhwu",
+  "sabotage": false,
+  "check": "02-approve-override",
+  "entries": [
+    {
+      "step": "blocking before",
+      "body": [
+        "Shipping box"
+      ]
+    },
+    {
+      "step": "the server, asked without the override",
+      "status": 422,
+      "body": {
+        "error": {
+          "code": "validation_error",
+          "message": "Requirements Shipping box is not complete",
+          "details": {
+            "requirements": [
+              {
+                "code": "incomplete",
+                "message": "Shipping box is not complete",
+                "specific": false
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "step": "server seller",
+      "body": {
+        "status": "approved"
+      }
+    },
+    {
+      "step": "seller.approved event",
+      "body": {
+        "id": "15fcd061-ff74-48df-9370-b9e5d9cea2be",
+        "name": "seller.approved",
+        "created_at": "2026-11-11T05:36:18Z",
+        "data": {
+          "id": "sel_VqXmZF31wY",
+          "name": "Fennel and Oak mwborhwu-3",
+          "slug": "fennel-and-oak-mwborhwu-3",
+          "about": "Fennel and Oak: small-batch spirits.",
+          "about_html": "Fennel and Oak: small-batch spirits.",
+          "logo_url": "<site>/rails/active_storage/blobs/proxy/[masked]/logo.png",
+          "square_logo_url": null,
+          "cover_photo_url": null
+        },
+        "metadata": {
+          "spree_version": "6.0.0.rc4",
+          "requirements_overridden": true,
+          "unmet_requirements": [
+            "Shipping box"
+          ]
+        }
+      }
+    }
+  ]
+}

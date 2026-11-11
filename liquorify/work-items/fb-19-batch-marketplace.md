@@ -382,6 +382,8 @@ On 2026-11-10 the owner answered both parts' gaps ([record §14](../verification
 
 This section sets the scope of the browser checks. It is written before any of their scripts. The checks themselves run later, in a lane of their own, in their own pull request.
 
+**Result (2026-11-11).** The checks ran ([record](../verification/2026-11-11-fb-19-batch-marketplace-follow-up.md)). G-105: 12 of 14 pass; behaviours 6 and 14 fail on SD-101 and SD-102. G-114: 13 of 16 pass; behaviours 2 and 6 fail solely on SD-72 and SD-73, and behaviour 11 fails on SD-103. Both gaps stay open.
+
 ### 11.1 How the browser checks run
 
 - **Where they run.** Liquorify's own Playwright scripts in `packages/liquorify-storybook/fidelity/`, against Spree's browser-test server started freshly with its own fixtures (`stack.spec.ts`). The operator's checks run in the built dashboard. The seller's checks run in the built seller panel, and the storefront is used only where a behaviour needs a shopper's order. Spree's code, Spree's tests, the workflows and the storefront are not changed.
