@@ -1,0 +1,28 @@
+{
+  "revision": "72bd337c",
+  "run": "mwbos6sq",
+  "sabotage": false,
+  "check": "10-seller-filter",
+  "entries": [
+    {
+      "step": "orders",
+      "body": {
+        "first": "R1003-1",
+        "second": "R1003-2"
+      }
+    },
+    {
+      "step": "server products of the seller",
+      "body": [
+        "Filter North mwbos6sq-9 Starter bottle",
+        "Filter North mwbos6sq-9 Cask Rum"
+      ]
+    },
+    {
+      "step": "server orders of the seller",
+      "body": [
+        "R1003-1"
+      ]
+    }
+  ]
+}

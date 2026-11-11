@@ -1,0 +1,30 @@
+{
+  "revision": "72bd337c",
+  "run": "mwboxbql",
+  "sabotage": false,
+  "check": "05-reject",
+  "entries": [
+    {
+      "step": "server seller",
+      "body": {
+        "status": "rejected"
+      }
+    },
+    {
+      "step": "mail to the seller",
+      "body": [
+        "Your application to sell on Shop"
+      ]
+    },
+    {
+      "step": "rejecting the approved seller",
+      "status": 422,
+      "body": {
+        "error": {
+          "code": "processing_error",
+          "message": "Cannot reject approved"
+        }
+      }
+    }
+  ]
+}

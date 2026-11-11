@@ -13,3 +13,4 @@ results/
 
 # P4's provider bundle resolves path gems to absolute paths on each machine.
 fidelity/providers/Gemfile.lock
+fidelity/emails-bundle/Gemfile.lock

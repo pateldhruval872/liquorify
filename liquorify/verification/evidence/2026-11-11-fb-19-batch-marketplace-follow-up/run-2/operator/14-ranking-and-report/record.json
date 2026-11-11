@@ -1,0 +1,54 @@
+{
+  "revision": "72bd337c",
+  "run": "mwboy0vb",
+  "sabotage": false,
+  "check": "14-ranking-and-report",
+  "entries": [
+    {
+      "step": "server orders",
+      "body": [
+        {
+          "number": "R1006",
+          "total": "501.50"
+        }
+      ]
+    },
+    {
+      "step": "server payouts",
+      "body": [
+        {
+          "amount": "501.50",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "step": "ranking row",
+      "body": "1.Ranked mwboy0vb-27$495.001 unitx"
+    },
+    {
+      "step": "time ranges offered",
+      "body": [
+        "Today",
+        "Yesterday",
+        "Week to date",
+        "Month to date",
+        "Quarter to date",
+        "Year to date",
+        "Last week",
+        "Last month",
+        "Last quarter",
+        "Last 7 days",
+        "Last 30 days",
+        "Last 4 weeks",
+        "Last 90 days",
+        "Last 12 months",
+        "Custom range"
+      ]
+    },
+    {
+      "step": "report row",
+      "body": "1.Ranked mwboy0vb-27x$495.00$0.00$495.001"
+    }
+  ]
+}

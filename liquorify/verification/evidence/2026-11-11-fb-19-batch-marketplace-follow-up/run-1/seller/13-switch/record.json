@@ -1,0 +1,14 @@
+{
+  "revision": "72bd337c",
+  "run": "mwbow9d0",
+  "sabotage": false,
+  "check": "13-switch",
+  "entries": [
+    {
+      "step": "server orders as the second seller",
+      "body": [
+        "R1016"
+      ]
+    }
+  ]
+}

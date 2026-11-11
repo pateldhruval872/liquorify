@@ -1,0 +1,15 @@
+{
+  "revision": "72bd337c",
+  "run": "mwbos6sq",
+  "sabotage": false,
+  "check": "13-auto-approve",
+  "entries": [
+    {
+      "step": "server settings on",
+      "body": {
+        "auto_approve_sellers": true,
+        "auto_approve_seller_products": true
+      }
+    }
+  ]
+}

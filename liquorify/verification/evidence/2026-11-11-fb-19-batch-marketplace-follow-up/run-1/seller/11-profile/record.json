@@ -1,0 +1,129 @@
+{
+  "revision": "72bd337c",
+  "run": "mwbovedn",
+  "sabotage": false,
+  "check": "11-profile",
+  "entries": [
+    {
+      "step": "server stock locations before",
+      "body": [
+        {
+          "id": "sloc_se78jaGony",
+          "name": "Juniper Hill mwbovedn-17",
+          "address1": null,
+          "city": null,
+          "zipcode": null,
+          "country_code": "US",
+          "country_name": "United States",
+          "state_code": null,
+          "state_text": null,
+          "pickup_ready_in_minutes": null,
+          "pickup_instructions": null,
+          "address2": null,
+          "state_name": null,
+          "phone": null,
+          "company": null,
+          "active": true,
+          "default": false,
+          "kind": "warehouse",
+          "returns_enabled": true,
+          "created_at": "2026-11-11T05:39:42.935Z",
+          "updated_at": "2026-11-11T05:39:43.294Z"
+        },
+        {
+          "id": "sloc_GpMUcnUYI5",
+          "name": "Juniper Hill mwbovedn-17 warehouse",
+          "address1": "2 Wharf Road",
+          "city": "Portland",
+          "zipcode": "97205",
+          "country_code": "US",
+          "country_name": "United States",
+          "state_code": "OR",
+          "state_text": "OR",
+          "pickup_ready_in_minutes": null,
+          "pickup_instructions": null,
+          "address2": null,
+          "state_name": null,
+          "phone": "5035550100",
+          "company": null,
+          "active": true,
+          "default": true,
+          "kind": "warehouse",
+          "returns_enabled": true,
+          "created_at": "2026-11-11T05:39:43.292Z",
+          "updated_at": "2026-11-11T05:39:43.292Z"
+        }
+      ]
+    },
+    {
+      "step": "server profile",
+      "body": {
+        "billing": "18 Cooper Lane",
+        "returns": "2 Wharf Road"
+      }
+    },
+    {
+      "step": "server tax identifiers",
+      "body": [
+        {
+          "id": "txi_UkLWZg9DAJ",
+          "kind": "us_ein",
+          "value": "12-3456789",
+          "validation_status": null,
+          "validated_at": null
+        }
+      ]
+    },
+    {
+      "step": "server stock locations after",
+      "body": [
+        {
+          "id": "sloc_se78jaGony",
+          "name": "Juniper Hill mwbovedn-17",
+          "address1": "28 Dock Road",
+          "city": "Portland",
+          "zipcode": "97209",
+          "country_code": "US",
+          "country_name": "United States",
+          "state_code": "OR",
+          "state_text": "OR",
+          "pickup_ready_in_minutes": null,
+          "pickup_instructions": null,
+          "address2": "",
+          "state_name": null,
+          "phone": "5035550142",
+          "company": "Juniper Hill mwbovedn-17",
+          "active": true,
+          "default": false,
+          "kind": "warehouse",
+          "returns_enabled": true,
+          "created_at": "2026-11-11T05:39:42.935Z",
+          "updated_at": "2026-11-11T05:39:46.447Z"
+        },
+        {
+          "id": "sloc_GpMUcnUYI5",
+          "name": "Juniper Hill mwbovedn-17 warehouse",
+          "address1": "2 Wharf Road",
+          "city": "Portland",
+          "zipcode": "97205",
+          "country_code": "US",
+          "country_name": "United States",
+          "state_code": "OR",
+          "state_text": "OR",
+          "pickup_ready_in_minutes": null,
+          "pickup_instructions": null,
+          "address2": null,
+          "state_name": null,
+          "phone": "5035550100",
+          "company": null,
+          "active": true,
+          "default": true,
+          "kind": "warehouse",
+          "returns_enabled": true,
+          "created_at": "2026-11-11T05:39:43.292Z",
+          "updated_at": "2026-11-11T05:39:43.292Z"
+        }
+      ]
+    }
+  ]
+}

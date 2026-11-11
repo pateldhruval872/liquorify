@@ -1,0 +1,19 @@
+{
+  "revision": "72bd337c",
+  "run": "mwbp2cv7",
+  "sabotage": false,
+  "check": "15-password",
+  "entries": [
+    {
+      "step": "reset mail",
+      "body": "Shop Password Reset Instructions"
+    },
+    {
+      "step": "server sign-in",
+      "body": {
+        "old": 401,
+        "new": 200
+      }
+    }
+  ]
+}

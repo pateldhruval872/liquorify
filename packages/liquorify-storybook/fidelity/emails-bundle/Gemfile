@@ -1,0 +1,6 @@
+# The dashboard browser tests' own bundle (spree/api), plus the emails gem
+# (spree/emails), so the server sends the seller and customer emails the
+# marketplace follow-up's checks read. Spree's own Gemfiles are unchanged.
+eval_gemfile File.expand_path('../../../../spree/api/Gemfile', __dir__)
+
+gem 'spree_emails', path: File.expand_path('../../../../spree/emails', __dir__)

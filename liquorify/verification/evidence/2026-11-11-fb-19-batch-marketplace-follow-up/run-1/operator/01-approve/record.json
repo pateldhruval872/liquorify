@@ -1,0 +1,20 @@
+{
+  "revision": "72bd337c",
+  "run": "mwborhwu",
+  "sabotage": false,
+  "check": "01-approve",
+  "entries": [
+    {
+      "step": "server seller",
+      "body": {
+        "status": "approved"
+      }
+    },
+    {
+      "step": "mail to the contact",
+      "body": [
+        "You're approved to sell on Shop"
+      ]
+    }
+  ]
+}
