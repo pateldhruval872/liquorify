@@ -23,10 +23,8 @@ module Spree
         return false unless context.user
         return true if preferred_customer_group_ids.empty?
 
-        user_customer_group_ids = Spree::CustomerGroupUser.where(customer_id: context.user.id).pluck(:customer_group_id).map(&:to_s)
-
         # Compare as strings to support both integer and UUID primary keys
-        (preferred_customer_group_ids.map(&:to_s) & user_customer_group_ids).any?
+        (preferred_customer_group_ids.map(&:to_s) & customer_group_ids_of(context.user)).any?
       end
 
       def self.description
@@ -35,6 +33,16 @@ module Spree
 
       def self.superseded?
         true
+      end
+
+      private
+
+      # Remembered per rule object, which lives for one request's price
+      # lists: pricing a cart asks this rule once per line, and the buyer's
+      # groups do not change while it does.
+      def customer_group_ids_of(user)
+        @customer_group_ids_of ||= {}
+        @customer_group_ids_of[user.id] ||= Spree::CustomerGroupUser.where(customer_id: user.id).pluck(:customer_group_id).map(&:to_s)
       end
     end
   end

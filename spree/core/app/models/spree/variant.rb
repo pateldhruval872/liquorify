@@ -1136,15 +1136,47 @@ module Spree
     private
 
     def price_break_quantities(context, quantity)
-      price_list_ids = Spree::PriceList.for_store(context.store).with_status(:active, :scheduled).ids
+      price_list_ids, list_minimums = price_break_thresholds(context.store)
       return [] if price_list_ids.empty?
 
-      volume_minimums = Spree::PriceRules::VolumeRule.where(price_list_id: price_list_ids).map(&:preferred_min_quantity)
-      band_minimums = Spree::PriceAdjustmentTier.where(price_list_id: price_list_ids).pluck(:min_quantity)
-      row_minimums = prices.where(price_list_id: price_list_ids, currency: context.currency.to_s.upcase).pluck(:min_quantity)
-
-      (volume_minimums + band_minimums + row_minimums).map(&:to_i).select { |minimum| minimum > quantity }.
+      (list_minimums + price_row_minimums(context, price_list_ids)).select { |minimum| minimum > quantity }.
         uniq.sort.first(Spree::Price::MAXIMUM_BREAKS_PER_VARIANT)
+    end
+
+    def price_break_thresholds(store)
+      Spree::Current.price_breaks[[:thresholds, store&.id]] ||= begin
+        price_list_ids = Spree::PriceList.for_store(store).with_status(:active, :scheduled).ids
+        if price_list_ids.empty?
+          [[], []]
+        else
+          volume_minimums = Spree::PriceRules::VolumeRule.where(price_list_id: price_list_ids).map(&:preferred_min_quantity)
+          band_minimums = Spree::PriceAdjustmentTier.where(price_list_id: price_list_ids).pluck(:min_quantity)
+          [price_list_ids, (volume_minimums + band_minimums).map(&:to_i).uniq]
+        end
+      end
+    end
+
+    def price_row_minimums(context, price_list_ids)
+      preload_line_prices(context.order)
+      currency = context.currency.to_s.upcase
+      rows = if prices.loaded?
+               prices.select { |price| price.currency == currency && price_list_ids.include?(price.price_list_id) }
+             else
+               prices.where(price_list_id: price_list_ids, currency: currency).to_a
+             end
+      rows.map { |price| price.min_quantity.to_i }
+    end
+
+    # Loads every line's price rows in one query, so neither the thresholds
+    # nor the price resolutions that follow read them line by line.
+    def preload_line_prices(order)
+      return unless order.respond_to?(:line_items)
+
+      Spree::Current.price_breaks[[:line_prices, order.class.name, order.id]] ||= begin
+        variants = order.line_items.filter_map(&:variant).reject { |variant| variant.association(:prices).loaded? }
+        ActiveRecord::Associations::Preloader.new(records: variants, associations: :prices).call if variants.any?
+        true
+      end
     end
 
     def pricing_context_at(context, quantity)

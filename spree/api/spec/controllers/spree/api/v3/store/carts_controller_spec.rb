@@ -329,13 +329,16 @@ RSpec.describe Spree::Api::V3::Store::CartsController, type: :controller do
   end
 
   describe 'GET #show' do
-    # Each line looks up its next price break, so the cost must stay a small
-    # fixed number of queries per line rather than grow with the price lists.
-    context 'with several lines under quantity price lists' do
+    # Wholesale quick-order carts run to dozens of lines, so working out the
+    # next price break must cost the same for twenty lines as for three.
+    context 'with many lines under quantity price lists' do
+      let(:group) { create(:customer_group, store: store) }
+
       before do
         request.headers['Authorization'] = "Bearer #{jwt_token}"
         @price_lists = create_list(:price_list, 3, :active, store: store).each do |price_list|
           create(:volume_price_rule, price_list: price_list, min_quantity: 50)
+          create(:customer_group_price_rule, price_list: price_list, customer_group_ids: [group.id])
         end
       end
 
@@ -348,6 +351,7 @@ RSpec.describe Spree::Api::V3::Store::CartsController, type: :controller do
       end
 
       def queries_for_show(cart)
+        Spree::Current.reset
         queries = 0
         counter = ->(*, payload) { queries += 1 unless payload[:name] == 'SCHEMA' || payload[:sql].match?(/\A(BEGIN|COMMIT|SAVEPOINT|RELEASE)/) }
         ActiveSupport::Notifications.subscribed(counter, 'sql.active_record') { get :show, params: { id: cart.prefixed_id } }
@@ -355,19 +359,31 @@ RSpec.describe Spree::Api::V3::Store::CartsController, type: :controller do
         queries
       end
 
-      it 'adds a bounded number of queries per line' do
-        one_line = cart_with_breaks(1)
-        queries_for_show(one_line)
-        baseline = queries_for_show(one_line)
+      # What the price breaks add: the same request, with and without them.
+      def queries_added_by_breaks(cart)
+        with_breaks = queries_for_show(cart)
+        without_breaks = RSpec::Mocks.with_temporary_scope do
+          allow_any_instance_of(Spree::Variant).to receive(:next_price_break).and_return(nil)
+          queries_for_show(cart)
+        end
+        with_breaks - without_breaks
+      end
 
-        four_lines = cart_with_breaks(4)
-        queries_for_show(four_lines)
-        expect(json_response['items'].size).to eq(4)
+      it 'costs no more for twenty lines than for three' do
+        group.add_customers([user.id])
+        small, large = cart_with_breaks(3), cart_with_breaks(20)
+
+        get :show, params: { id: large.prefixed_id }
         expect(json_response['items'].map { |item| item['next_price_break_quantity'] }).to all(eq(50))
+        expect(queries_added_by_breaks(large)).to be <= queries_added_by_breaks(small)
+      end
 
-        # Measured at 17 per line, of which the break is 6; a lookup that grew with
-        # the number of price lists or rows would break this.
-        expect((queries_for_show(four_lines) - baseline) / 3.0).to be <= 18
+      it 'costs a non-member the same, whatever the cart size' do
+        small, large = cart_with_breaks(3), cart_with_breaks(20)
+
+        get :show, params: { id: large.prefixed_id }
+        expect(json_response['items'].map { |item| item['next_price_break_quantity'] }).to all(be_nil)
+        expect(queries_added_by_breaks(large)).to be <= queries_added_by_breaks(small)
       end
     end
 
