@@ -70,6 +70,46 @@ RSpec.describe 'Spree::Products review workflows' do
       expect(product.reload).to be_active
     end
 
+    # SD-61: the seller cannot choose channels, so its submission is on none.
+    # "On sale" means the storefront can find it.
+    context 'a submission on no sales channel' do
+      let(:other_channel) { create(:channel, store: store) }
+
+      before do
+        product.product_publications.destroy_all
+        product.update!(status: 'proposed')
+      end
+
+      it "puts it on the store's default channel" do
+        expect(Spree.product_approve_workflow.call(product: product)).to be_success
+
+        expect(product.reload.channels).to eq([store.default_channel])
+        expect(store.products.for_channel(store.default_channel)).to include(product)
+      end
+
+      it 'does the same when the store approves automatically' do
+        product.update!(status: 'draft')
+        stub_store_preferences(store, auto_approve_seller_products: true)
+
+        expect(Spree.product_propose_workflow.call(product: product)).to be_success
+        expect(product.reload.channels).to eq([store.default_channel])
+      end
+
+      it 'keeps the channels the operator already chose' do
+        other_channel.add_products(product.id)
+
+        expect(Spree.product_approve_workflow.call(product: product)).to be_success
+        expect(product.reload.channels).to eq([other_channel])
+      end
+
+      it 'publishes nothing when the approval is refused' do
+        product.update!(status: 'draft')
+
+        expect(Spree.product_approve_workflow.call(product: product)).not_to be_success
+        expect(product.reload.channels).to be_empty
+      end
+    end
+
     # Approving is closing a review somebody opened, not a way to publish
     # anything at all — that is what Activate is for.
     it 'refuses a product nobody submitted' do
