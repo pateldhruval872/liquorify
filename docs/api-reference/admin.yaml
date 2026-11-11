@@ -17966,6 +17966,9 @@ paths:
                   pre_tax_amount: '20.00'
                   discounted_amount: '20.00'
                   compare_at_amount:
+                  price_list_applied: false
+                  next_price_break_quantity:
+                  next_price_break_price:
                   thumbnail_url:
                   option_values:
                   - id: optval_UkLWZg9DAJ
@@ -18075,6 +18078,9 @@ paths:
                 pre_tax_amount: '59.97'
                 discounted_amount: '59.97'
                 compare_at_amount:
+                price_list_applied: false
+                next_price_break_quantity:
+                next_price_break_price:
                 thumbnail_url:
                 option_values:
                 - id: optval_gbHJdmfrXB
@@ -18198,6 +18204,9 @@ paths:
                 pre_tax_amount: '20.00'
                 discounted_amount: '20.00'
                 compare_at_amount:
+                price_list_applied: false
+                next_price_break_quantity:
+                next_price_break_price:
                 thumbnail_url:
                 option_values:
                 - id: optval_UkLWZg9DAJ
@@ -18302,6 +18311,9 @@ paths:
                 pre_tax_amount: '99.95'
                 discounted_amount: '99.95'
                 compare_at_amount:
+                price_list_applied: false
+                next_price_break_quantity:
+                next_price_break_price:
                 thumbnail_url:
                 option_values:
                 - id: optval_UkLWZg9DAJ
@@ -62414,6 +62426,21 @@ components:
           nullable: true
           description: The compare-at price times quantity, or null when the variant
             has none.
+        price_list_applied:
+          type: boolean
+          nullable: true
+          description: Whether a price list (a trade or volume price) priced this
+            line rather than the catalog price; null when prices are hidden.
+        next_price_break_quantity:
+          type: number
+          nullable: true
+          description: The smallest quantity at which this line's unit price drops,
+            or null when buying more never lowers it.
+        next_price_break_price:
+          type: string
+          nullable: true
+          description: The unit price from next_price_break_quantity on, or null when
+            there is no break.
         thumbnail_url:
           type: string
           nullable: true
@@ -62487,6 +62514,9 @@ components:
       - pre_tax_amount
       - discounted_amount
       - compare_at_amount
+      - price_list_applied
+      - next_price_break_quantity
+      - next_price_break_price
       - thumbnail_url
       - option_values
       - digital_links
@@ -73330,6 +73360,17 @@ components:
           type: array
           items:
             "$ref": "#/components/schemas/CustomField"
+        next_price_break_quantity:
+          type: number
+          nullable: true
+          description: 'With `expand=next_price_break`: the smallest quantity above
+            one at which this buyer''s unit price drops, or null when buying more
+            never lowers it.'
+        next_price_break_price:
+          type: string
+          nullable: true
+          description: 'With `expand=next_price_break`: the unit price from next_price_break_quantity
+            on, or null when there is no break.'
         prior_price:
           allOf:
           - "$ref": "#/components/schemas/PriceHistory"

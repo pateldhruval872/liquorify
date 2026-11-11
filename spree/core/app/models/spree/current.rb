@@ -4,7 +4,7 @@ module Spree
   # All attributes are automatically reset between requests by Rails.
   # Fallback chains ensure sensible defaults when attributes are not explicitly set.
   class Current < ::ActiveSupport::CurrentAttributes
-    attribute :store, :channel, :market, :currency, :locale, :content_locale, :tax_country, :price_lists, :applicable_catalogs, :applicable_catalog_groups, :quantity_rules_resolvers, :standing_companies, :global_pricing_context, :provider_cache, :integrations
+    attribute :store, :channel, :market, :currency, :locale, :content_locale, :tax_country, :price_lists, :applicable_catalogs, :applicable_catalog_groups, :quantity_rules_resolvers, :standing_companies, :global_pricing_context, :provider_cache, :integrations, :price_breaks
     # Latch for the cross-store leak tripwire — see #store= below. Lives here
     # so it clears exactly when the store context does, which Rails does per
     # request and per job.
@@ -19,6 +19,14 @@ module Spree
     # @return [Hash]
     def provider_cache
       super || (self.provider_cache = {})
+    end
+
+    # Request-scoped memo for {Spree::Variant#next_price_break}, so a cart
+    # pays for the store's price-break thresholds and its lines' price rows
+    # once rather than once per line.
+    # @return [Hash]
+    def price_breaks
+      super || (self.price_breaks = {})
     end
 
     # Declaring a store context arms the cross-store leak tripwire for the

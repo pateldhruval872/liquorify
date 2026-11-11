@@ -273,12 +273,16 @@ module Spree
           cache_key = [variant.id, quantity]
           return @price_for_cache[cache_key] if @price_for_cache.key?(cache_key)
 
-          @price_for_cache[cache_key] = variant.price_for(
-            currency: current_currency,
-            store: current_store,
-            user: current_user,
-            quantity: quantity
-          )
+          @price_for_cache[cache_key] = variant.price_for(pricing_context_for(variant, quantity: quantity))
+        end
+
+        # The context a variant's displayed price is resolved in, so anything
+        # quoted beside that price (a quantity break) asks the same question.
+        # @param variant [Spree::Variant]
+        # @param quantity [Integer, nil]
+        # @return [Spree::Pricing::Context]
+        def pricing_context_for(variant, quantity: nil)
+          Spree::Pricing::Context.new(variant: variant, currency: current_currency, store: current_store, user: current_user, quantity: quantity)
         end
 
         # The buyer's effective purchasing rules for a variant — their

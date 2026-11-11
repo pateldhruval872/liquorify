@@ -19,6 +19,66 @@ RSpec.describe Spree::Api::V3::Store::ProductsController, type: :controller do
     I18n.locale = store.default_locale
   end
 
+  describe 'next price break on variants' do
+    let(:price_list) { create(:price_list, :active, store: store) }
+
+    before do
+      product.default_variant.set_price(store.default_currency, 10)
+      create(:price, variant: product.default_variant, currency: store.default_currency, amount: 6, price_list: price_list)
+      create(:volume_price_rule, price_list: price_list, min_quantity: 5)
+    end
+
+    it 'is left out unless asked for' do
+      get :show, params: { id: product.slug, expand: 'default_variant' }, as: :json
+
+      expect(json_response['default_variant']).not_to have_key('next_price_break_quantity')
+    end
+
+    it 'gives the break on expand' do
+      get :show, params: { id: product.slug, expand: 'default_variant.next_price_break' }, as: :json
+
+      expect(json_response['default_variant']['next_price_break_quantity']).to eq(5)
+      expect(json_response['default_variant']['next_price_break_price']).to eq('6.00')
+    end
+
+    # The break is quoted beside the displayed price, so it must be asked in
+    # the same context — a list ruled to a channel answers only there.
+    context 'when the list admits only one channel' do
+      let!(:trade_channel) { create(:channel, store: store, code: 'trade', name: 'Trade') }
+
+      before do
+        create(:channel_price_rule, price_list: price_list, channel_ids: [trade_channel.id])
+        trade_channel.add_products([product.id])
+      end
+
+      it 'gives the break on that channel' do
+        request.headers['X-Spree-Api-Key'] = create(:api_key, :publishable, store: store, channel: trade_channel).token
+
+        get :show, params: { id: product.slug, expand: 'default_variant.next_price_break' }, as: :json
+
+        expect(json_response['default_variant']['next_price_break_quantity']).to eq(5)
+        expect(json_response['default_variant']['next_price_break_price']).to eq('6.00')
+      end
+
+      it 'gives none on the default channel' do
+        get :show, params: { id: product.slug, expand: 'default_variant.next_price_break' }, as: :json
+
+        expect(json_response['default_variant']['next_price_break_quantity']).to be_nil
+      end
+    end
+
+    context 'when the list admits only a customer group' do
+      before { create(:customer_group_price_rule, price_list: price_list, customer_group_ids: [create(:customer_group, store: store).id]) }
+
+      it 'gives a non-member no break' do
+        get :show, params: { id: product.slug, expand: 'default_variant.next_price_break' }, as: :json
+
+        expect(json_response['default_variant']['next_price_break_quantity']).to be_nil
+        expect(json_response['default_variant']['next_price_break_price']).to be_nil
+      end
+    end
+  end
+
   describe 'seller' do
     let!(:seller) { create(:seller, store: store, name: 'Sparks Audio', status: 'approved') }
     let!(:seller_product) { create(:product, store: store, seller: seller, status: 'active') }

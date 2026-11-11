@@ -617,6 +617,32 @@ describe Spree::LineItem, type: :model do
     end
   end
 
+  describe '#next_price_break' do
+    let(:cart) { create(:cart_with_line_items, store: store, line_items_count: 1) }
+    let(:cart_line) { cart.line_items.first }
+    let(:price_list) { create(:price_list, :active, store: store) }
+
+    before do
+      create(:price, variant: cart_line.variant, currency: cart.currency, amount: 1, price_list: price_list)
+      create(:volume_price_rule, price_list: price_list, min_quantity: 5)
+    end
+
+    it "asks the variant in the line's own pricing context" do
+      price_break = cart_line.next_price_break
+
+      expect(price_break.min_quantity).to eq(5)
+      expect(price_break.amount).to eq(1)
+    end
+
+    it 'offers none on a placed order' do
+      placed_line = create(:completed_order_with_totals, store: store).line_items.first
+      create(:price, variant: placed_line.variant, currency: placed_line.currency, amount: 1, price_list: price_list)
+
+      expect(placed_line.variant.next_price_break(Spree::Pricing::Context.from_order(placed_line.variant, placed_line.order, quantity: 1))).to be_present
+      expect(placed_line.next_price_break).to be_nil
+    end
+  end
+
   describe '#amount' do
     let(:variant) { create(:variant, price: 10) }
     let(:line_item) { build(:line_item, variant: variant, quantity: 2) }

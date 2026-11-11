@@ -329,6 +329,64 @@ RSpec.describe Spree::Api::V3::Store::CartsController, type: :controller do
   end
 
   describe 'GET #show' do
+    # Wholesale quick-order carts run to dozens of lines, so working out the
+    # next price break must cost the same for twenty lines as for three.
+    context 'with many lines under quantity price lists' do
+      let(:group) { create(:customer_group, store: store) }
+
+      before do
+        request.headers['Authorization'] = "Bearer #{jwt_token}"
+        @price_lists = create_list(:price_list, 3, :active, store: store).each do |price_list|
+          create(:volume_price_rule, price_list: price_list, min_quantity: 50)
+          create(:customer_group_price_rule, price_list: price_list, customer_group_ids: [group.id])
+        end
+      end
+
+      def cart_with_breaks(line_count)
+        create(:cart_with_line_items, customer: user, store: store, line_items_count: line_count).tap do |cart|
+          cart.line_items.each do |line_item|
+            @price_lists.each { |price_list| create(:price, variant: line_item.variant, currency: cart.currency, amount: 1, price_list: price_list) }
+          end
+        end
+      end
+
+      def queries_for_show(cart)
+        Spree::Current.reset
+        queries = 0
+        counter = ->(*, payload) { queries += 1 unless payload[:name] == 'SCHEMA' || payload[:sql].match?(/\A(BEGIN|COMMIT|SAVEPOINT|RELEASE)/) }
+        ActiveSupport::Notifications.subscribed(counter, 'sql.active_record') { get :show, params: { id: cart.prefixed_id } }
+        expect(response).to have_http_status(:ok)
+        queries
+      end
+
+      # What the price breaks add: the same request, with and without them.
+      def queries_added_by_breaks(cart)
+        with_breaks = queries_for_show(cart)
+        without_breaks = RSpec::Mocks.with_temporary_scope do
+          allow_any_instance_of(Spree::Variant).to receive(:next_price_break).and_return(nil)
+          queries_for_show(cart)
+        end
+        with_breaks - without_breaks
+      end
+
+      it 'costs no more for twenty lines than for three' do
+        group.add_customers([user.id])
+        small, large = cart_with_breaks(3), cart_with_breaks(20)
+
+        get :show, params: { id: large.prefixed_id }
+        expect(json_response['items'].map { |item| item['next_price_break_quantity'] }).to all(eq(50))
+        expect(queries_added_by_breaks(large)).to be <= queries_added_by_breaks(small)
+      end
+
+      it 'costs a non-member the same, whatever the cart size' do
+        small, large = cart_with_breaks(3), cart_with_breaks(20)
+
+        get :show, params: { id: large.prefixed_id }
+        expect(json_response['items'].map { |item| item['next_price_break_quantity'] }).to all(be_nil)
+        expect(queries_added_by_breaks(large)).to be <= queries_added_by_breaks(small)
+      end
+    end
+
     context 'with x-spree-token header' do
       let(:cart) { create(:cart_with_line_items, store: store) }
 

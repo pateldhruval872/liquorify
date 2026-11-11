@@ -38,6 +38,8 @@ export const VariantSchema = z.object({
   media: z.array(MediaSchema).optional(),
   option_values: z.array(OptionValueSchema),
   custom_fields: z.array(CustomFieldSchema).optional(),
+  next_price_break_quantity: z.number().nullable().optional(),
+  next_price_break_price: z.string().nullable().optional(),
   prior_price: PriceHistorySchema.nullable().optional(),
 });
 

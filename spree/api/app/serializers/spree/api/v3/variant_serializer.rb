@@ -132,12 +132,33 @@ module Spree
              resource: proc { Spree.api.custom_field_serializer },
              if: proc { expand?('custom_fields') }
 
+        typelize next_price_break_quantity: [:number, nullable: true, comment: 'With `expand=next_price_break`: the smallest quantity above one at which this buyer\'s unit price drops, or null when buying more never lowers it.'],
+                 next_price_break_price: [:string, nullable: true, comment: 'With `expand=next_price_break`: the unit price from next_price_break_quantity on, or null when there is no break.']
+
+        attribute :next_price_break_quantity, if: proc { expand?('next_price_break') } do |variant|
+          next_price_break(variant)&.min_quantity
+        end
+
+        attribute :next_price_break_price, if: proc { expand?('next_price_break') } do |variant|
+          price_break = next_price_break(variant)
+          Spree::Money::Rounding.format(price_break.amount, price_break.currency, unit_price: true) if price_break
+        end
+
         typelize prior_price: ['PriceHistory', nullable: true]
 
         attribute :prior_price,
                   if: proc { expand?('prior_price') } do |variant|
           record = price_in(variant)&.prior_price
           price_history_serializer.new(record, params: params).to_h if record
+        end
+
+        private
+
+        def next_price_break(variant)
+          @next_price_breaks ||= {}
+          return @next_price_breaks[variant.id] if @next_price_breaks.key?(variant.id)
+
+          @next_price_breaks[variant.id] = (variant.next_price_break(pricing_context_for(variant)) unless params[:hide_prices])
         end
       end
     end

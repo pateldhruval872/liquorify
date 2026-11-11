@@ -40,6 +40,8 @@ export const VariantSchema = z.object({
   media: z.array(MediaSchema).optional(),
   get option_values() { return z.array(OptionValueSchema); },
   custom_fields: z.array(CustomFieldSchema).optional(),
+  next_price_break_quantity: z.number().nullable().optional(),
+  next_price_break_price: z.string().nullable().optional(),
   prior_price: PriceHistorySchema.nullable().optional(),
   external_references: z.record(z.string(), z.string()),
   metadata: z.record(z.string(), z.unknown()),
@@ -98,6 +100,8 @@ export const VariantSchema = z.object({
   media: z.ZodOptional<z.ZodType<Exclude<Variant['media'], undefined>>>;
   option_values: z.ZodType<Variant['option_values']>;
   custom_fields: z.ZodOptional<z.ZodType<Exclude<Variant['custom_fields'], undefined>>>;
+  next_price_break_quantity: z.ZodOptional<z.ZodType<Exclude<Variant['next_price_break_quantity'], undefined>>>;
+  next_price_break_price: z.ZodOptional<z.ZodType<Exclude<Variant['next_price_break_price'], undefined>>>;
   prior_price: z.ZodOptional<z.ZodType<Exclude<Variant['prior_price'], undefined>>>;
   external_references: z.ZodType<Variant['external_references']>;
   metadata: z.ZodType<Variant['metadata']>;

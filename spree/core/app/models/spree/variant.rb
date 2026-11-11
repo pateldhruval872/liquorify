@@ -864,6 +864,35 @@ module Spree
       Spree::Pricing::PriceResolution.call(context)
     end
 
+    # The smallest quantity above the one being priced at which this buyer
+    # pays a lower unit price, and that price: what a "buy more, pay less"
+    # hint may promise. The thresholds come from the store's price lists —
+    # volume rule minimums, quantity break rows and adjustment bands — and the
+    # price at each is asked of the same resolution that prices the line, so
+    # the hint never names a quantity or a price checkout would not charge.
+    #
+    # @param context [Spree::Pricing::Context] the context the line or listing
+    #   is priced with; its quantity is the one being bought (one when absent)
+    # @return [Spree::Price, nil] an unsaved, readonly price whose
+    #   +min_quantity+ is the break, or nil when buying more never lowers it
+    def next_price_break(context)
+      current = price_for(context)
+      return if current&.amount.nil?
+
+      quantity = [context.quantity.to_i, 1].max
+      price_break_quantities(context, quantity).each do |candidate|
+        price = price_for(pricing_context_at(context, candidate))
+        next if price&.amount.nil? || price.amount >= current.amount
+
+        return Spree::Price.new(
+          variant_id: id, currency: price.currency, amount: price.amount,
+          price_list_id: price.price_list_id, min_quantity: candidate
+        ).tap(&:readonly!)
+      end
+
+      nil
+    end
+
     # Sets the count at a location. The correction goes through an `adjusted`
     # movement so it shows up in the stock history like every other change.
     # A count below zero is refused whatever the variant's backorder settings
@@ -1105,6 +1134,58 @@ module Spree
     end
 
     private
+
+    def price_break_quantities(context, quantity)
+      price_list_ids, list_minimums = price_break_thresholds(context.store)
+      return [] if price_list_ids.empty?
+
+      (list_minimums + price_row_minimums(context, price_list_ids)).select { |minimum| minimum > quantity }.
+        uniq.sort.first(Spree::Price::MAXIMUM_BREAKS_PER_VARIANT)
+    end
+
+    def price_break_thresholds(store)
+      Spree::Current.price_breaks[[:thresholds, store&.id]] ||= begin
+        price_list_ids = Spree::PriceList.for_store(store).with_status(:active, :scheduled).ids
+        if price_list_ids.empty?
+          [[], []]
+        else
+          volume_minimums = Spree::PriceRules::VolumeRule.where(price_list_id: price_list_ids).map(&:preferred_min_quantity)
+          band_minimums = Spree::PriceAdjustmentTier.where(price_list_id: price_list_ids).pluck(:min_quantity)
+          [price_list_ids, (volume_minimums + band_minimums).map(&:to_i).uniq]
+        end
+      end
+    end
+
+    def price_row_minimums(context, price_list_ids)
+      preload_line_prices(context.order)
+      currency = context.currency.to_s.upcase
+      rows = if prices.loaded?
+               prices.select { |price| price.currency == currency && price_list_ids.include?(price.price_list_id) }
+             else
+               prices.where(price_list_id: price_list_ids, currency: currency).to_a
+             end
+      rows.map { |price| price.min_quantity.to_i }
+    end
+
+    # Loads every line's price rows in one query, so neither the thresholds
+    # nor the price resolutions that follow read them line by line.
+    def preload_line_prices(order)
+      return unless order.respond_to?(:line_items)
+
+      Spree::Current.price_breaks[[:line_prices, order.class.name, order.id]] ||= begin
+        variants = order.line_items.filter_map(&:variant).reject { |variant| variant.association(:prices).loaded? }
+        ActiveRecord::Associations::Preloader.new(records: variants, associations: :prices).call if variants.any?
+        true
+      end
+    end
+
+    def pricing_context_at(context, quantity)
+      Spree::Pricing::Context.new(
+        variant: self, currency: context.currency, store: context.store, country: context.country,
+        market: context.market, channel: context.channel, user: context.user, quantity: quantity,
+        date: context.date, order: context.order, company: context.company
+      )
+    end
 
     def order_multiple_fits_cartons
       return if order_multiple.to_i.zero? || units_per_carton.to_i.zero?
