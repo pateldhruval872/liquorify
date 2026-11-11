@@ -126,6 +126,7 @@ module Spree
         product_create_workflow: GENERIC_WRITE_REASON,
         product_update_workflow: GENERIC_WRITE_REASON,
         product_destroy_workflow: GENERIC_WRITE_REASON,
+        order_destroy_workflow: GENERIC_WRITE_REASON,
         catalog_create_workflow: GENERIC_WRITE_REASON,
         catalog_update_workflow: GENERIC_WRITE_REASON,
         price_list_create_workflow: GENERIC_WRITE_REASON,

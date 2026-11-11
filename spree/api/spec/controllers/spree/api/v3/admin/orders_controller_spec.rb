@@ -898,6 +898,52 @@ RSpec.describe Spree::Api::V3::Admin::OrdersController, type: :controller do
       expect(response).to have_http_status(:no_content)
     end
 
+    context 'with a gift card applied to the draft' do
+      let!(:order) { create(:order_with_totals, store: store, line_items_price: 30) }
+      let(:gift_card) { create(:gift_card, amount: 50, store: store) }
+
+      before do
+        order.update_column(:total, 30)
+        expect(Spree::GiftCards::Apply.call(gift_card: gift_card, order: order)).to be_success
+        expect(gift_card.reload.amount_remaining).to eq(20)
+      end
+
+      it 'gives the amount the draft spent back to the gift card' do
+        subject
+
+        expect(response).to have_http_status(:no_content)
+        expect(Spree::Order.find_by(id: order.id)).to be_nil
+        expect(gift_card.reload.amount_used).to eq(0)
+        expect(gift_card.amount_remaining).to eq(50)
+        expect(gift_card.store_credits).to be_empty
+      end
+
+      context 'with a key that may read orders but not change them' do
+        let(:headers) { { 'x-spree-api-key' => create(:api_key, :secret, store: store, scopes: ['read_orders']).plaintext_token } }
+
+        it 'refuses the deletion and leaves the card drawn down on the draft' do
+          subject
+
+          expect(response).to have_http_status(:forbidden)
+          expect(order.reload.gift_card).to eq(gift_card)
+          expect(gift_card.reload.amount_remaining).to eq(20)
+        end
+      end
+
+      context 'for a draft in another store' do
+        let!(:order) { create(:order_with_totals, store: create(:store), line_items_price: 30) }
+        let(:gift_card) { create(:gift_card, amount: 50, store: order.store) }
+
+        it 'does not find the draft and leaves the card drawn down' do
+          subject
+
+          expect(response).to have_http_status(:not_found)
+          expect(order.reload.gift_card).to eq(gift_card)
+          expect(gift_card.reload.amount_remaining).to eq(20)
+        end
+      end
+    end
+
     context 'with completed order' do
       let!(:order) { create(:completed_order_with_totals, store: store) }
 
